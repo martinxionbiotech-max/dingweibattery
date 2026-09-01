@@ -1,0 +1,45 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import ModelCard from '../../../components/ModelCard.astro';
+import { STANDARDS, RELATIONSHIP, MANUFACTURER } from '../../../data/site';
+import { batteryModels } from '../../../data/battery-models';
+
+const title = 'OEM Battery Specification Guide | Dingwei Battery';
+const description = 'A buyer’s guide to OEM battery specifications: standard family, voltage, capacity, CCA, dimensions, terminal, polarity and how to confirm values.';
+const articleTitle = 'OEM battery specification guide';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>OEM battery specification guide</h1>
+    <p class="lead">A battery specification is only as useful as the fields you fix in advance. This guide explains each field buyers should confirm.</p>
+
+    <h2>Standard family</h2>
+    <p>Start with the standard your vehicles use: {STANDARDS.join(', ')}. JIS models such as 65D26 and DIN/EN models such as H6 describe different naming and test conventions.</p>
+
+    <h2>Voltage</h2>
+    <p>Passenger-car starter batteries are usually 12V; heavy-duty applications can also use 6V. Confirm the system voltage of the target vehicle.</p>
+
+    <h2>Capacity (Ah)</h2>
+    <p>Capacity describes the battery&rsquo;s energy content over a defined discharge test. It must be read with the standard because the same physical size can carry different ratings across families.</p>
+
+    <h2>CCA</h2>
+    <p>Cold cranking amps indicate starting performance at low temperature. CCA values are test-method dependent and must carry a reference basis — for example JIS (-15&deg;C) or EN (-18&deg;C). Always confirm final CCA with the manufacturer before ordering.</p>
+
+    <h2>Dimensions, terminal and polarity</h2>
+    <p>Fix length &times; width &times; height in millimetres, terminal type and polarity. If a field is not yet known, mark it &ldquo;confirm on inquiry&rdquo; rather than guessing.</p>
+
+    <h2>Reference models</h2>
+    <div class="model-list">
+      {batteryModels.map((model) => <ModelCard model={model} />)}
+    </div>
+    <p>Specifications above are for reference; confirm final values with the manufacturer. <a href="/tools/battery-finder/">Use the battery finder &rarr;</a></p>
+
+    <h2>Dingwei Battery view</h2>
+    <p>{RELATIONSHIP} {MANUFACTURER.name} manufactures to JIS, DIN, BCI, AS and SA standards.</p>
+    <p><a href="/oem/">Start an OEM program &rarr;</a></p>
+  </section>
+
+  <CTASection title="Finalize your battery specification" />
+</ArticleLayout>

@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP } from '../../../data/site';
+import { batteryModels, modelPath } from '../../../data/battery-models';
+import type { BatteryModel } from '../../../data/site';
+
+export function getStaticPaths() {
+  return batteryModels.map((model) => ({ params: { model: model.model.toLowerCase() }, props: { model } }));
+}
+
+interface Props { model: BatteryModel; }
+const { model } = Astro.props;
+
+const dims = model.dimensions_mm;
+const dimsLabel = `${dims.length} × ${dims.width} × ${dims.height} mm`;
+const pagePath = modelPath(model.model);
+const url = `${SITE.url}${pagePath}`;
+
+const title = `${model.model} Battery Specifications | Dingwei OEM`;
+const description = `${model.model} battery reference: ${model.voltage}V, ${model.capacity_ah} Ah, ${model.cca.value} CCA (reference), ${dimsLabel}, ${model.standard}. Confirm final values with the manufacturer.`;
+
+const h1 = `${model.model} Battery — ${model.standard} ${model.application} | Dingwei OEM`;
+const lead = `The ${model.model} is a ${model.standard} ${model.application.toLowerCase()} battery with a nominal ${model.voltage}V and ${model.capacity_ah} Ah rating. It is available for OEM and private-label supply, with specifications confirmed against ${model.standard_code}.`;
+
+const faqs = [
+  {
+    q: `What is a ${model.model} battery?`,
+    a: `The ${model.model} is a ${model.standard} battery listed for ${model.application.toLowerCase()}. Its case reference is ${model.case_size}, with a nominal ${model.voltage}V and ${model.capacity_ah} Ah rating.`,
+  },
+  {
+    q: `What is the CCA of the ${model.model}?`,
+    a: `The listed cold cranking ampere value is ${model.cca.value} CCA (reference), based on ${model.cca.basis}. Confirm the final CCA with the manufacturer before ordering.`,
+  },
+  {
+    q: `Can I order the ${model.model} as OEM or private label?`,
+    a: model.oem_available && model.private_label_available
+      ? `Yes. The ${model.model} is available for both OEM and private-label programs, with branding, sampling and packaging confirmed on inquiry.`
+      : `Availability is confirmed on inquiry.`,
+  },
+  {
+    q: `What are the dimensions of the ${model.model}?`,
+    a: `The listed dimensions are ${dimsLabel}. Terminal type and polarity are not published here and should be confirmed on inquiry.`,
+  },
+  {
+    q: `What standard does the ${model.model} use?`,
+    a: `The ${model.model} is referenced to ${model.standard_code} (${model.standard}).`,
+  },
+];
+
+const breadcrumbs = [{ label: `${model.model}` }];
+
+const productJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: `${model.model} Battery`,
+  description: `${model.model} ${model.standard} battery reference supplied by ${BRAND}, manufactured by ${MANUFACTURER.name}.`,
+  brand: { '@type': 'Brand', name: BRAND },
+  manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName },
+  mpn: model.model,
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'Standard', value: model.standard },
+    { '@type': 'PropertyValue', name: 'Standard code', value: model.standard_code },
+    { '@type': 'PropertyValue', name: 'Voltage', value: `${model.voltage} V` },
+    { '@type': 'PropertyValue', name: 'Capacity', value: `${model.capacity_ah} Ah` },
+    { '@type': 'PropertyValue', name: 'Dimensions', value: dimsLabel },
+    { '@type': 'PropertyValue', name: 'Weight', value: `${model.weight_kg} kg` },
+    { '@type': 'PropertyValue', name: 'Case size', value: model.case_size },
+    { '@type': 'PropertyValue', name: 'Technology', value: model.technology },
+  ],
+};
+
+const jsonLd = [
+  productJsonLd,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: `${model.model} Battery`, item: url },
+    ],
+  },
+];
+
+const comparison: Record<string, { against: string; points: string[] }> = {
+  '65d26': {
+    against: '65D23',
+    points: [
+      `Both are JIS batteries rated at 60 Ah; the 65D26 is longer (256 mm) than the 65D23 (230 mm).`,
+      `The two share the same ${model.cca.value} CCA (reference) in this reference set, but final values must be confirmed with the manufacturer.`,
+    ],
+  },
+  '65d23': {
+    against: '65D26',
+    points: [
+      `Both are JIS batteries rated at 60 Ah; the 65D23 is shorter (230 mm) than the 65D26 (256 mm).`,
+      `The two share the same ${model.cca.value} CCA (reference) in this reference set, but final values must be confirmed with the manufacturer.`,
+    ],
+  },
+  '80d26': {
+    against: '65D26',
+    points: [
+      `Both use the D26 case group, but the 80D26 is rated 72 Ah versus 60 Ah for the 65D26.`,
+      `Listed CCA references are ${model.cca.value} for the 80D26 and 370 for the 65D26; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  '105d31': {
+    against: '115D31',
+    points: [
+      `Both use the D31 case (305 × 175 × 220 mm), but the 105D31 is rated 84 Ah versus 96 Ah for the 115D31.`,
+      `Listed CCA references are ${model.cca.value} for the 105D31 and 710 for the 115D31; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  '115d31': {
+    against: '105D31',
+    points: [
+      `Both use the D31 case (305 × 175 × 220 mm), but the 115D31 is rated 96 Ah versus 84 Ah for the 105D31.`,
+      `Listed CCA references are ${model.cca.value} for the 115D31 and 655 for the 105D31; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  h6: {
+    against: '80D26',
+    points: [
+      `The H6 is a DIN/EN reference while the 80D26 is a JIS reference; both are 12V and rated at 72 Ah.`,
+      `CCA is test-method dependent: the H6 lists ${model.cca.value} CCA (EN -18°C reference) while the 80D26 lists 490 CCA (JIS -15°C reference). Confirm final values with the manufacturer.`,
+    ],
+  },
+};
+const compare = comparison[model.model.toLowerCase()];
+const aliases = model.aliases ?? [];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Model data / {model.standard}</span>
+    <h1>{h1}</h1>
+    <p class="lead">{lead}</p>
+    <p><a href="/contact/">Request OEM Quote</a> · <a href="/tools/battery-finder/">Use the battery finder</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>What is a {model.model} battery?</h2>
+      <p>The {model.model} is a {model.standard} automotive battery used for {model.application.toLowerCase()}. Its reference case is {model.case_size}, and it is supplied under the {model.standard_code} convention.</p>
+      <p>{model.aliases && aliases.length > 0 ? `Common aliases for this reference include ${aliases.join(', ')}.` : `Standard-family naming differs between markets; confirm exact fitment against your vehicle cross-reference before ordering.`}</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Quick specification</h2>
+    <table>
+      <thead><tr><th>Field</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Model</td><td>{model.model}</td></tr>
+        <tr><td>Standard</td><td>{model.standard} ({model.standard_code})</td></tr>
+        <tr><td>Voltage</td><td>{model.voltage} V</td></tr>
+        <tr><td>Capacity (C20)</td><td>{model.c20_ah} Ah</td></tr>
+        <tr><td>CCA</td><td>{model.cca.value} CCA <strong>(reference)</strong> — {model.cca.basis}</td></tr>
+        <tr><td>Dimensions (L × W × H)</td><td>{dimsLabel}</td></tr>
+        <tr><td>Weight</td><td>{model.weight_kg} kg</td></tr>
+        <tr><td>Technology</td><td>{model.technology}</td></tr>
+        <tr><td>Terminal</td><td>Confirm on inquiry</td></tr>
+        <tr><td>Polarity</td><td>Confirm on inquiry</td></tr>
+        <tr><td>Reserve capacity (RC)</td><td>Confirm on inquiry</td></tr>
+      </tbody>
+    </table>
+    <p class="note">CCA is shown as a reference value. {model.cca.note} before using this value in a product specification.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Dimensions &amp; terminal</h2>
+      <p>Listed dimensions are {dimsLabel}. Terminal type and polarity are not published for this reference; confirm them on inquiry before finalising the specification.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Applications &amp; vehicle fitment</h2>
+    <p>Application reference: {model.application}. Exact vehicle fitment is a cross-reference decision — always confirm against the vehicle or fleet requirement and the manufacturer before ordering.</p>
+    <p><a href="/tools/battery-finder/">Use the battery finder &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Read the specification guide &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Equivalent / cross-reference</h2>
+      <p>Battery equivalence depends on the standard family, case dimensions and terminal layout. JIS, DIN/EN and BCI references are not automatically interchangeable even when physical dimensions are similar.</p>
+      <p>No verified cross-reference table is published for this page. Confirm the equivalent model for your market with the manufacturer.</p>
+    </div>
+  </section>
+
+  {compare && (
+    <section class="section container prose">
+      <h2>{model.model} vs {compare.against}</h2>
+      <ul>
+        {compare.points.map((point) => <li>{point}</li>)}
+      </ul>
+      <p><a href={modelPath(compare.against)}>View the {compare.against} battery &rarr;</a></p>
+    </section>
+  )}
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>OEM availability &amp; private label</h2>
+      <p>{RELATIONSHIP} The {model.model} is available for OEM and private-label supply. Branding, sampling, packaging and final specifications are confirmed on inquiry.</p>
+      <p><a href="/oem/">OEM programs &rarr;</a> · <a href="/private-label/">Private-label programs &rarr;</a> · <a href="/contact/">Request OEM Quote &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Sources &amp; verification date</h2>
+      <ul>
+        <li>Source: {model.source}</li>
+        <li>Verification date: {model.verified_date}</li>
+        <li>Confidence: {model.confidence}</li>
+      </ul>
+      <p class="note">This is a reference page. Fields marked &ldquo;confirm on inquiry&rdquo; are intentionally not published rather than estimated.</p>
+    </div>
+  </section>
+
+  <CTASection title="Confirm the {model.model} specification" />
+</BaseLayout>

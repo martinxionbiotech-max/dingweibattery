@@ -1,0 +1,20 @@
+---
+import { MANUFACTURER } from '../data/site';
+const stats = [
+  { value: `Founded ${MANUFACTURER.founded}`, label: `${MANUFACTURER.name}` },
+  { value: MANUFACTURER.factoryArea, label: 'Factory area' },
+  { value: MANUFACTURER.productionLines, label: 'Production lines' },
+  { value: MANUFACTURER.exportMarkets, label: 'Export countries' },
+  { value: 'IATF 16949', label: 'Automotive quality system' },
+];
+---
+<section class="statsbar" aria-label="Manufacturing facts">
+  <div class="container statsbar__grid">
+    {stats.map((s) => (
+      <div class="stat">
+        <div class="stat__value">{s.value}</div>
+        <div class="stat__label">{s.label}</div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,11 @@
+---
+import type { BatteryType } from '../data/site';
+interface Props { type: BatteryType; }
+const { type } = Astro.props;
+---
+<article class="card">
+  <span class="tag">{type.standards}</span>
+  <h3 style="margin-top:0.5rem">{type.name}</h3>
+  <p>{type.description}</p>
+  <a href={type.href}>Explore {type.name} <span aria-hidden="true">&rarr;</span></a>
+</article>

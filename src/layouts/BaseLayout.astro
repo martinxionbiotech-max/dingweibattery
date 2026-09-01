@@ -1,0 +1,44 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../data/site';
+import '../styles/global.css';
+
+interface Crumb { label: string; href?: string; }
+interface Props {
+  title: string;
+  description: string;
+  breadcrumbs?: Crumb[];
+  ogType?: string;
+}
+const { title, description, breadcrumbs = [], ogType = 'website' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#0f1f3a" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <slot name="head" />
+  </head>
+  <body>
+    <Header />
+    {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

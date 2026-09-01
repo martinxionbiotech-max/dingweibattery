@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StatsBar from '../components/StatsBar.astro';
+import BatteryTypeCard from '../components/BatteryTypeCard.astro';
+import OEMProcess from '../components/OEMProcess.astro';
+import CTASection from '../components/CTASection.astro';
+import ModelCard from '../components/ModelCard.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP, BATTERY_TYPES } from '../data/site';
+import { batteryModels } from '../data/battery-models';
+
+const title = 'Dingwei Battery | OEM & Private-Label Automotive Batteries';
+const description = 'Dingwei Battery provides OEM and private-label automotive battery programs manufactured by Chengguang Energy (founded 2002).';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: BRAND,
+    url: SITE.url,
+    description: 'OEM and private-label automotive battery programs.',
+    brand: { '@type': 'Brand', name: BRAND },
+    manufacturer: {
+      '@type': 'Organization',
+      name: MANUFACTURER.name,
+      legalName: MANUFACTURER.legalName,
+      foundingDate: String(MANUFACTURER.founded),
+      address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: SITE.url,
+    description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={[]}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="hero">
+    <div class="container">
+      <span class="tag" style="color:#f0b9b2">OEM / Private Label</span>
+      <h1>Automotive batteries built to your brand</h1>
+      <p class="lead">{RELATIONSHIP} We supply SLI, AGM, EFB and heavy-duty batteries under your label, from specification through shipment.</p>
+      <div class="hero__actions">
+        <a class="btn" href="/oem/">Explore OEM programs</a>
+        <a class="btn btn--ghost" href="/contact/">Request OEM Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <span class="tag">Battery types</span>
+    <h2>OEM &amp; private-label battery categories</h2>
+    <p class="lead">Four product families manufactured by {MANUFACTURER.name}, covering JIS, DIN, BCI, AS and SA standards.</p>
+    <div class="grid grid--4">
+      {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Why Dingwei Battery</span>
+      <h2>An OEM program, not a one-off order</h2>
+      <p class="lead">We structure the brand relationship, specification, sampling and supply so your product stays consistent across orders.</p>
+      <div class="grid grid--3">
+        <div class="card"><h3>Specification first</h3><p>Voltage, capacity, CCA, standard, case size and terminal layout are defined before production.</p></div>
+        <div class="card"><h3>Brand consistency</h3><p>OEM and private-label artwork, packaging and product identity are controlled for repeat orders.</p></div>
+        <div class="card"><h3>Export capability</h3><p>Manufacturing by {MANUFACTURER.name} supports export to {MANUFACTURER.exportMarkets} from {MANUFACTURER.exportPorts}.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Manufacturing</span>
+    <h2>Built at a dedicated battery plant</h2>
+    <p class="lead">{MANUFACTURER.name} (founded {MANUFACTURER.founded}) operates a {MANUFACTURER.factoryArea} facility in {MANUFACTURER.address} with {MANUFACTURER.productionLines}.</p>
+    <p><a href="/factory/">View factory overview &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <OEMProcess />
+      <p><a href="/contact/">Discuss your project &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Reference models</span>
+    <h2>Battery model specifications</h2>
+    <p class="lead">Six starting references for common JIS and DIN/EN fitments. Specifications are for reference; confirm final values with the manufacturer.</p>
+    <div class="model-list">
+      {batteryModels.map((model) => <ModelCard model={model} />)}
+    </div>
+    <p style="margin-top:1rem"><a href="/tools/battery-finder/">Use the battery finder &rarr;</a></p>
+  </section>
+
+  <CTASection />
+</BaseLayout>

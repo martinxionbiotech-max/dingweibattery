@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import ModelCard from '../../../components/ModelCard.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP, STANDARDS } from '../../../data/site';
+import { batteryModels } from '../../../data/battery-models';
+
+const title = 'OEM Car Batteries | Dingwei Battery';
+const description = 'OEM car batteries from Dingwei Battery, manufactured by Chengguang Energy: SLI, AGM and EFB starter batteries for passenger and light-commercial vehicles.';
+
+const breadcrumbs = [
+  { label: 'OEM', href: '/oem/' },
+  { label: 'Car Batteries', href: '/oem/car-batteries/' },
+];
+
+const carModels = batteryModels.filter((m) => m.model !== '105D31' && m.model !== '115D31');
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/oem/` },
+      { '@type': 'ListItem', position: 3, name: 'Car Batteries', item: `${SITE.url}/oem/car-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">OEM / Car</span>
+    <h1>OEM car batteries</h1>
+    <p class="lead">{RELATIONSHIP} We supply SLI, AGM and EFB starter batteries for passenger cars and light-commercial vehicles under your brand.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Car battery technologies</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>SLI</h3><p>Conventional flooded starting, lighting and ignition batteries for standard vehicles.</p></div>
+        <div class="card"><h3>AGM</h3><p>Absorbent glass mat construction for start-stop systems and higher electrical loads.</p></div>
+        <div class="card"><h3>EFB</h3><p>Enhanced flooded batteries with improved cycling durability for entry-level start-stop.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Standards covered</h2>
+    <p class="lead">Specify to the standard your market uses. Supported families: {STANDARDS.join(', ')}.</p>
+    <p><a href="/knowledge/oem-battery-specification-guide/">Read the OEM battery specification guide &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Reference models</span>
+      <h2>Passenger-car starting references</h2>
+      <p class="lead">Common JIS and DIN/EN car battery references for fitment planning. Specifications are for reference; confirm final values with the manufacturer.</p>
+      <div class="model-list">
+        {carModels.map((model) => <ModelCard model={model} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>From specification to shipment</h2>
+    <p>OEM car battery programs follow a seven-step process: consultation, specification, design and branding, sampling, mass production, quality control, and shipping.</p>
+    <p><a href="/oem/">See the full OEM process &rarr;</a></p>
+  </section>
+
+  <CTASection title="Request an OEM car battery quote" />
+</BaseLayout>

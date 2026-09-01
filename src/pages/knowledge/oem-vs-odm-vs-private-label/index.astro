@@ -1,0 +1,40 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'OEM vs ODM vs Private Label | Dingwei Battery';
+const description = 'OEM, ODM and private label describe different levels of design control. Compare them and choose the right path for your battery brand.';
+const articleTitle = 'OEM vs ODM vs private label';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>OEM vs ODM vs private label</h1>
+    <p class="lead">All three models let you sell batteries under your own brand. The difference is how much of the specification and design you control.</p>
+
+    <h2>Definitions</h2>
+    <ul>
+      <li><strong>OEM</strong> — you define the specification and branding; the manufacturer builds to your requirements.</li>
+      <li><strong>ODM</strong> — the manufacturer owns a ready design; you select it, adapt branding and optionally request changes.</li>
+      <li><strong>Private label</strong> — a supplied product carries your name, label and packaging.</li>
+    </ul>
+
+    <h2>Which one fits your sourcing goal</h2>
+    <div class="grid grid--3">
+      <div class="card"><h3>Choose OEM</h3><p>When you have a defined technical specification and need exact control.</p></div>
+      <div class="card"><h3>Choose ODM</h3><p>When you want a proven platform and faster time to market.</p></div>
+      <div class="card"><h3>Choose private label</h3><p>When the priority is brand identity on an existing product.</p></div>
+    </div>
+
+    <h2>What stays constant</h2>
+    <p>Whichever path you choose, verify the standard family, voltage, capacity, CCA, dimensions, terminal layout, certifications and export terms before ordering.</p>
+    <p><a href="/knowledge/oem-battery-supplier-checklist/">Use the supplier checklist &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
+
+    <h2>Dingwei Battery view</h2>
+    <p>{RELATIONSHIP} The program can be shaped as OEM, ODM or private label depending on the specification you already control.</p>
+    <p><a href="/oem/">Explore OEM programs &rarr;</a> · <a href="/private-label/">Private-label programs &rarr;</a></p>
+  </section>
+
+  <CTASection title="Choose the right battery program" />
+</ArticleLayout>

@@ -1,0 +1,37 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP, MANUFACTURER } from '../../../data/site';
+
+const title = 'What Is an OEM Battery? | Dingwei Battery';
+const description = 'An OEM battery is built to the buyer’s specification and brand. Learn how OEM batteries differ from ODM and private-label supply, with a Dingwei Battery view.';
+const articleTitle = 'What is an OEM battery?';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>What is an OEM battery?</h1>
+    <p class="lead">An OEM battery is a battery produced to the buyer&rsquo;s specification and sold under the buyer&rsquo;s brand — rather than the factory&rsquo;s own label.</p>
+
+    <h2>The core idea</h2>
+    <p>OEM stands for original equipment manufacturer. In battery sourcing, OEM means the supplier manufactures to an agreed specification: voltage, capacity, CCA, standard family, case size, terminal layout and labelling. The buyer controls the product definition and brand.</p>
+
+    <h2>How OEM differs from ODM and private label</h2>
+    <ul>
+      <li><strong>OEM</strong> — you bring the specification; the manufacturer builds to it.</li>
+      <li><strong>ODM</strong> — the manufacturer offers an existing design you can brand and adjust.</li>
+      <li><strong>Private label</strong> — your identity is applied to a supplied product platform.</li>
+    </ul>
+    <p><a href="/knowledge/oem-vs-odm-vs-private-label/">Read the full OEM vs ODM vs private-label comparison &rarr;</a></p>
+
+    <h2>What goes into an OEM battery specification</h2>
+    <p>At minimum, an OEM battery project defines the standard family (JIS, DIN, BCI, AS or SA), voltage, capacity (Ah), CCA, dimensions, terminal type and polarity. Reference models such as 65D26 or H6 are often used as a starting point.</p>
+    <p><a href="/knowledge/oem-battery-specification-guide/">See the OEM battery specification guide &rarr;</a></p>
+
+    <h2>Dingwei Battery and its manufacturer</h2>
+    <p>{RELATIONSHIP} {MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines} and manufactures to JIS, DIN, BCI, AS and SA standards.</p>
+    <p><a href="/oem/">Explore OEM programs &rarr;</a></p>
+  </section>
+
+  <CTASection title="Define your OEM battery specification" />
+</ArticleLayout>

@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatsBar from '../../components/StatsBar.astro';
+import CTASection from '../../components/CTASection.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP, BATTERY_TYPES } from '../../data/site';
+
+const title = 'Private-Label Battery Programs | Dingwei Battery';
+const description = 'Private-label automotive battery programs from Dingwei Battery, manufactured by Chengguang Energy: your brand, label, packaging and repeatable supply.';
+
+const breadcrumbs = [{ label: 'Private Label', href: '/private-label/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Private Label', item: `${SITE.url}/private-label/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Private label</span>
+    <h1>Private-label battery programs</h1>
+    <p class="lead">{RELATIONSHIP} Put your brand on a proven battery platform — label, case, packaging and documentation included.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>What private label includes</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>Brand identity</h3><p>Your label, colour scheme and product naming applied to the battery and packaging.</p></div>
+        <div class="card"><h3>Product platform</h3><p>SLI, AGM, EFB and heavy-duty platforms across JIS, DIN, BCI, AS and SA standards.</p></div>
+        <div class="card"><h3>Repeatable supply</h3><p>Controlled specifications so each order matches your approved sample.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Product families available</h2>
+    <div class="grid grid--4">
+      {BATTERY_TYPES.map((type) => (
+        <div class="card">
+          <span class="tag">{type.standards}</span>
+          <h3>{type.name}</h3>
+          <p>{type.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>How the process works</h2>
+      <p>We start with your target market and required standards, agree the specification, then move to design and branding before sampling and production.</p>
+      <p><a href="/oem/">See the OEM process &rarr;</a> · <a href="/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs private label &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Start a private-label battery line" />
+</BaseLayout>

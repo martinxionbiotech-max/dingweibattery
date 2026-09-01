@@ -1,0 +1,36 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'Choosing an OEM Battery Manufacturer | Dingwei';
+const description = 'A practical method for choosing an OEM battery manufacturer: standards, certifications, factory capability, sampling and export terms.';
+const articleTitle = 'How to choose an OEM battery manufacturer';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>How to choose an OEM battery manufacturer</h1>
+    <p class="lead">Choose a manufacturer that can match your standard, hold quality systems, and repeat your specification order after order.</p>
+
+    <h2>1. Match the standard family</h2>
+    <p>Your market determines the standard: JIS, DIN, BCI, AS or SA. Confirm the factory regularly produces that family rather than treating your order as a one-off.</p>
+
+    <h2>2. Check quality systems</h2>
+    <p>Ask which certifications the manufacturer holds. For automotive supply, IATF 16949 is the relevant quality system; ISO 9001 covers general quality management.</p>
+    <p>{MANUFACTURER.name} holds IATF 16949, ISO 9001, ISO 45001, OHSAS 18001 and CE.</p>
+
+    <h2>3. Verify factory capability</h2>
+    <p>Look at plant size, line count, daily output, export experience and whether the facility can support your volume. {MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines}, producing {MANUFACTURER.dailyOutput} and exporting to {MANUFACTURER.exportMarkets}.</p>
+
+    <h2>4. Define the specification before quoting</h2>
+    <p>Fix voltage, capacity, CCA, case size, terminal and polarity first. Ambiguous specifications produce samples that cannot be fairly compared.</p>
+    <p><a href="/knowledge/oem-battery-specification-guide/">Read the specification guide &rarr;</a></p>
+
+    <h2>5. Evaluate sampling and terms</h2>
+    <p>Confirm the sampling step, lead time, payment and warranty before committing. {RELATIONSHIP}</p>
+    <p><a href="/knowledge/oem-battery-supplier-checklist/">Use the supplier checklist &rarr;</a> · <a href="/oem/">OEM capability &rarr;</a></p>
+  </section>
+
+  <CTASection title="Evaluate Dingwei Battery as your manufacturer" />
+</ArticleLayout>

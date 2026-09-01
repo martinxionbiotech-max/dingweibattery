@@ -1,0 +1,23 @@
+---
+interface Props {
+  title?: string;
+  text?: string;
+  href?: string;
+  button?: string;
+}
+const {
+  title = 'Start your OEM battery project',
+  text = 'Tell us your specification, target market and annual volume. We will prepare an OEM or private-label program for review.',
+  href = '/contact/',
+  button = 'Request OEM Quote',
+} = Astro.props;
+---
+<section class="section--tight">
+  <div class="container">
+    <div class="callout">
+      <h2>{title}</h2>
+      <p style="margin:0.5rem 0 1.25rem;color:#d7e0ec">{text}</p>
+      <a class="btn" href={href}>{button}</a>
+    </div>
+  </div>
+</section>

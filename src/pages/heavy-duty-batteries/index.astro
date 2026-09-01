@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import ModelCard from '../../components/ModelCard.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP } from '../../data/site';
+import { batteryModels } from '../../data/battery-models';
+
+const title = 'Heavy-Duty Batteries | Dingwei Battery';
+const description = 'Heavy-duty 6V and 12V batteries for trucks, buses and construction equipment, supplied by Dingwei Battery and manufactured by Chengguang Energy.';
+
+const breadcrumbs = [{ label: 'Heavy Duty', href: '/heavy-duty-batteries/' }];
+
+const heavyModels = batteryModels.filter((m) => m.model === '105D31' || m.model === '115D31');
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Heavy Duty', item: `${SITE.url}/heavy-duty-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Heavy duty</span>
+    <h1>Heavy-duty batteries</h1>
+    <p class="lead">{RELATIONSHIP} 6V and 12V starting batteries for trucks, buses and construction equipment, covering JIS, DIN, BCI and SA standards.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Applications</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>Trucks</h3><p>Heavy starting power for commercial truck fleets.</p></div>
+        <div class="card"><h3>Buses</h3><p>Reliable starting and electrical support for coaches and city buses.</p></div>
+        <div class="card"><h3>Construction equipment</h3><p>Durable batteries for off-highway and industrial machines.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Manufacturing &amp; export</h2>
+    <p class="lead">Manufactured by {MANUFACTURER.name} (founded {MANUFACTURER.founded}) at a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines}, exporting to {MANUFACTURER.exportMarkets}.</p>
+    <p><a href="/factory/">View factory overview &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Reference models</span>
+      <h2>Heavy-duty starting references</h2>
+      <p class="lead">Two JIS heavy-duty references from the current model set. Specifications are for reference; confirm final values with the manufacturer.</p>
+      <div class="model-list">
+        {heavyModels.map((model) => <ModelCard model={model} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTASection title="Request a heavy-duty battery quote" />
+</BaseLayout>

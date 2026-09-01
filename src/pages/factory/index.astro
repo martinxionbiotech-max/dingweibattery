@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatsBar from '../../components/StatsBar.astro';
+import CTASection from '../../components/CTASection.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, CERTIFICATIONS, STANDARDS, RELATIONSHIP } from '../../data/site';
+
+const title = 'Battery Factory & Manufacturing | Dingwei Battery';
+const description = 'Dingwei Battery programs are manufactured by Chengguang Energy (founded 2002), a 200,000 m² battery plant in Jinzhou, Hebei, China with 18 production lines.';
+
+const breadcrumbs = [{ label: 'Factory', href: '/factory/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: MANUFACTURER.name,
+    legalName: MANUFACTURER.legalName,
+    foundingDate: String(MANUFACTURER.founded),
+    address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Factory', item: `${SITE.url}/factory/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Manufacturing</span>
+    <h1>Battery factory &amp; manufacturing</h1>
+    <p class="lead">{RELATIONSHIP} Manufacturing is performed by {MANUFACTURER.name} at its facility in {MANUFACTURER.address}.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Manufacturer profile</h2>
+      <div class="grid grid--2">
+        <div class="card"><h3>Company</h3><p>{MANUFACTURER.legalName} ({MANUFACTURER.shortName})</p></div>
+        <div class="card"><h3>Founded</h3><p>{MANUFACTURER.founded}</p></div>
+        <div class="card"><h3>Location</h3><p>{MANUFACTURER.address}</p></div>
+        <div class="card"><h3>Facility</h3><p>{MANUFACTURER.factoryArea}, {MANUFACTURER.productionLines}</p></div>
+        <div class="card"><h3>Daily output</h3><p>{MANUFACTURER.dailyOutput}</p></div>
+        <div class="card"><h3>Employees</h3><p>{MANUFACTURER.employees}</p></div>
+        <div class="card"><h3>Export markets</h3><p>{MANUFACTURER.exportMarkets}, via {MANUFACTURER.exportPorts}</p></div>
+        <div class="card"><h3>Registered capital</h3><p>{MANUFACTURER.registeredCapital}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Certifications</h2>
+    <p class="lead">Certifications held by {MANUFACTURER.name}:</p>
+    <ul>
+      {CERTIFICATIONS.map((cert) => <li>{cert}</li>)}
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Standards manufactured</h2>
+      <p class="lead">Battery platforms are supplied to these standard families: {STANDARDS.join(', ')}.</p>
+      <p><a href="/oem/">See OEM capability &rarr;</a> · <a href="/knowledge/oem-battery-supplier-checklist/">What to check in a supplier &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Evaluate our manufacturing capability" />
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import ModelCard from '../../../components/ModelCard.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, RELATIONSHIP } from '../../../data/site';
+import { batteryModels } from '../../../data/battery-models';
+
+const title = 'Battery Finder | Dingwei Battery';
+const description = 'A quick reference to current Dingwei Battery model data. Filter by standard and case reference, or request a custom OEM fitment.';
+
+const breadcrumbs = [{ label: 'Battery Finder', href: '/tools/battery-finder/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Battery Finder', item: `${SITE.url}/tools/battery-finder/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Tool</span>
+    <h1>Battery finder</h1>
+    <p class="lead">A lightweight reference to the current model set. A full interactive fitment tool will be added later — for now, browse the reference models below or send your fitment request.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Reference models</h2>
+      <p class="lead">Specifications are for reference; confirm final values with the manufacturer.</p>
+      <div class="model-list">
+        {batteryModels.map((model) => <ModelCard model={model} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Need an exact fitment?</h2>
+    <p>{RELATIONSHIP} Share the vehicle, standard and case reference on the RFQ form, and the manufacturer&rsquo;s export team will confirm fitment.</p>
+    <p><a href="/contact/">Request fitment confirmation &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Read the specification guide &rarr;</a></p>
+  </section>
+
+  <CTASection title="Request an OEM fitment check" />
+</BaseLayout>

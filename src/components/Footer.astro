@@ -1,0 +1,50 @@
+---
+import { BRAND, MANUFACTURER, RELATIONSHIP, CERTIFICATIONS } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a class="brand" href="/"><span class="brand__mark">DB</span><span>{BRAND}</span></a>
+        <p style="margin-top:0.8rem">{RELATIONSHIP}</p>
+      </div>
+      <div>
+        <h3>Programs</h3>
+        <ul class="site-footer__list">
+          <li><a href="/oem/">OEM Batteries</a></li>
+          <li><a href="/oem/car-batteries/">Car Batteries</a></li>
+          <li><a href="/oem/truck-batteries/">Truck Batteries</a></li>
+          <li><a href="/private-label/">Private Label</a></li>
+          <li><a href="/heavy-duty-batteries/">Heavy-Duty Batteries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul class="site-footer__list">
+          <li><a href="/knowledge/what-is-oem-battery/">What Is an OEM Battery?</a></li>
+          <li><a href="/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs Private Label</a></li>
+          <li><a href="/knowledge/how-choose-oem-battery-manufacturer/">Choosing a Manufacturer</a></li>
+          <li><a href="/knowledge/oem-battery-supplier-checklist/">Supplier Checklist</a></li>
+          <li><a href="/knowledge/oem-battery-specification-guide/">Specification Guide</a></li>
+          <li><a href="/tools/battery-finder/">Battery Finder</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Manufacturer</h3>
+        <ul class="site-footer__list">
+          <li>{MANUFACTURER.name} (founded {MANUFACTURER.founded})</li>
+          <li>{MANUFACTURER.legalName}</li>
+          <li>{MANUFACTURER.address}</li>
+          <li>Export ports: {MANUFACTURER.exportPorts}</li>
+          <li><a href="/factory/">Factory overview</a></li>
+          <li><a href="/contact/">Request OEM Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p>Certifications referenced on this site are held by {MANUFACTURER.name}: {CERTIFICATIONS.join(', ')}.</p>
+      <p>&copy; {year} {BRAND}. {MANUFACTURER.legalName}. All specifications are for reference; confirm final values with the manufacturer before ordering.</p>
+    </div>
+  </div>
+</footer>

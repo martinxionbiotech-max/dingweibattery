@@ -1,0 +1,51 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'OEM Battery Supplier Checklist | Dingwei Battery';
+const description = 'A supplier evaluation checklist for OEM battery sourcing: specification, certifications, factory capability, sampling, terms and repeatability.';
+const articleTitle = 'OEM battery supplier checklist';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>OEM battery supplier checklist</h1>
+    <p class="lead">Run a supplier through these checks before you commit to an OEM battery order.</p>
+
+    <h2>Specification</h2>
+    <ul>
+      <li>Standard family confirmed: JIS, DIN, BCI, AS or SA.</li>
+      <li>Voltage, capacity (Ah) and CCA agreed in writing.</li>
+      <li>Case size, terminal type and polarity defined.</li>
+      <li>Reference model or drawing attached to the order.</li>
+    </ul>
+
+    <h2>Certifications</h2>
+    <p>Request current certificates rather than marketing claims. {MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')}.</p>
+
+    <h2>Factory capability</h2>
+    <ul>
+      <li>Factory area and number of production lines.</li>
+      <li>Daily output versus your annual volume.</li>
+      <li>Export experience and destination markets.</li>
+    </ul>
+    <p>{MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} plant with {MANUFACTURER.productionLines} and exports to {MANUFACTURER.exportMarkets}.</p>
+
+    <h2>Commercial terms</h2>
+    <ul>
+      <li>MOQ: {TRADE_TERMS.moq}.</li>
+      <li>Lead time: {TRADE_TERMS.leadTime}.</li>
+      <li>Payment: {TRADE_TERMS.payment}.</li>
+      <li>Incoterms: {TRADE_TERMS.incoterms}.</li>
+      <li>Warranty: {TRADE_TERMS.warranty}.</li>
+    </ul>
+
+    <h2>Repeatability</h2>
+    <p>Confirm how the manufacturer keeps subsequent orders identical to the approved sample — label, packaging, specification and quality.</p>
+    <p><a href="/knowledge/how-choose-oem-battery-manufacturer/">How to choose a manufacturer &rarr;</a> · <a href="/oem/">Dingwei OEM programs &rarr;</a></p>
+    <p>{RELATIONSHIP}</p>
+  </section>
+
+  <CTASection title="Put Dingwei Battery through your checklist" />
+</ArticleLayout>

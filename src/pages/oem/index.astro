@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatsBar from '../../components/StatsBar.astro';
+import BatteryTypeCard from '../../components/BatteryTypeCard.astro';
+import OEMProcess from '../../components/OEMProcess.astro';
+import CTASection from '../../components/CTASection.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP, BATTERY_TYPES, TRADE_TERMS, CERTIFICATIONS } from '../../data/site';
+
+const title = 'OEM Battery Manufacturing | Dingwei Battery';
+const description = 'OEM battery programs from Dingwei Battery, manufactured by Chengguang Energy: SLI, AGM, EFB and heavy-duty batteries to JIS, DIN, BCI, AS and SA standards.';
+
+const breadcrumbs = [{ label: 'OEM', href: '/oem/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: BRAND,
+    url: `${SITE.url}/oem/`,
+    description,
+    manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName, foundingDate: String(MANUFACTURER.founded) },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/oem/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">OEM overview</span>
+    <h1>OEM battery manufacturing</h1>
+    <p class="lead">{RELATIONSHIP} OEM means your product is engineered, branded and supplied to an agreed specification — not picked from a generic catalogue.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <h2>OEM vs ODM vs private label</h2>
+    <p class="lead">OEM builds to your specification; ODM starts from an existing design you can brand; private label applies your identity to a supplied product. The right path depends on how much of the specification you already control.</p>
+    <p><a href="/knowledge/oem-vs-odm-vs-private-label/">Read the comparison guide &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Capability</span>
+      <h2>Product families</h2>
+      <div class="grid grid--4">
+        {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Commercial terms</h2>
+    <p class="lead">Baseline export terms used by {MANUFACTURER.name}. Final terms are confirmed on inquiry.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>MOQ</h3><p>{TRADE_TERMS.moq}</p></div>
+      <div class="card"><h3>Lead time</h3><p>{TRADE_TERMS.leadTime}</p></div>
+      <div class="card"><h3>Payment</h3><p>{TRADE_TERMS.payment}</p></div>
+      <div class="card"><h3>Incoterms</h3><p>{TRADE_TERMS.incoterms}</p></div>
+    </div>
+    <p class="note">Prices are not published. Request a quotation for your specification and annual volume.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Certifications</span>
+      <h2>Quality systems held by the manufacturer</h2>
+      <p class="lead">The following certifications are held by {MANUFACTURER.name}.</p>
+      <ul>
+        {CERTIFICATIONS.map((cert) => <li>{cert}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container">
+    <OEMProcess />
+    <p><a href="/knowledge/how-choose-oem-battery-manufacturer/">How to choose an OEM battery manufacturer &rarr;</a></p>
+  </section>
+
+  <CTASection title="Start your OEM battery project" />
+</BaseLayout>
