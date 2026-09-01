@@ -1,0 +1,31 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'Private-Label Battery Strategy | Dingwei Battery';
+const description = 'A private-label battery strategy framework: positioning, differentiation, specification discipline and repeatable supply.';
+const articleTitle = 'Private-label battery strategy';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>Private-label battery strategy</h1>
+    <p class="lead">Private label is not just putting your name on a battery — it is a supply and positioning strategy.</p>
+
+    <h2>Positioning before product</h2>
+    <p>Choose a segment where you can be the reliable option: price, quality, or a specific vehicle class. Do not compete on price alone.</p>
+
+    <h2>Differentiate on specification, not marketing</h2>
+    <p>A repeatable specification — consistent CCA, capacity and finish — is the real differentiator buyers remember.</p>
+
+    <h2>Lock the supply</h2>
+    <p>A private-label program only works with a manufacturer that keeps repeat orders identical. {MANUFACTURER.name}&rsquo;s {CERTIFICATIONS[0]} quality system and {MANUFACTURER.exportMarkets} export experience are built for this. {RELATIONSHIP}</p>
+
+    <h2>Plan SKUs, not one-offs</h2>
+    <p>A private-label line is a SKU plan across models, not a single container. Map the models to your market&rsquo;s standard family.</p>
+    <p><a href="/private-label/">Explore private-label programs &rarr;</a> · <a href="/contact/">Plan your SKUs with us &rarr;</a></p>
+  </section>
+
+  <CTASection title="Build your private-label battery strategy" />
+</ArticleLayout>

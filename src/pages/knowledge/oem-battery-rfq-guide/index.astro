@@ -1,0 +1,53 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { STANDARDS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'OEM Battery RFQ Guide: Write an Effective Request for Quotation | Dingwei Battery';
+const description = 'How to write an OEM battery RFQ that gets accurate quotes: specification fields, volume, packaging, certification and delivery requirements.';
+const articleTitle = 'OEM battery RFQ guide';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>OEM battery RFQ guide</h1>
+    <p class="lead">A complete RFQ gets you comparable quotes; a vague one gets you a range so wide it is useless. Include these fields.</p>
+
+    <h2>The specification block</h2>
+    <ul>
+      <li>Battery type (SLI, AGM, EFB, heavy-duty)</li>
+      <li>Standard family ({STANDARDS.join(', ')})</li>
+      <li>Reference model (e.g. 65D26)</li>
+      <li>Voltage, capacity (Ah), CCA</li>
+      <li>Case size, terminal type, polarity</li>
+    </ul>
+
+    <h2>The volume block</h2>
+    <ul>
+      <li>Annual volume</li>
+      <li>First order quantity</li>
+      <li>Forecast by model if mixed</li>
+      <li>Target market (affects standard and certification)</li>
+    </ul>
+
+    <h2>The branding block</h2>
+    <ul>
+      <li>Private label or OEM</li>
+      <li>Label artwork and packaging</li>
+      <li>Pallet configuration</li>
+      <li>Multi-language documentation</li>
+    </ul>
+
+    <h2>The commercial block</h2>
+    <ul>
+      <li>Target price (optional)</li>
+      <li>Incoterms</li>
+      <li>Payment terms</li>
+      <li>Delivery schedule</li>
+    </ul>
+    <p><a href="/contact/">Send your RFQ &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
+    <p>{RELATIONSHIP}</p>
+  </section>
+
+  <CTASection title="Send a complete OEM RFQ" />
+</ArticleLayout>

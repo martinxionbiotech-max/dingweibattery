@@ -1,0 +1,34 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'OEM Battery MOQ & Lead Time Explained | Dingwei Battery';
+const description = 'What MOQ and lead time mean for OEM battery orders, and how they are set — with Chengguang Energy’s reference terms.';
+const articleTitle = 'OEM battery MOQ & lead time';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>OEM battery MOQ &amp; lead time</h1>
+    <p class="lead">MOQ and lead time are set by production economics and container logistics, not by negotiation alone. Here is how they work.</p>
+
+    <h2>What drives MOQ</h2>
+    <p>Battery MOQ is usually tied to a container load, because shipping cost per unit collapses at FCL. {MANUFACTURER.name}&rsquo;s reference MOQ is {TRADE_TERMS.moq}.</p>
+
+    <h2>What drives lead time</h2>
+    <p>Lead time covers order confirmation, production and pre-shipment testing. {MANUFACTURER.name}&rsquo;s reference lead time is {TRADE_TERMS.leadTime}; custom-label orders add sampling time.</p>
+
+    <h2>How to reduce both</h2>
+    <ul>
+      <li>Order in full container multiples</li>
+      <li>Consolidate mixed models into one container</li>
+      <li>Confirm specification early to avoid sampling delays</li>
+      <li>Plan around the harvest-free, year-round production of lead-acid batteries</li>
+    </ul>
+    <p><a href="/contact/">Confirm MOQ and lead time &rarr;</a> · <a href="/knowledge/how-oem-battery-programs-work/">How OEM programs run &rarr;</a></p>
+    <p>{RELATIONSHIP}</p>
+  </section>
+
+  <CTASection title="Confirm MOQ and lead time for your order" />
+</ArticleLayout>

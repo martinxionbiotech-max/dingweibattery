@@ -1,0 +1,46 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'How to Audit a Lead-Acid Battery Factory | Dingwei Battery';
+const description = 'How to audit a lead-acid battery factory for OEM sourcing: certifications, production capability, quality control, testing and export readiness.';
+const articleTitle = 'How to audit a lead-acid battery factory';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>How to audit a lead-acid battery factory</h1>
+    <p class="lead">A factory audit is how you verify that a battery manufacturer can deliver your specification repeatably — not just once. Run these checks before committing volume.</p>
+
+    <h2>Certifications</h2>
+    <p>Request current certificates, not claims. {MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')}.</p>
+
+    <h2>Production capability</h2>
+    <p>Check factory area, number of production lines and daily output against your annual volume. {MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} plant with {MANUFACTURER.productionLines} producing {MANUFACTURER.dailyOutput}.</p>
+
+    <h2>Quality control &amp; testing</h2>
+    <ul>
+      <li>Incoming material inspection</li>
+      <li>In-process checks (grid casting, pasting, curing, formation)</li>
+      <li>100% end-of-line electrical test</li>
+      <li>Batch traceability</li>
+      <li>Lab testing for CCA and capacity</li>
+    </ul>
+
+    <h2>Export readiness</h2>
+    <p>Confirm export experience, documentation capability and destination markets. {MANUFACTURER.name} exports to {MANUFACTURER.exportMarkets}.</p>
+
+    <h2>What to bring home from an audit</h2>
+    <ul>
+      <li>Current certificates</li>
+      <li>Sample of a recent production run</li>
+      <li>A specification sheet for your reference model</li>
+      <li>Agreed commercial terms</li>
+    </ul>
+    <p><a href="/knowledge/oem-battery-supplier-checklist/">Use the supplier checklist &rarr;</a> · <a href="/factory/">See the factory capability &rarr;</a></p>
+    <p>{RELATIONSHIP}</p>
+  </section>
+
+  <CTASection title="Put Dingwei Battery through your audit" />
+</ArticleLayout>

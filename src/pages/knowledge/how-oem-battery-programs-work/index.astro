@@ -1,0 +1,32 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'How OEM Battery Programs Work | Dingwei Battery';
+const description = 'How an OEM battery program runs end to end — specification, sampling, production and repeat orders — for importers and brand owners.';
+const articleTitle = 'How OEM battery programs work';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>How OEM battery programs work</h1>
+    <p class="lead">An OEM battery program is a repeatable supply arrangement, not a one-off order. It runs in four phases.</p>
+
+    <h2>1. Specification</h2>
+    <p>You define the battery: standard, model, capacity, CCA, terminal, label and packaging. The manufacturer confirms it against their production capability.</p>
+
+    <h2>2. Sampling</h2>
+    <p>The manufacturer produces pre-production samples for your testing and approval before mass production.</p>
+
+    <h2>3. Production</h2>
+    <p>Approved specification goes to the production line. {MANUFACTURER.name} runs {MANUFACTURER.productionLines} with {CERTIFICATIONS[0]} quality control and 100% end-of-line testing.</p>
+
+    <h2>4. Repeat orders</h2>
+    <p>The specification is locked so subsequent orders match the approved sample. Repeatability is the point of an OEM program.</p>
+    <p><a href="/oem/">Explore OEM programs &rarr;</a> · <a href="/knowledge/oem-battery-development-process/">See the development process &rarr;</a></p>
+    <p>{RELATIONSHIP}</p>
+  </section>
+
+  <CTASection title="Start your OEM battery program" />
+</ArticleLayout>

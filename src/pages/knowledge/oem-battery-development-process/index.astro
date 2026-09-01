@@ -1,0 +1,42 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'The OEM Battery Development Process | Dingwei Battery';
+const description = 'The step-by-step OEM battery development process — from requirement to shipment — and where buyers should be involved.';
+const articleTitle = 'The OEM battery development process';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>The OEM battery development process</h1>
+    <p class="lead">OEM development is a gated process. Understanding the stages tells you where to be involved and where to insist on sign-off.</p>
+
+    <h2>The seven stages</h2>
+    <ol>
+      <li>Consultation</li>
+      <li>Specification</li>
+      <li>Design &amp; branding</li>
+      <li>Sampling</li>
+      <li>Mass production</li>
+      <li>Quality inspection</li>
+      <li>Logistics &amp; shipping</li>
+    </ol>
+
+    <h2>Where buyers should be involved</h2>
+    <ul>
+      <li>Specification — sign off every parameter</li>
+      <li>Sampling — test before approving</li>
+      <li>Quality inspection — agree the acceptance criteria</li>
+      <li>Shipment — confirm documentation</li>
+    </ul>
+
+    <h2>Why gates matter</h2>
+    <p>Each gate is a decision point. Skipping a gate is how a specification drifts and a repeat order comes back different.</p>
+    <p><a href="/oem/">Explore OEM programs &rarr;</a> · <a href="/contact/">Talk through your development project &rarr;</a></p>
+    <p>{RELATIONSHIP}</p>
+  </section>
+
+  <CTASection title="Plan your OEM development process" />
+</ArticleLayout>

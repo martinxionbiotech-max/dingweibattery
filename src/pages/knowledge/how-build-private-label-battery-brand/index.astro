@@ -1,0 +1,37 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'How to Build a Private-Label Battery Brand | Dingwei Battery';
+const description = 'How to launch a private-label battery brand: positioning, specification, branding, packaging, certification and go-to-market.';
+const articleTitle = 'How to build a private-label battery brand';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge</span>
+    <h1>How to build a private-label battery brand</h1>
+    <p class="lead">A private-label battery brand starts with a positioning decision, not a label design. Here is the sequence.</p>
+
+    <h2>1. Pick the position</h2>
+    <p>Decide the market and segment: passenger car, truck, heavy-duty, start-stop. The position determines the standard (JIS, DIN, BCI) and the specification.</p>
+
+    <h2>2. Fix the specification</h2>
+    <p>Lock voltage, capacity, CCA, case size and terminal against your reference model. Confirm the standard family for your target market.</p>
+
+    <h2>3. Brand it</h2>
+    <ul>
+      <li>Label artwork</li>
+      <li>Packaging design</li>
+      <li>Barcode and SKU planning</li>
+      <li>Warranty terms</li>
+    </ul>
+
+    <h2>4. Launch it</h2>
+    <p>Order a container, plan the logistics, and put the documentation set in place (COA, traceability, test reports).</p>
+    <p><a href="/private-label/">Explore private-label programs &rarr;</a> · <a href="/knowledge/private-label-battery-strategy/">Build the strategy &rarr;</a></p>
+    <p>{RELATIONSHIP}</p>
+  </section>
+
+  <CTASection title="Launch your private-label battery brand" />
+</ArticleLayout>
