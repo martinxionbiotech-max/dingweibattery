@@ -6,9 +6,18 @@
     "voltage": 12,
     "capacity_ah": 60,
     "c20_ah": 60,
-    "cca": { "value": 370, "basis": "JIS (-15°C) reference", "confidence": "PARTIALLY_VERIFIED", "note": "reference value, confirm with manufacturer" },
+    "cca": {
+      "value": 370,
+      "basis": "JIS (-15°C) reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
     "rc_min": null,
-    "dimensions_mm": { "length": 256, "width": 175, "height": 220 },
+    "dimensions_mm": {
+      "length": 256,
+      "width": 175,
+      "height": 220
+    },
     "case_size": "D26",
     "terminal": null,
     "polarity": null,
@@ -29,9 +38,18 @@
     "voltage": 12,
     "capacity_ah": 60,
     "c20_ah": 60,
-    "cca": { "value": 370, "basis": "JIS (-15°C) reference", "confidence": "PARTIALLY_VERIFIED", "note": "reference value, confirm with manufacturer" },
+    "cca": {
+      "value": 370,
+      "basis": "JIS (-15°C) reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
     "rc_min": null,
-    "dimensions_mm": { "length": 230, "width": 175, "height": 220 },
+    "dimensions_mm": {
+      "length": 230,
+      "width": 175,
+      "height": 220
+    },
     "case_size": "D23",
     "terminal": null,
     "polarity": null,
@@ -52,9 +70,18 @@
     "voltage": 12,
     "capacity_ah": 72,
     "c20_ah": 72,
-    "cca": { "value": 490, "basis": "JIS (-15°C) reference", "confidence": "PARTIALLY_VERIFIED", "note": "reference value, confirm with manufacturer" },
+    "cca": {
+      "value": 490,
+      "basis": "JIS (-15°C) reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
     "rc_min": null,
-    "dimensions_mm": { "length": 256, "width": 175, "height": 220 },
+    "dimensions_mm": {
+      "length": 256,
+      "width": 175,
+      "height": 220
+    },
     "case_size": "D26",
     "terminal": null,
     "polarity": null,
@@ -75,9 +102,18 @@
     "voltage": 12,
     "capacity_ah": 84,
     "c20_ah": 84,
-    "cca": { "value": 655, "basis": "JIS (-15°C) reference", "confidence": "PARTIALLY_VERIFIED", "note": "reference value, confirm with manufacturer" },
+    "cca": {
+      "value": 655,
+      "basis": "JIS (-15°C) reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
     "rc_min": null,
-    "dimensions_mm": { "length": 305, "width": 175, "height": 220 },
+    "dimensions_mm": {
+      "length": 305,
+      "width": 175,
+      "height": 220
+    },
     "case_size": "D31",
     "terminal": null,
     "polarity": null,
@@ -98,9 +134,18 @@
     "voltage": 12,
     "capacity_ah": 96,
     "c20_ah": 96,
-    "cca": { "value": 710, "basis": "JIS (-15°C) reference", "confidence": "PARTIALLY_VERIFIED", "note": "reference value, confirm with manufacturer" },
+    "cca": {
+      "value": 710,
+      "basis": "JIS (-15°C) reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
     "rc_min": null,
-    "dimensions_mm": { "length": 305, "width": 175, "height": 220 },
+    "dimensions_mm": {
+      "length": 305,
+      "width": 175,
+      "height": 220
+    },
     "case_size": "D31",
     "terminal": null,
     "polarity": null,
@@ -116,15 +161,28 @@
   },
   {
     "model": "H6",
-    "aliases": ["H6", "LN3", "DIN66"],
+    "aliases": [
+      "H6",
+      "LN3",
+      "DIN66"
+    ],
     "standard": "DIN/EN",
     "standard_code": "EN 50342",
     "voltage": 12,
     "capacity_ah": 72,
     "c20_ah": 72,
-    "cca": { "value": 660, "basis": "EN (-18°C) reference", "confidence": "PARTIALLY_VERIFIED", "note": "reference value, confirm with manufacturer" },
+    "cca": {
+      "value": 660,
+      "basis": "EN (-18°C) reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
     "rc_min": null,
-    "dimensions_mm": { "length": 278, "width": 175, "height": 190 },
+    "dimensions_mm": {
+      "length": 278,
+      "width": 175,
+      "height": 190
+    },
     "case_size": "H6/LN3",
     "terminal": null,
     "polarity": null,
@@ -135,6 +193,347 @@
     "oem_available": true,
     "private_label_available": true,
     "source": "报价单20260831 + EN 50342 reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "75D23",
+    "standard": "JIS",
+    "voltage": 12,
+    "capacity_ah": 72,
+    "cca": {
+      "value": 465,
+      "basis": "JIS (-15°C) reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "dimensions_mm": {
+      "length": 230,
+      "width": 175,
+      "height": 220
+    },
+    "case_size": "D23",
+    "technology": "Maintenance-free (免维护)",
+    "application": "Mid-size sedan with high accessory load",
+    "weight_kg": 17.0,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 72,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "55B24",
+    "standard": "JIS",
+    "voltage": 12,
+    "capacity_ah": 48,
+    "cca": {
+      "value": 370,
+      "basis": "JIS (-15°C) reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "dimensions_mm": {
+      "length": 238,
+      "width": 129,
+      "height": 220
+    },
+    "case_size": "B24",
+    "technology": "Maintenance-free (免维护)",
+    "application": "Asian compact / hybrid auxiliary",
+    "weight_kg": 12.6,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 48,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "65B24",
+    "standard": "JIS",
+    "voltage": 12,
+    "capacity_ah": 50,
+    "cca": {
+      "value": 370,
+      "basis": "JIS (-15°C) reference (interpolated)",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "dimensions_mm": {
+      "length": 238,
+      "width": 129,
+      "height": 220
+    },
+    "case_size": "B24",
+    "technology": "Maintenance-free (免维护)",
+    "application": "Asian compact",
+    "weight_kg": 13.1,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 50,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "85D26",
+    "standard": "JIS",
+    "voltage": 12,
+    "capacity_ah": 84,
+    "cca": {
+      "value": 520,
+      "basis": "JIS (-15°C) reference (interpolated)",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "dimensions_mm": {
+      "length": 256,
+      "width": 175,
+      "height": 220
+    },
+    "case_size": "D26",
+    "technology": "Maintenance-free (免维护)",
+    "application": "Light commercial / SUV",
+    "weight_kg": 18.5,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 84,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "95D26",
+    "standard": "JIS",
+    "voltage": 12,
+    "capacity_ah": 84,
+    "cca": {
+      "value": 565,
+      "basis": "JIS (-15°C) reference (interpolated)",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "dimensions_mm": {
+      "length": 256,
+      "width": 175,
+      "height": 220
+    },
+    "case_size": "D26",
+    "technology": "Maintenance-free (免维护)",
+    "application": "SUV / light commercial diesel",
+    "weight_kg": 19.3,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 84,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "H5",
+    "aliases": [
+      "H5",
+      "LN2",
+      "DIN55"
+    ],
+    "standard": "DIN/EN",
+    "voltage": 12,
+    "capacity_ah": 60,
+    "cca": {
+      "value": 600,
+      "basis": "EN (-18°C) typical reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "dimensions_mm": {
+      "length": 242,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "H5/LN2",
+    "technology": "Maintenance-free (免维护)",
+    "application": "European compact / start-stop",
+    "weight_kg": 15.0,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 60,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "H7",
+    "aliases": [
+      "H7",
+      "LN4",
+      "DIN77"
+    ],
+    "standard": "DIN/EN",
+    "voltage": 12,
+    "capacity_ah": 84,
+    "cca": {
+      "value": 760,
+      "basis": "EN (-18°C) typical reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "dimensions_mm": {
+      "length": 315,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "H7/LN4",
+    "technology": "Maintenance-free (免维护)",
+    "application": "European SUV / premium",
+    "weight_kg": 19.7,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 84,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "H8",
+    "aliases": [
+      "H8",
+      "LN5",
+      "DIN88"
+    ],
+    "standard": "DIN/EN",
+    "voltage": 12,
+    "capacity_ah": 96,
+    "cca": {
+      "value": 900,
+      "basis": "EN (-18°C) typical reference",
+      "confidence": "PARTIALLY_VERIFIED",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "dimensions_mm": {
+      "length": 352,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "H8/LN5",
+    "technology": "Maintenance-free (免维护)",
+    "application": "European premium / high electrical load",
+    "weight_kg": 23.0,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 96,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "150Ah",
+    "standard": "Heavy-duty",
+    "voltage": 12,
+    "capacity_ah": 144,
+    "cca": null,
+    "dimensions_mm": {
+      "length": 508,
+      "width": 220,
+      "height": 235
+    },
+    "case_size": "Heavy",
+    "technology": "Maintenance-free (免维护)",
+    "application": "Heavy truck / agricultural",
+    "weight_kg": 38.8,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 144,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "180Ah",
+    "standard": "Heavy-duty",
+    "voltage": 12,
+    "capacity_ah": 175,
+    "cca": null,
+    "dimensions_mm": {
+      "length": 508,
+      "width": 220,
+      "height": 235
+    },
+    "case_size": "Heavy",
+    "technology": "Maintenance-free (免维护)",
+    "application": "Heavy truck / bus",
+    "weight_kg": 41.5,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 175,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
+    "verified_date": "2026-09-01",
+    "confidence": "PARTIALLY_VERIFIED"
+  },
+  {
+    "model": "225Ah",
+    "standard": "Heavy-duty",
+    "voltage": 12,
+    "capacity_ah": 210,
+    "cca": null,
+    "dimensions_mm": {
+      "length": 517,
+      "width": 276,
+      "height": 240
+    },
+    "case_size": "Heavy",
+    "technology": "Maintenance-free (免维护)",
+    "application": "Heavy truck / bus / industrial",
+    "weight_kg": 53.5,
+    "terminal": null,
+    "polarity": null,
+    "rc_min": null,
+    "c20_ah": 210,
+    "vehicle_type": null,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "报价单20260831 + standard reference",
     "verified_date": "2026-09-01",
     "confidence": "PARTIALLY_VERIFIED"
   }
