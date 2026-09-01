@@ -225,7 +225,8 @@
     "private_label_available": true,
     "source": "报价单20260831 + standard reference",
     "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
+    "confidence": "PARTIALLY_VERIFIED",
+    "standard_code": "JIS D 5301"
   },
   {
     "model": "55B24",
@@ -256,7 +257,8 @@
     "private_label_available": true,
     "source": "报价单20260831 + standard reference",
     "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
+    "confidence": "PARTIALLY_VERIFIED",
+    "standard_code": "JIS D 5301"
   },
   {
     "model": "65B24",
@@ -287,7 +289,8 @@
     "private_label_available": true,
     "source": "报价单20260831 + standard reference",
     "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
+    "confidence": "PARTIALLY_VERIFIED",
+    "standard_code": "JIS D 5301"
   },
   {
     "model": "85D26",
@@ -318,7 +321,8 @@
     "private_label_available": true,
     "source": "报价单20260831 + standard reference",
     "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
+    "confidence": "PARTIALLY_VERIFIED",
+    "standard_code": "JIS D 5301"
   },
   {
     "model": "95D26",
@@ -349,7 +353,8 @@
     "private_label_available": true,
     "source": "报价单20260831 + standard reference",
     "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
+    "confidence": "PARTIALLY_VERIFIED",
+    "standard_code": "JIS D 5301"
   },
   {
     "model": "H5",
@@ -385,7 +390,8 @@
     "private_label_available": true,
     "source": "报价单20260831 + standard reference",
     "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
+    "confidence": "PARTIALLY_VERIFIED",
+    "standard_code": "EN 50342"
   },
   {
     "model": "H7",
@@ -421,7 +427,8 @@
     "private_label_available": true,
     "source": "报价单20260831 + standard reference",
     "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
+    "confidence": "PARTIALLY_VERIFIED",
+    "standard_code": "EN 50342"
   },
   {
     "model": "H8",
@@ -457,84 +464,7 @@
     "private_label_available": true,
     "source": "报价单20260831 + standard reference",
     "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
-  },
-  {
-    "model": "150Ah",
-    "standard": "Heavy-duty",
-    "voltage": 12,
-    "capacity_ah": 144,
-    "cca": null,
-    "dimensions_mm": {
-      "length": 508,
-      "width": 220,
-      "height": 235
-    },
-    "case_size": "Heavy",
-    "technology": "Maintenance-free (免维护)",
-    "application": "Heavy truck / agricultural",
-    "weight_kg": 38.8,
-    "terminal": null,
-    "polarity": null,
-    "rc_min": null,
-    "c20_ah": 144,
-    "vehicle_type": null,
-    "oem_available": true,
-    "private_label_available": true,
-    "source": "报价单20260831 + standard reference",
-    "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
-  },
-  {
-    "model": "180Ah",
-    "standard": "Heavy-duty",
-    "voltage": 12,
-    "capacity_ah": 175,
-    "cca": null,
-    "dimensions_mm": {
-      "length": 508,
-      "width": 220,
-      "height": 235
-    },
-    "case_size": "Heavy",
-    "technology": "Maintenance-free (免维护)",
-    "application": "Heavy truck / bus",
-    "weight_kg": 41.5,
-    "terminal": null,
-    "polarity": null,
-    "rc_min": null,
-    "c20_ah": 175,
-    "vehicle_type": null,
-    "oem_available": true,
-    "private_label_available": true,
-    "source": "报价单20260831 + standard reference",
-    "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
-  },
-  {
-    "model": "225Ah",
-    "standard": "Heavy-duty",
-    "voltage": 12,
-    "capacity_ah": 210,
-    "cca": null,
-    "dimensions_mm": {
-      "length": 517,
-      "width": 276,
-      "height": 240
-    },
-    "case_size": "Heavy",
-    "technology": "Maintenance-free (免维护)",
-    "application": "Heavy truck / bus / industrial",
-    "weight_kg": 53.5,
-    "terminal": null,
-    "polarity": null,
-    "rc_min": null,
-    "c20_ah": 210,
-    "vehicle_type": null,
-    "oem_available": true,
-    "private_label_available": true,
-    "source": "报价单20260831 + standard reference",
-    "verified_date": "2026-09-01",
-    "confidence": "PARTIALLY_VERIFIED"
+    "confidence": "PARTIALLY_VERIFIED",
+    "standard_code": "EN 50342"
   }
 ]
