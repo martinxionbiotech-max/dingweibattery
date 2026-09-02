@@ -13,7 +13,12 @@ const articleTitle = 'OEM battery specification guide';
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>OEM battery specification guide</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-01 · Source: Chengguang Energy technical documentation</p>
     <p class="lead">A battery specification is only as useful as the fields you fix in advance. This guide explains each field buyers should confirm.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> A usable OEM battery specification fixes the standard family, voltage, capacity, CCA with its test basis, dimensions, terminal type and polarity. Never compare CCA values without stating whether they are JIS (−15°C) or EN (−18°C).
+    </div>
 
     <h2>Standard family</h2>
     <p>Start with the standard your vehicles use: {STANDARDS.join(', ')}. JIS models such as 65D26 and DIN/EN models such as H6 describe different naming and test conventions.</p>
@@ -39,6 +44,30 @@ const articleTitle = 'OEM battery specification guide';
     <h2>Dingwei Battery view</h2>
     <p>{RELATIONSHIP} {MANUFACTURER.name} manufactures to JIS, DIN, BCI, AS and SA standards.</p>
     <p><a href="/oem/">Start an OEM program &rarr;</a></p>
+
+    <h2>CCA: two numbers for one battery</h2>
+    <p>Cold cranking ampere values only compare when the test method is stated. The same battery can carry a lower JIS number and a higher EN / SAE number because each method uses a different test condition.</p>
+    <table>
+      <thead>
+        <tr><th>Test method</th><th>Temperature</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>JIS</td><td>−15&deg;C</td><td>Lower number; common in Asia</td></tr>
+        <tr><td>EN / SAE</td><td>−18&deg;C</td><td>Higher number; international</td></tr>
+      </tbody>
+    </table>
+    <p>These are not directly convertible. Always state the test method next to a CCA value when issuing an RFQ.</p>
+
+    <h2>The specification fields that actually matter</h2>
+    <ul>
+      <li>Standard family and model reference</li>
+      <li>Voltage and capacity</li>
+      <li>CCA with its test basis</li>
+      <li>Case size and terminal type</li>
+      <li>Polarity</li>
+      <li>Label and packaging requirements</li>
+    </ul>
+    <p>Put those fields into the <a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ guide</a>, then check the responses against the <a href="/knowledge/oem-battery-supplier-checklist/">supplier checklist</a>.</p>
   </section>
 
   <CTASection title="Finalize your battery specification" />

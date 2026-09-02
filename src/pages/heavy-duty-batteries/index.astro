@@ -13,7 +13,31 @@ const breadcrumbs = [{ label: 'Heavy Duty', href: '/heavy-duty-batteries/' }];
 
 const heavyModels = batteryModels.filter((m) => m.model === '105D31' || m.model === '115D31');
 
+const heavyDutyFaqs = [
+  {
+    q: 'What applications do Dingwei heavy-duty batteries cover?',
+    a: 'Dingwei heavy-duty batteries cover trucks, buses and construction equipment in 6V and 12V configurations, referenced to JIS, DIN, BCI and SA standards.',
+  },
+  {
+    q: 'Can heavy-duty batteries be supplied under my brand?',
+    a: 'Yes. Heavy-duty batteries are available for OEM and private-label programs, with specification, branding, sampling and packaging confirmed on inquiry.',
+  },
+  {
+    q: 'What should I include in a heavy-duty battery specification?',
+    a: 'Include the standard family, voltage, capacity, CCA test basis, case size, terminal type, polarity, reference model and annual volume, then confirm final values with the manufacturer.',
+  },
+];
+
 const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: heavyDutyFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -59,6 +83,17 @@ const jsonLd = [
         {heavyModels.map((model) => <ModelCard model={model} />)}
       </div>
     </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>FAQ</h2>
+    {heavyDutyFaqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/knowledge/oem-battery-specification-guide/">Use the OEM battery specification guide &rarr;</a></p>
   </section>
 
   <CTASection title="Request a heavy-duty battery quote" />

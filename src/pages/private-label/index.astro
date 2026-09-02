@@ -10,7 +10,31 @@ const description = 'Private-label automotive battery programs from Dingwei Batt
 
 const breadcrumbs = [{ label: 'Private Label', href: '/private-label/' }];
 
+const privateLabelFaqs = [
+  {
+    q: 'What does a Dingwei private-label program include?',
+    a: 'It includes your brand identity on label, packaging and documentation, applied to a proven SLI, AGM, EFB or heavy-duty battery platform with a locked specification and controlled repeat supply.',
+  },
+  {
+    q: 'Which battery types can be private-labelled?',
+    a: 'SLI, AGM, EFB and heavy-duty lead-acid starting batteries can be private-labelled across JIS, DIN, BCI, AS and SA standards.',
+  },
+  {
+    q: 'How are repeat private-label orders kept consistent?',
+    a: 'Dingwei uses specification control, pre-production sampling, in-process checks and batch traceability so each production run matches your approved sample.',
+  },
+];
+
 const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: privateLabelFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -62,6 +86,16 @@ const jsonLd = [
       <p>We start with your target market and required standards, agree the specification, then move to design and branding before sampling and production.</p>
       <p><a href="/oem/">See the OEM process &rarr;</a> · <a href="/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs private label &rarr;</a></p>
     </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>FAQ</h2>
+    {privateLabelFaqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
   </section>
 
   <CTASection title="Start a private-label battery line" />

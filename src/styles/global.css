@@ -84,6 +84,24 @@ p { margin: 0 0 1rem; }
 
 .lead { font-size: 1.12rem; color: var(--muted); max-width: 720px; }
 
+.byline {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: -0.5rem 0 1.25rem;
+}
+
+.takeaways {
+  background: #eef3f9;
+  border: 1px solid #d5e0ed;
+  border-left: 4px solid var(--navy);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  margin: 1rem 0 2rem;
+  font-size: 0.98rem;
+}
+
+.takeaways strong { color: var(--navy); }
+
 .note {
   background: #fdf3f2;
   border: 1px solid #f1d1cd;

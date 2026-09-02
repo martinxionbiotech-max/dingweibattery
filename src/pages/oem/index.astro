@@ -12,6 +12,21 @@ const description = 'OEM battery programs from Dingwei Battery, manufactured by 
 
 const breadcrumbs = [{ label: 'OEM', href: '/oem/' }];
 
+const oemFaqs = [
+  {
+    q: 'What batteries does Dingwei supply?',
+    a: 'Dingwei supplies SLI, AGM, EFB and heavy-duty lead-acid starting batteries for OEM and private-label programs, with specifications to JIS, DIN, BCI, AS and SA standards.',
+  },
+  {
+    q: 'Who manufactures Dingwei batteries?',
+    a: 'Dingwei batteries are manufactured by Chengguang Energy, a lead-acid manufacturer founded in 2002 in Jinzhou, Hebei, China, with IATF 16949 certification.',
+  },
+  {
+    q: 'How does Dingwei keep repeat orders consistent?',
+    a: 'Dingwei uses a gated OEM process with a locked specification, pre-production sampling, in-process control, end-of-line testing and batch traceability so repeat orders match the approved sample.',
+  },
+];
+
 const jsonLd = [
   {
     '@context': 'https://schema.org',
@@ -20,6 +35,15 @@ const jsonLd = [
     url: `${SITE.url}/oem/`,
     description,
     manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName, foundingDate: String(MANUFACTURER.founded) },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: oemFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
   },
   {
     '@context': 'https://schema.org',
@@ -84,6 +108,43 @@ const jsonLd = [
   <section class="section container">
     <OEMProcess />
     <p><a href="/knowledge/how-choose-oem-battery-manufacturer/">How to choose an OEM battery manufacturer &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>How to score an OEM battery manufacturer</h2>
+      <p class="lead">Five dimensions separate a dependable OEM partner from a supplier that can only make one acceptable sample.</p>
+      <ol>
+        <li><strong>Specification coverage</strong> — can they produce your standard (JIS / DIN / BCI / AS / SA)?</li>
+        <li><strong>Certification</strong> — is IATF 16949 in place for automotive supply, supported by ISO 9001?</li>
+        <li><strong>Scale</strong> — does factory area and daily output map to your annual volume?</li>
+        <li><strong>Repeatability</strong> — how do they keep repeat orders identical to the approved sample?</li>
+        <li><strong>Export experience</strong> — which markets do they serve, and what documentation do they provide?</li>
+      </ol>
+      <p>Use this scoring view alongside the <a href="/knowledge/how-choose-oem-battery-manufacturer/">five-point decision framework</a> before requesting samples.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Common OEM sourcing mistakes</h2>
+    <ul>
+      <li>Comparing CCA across standards without checking the test method.</li>
+      <li>Fixing the label before fixing the specification.</li>
+      <li>Choosing the lowest price and ignoring repeatability.</li>
+    </ul>
+    <p>Start with the <a href="/knowledge/oem-battery-specification-guide/">OEM battery specification guide</a> so the first approved sample becomes the standard for every later order.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>FAQ</h2>
+      {oemFaqs.map((f) => (
+        <div class="card" style="margin-bottom:0.9rem">
+          <h3>{f.q}</h3>
+          <p style="margin:0">{f.a}</p>
+        </div>
+      ))}
+    </div>
   </section>
 
   <CTASection title="Start your OEM battery project" />
