@@ -9,7 +9,7 @@ import JsonLd from '../components/JsonLd.astro';
 import { SITE, BRAND, MANUFACTURER, RELATIONSHIP, BATTERY_TYPES } from '../data/site';
 import { batteryModels } from '../data/battery-models';
 
-const title = 'Dingwei Battery | OEM & Private-Label Automotive Batteries';
+const title = 'OEM & Private-Label Automotive Batteries | Dingwei Battery';
 const description = 'Dingwei Battery provides OEM and private-label automotive battery programs manufactured by Chengguang Energy (founded 2002).';
 
 const homeFaqs = [
@@ -104,6 +104,30 @@ const jsonLd = [
         <div class="card"><h3>Brand consistency</h3><p>OEM and private-label artwork, packaging and product identity are controlled for repeat orders.</p></div>
         <div class="card"><h3>Export capability</h3><p>Manufacturing by {MANUFACTURER.name} supports export to {MANUFACTURER.exportMarkets} from {MANUFACTURER.exportPorts}.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Why lead-acid</span>
+    <h2>Why lead-acid for your OEM program</h2>
+    <p class="lead">Lead-acid is a 150-year-old supply chain, and starting batteries are not Class 9 dangerous goods like lithium cells. For importers that means simpler shipping, fewer transport restrictions and lower compliance burden — a mature, dependable supply base for a battery program that runs for years.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>Simpler logistics</h3><p>Starting batteries ship under ordinary cargo rules, without the UN38.3, MSDS and Class 9 dangerous-goods handling lithium cells require.</p></div>
+      <div class="card"><h3>Proven repeatability</h3><p>A mature process with decades of field data means a locked specification stays consistent across production runs.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Standards</span>
+      <h2>Standards we manufacture to</h2>
+      <p class="lead">One factory, every major standard — so one supplier covers all your markets.</p>
+      <div class="grid grid--3">
+        <div class="card"><h3>JIS</h3><p>Japanese and Asian-market fitments (e.g. D23, D26, D31, B24 case groups).</p></div>
+        <div class="card"><h3>DIN / EN</h3><p>European fitments (e.g. H5–H8, LN2–LN5 case groups).</p></div>
+        <div class="card"><h3>BCI / AS / SA</h3><p>North American, Australian and South African fitments.</p></div>
+      </div>
+      <p><a href="/data/65d26/">See reference model specifications &rarr;</a></p>
     </div>
   </section>
 
