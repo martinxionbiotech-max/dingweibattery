@@ -135,6 +135,125 @@ const comparison: Record<string, { against: string; points: string[] }> = {
       `CCA is test-method dependent: the H6 lists ${model.cca.value} CCA (EN -18°C reference) while the 80D26 lists 490 CCA (JIS -15°C reference). Confirm final values with the manufacturer.`,
     ],
   },
+  '75d23': {
+    against: '65D23',
+    points: [
+      `Both use the D23 case (230 × 175 × 220 mm), but the 75D23 is rated 72 Ah versus 60 Ah for the 65D23.`,
+      `Listed CCA references are ${model.cca.value} for the 75D23 and 370 for the 65D23; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  '55b24': {
+    against: '65B24',
+    points: [
+      `Both use the B24 case (238 × 129 × 220 mm), but the 55B24 is rated 48 Ah versus 50 Ah for the 65B24.`,
+      `Listed CCA references are ${model.cca.value} for the 55B24 and 370 for the 65B24; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  '65b24': {
+    against: '55B24',
+    points: [
+      `Both use the B24 case (238 × 129 × 220 mm), but the 65B24 is rated 50 Ah versus 48 Ah for the 55B24.`,
+      `Listed CCA references are ${model.cca.value} for the 65B24 and 370 for the 55B24; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  '85d26': {
+    against: '95D26',
+    points: [
+      `Both use the D26 case (256 × 175 × 220 mm) and are rated 84 Ah; the two differ in CCA reference.`,
+      `Listed CCA references are ${model.cca.value} for the 85D26 and 565 for the 95D26; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  '95d26': {
+    against: '85D26',
+    points: [
+      `Both use the D26 case (256 × 175 × 220 mm) and are rated 84 Ah; the two differ in CCA reference.`,
+      `Listed CCA references are ${model.cca.value} for the 95D26 and 520 for the 85D26; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  '55d23': {
+    against: '65D23',
+    points: [
+      `Both are JIS D23 references rated at 60 Ah, but the 55D23 is narrower and shorter (232 × 173 × 202 mm) than the 65D23 (230 × 175 × 220 mm).`,
+      `Listed CCA references are ${model.cca.value} for the 55D23 and 370 for the 65D23; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  h5: {
+    against: 'H6',
+    points: [
+      `Both are DIN/EN references; the H5 is rated 60 Ah (242 mm long) while the H6 is rated 72 Ah (278 mm long).`,
+      `Listed CCA references are ${model.cca.value} for the H5 and 660 for the H6; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  h7: {
+    against: 'H8',
+    points: [
+      `Both are DIN/EN references; the H7 is rated 84 Ah (315 mm long) while the H8 is rated 96 Ah (352 mm long).`,
+      `Listed CCA references are ${model.cca.value} for the H7 and 900 for the H8; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  h8: {
+    against: 'H7',
+    points: [
+      `Both are DIN/EN references; the H8 is rated 96 Ah (352 mm long) while the H7 is rated 84 Ah (315 mm long).`,
+      `Listed CCA references are ${model.cca.value} for the H8 and 760 for the H7; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  din70: {
+    against: 'DIN72',
+    points: [
+      `Both share the L3 case (278 × 175 × 190 mm); the DIN70 is rated 70 Ah versus 72 Ah for the DIN72.`,
+      `Listed CCA references are ${model.cca.value} for the DIN70 and 660 for the DIN72; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  din72: {
+    against: 'DIN75',
+    points: [
+      `Both share the L3 case (278 × 175 × 190 mm); the DIN72 is rated 72 Ah versus 75 Ah for the DIN75.`,
+      `Listed CCA references are ${model.cca.value} for the DIN72 and 680 for the DIN75; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  din75: {
+    against: 'DIN80',
+    points: [
+      `The DIN75 uses the L3 case (278 mm long) while the DIN80 uses the longer L4 case (315 mm long); capacities are 75 Ah versus 80 Ah.`,
+      `Listed CCA references are ${model.cca.value} for the DIN75 and 760 for the DIN80; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  din80: {
+    against: 'DIN100',
+    points: [
+      `The DIN80 uses the L4 case (315 mm long) while the DIN100 uses the longer L5 case (353 mm long); capacities are 80 Ah versus 100 Ah.`,
+      `Listed CCA references are ${model.cca.value} for the DIN80 and 900 for the DIN100; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  din100: {
+    against: 'DIN80',
+    points: [
+      `The DIN100 uses the L5 case (353 mm long) while the DIN80 uses the shorter L4 case (315 mm long); capacities are 100 Ah versus 80 Ah.`,
+      `Listed CCA references are ${model.cca.value} for the DIN100 and 760 for the DIN80; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  n100: {
+    against: 'N150',
+    points: [
+      `Both are JIS N-series heavy-duty references; the N100 is rated 100 Ah (406 mm long) while the N150 is rated 160 Ah (508 mm long).`,
+      `Listed CCA references are ${model.cca.value} for the N100 and 1050 for the N150; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  n150: {
+    against: 'N200',
+    points: [
+      `Both are JIS N-series heavy-duty references; the N150 is rated 160 Ah (508 mm long) while the N200 is rated 200 Ah (518 mm long).`,
+      `Listed CCA references are ${model.cca.value} for the N150 and 1100 for the N200; both must be confirmed with the manufacturer.`,
+    ],
+  },
+  n200: {
+    against: 'N150',
+    points: [
+      `Both are JIS N-series heavy-duty references; the N200 is rated 200 Ah (518 mm long) while the N150 is rated 160 Ah (508 mm long).`,
+      `Listed CCA references are ${model.cca.value} for the N200 and 1050 for the N150; both must be confirmed with the manufacturer.`,
+    ],
+  },
 };
 const compare = comparison[model.model.toLowerCase()];
 const aliases = model.aliases ?? [];
