@@ -228,6 +228,11 @@ form { background: var(--surface); border: 1px solid var(--line); border-radius:
 .finder-card h3 { margin: 0 0 0.4rem; }
 .finder-card p { color: var(--muted); font-size: 0.94rem; margin: 0.3rem 0; }
 
+.data-table { font-size: 0.92rem; }
+.data-table th, .data-table td { padding: 0.5rem 0.7rem; }
+.data-table td a { font-weight: 700; }
+.compare-table td.diff { background: #fdf3f2; font-weight: 700; }
+
 .model-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: var(--radius); padding: 1.1rem; box-shadow: var(--shadow); }
 .model-card h3 { margin: 0 0 0.4rem; }
 .model-card p { color: var(--muted); font-size: 0.94rem; margin: 0.3rem 0; }

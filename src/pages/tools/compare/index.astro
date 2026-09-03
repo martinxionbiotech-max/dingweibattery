@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, RELATIONSHIP } from '../../../data/site';
+import { batteryModels, modelPath } from '../../../data/battery-models';
+
+const title = 'Compare Battery Models | Dingwei Battery';
+const description = 'Compare two battery models side by side — voltage, capacity, CCA, dimensions, case size and application — from the Dingwei Battery reference database.';
+
+const breadcrumbs = [{ label: 'Compare', href: '/tools/compare/' }];
+
+const modelsJson = JSON.stringify(
+  batteryModels.map((m) => ({
+    model: m.model,
+    standard: m.standard,
+    standard_code: m.standard_code,
+    voltage: m.voltage,
+    capacity: m.capacity_ah,
+    c20: m.c20_ah,
+    cca: m.cca.value,
+    cca_basis: m.cca.basis,
+    rc: m.rc_min,
+    dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+    case_size: m.case_size,
+    weight: m.weight_kg,
+    technology: m.technology,
+    application: m.application,
+    aliases: m.aliases ?? [],
+    href: modelPath(m.model),
+  })),
+);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: `${SITE.url}/tools/compare/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Tool</span>
+    <h1>Compare battery models</h1>
+    <p class="lead">Pick two models to compare their specification side by side. CCA is test-method dependent, so compare within the same standard family where possible.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="finder-filters">
+        <div class="field">
+          <label for="c-a">Model A</label>
+          <select id="c-a"></select>
+        </div>
+        <div class="field">
+          <label for="c-b">Model B</label>
+          <select id="c-b"></select>
+        </div>
+      </div>
+      <div id="compare-output" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>How to read the comparison</h2>
+    <p>Physical dimensions and case size determine fitment; capacity and CCA determine electrical performance. A larger case number in the same standard family generally means a larger battery, but terminal type and polarity must still be confirmed separately.</p>
+    <p><a href="/data/">Browse the full model database &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Read the specification guide &rarr;</a></p>
+  </section>
+
+  <CTASection title="Confirm a specification with the manufacturer" />
+
+  <script type="application/json" id="compare-data" set:html={modelsJson}></script>
+  <script is:inline>
+    const MODELS = JSON.parse(document.getElementById('compare-data').textContent);
+    const selA = document.getElementById('c-a');
+    const selB = document.getElementById('c-b');
+    const out = document.getElementById('compare-output');
+
+    const opts = MODELS.map((m) => `<option value="${m.model}">${m.model} (${m.standard}, ${m.capacity}Ah)</option>`).join('');
+    selA.innerHTML = opts;
+    selB.innerHTML = opts;
+    selA.value = MODELS[0].model;
+    selB.value = MODELS[1].model;
+
+    function field(label, a, b) {
+      const same = a === b;
+      return `<tr><th>${label}</th><td${same ? '' : ' class="diff"'}>${a}</td><td${same ? '' : ' class="diff"'}>${b}</td></tr>`;
+    }
+
+    function render() {
+      const a = MODELS.find((m) => m.model === selA.value);
+      const b = MODELS.find((m) => m.model === selB.value);
+      if (!a || !b) return;
+
+      const aliases = (m) => (m.aliases.length ? m.aliases.join(', ') : '—');
+
+      out.innerHTML = `
+        <table class="data-table compare-table">
+          <thead><tr><th>Field</th><th>${a.model}</th><th>${b.model}</th></tr></thead>
+          <tbody>
+            ${field('Standard', a.standard + ' (' + a.standard_code + ')', b.standard + ' (' + b.standard_code + ')')}
+            ${field('Voltage', a.voltage + ' V', b.voltage + ' V')}
+            ${field('Capacity (C20)', a.capacity + ' Ah', b.capacity + ' Ah')}
+            ${field('CCA (reference)', a.cca + ' CCA', b.cca + ' CCA')}
+            ${field('CCA basis', a.cca_basis, b.cca_basis)}
+            ${field('Reserve capacity', a.rc !== null ? a.rc + ' min' : 'Confirm on inquiry', b.rc !== null ? b.rc + ' min' : 'Confirm on inquiry')}
+            ${field('Dimensions (mm)', a.dims, b.dims)}
+            ${field('Case size', a.case_size, b.case_size)}
+            ${field('Weight', a.weight + ' kg', b.weight + ' kg')}
+            ${field('Technology', a.technology, b.technology)}
+            ${field('Application', a.application, b.application)}
+            ${field('Aliases', aliases(a), aliases(b))}
+          </tbody>
+        </table>
+        <p class="note">CCA is test-method dependent (JIS −15°C vs EN/SAE −18°C). Highlighted cells show where the two models differ. Confirm all values with the manufacturer.</p>
+        <p style="margin-top:0.8rem"><a href="${a.href}">View ${a.model} &rarr;</a> · <a href="${b.href}">View ${b.model} &rarr;</a> · <a href="/contact/">Request a quote &rarr;</a></p>
+      `;
+    }
+
+    selA.addEventListener('change', render);
+    selB.addEventListener('change', render);
+    render();
+  </script>
+</BaseLayout>

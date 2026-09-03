@@ -124,6 +124,7 @@ export const NAV_LINKS = [
   { label: 'OEM', href: '/oem/' },
   { label: 'Private Label', href: '/private-label/' },
   { label: 'Heavy Duty', href: '/heavy-duty-batteries/' },
+  { label: 'Models', href: '/data/' },
   { label: 'Factory', href: '/factory/' },
   { label: 'Knowledge', href: '/knowledge/what-is-oem-battery/' },
   { label: 'Contact', href: '/contact/' },

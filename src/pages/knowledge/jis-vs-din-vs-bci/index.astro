@@ -1,0 +1,62 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'JIS vs DIN vs BCI Battery Standards | Dingwei Battery';
+const description = 'How JIS, DIN/EN and BCI battery standards differ in case size, terminal layout and CCA test method — and how to pick the right one for your market.';
+const articleTitle = 'JIS vs DIN vs BCI battery standards';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Standards</span>
+    <h1>JIS vs DIN vs BCI battery standards</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: battery standards documentation</p>
+    <p class="lead">A battery&rsquo;s &ldquo;size&rdquo; is defined by the standard family your market uses. JIS, DIN/EN and BCI batteries with similar electrical ratings are physically different — and not interchangeable.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> JIS (Japanese/Asian), DIN/EN (European) and BCI (North American) define different case dimensions, terminal layouts and CCA test methods. A battery from one family will not necessarily fit a vehicle specified for another, even when the Ah rating is similar.
+    </div>
+
+    <h2>The three families at a glance</h2>
+    <table>
+      <thead><tr><th>Standard</th><th>Region</th><th>Typical case reference</th><th>CCA test</th></tr></thead>
+      <tbody>
+        <tr><td>JIS</td><td>Japan / Asia</td><td>D23, D26, D31, B24</td><td>&minus;15&deg;C</td></tr>
+        <tr><td>DIN / EN</td><td>Europe</td><td>H5–H8 (LN2–LN5), L3–L5</td><td>&minus;18&deg;C</td></tr>
+        <tr><td>BCI</td><td>North America</td><td>Group 24, 27, 31, 34, 48, 65</td><td>&minus;18&deg;C (SAE)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Why they are not interchangeable</h2>
+    <p>Three differences stop a battery from crossing standard families:</p>
+    <ol>
+      <li><strong>Case dimensions</strong> — a JIS D26 and a DIN H6 may both be ~12V/72Ah, but their length, width and height differ, so they do not fit the same tray.</li>
+      <li><strong>Terminal layout</strong> — terminal type, position and polarity convention differ between markets. A battery that fits physically can still have the wrong terminals.</li>
+      <li><strong>CCA test method</strong> — JIS tests at &minus;15&deg;C, EN/SAE at &minus;18&deg;C, so the printed CCA is not directly comparable across families.</li>
+    </ol>
+
+    <h2>How to choose the right standard</h2>
+    <p>Choose by the vehicle&rsquo;s market, not by the battery&rsquo;s specs:</p>
+    <ul>
+      <li><strong>Japanese or Asian vehicles</strong> → specify JIS and pick the D/B case group.</li>
+      <li><strong>European vehicles</strong> → specify DIN/EN and pick the H/LN/L case group.</li>
+      <li><strong>North American vehicles</strong> → specify BCI and pick the Group number.</li>
+    </ul>
+    <p class="note">One factory can supply every major standard, but the buyer must name the correct family. A &ldquo;72Ah battery&rdquo; without a standard is not a complete specification.</p>
+
+    <h2>What buyers should ask</h2>
+    <ul>
+      <li>Which standard family does my target vehicle use?</li>
+      <li>What is the exact case reference (D26, H6, Group 34)?</li>
+      <li>What terminal type and polarity does the vehicle need?</li>
+      <li>Is the CCA number JIS or EN/SAE?</li>
+    </ul>
+
+    <p>See how CCA differs between standards in the <a href="/knowledge/what-is-cca/">CCA guide</a>, and browse models by standard in the <a href="/data/">model database</a>.</p>
+    <p>{RELATIONSHIP}</p>
+    <p><a href="/data/">Browse models by standard &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
+  </section>
+
+  <CTASection title="Specify the right standard for your market" />
+</ArticleLayout>

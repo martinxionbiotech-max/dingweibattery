@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE, RELATIONSHIP } from '../../data/site';
+import { batteryModels, modelPath } from '../../data/battery-models';
+
+const title = 'Battery Model Database | Dingwei Battery';
+const description = 'Reference specifications for 23 JIS, DIN/EN and heavy-duty battery models from Dingwei Battery. Filter by standard family, case size and capacity.';
+
+const breadcrumbs = [{ label: 'Data', href: '/data/' }];
+
+const rows = batteryModels
+  .map((m) => ({
+    model: m.model,
+    standard: m.standard,
+    caseSize: m.case_size,
+    voltage: m.voltage,
+    capacity: m.capacity_ah,
+    cca: m.cca.value,
+    dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+    href: modelPath(m.model),
+  }))
+  .sort((a, b) => a.standard.localeCompare(b.standard) || a.capacity - b.capacity);
+
+const standards = [...new Set(rows.map((r) => r.standard))];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Battery Model Database',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: `${r.model} Battery`,
+      url: `${SITE.url}${r.href}`,
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Data', item: `${SITE.url}/data/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Database</span>
+    <h1>Battery model database</h1>
+    <p class="lead">{RELATIONSHIP} Reference specifications for {rows.length} battery models across {standards.join(' and ')} standards. CCA values are shown as reference; confirm final values with the manufacturer.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Standard</th>
+            <th>Case</th>
+            <th>Voltage</th>
+            <th>Capacity</th>
+            <th>CCA (ref)</th>
+            <th>Dimensions (mm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td><a href={r.href}>{r.model}</a></td>
+              <td>{r.standard}</td>
+              <td>{r.caseSize}</td>
+              <td>{r.voltage} V</td>
+              <td>{r.capacity} Ah</td>
+              <td>{r.cca}</td>
+              <td>{r.dims}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="note">CCA is a reference value and is test-method dependent (JIS −15°C vs EN/SAE −18°C). Do not compare CCA across standards without confirming the basis.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>How to use this database</h2>
+    <p>Find the reference model that matches your target market&rsquo;s standard family, then confirm the exact specification — voltage, capacity, CCA basis, case size, terminal type and polarity — with the manufacturer before ordering.</p>
+    <p><a href="/knowledge/oem-battery-specification-guide/">Read the specification guide &rarr;</a> · <a href="/tools/compare/">Compare two models &rarr;</a> · <a href="/contact/">Request a custom fitment &rarr;</a></p>
+  </section>
+
+  <CTASection title="Confirm your battery model specification" />
+</BaseLayout>

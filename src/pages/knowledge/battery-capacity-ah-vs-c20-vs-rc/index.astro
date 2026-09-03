@@ -1,0 +1,57 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Capacity: Ah vs C20 vs RC | Dingwei Battery';
+const description = 'Understand battery capacity ratings — amp-hours (Ah), the C20 rate and reserve capacity (RC) — and how to compare them in an OEM battery specification.';
+const articleTitle = 'Battery capacity: Ah vs C20 vs RC';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Engineering</span>
+    <h1>Battery capacity: Ah vs C20 vs RC</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: battery test standards</p>
+    <p class="lead">Three numbers describe a battery&rsquo;s capacity, and they measure different things. Mixing them up is one of the most common sourcing mistakes.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Amp-hours (Ah) measures total stored charge; C20 specifies the discharge rate at which that Ah is measured (a 20-hour discharge); reserve capacity (RC) measures minutes the battery can sustain a fixed load. Ah and RC answer different questions and are not interchangeable.
+    </div>
+
+    <h2>Ah: total stored charge</h2>
+    <p>Amp-hours is the total charge a battery can deliver over a discharge. A 60 Ah battery can, in principle, supply 1 amp for 60 hours, or 6 amps for 10 hours — within the limits of the rated discharge rate.</p>
+    <p>The key point: Ah is only meaningful when tied to a discharge rate. A battery rated &ldquo;60 Ah&rdquo; without a rate is incomplete.</p>
+
+    <h2>C20: the 20-hour rate</h2>
+    <p>C20 (or the 20-hour rate) is the standard discharge rate for most automotive batteries: the current that fully discharges the battery over 20 hours. A 60 Ah (C20) battery is rated to deliver 3 amps for 20 hours.</p>
+    <p>Discharging faster reduces the effective capacity (a battery delivers less total energy at a high discharge rate). This is why the same battery shows a higher Ah at C20 than at a fast rate like C5.</p>
+
+    <h2>RC: reserve capacity</h2>
+    <p>Reserve capacity measures minutes a fully charged battery can deliver a fixed 25-amp load before dropping below 10.5 V. It answers a different question: how long can the battery run the vehicle&rsquo;s electrical load if the charging system fails.</p>
+    <p>RC is more useful than Ah for vehicles with heavy accessory loads — it is a runtime-under-load metric, not a total-energy metric.</p>
+
+    <h2>How they relate — and how they don&rsquo;t</h2>
+    <table>
+      <thead><tr><th>Metric</th><th>Measures</th><th>Unit</th><th>Answers</th></tr></thead>
+      <tbody>
+        <tr><td>Ah</td><td>Total stored charge</td><td>amp-hours</td><td>How much energy is stored?</td></tr>
+        <tr><td>C20</td><td>Discharge rate for the Ah rating</td><td>20-hour rate</td><td>At what rate is Ah measured?</td></tr>
+        <tr><td>RC</td><td>Runtime under a fixed load</td><td>minutes</td><td>How long under load if charging fails?</td></tr>
+      </tbody>
+    </table>
+    <p class="note">A higher Ah does not automatically mean a higher RC — the relationship depends on battery design. Confirm each value separately for your specification.</p>
+
+    <h2>What buyers should ask</h2>
+    <ul>
+      <li>Is the Ah rating at C20, or another rate?</li>
+      <li>What reserve capacity (RC) does the battery carry?</li>
+      <li>Which value matters more for my application — runtime (RC) or total energy (Ah)?</li>
+    </ul>
+
+    <p>Use this together with the <a href="/knowledge/what-is-cca/">CCA guide</a> — CCA is starting power, Ah/RC is capacity, and both belong in an <a href="/knowledge/oem-battery-specification-guide/">OEM specification</a>.</p>
+    <p>{RELATIONSHIP}</p>
+    <p><a href="/data/">Browse model capacity references &rarr;</a></p>
+  </section>
+
+  <CTASection title="Confirm capacity ratings for your model" />
+</ArticleLayout>

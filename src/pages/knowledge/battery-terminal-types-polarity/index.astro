@@ -1,0 +1,48 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Terminal Types & Polarity | Dingwei Battery';
+const description = 'Battery terminal types, positions and polarity — and why getting them wrong means the battery will not fit the vehicle. A guide for OEM battery buyers.';
+const articleTitle = 'Battery terminal types and polarity';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Engineering</span>
+    <h1>Battery terminal types and polarity</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: battery standards documentation</p>
+    <p class="lead">A battery can match the right standard and case size and still not fit — because the terminal type, position or polarity is wrong. Terminal detail is a fitment decision, not an afterthought.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Terminal type (post style), position (where the posts sit on the case) and polarity (which post is positive) are all fitment-critical. They are not interchangeable across markets and must be confirmed against the vehicle before ordering.
+    </div>
+
+    <h2>Terminal type</h2>
+    <p>Different markets use different post designs. Common automotive types include the tapered top post (most JIS/DIN/BCI cars), the side terminal (some North American GM applications), and stud/flag terminals used on heavy-duty and marine batteries.</p>
+    <p>A terminal that does not match the vehicle cable clamp will not connect securely — this is a physical compatibility issue, not a performance issue.</p>
+
+    <h2>Terminal position</h2>
+    <p>The same battery model can ship with the positive post on the left or the right. Manufacturers often denote this with an L or R suffix (for example, a D23L versus a D23R). The position matters because the vehicle&rsquo;s cable lengths are fixed.</p>
+
+    <h2>Polarity</h2>
+    <p>Polarity is the assignment of positive and negative to the two posts. Reversing polarity on connection can damage the vehicle&rsquo;s electrical system, so polarity is confirmed against the vehicle wiring before fitment.</p>
+
+    <h2>Why these are confirmed on inquiry</h2>
+    <p>On Dingwei reference pages, terminal type and polarity are marked &ldquo;confirm on inquiry&rdquo; rather than guessed. That is deliberate: a wrong terminal specification turns a correct battery into a wrong battery. The manufacturer confirms terminal detail against the buyer&rsquo;s vehicle or fleet requirement.</p>
+
+    <h2>What buyers should ask</h2>
+    <ul>
+      <li>What terminal type does the vehicle use — top post, side terminal or stud?</li>
+      <li>Is the positive post on the left or right (L/R)?</li>
+      <li>What is the correct polarity for the vehicle wiring?</li>
+      <li>Does the heavy-duty application need dual or flag terminals?</li>
+    </ul>
+
+    <p>Confirm terminals together with <a href="/knowledge/battery-dimensions-case-size/">dimensions and case size</a>, then lock them into the <a href="/knowledge/oem-battery-specification-guide/">OEM specification</a>.</p>
+    <p>{RELATIONSHIP}</p>
+    <p><a href="/contact/">Confirm terminal details on your RFQ &rarr;</a></p>
+  </section>
+
+  <CTASection title="Confirm terminal type and polarity" />
+</ArticleLayout>

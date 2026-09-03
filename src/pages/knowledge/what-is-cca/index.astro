@@ -1,0 +1,64 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP, STANDARDS } from '../../../data/site';
+
+const title = 'What Is CCA (Cold Cranking Amps)? | Dingwei Battery';
+const description = 'Cold cranking amps (CCA) measures a battery\'s starting power. Learn why CCA is test-method dependent (JIS vs EN vs SAE) and how to compare it correctly.';
+const articleTitle = 'What is CCA (cold cranking amps)?';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Engineering</span>
+    <h1>What is CCA (cold cranking amps)?</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: battery test standards</p>
+    <p class="lead">CCA measures how much current a battery can deliver for 30 seconds at a cold temperature before dropping below a cut-off voltage. It is the number most buyers compare — and the number most often compared incorrectly.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Cold cranking amps (CCA) is the current a fully charged battery can deliver for 30 seconds at a defined cold temperature while maintaining a minimum voltage. Because the temperature and voltage thresholds differ between standards, a JIS CCA and an EN CCA are not the same number for the same battery.
+    </div>
+
+    <h2>What CCA actually measures</h2>
+    <p>CCA answers one question: will this battery start the engine in cold weather? A higher CCA means more current available to the starter motor at low temperature, where engine oil is thicker and the cranking demand is highest.</p>
+    <p>It is a starting-power metric, not a capacity metric. A battery can have a high CCA and a modest amp-hour (Ah) capacity, or the reverse — the two measure different things.</p>
+
+    <h2>Why one battery has two CCA numbers</h2>
+    <p>CCA is not a single universal test. The main standards measure at different temperatures:</p>
+    <table>
+      <thead><tr><th>Standard</th><th>Test temperature</th><th>Common use</th></tr></thead>
+      <tbody>
+        <tr><td>JIS</td><td>&minus;15&deg;C</td><td>Japanese / Asian-market batteries</td></tr>
+        <tr><td>EN</td><td>&minus;18&deg;C</td><td>European batteries</td></tr>
+        <tr><td>SAE</td><td>&minus;18&deg;C</td><td>North American batteries</td></tr>
+        <tr><td>DIN</td><td>&minus;18&deg;C</td><td>German / European batteries</td></tr>
+      </tbody>
+    </table>
+    <p>Because JIS tests at a warmer &minus;15&deg;C, the same battery can show a different CCA number under JIS than under EN/SAE. The two are not interchangeable and there is no universal percentage conversion.</p>
+
+    <h2>How to compare CCA correctly</h2>
+    <ol>
+      <li><strong>Confirm the test basis first</strong> — JIS, EN, SAE or DIN. Ask the supplier which standard the number refers to.</li>
+      <li><strong>Compare within one standard</strong> — only compare JIS with JIS, EN with EN.</li>
+      <li><strong>Match the cut-off voltage</strong> — some standards use different end voltages, which shifts the result.</li>
+      <li><strong>Treat the number as a reference</strong> — the final CCA for a specific battery is confirmed by the manufacturer against its test procedure.</li>
+    </ol>
+    <p class="note">On Dingwei reference pages, CCA is shown as a <strong>(reference)</strong> value. Confirm the final CCA and its test basis with the manufacturer before using it in a product specification.</p>
+
+    <h2>What buyers should ask</h2>
+    <ul>
+      <li>Which standard is this CCA measured to — JIS, EN, SAE or DIN?</li>
+      <li>At what temperature and cut-off voltage?</li>
+      <li>Is this a nominal value or a tested value from a specific production batch?</li>
+      <li>How does CCA relate to the capacity (Ah) you are quoting?</li>
+    </ul>
+
+    <h2>CCA vs Ah: do not confuse them</h2>
+    <p>Ah (amp-hours) measures stored energy over time — how long the battery can supply current. CCA measures the peak current burst for starting. A vehicle with high electrical accessories needs Ah; a cold-weather diesel needs CCA. Most OEM specifications list both, and both must be confirmed.</p>
+    <p>Read the difference in full in the <a href="/knowledge/battery-capacity-ah-vs-c20-vs-rc/">capacity guide</a> and see how both fit into an <a href="/knowledge/oem-battery-specification-guide/">OEM specification</a>.</p>
+
+    <p>{RELATIONSHIP} Models across {STANDARDS.join(', ')} are available with CCA values confirmed to the relevant test standard.</p>
+    <p><a href="/data/">Browse model CCA references &rarr;</a> · <a href="/tools/compare/">Compare two models &rarr;</a></p>
+  </section>
+
+  <CTASection title="Confirm the CCA basis for your model" />
+</ArticleLayout>

@@ -1,0 +1,53 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Dimensions & Case Size | Dingwei Battery';
+const description = 'How battery dimensions (length × width × height) and case size groups determine fitment, and how to read a case reference like D26, H6 or Group 34.';
+const articleTitle = 'Battery dimensions and case size';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Engineering</span>
+    <h1>Battery dimensions and case size</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: battery standards documentation</p>
+    <p class="lead">The physical footprint of a battery — length, width and height — decides whether it fits the tray, the hold-down, and the hood clearance. Case size is the shorthand for that footprint.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Battery dimensions are given as length × width × height in millimetres, and case size is the standard-family name for a fixed footprint (for example D26 in JIS, H6 in DIN, Group 34 in BCI). A case size maps to a specific set of dimensions and terminal positions.
+    </div>
+
+    <h2>What dimensions mean</h2>
+    <p>Length is the long edge, width the short edge, and height is measured to the top of the case (some standards add a &ldquo;total height&rdquo; including the terminal). A battery that is a few millimetres too long or too tall will not fit the tray or close the hood.</p>
+
+    <h2>Case size as shorthand</h2>
+    <p>Rather than quoting three numbers, buyers use the case reference from the standard family:</p>
+    <table>
+      <thead><tr><th>Standard</th><th>Case references</th><th>Example dimensions</th></tr></thead>
+      <tbody>
+        <tr><td>JIS</td><td>D23, D26, D31, B24</td><td>D26 ≈ 256 × 175 × 220 mm</td></tr>
+        <tr><td>DIN / EN</td><td>H5–H8 (LN2–LN5)</td><td>H6/LN3 ≈ 278 × 175 × 190 mm</td></tr>
+        <tr><td>BCI</td><td>Group 24, 27, 31, 34, 48, 65</td><td>Group 34 ≈ 260 × 173 × 200 mm</td></tr>
+      </tbody>
+    </table>
+    <p class="note">The example dimensions are typical references, not universal — always confirm the exact dimensions for the specific model.</p>
+
+    <h2>Why case size and terminal must be confirmed together</h2>
+    <p>Two batteries with the same case size can still differ in terminal position (L/R) and terminal type. Fitment is confirmed by matching the case dimensions <em>and</em> the terminal layout to the vehicle. See the <a href="/knowledge/battery-terminal-types-polarity/">terminal and polarity guide</a>.</p>
+
+    <h2>What buyers should ask</h2>
+    <ul>
+      <li>What are the exact dimensions (L × W × H) for this model?</li>
+      <li>Is the height to the case top, or the total height including terminals?</li>
+      <li>Does this case size match the tray and hold-down of my target vehicle?</li>
+      <li>Is the terminal position (L/R) compatible?</li>
+    </ul>
+
+    <p>Filter models by case size and dimensions in the <a href="/data/">model database</a>, and see how standards differ in <a href="/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>.</p>
+    <p>{RELATIONSHIP}</p>
+    <p><a href="/data/">Browse models with dimensions &rarr;</a> · <a href="/contact/">Confirm fitment &rarr;</a></p>
+  </section>
+
+  <CTASection title="Confirm dimensions and case size" />
+</ArticleLayout>
