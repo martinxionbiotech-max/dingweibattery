@@ -93,8 +93,9 @@ const jsonLd = [
 
   <CTASection title="Request an OEM fitment check" />
 
+  <script type="application/json" id="finder-data" set:html={finderJson}></script>
   <script is:inline>
-    const MODELS = {finderJson};
+    const MODELS = JSON.parse(document.getElementById('finder-data').textContent);
     const resultsEl = document.getElementById('finder-results');
     const countEl = document.getElementById('finder-count');
 
