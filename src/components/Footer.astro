@@ -1,5 +1,5 @@
 ---
-import { BRAND, MANUFACTURER, RELATIONSHIP, CERTIFICATIONS } from '../data/site';
+import { BRAND, MANUFACTURER, RELATIONSHIP, CERTIFICATIONS, CONTACT } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -28,6 +28,14 @@ const year = new Date().getFullYear();
           <li><a href="/knowledge/oem-battery-supplier-checklist/">Supplier Checklist</a></li>
           <li><a href="/knowledge/oem-battery-specification-guide/">Specification Guide</a></li>
           <li><a href="/tools/battery-finder/">Battery Finder</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul class="site-footer__list">
+          <li>Email: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+          <li>WhatsApp: <a href={CONTACT.whatsappLink} target="_blank" rel="noopener">{CONTACT.whatsapp}</a></li>
+          <li><a href="/contact/">Request OEM Quote</a></li>
         </ul>
       </div>
       <div>

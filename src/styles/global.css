@@ -81,6 +81,8 @@ p { margin: 0 0 1rem; }
 .btn--ghost:hover { background: var(--red); color: #fff; }
 .btn--light { background: #fff; color: var(--navy); border-color: #fff; }
 .btn--light:hover { background: #eef1f5; border-color: #eef1f5; color: var(--navy); }
+.btn--whatsapp { background: #25d366; border-color: #25d366; color: #fff; }
+.btn--whatsapp:hover { background: #1fb855; border-color: #1fb855; color: #fff; }
 
 .lead { font-size: 1.12rem; color: var(--muted); max-width: 720px; }
 
@@ -211,6 +213,10 @@ form { background: var(--surface); border: 1px solid var(--line); border-radius:
 }
 
 .mfg-photo { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); margin: 1rem 0; }
+
+.contact-bar { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.contact-bar .card p { margin: 0.2rem 0 0.6rem; }
+.contact-bar .card a { word-break: break-all; }
 
 .model-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 .model-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: var(--radius); padding: 1.1rem; box-shadow: var(--shadow); }

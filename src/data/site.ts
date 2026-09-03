@@ -24,6 +24,12 @@ export const MANUFACTURER = {
 export const RELATIONSHIP =
   'Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Energy (founded 2002).';
 
+export const CONTACT = {
+  email: 'martin@dinweys.com',
+  whatsapp: '+86 13323237275',
+  whatsappLink: 'https://wa.me/8613323237275',
+};
+
 export const CERTIFICATIONS = ['IATF 16949', 'ISO 9001', 'ISO 45001', 'OHSAS 18001', 'CE'];
 
 export const STANDARDS = ['JIS', 'DIN', 'BCI', 'AS', 'SA'];
