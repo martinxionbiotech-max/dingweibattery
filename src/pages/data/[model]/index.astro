@@ -146,6 +146,9 @@ const aliases = model.aliases ?? [];
     <span class="tag">Model data / {model.standard}</span>
     <h1>{h1}</h1>
     <p class="lead">{lead}</p>
+    {model.image && (
+      <img class="model-photo" src={model.image} alt={`${model.model} battery`} width="800" height="800" loading="lazy" decoding="async" />
+    )}
     <p><a href="/contact/">Request OEM Quote</a> · <a href="/tools/battery-finder/">Use the battery finder</a></p>
   </section>
 

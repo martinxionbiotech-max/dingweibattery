@@ -1,6 +1,7 @@
 [
   {
     "model": "65D26",
+    "image": "/images/product/model-65d26.webp",
     "standard": "JIS",
     "standard_code": "JIS D 5301",
     "voltage": 12,
@@ -97,6 +98,7 @@
   },
   {
     "model": "105D31",
+    "image": "/images/product/model-105d31.webp",
     "standard": "JIS",
     "standard_code": "JIS D 5301",
     "voltage": 12,
@@ -161,6 +163,7 @@
   },
   {
     "model": "H6",
+    "image": "/images/product/model-h6.webp",
     "aliases": [
       "H6",
       "LN3",
@@ -230,6 +233,7 @@
   },
   {
     "model": "55B24",
+    "image": "/images/product/model-55b24.webp",
     "standard": "JIS",
     "voltage": 12,
     "capacity_ah": 48,
@@ -432,6 +436,7 @@
   },
   {
     "model": "H8",
+    "image": "/images/product/model-h8.webp",
     "aliases": [
       "H8",
       "LN5",

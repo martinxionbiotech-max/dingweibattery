@@ -191,6 +191,11 @@ form { background: var(--surface); border: 1px solid var(--line); border-radius:
 .gallery__item { margin: 0; }
 .gallery__item img { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); }
 .gallery__item--wide { grid-column: span 2; }
+.gallery--product { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .gallery--product { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .gallery--product { grid-template-columns: 1fr; } }
+
+.model-photo { max-width: 360px; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); margin: 1rem 0; background: #fff; }
 @media (max-width: 640px) {
   .gallery { grid-template-columns: 1fr; }
   .gallery__item--wide { grid-column: span 1; }

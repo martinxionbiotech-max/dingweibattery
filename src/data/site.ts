@@ -71,6 +71,7 @@ export interface BatteryModel {
   source: string;
   verified_date: string;
   confidence: string;
+  image?: string;
 }
 
 export interface BatteryType {
