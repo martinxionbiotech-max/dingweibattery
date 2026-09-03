@@ -187,6 +187,17 @@ form { background: var(--surface); border: 1px solid var(--line); border-radius:
 .form-actions { margin-top: 1.25rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
 .form-status { color: #256029; background: #eef8ef; border: 1px solid #cde8d2; border-radius: 6px; padding: 0.7rem 1rem; font-size: 0.92rem; display: none; }
 
+.gallery { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
+.gallery__item { margin: 0; }
+.gallery__item img { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); }
+.gallery__item--wide { grid-column: span 2; }
+@media (max-width: 640px) {
+  .gallery { grid-template-columns: 1fr; }
+  .gallery__item--wide { grid-column: span 1; }
+}
+
+.mfg-photo { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); margin: 1rem 0; }
+
 .model-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 .model-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: var(--radius); padding: 1.1rem; box-shadow: var(--shadow); }
 .model-card h3 { margin: 0 0 0.4rem; }
