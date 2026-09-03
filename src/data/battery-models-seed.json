@@ -471,5 +471,332 @@
     "verified_date": "2026-09-01",
     "confidence": "PARTIALLY_VERIFIED",
     "standard_code": "EN 50342"
+  },
+  {
+    "model": "N150",
+    "aliases": [
+      "145G51"
+    ],
+    "standard": "JIS",
+    "standard_code": "JIS D 5301 (N-series)",
+    "voltage": 12,
+    "capacity_ah": 160,
+    "c20_ah": 160,
+    "cca": {
+      "value": 1050,
+      "basis": "SAE (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value from Exide N150 datasheet, confirm with manufacturer"
+    },
+    "rc_min": 310,
+    "dimensions_mm": {
+      "length": 508,
+      "width": 220,
+      "height": 234
+    },
+    "case_size": "N150",
+    "terminal": null,
+    "polarity": null,
+    "technology": "Maintenance-free (免维护)",
+    "application": "Heavy truck / bus / commercial vehicle",
+    "vehicle_type": null,
+    "weight_kg": 45.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "Exide N150 datasheet + JIS N-series reference",
+    "verified_date": "2026-09-03",
+    "confidence": "REFERENCE",
+    "image": "/images/product/hd-n150.webp"
+  },
+  {
+    "model": "N200",
+    "aliases": [
+      "190H52"
+    ],
+    "standard": "JIS",
+    "standard_code": "JIS D 5301 (N-series)",
+    "voltage": 12,
+    "capacity_ah": 200,
+    "c20_ah": 200,
+    "cca": {
+      "value": 1100,
+      "basis": "SAE (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 518,
+      "width": 276,
+      "height": 216
+    },
+    "case_size": "N200",
+    "terminal": null,
+    "polarity": null,
+    "technology": "Maintenance-free (免维护)",
+    "application": "Heavy truck / bus / commercial vehicle",
+    "vehicle_type": null,
+    "weight_kg": 52.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "FB Battery N200 datasheet + JIS N-series reference",
+    "verified_date": "2026-09-03",
+    "confidence": "REFERENCE",
+    "image": "/images/product/hd-n200.webp"
+  },
+  {
+    "model": "N100",
+    "aliases": [
+      "95E41",
+      "95E41R",
+      "W105"
+    ],
+    "standard": "JIS",
+    "standard_code": "JIS D 5301 (N-series)",
+    "voltage": 12,
+    "capacity_ah": 100,
+    "c20_ah": 100,
+    "cca": {
+      "value": 740,
+      "basis": "SAE (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value from Yuasa N100 datasheet, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 406,
+      "width": 173,
+      "height": 209
+    },
+    "case_size": "N100",
+    "terminal": null,
+    "polarity": null,
+    "technology": "Maintenance-free (免维护)",
+    "application": "Truck / bus / light commercial",
+    "vehicle_type": null,
+    "weight_kg": 30.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "FB Battery N100 datasheet + Yuasa N100 reference",
+    "verified_date": "2026-09-03",
+    "confidence": "REFERENCE",
+    "image": "/images/product/hd-n100.webp"
+  },
+  {
+    "model": "55D23",
+    "aliases": [
+      "85550"
+    ],
+    "standard": "JIS",
+    "standard_code": "JIS D 5301",
+    "voltage": 12,
+    "capacity_ah": 60,
+    "c20_ah": 60,
+    "cca": {
+      "value": 600,
+      "basis": "JIS (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value from BRAVA 55D23L datasheet, confirm with manufacturer"
+    },
+    "rc_min": 100,
+    "dimensions_mm": {
+      "length": 232,
+      "width": 173,
+      "height": 202
+    },
+    "case_size": "D23",
+    "terminal": null,
+    "polarity": null,
+    "technology": "Maintenance-free (免维护)",
+    "application": "Passenger car / light commercial",
+    "vehicle_type": null,
+    "weight_kg": 15.3,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "BRAVA 55D23L datasheet + JIS D 5301 reference",
+    "verified_date": "2026-09-03",
+    "confidence": "REFERENCE",
+    "image": "/images/product/range-55d23.webp"
+  },
+  {
+    "model": "DIN70",
+    "aliases": [
+      "57117"
+    ],
+    "standard": "DIN/EN",
+    "standard_code": "EN 50342",
+    "voltage": 12,
+    "capacity_ah": 70,
+    "c20_ah": 70,
+    "cca": {
+      "value": 640,
+      "basis": "EN (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 278,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "L3",
+    "terminal": null,
+    "polarity": null,
+    "technology": "Maintenance-free (免维护)",
+    "application": "Passenger car / light commercial",
+    "vehicle_type": null,
+    "weight_kg": 17.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "DIN/EN standard reference + manufacturer datasheets",
+    "verified_date": "2026-09-03",
+    "confidence": "REFERENCE",
+    "image": "/images/product/range-din70.webp"
+  },
+  {
+    "model": "DIN72",
+    "aliases": [
+      "57219"
+    ],
+    "standard": "DIN/EN",
+    "standard_code": "EN 50342",
+    "voltage": 12,
+    "capacity_ah": 72,
+    "c20_ah": 72,
+    "cca": {
+      "value": 660,
+      "basis": "EN (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 278,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "L3",
+    "terminal": null,
+    "polarity": null,
+    "technology": "Maintenance-free (免维护)",
+    "application": "Passenger car / mid-size",
+    "vehicle_type": null,
+    "weight_kg": 17.5,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "DIN/EN standard reference + manufacturer datasheets",
+    "verified_date": "2026-09-03",
+    "confidence": "REFERENCE",
+    "image": "/images/product/range-din72.webp"
+  },
+  {
+    "model": "DIN75",
+    "aliases": [
+      "57412",
+      "57413"
+    ],
+    "standard": "DIN/EN",
+    "standard_code": "EN 50342",
+    "voltage": 12,
+    "capacity_ah": 75,
+    "c20_ah": 75,
+    "cca": {
+      "value": 680,
+      "basis": "EN (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 278,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "L3",
+    "terminal": null,
+    "polarity": null,
+    "technology": "Maintenance-free (免维护)",
+    "application": "Passenger car / SUV",
+    "vehicle_type": null,
+    "weight_kg": 18.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "DIN/EN standard reference + manufacturer datasheets",
+    "verified_date": "2026-09-03",
+    "confidence": "REFERENCE",
+    "image": "/images/product/range-din75.webp"
+  },
+  {
+    "model": "DIN80",
+    "aliases": [
+      "58043"
+    ],
+    "standard": "DIN/EN",
+    "standard_code": "EN 50342",
+    "voltage": 12,
+    "capacity_ah": 80,
+    "c20_ah": 80,
+    "cca": {
+      "value": 760,
+      "basis": "EN (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 315,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "L4",
+    "terminal": null,
+    "polarity": null,
+    "technology": "Maintenance-free (免维护)",
+    "application": "Passenger car / premium",
+    "vehicle_type": null,
+    "weight_kg": 19.5,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "DIN/EN standard reference + manufacturer datasheets",
+    "verified_date": "2026-09-03",
+    "confidence": "REFERENCE",
+    "image": "/images/product/range-din80a.webp"
+  },
+  {
+    "model": "DIN100",
+    "aliases": [
+      "60038"
+    ],
+    "standard": "DIN/EN",
+    "standard_code": "EN 50342",
+    "voltage": 12,
+    "capacity_ah": 100,
+    "c20_ah": 100,
+    "cca": {
+      "value": 900,
+      "basis": "EN (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 353,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "L5",
+    "terminal": null,
+    "polarity": null,
+    "technology": "Maintenance-free (免维护)",
+    "application": "Premium / high electrical load",
+    "vehicle_type": null,
+    "weight_kg": 23.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "DIN/EN standard reference + manufacturer datasheets",
+    "verified_date": "2026-09-03",
+    "confidence": "REFERENCE",
+    "image": "/images/product/range-din100.webp"
   }
 ]

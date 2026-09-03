@@ -14,7 +14,7 @@ const breadcrumbs = [
   { label: 'Car Batteries', href: '/oem/car-batteries/' },
 ];
 
-const carModels = batteryModels.filter((m) => m.model !== '105D31' && m.model !== '115D31');
+const carModels = batteryModels.filter((m) => !['105D31', '115D31', 'N100', 'N150', 'N200'].includes(m.model));
 
 const jsonLd = [
   {

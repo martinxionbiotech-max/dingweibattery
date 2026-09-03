@@ -11,7 +11,7 @@ const description = 'Heavy-duty 6V and 12V batteries for trucks, buses and const
 
 const breadcrumbs = [{ label: 'Heavy Duty', href: '/heavy-duty-batteries/' }];
 
-const heavyModels = batteryModels.filter((m) => m.model === '105D31' || m.model === '115D31');
+const heavyModels = batteryModels.filter((m) => ['105D31', '115D31', 'N100', 'N150', 'N200'].includes(m.model));
 
 const heavyDutyFaqs = [
   {
