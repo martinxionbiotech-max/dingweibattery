@@ -195,6 +195,15 @@ form { background: var(--surface); border: 1px solid var(--line); border-radius:
 @media (max-width: 900px) { .gallery--product { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .gallery--product { grid-template-columns: 1fr; } }
 
+/* 工厂图库：统一比例裁剪，保证等高整齐 */
+.gallery--uniform .gallery__item img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.gallery--uniform .gallery__item { aspect-ratio: 16 / 10; }
+
 .model-photo { max-width: 360px; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); margin: 1rem 0; background: #fff; }
 @media (max-width: 640px) {
   .gallery { grid-template-columns: 1fr; }
