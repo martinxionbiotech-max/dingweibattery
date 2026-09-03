@@ -221,6 +221,7 @@ form { background: var(--surface); border: 1px solid var(--line); border-radius:
 .model-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 
 .finder-filters { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.25rem; }
+.finder-actions { display: flex; gap: 0.6rem; align-items: flex-end; }
 .finder-count { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
 .finder-results { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 .finder-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: var(--radius); padding: 1.1rem; box-shadow: var(--shadow); }

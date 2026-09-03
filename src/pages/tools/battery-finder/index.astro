@@ -75,6 +75,10 @@ const jsonLd = [
             <option value="xhigh">&gt; 100</option>
           </select>
         </div>
+        <div class="finder-actions">
+          <button class="btn" type="button" id="finder-search">Search</button>
+          <button class="btn btn--ghost" type="button" id="finder-reset">Reset</button>
+        </div>
       </div>
       <p class="finder-count" id="finder-count" aria-live="polite"></p>
       <div class="finder-results" id="finder-results"></div>
@@ -134,6 +138,18 @@ const jsonLd = [
     document.getElementById('f-app').addEventListener('change', render);
     document.getElementById('f-std').addEventListener('change', render);
     document.getElementById('f-cap').addEventListener('change', render);
+
+    document.getElementById('finder-search').addEventListener('click', () => {
+      render();
+      document.getElementById('finder-results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    document.getElementById('finder-reset').addEventListener('click', () => {
+      document.getElementById('f-app').value = 'all';
+      document.getElementById('f-std').value = 'all';
+      document.getElementById('f-cap').value = 'all';
+      render();
+    });
 
     render();
   </script>
