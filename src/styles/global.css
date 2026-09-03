@@ -219,6 +219,14 @@ form { background: var(--surface); border: 1px solid var(--line); border-radius:
 .contact-bar .card a { word-break: break-all; }
 
 .model-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+.finder-filters { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.25rem; }
+.finder-count { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
+.finder-results { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.finder-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: var(--radius); padding: 1.1rem; box-shadow: var(--shadow); }
+.finder-card h3 { margin: 0 0 0.4rem; }
+.finder-card p { color: var(--muted); font-size: 0.94rem; margin: 0.3rem 0; }
+
 .model-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: var(--radius); padding: 1.1rem; box-shadow: var(--shadow); }
 .model-card h3 { margin: 0 0 0.4rem; }
 .model-card p { color: var(--muted); font-size: 0.94rem; margin: 0.3rem 0; }

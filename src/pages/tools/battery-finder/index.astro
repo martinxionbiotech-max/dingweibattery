@@ -1,15 +1,30 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTASection from '../../../components/CTASection.astro';
-import ModelCard from '../../../components/ModelCard.astro';
 import JsonLd from '../../../components/JsonLd.astro';
 import { SITE, RELATIONSHIP } from '../../../data/site';
-import { batteryModels } from '../../../data/battery-models';
+import { batteryModels, modelPath } from '../../../data/battery-models';
 
 const title = 'Battery Finder: Match Your Battery Model | Dingwei Battery';
-const description = 'A quick reference to current Dingwei Battery model data. Filter by standard and case reference, or request a custom OEM fitment.';
+const description = 'Filter 23 reference battery models by application, standard family and capacity. Find JIS, DIN/EN and heavy-duty starting battery references from Dingwei Battery.';
 
 const breadcrumbs = [{ label: 'Battery Finder', href: '/tools/battery-finder/' }];
+
+const HEAVY = ['105D31', '115D31', 'N100', 'N150', 'N200'];
+
+const finderData = batteryModels.map((m) => ({
+  model: m.model,
+  standard: m.standard,
+  capacity: m.capacity_ah,
+  voltage: m.voltage,
+  cca: m.cca.value,
+  dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+  caseSize: m.case_size,
+  app: HEAVY.includes(m.model) ? 'Heavy duty' : 'Passenger car',
+  href: modelPath(m.model),
+}));
+
+const finderJson = JSON.stringify(finderData);
 
 const jsonLd = [
   {
@@ -28,16 +43,41 @@ const jsonLd = [
   <section class="section container">
     <span class="tag">Tool</span>
     <h1>Battery finder</h1>
-    <p class="lead">A lightweight reference to the current model set. A full interactive fitment tool will be added later — for now, browse the reference models below or send your fitment request.</p>
+    <p class="lead">Filter the current reference model set by application, standard family and capacity. Specifications are for reference; confirm final values with the manufacturer.</p>
   </section>
 
   <section class="section section--alt">
     <div class="container">
-      <h2>Reference models</h2>
-      <p class="lead">Specifications are for reference; confirm final values with the manufacturer.</p>
-      <div class="model-list">
-        {batteryModels.map((model) => <ModelCard model={model} />)}
+      <div class="finder-filters">
+        <div class="field">
+          <label for="f-app">Application</label>
+          <select id="f-app">
+            <option value="all">All</option>
+            <option value="Passenger car">Passenger car</option>
+            <option value="Heavy duty">Heavy duty</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-std">Standard family</label>
+          <select id="f-std">
+            <option value="all">All</option>
+            <option value="JIS">JIS</option>
+            <option value="DIN/EN">DIN/EN</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-cap">Capacity (Ah)</label>
+          <select id="f-cap">
+            <option value="all">All</option>
+            <option value="low">&le; 60</option>
+            <option value="mid">61&ndash;80</option>
+            <option value="high">81&ndash;100</option>
+            <option value="xhigh">&gt; 100</option>
+          </select>
+        </div>
       </div>
+      <p class="finder-count" id="finder-count" aria-live="polite"></p>
+      <div class="finder-results" id="finder-results"></div>
     </div>
   </section>
 
@@ -48,4 +88,53 @@ const jsonLd = [
   </section>
 
   <CTASection title="Request an OEM fitment check" />
+
+  <script is:inline>
+    const MODELS = {finderJson};
+    const resultsEl = document.getElementById('finder-results');
+    const countEl = document.getElementById('finder-count');
+
+    function matchCapacity(cap, filter) {
+      if (filter === 'all') return true;
+      if (filter === 'low') return cap <= 60;
+      if (filter === 'mid') return cap >= 61 && cap <= 80;
+      if (filter === 'high') return cap >= 81 && cap <= 100;
+      if (filter === 'xhigh') return cap > 100;
+      return true;
+    }
+
+    function render() {
+      const app = document.getElementById('f-app').value;
+      const std = document.getElementById('f-std').value;
+      const cap = document.getElementById('f-cap').value;
+
+      const filtered = MODELS.filter((m) => {
+        if (app !== 'all' && m.app !== app) return false;
+        if (std !== 'all' && m.standard !== std) return false;
+        return matchCapacity(m.capacity, cap);
+      });
+
+      countEl.textContent = filtered.length + ' model' + (filtered.length === 1 ? '' : 's') + ' match';
+
+      if (filtered.length === 0) {
+        resultsEl.innerHTML = '<p class="note">No reference model matches those filters. <a href="/contact/">Request a custom fitment</a> instead.</p>';
+        return;
+      }
+
+      resultsEl.innerHTML = filtered.map((m) => `
+        <article class="finder-card">
+          <h3><a href="${m.href}">${m.model} Battery</a></h3>
+          <p class="model-card__meta">${m.app} · ${m.standard} · ${m.voltage}V · ${m.capacity} Ah</p>
+          <p class="model-card__meta">${m.cca} CCA (reference) · ${m.dims} mm</p>
+          <a href="${m.href}">View specification <span aria-hidden="true">&rarr;</span></a>
+        </article>
+      `).join('');
+    }
+
+    document.getElementById('f-app').addEventListener('change', render);
+    document.getElementById('f-std').addEventListener('change', render);
+    document.getElementById('f-cap').addEventListener('change', render);
+
+    render();
+  </script>
 </BaseLayout>

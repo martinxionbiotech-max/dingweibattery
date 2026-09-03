@@ -13,6 +13,14 @@ export function getStaticPaths() {
 interface Props { model: BatteryModel; }
 const { model } = Astro.props;
 
+const HEAVY = ['105D31', '115D31', 'N100', 'N150', 'N200'];
+const isHeavy = HEAVY.includes(model.model);
+const categoryHref = isHeavy ? '/heavy-duty-batteries/' : '/oem/car-batteries/';
+const categoryLabel = isHeavy ? 'Heavy-duty batteries' : 'Car batteries';
+const relatedModels = batteryModels
+  .filter((m) => m.model !== model.model && m.standard === model.standard)
+  .slice(0, 4);
+
 const dims = model.dimensions_mm;
 const dimsLabel = `${dims.length} × ${dims.width} × ${dims.height} mm`;
 const pagePath = modelPath(model.model);
@@ -331,11 +339,29 @@ const aliases = model.aliases ?? [];
     </section>
   )}
 
+  {relatedModels.length > 0 && (
+    <section class="section section--alt">
+      <div class="container">
+        <h2>Related {model.standard} models</h2>
+        <p class="lead">Other {model.standard} references in the current model set.</p>
+        <div class="model-list">
+          {relatedModels.map((m) => (
+            <article class="model-card">
+              <h3><a href={modelPath(m.model)}>{m.model} Battery</a></h3>
+              <p class="model-card__meta">{m.standard} · {m.voltage}V · {m.capacity_ah} Ah · {m.cca.value} CCA (reference)</p>
+              <a href={modelPath(m.model)}>View specification <span aria-hidden="true">&rarr;</span></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   <section class="section section--alt">
     <div class="container prose">
       <h2>OEM availability &amp; private label</h2>
       <p>{RELATIONSHIP} The {model.model} is available for OEM and private-label supply. Branding, sampling, packaging and final specifications are confirmed on inquiry.</p>
-      <p><a href="/oem/">OEM programs &rarr;</a> · <a href="/private-label/">Private-label programs &rarr;</a> · <a href="/contact/">Request OEM Quote &rarr;</a></p>
+      <p><a href="/oem/">OEM programs &rarr;</a> · <a href="/private-label/">Private-label programs &rarr;</a> · <a href={categoryHref}>Browse {categoryLabel.toLowerCase()} &rarr;</a> · <a href="/contact/">Request OEM Quote &rarr;</a></p>
     </div>
   </section>
 
