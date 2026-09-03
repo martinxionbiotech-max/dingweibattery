@@ -1,0 +1,65 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Shipping, Packaging & Warranty | Dingwei Battery';
+const description = 'How lead-acid batteries are packaged, shipped and warranted — container loading, export documentation, and what a 12-month warranty actually covers.';
+const articleTitle = 'Battery shipping, packaging and warranty';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Logistics</span>
+    <h1>Battery shipping, packaging and warranty</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: export logistics practice</p>
+    <p class="lead">A battery order is not complete when it leaves the line — it is complete when it arrives undamaged, with the right documents, and with a warranty you understand.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Lead-acid batteries ship as ordinary cargo (not Class 9 dangerous goods like lithium), which simplifies transport. The key logistics points are container weight limits, export documentation, and a warranty whose scope — duration, exclusions and handling — is written down.
+    </div>
+
+    <h2>Why lead-acid is simpler to ship</h2>
+    <p>Unlike lithium cells, lead-acid starting batteries are not Class 9 dangerous goods. For importers this means fewer transport restrictions, no UN38.3 report, and a lighter documentation burden — a real logistics advantage of lead-acid for an OEM program.</p>
+
+    <h2>Packaging and container loading</h2>
+    <p>Batteries are heavy, so the 20ft container often reaches its weight limit before its volume limit. This is why MOQ follows the container (typically {TRADE_TERMS.moq}). Packaging must protect the terminals from shorting and the case from impact during handling.</p>
+    <ul>
+      <li>Pallets and cartons sized to the container plan.</li>
+      <li>Terminal protection and upright orientation.</li>
+      <li>Mixed-model loading to fill a container efficiently and spread unit cost.</li>
+    </ul>
+
+    <h2>Export documentation</h2>
+    <p>A clean export set avoids delays at customs. Typical documents include:</p>
+    <ul>
+      <li>Commercial invoice and packing list</li>
+      <li>Bill of lading</li>
+      <li>Certificate of origin</li>
+      <li>Test reports (CCA / capacity) where required</li>
+    </ul>
+    <p>Shipping terms follow {TRADE_TERMS.incoterms}, with export from {MANUFACTURER.exportPorts}.</p>
+
+    <h2>Warranty: read the scope, not just the number</h2>
+    <p>Warranty is {TRADE_TERMS.warranty}. But a warranty is only as good as its written scope. Confirm three things:</p>
+    <ol>
+      <li><strong>Duration</strong> — from bill of lading date.</li>
+      <li><strong>Exclusions</strong> — what is <em>not</em> covered (deep discharge, misuse, physical damage).</li>
+      <li><strong>Handling</strong> — how a claim is filed, inspected and settled.</li>
+    </ol>
+    <p class="note">A &ldquo;12-month warranty&rdquo; with broad exclusions is not the same as a 12-month warranty with clear, narrow ones. Get the terms in writing.</p>
+
+    <h2>What buyers should ask</h2>
+    <ul>
+      <li>How are batteries packed and loaded — is the container weight-limited or volume-limited?</li>
+      <li>Which export documents are provided as standard?</li>
+      <li>What are the exact warranty exclusions and claim handling?</li>
+      <li>What Incoterm applies, and where does risk transfer?</li>
+    </ul>
+
+    <p>See how lead time and MOQ work in the <a href="/knowledge/oem-battery-moq-lead-time/">MOQ and lead time guide</a>, and how to lock terms into an <a href="/knowledge/oem-battery-rfq-guide/">RFQ</a>.</p>
+    <p>{RELATIONSHIP}</p>
+    <p><a href="/contact/">Request shipping and warranty terms &rarr;</a></p>
+  </section>
+
+  <CTASection title="Confirm shipping and warranty terms" />
+</ArticleLayout>

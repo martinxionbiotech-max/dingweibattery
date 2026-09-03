@@ -1,0 +1,59 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Quality Control & Testing | Dingwei Battery';
+const description = 'How battery quality control works — from incoming material inspection to 100% end-of-line testing and batch traceability — and what buyers should verify.';
+const articleTitle = 'Battery quality control and testing';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Quality</span>
+    <h1>Battery quality control and testing</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: automotive quality systems</p>
+    <p class="lead">Quality control is what makes a repeat order match the approved sample. It runs from incoming material to the last test on the line — and a buyer can verify it without ever visiting the plant.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Battery quality control spans incoming material inspection, in-process checks, end-of-line electrical testing and batch traceability. A credible supplier can show current certifications and describe the specific tests it runs — not just claim &ldquo;100% quality&rdquo;.
+    </div>
+
+    <h2>The four layers of quality control</h2>
+    <table>
+      <thead><tr><th>Layer</th><th>What it checks</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Incoming material</td><td>Lead alloy, paste materials, separators, cases</td><td>Catches input variance before it reaches the line</td></tr>
+        <tr><td>In-process</td><td>Curing, pasting, formation parameters</td><td>Keeps every batch within the same process window</td></tr>
+        <tr><td>End-of-line</td><td>CCA, capacity, voltage, leak test</td><td>Removes defective units before packing</td></tr>
+        <tr><td>Batch traceability</td><td>Lot tracking through production</td><td>Isolates a problem to one batch, not the whole order</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The tests that matter</h2>
+    <ul>
+      <li><strong>CCA test</strong> — verifies cold-cranking performance against the declared standard (JIS / EN / SAE).</li>
+      <li><strong>Capacity test</strong> — verifies the Ah rating at the declared rate (C20).</li>
+      <li><strong>Leak test</strong> — confirms the sealed case holds under pressure.</li>
+      <li><strong>Voltage check</strong> — confirms a healthy open-circuit voltage before shipping.</li>
+    </ul>
+
+    <h2>Certifications as a proxy for quality</h2>
+    <p>Certifications are not a guarantee, but they are a strong signal. {MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')}, which indicate a formal quality management system rather than ad-hoc inspection.</p>
+    <p class="note">Ask for <em>current</em> certificates, not marketing claims. A certificate that has expired or does not cover the specific product is not evidence.</p>
+
+    <h2>What buyers should ask</h2>
+    <ul>
+      <li>What is tested at end-of-line — CCA, capacity, leak, or all three?</li>
+      <li>Is every unit tested, or only a sample?</li>
+      <li>How is batch traceability maintained?</li>
+      <li>Can you provide current certifications that cover this product?</li>
+      <li>What is the defect handling and warranty process?</li>
+    </ul>
+
+    <p>Connect quality to the physical process in <a href="/knowledge/how-lead-acid-batteries-are-made/">how batteries are made</a>, and to the supplier evaluation in the <a href="/knowledge/oem-battery-supplier-checklist/">supplier checklist</a>.</p>
+    <p>{RELATIONSHIP}</p>
+    <p><a href="/factory/">See the factory quality profile &rarr;</a> · <a href="/contact/">Request quality documentation &rarr;</a></p>
+  </section>
+
+  <CTASection title="Verify quality control with the manufacturer" />
+</ArticleLayout>

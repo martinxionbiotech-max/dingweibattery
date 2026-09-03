@@ -1,0 +1,62 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, RELATIONSHIP } from '../../../data/site';
+
+const title = 'How Lead-Acid Batteries Are Made | Dingwei Battery';
+const description = 'The ten-stage lead-acid battery manufacturing process — grid casting, pasting, curing, assembly, formation and testing — and what each stage means for battery quality.';
+const articleTitle = 'How lead-acid batteries are made';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Manufacturing</span>
+    <h1>How lead-acid batteries are made</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: lead-acid manufacturing process</p>
+    <p class="lead">A lead-acid starting battery is built through ten stages, from casting the lead grid to final electrical testing. Understanding the stages tells a buyer what to look for when auditing a factory.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Lead-acid battery manufacturing runs through grid casting, paste mixing, pasting, curing, assembly, welding, electrolyte filling, formation charging, sealing and testing. Each stage is a quality checkpoint — a weakness at any one of them shows up later as reduced capacity or shorter life.
+    </div>
+
+    <h2>The ten stages</h2>
+    <ol>
+      <li><strong>Grid casting</strong> — molten lead alloy is cast into the grid frame. Maintenance-free batteries use a lead-calcium alloy that reduces water loss.</li>
+      <li><strong>Paste mixing</strong> — lead oxide is mixed into a paste; its consistency determines the active material&rsquo;s capacity.</li>
+      <li><strong>Pasting</strong> — the paste is applied evenly onto the grid.</li>
+      <li><strong>Curing</strong> — the pasted plates cure for 2–4 days, developing the crystal structure that gives mechanical strength.</li>
+      <li><strong>Assembly</strong> — positive and negative plates are stacked with separators and inserted into the case.</li>
+      <li><strong>Welding</strong> — plate lugs and terminals are welded to form the electrical path.</li>
+      <li><strong>Electrolyte filling</strong> — sulphuric acid electrolyte is added.</li>
+      <li><strong>Formation charging</strong> — the first charge converts the paste into active material.</li>
+      <li><strong>Sealing &amp; finishing</strong> — the lid is sealed and the battery finished.</li>
+      <li><strong>Testing &amp; packaging</strong> — 100% electrical testing before packing.</li>
+    </ol>
+
+    <h2>Where quality is won or lost</h2>
+    <p>Three stages have an outsized effect on the final battery:</p>
+    <ul>
+      <li><strong>Curing</strong> — a rushed cure produces weak plates that shed material and fail early. This is why curing time (2–4 days) is a meaningful audit question.</li>
+      <li><strong>Paste mixing</strong> — inconsistent paste produces inconsistent capacity cell-to-cell.</li>
+      <li><strong>Formation</strong> — incomplete formation leaves unformed active material, reducing both capacity and cycle life.</li>
+    </ul>
+
+    <h2>What this means for a buyer</h2>
+    <p>You do not need to run the line — you need to know which questions separate a disciplined plant from a rushed one. When auditing, ask about curing time, paste consistency control and formation completion, not just about capacity and price.</p>
+    <p class="note">This is an editorial framework for evaluating manufacturing, not a technical specification.</p>
+
+    <h2>What buyers should ask</h2>
+    <ul>
+      <li>What is the grid alloy, and is it lead-calcium for maintenance-free?</li>
+      <li>How long are the plates cured?</li>
+      <li>How is paste consistency controlled?</li>
+      <li>Is formation charging completed before testing?</li>
+      <li>Is every battery electrically tested before packing?</li>
+    </ul>
+
+    <p>See how these stages map to an audit in the <a href="/knowledge/how-audit-battery-factory/">factory audit guide</a>, and how they connect to the <a href="/knowledge/battery-quality-control/">quality control</a> system.</p>
+    <p>{RELATIONSHIP} Manufacturing is performed by {MANUFACTURER.name} at a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines}.</p>
+    <p><a href="/factory/">See the factory overview &rarr;</a> · <a href="/oem/">Explore OEM programs &rarr;</a></p>
+  </section>
+
+  <CTASection title="Audit the manufacturing process" />
+</ArticleLayout>

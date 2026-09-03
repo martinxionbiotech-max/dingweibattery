@@ -1,0 +1,55 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Applications by Vehicle Type | Dingwei Battery';
+const description = 'How battery requirements differ by vehicle — passenger car, SUV, pickup, truck, bus and construction — and how to specify the right battery for each.';
+const articleTitle = 'Battery applications by vehicle type';
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Applications</span>
+    <h1>Battery applications by vehicle type</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: automotive application requirements</p>
+    <p class="lead">Different vehicles make different demands on a battery. A passenger car, a start-stop SUV and a diesel truck need different specifications — and picking the wrong one shortens battery life.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Vehicle type determines the battery&rsquo;s case size, capacity, CCA and cycling requirement. Passenger cars prioritise fitment and reliability; start-stop vehicles need cycling durability (AGM/EFB); diesel trucks and construction equipment need high CCA and vibration resistance.
+    </div>
+
+    <h2>Requirements by vehicle class</h2>
+    <table>
+      <thead><tr><th>Vehicle</th><th>Typical demand</th><th>Battery choice</th></tr></thead>
+      <tbody>
+        <tr><td>Passenger car</td><td>Standard starting</td><td>SLI, JIS/DIN/BCI fitment</td></tr>
+        <tr><td>SUV / pickup</td><td>Higher load, some start-stop</td><td>Higher-capacity SLI or EFB/AGM</td></tr>
+        <tr><td>Start-stop car</td><td>Frequent cycling</td><td>AGM or EFB</td></tr>
+        <tr><td>Light commercial / van</td><td>Accessory load, longer duty</td><td>Higher Ah SLI</td></tr>
+        <tr><td>Truck / bus</td><td>High CCA, vibration</td><td>Heavy-duty, JIS N-series / DIN / BCI</td></tr>
+        <tr><td>Construction / agricultural</td><td>Vibration, deep cycling</td><td>Heavy-duty, high CCA</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Why start-stop changes the battery</h2>
+    <p>A start-stop system shuts the engine off at idle and restarts it repeatedly, cycling the battery far more often than a conventional vehicle. That requires a battery designed for cycling — AGM (absorbent glass mat) or EFB (enhanced flooded) — rather than a standard SLI battery, which will fail early under that duty.</p>
+
+    <h2>Why diesel trucks need high CCA</h2>
+    <p>Large diesel engines have high compression and need a strong cranking current, especially in cold weather. This drives a high CCA requirement (often in the 800–1100 A order of magnitude, reference), plus a physically larger case and heavier construction to survive vibration.</p>
+    <p class="note">CCA is test-method dependent — confirm whether the value is JIS, EN or SAE. See the <a href="/knowledge/what-is-cca/">CCA guide</a>.</p>
+
+    <h2>What buyers should ask</h2>
+    <ul>
+      <li>What vehicle class am I supplying — passenger, start-stop, commercial or heavy-duty?</li>
+      <li>Does the vehicle use start-stop, and does it need AGM or EFB?</li>
+      <li>What case size and standard family does the vehicle require?</li>
+      <li>What CCA (and which test basis) does the engine need?</li>
+    </ul>
+
+    <p>Map vehicle type to the right standard in <a href="/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>, and browse models in the <a href="/data/">model database</a>.</p>
+    <p>{RELATIONSHIP}</p>
+    <p><a href="/heavy-duty-batteries/">See heavy-duty options &rarr;</a> · <a href="/oem/car-batteries/">See car battery options &rarr;</a></p>
+  </section>
+
+  <CTASection title="Specify the right battery for your vehicle class" />
+</ArticleLayout>
