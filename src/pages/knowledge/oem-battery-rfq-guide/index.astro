@@ -52,6 +52,33 @@ const articleTitle = 'OEM battery RFQ guide';
     </ul>
     <p><a href="/contact/">Send your RFQ &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
 
+    <h2>RFQ field checklist</h2>
+    <p>A single missing field is usually what turns a quote into a guess. Work through this table before sending.</p>
+    <table>
+      <thead><tr><th>Block</th><th>Field</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Specification</td><td>Standard family + reference model</td><td>JIS, DIN and BCI cases are not interchangeable; the model anchors the case size.</td></tr>
+        <tr><td>Specification</td><td>CCA test basis</td><td>JIS (&minus;15&deg;C) and EN/SAE (&minus;18&deg;C) are different tests; without the basis, two quotes are not comparable.</td></tr>
+        <tr><td>Specification</td><td>Terminal type &amp; polarity</td><td>Terminal layout decides whether the battery physically fits the vehicle.</td></tr>
+        <tr><td>Volume</td><td>Annual volume + first order</td><td>MOQ and tiered pricing depend on it; a missing volume makes the supplier assume the worst case.</td></tr>
+        <tr><td>Volume</td><td>Target market</td><td>The market decides the standard family and the certification set.</td></tr>
+        <tr><td>Branding</td><td>Label + packaging + documentation</td><td>Private-label scope changes tooling and lead time.</td></tr>
+        <tr><td>Commercial</td><td>Incoterms + payment</td><td>FOB, CFR and CIF move cost and risk differently between buyer and supplier.</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Do not put a price target in a first RFQ unless you want suppliers to quote to the number rather than the scope. Quote on scope first; negotiate price second.</p>
+
+    <h2>Compare quotes on scope, not price</h2>
+    <p>When quotes come back, check six things before comparing the unit number:</p>
+    <ul>
+      <li><strong>Same CCA basis</strong> — JIS and EN numbers are not comparable.</li>
+      <li><strong>Same case reference</strong> — a quote for a &ldquo;similar&rdquo; model is a different battery.</li>
+      <li><strong>Same MOQ tier</strong> — a price at 10,000 units is not a price at 1,000 units.</li>
+      <li><strong>Tooling included</strong> — is the mould or label cost in the unit price, or charged separately?</li>
+      <li><strong>Same Incoterm</strong> — FOB, CFR and CIF are three different cost bases.</li>
+      <li><strong>Warranty scope</strong> — a 12-month warranty with exclusions is not the same as a 12-month warranty.</li>
+    </ul>
+
     <h2>Why most RFQs fail</h2>
     <ul>
       <li>The CCA basis is missing, so quotes arrive on different test methods.</li>
