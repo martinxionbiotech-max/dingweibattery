@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP, STANDARDS } from '../../../data/site';
 
 const title = 'What Is CCA (Cold Cranking Amps)? | Dingwei Battery';
 const description = 'Cold cranking amps (CCA) measures a battery\'s starting power. Learn why CCA is test-method dependent (JIS vs EN vs SAE) and how to compare it correctly.';
 const articleTitle = 'What is CCA (cold cranking amps)?';
+
+const faqs = [
+  { q: 'What does CCA stand for?', a: 'Cold cranking amps — the current a battery can deliver for 30 seconds at a cold temperature before dropping below a cut-off voltage.' },
+  { q: 'Why does the same battery have two CCA numbers?', a: 'Because JIS tests at &minus;15&deg;C while EN/SAE/DIN test at &minus;18&deg;C. The warmer test yields a different number, so the values are not interchangeable.' },
+  { q: 'Is a higher CCA always better?', a: 'Not necessarily. The battery must still fit the tray and match the vehicle&rsquo;s terminal layout — CCA is one of several fitment and performance criteria.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Engineering</span>
     <h1>What is CCA (cold cranking amps)?</h1>
@@ -59,6 +66,8 @@ const articleTitle = 'What is CCA (cold cranking amps)?';
     <p>{RELATIONSHIP} Models across {STANDARDS.join(', ')} are available with CCA values confirmed to the relevant test standard.</p>
     <p><a href="/data/">Browse model CCA references &rarr;</a> · <a href="/tools/compare/">Compare two models &rarr;</a></p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Confirm the CCA basis for your model" />
 </ArticleLayout>

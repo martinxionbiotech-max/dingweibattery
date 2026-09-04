@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
 const title = 'Battery Applications by Vehicle Type | Dingwei Battery';
 const description = 'How battery requirements differ by vehicle — passenger car, SUV, pickup, truck, bus and construction — and how to specify the right battery for each.';
 const articleTitle = 'Battery applications by vehicle type';
+
+const faqs = [
+  { q: 'What battery does a start-stop car need?', a: 'AGM or EFB. A start-stop system cycles the battery far more often than a conventional vehicle, and a standard SLI battery will fail early under that duty.' },
+  { q: 'Why do diesel trucks need high CCA?', a: 'Large diesel engines have high compression and need a strong cranking current, especially in cold weather — driving a high CCA requirement.' },
+  { q: 'What battery suits construction equipment?', a: 'A heavy-duty battery with high CCA and vibration resistance, sized to the machine&rsquo;s starting demand.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Applications" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Applications</span>
     <h1>Battery applications by vehicle type</h1>
@@ -50,6 +57,8 @@ const articleTitle = 'Battery applications by vehicle type';
     <p>{RELATIONSHIP}</p>
     <p><a href="/heavy-duty-batteries/">See heavy-duty options &rarr;</a> · <a href="/oem/car-batteries/">See car battery options &rarr;</a></p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Specify the right battery for your vehicle class" />
 </ArticleLayout>

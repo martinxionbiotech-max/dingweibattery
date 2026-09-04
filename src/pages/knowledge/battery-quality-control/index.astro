@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
 
 const title = 'Battery Quality Control & Testing | Dingwei Battery';
 const description = 'How battery quality control works — from incoming material inspection to 100% end-of-line testing and batch traceability — and what buyers should verify.';
 const articleTitle = 'Battery quality control and testing';
+
+const faqs = [
+  { q: 'What is battery quality control?', a: 'A four-layer process — incoming material, in-process, end-of-line and batch traceability — that keeps repeat orders matching the approved sample.' },
+  { q: 'What tests matter most for a battery?', a: 'CCA (cold-cranking), capacity (C20), leak and voltage — each verifies a different failure mode.' },
+  { q: 'Are certifications a guarantee of quality?', a: 'No, but they are a strong signal. Ask for current certificates that cover the specific product rather than marketing claims.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Quality" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Quality</span>
     <h1>Battery quality control and testing</h1>
@@ -54,6 +61,8 @@ const articleTitle = 'Battery quality control and testing';
     <p>{RELATIONSHIP}</p>
     <p><a href="/factory/">See the factory quality profile &rarr;</a> · <a href="/contact/">Request quality documentation &rarr;</a></p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Verify quality control with the manufacturer" />
 </ArticleLayout>

@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, RELATIONSHIP } from '../../../data/site';
 
 const title = 'How Lead-Acid Batteries Are Made | Dingwei Battery';
 const description = 'The ten-stage lead-acid battery manufacturing process — grid casting, pasting, curing, assembly, formation and testing — and what each stage means for battery quality.';
 const articleTitle = 'How lead-acid batteries are made';
+
+const faqs = [
+  { q: 'How is a lead-acid battery made?', a: 'Through ten stages: grid casting, paste mixing, pasting, curing, assembly, welding, electrolyte filling, formation charging, sealing and testing.' },
+  { q: 'Which manufacturing stage most affects battery life?', a: 'Curing. A rushed cure produces weak plates that shed material and fail early, which is why curing time (2&ndash;4 days) is a meaningful audit question.' },
+  { q: 'Why does formation charging matter?', a: 'Formation converts the paste into active material. Incomplete formation reduces both capacity and cycle life.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Manufacturing" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Manufacturing</span>
     <h1>How lead-acid batteries are made</h1>
@@ -57,6 +64,8 @@ const articleTitle = 'How lead-acid batteries are made';
     <p>{RELATIONSHIP} Manufacturing is performed by {MANUFACTURER.name} at a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines}.</p>
     <p><a href="/factory/">See the factory overview &rarr;</a> · <a href="/oem/">Explore OEM programs &rarr;</a></p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Audit the manufacturing process" />
 </ArticleLayout>

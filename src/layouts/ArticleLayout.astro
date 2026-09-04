@@ -3,26 +3,44 @@ import BaseLayout from './BaseLayout.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { SITE, BRAND, PUBLISHED_DATE } from '../data/site';
 
+interface Faq { q: string; a: string; }
 interface Props {
   title: string;
   description: string;
   articleTitle: string;
+  articleSection?: string;
+  dateModified?: string;
+  image?: string;
+  faqs?: Faq[];
 }
-const { title, description, articleTitle } = Astro.props;
+const {
+  title,
+  description,
+  articleTitle,
+  articleSection,
+  dateModified = PUBLISHED_DATE,
+  image = '/images/factory/factory-19.webp',
+  faqs = [],
+} = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site).toString();
+const imageUrl = image.startsWith('http') ? image : new URL(image, Astro.site).toString();
 
-const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: articleTitle,
-    description,
-    author: { '@type': 'Organization', name: BRAND },
-    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
-    datePublished: PUBLISHED_DATE,
-    dateModified: PUBLISHED_DATE,
-    mainEntityOfPage: url,
-  },
+const article = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: articleTitle,
+  description,
+  author: { '@type': 'Organization', name: BRAND },
+  publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+  datePublished: PUBLISHED_DATE,
+  dateModified,
+  image: imageUrl,
+  mainEntityOfPage: url,
+  ...(articleSection ? { articleSection } : {}),
+};
+
+const jsonLd: Record<string, unknown>[] = [
+  article,
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -32,6 +50,18 @@ const jsonLd = [
     ],
   },
 ];
+
+if (faqs.length > 0) {
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+}
 ---
 <BaseLayout title={title} description={description} breadcrumbs={[{ label: articleTitle }]} ogType="article">
   <JsonLd slot="head" data={jsonLd} />

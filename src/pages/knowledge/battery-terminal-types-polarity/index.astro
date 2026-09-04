@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
 const title = 'Battery Terminal Types & Polarity | Dingwei Battery';
 const description = 'Battery terminal types, positions and polarity — and why getting them wrong means the battery will not fit the vehicle. A guide for OEM battery buyers.';
 const articleTitle = 'Battery terminal types and polarity';
+
+const faqs = [
+  { q: 'What does L and R mean on a battery?', a: 'It marks whether the positive terminal sits on the left or right of the case. The position matters because the vehicle&rsquo;s cable lengths are fixed.' },
+  { q: 'Why is battery polarity important?', a: 'Reversing polarity on connection can damage the vehicle&rsquo;s electrical system, so polarity must be confirmed against the wiring before fitment.' },
+  { q: 'Why are terminal details marked &ldquo;confirm on inquiry&rdquo;?', a: 'Because a wrong terminal specification turns a correct battery into a wrong battery. The manufacturer confirms terminal detail against the buyer&rsquo;s vehicle rather than guessing.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Engineering</span>
     <h1>Battery terminal types and polarity</h1>
@@ -43,6 +50,8 @@ const articleTitle = 'Battery terminal types and polarity';
     <p>{RELATIONSHIP}</p>
     <p><a href="/contact/">Confirm terminal details on your RFQ &rarr;</a></p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Confirm terminal type and polarity" />
 </ArticleLayout>

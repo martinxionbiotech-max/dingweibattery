@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
 const title = 'Battery Dimensions & Case Size | Dingwei Battery';
 const description = 'How battery dimensions (length × width × height) and case size groups determine fitment, and how to read a case reference like D26, H6 or Group 34.';
 const articleTitle = 'Battery dimensions and case size';
+
+const faqs = [
+  { q: 'What do battery dimensions mean?', a: 'Length × width × height in millimetres — the physical footprint that must fit the tray, the hold-down and the hood clearance.' },
+  { q: 'What is a case size?', a: 'The standard-family name for a fixed footprint, such as D26 in JIS, H6 in DIN/EN or Group 34 in BCI.' },
+  { q: 'Do two batteries with the same case size always fit?', a: 'Not necessarily — terminal position (L/R) and type can still differ, so confirm case dimensions and terminal layout together.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Engineering</span>
     <h1>Battery dimensions and case size</h1>
@@ -48,6 +55,8 @@ const articleTitle = 'Battery dimensions and case size';
     <p>{RELATIONSHIP}</p>
     <p><a href="/data/">Browse models with dimensions &rarr;</a> · <a href="/contact/">Confirm fitment &rarr;</a></p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Confirm dimensions and case size" />
 </ArticleLayout>

@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
 
 const title = 'Battery Shipping, Packaging & Warranty | Dingwei Battery';
 const description = 'How lead-acid batteries are packaged, shipped and warranted — container loading, export documentation, and what a 12-month warranty actually covers.';
 const articleTitle = 'Battery shipping, packaging and warranty';
+
+const faqs = [
+  { q: 'Are lead-acid batteries dangerous goods?', a: 'No. Unlike lithium cells, lead-acid starting batteries are not Class 9 dangerous goods, so shipping and compliance are simpler.' },
+  { q: 'Why does battery MOQ follow the container?', a: 'Batteries are heavy, so the 20ft container often reaches its weight limit before its volume limit — which is why MOQ is tied to the container.' },
+  { q: 'What does a 12-month warranty actually cover?', a: 'It depends on the written scope — duration, exclusions and claim handling. Confirm all three in writing before relying on it.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Logistics</span>
     <h1>Battery shipping, packaging and warranty</h1>
@@ -60,6 +67,8 @@ const articleTitle = 'Battery shipping, packaging and warranty';
     <p>{RELATIONSHIP}</p>
     <p><a href="/contact/">Request shipping and warranty terms &rarr;</a></p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Confirm shipping and warranty terms" />
 </ArticleLayout>

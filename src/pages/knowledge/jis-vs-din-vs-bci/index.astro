@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
 const title = 'JIS vs DIN vs BCI Battery Standards | Dingwei Battery';
 const description = 'How JIS, DIN/EN and BCI battery standards differ in case size, terminal layout and CCA test method — and how to pick the right one for your market.';
 const articleTitle = 'JIS vs DIN vs BCI battery standards';
+
+const faqs = [
+  { q: 'What is the difference between JIS, DIN and BCI batteries?', a: 'They define different case dimensions, terminal layouts and CCA test methods for different markets — JIS for Japan/Asia, DIN/EN for Europe, BCI for North America.' },
+  { q: 'Are JIS and DIN batteries interchangeable?', a: 'No. Even with similar electrical ratings, the physical case and terminal layout differ, so one family will not fit a vehicle specified for another.' },
+  { q: 'How do I choose the right battery standard?', a: 'Choose by the vehicle&rsquo;s market, not the battery&rsquo;s specs — JIS for Japanese/Asian vehicles, DIN/EN for European, BCI for North American.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Standards" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Standards</span>
     <h1>JIS vs DIN vs BCI battery standards</h1>
@@ -57,6 +64,8 @@ const articleTitle = 'JIS vs DIN vs BCI battery standards';
     <p>{RELATIONSHIP}</p>
     <p><a href="/data/">Browse models by standard &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Specify the right standard for your market" />
 </ArticleLayout>
