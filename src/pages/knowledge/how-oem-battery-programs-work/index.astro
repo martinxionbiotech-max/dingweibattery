@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
 
 const title = 'How OEM Battery Programs Work | Dingwei Battery';
 const description = 'How an OEM battery program runs end to end — specification, sampling, production and repeat orders — for importers and brand owners.';
 const articleTitle = 'How OEM battery programs work';
+
+const faqs = [
+  { q: 'What makes an OEM program different from a one-off order?', a: 'The specification lock. A program locks the approved sample so the tenth order matches the first; a one-off order has no such guarantee.' },
+  { q: 'How long does it take to reach repeat orders?', a: 'It depends on sampling and approval — the development process has gates you must sign before production. Rushing the gates risks the repeatability the program exists to protect.' },
+  { q: 'What is the buyer\'s most important sign-off?', a: 'The sample. Approving a drawing but not testing the physical sample is how a repeat order comes back different from what you approved.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentals" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>How OEM battery programs work</h1>
@@ -40,13 +47,15 @@ const articleTitle = 'How OEM battery programs work';
         <tr><td>Repeat orders</td><td>Identical follow-on batches</td><td>Re-check against the approved sample</td></tr>
       </tbody>
     </table>
-    <p><a href="/oem/">Explore OEM programs &rarr;</a> · <a href="/knowledge/oem-battery-development-process/">See the development process &rarr;</a></p>
+    <p><a href="/oem/">OEM battery programs &rarr;</a> · <a href="/knowledge/oem-battery-development-process/">OEM battery development process &rarr;</a></p>
     <p>{RELATIONSHIP}</p>
 
     <h2>The specification lock</h2>
     <p>The core of an OEM program is not the first order; it is the locked specification that makes the tenth order match the first approved sample. Without a lock, a repeat order becomes a new development project with fresh approval risk.</p>
     <p>Define the lock as the buyer-approved sample plus written parameters and change control. The <a href="/knowledge/oem-battery-development-process/">OEM development process</a> shows where each gate must be signed before the lock is released to production.</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Start your OEM battery program" />
 </ArticleLayout>

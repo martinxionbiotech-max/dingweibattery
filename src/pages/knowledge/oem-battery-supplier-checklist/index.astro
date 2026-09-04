@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, CERTIFICATIONS, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
 
 const title = 'OEM Battery Supplier Checklist | Dingwei Battery';
 const description = 'A supplier evaluation checklist for OEM battery sourcing: specification, certifications, factory capability, sampling, terms and repeatability.';
 const articleTitle = 'OEM battery supplier checklist';
+
+const faqs = [
+  { q: 'What red flag should make me stop immediately?', a: 'A quote given before the standard family and CCA basis are fixed. If a supplier prices a &ldquo;72 Ah battery&rdquo; without asking which standard, they are guessing — and so is the price.' },
+  { q: 'Is a checklist enough to protect me?', a: 'A checklist is a filter, not a guarantee. It catches weak suppliers but does not replace testing a sample and confirming change control in the contract.' },
+  { q: 'What separates a dependable supplier from a one-sample wonder?', a: 'Repeatability. Ask how they keep the tenth container identical to the approved sample — a supplier that cannot describe its change control is a risk.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>OEM battery supplier checklist</h1>
@@ -71,6 +78,8 @@ const articleTitle = 'OEM battery supplier checklist';
     </ul>
     <p>Use the same six fields when you issue the <a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ</a> so suppliers are forced to quote on scope, not on a bare unit number.</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Put Dingwei Battery through your checklist" />
 </ArticleLayout>

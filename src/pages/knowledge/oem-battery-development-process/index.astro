@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
 const title = 'The OEM Battery Development Process | Dingwei Battery';
 const description = 'The step-by-step OEM battery development process — from requirement to shipment — and where buyers should be involved.';
 const articleTitle = 'The OEM battery development process';
+
+const faqs = [
+  { q: 'Where do buyers most often go wrong?', a: 'Skipping the sample approval gate — approving a drawing but not testing the physical sample. That is how a repeat order comes back different from what you approved.' },
+  { q: 'Who signs off at each gate?', a: 'The buyer signs specification, sample, quality criteria and shipment. If the manufacturer signs all four, you have given away control of the outcome.' },
+  { q: 'Why are gates more important than speed?', a: 'Because a skipped gate is how specification drift happens. A slower, gated process protects the repeatability that makes an OEM program profitable.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentals" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>The OEM battery development process</h1>
@@ -53,7 +60,7 @@ const articleTitle = 'The OEM battery development process';
         <tr><td>7. Shipping</td><td>Export packaging and documents</td><td>Confirm documents before shipment</td></tr>
       </tbody>
     </table>
-    <p><a href="/oem/">Explore OEM programs &rarr;</a> · <a href="/contact/">Talk through your development project &rarr;</a></p>
+    <p><a href="/oem/">OEM battery programs &rarr;</a> · <a href="/contact/">OEM battery development project &rarr;</a></p>
     <p>{RELATIONSHIP}</p>
 
     <h2>Where the buyer must sign off</h2>
@@ -66,6 +73,8 @@ const articleTitle = 'The OEM battery development process';
     </ol>
     <p>Skip one gate and the next order can drift from the approved sample. Keep the sign-off sequence tied to the <a href="/knowledge/how-oem-battery-programs-work/">OEM program phases</a> so both sides know where approval is required.</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Plan your OEM development process" />
 </ArticleLayout>

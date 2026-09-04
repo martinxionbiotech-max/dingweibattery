@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
 const title = 'How to Build a Private-Label Battery Brand | Dingwei Battery';
 const description = 'How to launch a private-label battery brand: positioning, specification, branding, packaging, certification and go-to-market.';
 const articleTitle = 'How to build a private-label battery brand';
+
+const faqs = [
+  { q: 'Is private label just putting my logo on a battery?', a: 'No — the logo is the last step. Positioning, specification and SKU planning come first; the brand only works if the product is differentiated and repeatable.' },
+  { q: 'How many SKUs should I launch with?', a: 'Start with the core models that cover most fitments in your market&rsquo;s standard family, not a full catalogue. A mixed container of core SKUs is cheaper per unit than one model per container.' },
+  { q: 'What comes first: the brand or the specification?', a: 'The specification. Fix what the battery actually is before you design the label — otherwise you are branding a product you cannot yet reproduce.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Private Label" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>How to build a private-label battery brand</h1>
@@ -38,7 +45,7 @@ const articleTitle = 'How to build a private-label battery brand';
     <h2>Positioning before branding</h2>
     <p>Choose one position before you design a label: value, specification quality, or a specific vehicle class. A brand that tries to mean everything to every buyer usually has no reason to be chosen in any segment.</p>
     <p>Turn that position into a durable plan with the <a href="/knowledge/private-label-battery-strategy/">private-label battery strategy</a>.</p>
-    <p><a href="/private-label/">Explore private-label programs &rarr;</a> · <a href="/knowledge/private-label-battery-strategy/">Build the strategy &rarr;</a></p>
+    <p><a href="/private-label/">Private-label battery programs &rarr;</a> · <a href="/knowledge/private-label-battery-strategy/">Build the strategy &rarr;</a></p>
     <p>{RELATIONSHIP}</p>
 
     <h2>Plan SKUs, not one container</h2>
@@ -55,6 +62,8 @@ const articleTitle = 'How to build a private-label battery brand';
     <p>Place your brand on a simple 2&times;2 before spending on packaging: price on one axis and vehicle class on the other — passenger, commercial or heavy-duty. Choose one cell and defend it; a brand that tries to occupy every cell ends up with no defensible position.</p>
     <p>Once the cell is chosen, keep the line aligned by revisiting the <a href="/knowledge/private-label-battery-strategy/">private-label battery strategy</a> before each new SKU.</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Launch your private-label battery brand" />
 </ArticleLayout>

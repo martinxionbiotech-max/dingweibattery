@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
 
 const title = 'Choosing an OEM Battery Manufacturer | Dingwei';
 const description = 'A practical method for choosing an OEM battery manufacturer: standards, certifications, factory capability, sampling and export terms.';
 const articleTitle = 'How to choose an OEM battery manufacturer';
+
+const faqs = [
+  { q: 'What is the single most important factor when choosing a manufacturer?', a: 'Repeatability — whether the tenth container matches the first approved sample. A low price is worth nothing if the specification drifts between orders.' },
+  { q: 'Should I choose the lowest price?', a: 'No. Price only matters when the specification, certification and repeatability are equal. A cheaper quote that skips the CCA basis or terminal detail is not actually comparable.' },
+  { q: 'How do I verify a factory without visiting it?', a: 'Ask for three things: current certificates, a recent production sample, and their CCA test procedure. A supplier that cannot produce all three is a risk regardless of the brochure.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>How to choose an OEM battery manufacturer</h1>
@@ -30,11 +37,11 @@ const articleTitle = 'How to choose an OEM battery manufacturer';
 
     <h2>4. Define the specification before quoting</h2>
     <p>Fix voltage, capacity, CCA, case size, terminal and polarity first. Ambiguous specifications produce samples that cannot be fairly compared.</p>
-    <p><a href="/knowledge/oem-battery-specification-guide/">Read the specification guide &rarr;</a></p>
+    <p><a href="/knowledge/oem-battery-specification-guide/">OEM battery specification guide &rarr;</a></p>
 
     <h2>5. Evaluate sampling and terms</h2>
     <p>Confirm the sampling step, lead time, payment and warranty before committing. {RELATIONSHIP}</p>
-    <p><a href="/knowledge/oem-battery-supplier-checklist/">Use the supplier checklist &rarr;</a> · <a href="/oem/">OEM capability &rarr;</a></p>
+    <p><a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist &rarr;</a> · <a href="/oem/">OEM capability &rarr;</a></p>
 
     <h2>A five-point decision framework</h2>
     <p class="lead">Score each manufacturer against the same five questions instead of comparing marketing claims.</p>
@@ -81,6 +88,8 @@ const articleTitle = 'How to choose an OEM battery manufacturer';
     </ul>
     <p>These are the same checks a buyer should walk through on a <a href="/knowledge/how-audit-battery-factory/">lead-acid factory audit</a>.</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Evaluate Dingwei Battery as your manufacturer" />
 </ArticleLayout>

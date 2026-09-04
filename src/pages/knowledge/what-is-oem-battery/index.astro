@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP, MANUFACTURER } from '../../../data/site';
 
 const title = 'What Is an OEM Battery? | Dingwei Battery';
 const description = 'An OEM battery is built to the buyer’s specification and brand. Learn how OEM batteries differ from ODM and private-label supply, with a Dingwei Battery view.';
 const articleTitle = 'What is an OEM battery?';
+
+const faqs = [
+  { q: 'Is an OEM battery lower quality than a branded battery?', a: 'Not necessarily. OEM quality is set by the specification, not the label — the same factory often builds branded and OEM batteries on the same line. What matters is whose specification the battery is built to.' },
+  { q: 'Do I own the design of an OEM battery?', a: 'Yes. That is the defining difference: you own the design and brand, the factory owns the manufacturing. That ownership is what makes repeat orders consistent.' },
+  { q: 'Why choose OEM instead of buying off the shelf?', a: 'Because you need a product no one else can sell — your specification, your terminal layout, your label. Off-the-shelf means a competitor can buy the same battery.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentals" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>What is an OEM battery?</h1>
@@ -31,11 +38,11 @@ const articleTitle = 'What is an OEM battery?';
 
     <h2>What goes into an OEM battery specification</h2>
     <p>At minimum, an OEM battery project defines the standard family (JIS, DIN, BCI, AS or SA), voltage, capacity (Ah), CCA, dimensions, terminal type and polarity. Reference models such as 65D26 or H6 are often used as a starting point.</p>
-    <p><a href="/knowledge/oem-battery-specification-guide/">See the OEM battery specification guide &rarr;</a></p>
+    <p><a href="/knowledge/oem-battery-specification-guide/">OEM battery specification guide &rarr;</a></p>
 
     <h2>Dingwei Battery and its manufacturer</h2>
     <p>{RELATIONSHIP} {MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines} and manufactures to JIS, DIN, BCI, AS and SA standards.</p>
-    <p><a href="/oem/">Explore OEM programs &rarr;</a></p>
+    <p><a href="/oem/">OEM battery programs &rarr;</a></p>
 
     <h2>OEM, ODM and private label: who owns what?</h2>
     <p>In procurement terms, the three models differ by who owns the design and who owns the brand. Keep that ownership split visible before signing a sourcing agreement.</p>
@@ -55,6 +62,8 @@ const articleTitle = 'What is an OEM battery?';
     <p>Lead-acid is a 150-year-old supply chain. Unlike lithium cells, lead-acid starting batteries are not Class 9 dangerous goods, so shipping and compliance are simpler. For importers, this means fewer transport restrictions and lower documentation burden.</p>
     <p>That transport reality is a procurement advantage, not only a technical detail: it simplifies carrier selection and reduces the document set that can delay a container. Review the same supply chain in a factory context with the <a href="/knowledge/how-audit-battery-factory/">lead-acid factory audit</a>.</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Define your OEM battery specification" />
 </ArticleLayout>

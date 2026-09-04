@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
 const title = 'OEM vs ODM vs Private Label | Dingwei Battery';
 const description = 'OEM, ODM and private label describe different levels of design control. Compare them and choose the right path for your battery brand.';
 const articleTitle = 'OEM vs ODM vs private label';
+
+const faqs = [
+  { q: 'What is the fastest way to launch a battery brand?', a: 'Private label — you brand a battery the factory already makes. It is the fastest path, but the least differentiated: every competitor can source the same platform.' },
+  { q: 'Which model gives me the most control?', a: 'OEM — you define the specification and own the design. The trade-off is a longer cycle with sampling and approval gates before production.' },
+  { q: 'Can I switch from private label to OEM later?', a: 'Yes, and it is a common path: start private label to test the market, then move to OEM once you have volume and a differentiated specification worth protecting.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentals" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>OEM vs ODM vs private label</h1>
@@ -34,11 +41,11 @@ const articleTitle = 'OEM vs ODM vs private label';
 
     <h2>What stays constant</h2>
     <p>Whichever path you choose, verify the standard family, voltage, capacity, CCA, dimensions, terminal layout, certifications and export terms before ordering.</p>
-    <p><a href="/knowledge/oem-battery-supplier-checklist/">Use the supplier checklist &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
+    <p><a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
 
     <h2>Dingwei Battery view</h2>
     <p>{RELATIONSHIP} The program can be shaped as OEM, ODM or private label depending on the specification you already control.</p>
-    <p><a href="/oem/">Explore OEM programs &rarr;</a> · <a href="/private-label/">Private-label programs &rarr;</a></p>
+    <p><a href="/oem/">OEM battery programs &rarr;</a> · <a href="/private-label/">Private-label programs &rarr;</a></p>
 
     <h2>Which model fits you?</h2>
     <p>Choose by the asset you already have, not by the size of the first order:</p>
@@ -53,6 +60,8 @@ const articleTitle = 'OEM vs ODM vs private label';
     <p>Choosing the wrong model costs twice: either you pay development work that should have been ODM, or you sign an ODM agreement expecting to own the design and later find the manufacturer owns it. The commercial fix is to state ownership in writing — not to assume the model name transfers the design.</p>
     <p>Keep that ownership distinction visible when you compare supplier responses with the <a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist</a>.</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Choose the right battery program" />
 </ArticleLayout>

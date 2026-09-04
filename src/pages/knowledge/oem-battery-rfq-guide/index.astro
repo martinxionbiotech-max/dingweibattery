@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { STANDARDS, RELATIONSHIP } from '../../../data/site';
 
 const title = 'How to Write an OEM Battery RFQ | Dingwei Battery';
 const description = 'How to write an OEM battery RFQ that gets accurate quotes: specification fields, volume, packaging, certification and delivery requirements.';
 const articleTitle = 'OEM battery RFQ guide';
+
+const faqs = [
+  { q: 'Why do most RFQs fail?', a: 'Three missing fields: the CCA basis, the annual volume, and a single standard per line. A supplier can only quote accurately on one scope, not a vague one.' },
+  { q: 'Should I include a target price in the RFQ?', a: 'Not in the first RFQ. Quote on scope first so you get honest engineering responses, then negotiate price once the scope is locked.' },
+  { q: 'How many models should one RFQ line item cover?', a: 'One. Mixing JIS and DIN models in a single line forces the supplier to guess, and you get a range instead of a quote.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>OEM battery RFQ guide</h1>
@@ -50,7 +57,7 @@ const articleTitle = 'OEM battery RFQ guide';
       <li>Payment terms</li>
       <li>Delivery schedule</li>
     </ul>
-    <p><a href="/contact/">Send your RFQ &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
+    <p><a href="/contact/">Send an OEM battery RFQ &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
 
     <h2>RFQ field checklist</h2>
     <p>A single missing field is usually what turns a quote into a guess. Work through this table before sending.</p>
@@ -88,6 +95,8 @@ const articleTitle = 'OEM battery RFQ guide';
     <p>Compare returned quotes only after fixing those fields. Start with the <a href="/knowledge/oem-battery-specification-guide/">specification guide</a> and keep one model per line item.</p>
     <p>{RELATIONSHIP}</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Send a complete OEM RFQ" />
 </ArticleLayout>

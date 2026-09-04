@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
 
 const title = 'How to Audit a Lead-Acid Battery Factory | Dingwei Battery';
 const description = 'How to audit a lead-acid battery factory for OEM sourcing: certifications, production capability, quality control, testing and export readiness.';
 const articleTitle = 'How to audit a lead-acid battery factory';
+
+const faqs = [
+  { q: 'Do I need to visit the factory in person?', a: 'Not always. A documented audit — certificates, process descriptions and test data — plus a production sample covers most of the risk. But for a large program, an on-site audit is worth the trip.' },
+  { q: 'What is the most telling thing to look at?', a: 'Curing time. A factory that rushes curing to save days produces weak plates that fail early — ask for their curing window, not just their capacity numbers.' },
+  { q: 'Why is a lead-acid audit simpler than a lithium audit?', a: 'Lead-acid needs no thermal-runaway or cell-safety audit. The audit focus shifts to process consistency and raw-material control, which are easier to verify.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Quality" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>How to audit a lead-acid battery factory</h1>
@@ -52,7 +59,7 @@ const articleTitle = 'How to audit a lead-acid battery factory';
       <li>A specification sheet for your reference model</li>
       <li>Agreed commercial terms</li>
     </ul>
-    <p><a href="/knowledge/oem-battery-supplier-checklist/">Use the supplier checklist &rarr;</a> · <a href="/factory/">See the factory capability &rarr;</a></p>
+    <p><a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist &rarr;</a> · <a href="/factory/">Battery factory capability &rarr;</a></p>
     <p>{RELATIONSHIP}</p>
 
     <h2>The ten stages to audit</h2>
@@ -75,6 +82,8 @@ const articleTitle = 'How to audit a lead-acid battery factory';
     <p>Lead-acid audit effort concentrates on process consistency and raw materials. A lithium-cell audit adds cell safety and thermal-runaway controls; lead-acid does not carry the same cell-safety audit burden. That makes the lead-acid audit shorter and easier to standardize for OEM buyers.</p>
     <p>{RELATIONSHIP} Review the factory footprint at <a href="/factory/">Dingwei factory overview</a> as a worked example of the audit data to request.</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Put Dingwei Battery through your audit" />
 </ArticleLayout>

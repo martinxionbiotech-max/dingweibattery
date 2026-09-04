@@ -1,5 +1,6 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import ModelCard from '../../../components/ModelCard.astro';
 import { STANDARDS, RELATIONSHIP, MANUFACTURER } from '../../../data/site';
@@ -8,8 +9,14 @@ import { batteryModels } from '../../../data/battery-models';
 const title = 'OEM Battery Specification Guide | Dingwei Battery';
 const description = 'A buyer’s guide to OEM battery specifications: standard family, voltage, capacity, CCA, dimensions, terminal, polarity and how to confirm values.';
 const articleTitle = 'OEM battery specification guide';
+
+const faqs = [
+  { q: 'What is the most common specification mistake?', a: 'Quoting CCA without the test basis. JIS and EN numbers are not comparable, so a specification without the basis is not really a specification.' },
+  { q: 'Can I copy a competitor\'s specification?', a: 'You can use it as a starting reference, but confirm every field against your own vehicle fitment — case size, terminal and polarity are market-specific and fitment-critical.' },
+  { q: 'What does &ldquo;confirm on inquiry&rdquo; mean on a spec sheet?', a: 'It means the value is intentionally not published rather than estimated. Terminal type and polarity, for example, must be confirmed against your vehicle before ordering.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>OEM battery specification guide</h1>
@@ -39,11 +46,11 @@ const articleTitle = 'OEM battery specification guide';
     <div class="model-list">
       {batteryModels.map((model) => <ModelCard model={model} />)}
     </div>
-    <p>Specifications above are for reference; confirm final values with the manufacturer. <a href="/tools/battery-finder/">Use the battery finder &rarr;</a></p>
+    <p>Specifications above are for reference; confirm final values with the manufacturer. <a href="/tools/battery-finder/">Battery finder tool &rarr;</a></p>
 
     <h2>Dingwei Battery view</h2>
     <p>{RELATIONSHIP} {MANUFACTURER.name} manufactures to JIS, DIN, BCI, AS and SA standards.</p>
-    <p><a href="/oem/">Start an OEM program &rarr;</a></p>
+    <p><a href="/oem/">Start an OEM battery program &rarr;</a></p>
 
     <h2>CCA: two numbers for one battery</h2>
     <p>Cold cranking ampere values only compare when the test method is stated. The same battery can carry a lower JIS number and a higher EN / SAE number because each method uses a different test condition.</p>
@@ -77,6 +84,8 @@ const articleTitle = 'OEM battery specification guide';
     <p>A single battery can show two CCA values because JIS (&minus;15&deg;C) and EN / SAE (&minus;18&deg;C) are different test methods, not a &ldquo;high&rdquo; and a &ldquo;low&rdquo; rating. If the RFQ does not state the test method, two suppliers can appear to be quoting different batteries when they are quoting the same product on different bases.</p>
     <p>State the basis on every line and compare only same-method values. See how that instruction fits into the wider request in the <a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ guide</a>.</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Finalize your battery specification" />
 </ArticleLayout>

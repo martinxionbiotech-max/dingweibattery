@@ -1,13 +1,20 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
 
 const title = 'OEM Battery MOQ & Lead Time Explained | Dingwei Battery';
 const description = 'What MOQ and lead time mean for OEM battery orders, and how they are set — with Chengguang Energy’s reference terms.';
 const articleTitle = 'OEM battery MOQ & lead time';
+
+const faqs = [
+  { q: 'Why is battery MOQ tied to a container?', a: 'Batteries are heavy, so a 20ft container hits its weight limit before its volume limit. MOQ follows the container naturally, and mixing models fills it efficiently.' },
+  { q: 'Can I get a lower MOQ for a first order?', a: 'Sometimes — discuss a prototype or pilot batch before committing to the full production MOQ. Expect a higher unit cost at low volume.' },
+  { q: 'Does lead-acid production have a seasonal cycle?', a: 'No. Unlike agricultural products, lead-acid batteries are produced year-round, so lead time is stable rather than seasonal.' },
+];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-03" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge</span>
     <h1>OEM battery MOQ &amp; lead time</h1>
@@ -46,6 +53,8 @@ const articleTitle = 'OEM battery MOQ & lead time';
     <p>Lead-acid production is not tied to a harvest or seasonal raw-material window. The manufacturing line can run through the year, which keeps lead time more stable than seasonal categories. For an importer, that means a confirmed production lead time is a planning variable, not a harvest risk.</p>
     <p>Use that stability when you set the volume plan in the <a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ</a> or walk through the <a href="/knowledge/how-oem-battery-programs-work/">OEM program phases</a>.</p>
   </section>
+
+  <ArticleFaq faqs={faqs} />
 
   <CTASection title="Confirm MOQ and lead time for your order" />
 </ArticleLayout>
