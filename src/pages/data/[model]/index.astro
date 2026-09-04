@@ -35,25 +35,23 @@ const lead = `The ${model.model} is a ${model.standard} ${model.application.toLo
 const faqs = [
   {
     q: `What is a ${model.model} battery?`,
-    a: `The ${model.model} is a ${model.standard} battery listed for ${model.application.toLowerCase()}. Its case reference is ${model.case_size}, with a nominal ${model.voltage}V and ${model.capacity_ah} Ah rating.`,
+    a: `The ${model.model} is a ${model.standard} starting battery for ${model.application.toLowerCase()}. It uses the ${model.case_size} case reference with a nominal ${model.voltage}V and ${model.capacity_ah} Ah rating — a common fitment in ${model.standard === 'JIS' ? 'Asian-market' : model.standard === 'DIN/EN' ? 'European' : 'its target-market'} vehicles.`,
   },
   {
     q: `What is the CCA of the ${model.model}?`,
-    a: `The listed cold cranking ampere value is ${model.cca.value} CCA (reference), based on ${model.cca.basis}. Confirm the final CCA with the manufacturer before ordering.`,
+    a: `The listed value is ${model.cca.value} CCA, measured to the ${model.cca.basis}. CCA is test-method dependent — a JIS (&minus;15&deg;C) number is not directly comparable to an EN/SAE (&minus;18&deg;C) number, so confirm the basis before comparing quotes.`,
   },
   {
     q: `Can I order the ${model.model} as OEM or private label?`,
-    a: model.oem_available && model.private_label_available
-      ? `Yes. The ${model.model} is available for both OEM and private-label programs, with branding, sampling and packaging confirmed on inquiry.`
-      : `Availability is confirmed on inquiry.`,
+    a: `Yes. OEM means you define the specification and own the design and brand; private label applies your identity to this proven platform. Both routes are available, with branding, sampling and packaging confirmed on inquiry.`,
   },
   {
     q: `What are the dimensions of the ${model.model}?`,
-    a: `The listed dimensions are ${dimsLabel}. Terminal type and polarity are not published here and should be confirmed on inquiry.`,
+    a: `Listed dimensions are ${dimsLabel}. Dimensions decide fitment — the battery must clear the tray, hold-down and hood. Terminal type and polarity are not published here and must be confirmed against the vehicle.`,
   },
   {
     q: `What standard does the ${model.model} use?`,
-    a: `The ${model.model} is referenced to ${model.standard_code} (${model.standard}).`,
+    a: `It is referenced to ${model.standard_code} (${model.standard}). If your market uses a different standard family, confirm the equivalent case size — JIS, DIN/EN and BCI batteries are not automatically interchangeable even at similar ratings.`,
   },
 ];
 
