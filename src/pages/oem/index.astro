@@ -8,7 +8,7 @@ import JsonLd from '../../components/JsonLd.astro';
 import { SITE, BRAND, MANUFACTURER, RELATIONSHIP, BATTERY_TYPES, TRADE_TERMS, CERTIFICATIONS } from '../../data/site';
 
 const title = 'OEM Battery Manufacturing | Dingwei Battery';
-const description = 'OEM battery programs from Dingwei Battery, manufactured by Chengguang Energy: SLI, AGM, EFB and heavy-duty batteries to JIS, DIN, BCI, AS and SA standards.';
+const description = 'OEM battery programs from Dingwei Battery, manufactured by Chengguang Power Tech Co., Ltd.: SLI, AGM, EFB and heavy-duty batteries to JIS, DIN, BCI, AS and SA standards.';
 
 const breadcrumbs = [{ label: 'OEM', href: '/oem/' }];
 
@@ -19,7 +19,7 @@ const oemFaqs = [
   },
   {
     q: 'Who manufactures Dingwei batteries?',
-    a: 'Dingwei batteries are manufactured by Chengguang Energy, a lead-acid manufacturer founded in 2002 in Jinzhou, Hebei, China, with IATF 16949 certification.',
+    a: 'Dingwei batteries are manufactured by Chengguang Power Tech Co., Ltd., a lead-acid manufacturer founded in 2002 in Jinzhou, Hebei, China, with IATF 16949 certification.',
   },
   {
     q: 'How does Dingwei keep repeat orders consistent?',
@@ -97,7 +97,7 @@ const jsonLd = [
       <div class="grid grid--4">
         {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
       </div>
-      <img class="mfg-photo" src="/images/factory/factory-20.webp" alt="Battery production line at the Chengguang Energy facility" width="1517" height="631" loading="lazy" decoding="async" />
+      <img class="mfg-photo" src="/images/factory/factory-20.webp" alt="Battery production line at the Chengguang Power Tech Co., Ltd. facility" width="1517" height="631" loading="lazy" decoding="async" />
     </div>
   </section>
 

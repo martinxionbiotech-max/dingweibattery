@@ -7,7 +7,7 @@ export const SITE = {
 export const BRAND = 'Dingwei Battery';
 
 export const MANUFACTURER = {
-  name: 'Chengguang Energy',
+  name: 'Chengguang Power Tech Co., Ltd.',
   legalName: 'Jinzhou Chengguang Power Source Co., Ltd.',
   shortName: 'Chengguang Power Tech',
   founded: 2002,
@@ -22,7 +22,7 @@ export const MANUFACTURER = {
 };
 
 export const RELATIONSHIP =
-  'Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Energy (founded 2002).';
+  'Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).';
 
 export const CONTACT = {
   email: 'martin@dinweys.com',
@@ -30,7 +30,7 @@ export const CONTACT = {
   whatsappLink: 'https://wa.me/8613323237275',
 };
 
-export const CERTIFICATIONS = ['IATF 16949', 'ISO 9001', 'ISO 45001', 'OHSAS 18001', 'CE'];
+export const CERTIFICATIONS = ['IATF 16949', 'ISO 9001', 'ISO 45001', 'CE'];
 
 export const STANDARDS = ['JIS', 'DIN', 'BCI', 'AS', 'SA'];
 
