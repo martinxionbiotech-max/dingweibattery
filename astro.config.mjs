@@ -8,6 +8,13 @@ export default defineConfig({
   build: {
     format: 'directory'
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es', 'ar', 'ru'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   integrations: [sitemap()],
   trailingSlash: 'always'
 });

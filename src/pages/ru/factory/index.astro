@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, CERTIFICATIONS, STANDARDS } from '../../../data/site';
+
+const title = 'Завод и производство аккумуляторов | Dingwei Battery';
+const description = 'Программы Dingwei Battery производятся Chengguang Power Tech Co., Ltd. (основана в 2002), аккумуляторным заводом площадью 200 000 м² в Цзиньчжоу, провинция Хэбэй, Китай, с 18 производственными линиями.';
+
+const breadcrumbs = [{ label: 'Завод', href: '/ru/factory/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: MANUFACTURER.name,
+    legalName: MANUFACTURER.legalName,
+    foundingDate: String(MANUFACTURER.founded),
+    address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'Завод', item: `${SITE.url}/ru/factory/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Производство</span>
+    <h1>Завод и производство аккумуляторов</h1>
+    <p class="lead">Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Производство осуществляется компанией {MANUFACTURER.name} на её площадке в {MANUFACTURER.address}.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <h2>Производственный цех</h2>
+    <p class="lead">Внутри завода свинцово-кислотных аккумуляторов {MANUFACTURER.name} в {MANUFACTURER.address}.</p>
+    <div class="gallery gallery--uniform">
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-05.webp" alt="Линия производства аккумуляторов на площадке Chengguang Power Tech Co., Ltd." width="1530" height="641" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-18.webp" alt="Производственное оборудование аккумуляторов на площадке Chengguang Power Tech Co., Ltd." width="1517" height="633" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-23.webp" alt="Процесс производства аккумуляторов на площадке Chengguang Power Tech Co., Ltd." width="1514" height="633" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-24.webp" alt="Линия производства аккумуляторов на площадке Chengguang Power Tech Co., Ltd." width="1515" height="632" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-25.webp" alt="Производственный цех аккумуляторного завода на площадке Chengguang Power Tech Co., Ltd." width="1526" height="793" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-26.webp" alt="Производственное оборудование аккумуляторов на площадке Chengguang Power Tech Co., Ltd." width="1530" height="645" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Профиль производителя</h2>
+      <div class="grid grid--2">
+        <div class="card"><h3>Компания</h3><p>{MANUFACTURER.legalName} ({MANUFACTURER.shortName})</p></div>
+        <div class="card"><h3>Основана</h3><p>{MANUFACTURER.founded}</p></div>
+        <div class="card"><h3>Расположение</h3><p>{MANUFACTURER.address}</p></div>
+        <div class="card"><h3>Площадка</h3><p>{MANUFACTURER.factoryArea}, {MANUFACTURER.productionLines}</p></div>
+        <div class="card"><h3>Дневной выпуск</h3><p>{MANUFACTURER.dailyOutput}</p></div>
+        <div class="card"><h3>Сотрудники</h3><p>{MANUFACTURER.employees}</p></div>
+        <div class="card"><h3>Рынки экспорта</h3><p>{MANUFACTURER.exportMarkets}, через {MANUFACTURER.exportPorts}</p></div>
+        <div class="card"><h3>Уставный капитал</h3><p>{MANUFACTURER.registeredCapital}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Производственный процесс: десять этапов</h2>
+    <p class="lead">Покупатель, понимающий эти десять этапов, может правильно провести аудит завода — каждый этап является контрольной точкой качества.</p>
+    <ol>
+      <li><strong>Литьё решёток</strong> — решётка из свинцового сплава; необслуживаемые аккумуляторы используют свинцово-кальциевый сплав.</li>
+      <li><strong>Смешивание пасты</strong> — консистенция пасты определяет ёмкость.</li>
+      <li><strong>Намазка</strong> — равномерное нанесение пасты на решётку.</li>
+      <li><strong>Сушка (выдержка)</strong> — 2–4 дня кристаллизации, определяющей механическую прочность.</li>
+      <li><strong>Сборка</strong> — пластины и сепараторы помещаются в корпус.</li>
+      <li><strong>Сварка</strong> — сварка ушек и клемм.</li>
+      <li><strong>Заливка электролита</strong> — заливка кислоты.</li>
+      <li><strong>Формовочный заряд</strong> — активирует активную массу.</li>
+      <li><strong>Герметизация и финишная обработка</strong> — герметизация крышки.</li>
+      <li><strong>Тестирование и упаковка</strong> — 100% проверка электрических характеристик.</li>
+    </ol>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Контроль качества</h2>
+      <ul>
+        <li>Автомобильная система качества IATF 16949</li>
+        <li>100% электрическое тестирование на выходе линии</li>
+        <li>Прослеживаемость партий</li>
+        <li>Выборочный контроль</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Мощность</h2>
+    <p>Площадка площадью {MANUFACTURER.factoryArea}, {MANUFACTURER.productionLines}, {MANUFACTURER.dailyOutput}.</p>
+    <p><a href="/ru/oem/">Смотреть возможности OEM &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Экспортные возможности</h2>
+      <p>Экспорт в {MANUFACTURER.exportMarkets} из {MANUFACTURER.exportPorts}, с полной экспортной документацией, включая сертификат анализа, упаковочный лист, коносамент, сертификат происхождения и протоколы испытаний.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Сертификаты</h2>
+    <p class="lead">Сертификаты, принадлежащие {MANUFACTURER.name}:</p>
+    <ul>
+      {CERTIFICATIONS.map((cert) => <li>{cert}</li>)}
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Производимые стандарты</h2>
+      <p class="lead">Платформы аккумуляторов поставляются по следующим семействам стандартов: {STANDARDS.join(', ')}.</p>
+      <p><a href="/ru/oem/">Смотреть возможности OEM &rarr;</a> · <a href="/ru/knowledge/oem-battery-supplier-checklist/">Что проверять у поставщика &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Оценить наши производственные возможности" />
+</BaseLayout>

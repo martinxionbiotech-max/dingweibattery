@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, CERTIFICATIONS, STANDARDS } from '../../../data/site';
+
+const title = 'مصنع البطاريات والتصنيع | Dingwei Battery';
+const description = 'تُصنّع برامج Dingwei Battery بواسطة Chengguang Power Tech Co., Ltd. (تأسست عام 2002)، وهو مصنع بطاريات بمساحة 200,000 م² في Jinzhou بمقاطعة Hebei بالصين مع 18 خط إنتاج.';
+
+const breadcrumbs = [{ label: 'المصنع', href: '/ar/factory/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: MANUFACTURER.name,
+    legalName: MANUFACTURER.legalName,
+    foundingDate: String(MANUFACTURER.founded),
+    address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/ar/` },
+      { '@type': 'ListItem', position: 2, name: 'المصنع', item: `${SITE.url}/ar/factory/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">التصنيع</span>
+    <h1>مصنع البطاريات والتصنيع</h1>
+    <p class="lead">توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). يتم التصنيع بواسطة {MANUFACTURER.name} في منشأتها في {MANUFACTURER.address}.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <h2>أرضية المصنع</h2>
+    <p class="lead">داخل مصنع بطاريات الرصاص الحمضي التابع لشركة {MANUFACTURER.name} في {MANUFACTURER.address}.</p>
+    <div class="gallery gallery--uniform">
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-05.webp" alt="خط إنتاج البطاريات في منشأة Chengguang Power Tech Co., Ltd." width="1530" height="641" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-18.webp" alt="معدات إنتاج البطاريات في منشأة Chengguang Power Tech Co., Ltd." width="1517" height="633" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-23.webp" alt="عملية تصنيع البطاريات في منشأة Chengguang Power Tech Co., Ltd." width="1514" height="633" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-24.webp" alt="خط إنتاج البطاريات في منشأة Chengguang Power Tech Co., Ltd." width="1515" height="632" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-25.webp" alt="أرضية مصنع البطاريات في منشأة Chengguang Power Tech Co., Ltd." width="1526" height="793" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-26.webp" alt="معدات تصنيع البطاريات في منشأة Chengguang Power Tech Co., Ltd." width="1530" height="645" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>ملف الشركة المصنعة</h2>
+      <div class="grid grid--2">
+        <div class="card"><h3>الشركة</h3><p>{MANUFACTURER.legalName} ({MANUFACTURER.shortName})</p></div>
+        <div class="card"><h3>سنة التأسيس</h3><p>{MANUFACTURER.founded}</p></div>
+        <div class="card"><h3>الموقع</h3><p>{MANUFACTURER.address}</p></div>
+        <div class="card"><h3>المنشأة</h3><p>{MANUFACTURER.factoryArea}، {MANUFACTURER.productionLines}</p></div>
+        <div class="card"><h3>الإنتاج اليومي</h3><p>{MANUFACTURER.dailyOutput}</p></div>
+        <div class="card"><h3>الموظفون</h3><p>{MANUFACTURER.employees}</p></div>
+        <div class="card"><h3>أسواق التصدير</h3><p>{MANUFACTURER.exportMarkets}، عبر {MANUFACTURER.exportPorts}</p></div>
+        <div class="card"><h3>رأس المال المسجل</h3><p>{MANUFACTURER.registeredCapital}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>عملية التصنيع: عشر مراحل</h2>
+    <p class="lead">المشتري الذي يفهم هذه المراحل العشر يمكنه تدقيق المصنع بشكل صحيح — فكل مرحلة هي نقطة فحص للجودة.</p>
+    <ol>
+      <li><strong>سبك الشبكة</strong> — شبكة من سبيكة الرصاص؛ تستخدم البطاريات الخالية من الصيانة سبيكة رصاص-كالسيوم.</li>
+      <li><strong>خلط العجينة</strong> — يحدد تماسك العجينة السعة.</li>
+      <li><strong>التلطيخ</strong> — تطبيق متساوٍ للعجينة على الشبكة.</li>
+      <li><strong>المعالجة</strong> — من 2 إلى 4 أيام من التبلور تحدد القوة الميكانيكية.</li>
+      <li><strong>التجميع</strong> — وضع الألواح والفواصل في الهيكل.</li>
+      <li><strong>اللحام</strong> — لحام الأذن والأطراف.</li>
+      <li><strong>تعبئة الإلكتروليت</strong> — تعبئة الحمض.</li>
+      <li><strong>شحن التكوين</strong> — تنشيط المادة الفعالة.</li>
+      <li><strong>الإغلاق والتشطيب</strong> — إغلاق الغطاء.</li>
+      <li><strong>الاختبار والتغليف</strong> — اختبار أداء كهربائي بنسبة 100%.</li>
+    </ol>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>مراقبة الجودة</h2>
+      <ul>
+        <li>نظام جودة السيارات IATF 16949</li>
+        <li>اختبار كهربائي بنسبة 100% في نهاية الخط</li>
+        <li>تتبع الدفعات</li>
+        <li>فحص بالعينات العشوائية</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>القدرة الإنتاجية</h2>
+    <p>منشأة بمساحة {MANUFACTURER.factoryArea}، و{MANUFACTURER.productionLines}، و{MANUFACTURER.dailyOutput}.</p>
+    <p><a href="/ar/oem/">عرض قدرة OEM &larr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>القدرة على التصدير</h2>
+      <p>تصدير إلى {MANUFACTURER.exportMarkets} من {MANUFACTURER.exportPorts}، مع وثائق تصدير كاملة تشمل شهادة التحليل وقائمة التعبئة وبوليصة الشحن وشهادة المنشأ وتقارير الاختبار.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>الشهادات</h2>
+    <p class="lead">الشهادات المملوكة لشركة {MANUFACTURER.name}:</p>
+    <ul>
+      {CERTIFICATIONS.map((cert) => <li>{cert}</li>)}
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>المعايير المصنعة</h2>
+      <p class="lead">تُورَّد منصات البطاريات وفق عائلات المعايير التالية: {STANDARDS.join(', ')}.</p>
+      <p><a href="/ar/oem/">عرض قدرة OEM &larr;</a> · <a href="/ar/knowledge/oem-battery-supplier-checklist/">ما الذي يجب فحصه في المورد &larr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="قيّم قدراتنا التصنيعية" />
+</BaseLayout>

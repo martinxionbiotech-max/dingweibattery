@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import BatteryTypeCard from '../../../components/BatteryTypeCard.astro';
+import { SITE, BRAND, MANUFACTURER, BATTERY_TYPES } from '../../../data/site';
+
+const title = 'برامج بطاريات العلامة الخاصة | Dingwei Battery';
+const description = 'برامج بطاريات سيارات بعلامة خاصة من Dingwei Battery، تصنّعها Chengguang Power Tech Co., Ltd.: علامتك التجارية وملصقك وتغليفك وتوريد متكرر.';
+
+const breadcrumbs = [{ label: 'علامة خاصة', href: '/ar/private-label/' }];
+
+const privateLabelFaqs = [
+  {
+    q: 'ما الذي يتضمنه برنامج العلامة الخاصة من Dingwei؟',
+    a: 'يتضمن هوية علامتك التجارية على الملصق والتغليف والوثائق، مطبقة على منصة بطارية مجرّبة من SLI أو AGM أو EFB أو الخدمة الشاقة مع مواصفات مثبتة وتوريد متكرر خاضع للرقابة.',
+  },
+  {
+    q: 'ما أنواع البطاريات التي يمكن إنتاجها بعلامة خاصة؟',
+    a: 'يمكن إنتاج بطاريات التشغيل من الرصاص الحمضي من أنواع SLI وAGM وEFB والخدمة الشاقة بعلامة خاصة عبر معايير JIS وDIN وBCI وAS وSA.',
+  },
+  {
+    q: 'كيف تُحافظ الطلبات المتكررة للعلامة الخاصة على اتساقها؟',
+    a: 'بتثبيت المواصفات قبل الملصق — تُثبَّت منصة البطارية وأساس CCA وحجم الهيكل أولاً، ثم تُطبق العلامة التجارية. يحافظ ضبط المواصفات وعينات ما قبل الإنتاج وتتبع الدفعات على تطابق كل دفعة إنتاج مع العينة المعتمدة، وهو ما يتذكره المشترون فعلًا.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: privateLabelFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/ar/` },
+      { '@type': 'ListItem', position: 2, name: 'علامة خاصة', item: `${SITE.url}/ar/private-label/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">علامة خاصة</span>
+    <h1>برامج بطاريات العلامة الخاصة</h1>
+    <p class="lead">توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). ضع علامتك على منصة بطارية مجرّبة — الملصق والهيكل والتغليف والوثائق مشمولة.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>ما الذي تتضمنه العلامة الخاصة</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>هوية العلامة التجارية</h3><p>ملصقك ونظام الألوان وتسمية المنتج مطبقة على البطارية والتغليف.</p></div>
+        <div class="card"><h3>منصة المنتج</h3><p>منصات SLI وAGM وEFB والخدمة الشاقة عبر معايير JIS وDIN وBCI وAS وSA.</p></div>
+        <div class="card"><h3>توريد متكرر</h3><p>مواصفات خاضعة للرقابة بحيث يتطابق كل طلب مع عينتك المعتمدة.</p></div>
+      </div>
+      <img class="mfg-photo" src="/images/factory/factory-22.webp" alt="منطقة فحص البطاريات في منشأة Chengguang Power Tech Co., Ltd." width="1505" height="830" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>العلامة الخاصة مقابل OEM: الفرق المهم</h2>
+    <p class="lead">تعني العلامة الخاصة أنك تضع علامتك على بطارية يصنعها المصنع بالفعل؛ بينما تعني OEM أن المصنع يبني وفق مواصفات تحددها أنت. العلامة الخاصة أسرع في الإطلاق؛ وتمنحك OEM منتجًا لا يستطيع أحد نسخه.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>ما الذي يمكنك وسمه بعلامتك</h2>
+      <ul>
+        <li>تصميم الملصق ونظام الألوان</li>
+        <li>تصميم الصندوق والغلاف والمنصات</li>
+        <li>الرمز الشريطي ورمز SKU</li>
+        <li>بطاقة الضمان</li>
+        <li>دليل استخدام متعدد اللغات</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>عملية العلامة الخاصة</h2>
+    <ol>
+      <li><strong>التموضع</strong> — حدد السوق المستهدف والمعايير المطلوبة.</li>
+      <li><strong>المواصفات</strong> — ثبّت الجهد والسعة وCCA وحجم الهيكل.</li>
+      <li><strong>العلامة التجارية</strong> — طبّق الملصق والتغليف والوثائق.</li>
+      <li><strong>العينات</strong> — اعتمد عينة ما قبل الإنتاج.</li>
+      <li><strong>الإنتاج</strong> — توريد مجدول يطابق العينة المعتمدة.</li>
+    </ol>
+    <p><a href="/ar/knowledge/how-build-private-label-battery-brand/">كيفية بناء علامة تجارية لبطاريات بعلامة خاصة &larr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>عائلات المنتجات المتاحة</h2>
+    <div class="grid grid--4">
+      {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>كيف تعمل العملية</h2>
+      <p>نبدأ بسوقك المستهدف والمعايير المطلوبة، ونتفق على المواصفات، ثم ننتقل إلى التصميم والعلامة التجارية قبل العينات والإنتاج.</p>
+      <p><a href="/ar/oem/">عرض عملية OEM &larr;</a> · <a href="/ar/knowledge/oem-vs-odm-vs-private-label/">OEM مقابل ODM مقابل العلامة الخاصة &larr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>الأسئلة الشائعة</h2>
+    {privateLabelFaqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <CTASection title="ابدأ خط بطاريات بعلامة خاصة" />
+</BaseLayout>

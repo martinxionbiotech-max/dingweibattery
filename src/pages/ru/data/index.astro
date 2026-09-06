@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE } from '../../../data/site';
+import { batteryModels, modelPath } from '../../../data/battery-models';
+
+const title = 'База данных моделей аккумуляторов | Dingwei Battery';
+const description = 'Справочные спецификации для 23 моделей аккумуляторов JIS, DIN/EN и тяжёлого режима от Dingwei Battery. Фильтрация по семейству стандарта, размеру корпуса и ёмкости.';
+
+const breadcrumbs = [{ label: 'Данные', href: '/ru/data/' }];
+
+const rows = batteryModels
+  .map((m) => ({
+    model: m.model,
+    standard: m.standard,
+    caseSize: m.case_size,
+    voltage: m.voltage,
+    capacity: m.capacity_ah,
+    cca: m.cca.value,
+    dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+    href: '/ru' + modelPath(m.model),
+  }))
+  .sort((a, b) => a.standard.localeCompare(b.standard) || a.capacity - b.capacity);
+
+const standards = [...new Set(rows.map((r) => r.standard))];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'База данных моделей аккумуляторов',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: `${r.model} аккумулятор`,
+      url: `${SITE.url}${r.href}`,
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'Данные', item: `${SITE.url}/ru/data/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">База данных</span>
+    <h1>База данных моделей аккумуляторов</h1>
+    <p class="lead">Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Справочные спецификации для {rows.length} моделей аккумуляторов по стандартам {standards.join(' и ')}. Значения CCA приведены справочно; окончательные значения уточняйте у производителя.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Модель</th>
+            <th>Стандарт</th>
+            <th>Корпус</th>
+            <th>Напряжение</th>
+            <th>Ёмкость</th>
+            <th>CCA (справ.)</th>
+            <th>Размеры (мм)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td><a href={r.href}>{r.model}</a></td>
+              <td>{r.standard}</td>
+              <td>{r.caseSize}</td>
+              <td>{r.voltage} V</td>
+              <td>{r.capacity} Ah</td>
+              <td>{r.cca}</td>
+              <td>{r.dims}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="note">CCA — справочное значение и зависит от метода испытаний (JIS −15°C против EN/SAE −18°C). Не сравнивайте CCA между стандартами без подтверждения основы.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Как пользоваться этой базой данных</h2>
+    <p>Найдите эталонную модель, соответствующую семейству стандартов вашего целевого рынка, затем подтвердите точную спецификацию — напряжение, ёмкость, основу CCA, размер корпуса, тип клемм и полярность — у производителя перед заказом.</p>
+    <p><a href="/ru/knowledge/oem-battery-specification-guide/">Читать руководство по спецификации &rarr;</a> · <a href="/ru/tools/compare/">Сравнить две модели &rarr;</a> · <a href="/ru/contact/">Запросить индивидуальную совместимость &rarr;</a></p>
+  </section>
+
+  <CTASection title="Подтвердить спецификацию вашей модели аккумулятора" />
+</BaseLayout>

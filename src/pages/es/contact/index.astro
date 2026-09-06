@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, TRADE_TERMS, CONTACT } from '../../../data/site';
+
+const title = 'Contacto y Solicitud de Cotización de Baterías OEM | Dingwei Battery';
+const description = 'Solicite una cotización de baterías OEM o de marca privada de Dingwei Battery. Comparta su especificación, mercado objetivo y volumen anual para un programa personalizado.';
+
+const breadcrumbs = [{ label: 'Contacto', href: '/es/contact/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/es/` },
+      { '@type': 'ListItem', position: 2, name: 'Contacto', item: `${SITE.url}/es/contact/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Contacto / Solicitud de oferta</span>
+    <h1>Solicite una cotización de baterías OEM o de marca privada</h1>
+    <p class="lead">Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Utilice el resumen a continuación para organizar sus requisitos y compártalo después con el equipo de exportación del fabricante.</p>
+    <img class="mfg-photo" src="/images/port.webp" alt="Puerto de exportación utilizado para los envíos de Dingwei Battery" width="1485" height="613" loading="lazy" decoding="async" />
+  </section>
+
+  <section class="section--tight container">
+    <div class="contact-bar">
+      <div class="card">
+        <h3>Correo electrónico</h3>
+        <p><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
+      </div>
+      <div class="card">
+        <h3>WhatsApp</h3>
+        <p><a href={CONTACT.whatsappLink} target="_blank" rel="noopener">{CONTACT.whatsapp}</a></p>
+        <a class="btn btn--whatsapp" href={CONTACT.whatsappLink} target="_blank" rel="noopener">Chatear por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight container">
+    <form id="rfq-form" action="/es/contact/" method="post">
+      <div class="form-grid">
+        <div class="field">
+          <label for="company">Empresa</label>
+          <input id="company" name="company" type="text" autocomplete="organization" required />
+        </div>
+        <div class="field">
+          <label for="country">País / mercado</label>
+          <input id="country" name="country" type="text" autocomplete="country-name" required />
+        </div>
+        <div class="field">
+          <label for="buyer-type">Tipo de comprador</label>
+          <select id="buyer-type" name="buyer_type">
+            <option value="">Seleccionar</option>
+            <option>Distribuidor</option>
+            <option>Minorista</option>
+            <option>Operador de flota</option>
+            <option>Propietario de marca</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="battery-type">Tipo de batería</label>
+          <select id="battery-type" name="battery_type">
+            <option value="">Seleccionar</option>
+            <option>SLI</option>
+            <option>AGM</option>
+            <option>EFB</option>
+            <option>Servicio Pesado</option>
+            <option>No estoy seguro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="standard">Estándar</label>
+          <select id="standard" name="standard">
+            <option value="">Seleccionar</option>
+            <option>JIS</option>
+            <option>DIN</option>
+            <option>BCI</option>
+            <option>AS</option>
+            <option>SA</option>
+            <option>EN</option>
+            <option>No estoy seguro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="model">Modelo / referencia de carcasa</label>
+          <input id="model" name="model" type="text" placeholder="p. ej. 65D26, H6" />
+        </div>
+        <div class="field">
+          <label for="voltage">Voltaje</label>
+          <select id="voltage" name="voltage">
+            <option value="">Seleccionar</option>
+            <option>6V</option>
+            <option>12V</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="capacity">Capacidad (Ah)</label>
+          <input id="capacity" name="capacity_ah" type="number" min="1" />
+        </div>
+        <div class="field">
+          <label for="cca">CCA (referencia)</label>
+          <input id="cca" name="cca_reference" type="number" min="0" />
+        </div>
+        <div class="field">
+          <label for="volume">Volumen anual (unidades)</label>
+          <input id="volume" name="annual_volume" type="number" min="0" />
+        </div>
+        <div class="field">
+          <label for="private-label">Marca privada</label>
+          <select id="private-label" name="private_label">
+            <option value="">Seleccionar</option>
+            <option>Sí</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="packaging">Preferencia de embalaje</label>
+          <input id="packaging" name="packaging" type="text" />
+        </div>
+        <div class="field">
+          <label for="notes">Notas / requisitos adicionales</label>
+          <textarea id="notes" name="notes"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="submit">Preparar resumen de solicitud de oferta</button>
+        <p id="rfq-status" class="form-status" role="status">Resumen de solicitud de oferta listo. Comparta estos datos con el equipo de exportación del fabricante para recibir las condiciones. Los precios nunca se publican y solo se facilitan al solicitar.</p>
+      </div>
+    </form>
+    <p class="note">Condiciones comerciales a confirmar al solicitar: MOQ {TRADE_TERMS.moq}; plazo de entrega {TRADE_TERMS.leadTime}; pago {TRADE_TERMS.payment}; incoterms {TRADE_TERMS.incoterms}; garantía {TRADE_TERMS.warranty}.</p>
+  </section>
+
+  <script is:inline>
+    const form = document.getElementById('rfq-form');
+    const status = document.getElementById('rfq-status');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      status.style.display = 'block';
+      status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  </script>
+</BaseLayout>

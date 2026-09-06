@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatsBar from '../../components/StatsBar.astro';
+import BatteryTypeCard from '../../components/BatteryTypeCard.astro';
+import OEMProcess from '../../components/OEMProcess.astro';
+import CTASection from '../../components/CTASection.astro';
+import ModelCard from '../../components/ModelCard.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, BATTERY_TYPES } from '../../data/site';
+import { batteryModels } from '../../data/battery-models';
+
+const title = 'بطاريات السيارات OEM والعلامة الخاصة | Dingwei Battery';
+const description = 'توفر Dingwei Battery برامج بطاريات سيارات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002).';
+
+const homeFaqs = [
+  {
+    q: 'ما البطاريات التي توفرها Dingwei؟',
+    a: 'توفر Dingwei بطاريات تشغيل من الرصاص الحمضي من أنواع SLI وAGM وEFB والخدمة الشاقة لبرامج OEM والعلامة الخاصة. لا تُعدّ بطاريات التشغيل من الرصاص الحمضي بضائع خطرة من الفئة 9، لذا يكون الشحن والامتثال أبسط مقارنةً بخلايا الليثيوم.',
+  },
+  {
+    q: 'من الذي يصنّع بطاريات Dingwei؟',
+    a: 'تصنّعها شركة Chengguang Power Tech Co., Ltd.، وهي مُصنِّع لبطاريات الرصاص الحمضي تأسست عام 2002 في Jinzhou بمقاطعة Hebei، وحاصلة على شهادة IATF 16949. يغطي مصنع واحد معايير JIS وDIN وBCI وAS وSA، بحيث يمكن لمورد واحد تغطية جميع أسواقك.',
+  },
+  {
+    q: 'هل يمكنني بناء علامتي التجارية الخاصة للبطاريات؟',
+    a: 'نعم. تعني OEM أنك تحدد المواصفات وتمتلك التصميم والعلامة التجارية؛ بينما تطبق العلامة الخاصة هويتك على منصة مجرّبة. وكلاهما يمنحك منتجًا لا يستطيع أي منافس شراءه من نفس الرف.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: BRAND,
+    url: SITE.url,
+    description: 'برامج بطاريات سيارات OEM والعلامة الخاصة.',
+    brand: { '@type': 'Brand', name: BRAND },
+    manufacturer: {
+      '@type': 'Organization',
+      name: MANUFACTURER.name,
+      legalName: MANUFACTURER.legalName,
+      foundingDate: String(MANUFACTURER.founded),
+      address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: SITE.url,
+    description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/ar/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={[]}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="hero">
+    <div class="container">
+      <span class="tag" style="color:#f0b9b2">OEM / علامة خاصة</span>
+      <h1>بطاريات سيارات مصنوعة لعلامتك التجارية</h1>
+      <p class="lead">توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). نوفر بطاريات SLI وAGM وEFB والخدمة الشاقة تحت علامتك، من المواصفات حتى الشحن.</p>
+      <div class="hero__actions">
+        <a class="btn" href="/ar/oem/">استكشف برامج OEM</a>
+        <a class="btn btn--ghost" href="/ar/contact/">اطلب عرض سعر OEM</a>
+      </div>
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <span class="tag">أنواع البطاريات</span>
+    <h2>فئات بطاريات OEM والعلامة الخاصة</h2>
+    <p class="lead">أربع عائلات منتجات تصنّعها {MANUFACTURER.name}، تغطي معايير JIS وDIN وBCI وAS وSA.</p>
+    <div class="grid grid--4">
+      {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">لماذا Dingwei Battery</span>
+      <h2>برنامج OEM، وليس طلبًا لمرة واحدة</h2>
+      <p class="lead">ننظّم علاقة العلامة التجارية والمواصفات والعينات والتوريد بحيث يبقى منتجك متسقًا عبر الطلبات.</p>
+      <div class="grid grid--3">
+        <div class="card"><h3>المواصفات أولاً</h3><p>يتم تحديد الجهد والسعة وCCA والمعيار وحجم الهيكل وتوزيع الأطراف قبل الإنتاج.</p></div>
+        <div class="card"><h3>اتساق العلامة التجارية</h3><p>يتم التحكم في التصميم والتغليف وهوية منتج OEM والعلامة الخاصة للطلبات المتكررة.</p></div>
+        <div class="card"><h3>القدرة على التصدير</h3><p>يدعم التصنيع من {MANUFACTURER.name} التصدير إلى {MANUFACTURER.exportMarkets} من {MANUFACTURER.exportPorts}.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">لماذا الرصاص الحمضي</span>
+    <h2>لماذا الرصاص الحمضي لبرنامج OEM الخاص بك</h2>
+    <p class="lead">يتمتع الرصاص الحمضي بسلسلة توريد عمرها 150 عامًا، وبطاريات التشغيل ليست بضائع خطرة من الفئة 9 مثل خلايا الليثيوم. بالنسبة للمستوردين يعني ذلك شحنًا أبسط وقيود نقل أقل وعبء امتثال أخف — قاعدة توريد ناضجة وموثوقة لبرنامج بطاريات يعمل لسنوات.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>خدمات لوجستية أبسط</h3><p>تُشحن بطاريات التشغيل وفق قواعد البضائع العادية، دون معالجة UN38.3 وMSDS والبضائع الخطرة من الفئة 9 التي تتطلبها خلايا الليثيوم.</p></div>
+      <div class="card"><h3>تكرارية مثبتة</h3><p>تعني العملية الناضجة مع عقود من البيانات الميدانية أن المواصفات المثبتة تبقى متسقة عبر دفعات الإنتاج.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">المعايير</span>
+      <h2>المعايير التي نصنع وفقها</h2>
+      <p class="lead">مصنع واحد، وكل معيار رئيسي — بحيث يغطي مورد واحد جميع أسواقك.</p>
+      <div class="grid grid--3">
+        <div class="card"><h3>JIS</h3><p>توافقات السوق اليابانية والآسيوية (مثل مجموعات الهيكل D23 وD26 وD31 وB24).</p></div>
+        <div class="card"><h3>DIN / EN</h3><p>التوافقات الأوروبية (مثل مجموعات الهيكل H5–H8 وLN2–LN5).</p></div>
+        <div class="card"><h3>BCI / AS / SA</h3><p>التوافقات لأمريكا الشمالية وأستراليا وجنوب إفريقيا.</p></div>
+      </div>
+      <p><a href="/ar/data/65d26/">عرض مواصفات الموديلات المرجعية &larr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">التصنيع</span>
+    <h2>مصنوعة في مصنع بطاريات متخصص</h2>
+    <p class="lead">{MANUFACTURER.name} (تأسست عام {MANUFACTURER.founded}) تدير منشأة بمساحة {MANUFACTURER.factoryArea} في {MANUFACTURER.address} مع {MANUFACTURER.productionLines}.</p>
+    <img class="mfg-photo" src="/images/factory/factory-19.webp" alt="أرضية تصنيع البطاريات في منشأة Chengguang Power Tech Co., Ltd." width="1508" height="823" loading="lazy" decoding="async" />
+    <p><a href="/ar/factory/">عرض نظرة عامة على المصنع &larr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <OEMProcess />
+      <p><a href="/ar/contact/">ناقش مشروعك &larr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">قبل أن تبدأ التوريد</span>
+    <h2>ما الذي يجب أن يعرفه مشترو OEM قبل التوريد؟</h2>
+    <div class="grid grid--3">
+      <div class="card"><h3>حدد المعيار والموديل</h3><p>لا تطلب مجرد «بطارية». إن JIS وDIN وBCI أحجام هياكل وتوزيعات أطراف مختلفة — وهي غير قابلة للتبادل.</p></div>
+      <div class="card"><h3>تعتمد CCA على طريقة الاختبار</h3><p>إن CCA وفق JIS (−15°م) وCCA وفق EN (−18°م) رقمان مختلفان لنفس البطارية. أكّد الأساس قبل مقارنة عروض الأسعار.</p></div>
+      <div class="card"><h3>يتبع MOQ الحاوية</h3><p>حاوية واحدة بحجم 20 قدمًا هي الحد الأدنى المعتاد. خلط الموديلات في حاوية واحدة يبقي تكلفة الوحدة منخفضة.</p></div>
+    </div>
+    <p style="margin-top:1.25rem">قبل طلب عروض الأسعار، استخدم <a href="/ar/knowledge/oem-battery-specification-guide/">دليل مواصفات بطاريات OEM</a> وافهم <a href="/ar/knowledge/oem-battery-moq-lead-time/">كيف يعمل MOQ ومهلة التسليم</a>.</p>
+  </section>
+
+  <section class="section container">
+    <span class="tag">الموديلات المرجعية</span>
+    <h2>مواصفات موديلات البطاريات</h2>
+    <p class="lead">مواصفات مرجعية للتوافقات الشائعة JIS وDIN/EN. المواصفات للمرجعية؛ أكّد القيم النهائية مع الشركة المصنعة.</p>
+    <div class="model-list">
+      {batteryModels.map((model) => <ModelCard model={model} />)}
+    </div>
+    <p style="margin-top:1rem"><a href="/ar/tools/battery-finder/">استخدم أداة البحث عن البطارية &larr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>الأسئلة الشائعة</h2>
+      {homeFaqs.map((f) => (
+        <div class="card" style="margin-bottom:0.9rem">
+          <h3>{f.q}</h3>
+          <p style="margin:0">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

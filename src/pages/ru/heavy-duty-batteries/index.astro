@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import ModelCard from '../../../components/ModelCard.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER } from '../../../data/site';
+import { batteryModels } from '../../../data/battery-models';
+
+const title = 'Аккумуляторы тяжёлого режима | Dingwei Battery';
+const description = 'Аккумуляторы тяжёлого режима 6В и 12В для грузовиков, автобусов и строительной техники, поставляемые Dingwei Battery и произведённые Chengguang Power Tech Co., Ltd..';
+
+const breadcrumbs = [{ label: 'Тяжёлый режим', href: '/ru/heavy-duty-batteries/' }];
+
+const heavyModels = batteryModels.filter((m) => ['105D31', '115D31', 'N100', 'N150', 'N200'].includes(m.model));
+
+const heavyDutyFaqs = [
+  {
+    q: 'Какие области применения охватывают аккумуляторы тяжёлого режима Dingwei?',
+    a: 'Аккумуляторы тяжёлого режима Dingwei охватывают грузовики, автобусы и строительную технику в конфигурациях 6В и 12В, со ссылкой на стандарты JIS, DIN, BCI и SA.',
+  },
+  {
+    q: 'Можно ли поставлять аккумуляторы тяжёлого режима под моей маркой?',
+    a: 'Да. Аккумуляторы тяжёлого режима доступны для программ OEM и частной марки, при этом спецификация, брендинг, отбор образцов и упаковка уточняются по запросу.',
+  },
+  {
+    q: 'Что нужно указать в спецификации аккумулятора тяжёлого режима?',
+    a: 'Сначала семейство стандарта и размер корпуса — серия JIS N, тяжёлый DIN и BCI Group 31 не взаимозаменяемы даже при близких Ah. Затем напряжение, ёмкость, CCA с основой испытаний, тип клемм и полярность, эталонную модель и годовой объём, подтверждённые с производителем.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: heavyDutyFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'Тяжёлый режим', item: `${SITE.url}/ru/heavy-duty-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Тяжёлый режим</span>
+    <h1>Аккумуляторы тяжёлого режима</h1>
+    <p class="lead">Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Стартерные аккумуляторы 6В и 12В для грузовиков, автобусов и строительной техники, охватывающие стандарты JIS, DIN, BCI и SA.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Области применения</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>Грузовики</h3><p>Мощный запуск для коммерческих автопарков грузовиков.</p></div>
+        <div class="card"><h3>Автобусы</h3><p>Надёжный запуск и электрическая поддержка для междугородних и городских автобусов.</p></div>
+        <div class="card"><h3>Строительная техника</h3><p>Долговечные аккумуляторы для внедорожных и промышленных машин.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Что считается тяжёлым режимом</h2>
+    <p class="lead">Грузовики, автобусы, строительная техника, сельскохозяйственные и морские применения — там, где вибрация, глубокие циклы и требования к холодному пуску значительно выше, чем у легкового автомобиля.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>Устойчивость к вибрации</h3><p>Аккумуляторы тяжёлого режима рассчитаны на постоянные механические удары на неровных дорогах и рабочих площадках.</p></div>
+      <div class="card"><h3>Высокие требования к холодной прокрутке</h3><p>Крупным дизельным двигателям для запуска нужно значительно больше CCA, особенно в холодном климате.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Стандарты для тяжёлого режима</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>Серия JIS N</h3><p>N150 / N200 — совместимость с азиатскими тяжёлыми грузовиками.</p></div>
+        <div class="card"><h3>Тяжёлый DIN</h3><p>DIN88 / DIN100 — европейская коммерческая совместимость.</p></div>
+        <div class="card"><h3>BCI Group 31 / 4D / 8D</h3><p>Североамериканская совместимость тяжёлого режима.</p></div>
+      </div>
+      <p class="lead">Размеры корпусов и расположение клемм различаются между этими семействами и не взаимозаменяемы.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Спецификации</h2>
+    <ul>
+      <li>Преимущественно 12В (некоторые конфигурации 6В)</li>
+      <li>Ёмкость в диапазоне 100–225 Ah</li>
+      <li>Дизельным двигателям обычно нужен высокий CCA (порядка 800–1100 А, справочно) — подтвердите окончательное значение у производителя.</li>
+    </ul>
+    <p><a href="/ru/knowledge/oem-battery-specification-guide/">Читать руководство по спецификации &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Области применения по типу транспорта</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>Магистральный тягач</h3><p>Системы 24В с двумя последовательно соединёнными аккумуляторами 12В.</p></div>
+        <div class="card"><h3>Автобус</h3><p>Запуск и электрическая поддержка для междугородних автобусов.</p></div>
+        <div class="card"><h3>Экскаватор / трактор / морская техника</h3><p>Стартерные аккумуляторы для внедорожной и морской техники.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Производство и экспорт</h2>
+    <p class="lead">Произведено компанией {MANUFACTURER.name} (основана в {MANUFACTURER.founded}) на площадке площадью {MANUFACTURER.factoryArea} с {MANUFACTURER.productionLines}, с экспортом в {MANUFACTURER.exportMarkets}.</p>
+    <p><a href="/ru/factory/">Смотреть обзор завода &rarr;</a></p>
+    <img class="mfg-photo" src="/images/factory/factory-16.webp" alt="Сборка аккумуляторов на площадке Chengguang Power Tech Co., Ltd." width="1533" height="646" loading="lazy" decoding="async" />
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Эталонные модели</span>
+      <h2>Эталонные стартерные аккумуляторы тяжёлого режима</h2>
+      <p class="lead">Два эталона тяжёлого режима JIS из текущего набора моделей. Спецификации приведены для справки; окончательные значения уточняйте у производителя.</p>
+      <div class="model-list">
+        {heavyModels.map((model) => <ModelCard model={model} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Ассортимент продукции тяжёлого режима</h2>
+    <p class="lead">Эталоны тяжёлого режима, поставляемые {MANUFACTURER.name}.</p>
+    <div class="gallery gallery--product">
+      <figure class="gallery__item"><img src="/images/product/hd-n150.webp" alt="Аккумулятор тяжёлого режима N150" width="800" height="749" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/hd-n200.webp" alt="Аккумулятор тяжёлого режима N200" width="800" height="780" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/hd-n100.webp" alt="Аккумулятор тяжёлого режима N100" width="800" height="769" loading="lazy" decoding="async" /></figure>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Часто задаваемые вопросы</h2>
+    {heavyDutyFaqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/ru/knowledge/oem-battery-specification-guide/">Воспользоваться руководством по спецификации OEM-аккумуляторов &rarr;</a></p>
+  </section>
+
+  <CTASection title="Запросить расчёт на аккумулятор тяжёлого режима" />
+</BaseLayout>

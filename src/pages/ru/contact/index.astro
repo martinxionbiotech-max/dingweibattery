@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, TRADE_TERMS, CONTACT } from '../../../data/site';
+
+const title = 'Свяжитесь с нами и запросите расчёт OEM-аккумулятора | Dingwei Battery';
+const description = 'Запросите расчёт на OEM-аккумулятор или аккумулятор частной марки у Dingwei Battery. Укажите вашу спецификацию, целевой рынок и годовой объём для индивидуальной программы.';
+
+const breadcrumbs = [{ label: 'Контакты', href: '/ru/contact/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'Контакты', item: `${SITE.url}/ru/contact/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Контакты / Запрос предложения</span>
+    <h1>Запросить расчёт на OEM-аккумулятор или аккумулятор частной марки</h1>
+    <p class="lead">Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Используйте форму ниже, чтобы структурировать ваши требования, а затем передайте их экспортной команде производителя.</p>
+    <img class="mfg-photo" src="/images/port.webp" alt="Экспортный порт, используемый для отгрузок Dingwei Battery" width="1485" height="613" loading="lazy" decoding="async" />
+  </section>
+
+  <section class="section--tight container">
+    <div class="contact-bar">
+      <div class="card">
+        <h3>Эл. почта</h3>
+        <p><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
+      </div>
+      <div class="card">
+        <h3>WhatsApp</h3>
+        <p><a href={CONTACT.whatsappLink} target="_blank" rel="noopener">{CONTACT.whatsapp}</a></p>
+        <a class="btn btn--whatsapp" href={CONTACT.whatsappLink} target="_blank" rel="noopener">Написать в WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight container">
+    <form id="rfq-form" action="/ru/contact/" method="post">
+      <div class="form-grid">
+        <div class="field">
+          <label for="company">Компания</label>
+          <input id="company" name="company" type="text" autocomplete="organization" required />
+        </div>
+        <div class="field">
+          <label for="country">Страна / рынок</label>
+          <input id="country" name="country" type="text" autocomplete="country-name" required />
+        </div>
+        <div class="field">
+          <label for="buyer-type">Тип покупателя</label>
+          <select id="buyer-type" name="buyer_type">
+            <option value="">Выбрать</option>
+            <option>Дистрибьютор</option>
+            <option>Розничный продавец</option>
+            <option>Оператор автопарка</option>
+            <option>Владелец бренда</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="battery-type">Тип аккумулятора</label>
+          <select id="battery-type" name="battery_type">
+            <option value="">Выбрать</option>
+            <option>SLI</option>
+            <option>AGM</option>
+            <option>EFB</option>
+            <option>Тяжёлый режим</option>
+            <option>Не уверен</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="standard">Стандарт</label>
+          <select id="standard" name="standard">
+            <option value="">Выбрать</option>
+            <option>JIS</option>
+            <option>DIN</option>
+            <option>BCI</option>
+            <option>AS</option>
+            <option>SA</option>
+            <option>EN</option>
+            <option>Не уверен</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="model">Модель / эталон корпуса</label>
+          <input id="model" name="model" type="text" placeholder="например 65D26, H6" />
+        </div>
+        <div class="field">
+          <label for="voltage">Напряжение</label>
+          <select id="voltage" name="voltage">
+            <option value="">Выбрать</option>
+            <option>6V</option>
+            <option>12V</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="capacity">Ёмкость (Ah)</label>
+          <input id="capacity" name="capacity_ah" type="number" min="1" />
+        </div>
+        <div class="field">
+          <label for="cca">CCA (справочно)</label>
+          <input id="cca" name="cca_reference" type="number" min="0" />
+        </div>
+        <div class="field">
+          <label for="volume">Годовой объём (шт.)</label>
+          <input id="volume" name="annual_volume" type="number" min="0" />
+        </div>
+        <div class="field">
+          <label for="private-label">Частная марка</label>
+          <select id="private-label" name="private_label">
+            <option value="">Выбрать</option>
+            <option>Да</option>
+            <option>Нет</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="packaging">Предпочтения по упаковке</label>
+          <input id="packaging" name="packaging" type="text" />
+        </div>
+        <div class="field">
+          <label for="notes">Примечания / дополнительные требования</label>
+          <textarea id="notes" name="notes"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="submit">Подготовить запрос предложения</button>
+        <p id="rfq-status" class="form-status" role="status">Запрос предложения готов. Передайте эти данные экспортной команде производителя, чтобы получить условия. Цены никогда не публикуются и предоставляются только по запросу.</p>
+      </div>
+    </form>
+    <p class="note">Коммерческие условия, уточняемые по запросу: MOQ {TRADE_TERMS.moq}; срок поставки {TRADE_TERMS.leadTime}; оплата {TRADE_TERMS.payment}; инкотермс {TRADE_TERMS.incoterms}; гарантия {TRADE_TERMS.warranty}.</p>
+  </section>
+
+  <script is:inline>
+    const form = document.getElementById('rfq-form');
+    const status = document.getElementById('rfq-status');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      status.style.display = 'block';
+      status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  </script>
+</BaseLayout>

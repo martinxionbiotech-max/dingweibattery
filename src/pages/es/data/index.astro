@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE } from '../../../data/site';
+import { batteryModels, modelPath } from '../../../data/battery-models';
+
+const title = 'Base de Datos de Modelos de Baterías | Dingwei Battery';
+const description = 'Especificaciones de referencia para 23 modelos de baterías JIS, DIN/EN y de servicio pesado de Dingwei Battery. Filtre por familia de estándar, tamaño de carcasa y capacidad.';
+
+const breadcrumbs = [{ label: 'Datos', href: '/es/data/' }];
+
+const rows = batteryModels
+  .map((m) => ({
+    model: m.model,
+    standard: m.standard,
+    caseSize: m.case_size,
+    voltage: m.voltage,
+    capacity: m.capacity_ah,
+    cca: m.cca.value,
+    dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+    href: '/es' + modelPath(m.model),
+  }))
+  .sort((a, b) => a.standard.localeCompare(b.standard) || a.capacity - b.capacity);
+
+const standards = [...new Set(rows.map((r) => r.standard))];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Base de datos de modelos de baterías',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: `${r.model} Batería`,
+      url: `${SITE.url}${r.href}`,
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/es/` },
+      { '@type': 'ListItem', position: 2, name: 'Datos', item: `${SITE.url}/es/data/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Base de datos</span>
+    <h1>Base de datos de modelos de baterías</h1>
+    <p class="lead">Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Especificaciones de referencia para {rows.length} modelos de baterías en los estándares {standards.join(' y ')}. Los valores de CCA se muestran como referencia; confirme los valores finales con el fabricante.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Estándar</th>
+            <th>Carcasa</th>
+            <th>Voltaje</th>
+            <th>Capacidad</th>
+            <th>CCA (ref.)</th>
+            <th>Dimensiones (mm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td><a href={r.href}>{r.model}</a></td>
+              <td>{r.standard}</td>
+              <td>{r.caseSize}</td>
+              <td>{r.voltage} V</td>
+              <td>{r.capacity} Ah</td>
+              <td>{r.cca}</td>
+              <td>{r.dims}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="note">La CCA es un valor de referencia y depende del método de ensayo (JIS −15°C vs EN/SAE −18°C). No compare la CCA entre estándares sin confirmar la base.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Cómo usar esta base de datos</h2>
+    <p>Busque el modelo de referencia que coincida con la familia de estándares de su mercado objetivo y después confirme la especificación exacta — voltaje, capacidad, base de CCA, tamaño de carcasa, tipo de terminal y polaridad — con el fabricante antes de pedir.</p>
+    <p><a href="/es/knowledge/oem-battery-specification-guide/">Leer la guía de especificación &rarr;</a> · <a href="/es/tools/compare/">Comparar dos modelos &rarr;</a> · <a href="/es/contact/">Solicitar un montaje personalizado &rarr;</a></p>
+  </section>
+
+  <CTASection title="Confirme la especificación de su modelo de batería" />
+</BaseLayout>

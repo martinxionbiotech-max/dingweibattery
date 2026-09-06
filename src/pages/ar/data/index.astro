@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE } from '../../../data/site';
+import { batteryModels, modelPath } from '../../../data/battery-models';
+import { localizedPath } from '../../../i18n/url';
+
+const title = 'قاعدة بيانات موديلات البطاريات | Dingwei Battery';
+const description = 'مواصفات مرجعية لـ23 موديل بطارية من معايير JIS وDIN/EN والخدمة الشاقة من Dingwei Battery. قم بالتصفية حسب عائلة المعيار وحجم الهيكل والسعة.';
+
+const breadcrumbs = [{ label: 'البيانات', href: '/ar/data/' }];
+
+const rows = batteryModels
+  .map((m) => ({
+    model: m.model,
+    standard: m.standard,
+    caseSize: m.case_size,
+    voltage: m.voltage,
+    capacity: m.capacity_ah,
+    cca: m.cca.value,
+    dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+    href: localizedPath(modelPath(m.model), 'ar'),
+  }))
+  .sort((a, b) => a.standard.localeCompare(b.standard) || a.capacity - b.capacity);
+
+const standards = [...new Set(rows.map((r) => r.standard))];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'قاعدة بيانات موديلات البطاريات',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: `${r.model} بطارية`,
+      url: `${SITE.url}${r.href}`,
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/ar/` },
+      { '@type': 'ListItem', position: 2, name: 'البيانات', item: `${SITE.url}/ar/data/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">قاعدة البيانات</span>
+    <h1>قاعدة بيانات موديلات البطاريات</h1>
+    <p class="lead">توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). مواصفات مرجعية لـ{rows.length} موديل بطارية عبر معايير {standards.join(' و ')}. تُعرض قيم CCA كمرجع؛ أكّد القيم النهائية مع الشركة المصنعة.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>الموديل</th>
+            <th>المعيار</th>
+            <th>الهيكل</th>
+            <th>الجهد</th>
+            <th>السعة</th>
+            <th>CCA (مرجعي)</th>
+            <th>الأبعاد (مم)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td><a href={r.href}>{r.model}</a></td>
+              <td>{r.standard}</td>
+              <td>{r.caseSize}</td>
+              <td>{r.voltage} V</td>
+              <td>{r.capacity} Ah</td>
+              <td>{r.cca}</td>
+              <td>{r.dims}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="note">CCA قيمة مرجعية وتعتمد على طريقة الاختبار (JIS عند −15°م مقابل EN/SAE عند −18°م). لا تقارن CCA عبر المعايير دون تأكيد الأساس.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>كيفية استخدام قاعدة البيانات هذه</h2>
+    <p>ابحث عن الموديل المرجعي الذي يطابق عائلة المعيار في سوقك المستهدف، ثم أكّد المواصفات الدقيقة — الجهد والسعة وأساس CCA وحجم الهيكل ونوع الطرف والقطبية — مع الشركة المصنعة قبل الطلب.</p>
+    <p><a href="/ar/knowledge/oem-battery-specification-guide/">اقرأ دليل المواصفات &larr;</a> · <a href="/ar/tools/compare/">قارن بين موديلين &larr;</a> · <a href="/ar/contact/">اطلب توافقًا مخصصًا &larr;</a></p>
+  </section>
+
+  <CTASection title="أكّد مواصفات موديل البطارية الخاص بك" />
+</BaseLayout>

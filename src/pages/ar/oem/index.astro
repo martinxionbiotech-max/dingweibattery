@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import BatteryTypeCard from '../../../components/BatteryTypeCard.astro';
+import OEMProcess from '../../../components/OEMProcess.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, BATTERY_TYPES, TRADE_TERMS, CERTIFICATIONS } from '../../../data/site';
+
+const title = 'تصنيع بطاريات OEM | Dingwei Battery';
+const description = 'برامج بطاريات OEM من Dingwei Battery، تصنّعها Chengguang Power Tech Co., Ltd.: بطاريات SLI وAGM وEFB والخدمة الشاقة وفق معايير JIS وDIN وBCI وAS وSA.';
+
+const breadcrumbs = [{ label: 'OEM', href: '/ar/oem/' }];
+
+const oemFaqs = [
+  {
+    q: 'ما البطاريات التي توفرها Dingwei؟',
+    a: 'توفر Dingwei بطاريات تشغيل من الرصاص الحمضي من أنواع SLI وAGM وEFB والخدمة الشاقة لبرامج OEM والعلامة الخاصة، بمواصفات وفق معايير JIS وDIN وBCI وAS وSA.',
+  },
+  {
+    q: 'من الذي يصنّع بطاريات Dingwei؟',
+    a: 'تصنّع بطاريات Dingwei بواسطة Chengguang Power Tech Co., Ltd.، وهي مُصنِّع لبطاريات الرصاص الحمضي تأسست عام 2002 في Jinzhou بمقاطعة Hebei بالصين، وحاصلة على شهادة IATF 16949.',
+  },
+  {
+    q: 'كيف تحافظ Dingwei على اتساق الطلبات المتكررة؟',
+    a: 'من خلال قفل المواصفات — يوافق المشتري على عينة، ويصبح هذا المعيار المعتمد هو الأساس المرجعي لكل حاوية لاحقة. تمنع العملية المنظّمة مع عينات ما قبل الإنتاج والمراقبة أثناء العملية وتتبع الدفعات انحراف المواصفات الذي يجعل الطلبات المتكررة تعود مختلفة.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: BRAND,
+    url: `${SITE.url}/ar/oem/`,
+    description,
+    manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName, foundingDate: String(MANUFACTURER.founded) },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: oemFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/ar/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/ar/oem/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">نظرة عامة على OEM</span>
+    <h1>تصنيع بطاريات OEM</h1>
+    <p class="lead">توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). تعني OEM أن منتجك يُهندَس ويُوسَم ويُورَّد وفق مواصفات متفق عليها — وليس منتقى من كتالوج عام.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <h2>OEM مقابل ODM مقابل العلامة الخاصة</h2>
+    <p class="lead">تُبنى OEM وفق مواصفاتك؛ بينما تبدأ ODM من تصميم قائم يمكنك وسمه بعلامتك؛ وتطبق العلامة الخاصة هويتك على منتج مورَّد. يعتمد المسار الصحيح على مدى تحكمك المسبق في المواصفات.</p>
+    <p><a href="/ar/knowledge/oem-vs-odm-vs-private-label/">اقرأ دليل المقارنة &larr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>ما الذي تعنيه «OEM» لمشتري البطاريات</h2>
+      <p class="lead">تعني OEM أنك تحدد المواصفات وتمتلك التصميم والعلامة التجارية؛ ويصنّع المصنع وفقها. هذا هو الفرق عن ODM (حيث يمتلك المصنع التصميم) وعن العلامة الخاصة (حيث تضع علامتك على منتج جاهز).</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>ما الذي يمكن تخصيصه</h2>
+    <div class="grid grid--2">
+      <div class="card"><h3>الملصق والتصميم</h3><p>علامتك التجارية وألوانك وتسمية منتجك على الملصق والهيكل.</p></div>
+      <div class="card"><h3>التغليف</h3><p>تصميم الصندوق والغلاف والمنصات وفق مواصفاتك.</p></div>
+      <div class="card"><h3>الأطراف والمواصفات</h3><p>نوع الطرف وموضعه، والجهد والسعة بما يناسب سوقك.</p></div>
+      <div class="card"><h3>الوثائق</h3><p>أدلة استخدام وبطاقات ضمان متعددة اللغات.</p></div>
+    </div>
+    <p><a href="/ar/private-label/">عرض خيارات العلامة الخاصة &larr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">القدرة الإنتاجية</span>
+      <h2>عائلات المنتجات</h2>
+      <div class="grid grid--4">
+        {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+      </div>
+      <img class="mfg-photo" src="/images/factory/factory-20.webp" alt="خط إنتاج البطاريات في منشأة Chengguang Power Tech Co., Ltd." width="1517" height="631" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>الشروط التجارية</h2>
+    <p class="lead">الشروط الأساسية للتصدير التي تستخدمها {MANUFACTURER.name}. تُؤكَّد الشروط النهائية عند الاستفسار.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>MOQ</h3><p>{TRADE_TERMS.moq}</p></div>
+      <div class="card"><h3>مهلة التسليم</h3><p>{TRADE_TERMS.leadTime}</p></div>
+      <div class="card"><h3>الدفع</h3><p>{TRADE_TERMS.payment}</p></div>
+      <div class="card"><h3>شروط التجارة الدولية</h3><p>{TRADE_TERMS.incoterms}</p></div>
+    </div>
+    <p class="note">لا تُنشر الأسعار. اطلب عرض سعر لمواصفاتك وحجمك السنوي.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">الشهادات</span>
+      <h2>أنظمة الجودة التي تمتلكها الشركة المصنعة</h2>
+      <p class="lead">الشهادات التالية مملوكة لشركة {MANUFACTURER.name}.</p>
+      <ul>
+        {CERTIFICATIONS.map((cert) => <li>{cert}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container">
+    <OEMProcess />
+    <p><a href="/ar/knowledge/how-choose-oem-battery-manufacturer/">كيفية اختيار مُصنِّع بطاريات OEM &larr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>كيفية تقييم مُصنِّع بطاريات OEM</h2>
+      <p class="lead">تفصل خمسة أبعاد شريك OEM الموثوق عن مورد لا يستطيع سوى إنتاج عينة واحدة مقبولة.</p>
+      <ol>
+        <li><strong>تغطية المواصفات</strong> — هل يمكنهم إنتاج معيارك (JIS / DIN / BCI / AS / SA)؟</li>
+        <li><strong>الشهادات</strong> — هل توجد شهادة IATF 16949 للتوريد في قطاع السيارات، مدعومة بشهادة ISO 9001؟</li>
+        <li><strong>الحجم</strong> — هل تتوافق مساحة المصنع والإنتاج اليومي مع حجمك السنوي؟</li>
+        <li><strong>قابلية التكرار</strong> — كيف يحافظون على تطابق الطلبات المتكررة مع العينة المعتمدة؟</li>
+        <li><strong>خبرة التصدير</strong> — ما الأسواق التي يخدمونها، وما الوثائق التي يقدمونها؟</li>
+      </ol>
+      <p>استخدم هذا التقييم إلى جانب <a href="/ar/knowledge/how-choose-oem-battery-manufacturer/">إطار القرار ذي النقاط الخمس</a> قبل طلب العينات.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>أخطاء شائعة في توريد OEM</h2>
+    <ul>
+      <li>مقارنة CCA عبر المعايير دون التحقق من طريقة الاختبار.</li>
+      <li>تثبيت الملصق قبل تثبيت المواصفات.</li>
+      <li>اختيار أدنى سعر وتجاهل قابلية التكرار.</li>
+    </ul>
+    <p>ابدأ بـ<a href="/ar/knowledge/oem-battery-specification-guide/">دليل مواصفات بطاريات OEM</a> بحيث تصبح العينة المعتمدة الأولى هي المعيار لكل طلب لاحق.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>الأسئلة الشائعة</h2>
+      {oemFaqs.map((f) => (
+        <div class="card" style="margin-bottom:0.9rem">
+          <h3>{f.q}</h3>
+          <p style="margin:0">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CTASection title="ابدأ مشروع بطاريات OEM الخاص بك" />
+</BaseLayout>

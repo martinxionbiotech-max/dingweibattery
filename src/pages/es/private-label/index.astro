@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import BatteryTypeCard from '../../../components/BatteryTypeCard.astro';
+import { SITE, BRAND, MANUFACTURER, BATTERY_TYPES } from '../../../data/site';
+
+const title = 'Programas de Baterías de Marca Privada | Dingwei Battery';
+const description = 'Programas de baterías de automoción de marca privada de Dingwei Battery, fabricadas por Chengguang Power Tech Co., Ltd.: su marca, etiqueta, embalaje y suministro repetible.';
+
+const breadcrumbs = [{ label: 'Marca Privada', href: '/es/private-label/' }];
+
+const privateLabelFaqs = [
+  {
+    q: '¿Qué incluye un programa de marca privada de Dingwei?',
+    a: 'Incluye su identidad de marca en etiqueta, embalaje y documentación, aplicada a una plataforma probada de baterías SLI, AGM, EFB o de servicio pesado con una especificación bloqueada y un suministro repetido controlado.',
+  },
+  {
+    q: '¿Qué tipos de batería se pueden marcar como marca privada?',
+    a: 'Las baterías de arranque de plomo-ácido SLI, AGM, EFB y de servicio pesado pueden marcarse como marca privada en los estándares JIS, DIN, BCI, AS y SA.',
+  },
+  {
+    q: '¿Cómo se mantiene la consistencia de los pedidos repetidos de marca privada?',
+    a: 'Fijando la especificación antes de la etiqueta: primero se bloquean la plataforma de batería, la base de CCA y el tamaño de carcasa, y después se aplica la marca. El control de especificación, el muestreo de preproducción y la trazabilidad por lotes mantienen cada serie de producción conforme a su muestra aprobada, que es lo que los compradores recuerdan realmente.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: privateLabelFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/es/` },
+      { '@type': 'ListItem', position: 2, name: 'Marca Privada', item: `${SITE.url}/es/private-label/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Marca privada</span>
+    <h1>Programas de baterías de marca privada</h1>
+    <p class="lead">Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Ponga su marca en una plataforma de baterías probada — etiqueta, carcasa, embalaje y documentación incluidas.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Qué incluye la marca privada</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>Identidad de marca</h3><p>Su etiqueta, esquema de colores y denominación del producto aplicados a la batería y al embalaje.</p></div>
+        <div class="card"><h3>Plataforma de producto</h3><p>Plataformas SLI, AGM, EFB y de servicio pesado en los estándares JIS, DIN, BCI, AS y SA.</p></div>
+        <div class="card"><h3>Suministro repetible</h3><p>Especificaciones controladas para que cada pedido coincida con su muestra aprobada.</p></div>
+      </div>
+      <img class="mfg-photo" src="/images/factory/factory-22.webp" alt="Área de inspección de baterías en las instalaciones de Chengguang Power Tech Co., Ltd." width="1505" height="830" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Marca privada vs OEM: la diferencia que importa</h2>
+    <p class="lead">La marca privada significa que usted marca una batería que la fábrica ya fabrica; OEM significa que la fábrica fabrica según una especificación que usted define. La marca privada se lanza más rápido; OEM le da un producto que nadie más puede copiar.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Qué puede marcar</h2>
+      <ul>
+        <li>Diseño de etiqueta y esquema de colores</li>
+        <li>Arte de caja, funda y palé</li>
+        <li>Código de barras y SKU</li>
+        <li>Tarjeta de garantía</li>
+        <li>Manual multilingüe</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>El proceso de marca privada</h2>
+    <ol>
+      <li><strong>Posicionamiento</strong> — defina el mercado objetivo y los estándares requeridos.</li>
+      <li><strong>Especificación</strong> — bloquee voltaje, capacidad, CCA y tamaño de carcasa.</li>
+      <li><strong>Marca</strong> — aplique etiqueta, embalaje y documentación.</li>
+      <li><strong>Muestreo</strong> — apruebe una muestra de preproducción.</li>
+      <li><strong>Producción</strong> — suministro programado que coincide con la muestra aprobada.</li>
+    </ol>
+    <p><a href="/es/knowledge/how-build-private-label-battery-brand/">Cómo construir una marca de baterías de marca privada &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Familias de producto disponibles</h2>
+    <div class="grid grid--4">
+      {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Cómo funciona el proceso</h2>
+      <p>Comenzamos con su mercado objetivo y los estándares requeridos, acordamos la especificación y después pasamos al diseño y la marca antes del muestreo y la producción.</p>
+      <p><a href="/es/oem/">Ver el proceso OEM &rarr;</a> · <a href="/es/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs marca privada &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Preguntas frecuentes</h2>
+    {privateLabelFaqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <CTASection title="Inicie una línea de baterías de marca privada" />
+</BaseLayout>

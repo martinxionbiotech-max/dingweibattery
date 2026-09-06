@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER } from '../../../../data/site';
+
+const title = 'Baterías de Camión OEM | Dingwei Battery';
+const description = 'Baterías de camión OEM de Dingwei Battery, fabricadas por Chengguang Power Tech Co., Ltd.: baterías de servicio pesado de 6V y 12V para camiones, autobuses y equipos de construcción.';
+
+const breadcrumbs = [
+  { label: 'OEM', href: '/es/oem/' },
+  { label: 'Baterías de Camión', href: '/es/oem/truck-batteries/' },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/es/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/es/oem/` },
+      { '@type': 'ListItem', position: 3, name: 'Baterías de Camión', item: `${SITE.url}/es/oem/truck-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">OEM / Camión</span>
+    <h1>Baterías de camión OEM</h1>
+    <p class="lead">Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Baterías de arranque de servicio pesado en 6V y 12V para camiones, autobuses y equipos de construcción, suministradas bajo su marca.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Programas de baterías de camión</h2>
+      <div class="grid grid--2">
+        <div class="card"><h3>Servicio pesado de 6V y 12V</h3><p>Baterías de arranque para camiones, autobuses y maquinaria fuera de carretera, que cubren los estándares JIS, DIN, BCI y SA.</p></div>
+        <div class="card"><h3>Consistencia de flota</h3><p>Tamaño de carcasa, disposición de terminales y etiquetado estables en los pedidos OEM repetidos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Aplicaciones</h2>
+    <div class="grid grid--3">
+      <div class="card"><h3>Camiones articulados</h3><p>Sistemas de arranque de 24V que usan dos baterías de 12V en serie.</p></div>
+      <div class="card"><h3>Autobuses y autocares</h3><p>Arranque fiable y soporte eléctrico para flotas de pasajeros.</p></div>
+      <div class="card"><h3>Equipos fuera de carretera</h3><p>Baterías de arranque duraderas para máquinas de construcción y agrícolas.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Estándares para baterías de camión</h2>
+      <p>Los montajes de camión no son intercambiables entre mercados. La misma aplicación puede usar una batería JIS de la serie N en Asia, una referencia DIN pesada en Europa o un BCI Grupo 31 / 4D / 8D en Norteamérica. Confirme la familia de estándar y el tamaño de carcasa con el requisito del vehículo o de la flota antes de pedir.</p>
+      <ul>
+        <li><strong>JIS serie N</strong> — N150 / N200, montajes de camiones pesados asiáticos.</li>
+        <li><strong>DIN pesado</strong> — DIN88 / DIN100, montajes comerciales europeos.</li>
+        <li><strong>BCI Grupo 31 / 4D / 8D</strong> — montajes de servicio pesado norteamericanos.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Qué especificar para una batería de camión</h2>
+    <ul>
+      <li>Familia de estándar y tamaño de carcasa (JIS / DIN / BCI / SA).</li>
+      <li>Voltaje (12V estándar; disponibles configuraciones de 6V y en serie de 24V).</li>
+      <li>Capacidad, normalmente en el rango de 100–225 Ah para uso de servicio pesado.</li>
+      <li>CCA — los motores diésel grandes necesitan altos amperios de arranque en frío; confirme la base de ensayo (referencia) con el fabricante.</li>
+      <li>Tipo y posición del terminal para su tendido de cables.</li>
+    </ul>
+    <p><a href="/es/knowledge/oem-battery-specification-guide/">Leer la guía de especificación de baterías OEM &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Fabricación y exportación</h2>
+    <p class="lead">Fabricadas por {MANUFACTURER.name} (fundada en {MANUFACTURER.founded}) en una instalación de {MANUFACTURER.factoryArea} en {MANUFACTURER.address}, con {MANUFACTURER.productionLines} y exportación a {MANUFACTURER.exportMarkets}.</p>
+    <p><a href="/es/factory/">Ver resumen de la fábrica &rarr;</a> · <a href="/es/heavy-duty-batteries/">Detalles de baterías de servicio pesado &rarr;</a></p>
+  </section>
+
+  <CTASection title="Solicite una cotización de baterías de camión OEM" />
+</BaseLayout>

@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import ModelCard from '../../../../components/ModelCard.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, STANDARDS } from '../../../../data/site';
+import { batteryModels } from '../../../../data/battery-models';
+
+const title = 'Baterías de Automóvil OEM | Dingwei Battery';
+const description = 'Baterías de automóvil OEM de Dingwei Battery, fabricadas por Chengguang Power Tech Co., Ltd.: baterías de arranque SLI, AGM y EFB para vehículos de pasajeros y comerciales ligeros.';
+
+const breadcrumbs = [
+  { label: 'OEM', href: '/es/oem/' },
+  { label: 'Baterías de Automóvil', href: '/es/oem/car-batteries/' },
+];
+
+const carModels = batteryModels.filter((m) => !['105D31', '115D31', 'N100', 'N150', 'N200'].includes(m.model));
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/es/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/es/oem/` },
+      { '@type': 'ListItem', position: 3, name: 'Baterías de Automóvil', item: `${SITE.url}/es/oem/car-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">OEM / Automóvil</span>
+    <h1>Baterías de automóvil OEM</h1>
+    <p class="lead">Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Suministramos baterías de arranque SLI, AGM y EFB para turismos y vehículos comerciales ligeros bajo su marca.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Tecnologías de baterías de automóvil</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>SLI</h3><p>Baterías inundadas convencionales de arranque, iluminación y encendido para vehículos estándar.</p></div>
+        <div class="card"><h3>AGM</h3><p>Construcción de malla de fibra de vidrio absorbente (AGM) para sistemas start-stop y mayores cargas eléctricas.</p></div>
+        <div class="card"><h3>EFB</h3><p>Baterías inundadas mejoradas con mayor durabilidad de ciclado para start-stop de nivel básico.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Estándares cubiertos</h2>
+    <p class="lead">Especifique según el estándar que usa su mercado. Familias soportadas: {STANDARDS.join(', ')}.</p>
+    <p><a href="/es/knowledge/oem-battery-specification-guide/">Leer la guía de especificación de baterías OEM &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Modelos de referencia</span>
+      <h2>Referencias de arranque para turismos</h2>
+      <p class="lead">Referencias habituales de baterías de automóvil JIS y DIN/EN para planificar la compatibilidad. Las especificaciones son de referencia; confirme los valores finales con el fabricante.</p>
+      <div class="model-list">
+        {carModels.map((model) => <ModelCard model={model} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Gama de baterías de automóvil</h2>
+    <p class="lead">Referencias de baterías de automóvil JIS y DIN/EN suministradas por {MANUFACTURER.name}.</p>
+    <div class="gallery gallery--product">
+      <figure class="gallery__item"><img src="/images/product/range-55d23.webp" alt="Batería 55D23" width="800" height="768" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din70.webp" alt="Batería DIN70" width="800" height="787" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din72.webp" alt="Batería DIN72" width="800" height="778" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din75.webp" alt="Batería DIN75" width="800" height="798" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din80a.webp" alt="Batería DIN80" width="800" height="783" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din80b.webp" alt="Batería DIN80" width="800" height="783" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din100.webp" alt="Batería DIN100" width="800" height="751" loading="lazy" decoding="async" /></figure>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>De la especificación al envío</h2>
+    <p>Los programas de baterías de automóvil OEM siguen un proceso de siete pasos: consulta, especificación, diseño y marca, muestreo, producción en serie, control de calidad y envío.</p>
+    <p><a href="/es/oem/">Ver el proceso OEM completo &rarr;</a></p>
+  </section>
+
+  <CTASection title="Solicite una cotización de baterías de automóvil OEM" />
+</BaseLayout>

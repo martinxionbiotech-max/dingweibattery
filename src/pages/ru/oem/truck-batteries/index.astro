@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER } from '../../../../data/site';
+
+const title = 'Аккумуляторы для грузовиков OEM | Dingwei Battery';
+const description = 'Аккумуляторы для грузовиков OEM от Dingwei Battery, произведённые Chengguang Power Tech Co., Ltd.: аккумуляторы тяжёлого режима 6В и 12В для грузовиков, автобусов и строительной техники.';
+
+const breadcrumbs = [
+  { label: 'OEM', href: '/ru/oem/' },
+  { label: 'Аккумуляторы для грузовиков', href: '/ru/oem/truck-batteries/' },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/ru/oem/` },
+      { '@type': 'ListItem', position: 3, name: 'Аккумуляторы для грузовиков', item: `${SITE.url}/ru/oem/truck-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">OEM / Грузовики</span>
+    <h1>Аккумуляторы для грузовиков OEM</h1>
+    <p class="lead">Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Стартерные аккумуляторы тяжёлого режима 6В и 12В для грузовиков, автобусов и строительной техники, поставляемые под вашей маркой.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Программы аккумуляторов для грузовиков</h2>
+      <div class="grid grid--2">
+        <div class="card"><h3>Тяжёлый режим 6В и 12В</h3><p>Стартерные аккумуляторы для грузовиков, автобусов и внедорожной техники, охватывающие стандарты JIS, DIN, BCI и SA.</p></div>
+        <div class="card"><h3>Постоянство для автопарка</h3><p>Стабильные размер корпуса, расположение клемм и маркировка в повторных заказах OEM.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Области применения</h2>
+    <div class="grid grid--3">
+      <div class="card"><h3>Магистральные тягачи</h3><p>Системы запуска 24В с двумя последовательно соединёнными аккумуляторами 12В.</p></div>
+      <div class="card"><h3>Автобусы и междугородние автобусы</h3><p>Надёжный запуск и электрическая поддержка для пассажирских автопарков.</p></div>
+      <div class="card"><h3>Внедорожная техника</h3><p>Долговечные стартерные аккумуляторы для строительных и сельскохозяйственных машин.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Стандарты для аккумуляторов грузовиков</h2>
+      <p>Совместимость аккумуляторов для грузовиков не является взаимозаменяемой между рынками. Одно и то же применение может использовать аккумулятор серии JIS N в Азии, тяжёлый эталон DIN в Европе или BCI Group 31 / 4D / 8D в Северной Америке. Подтвердите семейство стандарта и размер корпуса с учётом требований автомобиля или автопарка перед заказом.</p>
+      <ul>
+        <li><strong>Серия JIS N</strong> — N150 / N200, совместимость с азиатскими тяжёлыми грузовиками.</li>
+        <li><strong>Тяжёлый DIN</strong> — DIN88 / DIN100, европейская коммерческая совместимость.</li>
+        <li><strong>BCI Group 31 / 4D / 8D</strong> — североамериканская совместимость тяжёлого режима.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Что указать в спецификации аккумулятора для грузовика</h2>
+    <ul>
+      <li>Семейство стандарта и размер корпуса (JIS / DIN / BCI / SA).</li>
+      <li>Напряжение (стандарт 12В; доступны конфигурации 6В и последовательные 24В).</li>
+      <li>Ёмкость, обычно в диапазоне 100–225 Ah для тяжёлого режима.</li>
+      <li>CCA — крупным дизельным двигателям нужен высокий ток холодной прокрутки; подтвердите основу испытаний (справочно) у производителя.</li>
+      <li>Тип и расположение клемм для вашей прокладки кабелей.</li>
+    </ul>
+    <p><a href="/ru/knowledge/oem-battery-specification-guide/">Читать руководство по спецификации OEM-аккумуляторов &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Производство и экспорт</h2>
+    <p class="lead">Произведено компанией {MANUFACTURER.name} (основана в {MANUFACTURER.founded}) на площадке площадью {MANUFACTURER.factoryArea} в {MANUFACTURER.address}, с {MANUFACTURER.productionLines} и экспортом в {MANUFACTURER.exportMarkets}.</p>
+    <p><a href="/ru/factory/">Смотреть обзор завода &rarr;</a> · <a href="/ru/heavy-duty-batteries/">Подробнее об аккумуляторах тяжёлого режима &rarr;</a></p>
+  </section>
+
+  <CTASection title="Запросить расчёт на OEM-аккумулятор для грузовиков" />
+</BaseLayout>

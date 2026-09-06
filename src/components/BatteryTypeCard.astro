@@ -1,11 +1,19 @@
 ---
 import type { BatteryType } from '../data/site';
+import { UI, DEFAULT_LOCALE, type Locale } from '../i18n/ui';
+import { localizedPath } from '../i18n/url';
+
 interface Props { type: BatteryType; }
 const { type } = Astro.props;
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = UI[locale];
+const name = type.name[locale];
+const description = type.description[locale];
+const href = localizedPath(type.href, locale);
 ---
 <article class="card">
   <span class="tag">{type.standards}</span>
-  <h3 style="margin-top:0.5rem">{type.name}</h3>
-  <p>{type.description}</p>
-  <a href={type.href}>Explore {type.name} <span aria-hidden="true">&rarr;</span></a>
+  <h3 style="margin-top:0.5rem">{name}</h3>
+  <p>{description}</p>
+  <a href={href}>{t.explore.replace('{name}', name)} <span aria-hidden="true">&rarr;</span></a>
 </article>

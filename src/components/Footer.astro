@@ -1,58 +1,72 @@
 ---
-import { BRAND, MANUFACTURER, RELATIONSHIP, CERTIFICATIONS, CONTACT } from '../data/site';
+import { BRAND, MANUFACTURER, CERTIFICATIONS, CONTACT } from '../data/site';
+import { UI, DEFAULT_LOCALE, type Locale } from '../i18n/ui';
+
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = UI[locale];
+const f = t.footer;
 const year = new Date().getFullYear();
+
+const hrefFor = (href: string) => (locale === DEFAULT_LOCALE ? href : `/${locale}${href}`);
+
+const founded = t.founded.replace('{year}', String(MANUFACTURER.founded));
+const certs = t.certsLine.replace('{name}', MANUFACTURER.name).replace('{certs}', CERTIFICATIONS.join(', '));
+const legal = t.legalLine
+  .replace('{year}', String(year))
+  .replace('{brand}', BRAND)
+  .replace('{legalName}', MANUFACTURER.legalName);
 ---
 <footer class="site-footer">
   <div class="container">
     <div class="site-footer__grid">
       <div>
-        <a class="brand" href="/"><span class="brand__mark">DB</span><span>{BRAND}</span></a>
-        <p style="margin-top:0.8rem">{RELATIONSHIP}</p>
+        <a class="brand" href={hrefFor('/')}><span class="brand__mark">DB</span><span>{BRAND}</span></a>
+        <p style="margin-top:0.8rem">{t.relationship}</p>
       </div>
       <div>
-        <h3>Programs</h3>
+        <h3>{f.programs}</h3>
         <ul class="site-footer__list">
-          <li><a href="/oem/">OEM Batteries</a></li>
-          <li><a href="/oem/car-batteries/">Car Batteries</a></li>
-          <li><a href="/oem/truck-batteries/">Truck Batteries</a></li>
-          <li><a href="/private-label/">Private Label</a></li>
-          <li><a href="/heavy-duty-batteries/">Heavy-Duty Batteries</a></li>
+          <li><a href={hrefFor('/oem/')}>{f.oemBatteries}</a></li>
+          <li><a href={hrefFor('/oem/car-batteries/')}>{f.carBatteries}</a></li>
+          <li><a href={hrefFor('/oem/truck-batteries/')}>{f.truckBatteries}</a></li>
+          <li><a href={hrefFor('/private-label/')}>{f.privateLabel}</a></li>
+          <li><a href={hrefFor('/heavy-duty-batteries/')}>{f.heavyDutyBatteries}</a></li>
         </ul>
       </div>
       <div>
-        <h3>Resources</h3>
+        <h3>{f.resources}</h3>
         <ul class="site-footer__list">
-          <li><a href="/knowledge/what-is-oem-battery/">What Is an OEM Battery?</a></li>
-          <li><a href="/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs Private Label</a></li>
-          <li><a href="/knowledge/how-choose-oem-battery-manufacturer/">Choosing a Manufacturer</a></li>
-          <li><a href="/knowledge/oem-battery-supplier-checklist/">Supplier Checklist</a></li>
-          <li><a href="/knowledge/oem-battery-specification-guide/">Specification Guide</a></li>
-          <li><a href="/tools/battery-finder/">Battery Finder</a></li>
+          <li><a href={hrefFor('/knowledge/what-is-oem-battery/')}>{f.whatIsOem}</a></li>
+          <li><a href={hrefFor('/knowledge/oem-vs-odm-vs-private-label/')}>{f.oemVsOdm}</a></li>
+          <li><a href={hrefFor('/knowledge/how-choose-oem-battery-manufacturer/')}>{f.choosingManufacturer}</a></li>
+          <li><a href={hrefFor('/knowledge/oem-battery-supplier-checklist/')}>{f.supplierChecklist}</a></li>
+          <li><a href={hrefFor('/knowledge/oem-battery-specification-guide/')}>{f.specGuide}</a></li>
+          <li><a href={hrefFor('/tools/battery-finder/')}>{f.batteryFinder}</a></li>
         </ul>
       </div>
       <div>
-        <h3>Contact</h3>
+        <h3>{f.contact}</h3>
         <ul class="site-footer__list">
-          <li>Email: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
-          <li>WhatsApp: <a href={CONTACT.whatsappLink} target="_blank" rel="noopener">{CONTACT.whatsapp}</a></li>
-          <li><a href="/contact/">Request OEM Quote</a></li>
+          <li>{t.email}: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+          <li>{t.whatsapp}: <a href={CONTACT.whatsappLink} target="_blank" rel="noopener">{CONTACT.whatsapp}</a></li>
+          <li><a href={hrefFor('/contact/')}>{f.requestQuote}</a></li>
         </ul>
       </div>
       <div>
-        <h3>Manufacturer</h3>
+        <h3>{f.manufacturer}</h3>
         <ul class="site-footer__list">
-          <li>{MANUFACTURER.name} (founded {MANUFACTURER.founded})</li>
+          <li>{MANUFACTURER.name} ({founded})</li>
           <li>{MANUFACTURER.legalName}</li>
           <li>{MANUFACTURER.address}</li>
-          <li>Export ports: {MANUFACTURER.exportPorts}</li>
-          <li><a href="/factory/">Factory overview</a></li>
-          <li><a href="/contact/">Request OEM Quote</a></li>
+          <li>{t.exportPorts}: {MANUFACTURER.exportPorts}</li>
+          <li><a href={hrefFor('/factory/')}>{f.factoryOverview}</a></li>
+          <li><a href={hrefFor('/contact/')}>{f.requestQuote}</a></li>
         </ul>
       </div>
     </div>
     <div class="site-footer__legal">
-      <p>Certifications referenced on this site are held by {MANUFACTURER.name}: {CERTIFICATIONS.join(', ')}.</p>
-      <p>&copy; {year} {BRAND}. {MANUFACTURER.legalName}. All specifications are for reference; confirm final values with the manufacturer before ordering.</p>
+      <p>{certs}</p>
+      <p>{legal}</p>
     </div>
   </div>
 </footer>

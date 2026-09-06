@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, TRADE_TERMS, CONTACT } from '../../../data/site';
+
+const title = 'اتصل بنا واطلب عرض سعر بطارية OEM | Dingwei Battery';
+const description = 'اطلب عرض سعر لبطاريات OEM أو العلامة الخاصة من Dingwei Battery. شارك مواصفاتك وسوقك المستهدف وحجمك السنوي للحصول على برنامج مخصص.';
+
+const breadcrumbs = [{ label: 'اتصل بنا', href: '/ar/contact/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/ar/` },
+      { '@type': 'ListItem', position: 2, name: 'اتصل بنا', item: `${SITE.url}/ar/contact/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">اتصل بنا / طلب عرض سعر</span>
+    <h1>اطلب عرض سعر لبطاريات OEM أو العلامة الخاصة</h1>
+    <p class="lead">توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). استخدم النموذج أدناه لتنظيم متطلباتك، ثم شاركه مع فريق التصدير لدى الشركة المصنعة.</p>
+    <img class="mfg-photo" src="/images/port.webp" alt="ميناء التصدير المستخدم لشحنات Dingwei Battery" width="1485" height="613" loading="lazy" decoding="async" />
+  </section>
+
+  <section class="section--tight container">
+    <div class="contact-bar">
+      <div class="card">
+        <h3>البريد الإلكتروني</h3>
+        <p><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
+      </div>
+      <div class="card">
+        <h3>واتساب</h3>
+        <p><a href={CONTACT.whatsappLink} target="_blank" rel="noopener">{CONTACT.whatsapp}</a></p>
+        <a class="btn btn--whatsapp" href={CONTACT.whatsappLink} target="_blank" rel="noopener">تواصل عبر واتساب</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight container">
+    <form id="rfq-form" action="/ar/contact/" method="post">
+      <div class="form-grid">
+        <div class="field">
+          <label for="company">الشركة</label>
+          <input id="company" name="company" type="text" autocomplete="organization" required />
+        </div>
+        <div class="field">
+          <label for="country">الدولة / السوق</label>
+          <input id="country" name="country" type="text" autocomplete="country-name" required />
+        </div>
+        <div class="field">
+          <label for="buyer-type">نوع المشتري</label>
+          <select id="buyer-type" name="buyer_type">
+            <option value="">اختر</option>
+            <option>موزع</option>
+            <option>تاجر تجزئة</option>
+            <option>مشغل أسطول</option>
+            <option>مالك علامة تجارية</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="battery-type">نوع البطارية</label>
+          <select id="battery-type" name="battery_type">
+            <option value="">اختر</option>
+            <option>SLI</option>
+            <option>AGM</option>
+            <option>EFB</option>
+            <option>الخدمة الشاقة</option>
+            <option>غير متأكد</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="standard">المعيار</label>
+          <select id="standard" name="standard">
+            <option value="">اختر</option>
+            <option>JIS</option>
+            <option>DIN</option>
+            <option>BCI</option>
+            <option>AS</option>
+            <option>SA</option>
+            <option>EN</option>
+            <option>غير متأكد</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="model">الموديل / مرجع الهيكل</label>
+          <input id="model" name="model" type="text" placeholder="مثال: 65D26، H6" />
+        </div>
+        <div class="field">
+          <label for="voltage">الجهد</label>
+          <select id="voltage" name="voltage">
+            <option value="">اختر</option>
+            <option>6V</option>
+            <option>12V</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="capacity">السعة (Ah)</label>
+          <input id="capacity" name="capacity_ah" type="number" min="1" />
+        </div>
+        <div class="field">
+          <label for="cca">CCA (مرجعي)</label>
+          <input id="cca" name="cca_reference" type="number" min="0" />
+        </div>
+        <div class="field">
+          <label for="volume">الحجم السنوي (وحدات)</label>
+          <input id="volume" name="annual_volume" type="number" min="0" />
+        </div>
+        <div class="field">
+          <label for="private-label">علامة خاصة</label>
+          <select id="private-label" name="private_label">
+            <option value="">اختر</option>
+            <option>نعم</option>
+            <option>لا</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="packaging">تفضيل التغليف</label>
+          <input id="packaging" name="packaging" type="text" />
+        </div>
+        <div class="field">
+          <label for="notes">ملاحظات / متطلبات إضافية</label>
+          <textarea id="notes" name="notes"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="submit">إعداد موجز طلب عرض السعر</button>
+        <p id="rfq-status" class="form-status" role="status">موجز طلب عرض السعر جاهز. شارك هذه التفاصيل مع فريق التصدير لدى الشركة المصنعة لاستلام الشروط. لا تُنشر الأسعار أبدًا وتُقدَّم فقط عند الاستفسار.</p>
+      </div>
+    </form>
+    <p class="note">الشروط التجارية التي تُؤكَّد عند الاستفسار: MOQ {TRADE_TERMS.moq}؛ مهلة التسليم {TRADE_TERMS.leadTime}؛ الدفع {TRADE_TERMS.payment}؛ شروط التجارة الدولية {TRADE_TERMS.incoterms}؛ الضمان {TRADE_TERMS.warranty}.</p>
+  </section>
+
+  <script is:inline>
+    const form = document.getElementById('rfq-form');
+    const status = document.getElementById('rfq-status');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      status.style.display = 'block';
+      status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  </script>
+</BaseLayout>

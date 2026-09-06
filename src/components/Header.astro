@@ -1,21 +1,51 @@
 ---
-import { BRAND, NAV_LINKS, CONTACT } from '../data/site';
-const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isActive = (href: string) => pathname === href.replace(/\/$/, '');
+import { BRAND, CONTACT } from '../data/site';
+import { UI, LOCALES, DEFAULT_LOCALE, type Locale } from '../i18n/ui';
+import { localizedPath } from '../i18n/url';
+
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = UI[locale];
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { label: t.nav.home, href: '/' },
+  { label: t.nav.oem, href: '/oem/' },
+  { label: t.nav.privateLabel, href: '/private-label/' },
+  { label: t.nav.heavyDuty, href: '/heavy-duty-batteries/' },
+  { label: t.nav.models, href: '/data/' },
+  { label: t.nav.factory, href: '/factory/' },
+  { label: t.nav.knowledge, href: '/knowledge/what-is-oem-battery/' },
+  { label: t.nav.contact, href: '/contact/' },
+];
+
+const hrefFor = (href: string) => (locale === DEFAULT_LOCALE ? href : `/${locale}${href}`);
+const isActive = (href: string) => pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
+
+const currentLabel = LOCALES.find((l) => l.code === locale)?.label ?? 'English';
 ---
 <header class="site-header">
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">{t.skipToContent}</a>
   <div class="container site-header__bar">
-    <a class="brand" href="/">
+    <a class="brand" href={hrefFor('/')}>
       <span class="brand__mark">DB</span>
       <span>{BRAND}</span>
     </a>
     <nav class="nav" aria-label="Primary">
-      {NAV_LINKS.map((link) => (
-        <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
+      {navItems.map((link) => (
+        <a href={hrefFor(link.href)} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
       ))}
-      <a class="btn btn--light" href="/contact/">Request OEM Quote</a>
-      <a class="btn btn--whatsapp" href={CONTACT.whatsappLink} target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn--light" href={hrefFor('/contact/')}>{t.requestOemQuote}</a>
+      <a class="btn btn--whatsapp" href={CONTACT.whatsappLink} target="_blank" rel="noopener">{t.whatsapp}</a>
     </nav>
+    <details class="lang-switch">
+      <summary>{currentLabel}</summary>
+      <div class="lang-switch__menu">
+        {LOCALES.map((l) => (
+          <a href={localizedPath(pathname, l.code)} lang={l.code} hreflang={l.code} aria-current={l.code === locale ? 'true' : undefined}>
+            {l.label}
+          </a>
+        ))}
+      </div>
+    </details>
   </div>
 </header>

@@ -3,6 +3,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { SITE } from '../data/site';
+import { LOCALES, DEFAULT_LOCALE, localeDir, type Locale } from '../i18n/ui';
+import { localizedPath } from '../i18n/url';
 import '../styles/global.css';
 
 interface Crumb { label: string; href?: string; }
@@ -14,17 +16,30 @@ interface Props {
   ogImage?: string;
 }
 const { title, description, breadcrumbs = [], ogType = 'website', ogImage = '/images/factory/factory-19.webp' } = Astro.props;
+
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const dir = localeDir(locale);
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site).toString();
+
+const alternates = LOCALES.map(({ code }) => ({
+  code,
+  url: new URL(localizedPath(Astro.url.pathname, code), Astro.site).toString(),
+}));
+const xDefault = alternates.find((a) => a.code === DEFAULT_LOCALE)?.url;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale} dir={dir}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {alternates.map(({ code, url }) => (
+      <link rel="alternate" hreflang={code} href={url} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={title} />

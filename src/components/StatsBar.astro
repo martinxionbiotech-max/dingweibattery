@@ -1,11 +1,17 @@
 ---
 import { MANUFACTURER } from '../data/site';
+import { UI, DEFAULT_LOCALE, type Locale } from '../i18n/ui';
+
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = UI[locale];
+const s = t.statsbar;
+const founded = t.founded.replace('{year}', String(MANUFACTURER.founded));
 const stats = [
-  { value: `Founded ${MANUFACTURER.founded}`, label: `${MANUFACTURER.name}` },
-  { value: MANUFACTURER.factoryArea, label: 'Factory area' },
-  { value: MANUFACTURER.productionLines, label: 'Production lines' },
-  { value: MANUFACTURER.exportMarkets, label: 'Export countries' },
-  { value: 'IATF 16949', label: 'Automotive quality system' },
+  { value: founded, label: MANUFACTURER.name },
+  { value: MANUFACTURER.factoryArea, label: s.factoryArea },
+  { value: MANUFACTURER.productionLines, label: s.productionLines },
+  { value: MANUFACTURER.exportMarkets, label: s.exportCountries },
+  { value: 'IATF 16949', label: s.qualitySystem },
 ];
 ---
 <section class="statsbar" aria-label="Manufacturing facts">

@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import ModelCard from '../../../components/ModelCard.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER } from '../../../data/site';
+import { batteryModels } from '../../../data/battery-models';
+
+const title = 'بطاريات الخدمة الشاقة | Dingwei Battery';
+const description = 'بطاريات خدمة شاقة 6V و12V للشاحنات والحافلات ومعدات البناء، توفرها Dingwei Battery وتصنّعها Chengguang Power Tech Co., Ltd.';
+
+const breadcrumbs = [{ label: 'الخدمة الشاقة', href: '/ar/heavy-duty-batteries/' }];
+
+const heavyModels = batteryModels.filter((m) => ['105D31', '115D31', 'N100', 'N150', 'N200'].includes(m.model));
+
+const heavyDutyFaqs = [
+  {
+    q: 'ما التطبيقات التي تغطيها بطاريات الخدمة الشاقة من Dingwei؟',
+    a: 'تغطي بطاريات الخدمة الشاقة من Dingwei الشاحنات والحافلات ومعدات البناء بتكوينات 6V و12V، بمرجعية معايير JIS وDIN وBCI وSA.',
+  },
+  {
+    q: 'هل يمكن توريد بطاريات الخدمة الشاقة تحت علامتي التجارية؟',
+    a: 'نعم. تتوفر بطاريات الخدمة الشاقة لبرامج OEM والعلامة الخاصة، مع تأكيد المواصفات والعلامة التجارية والعينات والتغليف عند الاستفسار.',
+  },
+  {
+    q: 'ما الذي يجب أن أدرجه في مواصفات بطارية الخدمة الشاقة؟',
+    a: 'عائلة المعيار وحجم الهيكل أولاً — إن سلسلة JIS N وDIN الثقيل ومجموعة BCI 31 غير قابلة للتبادل حتى عند تشابه Ah. ثم الجهد والسعة وCCA مع أساس اختباره، ونوع الطرف والقطبية، والموديل المرجعي والحجم السنوي، مؤكدة مع الشركة المصنعة.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: heavyDutyFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/ar/` },
+      { '@type': 'ListItem', position: 2, name: 'الخدمة الشاقة', item: `${SITE.url}/ar/heavy-duty-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">الخدمة الشاقة</span>
+    <h1>بطاريات الخدمة الشاقة</h1>
+    <p class="lead">توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). بطاريات تشغيل 6V و12V للشاحنات والحافلات ومعدات البناء، تغطي معايير JIS وDIN وBCI وSA.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>التطبيقات</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>الشاحنات</h3><p>قوة تشغيل عالية لأساطيل الشاحنات التجارية.</p></div>
+        <div class="card"><h3>الحافلات</h3><p>تشغيل موثوق ودعم كهربائي لحافلات المدن والسياحة.</p></div>
+        <div class="card"><h3>معدات البناء</h3><p>بطاريات متينة لآلات الطرق الوعرة والصناعية.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>ما الذي يُعد خدمة شاقة</h2>
+    <p class="lead">الشاحنات والحافلات وآلات البناء والتطبيقات الزراعية والبحرية — حيث يكون الطلب على مقاومة الاهتزاز والتدوير العميق والتشغيل البارد أعلى بكثير من سيارة الركاب.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>مقاومة الاهتزاز</h3><p>تُبنى بطاريات الخدمة الشاقة لتحمل الصدمات الميكانيكية المستمرة على الطرق الوعرة ومواقع العمل.</p></div>
+      <div class="card"><h3>طلب تشغيل بارد عالٍ</h3><p>تحتاج محركات الديزل الكبيرة إلى CCA أعلى بكثير للتشغيل، خاصة في المناخات الباردة.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>معايير الخدمة الشاقة</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>سلسلة JIS N</h3><p>N150 / N200 — توافقات الشاحنات الثقيلة الآسيوية.</p></div>
+        <div class="card"><h3>DIN الثقيل</h3><p>DIN88 / DIN100 — التوافقات التجارية الأوروبية.</p></div>
+        <div class="card"><h3>مجموعة BCI 31 / 4D / 8D</h3><p>توافقات الخدمة الشاقة في أمريكا الشمالية.</p></div>
+      </div>
+      <p class="lead">تختلف أحجام الهياكل وتوزيعات الأطراف بين هذه العائلات وهي غير قابلة للتبادل.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>المواصفات</h2>
+    <ul>
+      <li>غالبًا 12V (بعض التكوينات 6V)</li>
+      <li>السعة في نطاق 100–225 Ah</li>
+      <li>تحتاج محركات الديزل عادةً إلى CCA عالٍ (بترتيب 800–1100 A، مرجعي) — أكّد القيمة النهائية مع الشركة المصنعة.</li>
+    </ul>
+    <p><a href="/ar/knowledge/oem-battery-specification-guide/">اقرأ دليل المواصفات &larr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>التطبيقات حسب المركبة</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>الشاحنة نصف المقطورة</h3><p>أنظمة 24V باستخدام بطاريتين 12V على التوالي.</p></div>
+        <div class="card"><h3>الحافلة</h3><p>تشغيل ودعم كهربائي للحافلات.</p></div>
+        <div class="card"><h3>الحفارة / الجرار / البحرية</h3><p>بطاريات تشغيل للطرق الوعرة والبحرية.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>التصنيع والتصدير</h2>
+    <p class="lead">تصنّعها {MANUFACTURER.name} (تأسست عام {MANUFACTURER.founded}) في منشأة بمساحة {MANUFACTURER.factoryArea} مع {MANUFACTURER.productionLines}، وتصدّر إلى {MANUFACTURER.exportMarkets}.</p>
+    <p><a href="/ar/factory/">عرض نظرة عامة على المصنع &larr;</a></p>
+    <img class="mfg-photo" src="/images/factory/factory-16.webp" alt="تجميع البطاريات في منشأة Chengguang Power Tech Co., Ltd." width="1533" height="646" loading="lazy" decoding="async" />
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">الموديلات المرجعية</span>
+      <h2>مراجع تشغيل الخدمة الشاقة</h2>
+      <p class="lead">مرجعان للخدمة الشاقة وفق JIS من مجموعة الموديلات الحالية. المواصفات للمرجعية؛ أكّد القيم النهائية مع الشركة المصنعة.</p>
+      <div class="model-list">
+        {heavyModels.map((model) => <ModelCard model={model} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>نطاق منتجات الخدمة الشاقة</h2>
+    <p class="lead">مراجع الخدمة الشاقة التي يوردها {MANUFACTURER.name}.</p>
+    <div class="gallery gallery--product">
+      <figure class="gallery__item"><img src="/images/product/hd-n150.webp" alt="بطارية خدمة شاقة N150" width="800" height="749" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/hd-n200.webp" alt="بطارية خدمة شاقة N200" width="800" height="780" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/hd-n100.webp" alt="بطارية خدمة شاقة N100" width="800" height="769" loading="lazy" decoding="async" /></figure>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>الأسئلة الشائعة</h2>
+    {heavyDutyFaqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/ar/knowledge/oem-battery-specification-guide/">استخدم دليل مواصفات بطاريات OEM &larr;</a></p>
+  </section>
+
+  <CTASection title="اطلب عرض سعر لبطاريات الخدمة الشاقة" />
+</BaseLayout>

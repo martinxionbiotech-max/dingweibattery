@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, CERTIFICATIONS, STANDARDS } from '../../../data/site';
+
+const title = 'Fábrica de Baterías y Fabricación | Dingwei Battery';
+const description = 'Los programas de Dingwei Battery son fabricados por Chengguang Power Tech Co., Ltd. (fundada en 2002), una planta de baterías de 200.000 m² en Jinzhou, Hebei, China con 18 líneas de producción.';
+
+const breadcrumbs = [{ label: 'Fábrica', href: '/es/factory/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: MANUFACTURER.name,
+    legalName: MANUFACTURER.legalName,
+    foundingDate: String(MANUFACTURER.founded),
+    address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/es/` },
+      { '@type': 'ListItem', position: 2, name: 'Fábrica', item: `${SITE.url}/es/factory/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Fabricación</span>
+    <h1>Fábrica de baterías y fabricación</h1>
+    <p class="lead">Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). La fabricación la realiza {MANUFACTURER.name} en su instalación de {MANUFACTURER.address}.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <h2>Planta de fábrica</h2>
+    <p class="lead">Dentro de la planta de baterías de plomo-ácido de {MANUFACTURER.name} en {MANUFACTURER.address}.</p>
+    <div class="gallery gallery--uniform">
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-05.webp" alt="Línea de producción de baterías en las instalaciones de Chengguang Power Tech Co., Ltd." width="1530" height="641" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-18.webp" alt="Equipo de producción de baterías en las instalaciones de Chengguang Power Tech Co., Ltd." width="1517" height="633" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-23.webp" alt="Proceso de fabricación de baterías en las instalaciones de Chengguang Power Tech Co., Ltd." width="1514" height="633" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-24.webp" alt="Línea de producción de baterías en las instalaciones de Chengguang Power Tech Co., Ltd." width="1515" height="632" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-25.webp" alt="Planta de fábrica de baterías en las instalaciones de Chengguang Power Tech Co., Ltd." width="1526" height="793" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-26.webp" alt="Equipo de fabricación de baterías en las instalaciones de Chengguang Power Tech Co., Ltd." width="1530" height="645" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Perfil del fabricante</h2>
+      <div class="grid grid--2">
+        <div class="card"><h3>Empresa</h3><p>{MANUFACTURER.legalName} ({MANUFACTURER.shortName})</p></div>
+        <div class="card"><h3>Fundada</h3><p>{MANUFACTURER.founded}</p></div>
+        <div class="card"><h3>Ubicación</h3><p>{MANUFACTURER.address}</p></div>
+        <div class="card"><h3>Instalación</h3><p>{MANUFACTURER.factoryArea}, {MANUFACTURER.productionLines}</p></div>
+        <div class="card"><h3>Producción diaria</h3><p>{MANUFACTURER.dailyOutput}</p></div>
+        <div class="card"><h3>Empleados</h3><p>{MANUFACTURER.employees}</p></div>
+        <div class="card"><h3>Mercados de exportación</h3><p>{MANUFACTURER.exportMarkets}, vía {MANUFACTURER.exportPorts}</p></div>
+        <div class="card"><h3>Capital registrado</h3><p>{MANUFACTURER.registeredCapital}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>El proceso de fabricación: diez etapas</h2>
+    <p class="lead">Un comprador que entiende estas diez etapas puede auditar una fábrica correctamente: cada etapa es un punto de control de calidad.</p>
+    <ol>
+      <li><strong>Fundición de rejilla</strong> — rejilla de aleación de plomo; las baterías sin mantenimiento usan aleación de plomo-calcio.</li>
+      <li><strong>Mezcla de pasta</strong> — la consistencia de la pasta determina la capacidad.</li>
+      <li><strong>Empastado</strong> — aplicación uniforme de pasta sobre la rejilla.</li>
+      <li><strong>Curado</strong> — 2–4 días de cristalización que determinan la resistencia mecánica.</li>
+      <li><strong>Ensamblaje</strong> — placas y separadores dentro de la carcasa.</li>
+      <li><strong>Soldadura</strong> — soldadura de orejetas y terminales.</li>
+      <li><strong>Llenado de electrolito</strong> — llenado de ácido.</li>
+      <li><strong>Carga de formación</strong> — activa el material activo.</li>
+      <li><strong>Sellado y acabado</strong> — sellado de la tapa.</li>
+      <li><strong>Pruebas y embalaje</strong> — prueba del 100% del rendimiento eléctrico.</li>
+    </ol>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Control de calidad</h2>
+      <ul>
+        <li>Sistema de calidad automotriz IATF 16949</li>
+        <li>Prueba eléctrica del 100% al final de línea</li>
+        <li>Trazabilidad por lotes</li>
+        <li>Inspección por muestreo aleatorio</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Capacidad</h2>
+    <p>Instalación de {MANUFACTURER.factoryArea}, {MANUFACTURER.productionLines}, {MANUFACTURER.dailyOutput}.</p>
+    <p><a href="/es/oem/">Ver capacidad OEM &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Capacidad de exportación</h2>
+      <p>Exportación a {MANUFACTURER.exportMarkets} desde {MANUFACTURER.exportPorts}, con documentación de exportación completa que incluye certificado de análisis, lista de empaque, conocimiento de embarque, certificado de origen e informes de prueba.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Certificaciones</h2>
+    <p class="lead">Certificaciones que posee {MANUFACTURER.name}:</p>
+    <ul>
+      {CERTIFICATIONS.map((cert) => <li>{cert}</li>)}
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Estándares fabricados</h2>
+      <p class="lead">Las plataformas de baterías se suministran según estas familias de estándares: {STANDARDS.join(', ')}.</p>
+      <p><a href="/es/oem/">Ver capacidad OEM &rarr;</a> · <a href="/es/knowledge/oem-battery-supplier-checklist/">Qué comprobar en un proveedor &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Evalúe nuestra capacidad de fabricación" />
+</BaseLayout>

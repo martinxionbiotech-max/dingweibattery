@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import ModelCard from '../../../../components/ModelCard.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, STANDARDS } from '../../../../data/site';
+import { batteryModels } from '../../../../data/battery-models';
+
+const title = 'بطاريات سيارات OEM | Dingwei Battery';
+const description = 'بطاريات سيارات OEM من Dingwei Battery، تصنّعها Chengguang Power Tech Co., Ltd.: بطاريات تشغيل SLI وAGM وEFB لسيارات الركاب والمركبات التجارية الخفيفة.';
+
+const breadcrumbs = [
+  { label: 'OEM', href: '/ar/oem/' },
+  { label: 'بطاريات السيارات', href: '/ar/oem/car-batteries/' },
+];
+
+const carModels = batteryModels.filter((m) => !['105D31', '115D31', 'N100', 'N150', 'N200'].includes(m.model));
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/ar/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/ar/oem/` },
+      { '@type': 'ListItem', position: 3, name: 'بطاريات السيارات', item: `${SITE.url}/ar/oem/car-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">OEM / السيارات</span>
+    <h1>بطاريات سيارات OEM</h1>
+    <p class="lead">توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). نوفر بطاريات تشغيل SLI وAGM وEFB لسيارات الركاب والمركبات التجارية الخفيفة تحت علامتك التجارية.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>تقنيات بطاريات السيارات</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>SLI</h3><p>بطاريات تقليدية مغمورة للتشغيل والإضاءة والإشعال للسيارات العادية.</p></div>
+        <div class="card"><h3>AGM</h3><p>بنية بساط زجاجي ماص لأنظمة التشغيل/الإيقاف والأحمال الكهربائية الأعلى.</p></div>
+        <div class="card"><h3>EFB</h3><p>بطاريات مغمورة محسّنة بمتانة تدوير أفضل للتشغيل/الإيقاف الأساسي.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>المعايير المغطاة</h2>
+    <p class="lead">حدد المعيار الذي يستخدمه سوقك. العائلات المدعومة: {STANDARDS.join(', ')}.</p>
+    <p><a href="/ar/knowledge/oem-battery-specification-guide/">اقرأ دليل مواصفات بطاريات OEM &larr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">الموديلات المرجعية</span>
+      <h2>مراجع تشغيل سيارات الركاب</h2>
+      <p class="lead">مراجع بطاريات سيارات شائعة وفق JIS وDIN/EN للتخطيط للتوافق. المواصفات للمرجعية؛ أكّد القيم النهائية مع الشركة المصنعة.</p>
+      <div class="model-list">
+        {carModels.map((model) => <ModelCard model={model} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>نطاق بطاريات السيارات</h2>
+    <p class="lead">مراجع بطاريات سيارات وفق JIS وDIN/EN يوردها {MANUFACTURER.name}.</p>
+    <div class="gallery gallery--product">
+      <figure class="gallery__item"><img src="/images/product/range-55d23.webp" alt="بطارية 55D23" width="800" height="768" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din70.webp" alt="بطارية DIN70" width="800" height="787" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din72.webp" alt="بطارية DIN72" width="800" height="778" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din75.webp" alt="بطارية DIN75" width="800" height="798" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din80a.webp" alt="بطارية DIN80" width="800" height="783" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din80b.webp" alt="بطارية DIN80" width="800" height="783" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din100.webp" alt="بطارية DIN100" width="800" height="751" loading="lazy" decoding="async" /></figure>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>من المواصفات إلى الشحن</h2>
+    <p>تتبع برامج بطاريات سيارات OEM عملية من سبع خطوات: الاستشارة، والمواصفات، والتصميم والعلامة التجارية، والعينات، والإنتاج الضخم، ومراقبة الجودة، والشحن.</p>
+    <p><a href="/ar/oem/">عرض عملية OEM الكاملة &larr;</a></p>
+  </section>
+
+  <CTASection title="اطلب عرض سعر لبطاريات سيارات OEM" />
+</BaseLayout>

@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import BatteryTypeCard from '../../../components/BatteryTypeCard.astro';
+import OEMProcess from '../../../components/OEMProcess.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, BATTERY_TYPES, TRADE_TERMS, CERTIFICATIONS } from '../../../data/site';
+
+const title = 'Производство аккумуляторов OEM | Dingwei Battery';
+const description = 'Программы OEM-аккумуляторов от Dingwei Battery, произведённые Chengguang Power Tech Co., Ltd.: аккумуляторы SLI, AGM, EFB и тяжёлого режима по стандартам JIS, DIN, BCI, AS и SA.';
+
+const breadcrumbs = [{ label: 'OEM', href: '/ru/oem/' }];
+
+const oemFaqs = [
+  {
+    q: 'Какие аккумуляторы поставляет Dingwei?',
+    a: 'Dingwei поставляет стартерные свинцово-кислотные аккумуляторы SLI, AGM, EFB и тяжёлого режима для программ OEM и частной марки, со спецификациями по стандартам JIS, DIN, BCI, AS и SA.',
+  },
+  {
+    q: 'Кто производит аккумуляторы Dingwei?',
+    a: 'Аккумуляторы Dingwei производятся Chengguang Power Tech Co., Ltd. — производителем свинцово-кислотных аккумуляторов, основанным в 2002 году в Цзиньчжоу, провинция Хэбэй, Китай, с сертификацией IATF 16949.',
+  },
+  {
+    q: 'Как Dingwei обеспечивает постоянство повторных заказов?',
+    a: 'Благодаря фиксации спецификации — покупатель утверждает образец, и этот утверждённый стандарт становится эталоном для каждого последующего контейнера. Поэтапный процесс с предсерийным отбором образцов, контролем в процессе и прослеживаемостью партий предотвращает дрейф спецификации, из-за которого повторные заказы приходят другими.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: BRAND,
+    url: `${SITE.url}/ru/oem/`,
+    description,
+    manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName, foundingDate: String(MANUFACTURER.founded) },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: oemFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/ru/oem/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Обзор OEM</span>
+    <h1>Производство аккумуляторов OEM</h1>
+    <p class="lead">Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). OEM означает, что ваш продукт разрабатывается, брендируется и поставляется по согласованной спецификации, а не выбирается из общего каталога.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <h2>OEM против ODM против частной марки</h2>
+    <p class="lead">OEM — производство по вашей спецификации; ODM — начало с существующего дизайна, который вы можете брендировать; частная марка — применение вашей идентичности к поставляемому продукту. Правильный путь зависит от того, насколько вы уже контролируете спецификацию.</p>
+    <p><a href="/ru/knowledge/oem-vs-odm-vs-private-label/">Читать руководство по сравнению &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Что &ldquo;OEM&rdquo; значит для покупателя аккумуляторов</h2>
+      <p class="lead">OEM означает, что вы определяете спецификацию и владеете дизайном и маркой; завод производит по ней. Это отличие от ODM (дизайн принадлежит заводу) и частной марки (вы брендируете готовый продукт).</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Что можно настроить под себя</h2>
+    <div class="grid grid--2">
+      <div class="card"><h3>Этикетка и дизайн</h3><p>Ваша марка, цвета и название продукта на этикетке и корпусе.</p></div>
+      <div class="card"><h3>Упаковка</h3><p>Дизайн коробки, рукава и паллеты по вашей спецификации.</p></div>
+      <div class="card"><h3>Клеммы и спецификация</h3><p>Тип и расположение клемм, напряжение и ёмкость под ваш рынок.</p></div>
+      <div class="card"><h3>Документация</h3><p>Многоязычные руководства и гарантийные талоны.</p></div>
+    </div>
+    <p><a href="/ru/private-label/">Смотреть варианты частной марки &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Возможности</span>
+      <h2>Семейства продуктов</h2>
+      <div class="grid grid--4">
+        {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+      </div>
+      <img class="mfg-photo" src="/images/factory/factory-20.webp" alt="Линия производства аккумуляторов на площадке Chengguang Power Tech Co., Ltd." width="1517" height="631" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Коммерческие условия</h2>
+    <p class="lead">Базовые экспортные условия, используемые {MANUFACTURER.name}. Окончательные условия уточняются по запросу.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>MOQ</h3><p>{TRADE_TERMS.moq}</p></div>
+      <div class="card"><h3>Срок поставки</h3><p>{TRADE_TERMS.leadTime}</p></div>
+      <div class="card"><h3>Оплата</h3><p>{TRADE_TERMS.payment}</p></div>
+      <div class="card"><h3>Incoterms</h3><p>{TRADE_TERMS.incoterms}</p></div>
+    </div>
+    <p class="note">Цены не публикуются. Запросите расчёт для вашей спецификации и годового объёма.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Сертификаты</span>
+      <h2>Системы качества, которыми обладает производитель</h2>
+      <p class="lead">Следующие сертификаты принадлежат {MANUFACTURER.name}.</p>
+      <ul>
+        {CERTIFICATIONS.map((cert) => <li>{cert}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container">
+    <OEMProcess />
+    <p><a href="/ru/knowledge/how-choose-oem-battery-manufacturer/">Как выбрать производителя OEM-аккумуляторов &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Как оценить производителя OEM-аккумуляторов</h2>
+      <p class="lead">Пять параметров отличают надёжного партнёра OEM от поставщика, способного сделать лишь один приемлемый образец.</p>
+      <ol>
+        <li><strong>Охват спецификаций</strong> — могут ли они производить по вашему стандарту (JIS / DIN / BCI / AS / SA)?</li>
+        <li><strong>Сертификация</strong> — есть ли IATF 16949 для поставок в автопром, подкреплённый ISO 9001?</li>
+        <li><strong>Масштаб</strong> — соответствуют ли площадь завода и дневной выпуск вашему годовому объёму?</li>
+        <li><strong>Повторяемость</strong> — как они сохраняют повторные заказы идентичными утверждённому образцу?</li>
+        <li><strong>Опыт экспорта</strong> — какие рынки они обслуживают и какую документацию предоставляют?</li>
+      </ol>
+      <p>Используйте эту систему оценки вместе с <a href="/ru/knowledge/how-choose-oem-battery-manufacturer/">пятиэтапной схемой принятия решений</a> перед запросом образцов.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Распространённые ошибки при закупке OEM</h2>
+    <ul>
+      <li>Сравнение CCA между стандартами без проверки метода испытаний.</li>
+      <li>Фиксация этикетки раньше фиксации спецификации.</li>
+      <li>Выбор самой низкой цены в ущерб повторяемости.</li>
+    </ul>
+    <p>Начните с <a href="/ru/knowledge/oem-battery-specification-guide/">руководства по спецификации OEM-аккумуляторов</a>, чтобы первый утверждённый образец стал стандартом для каждого последующего заказа.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Часто задаваемые вопросы</h2>
+      {oemFaqs.map((f) => (
+        <div class="card" style="margin-bottom:0.9rem">
+          <h3>{f.q}</h3>
+          <p style="margin:0">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CTASection title="Начните ваш проект OEM-аккумуляторов" />
+</BaseLayout>

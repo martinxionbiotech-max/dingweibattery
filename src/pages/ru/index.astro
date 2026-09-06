@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatsBar from '../../components/StatsBar.astro';
+import BatteryTypeCard from '../../components/BatteryTypeCard.astro';
+import OEMProcess from '../../components/OEMProcess.astro';
+import CTASection from '../../components/CTASection.astro';
+import ModelCard from '../../components/ModelCard.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, BATTERY_TYPES } from '../../data/site';
+import { batteryModels } from '../../data/battery-models';
+
+const title = 'Автомобильные аккумуляторы OEM и частной марки | Dingwei Battery';
+const description = 'Dingwei Battery предлагает программы OEM и частных марок автомобильных аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002).';
+
+const homeFaqs = [
+  {
+    q: 'Какие аккумуляторы поставляет Dingwei?',
+    a: 'Dingwei поставляет стартерные свинцово-кислотные аккумуляторы SLI, AGM, EFB и тяжёлого режима для программ OEM и частной марки. Стартерные свинцово-кислотные аккумуляторы не относятся к опасным грузам класса 9, поэтому доставка и соблюдение требований проще, чем для литиевых элементов.',
+  },
+  {
+    q: 'Кто производит аккумуляторы Dingwei?',
+    a: 'Chengguang Power Tech Co., Ltd. — производитель свинцово-кислотных аккумуляторов, основанный в 2002 году в Цзиньчжоу, провинция Хэбэй, с сертификацией IATF 16949. Один завод охватывает стандарты JIS, DIN, BCI, AS и SA, поэтому один поставщик может покрыть все ваши рынки.',
+  },
+  {
+    q: 'Могу ли я создать собственную марку аккумуляторов?',
+    a: 'Да. OEM означает, что вы определяете спецификацию и владеете дизайном и маркой; частная марка применяет вашу идентичность к проверенной платформе. Оба варианта дают вам продукт, который ни один конкурент не сможет купить с той же полки.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: BRAND,
+    url: SITE.url,
+    description: 'Программы автомобильных аккумуляторов OEM и частной марки.',
+    brand: { '@type': 'Brand', name: BRAND },
+    manufacturer: {
+      '@type': 'Organization',
+      name: MANUFACTURER.name,
+      legalName: MANUFACTURER.legalName,
+      foundingDate: String(MANUFACTURER.founded),
+      address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: SITE.url,
+    description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/ru/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={[]}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="hero">
+    <div class="container">
+      <span class="tag" style="color:#f0b9b2">OEM / Частная марка</span>
+      <h1>Автомобильные аккумуляторы, созданные под вашей маркой</h1>
+      <p class="lead">Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Мы поставляем аккумуляторы SLI, AGM, EFB и тяжёлого режима под вашей маркой — от спецификации до отгрузки.</p>
+      <div class="hero__actions">
+        <a class="btn" href="/ru/oem/">Изучить программы OEM</a>
+        <a class="btn btn--ghost" href="/ru/contact/">Запросить расчёт OEM</a>
+      </div>
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <span class="tag">Типы аккумуляторов</span>
+    <h2>Категории аккумуляторов OEM и частной марки</h2>
+    <p class="lead">Четыре семейства продуктов, произведённых компанией {MANUFACTURER.name}, охватывающих стандарты JIS, DIN, BCI, AS и SA.</p>
+    <div class="grid grid--4">
+      {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Почему Dingwei Battery</span>
+      <h2>Программа OEM, а не разовый заказ</h2>
+      <p class="lead">Мы выстраиваем отношения с брендом, спецификацию, отбор образцов и поставку так, чтобы ваш продукт оставался неизменным от заказа к заказу.</p>
+      <div class="grid grid--3">
+        <div class="card"><h3>Сначала спецификация</h3><p>Напряжение, ёмкость, CCA, стандарт, размер корпуса и расположение клемм определяются до начала производства.</p></div>
+        <div class="card"><h3>Постоянство бренда</h3><p>Дизайн, упаковка и идентичность продукта OEM и частной марки контролируются для повторных заказов.</p></div>
+        <div class="card"><h3>Экспортные возможности</h3><p>Производство компании {MANUFACTURER.name} обеспечивает экспорт в {MANUFACTURER.exportMarkets} из {MANUFACTURER.exportPorts}.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Почему свинцово-кислотные</span>
+    <h2>Почему свинцово-кислотные аккумуляторы для вашей программы OEM</h2>
+    <p class="lead">Свинцово-кислотная технология — это цепочка поставок со 150-летней историей, а стартерные аккумуляторы не являются опасными грузами класса 9, в отличие от литиевых элементов. Для импортёров это означает более простую доставку, меньше транспортных ограничений и меньшую нагрузку по соблюдению требований — зрелую и надёжную базу поставок для аккумуляторной программы, которая работает годами.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>Проще логистика</h3><p>Стартерные аккумуляторы перевозятся по правилам обычных грузов, без требований UN38.3, MSDS и обращения с опасными грузами класса 9, которые нужны для литиевых элементов.</p></div>
+      <div class="card"><h3>Проверенная повторяемость</h3><p>Зрелый процесс с десятилетиями эксплуатационных данных означает, что зафиксированная спецификация остаётся неизменной от партии к партии.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Стандарты</span>
+      <h2>Стандарты, по которым мы производим</h2>
+      <p class="lead">Один завод, все основные стандарты — так один поставщик покрывает все ваши рынки.</p>
+      <div class="grid grid--3">
+        <div class="card"><h3>JIS</h3><p>Совместимость с японскими и азиатскими рынками (например, группы корпусов D23, D26, D31, B24).</p></div>
+        <div class="card"><h3>DIN / EN</h3><p>Европейская совместимость (например, группы корпусов H5–H8, LN2–LN5).</p></div>
+        <div class="card"><h3>BCI / AS / SA</h3><p>Североамериканская, австралийская и южноафриканская совместимость.</p></div>
+      </div>
+      <p><a href="/ru/data/65d26/">Смотреть спецификации эталонных моделей &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Производство</span>
+    <h2>Произведено на специализированном аккумуляторном заводе</h2>
+    <p class="lead">{MANUFACTURER.name} (основана в {MANUFACTURER.founded}) управляет производственной площадкой площадью {MANUFACTURER.factoryArea} в {MANUFACTURER.address} с {MANUFACTURER.productionLines}.</p>
+    <img class="mfg-photo" src="/images/factory/factory-19.webp" alt="Производственный цех аккумуляторов на площадке Chengguang Power Tech Co., Ltd." width="1508" height="823" loading="lazy" decoding="async" />
+    <p><a href="/ru/factory/">Смотреть обзор завода &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <OEMProcess />
+      <p><a href="/ru/contact/">Обсудить ваш проект &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Прежде чем закупать</span>
+    <h2>Что нужно знать покупателям OEM перед закупкой?</h2>
+    <div class="grid grid--3">
+      <div class="card"><h3>Укажите стандарт и модель</h3><p>Не запрашивайте просто &ldquo;аккумулятор&rdquo;. JIS, DIN и BCI — это разные размеры корпусов и расположение клемм: они не взаимозаменяемы.</p></div>
+      <div class="card"><h3>CCA зависит от метода испытаний</h3><p>CCA по JIS (&minus;15&deg;C) и CCA по EN (&minus;18&deg;C) — это разные числа для одного и того же аккумулятора. Подтвердите основу, прежде чем сравнивать расчёты.</p></div>
+      <div class="card"><h3>MOQ привязан к контейнеру</h3><p>Один 20-футовый контейнер — типичный минимум. Совмещение моделей в одном контейнере снижает стоимость единицы.</p></div>
+    </div>
+    <p style="margin-top:1.25rem">Прежде чем запрашивать расчёты, воспользуйтесь <a href="/ru/knowledge/oem-battery-specification-guide/">руководством по спецификации OEM-аккумуляторов</a> и изучите, <a href="/ru/knowledge/oem-battery-moq-lead-time/">как работают MOQ и срок поставки</a>.</p>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Эталонные модели</span>
+    <h2>Спецификации моделей аккумуляторов</h2>
+    <p class="lead">Справочные спецификации для распространённой совместимости JIS и DIN/EN. Спецификации приведены для справки; окончательные значения уточняйте у производителя.</p>
+    <div class="model-list">
+      {batteryModels.map((model) => <ModelCard model={model} />)}
+    </div>
+    <p style="margin-top:1rem"><a href="/ru/tools/battery-finder/">Воспользоваться подбором аккумулятора &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Часто задаваемые вопросы</h2>
+      {homeFaqs.map((f) => (
+        <div class="card" style="margin-bottom:0.9rem">
+          <h3>{f.q}</h3>
+          <p style="margin:0">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

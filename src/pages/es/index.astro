@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatsBar from '../../components/StatsBar.astro';
+import BatteryTypeCard from '../../components/BatteryTypeCard.astro';
+import OEMProcess from '../../components/OEMProcess.astro';
+import CTASection from '../../components/CTASection.astro';
+import ModelCard from '../../components/ModelCard.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, BATTERY_TYPES } from '../../data/site';
+import { batteryModels } from '../../data/battery-models';
+
+const title = 'Baterías de Automoción OEM y de Marca Privada | Dingwei Battery';
+const description = 'Dingwei Battery ofrece programas de baterías de automoción OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).';
+
+const homeFaqs = [
+  {
+    q: '¿Qué baterías suministra Dingwei?',
+    a: 'Dingwei suministra baterías de arranque de plomo-ácido SLI, AGM, EFB y de servicio pesado para programas OEM y de marca privada. Las baterías de arranque de plomo-ácido no son mercancías peligrosas de Clase 9, por lo que el envío y el cumplimiento normativo son más sencillos que con las celdas de litio.',
+  },
+  {
+    q: '¿Quién fabrica las baterías Dingwei?',
+    a: 'Chengguang Power Tech Co., Ltd., un fabricante de plomo-ácido fundado en 2002 en Jinzhou (Hebei), con certificación IATF 16949. Una sola fábrica cubre los estándares JIS, DIN, BCI, AS y SA, de modo que un único proveedor puede cubrir todos sus mercados.',
+  },
+  {
+    q: '¿Puedo crear mi propia marca de baterías?',
+    a: 'Sí. OEM significa que usted define la especificación y posee el diseño y la marca; la marca privada aplica su identidad a una plataforma probada. Ambos le ofrecen un producto que ningún competidor puede comprar del mismo estante.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: BRAND,
+    url: SITE.url,
+    description: 'Programas de baterías de automoción OEM y de marca privada.',
+    brand: { '@type': 'Brand', name: BRAND },
+    manufacturer: {
+      '@type': 'Organization',
+      name: MANUFACTURER.name,
+      legalName: MANUFACTURER.legalName,
+      foundingDate: String(MANUFACTURER.founded),
+      address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: SITE.url,
+    description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/es/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={[]}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="hero">
+    <div class="container">
+      <span class="tag" style="color:#f0b9b2">OEM / Marca Privada</span>
+      <h1>Baterías de automoción fabricadas con su marca</h1>
+      <p class="lead">Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Suministramos baterías SLI, AGM, EFB y de servicio pesado bajo su etiqueta, desde la especificación hasta el envío.</p>
+      <div class="hero__actions">
+        <a class="btn" href="/es/oem/">Explorar programas OEM</a>
+        <a class="btn btn--ghost" href="/es/contact/">Solicitar Cotización OEM</a>
+      </div>
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <span class="tag">Tipos de batería</span>
+    <h2>Categorías de baterías OEM y de marca privada</h2>
+    <p class="lead">Cuatro familias de producto fabricadas por {MANUFACTURER.name}, que cubren los estándares JIS, DIN, BCI, AS y SA.</p>
+    <div class="grid grid--4">
+      {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Por qué Dingwei Battery</span>
+      <h2>Un programa OEM, no un pedido puntual</h2>
+      <p class="lead">Estructuramos la relación de marca, la especificación, el muestreo y el suministro para que su producto se mantenga consistente entre pedidos.</p>
+      <div class="grid grid--3">
+        <div class="card"><h3>La especificación primero</h3><p>El voltaje, la capacidad, la CCA, el estándar, el tamaño de carcasa y la disposición de terminales se definen antes de producir.</p></div>
+        <div class="card"><h3>Consistencia de marca</h3><p>El arte, el embalaje y la identidad de producto OEM y de marca privada se controlan para pedidos repetidos.</p></div>
+        <div class="card"><h3>Capacidad de exportación</h3><p>La fabricación de {MANUFACTURER.name} permite exportar a {MANUFACTURER.exportMarkets} desde {MANUFACTURER.exportPorts}.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Por qué plomo-ácido</span>
+    <h2>Por qué plomo-ácido para su programa OEM</h2>
+    <p class="lead">El plomo-ácido es una cadena de suministro con 150 años de historia, y las baterías de arranque no son mercancías peligrosas de Clase 9 como las celdas de litio. Para el importador, eso significa envíos más sencillos, menos restricciones de transporte y una menor carga de cumplimiento: una base de suministro madura y fiable para un programa de baterías que funciona durante años.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>Logística más sencilla</h3><p>Las baterías de arranque se envían bajo reglas de carga ordinaria, sin el manejo de UN38.3, MSDS y mercancías peligrosas de Clase 9 que exigen las celdas de litio.</p></div>
+      <div class="card"><h3>Repetibilidad probada</h3><p>Un proceso maduro con décadas de datos de campo significa que una especificación fijada se mantiene consistente entre series de producción.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Estándares</span>
+      <h2>Estándares con los que fabricamos</h2>
+      <p class="lead">Una fábrica, todos los estándares principales: un solo proveedor cubre todos sus mercados.</p>
+      <div class="grid grid--3">
+        <div class="card"><h3>JIS</h3><p>Montajes japoneses y de mercado asiático (p. ej., grupos de carcasa D23, D26, D31, B24).</p></div>
+        <div class="card"><h3>DIN / EN</h3><p>Montajes europeos (p. ej., grupos de carcasa H5–H8, LN2–LN5).</p></div>
+        <div class="card"><h3>BCI / AS / SA</h3><p>Montajes norteamericanos, australianos y sudafricanos.</p></div>
+      </div>
+      <p><a href="/es/data/65d26/">Ver especificaciones de modelos de referencia &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Fabricación</span>
+    <h2>Fabricado en una planta de baterías dedicada</h2>
+    <p class="lead">{MANUFACTURER.name} (fundada en {MANUFACTURER.founded}) opera una instalación de {MANUFACTURER.factoryArea} en {MANUFACTURER.address} con {MANUFACTURER.productionLines}.</p>
+    <img class="mfg-photo" src="/images/factory/factory-19.webp" alt="Planta de fabricación de baterías en las instalaciones de Chengguang Power Tech Co., Ltd." width="1508" height="823" loading="lazy" decoding="async" />
+    <p><a href="/es/factory/">Ver resumen de la fábrica &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <OEMProcess />
+      <p><a href="/es/contact/">Hablemos de su proyecto &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Antes de comprar</span>
+    <h2>¿Qué deben saber los compradores OEM antes de aprovisionarse?</h2>
+    <div class="grid grid--3">
+      <div class="card"><h3>Indique el estándar y el modelo</h3><p>No pida solo &ldquo;una batería&rdquo;. JIS, DIN y BCI tienen tamaños de carcasa y disposiciones de terminales distintos: no son intercambiables.</p></div>
+      <div class="card"><h3>La CCA depende del método de ensayo</h3><p>Una CCA JIS (−15&deg;C) y una CCA EN (−18&deg;C) son números distintos para la misma batería. Confirme la base antes de comparar cotizaciones.</p></div>
+      <div class="card"><h3>El MOQ sigue al contenedor</h3><p>Un contenedor de 20 pies es el mínimo típico. Mezclar modelos en un mismo contenedor reduce el coste unitario.</p></div>
+    </div>
+    <p style="margin-top:1.25rem">Antes de solicitar cotizaciones, use la <a href="/es/knowledge/oem-battery-specification-guide/">guía de especificación de baterías OEM</a> y entienda <a href="/es/knowledge/oem-battery-moq-lead-time/">cómo funcionan el MOQ y el plazo de entrega</a>.</p>
+  </section>
+
+  <section class="section container">
+    <span class="tag">Modelos de referencia</span>
+    <h2>Especificaciones de modelos de batería</h2>
+    <p class="lead">Especificaciones de referencia para montajes JIS y DIN/EN habituales. Las especificaciones son de referencia; confirme los valores finales con el fabricante.</p>
+    <div class="model-list">
+      {batteryModels.map((model) => <ModelCard model={model} />)}
+    </div>
+    <p style="margin-top:1rem"><a href="/es/tools/battery-finder/">Usar el buscador de baterías &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Preguntas frecuentes</h2>
+      {homeFaqs.map((f) => (
+        <div class="card" style="margin-bottom:0.9rem">
+          <h3>{f.q}</h3>
+          <p style="margin:0">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

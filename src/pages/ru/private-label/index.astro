@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import BatteryTypeCard from '../../../components/BatteryTypeCard.astro';
+import { SITE, BRAND, MANUFACTURER, BATTERY_TYPES } from '../../../data/site';
+
+const title = 'Программы аккумуляторов частной марки | Dingwei Battery';
+const description = 'Программы автомобильных аккумуляторов частной марки от Dingwei Battery, произведённые Chengguang Power Tech Co., Ltd.: ваша марка, этикетка, упаковка и повторяемые поставки.';
+
+const breadcrumbs = [{ label: 'Частная марка', href: '/ru/private-label/' }];
+
+const privateLabelFaqs = [
+  {
+    q: 'Что включает программа частной марки Dingwei?',
+    a: 'Она включает вашу фирменную идентичность на этикетке, упаковке и в документации, применённую к проверенной платформе аккумуляторов SLI, AGM, EFB или тяжёлого режима с зафиксированной спецификацией и контролируемыми повторными поставками.',
+  },
+  {
+    q: 'Какие типы аккумуляторов можно выпускать под частной маркой?',
+    a: 'Стартерные свинцово-кислотные аккумуляторы SLI, AGM, EFB и тяжёлого режима можно выпускать под частной маркой по стандартам JIS, DIN, BCI, AS и SA.',
+  },
+  {
+    q: 'Как обеспечивается постоянство повторных заказов частной марки?',
+    a: 'Путём фиксации спецификации до этикетки — сначала фиксируются платформа аккумулятора, основа CCA и размер корпуса, затем применяется брендинг. Контроль спецификации, предсерийный отбор образцов и прослеживаемость партий обеспечивают соответствие каждой производственной партии вашему утверждённому образцу — именно это запоминают покупатели.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: privateLabelFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'Частная марка', item: `${SITE.url}/ru/private-label/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Частная марка</span>
+    <h1>Программы аккумуляторов частной марки</h1>
+    <p class="lead">Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Разместите вашу марку на проверенной платформе аккумуляторов — включая этикетку, корпус, упаковку и документацию.</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Что включает частная марка</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>Фирменная идентичность</h3><p>Ваша этикетка, цветовая схема и название продукта на аккумуляторе и упаковке.</p></div>
+        <div class="card"><h3>Платформа продукта</h3><p>Платформы SLI, AGM, EFB и тяжёлого режима по стандартам JIS, DIN, BCI, AS и SA.</p></div>
+        <div class="card"><h3>Повторяемые поставки</h3><p>Контролируемые спецификации, чтобы каждый заказ соответствовал вашему утверждённому образцу.</p></div>
+      </div>
+      <img class="mfg-photo" src="/images/factory/factory-22.webp" alt="Зона контроля аккумуляторов на площадке Chengguang Power Tech Co., Ltd." width="1505" height="830" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Частная марка против OEM: важное отличие</h2>
+    <p class="lead">Частная марка означает, что вы брендируете аккумулятор, который завод уже производит; OEM означает, что завод производит по спецификации, которую определяете вы. Частная марка запускается быстрее; OEM даёт продукт, который никто не может скопировать.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Что вы можете брендировать</h2>
+      <ul>
+        <li>Дизайн этикетки и цветовая схема</li>
+        <li>Дизайн коробки, рукава и паллеты</li>
+        <li>Штрихкод и артикул (SKU)</li>
+        <li>Гарантийный талон</li>
+        <li>Многоязычное руководство</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Процесс частной марки</h2>
+    <ol>
+      <li><strong>Позиционирование</strong> — определите целевой рынок и требуемые стандарты.</li>
+      <li><strong>Спецификация</strong> — зафиксируйте напряжение, ёмкость, CCA и размер корпуса.</li>
+      <li><strong>Брендинг</strong> — примените этикетку, упаковку и документацию.</li>
+      <li><strong>Отбор образцов</strong> — утвердите предсерийный образец.</li>
+      <li><strong>Производство</strong> — плановые поставки, соответствующие утверждённому образцу.</li>
+    </ol>
+    <p><a href="/ru/knowledge/how-build-private-label-battery-brand/">Как создать бренд аккумуляторов частной марки &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Доступные семейства продуктов</h2>
+    <div class="grid grid--4">
+      {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Как работает процесс</h2>
+      <p>Мы начинаем с вашего целевого рынка и требуемых стандартов, согласовываем спецификацию, затем переходим к дизайну и брендингу перед отбором образцов и производством.</p>
+      <p><a href="/ru/oem/">Смотреть процесс OEM &rarr;</a> · <a href="/ru/knowledge/oem-vs-odm-vs-private-label/">OEM против ODM против частной марки &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Часто задаваемые вопросы</h2>
+    {privateLabelFaqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <CTASection title="Запустить линейку аккумуляторов частной марки" />
+</BaseLayout>

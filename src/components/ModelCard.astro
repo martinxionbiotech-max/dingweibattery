@@ -1,12 +1,18 @@
 ---
 import type { BatteryModel } from '../data/site';
 import { modelPath, ccaLabel } from '../data/battery-models';
+import { UI, DEFAULT_LOCALE, type Locale } from '../i18n/ui';
+import { localizedPath } from '../i18n/url';
+
 interface Props { model: BatteryModel; }
 const { model } = Astro.props;
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = UI[locale];
+const href = localizedPath(modelPath(model.model), locale);
 ---
 <article class="model-card">
-  <h3><a href={modelPath(model.model)}>{model.model} Battery</a></h3>
+  <h3><a href={href}>{model.model} {t.batteryLabel}</a></h3>
   <p class="model-card__meta">{model.standard} · {model.voltage}V · {model.capacity_ah} Ah</p>
   <p class="model-card__meta">{ccaLabel(model)} · {model.dimensions_mm.length} × {model.dimensions_mm.width} × {model.dimensions_mm.height} mm</p>
-  <a href={modelPath(model.model)}>View specification <span aria-hidden="true">&rarr;</span></a>
+  <a href={href}>{t.viewSpec} <span aria-hidden="true">&rarr;</span></a>
 </article>

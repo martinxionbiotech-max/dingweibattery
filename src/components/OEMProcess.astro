@@ -1,14 +1,18 @@
 ---
 import { OEM_PROCESS } from '../data/site';
+import { UI, DEFAULT_LOCALE, type Locale } from '../i18n/ui';
+
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = UI[locale];
 ---
-<h2>OEM process</h2>
-<p class="lead">Seven steps from first consultation to shipment.</p>
+<h2>{t.oemProcessTitle}</h2>
+<p class="lead">{t.oemProcessLead}</p>
 <ol class="process">
   {OEM_PROCESS.map((step) => (
     <li>
       <div>
-        <h3>{step.title}</h3>
-        <p>{step.description}</p>
+        <h3>{step.title[locale]}</h3>
+        <p>{step.description[locale]}</p>
       </div>
     </li>
   ))}

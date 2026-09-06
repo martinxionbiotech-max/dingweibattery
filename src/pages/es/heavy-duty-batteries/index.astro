@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import ModelCard from '../../../components/ModelCard.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER } from '../../../data/site';
+import { batteryModels } from '../../../data/battery-models';
+
+const title = 'Baterías de Servicio Pesado | Dingwei Battery';
+const description = 'Baterías de servicio pesado de 6V y 12V para camiones, autobuses y equipos de construcción, suministradas por Dingwei Battery y fabricadas por Chengguang Power Tech Co., Ltd.';
+
+const breadcrumbs = [{ label: 'Servicio Pesado', href: '/es/heavy-duty-batteries/' }];
+
+const heavyModels = batteryModels.filter((m) => ['105D31', '115D31', 'N100', 'N150', 'N200'].includes(m.model));
+
+const heavyDutyFaqs = [
+  {
+    q: '¿Qué aplicaciones cubren las baterías de servicio pesado de Dingwei?',
+    a: 'Las baterías de servicio pesado de Dingwei cubren camiones, autobuses y equipos de construcción en configuraciones de 6V y 12V, referenciadas a los estándares JIS, DIN, BCI y SA.',
+  },
+  {
+    q: '¿Se pueden suministrar baterías de servicio pesado bajo mi marca?',
+    a: 'Sí. Las baterías de servicio pesado están disponibles para programas OEM y de marca privada, con especificación, marca, muestreo y embalaje confirmados al solicitar.',
+  },
+  {
+    q: '¿Qué debo incluir en una especificación de batería de servicio pesado?',
+    a: 'Primero la familia de estándar y el tamaño de carcasa: una JIS serie N, una DIN pesada y una BCI Grupo 31 no son intercambiables ni siquiera con Ah similares. Después voltaje, capacidad, CCA con su base de ensayo, tipo de terminal y polaridad, modelo de referencia y volumen anual, confirmados con el fabricante.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: heavyDutyFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/es/` },
+      { '@type': 'ListItem', position: 2, name: 'Servicio Pesado', item: `${SITE.url}/es/heavy-duty-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Servicio pesado</span>
+    <h1>Baterías de servicio pesado</h1>
+    <p class="lead">Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Baterías de arranque de 6V y 12V para camiones, autobuses y equipos de construcción, que cubren los estándares JIS, DIN, BCI y SA.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Aplicaciones</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>Camiones</h3><p>Potencia de arranque pesada para flotas de camiones comerciales.</p></div>
+        <div class="card"><h3>Autobuses</h3><p>Arranque fiable y soporte eléctrico para autocares y autobuses urbanos.</p></div>
+        <div class="card"><h3>Equipos de construcción</h3><p>Baterías duraderas para maquinaria fuera de carretera e industrial.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Qué se considera servicio pesado</h2>
+    <p class="lead">Camiones, autobuses, maquinaria de construcción, aplicaciones agrícolas y marinas — donde la vibración, el ciclado profundo y la demanda de arranque en frío son mucho mayores que en un turismo.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>Resistencia a la vibración</h3><p>Las baterías de servicio pesado están construidas para choques mecánicos constantes en carreteras en mal estado y obras.</p></div>
+      <div class="card"><h3>Alta demanda de arranque en frío</h3><p>Los motores diésel grandes necesitan sustancialmente más CCA para arrancar, especialmente en climas fríos.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Estándares para servicio pesado</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>JIS serie N</h3><p>N150 / N200 — montajes de camiones pesados asiáticos.</p></div>
+        <div class="card"><h3>DIN pesado</h3><p>DIN88 / DIN100 — montajes comerciales europeos.</p></div>
+        <div class="card"><h3>BCI Grupo 31 / 4D / 8D</h3><p>Montajes de servicio pesado norteamericanos.</p></div>
+      </div>
+      <p class="lead">Los tamaños de carcasa y las disposiciones de terminales difieren entre estas familias y no son intercambiables.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Especificaciones</h2>
+    <ul>
+      <li>Predominantemente 12V (algunas configuraciones de 6V)</li>
+      <li>Capacidad en el rango de 100–225 Ah</li>
+      <li>Los motores diésel normalmente necesitan CCA alta (orden de magnitud de 800–1100 A, referencia) — confirme el valor final con el fabricante.</li>
+    </ul>
+    <p><a href="/es/knowledge/oem-battery-specification-guide/">Leer la guía de especificación &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Aplicaciones por vehículo</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>Camión articulado</h3><p>Sistemas de 24V que usan dos baterías de 12V en serie.</p></div>
+        <div class="card"><h3>Autobús</h3><p>Arranque y soporte eléctrico para autocares.</p></div>
+        <div class="card"><h3>Excavadora / tractor / marina</h3><p>Baterías de arranque para fuera de carretera y marina.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Fabricación y exportación</h2>
+    <p class="lead">Fabricadas por {MANUFACTURER.name} (fundada en {MANUFACTURER.founded}) en una instalación de {MANUFACTURER.factoryArea} con {MANUFACTURER.productionLines}, con exportación a {MANUFACTURER.exportMarkets}.</p>
+    <p><a href="/es/factory/">Ver resumen de la fábrica &rarr;</a></p>
+    <img class="mfg-photo" src="/images/factory/factory-16.webp" alt="Ensamblaje de baterías en las instalaciones de Chengguang Power Tech Co., Ltd." width="1533" height="646" loading="lazy" decoding="async" />
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Modelos de referencia</span>
+      <h2>Referencias de arranque de servicio pesado</h2>
+      <p class="lead">Dos referencias JIS de servicio pesado del conjunto de modelos actual. Las especificaciones son de referencia; confirme los valores finales con el fabricante.</p>
+      <div class="model-list">
+        {heavyModels.map((model) => <ModelCard model={model} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Gama de productos de servicio pesado</h2>
+    <p class="lead">Referencias de servicio pesado suministradas por {MANUFACTURER.name}.</p>
+    <div class="gallery gallery--product">
+      <figure class="gallery__item"><img src="/images/product/hd-n150.webp" alt="Batería de servicio pesado N150" width="800" height="749" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/hd-n200.webp" alt="Batería de servicio pesado N200" width="800" height="780" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/hd-n100.webp" alt="Batería de servicio pesado N100" width="800" height="769" loading="lazy" decoding="async" /></figure>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Preguntas frecuentes</h2>
+    {heavyDutyFaqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/es/knowledge/oem-battery-specification-guide/">Usar la guía de especificación de baterías OEM &rarr;</a></p>
+  </section>
+
+  <CTASection title="Solicite una cotización de baterías de servicio pesado" />
+</BaseLayout>

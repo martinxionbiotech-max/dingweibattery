@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import ModelCard from '../../../../components/ModelCard.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, STANDARDS } from '../../../../data/site';
+import { batteryModels } from '../../../../data/battery-models';
+
+const title = 'Автомобильные аккумуляторы OEM | Dingwei Battery';
+const description = 'Автомобильные аккумуляторы OEM от Dingwei Battery, произведённые Chengguang Power Tech Co., Ltd.: стартерные аккумуляторы SLI, AGM и EFB для легковых и лёгких коммерческих автомобилей.';
+
+const breadcrumbs = [
+  { label: 'OEM', href: '/ru/oem/' },
+  { label: 'Автомобильные аккумуляторы', href: '/ru/oem/car-batteries/' },
+];
+
+const carModels = batteryModels.filter((m) => !['105D31', '115D31', 'N100', 'N150', 'N200'].includes(m.model));
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/ru/oem/` },
+      { '@type': 'ListItem', position: 3, name: 'Автомобильные аккумуляторы', item: `${SITE.url}/ru/oem/car-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">OEM / Автомобили</span>
+    <h1>Автомобильные аккумуляторы OEM</h1>
+    <p class="lead">Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Мы поставляем стартерные аккумуляторы SLI, AGM и EFB для легковых и лёгких коммерческих автомобилей под вашей маркой.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Технологии автомобильных аккумуляторов</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>SLI</h3><p>Обычные залитые аккумуляторы для запуска, освещения и зажигания для стандартных автомобилей.</p></div>
+        <div class="card"><h3>AGM</h3><p>Конструкция с абсорбированным стекловолокном для систем start-stop и повышенных электрических нагрузок.</p></div>
+        <div class="card"><h3>EFB</h3><p>Улучшенные залитые аккумуляторы с повышенной циклической стойкостью для start-stop начального уровня.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Охватываемые стандарты</h2>
+    <p class="lead">Указывайте стандарт, который использует ваш рынок. Поддерживаемые семейства: {STANDARDS.join(', ')}.</p>
+    <p><a href="/ru/knowledge/oem-battery-specification-guide/">Читать руководство по спецификации OEM-аккумуляторов &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Эталонные модели</span>
+      <h2>Эталонные стартерные аккумуляторы для легковых автомобилей</h2>
+      <p class="lead">Распространённые справочные аккумуляторы JIS и DIN/EN для планирования совместимости. Спецификации приведены для справки; окончательные значения уточняйте у производителя.</p>
+      <div class="model-list">
+        {carModels.map((model) => <ModelCard model={model} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Ассортимент автомобильных аккумуляторов</h2>
+    <p class="lead">Справочные автомобильные аккумуляторы JIS и DIN/EN, поставляемые {MANUFACTURER.name}.</p>
+    <div class="gallery gallery--product">
+      <figure class="gallery__item"><img src="/images/product/range-55d23.webp" alt="Аккумулятор 55D23" width="800" height="768" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din70.webp" alt="Аккумулятор DIN70" width="800" height="787" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din72.webp" alt="Аккумулятор DIN72" width="800" height="778" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din75.webp" alt="Аккумулятор DIN75" width="800" height="798" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din80a.webp" alt="Аккумулятор DIN80" width="800" height="783" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din80b.webp" alt="Аккумулятор DIN80" width="800" height="783" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/range-din100.webp" alt="Аккумулятор DIN100" width="800" height="751" loading="lazy" decoding="async" /></figure>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>От спецификации до отгрузки</h2>
+    <p>Программы OEM-автомобильных аккумуляторов проходят семиэтапный процесс: консультация, спецификация, дизайн и брендинг, отбор образцов, серийное производство, контроль качества и доставка.</p>
+    <p><a href="/ru/oem/">Смотреть полный процесс OEM &rarr;</a></p>
+  </section>
+
+  <CTASection title="Запросить расчёт на OEM-аккумулятор для автомобилей" />
+</BaseLayout>

@@ -1,11 +1,17 @@
 ---
+import { UI, DEFAULT_LOCALE, type Locale } from '../i18n/ui';
+import { localizedPath } from '../i18n/url';
+
 interface Crumb { label: string; href?: string; }
 interface Props { items: Crumb[]; }
 const { items } = Astro.props;
+const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
+const t = UI[locale];
+const homeHref = localizedPath('/', locale);
 ---
-<nav class="breadcrumbs container" aria-label="Breadcrumb">
+<nav class="breadcrumbs container" aria-label={t.breadcrumb}>
   <ol>
-    <li><a href="/">Home</a><span aria-hidden="true">/</span></li>
+    <li><a href={homeHref}>{t.nav.home}</a><span aria-hidden="true">/</span></li>
     {items.map((item, i) => (
       <li>
         {item.href && i < items.length - 1 ? (

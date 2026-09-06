@@ -1,3 +1,5 @@
+import type { Locale } from '../i18n/ui';
+
 export const SITE = {
   name: 'Dingwei Battery',
   url: 'https://dingweibattery.com',
@@ -34,14 +36,83 @@ export const CERTIFICATIONS = ['IATF 16949', 'ISO 9001', 'ISO 45001', 'CE'];
 
 export const STANDARDS = ['JIS', 'DIN', 'BCI', 'AS', 'SA'];
 
-export const OEM_PROCESS = [
-  { step: '1', title: 'Consultation', description: 'Requirements, vehicle fitment and target market review.' },
-  { step: '2', title: 'Specification', description: 'Voltage, capacity, CCA, standard and terminal definition.' },
-  { step: '3', title: 'Design & branding', description: 'Label, case, packaging and private-label artwork.' },
-  { step: '4', title: 'Sampling', description: 'Pre-production samples for approval.' },
-  { step: '5', title: 'Mass production', description: 'Scheduled manufacturing and in-process control.' },
-  { step: '6', title: 'Quality control', description: 'Inspection and conformance to agreed specifications.' },
-  { step: '7', title: 'Shipping & logistics', description: 'Export packaging and shipment from Tianjin / Shanghai.' },
+export interface OemStep {
+  step: string;
+  title: Record<Locale, string>;
+  description: Record<Locale, string>;
+}
+
+export const OEM_PROCESS: OemStep[] = [
+  {
+    step: '1',
+    title: { en: 'Consultation', es: 'Consulta', ar: 'الاستشارة', ru: 'Консультация' },
+    description: {
+      en: 'Requirements, vehicle fitment and target market review.',
+      es: 'Revisión de requisitos, compatibilidad del vehículo y mercado objetivo.',
+      ar: 'مراجعة المتطلبات وتوافق المركبة والسوق المستهدف.',
+      ru: 'Анализ требований, совместимости с автомобилем и целевого рынка.',
+    },
+  },
+  {
+    step: '2',
+    title: { en: 'Specification', es: 'Especificación', ar: 'المواصفات', ru: 'Спецификация' },
+    description: {
+      en: 'Voltage, capacity, CCA, standard and terminal definition.',
+      es: 'Definición de voltaje, capacidad, CCA, estándar y terminales.',
+      ar: 'تحديد الجهد والسعة وCCA والمعيار والأطراف.',
+      ru: 'Определение напряжения, ёмкости, CCA, стандарта и клемм.',
+    },
+  },
+  {
+    step: '3',
+    title: { en: 'Design & branding', es: 'Diseño y marca', ar: 'التصميم والعلامة التجارية', ru: 'Дизайн и брендинг' },
+    description: {
+      en: 'Label, case, packaging and private-label artwork.',
+      es: 'Etiqueta, carcasa, embalaje y arte de marca privada.',
+      ar: 'الملصق والهيكل والتغليف وتصميم العلامة الخاصة.',
+      ru: 'Этикетка, корпус, упаковка и дизайн частной марки.',
+    },
+  },
+  {
+    step: '4',
+    title: { en: 'Sampling', es: 'Muestreo', ar: 'العينات', ru: 'Образцы' },
+    description: {
+      en: 'Pre-production samples for approval.',
+      es: 'Muestras de preproducción para aprobación.',
+      ar: 'عينات ما قبل الإنتاج للموافقة.',
+      ru: 'Предсерийные образцы для утверждения.',
+    },
+  },
+  {
+    step: '5',
+    title: { en: 'Mass production', es: 'Producción en serie', ar: 'الإنتاج الضخم', ru: 'Серийное производство' },
+    description: {
+      en: 'Scheduled manufacturing and in-process control.',
+      es: 'Fabricación programada y control en proceso.',
+      ar: 'تصنيع مجدول ومراقبة أثناء العملية.',
+      ru: 'Плановое производство и контроль в процессе.',
+    },
+  },
+  {
+    step: '6',
+    title: { en: 'Quality control', es: 'Control de calidad', ar: 'مراقبة الجودة', ru: 'Контроль качества' },
+    description: {
+      en: 'Inspection and conformance to agreed specifications.',
+      es: 'Inspección y conformidad con las especificaciones acordadas.',
+      ar: 'الفحص والمطابقة للمواصفات المتفق عليها.',
+      ru: 'Проверка и соответствие согласованным спецификациям.',
+    },
+  },
+  {
+    step: '7',
+    title: { en: 'Shipping & logistics', es: 'Envío y logística', ar: 'الشحن والخدمات اللوجستية', ru: 'Доставка и логистика' },
+    description: {
+      en: 'Export packaging and shipment from Tianjin / Shanghai.',
+      es: 'Embalaje de exportación y envío desde Tianjin / Shanghái.',
+      ar: 'تغليف التصدير والشحن من تيانجين / شنغهاي.',
+      ru: 'Экспортная упаковка и отгрузка из Тяньцзиня / Шанхая.',
+    },
+  },
 ];
 
 export const TRADE_TERMS = {
@@ -82,8 +153,8 @@ export interface BatteryModel {
 
 export interface BatteryType {
   id: string;
-  name: string;
-  description: string;
+  name: Record<Locale, string>;
+  description: Record<Locale, string>;
   standards: string;
   href: string;
 }
@@ -91,29 +162,49 @@ export interface BatteryType {
 export const BATTERY_TYPES: BatteryType[] = [
   {
     id: 'sli',
-    name: 'SLI',
-    description: 'Conventional flooded starting, lighting and ignition batteries for standard passenger and light-commercial vehicles.',
+    name: { en: 'SLI', es: 'SLI', ar: 'SLI', ru: 'SLI' },
+    description: {
+      en: 'Conventional flooded starting, lighting and ignition batteries for standard passenger and light-commercial vehicles.',
+      es: 'Baterías convencionales inundadas de arranque, iluminación y encendido para turismos y vehículos comerciales ligeros estándar.',
+      ar: 'بطاريات تقليدية مغمورة للتشغيل والإضاءة والإشعال للسيارات العادية والمركبات التجارية الخفيفة.',
+      ru: 'Обычные залитые стартерные аккумуляторы (запуск, освещение и зажигание) для стандартных легковых и лёгких коммерческих автомобилей.',
+    },
     standards: 'JIS / DIN / BCI / AS / SA',
     href: '/oem/car-batteries/',
   },
   {
     id: 'agm',
-    name: 'AGM',
-    description: 'Absorbent glass mat batteries for start-stop systems and vehicles with higher electrical demand.',
+    name: { en: 'AGM', es: 'AGM', ar: 'AGM', ru: 'AGM' },
+    description: {
+      en: 'Absorbent glass mat batteries for start-stop systems and vehicles with higher electrical demand.',
+      es: 'Baterías de malla de fibra de vidrio absorbente (AGM) para sistemas start-stop y vehículos con mayor demanda eléctrica.',
+      ar: 'بطاريات بساط زجاجي ماص (AGM) لأنظمة التشغيل/الإيقاف والمركبات ذات الطلب الكهربائي الأعلى.',
+      ru: 'Аккумуляторы AGM (с абсорбированным стекловолокном) для систем start-stop и автомобилей с повышенной электрической нагрузкой.',
+    },
     standards: 'DIN / BCI / EN',
     href: '/oem/car-batteries/',
   },
   {
     id: 'efb',
-    name: 'EFB',
-    description: 'Enhanced flooded batteries offering higher cycling durability than conventional SLI.',
+    name: { en: 'EFB', es: 'EFB', ar: 'EFB', ru: 'EFB' },
+    description: {
+      en: 'Enhanced flooded batteries offering higher cycling durability than conventional SLI.',
+      es: 'Baterías inundadas mejoradas que ofrecen mayor durabilidad de ciclado que las SLI convencionales.',
+      ar: 'بطاريات مغمورة محسّنة توفر متانة تدوير أعلى من SLI التقليدية.',
+      ru: 'Улучшенные залитые аккумуляторы (EFB) с более высокой циклической стойкостью, чем обычные SLI.',
+    },
     standards: 'DIN / BCI / EN',
     href: '/oem/car-batteries/',
   },
   {
     id: 'heavy-duty',
-    name: 'Heavy Duty',
-    description: 'Truck, bus and construction-equipment batteries in 6V and 12V configurations.',
+    name: { en: 'Heavy Duty', es: 'Servicio Pesado', ar: 'الخدمة الشاقة', ru: 'Тяжёлый режим' },
+    description: {
+      en: 'Truck, bus and construction-equipment batteries in 6V and 12V configurations.',
+      es: 'Baterías para camiones, autobuses y equipos de construcción en configuraciones de 6V y 12V.',
+      ar: 'بطاريات للشاحنات والحافلات ومعدات البناء بتكوينات 6 فولت و12 فولت.',
+      ru: 'Аккумуляторы для грузовиков, автобусов и строительной техники в конфигурациях 6В и 12В.',
+    },
     standards: 'JIS / DIN / BCI / SA',
     href: '/heavy-duty-batteries/',
   },
