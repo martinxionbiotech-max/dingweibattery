@@ -1,0 +1,392 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER } from '../../../../data/site';
+import { batteryModels, modelPath } from '../../../../data/battery-models';
+import type { BatteryModel } from '../../../../data/site';
+import { translateApplication, translateTechnology, translateConfidence, translateCcaBasis, translateCcaNote } from '../../../../i18n/model';
+import type { Locale } from '../../../../i18n/ui';
+
+export function getStaticPaths() {
+  return batteryModels.map((model) => ({ params: { model: model.model.toLowerCase() }, props: { model } }));
+}
+
+interface Props { model: BatteryModel; }
+const { model } = Astro.props;
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+
+const HEAVY = ['105D31', '115D31', 'N100', 'N150', 'N200'];
+const isHeavy = HEAVY.includes(model.model);
+const categoryHref = isHeavy ? '/heavy-duty-batteries/' : '/oem/car-batteries/';
+const categoryLabel = isHeavy ? 'Аккумуляторы тяжёлого режима' : 'Автомобильные аккумуляторы';
+const relatedModels = batteryModels
+  .filter((m) => m.model !== model.model && m.standard === model.standard)
+  .slice(0, 4);
+
+const dims = model.dimensions_mm;
+const dimsLabel = `${dims.length} × ${dims.width} × ${dims.height} мм`;
+const pagePath = modelPath(model.model);
+const url = `${SITE.url}/${locale}${pagePath}`;
+
+const title = `${model.model} Характеристики аккумулятора | Dingwei OEM`;
+const description = `${model.model} справочные данные аккумулятора: ${model.voltage}V, ${model.capacity_ah} Ah, ${model.cca.value} CCA (справочно), ${dimsLabel}, ${model.standard}. Уточните окончательные значения у производителя.`;
+
+const h1 = `${model.model} Аккумулятор — ${model.standard} ${translateApplication(model.application, locale)} | Dingwei OEM`;
+const lead = `Аккумулятор ${model.model} — это аккумулятор стандарта ${model.standard} для ${translateApplication(model.application, locale).toLowerCase()} с номинальным напряжением ${model.voltage}V и ёмкостью ${model.capacity_ah} Ah. Доступен для поставок OEM и частных марок; характеристики подтверждаются согласно ${model.standard_code}.`;
+
+const faqs = [
+  {
+    q: `Что такое аккумулятор ${model.model}?`,
+    a: `Аккумулятор ${model.model} — это стартерный аккумулятор стандарта ${model.standard} для ${translateApplication(model.application, locale).toLowerCase()}. Используется корпус ${model.case_size} с номинальным напряжением ${model.voltage}V и ёмкостью ${model.capacity_ah} Ah — распространённая установка в ${model.standard === 'JIS' ? 'автомобилях азиатского рынка' : model.standard === 'DIN/EN' ? 'европейских автомобилях' : 'автомобилях целевого рынка'}.${isHeavy ? ' Тяжёлые модели, такие как эта, рассчитаны на высокую пусковую нагрузку и постоянную вибрацию, а не на лёгкий пусковой режим.' : ''}`,
+  },
+  {
+    q: `Какая CCA у аккумулятора ${model.model}?`,
+    a: `Указанное значение — ${model.cca.value} CCA, измеренное по ${translateCcaBasis(model.cca.basis, locale)}. CCA зависит от метода испытаний: значение JIS (&minus;15&deg;C) нельзя напрямую сравнивать со значением EN/SAE (&minus;18&deg;C), поэтому уточните основу до сравнения предложений.${isHeavy ? ' Для дизеля холодный пуск — определяющее ограничение: масло густеет, а компрессия остаётся высокой; именно это и должен покрывать показатель CCA.' : ''}`,
+  },
+  {
+    q: `Можно ли заказать аккумулятор ${model.model} как OEM или под частной маркой?`,
+    a: `Да. OEM означает, что вы определяете спецификацию и владеете дизайном и брендом; частная марка наносит вашу идентичность на эту проверенную платформу. Доступны оба варианта; брендинг, образцы и упаковка подтверждаются по запросу. Выбор OEM вместо готовой модели даёт продукт, который ни один конкурент не сможет просто купить с той же полки.`,
+  },
+  {
+    q: `Какие размеры у аккумулятора ${model.model}?`,
+    a: `Указанные размеры — ${dimsLabel}. Размеры определяют установку: аккумулятор должен свободно входить в лоток, под крепление и капот, и разница в несколько миллиметров может помешать правильной посадке. Тип и полярность клемм здесь не публикуются и должны уточняться по конкретному автомобилю.`,
+  },
+  {
+    q: `Какой стандарт используется у аккумулятора ${model.model}?`,
+    a: `Он привязан к ${model.standard_code} (${model.standard}). Если ваш рынок использует другую систему стандартов, уточните эквивалентный размер корпуса — аккумуляторы JIS, DIN/EN и BCI не являются автоматически взаимозаменяемыми, и заказ не той системы означает, что аккумулятор не встанет в лоток, даже если значение Ah выглядит верным.`,
+  },
+];
+
+const breadcrumbs = [{ label: `${model.model}` }];
+
+const productJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: `${model.model} Аккумулятор`,
+  description: `${model.model} — справочные данные аккумулятора стандарта ${model.standard}, поставляется ${BRAND}, производится ${MANUFACTURER.name}.`,
+  brand: { '@type': 'Brand', name: BRAND },
+  manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName },
+  mpn: model.model,
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'Стандарт', value: model.standard },
+    { '@type': 'PropertyValue', name: 'Код стандарта', value: model.standard_code },
+    { '@type': 'PropertyValue', name: 'Напряжение', value: `${model.voltage} V` },
+    { '@type': 'PropertyValue', name: 'Ёмкость', value: `${model.capacity_ah} Ah` },
+    { '@type': 'PropertyValue', name: 'Размеры', value: dimsLabel },
+    { '@type': 'PropertyValue', name: 'Вес', value: `${model.weight_kg} kg` },
+    { '@type': 'PropertyValue', name: 'Размер корпуса', value: model.case_size },
+    { '@type': 'PropertyValue', name: 'Технология', value: translateTechnology(model.technology, locale) },
+  ],
+};
+
+const jsonLd = [
+  productJsonLd,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/${locale}/` },
+      { '@type': 'ListItem', position: 2, name: `${model.model} Аккумулятор`, item: url },
+    ],
+  },
+];
+
+const comparison: Record<string, { against: string; points: string[] }> = {
+  '65d26': {
+    against: '65D23',
+    points: [
+      `Оба — аккумуляторы JIS ёмкостью 60 Ah; 65D26 длиннее (256 мм), чем 65D23 (230 мм).`,
+      `Оба имеют одинаковую CCA ${model.cca.value} (справочно) в этом справочном наборе, но окончательные значения должны быть подтверждены производителем.`,
+    ],
+  },
+  '65d23': {
+    against: '65D26',
+    points: [
+      `Оба — аккумуляторы JIS ёмкостью 60 Ah; 65D23 короче (230 мм), чем 65D26 (256 мм).`,
+      `Оба имеют одинаковую CCA ${model.cca.value} (справочно) в этом справочном наборе, но окончательные значения должны быть подтверждены производителем.`,
+    ],
+  },
+  '80d26': {
+    against: '65D26',
+    points: [
+      `Оба используют корпусную группу D26, но 80D26 имеет ёмкость 72 Ah против 60 Ah у 65D26.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для 80D26 и 370 для 65D26; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  '105d31': {
+    against: '115D31',
+    points: [
+      `Оба используют корпус D31 (305 × 175 × 220 мм), но 105D31 имеет 84 Ah против 96 Ah у 115D31.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для 105D31 и 710 для 115D31; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  '115d31': {
+    against: '105D31',
+    points: [
+      `Оба используют корпус D31 (305 × 175 × 220 мм), но 115D31 имеет 96 Ah против 84 Ah у 105D31.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для 115D31 и 655 для 105D31; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  h6: {
+    against: '80D26',
+    points: [
+      `H6 — это справочный номер DIN/EN, а 80D26 — справочный номер JIS; оба 12V и по 72 Ah.`,
+      `CCA зависит от метода испытаний: у H6 указано ${model.cca.value} CCA (справочно EN -18°C), а у 80D26 — 490 CCA (справочно JIS -15°C). Уточните окончательные значения у производителя.`,
+    ],
+  },
+  '75d23': {
+    against: '65D23',
+    points: [
+      `Оба используют корпус D23 (230 × 175 × 220 мм), но 75D23 имеет 72 Ah против 60 Ah у 65D23.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для 75D23 и 370 для 65D23; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  '55b24': {
+    against: '65B24',
+    points: [
+      `Оба используют корпус B24 (238 × 129 × 220 мм), но 55B24 имеет 48 Ah против 50 Ah у 65B24.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для 55B24 и 370 для 65B24; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  '65b24': {
+    against: '55B24',
+    points: [
+      `Оба используют корпус B24 (238 × 129 × 220 мм), но 65B24 имеет 50 Ah против 48 Ah у 55B24.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для 65B24 и 370 для 55B24; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  '85d26': {
+    against: '95D26',
+    points: [
+      `Оба используют корпус D26 (256 × 175 × 220 мм) и имеют ёмкость 84 Ah; два номера различаются справочным значением CCA.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для 85D26 и 565 для 95D26; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  '95d26': {
+    against: '85D26',
+    points: [
+      `Оба используют корпус D26 (256 × 175 × 220 мм) и имеют ёмкость 84 Ah; два номера различаются справочным значением CCA.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для 95D26 и 520 для 85D26; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  '55d23': {
+    against: '65D23',
+    points: [
+      `Оба — справочные номера JIS D23 на 60 Ah, но 55D23 уже и короче (232 × 173 × 202 мм), чем 65D23 (230 × 175 × 220 мм).`,
+      `Указанные справочные значения CCA: ${model.cca.value} для 55D23 и 370 для 65D23; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  h5: {
+    against: 'H6',
+    points: [
+      `Оба — справочные номера DIN/EN; H5 имеет 60 Ah (длина 242 мм), а H6 — 72 Ah (длина 278 мм).`,
+      `Указанные справочные значения CCA: ${model.cca.value} для H5 и 660 для H6; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  h7: {
+    against: 'H8',
+    points: [
+      `Оба — справочные номера DIN/EN; H7 имеет 84 Ah (длина 315 мм), а H8 — 96 Ah (длина 352 мм).`,
+      `Указанные справочные значения CCA: ${model.cca.value} для H7 и 900 для H8; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  h8: {
+    against: 'H7',
+    points: [
+      `Оба — справочные номера DIN/EN; H8 имеет 96 Ah (длина 352 мм), а H7 — 84 Ah (длина 315 мм).`,
+      `Указанные справочные значения CCA: ${model.cca.value} для H8 и 760 для H7; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  din70: {
+    against: 'DIN72',
+    points: [
+      `Оба используют корпус L3 (278 × 175 × 190 мм); DIN70 имеет 70 Ah против 72 Ah у DIN72.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для DIN70 и 660 для DIN72; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  din72: {
+    against: 'DIN75',
+    points: [
+      `Оба используют корпус L3 (278 × 175 × 190 мм); DIN72 имеет 72 Ah против 75 Ah у DIN75.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для DIN72 и 680 для DIN75; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  din75: {
+    against: 'DIN80',
+    points: [
+      `DIN75 использует корпус L3 (длина 278 мм), а DIN80 — более длинный корпус L4 (длина 315 мм); ёмкости 75 Ah против 80 Ah.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для DIN75 и 760 для DIN80; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  din80: {
+    against: 'DIN100',
+    points: [
+      `DIN80 использует корпус L4 (длина 315 мм), а DIN100 — более длинный корпус L5 (длина 353 мм); ёмкости 80 Ah против 100 Ah.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для DIN80 и 900 для DIN100; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  din100: {
+    against: 'DIN80',
+    points: [
+      `DIN100 использует корпус L5 (длина 353 мм), а DIN80 — более короткий корпус L4 (длина 315 мм); ёмкости 100 Ah против 80 Ah.`,
+      `Указанные справочные значения CCA: ${model.cca.value} для DIN100 и 760 для DIN80; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  n100: {
+    against: 'N150',
+    points: [
+      `Оба — тяжёлые справочные номера серии N стандарта JIS; N100 имеет 100 Ah (длина 406 мм), а N150 — 160 Ah (длина 508 мм).`,
+      `Указанные справочные значения CCA: ${model.cca.value} для N100 и 1050 для N150; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  n150: {
+    against: 'N200',
+    points: [
+      `Оба — тяжёлые справочные номера серии N стандарта JIS; N150 имеет 160 Ah (длина 508 мм), а N200 — 200 Ah (длина 518 мм).`,
+      `Указанные справочные значения CCA: ${model.cca.value} для N150 и 1100 для N200; оба должны быть подтверждены производителем.`,
+    ],
+  },
+  n200: {
+    against: 'N150',
+    points: [
+      `Оба — тяжёлые справочные номера серии N стандарта JIS; N200 имеет 200 Ah (длина 518 мм), а N150 — 160 Ah (длина 508 мм).`,
+      `Указанные справочные значения CCA: ${model.cca.value} для N200 и 1050 для N150; оба должны быть подтверждены производителем.`,
+    ],
+  },
+};
+const compare = comparison[model.model.toLowerCase()];
+const aliases = model.aliases ?? [];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Данные модели / {model.standard}</span>
+    <h1>{h1}</h1>
+    <p class="lead">{lead}</p>
+    {model.image && (
+      <img class="model-photo" src={model.image} alt={`${model.model} аккумулятор`} width="800" height="800" loading="lazy" decoding="async" />
+    )}
+    <p><a href={`/${locale}/contact/`}>Запросить расчёт OEM</a> · <a href={`/${locale}/tools/battery-finder/`}>Использовать подбор аккумулятора</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Что такое аккумулятор {model.model}?</h2>
+      <p>Аккумулятор {model.model} — это автомобильный аккумулятор стандарта {model.standard}, используемый для {translateApplication(model.application, locale).toLowerCase()}. Его эталонный корпус — {model.case_size}, поставляется по стандарту {model.standard_code}.</p>
+      <p>{model.aliases && aliases.length > 0 ? `Распространённые псевдонимы этого справочного номера: ${aliases.join(', ')}.` : `Названия в разных системах стандартов различаются между рынками; перед заказом сверьте точную совместимость с кросс-справочником вашего автомобиля.`}</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Краткие характеристики</h2>
+    <table>
+      <thead><tr><th>Поле</th><th>Значение</th></tr></thead>
+      <tbody>
+        <tr><td>Модель</td><td>{model.model}</td></tr>
+        <tr><td>Стандарт</td><td>{model.standard} ({model.standard_code})</td></tr>
+        <tr><td>Напряжение</td><td>{model.voltage} V</td></tr>
+        <tr><td>Ёмкость (C20)</td><td>{model.c20_ah} Ah</td></tr>
+        <tr><td>CCA</td><td>{model.cca.value} CCA <strong>(справочно)</strong> — {translateCcaBasis(model.cca.basis, locale)}</td></tr>
+        <tr><td>Размеры (Длина × Ширина × Высота)</td><td>{dimsLabel}</td></tr>
+        <tr><td>Вес</td><td>{model.weight_kg} kg</td></tr>
+        <tr><td>Технология</td><td>{translateTechnology(model.technology, locale)}</td></tr>
+        <tr><td>Клемма</td><td>Уточняется по запросу</td></tr>
+        <tr><td>Полярность</td><td>Уточняется по запросу</td></tr>
+        <tr><td>Резервная ёмкость (RC)</td><td>Уточняется по запросу</td></tr>
+      </tbody>
+    </table>
+    <p class="note">CCA указана как справочное значение. {translateCcaNote(model.cca.note, locale)} перед использованием этого значения в спецификации продукта.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Размеры и клемма</h2>
+      <p>Указанные размеры — {dimsLabel}. Тип и полярность клемм для этого номера не публикуются; уточните их по запросу перед завершением спецификации.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Применение и совместимость с автомобилями</h2>
+    <p>Справочное применение: {translateApplication(model.application, locale)}. Точная совместимость с автомобилем — это решение по кросс-справочнику: всегда сверяйтесь с требованиями автомобиля или автопарка и с производителем перед заказом.</p>
+    <p><a href={`/${locale}/tools/battery-finder/`}>Использовать подбор аккумулятора &rarr;</a> · <a href={`/${locale}/knowledge/oem-battery-specification-guide/`}>Читать руководство по спецификации &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Эквиваленты / кросс-справочник</h2>
+      <p>Эквивалентность аккумуляторов зависит от системы стандартов, размеров корпуса и расположения клемм. Справочные номера JIS, DIN/EN и BCI не являются автоматически взаимозаменяемыми даже при схожих физических размерах.</p>
+      <p>Проверенная таблица соответствий для этой страницы не публикуется. Уточните эквивалентную модель для вашего рынка у производителя.</p>
+    </div>
+  </section>
+
+  {compare && (
+    <section class="section container prose">
+      <h2>{model.model} vs {compare.against}</h2>
+      <ul>
+        {compare.points.map((point) => <li>{point}</li>)}
+      </ul>
+      <p><a href={`/${locale}${modelPath(compare.against)}`}>Посмотреть аккумулятор {compare.against} &rarr;</a></p>
+    </section>
+  )}
+
+  {relatedModels.length > 0 && (
+    <section class="section section--alt">
+      <div class="container">
+        <h2>Связанные модели {model.standard}</h2>
+        <p class="lead">Другие справочные номера {model.standard} в текущем наборе моделей.</p>
+        <div class="model-list">
+          {relatedModels.map((m) => (
+            <article class="model-card">
+              <h3><a href={`/${locale}${modelPath(m.model)}`}>{m.model} Аккумулятор</a></h3>
+              <p class="model-card__meta">{m.standard} · {m.voltage}V · {m.capacity_ah} Ah · {m.cca.value} CCA (справочно)</p>
+              <a href={`/${locale}${modelPath(m.model)}`}>Смотреть спецификацию <span aria-hidden="true">&rarr;</span></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Доступность OEM и частная марка</h2>
+      <p>Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Аккумулятор {model.model} доступен для поставок OEM и под частной маркой. Брендинг, образцы, упаковка и окончательные характеристики подтверждаются по запросу.</p>
+      <p><a href={`/${locale}/oem/`}>Программы OEM &rarr;</a> · <a href={`/${locale}/private-label/`}>Программы частных марок &rarr;</a> · <a href={`/${locale}${categoryHref}`}>Смотреть {categoryLabel.toLowerCase()} &rarr;</a> · <a href={`/${locale}/contact/`}>Запросить расчёт OEM &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Часто задаваемые вопросы</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Источники и дата проверки</h2>
+      <ul>
+        <li>Источник: {model.source}</li>
+        <li>Дата проверки: {model.verified_date}</li>
+        <li>Уровень достоверности: {translateConfidence(model.confidence, locale)}</li>
+      </ul>
+      <p class="note">Это справочная страница. Поля с пометкой &ldquo;уточняется по запросу&rdquo; намеренно не публикуются, а не оцениваются приблизительно.</p>
+    </div>
+  </section>
+
+  <CTASection title={`Подтвердите спецификацию ${model.model}`} />
+</BaseLayout>

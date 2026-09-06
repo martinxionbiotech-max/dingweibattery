@@ -1,0 +1,392 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER } from '../../../../data/site';
+import { batteryModels, modelPath } from '../../../../data/battery-models';
+import type { BatteryModel } from '../../../../data/site';
+import { translateApplication, translateTechnology, translateConfidence, translateCcaBasis, translateCcaNote } from '../../../../i18n/model';
+import type { Locale } from '../../../../i18n/ui';
+
+export function getStaticPaths() {
+  return batteryModels.map((model) => ({ params: { model: model.model.toLowerCase() }, props: { model } }));
+}
+
+interface Props { model: BatteryModel; }
+const { model } = Astro.props;
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+
+const HEAVY = ['105D31', '115D31', 'N100', 'N150', 'N200'];
+const isHeavy = HEAVY.includes(model.model);
+const categoryHref = isHeavy ? '/heavy-duty-batteries/' : '/oem/car-batteries/';
+const categoryLabel = isHeavy ? 'Baterías de servicio pesado' : 'Baterías de automóvil';
+const relatedModels = batteryModels
+  .filter((m) => m.model !== model.model && m.standard === model.standard)
+  .slice(0, 4);
+
+const dims = model.dimensions_mm;
+const dimsLabel = `${dims.length} × ${dims.width} × ${dims.height} mm`;
+const pagePath = modelPath(model.model);
+const url = `${SITE.url}/${locale}${pagePath}`;
+
+const title = `${model.model} Especificaciones de la Batería | Dingwei OEM`;
+const description = `${model.model} referencia de batería: ${model.voltage}V, ${model.capacity_ah} Ah, ${model.cca.value} CCA (referencia), ${dimsLabel}, ${model.standard}. Confirme los valores finales con el fabricante.`;
+
+const h1 = `${model.model} Batería — ${model.standard} ${translateApplication(model.application, locale)} | Dingwei OEM`;
+const lead = `La ${model.model} es una batería ${model.standard} para ${translateApplication(model.application, locale).toLowerCase()} con una tensión nominal de ${model.voltage}V y ${model.capacity_ah} Ah. Está disponible para suministro OEM y de marca privada, con las especificaciones confirmadas según ${model.standard_code}.`;
+
+const faqs = [
+  {
+    q: `¿Qué es una batería ${model.model}?`,
+    a: `La ${model.model} es una batería de arranque ${model.standard} para ${translateApplication(model.application, locale).toLowerCase()}. Utiliza la carcasa de referencia ${model.case_size} con una tensión nominal de ${model.voltage}V y ${model.capacity_ah} Ah — un montaje habitual en vehículos ${model.standard === 'JIS' ? 'del mercado asiático' : model.standard === 'DIN/EN' ? 'europeos' : 'de su mercado objetivo'}.${isHeavy ? ' Las referencias de servicio pesado como esta están construidas para una alta demanda de arranque y vibración constante, no para un uso de arranque ligero.' : ''}`,
+  },
+  {
+    q: `¿Cuál es la CCA de la ${model.model}?`,
+    a: `El valor indicado es ${model.cca.value} CCA, medido según ${translateCcaBasis(model.cca.basis, locale)}. La CCA depende del método de ensayo: un valor JIS (&minus;15&deg;C) no es directamente comparable con uno EN/SAE (&minus;18&deg;C), así que confirme la base antes de comparar cotizaciones.${isHeavy ? ' En un diésel, el arranque en frío es la restricción determinante: el aceite se espesa y la compresión se mantiene alta, que es exactamente lo que la clasificación de CCA está destinada a cubrir.' : ''}`,
+  },
+  {
+    q: `¿Puedo pedir la ${model.model} como OEM o marca privada?`,
+    a: `Sí. OEM significa que usted define la especificación y es dueño del diseño y la marca; la marca privada aplica su identidad a esta plataforma probada. Ambas vías están disponibles, con marca, muestreo y embalaje confirmados al solicitar. Elegir OEM en lugar de un modelo de catálogo le da un producto que ningún competidor puede comprar simplemente del mismo estante.`,
+  },
+  {
+    q: `¿Cuáles son las dimensiones de la ${model.model}?`,
+    a: `Las dimensiones indicadas son ${dimsLabel}. Las dimensiones deciden el montaje: la batería debe dejar espacio para la bandeja, la fijación y el capó, y una diferencia de unos pocos milímetros basta para impedir que se asiente correctamente. El tipo de terminal y la polaridad no se publican aquí y deben confirmarse con el vehículo.`,
+  },
+  {
+    q: `¿Qué estándar usa la ${model.model}?`,
+    a: `Está referenciada a ${model.standard_code} (${model.standard}). Si su mercado usa otra familia de estándares, confirme el tamaño de carcasa equivalente: las baterías JIS, DIN/EN y BCI no son automáticamente intercambiables, y pedir la familia equivocada significa que la batería no encajará en la bandeja aunque la clasificación de Ah parezca correcta.`,
+  },
+];
+
+const breadcrumbs = [{ label: `${model.model}` }];
+
+const productJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: `${model.model} Batería`,
+  description: `${model.model} referencia de batería ${model.standard} suministrada por ${BRAND}, fabricada por ${MANUFACTURER.name}.`,
+  brand: { '@type': 'Brand', name: BRAND },
+  manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName },
+  mpn: model.model,
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'Estándar', value: model.standard },
+    { '@type': 'PropertyValue', name: 'Código de estándar', value: model.standard_code },
+    { '@type': 'PropertyValue', name: 'Voltaje', value: `${model.voltage} V` },
+    { '@type': 'PropertyValue', name: 'Capacidad', value: `${model.capacity_ah} Ah` },
+    { '@type': 'PropertyValue', name: 'Dimensiones', value: dimsLabel },
+    { '@type': 'PropertyValue', name: 'Peso', value: `${model.weight_kg} kg` },
+    { '@type': 'PropertyValue', name: 'Tamaño de carcasa', value: model.case_size },
+    { '@type': 'PropertyValue', name: 'Tecnología', value: translateTechnology(model.technology, locale) },
+  ],
+};
+
+const jsonLd = [
+  productJsonLd,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/${locale}/` },
+      { '@type': 'ListItem', position: 2, name: `${model.model} Batería`, item: url },
+    ],
+  },
+];
+
+const comparison: Record<string, { against: string; points: string[] }> = {
+  '65d26': {
+    against: '65D23',
+    points: [
+      `Ambas son baterías JIS de 60 Ah; la 65D26 es más larga (256 mm) que la 65D23 (230 mm).`,
+      `Las dos comparten la misma CCA de ${model.cca.value} (referencia) en este conjunto de referencia, pero los valores finales deben confirmarse con el fabricante.`,
+    ],
+  },
+  '65d23': {
+    against: '65D26',
+    points: [
+      `Ambas son baterías JIS de 60 Ah; la 65D23 es más corta (230 mm) que la 65D26 (256 mm).`,
+      `Las dos comparten la misma CCA de ${model.cca.value} (referencia) en este conjunto de referencia, pero los valores finales deben confirmarse con el fabricante.`,
+    ],
+  },
+  '80d26': {
+    against: '65D26',
+    points: [
+      `Ambas usan el grupo de carcasa D26, pero la 80D26 está clasificada en 72 Ah frente a los 60 Ah de la 65D26.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la 80D26 y 370 para la 65D26; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  '105d31': {
+    against: '115D31',
+    points: [
+      `Ambas usan la carcasa D31 (305 × 175 × 220 mm), pero la 105D31 está clasificada en 84 Ah frente a los 96 Ah de la 115D31.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la 105D31 y 710 para la 115D31; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  '115d31': {
+    against: '105D31',
+    points: [
+      `Ambas usan la carcasa D31 (305 × 175 × 220 mm), pero la 115D31 está clasificada en 96 Ah frente a los 84 Ah de la 105D31.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la 115D31 y 655 para la 105D31; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  h6: {
+    against: '80D26',
+    points: [
+      `La H6 es una referencia DIN/EN mientras que la 80D26 es una referencia JIS; ambas son de 12V y están clasificadas en 72 Ah.`,
+      `La CCA depende del método de ensayo: la H6 indica ${model.cca.value} CCA (referencia EN -18°C) mientras que la 80D26 indica 490 CCA (referencia JIS -15°C). Confirme los valores finales con el fabricante.`,
+    ],
+  },
+  '75d23': {
+    against: '65D23',
+    points: [
+      `Ambas usan la carcasa D23 (230 × 175 × 220 mm), pero la 75D23 está clasificada en 72 Ah frente a los 60 Ah de la 65D23.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la 75D23 y 370 para la 65D23; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  '55b24': {
+    against: '65B24',
+    points: [
+      `Ambas usan la carcasa B24 (238 × 129 × 220 mm), pero la 55B24 está clasificada en 48 Ah frente a los 50 Ah de la 65B24.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la 55B24 y 370 para la 65B24; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  '65b24': {
+    against: '55B24',
+    points: [
+      `Ambas usan la carcasa B24 (238 × 129 × 220 mm), pero la 65B24 está clasificada en 50 Ah frente a los 48 Ah de la 55B24.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la 65B24 y 370 para la 55B24; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  '85d26': {
+    against: '95D26',
+    points: [
+      `Ambas usan la carcasa D26 (256 × 175 × 220 mm) y están clasificadas en 84 Ah; las dos difieren en la referencia de CCA.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la 85D26 y 565 para la 95D26; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  '95d26': {
+    against: '85D26',
+    points: [
+      `Ambas usan la carcasa D26 (256 × 175 × 220 mm) y están clasificadas en 84 Ah; las dos difieren en la referencia de CCA.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la 95D26 y 520 para la 85D26; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  '55d23': {
+    against: '65D23',
+    points: [
+      `Ambas son referencias JIS D23 de 60 Ah, pero la 55D23 es más estrecha y más corta (232 × 173 × 202 mm) que la 65D23 (230 × 175 × 220 mm).`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la 55D23 y 370 para la 65D23; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  h5: {
+    against: 'H6',
+    points: [
+      `Ambas son referencias DIN/EN; la H5 está clasificada en 60 Ah (242 mm de largo) mientras que la H6 está clasificada en 72 Ah (278 mm de largo).`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la H5 y 660 para la H6; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  h7: {
+    against: 'H8',
+    points: [
+      `Ambas son referencias DIN/EN; la H7 está clasificada en 84 Ah (315 mm de largo) mientras que la H8 está clasificada en 96 Ah (352 mm de largo).`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la H7 y 900 para la H8; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  h8: {
+    against: 'H7',
+    points: [
+      `Ambas son referencias DIN/EN; la H8 está clasificada en 96 Ah (352 mm de largo) mientras que la H7 está clasificada en 84 Ah (315 mm de largo).`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la H8 y 760 para la H7; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  din70: {
+    against: 'DIN72',
+    points: [
+      `Ambas comparten la carcasa L3 (278 × 175 × 190 mm); la DIN70 está clasificada en 70 Ah frente a los 72 Ah de la DIN72.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la DIN70 y 660 para la DIN72; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  din72: {
+    against: 'DIN75',
+    points: [
+      `Ambas comparten la carcasa L3 (278 × 175 × 190 mm); la DIN72 está clasificada en 72 Ah frente a los 75 Ah de la DIN75.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la DIN72 y 680 para la DIN75; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  din75: {
+    against: 'DIN80',
+    points: [
+      `La DIN75 usa la carcasa L3 (278 mm de largo) mientras que la DIN80 usa la carcasa más larga L4 (315 mm de largo); las capacidades son 75 Ah frente a 80 Ah.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la DIN75 y 760 para la DIN80; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  din80: {
+    against: 'DIN100',
+    points: [
+      `La DIN80 usa la carcasa L4 (315 mm de largo) mientras que la DIN100 usa la carcasa más larga L5 (353 mm de largo); las capacidades son 80 Ah frente a 100 Ah.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la DIN80 y 900 para la DIN100; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  din100: {
+    against: 'DIN80',
+    points: [
+      `La DIN100 usa la carcasa L5 (353 mm de largo) mientras que la DIN80 usa la carcasa más corta L4 (315 mm de largo); las capacidades son 100 Ah frente a 80 Ah.`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la DIN100 y 760 para la DIN80; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  n100: {
+    against: 'N150',
+    points: [
+      `Ambas son referencias de servicio pesado de la serie N de JIS; la N100 está clasificada en 100 Ah (406 mm de largo) mientras que la N150 está clasificada en 160 Ah (508 mm de largo).`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la N100 y 1050 para la N150; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  n150: {
+    against: 'N200',
+    points: [
+      `Ambas son referencias de servicio pesado de la serie N de JIS; la N150 está clasificada en 160 Ah (508 mm de largo) mientras que la N200 está clasificada en 200 Ah (518 mm de largo).`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la N150 y 1100 para la N200; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+  n200: {
+    against: 'N150',
+    points: [
+      `Ambas son referencias de servicio pesado de la serie N de JIS; la N200 está clasificada en 200 Ah (518 mm de largo) mientras que la N150 está clasificada en 160 Ah (508 mm de largo).`,
+      `Las referencias de CCA indicadas son ${model.cca.value} para la N200 y 1050 para la N150; ambas deben confirmarse con el fabricante.`,
+    ],
+  },
+};
+const compare = comparison[model.model.toLowerCase()];
+const aliases = model.aliases ?? [];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Datos del modelo / {model.standard}</span>
+    <h1>{h1}</h1>
+    <p class="lead">{lead}</p>
+    {model.image && (
+      <img class="model-photo" src={model.image} alt={`${model.model} batería`} width="800" height="800" loading="lazy" decoding="async" />
+    )}
+    <p><a href={`/${locale}/contact/`}>Solicitar Cotización OEM</a> · <a href={`/${locale}/tools/battery-finder/`}>Usar el buscador de baterías</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>¿Qué es una batería {model.model}?</h2>
+      <p>La {model.model} es una batería de automóvil {model.standard} utilizada para {translateApplication(model.application, locale).toLowerCase()}. Su carcasa de referencia es {model.case_size} y se suministra bajo la convención {model.standard_code}.</p>
+      <p>{model.aliases && aliases.length > 0 ? `Los alias comunes para esta referencia incluyen ${aliases.join(', ')}.` : `La nomenclatura entre familias de estándares difiere según el mercado; confirme la compatibilidad exacta con la referencia cruzada de su vehículo antes de pedir.`}</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Especificación rápida</h2>
+    <table>
+      <thead><tr><th>Campo</th><th>Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Modelo</td><td>{model.model}</td></tr>
+        <tr><td>Estándar</td><td>{model.standard} ({model.standard_code})</td></tr>
+        <tr><td>Voltaje</td><td>{model.voltage} V</td></tr>
+        <tr><td>Capacidad (C20)</td><td>{model.c20_ah} Ah</td></tr>
+        <tr><td>CCA</td><td>{model.cca.value} CCA <strong>(referencia)</strong> — {translateCcaBasis(model.cca.basis, locale)}</td></tr>
+        <tr><td>Dimensiones (Largo × Ancho × Alto)</td><td>{dimsLabel}</td></tr>
+        <tr><td>Peso</td><td>{model.weight_kg} kg</td></tr>
+        <tr><td>Tecnología</td><td>{translateTechnology(model.technology, locale)}</td></tr>
+        <tr><td>Terminal</td><td>Confirmar al solicitar</td></tr>
+        <tr><td>Polaridad</td><td>Confirmar al solicitar</td></tr>
+        <tr><td>Capacidad de reserva (RC)</td><td>Confirmar al solicitar</td></tr>
+      </tbody>
+    </table>
+    <p class="note">La CCA se muestra como un valor de referencia. {translateCcaNote(model.cca.note, locale)} antes de usar este valor en una especificación de producto.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Dimensiones y terminal</h2>
+      <p>Las dimensiones indicadas son {dimsLabel}. El tipo de terminal y la polaridad no se publican para esta referencia; confírmelos al solicitar antes de finalizar la especificación.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Aplicaciones y compatibilidad de vehículos</h2>
+    <p>Referencia de aplicación: {translateApplication(model.application, locale)}. La compatibilidad exacta del vehículo es una decisión de referencia cruzada: confirme siempre con el vehículo o los requisitos de la flota y con el fabricante antes de pedir.</p>
+    <p><a href={`/${locale}/tools/battery-finder/`}>Usar el buscador de baterías &rarr;</a> · <a href={`/${locale}/knowledge/oem-battery-specification-guide/`}>Leer la guía de especificación &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Equivalencia / referencia cruzada</h2>
+      <p>La equivalencia de baterías depende de la familia de estándares, las dimensiones de la carcasa y la disposición de terminales. Las referencias JIS, DIN/EN y BCI no son automáticamente intercambiables aunque las dimensiones físicas sean similares.</p>
+      <p>No se publica una tabla de referencia cruzada verificada para esta página. Confirme el modelo equivalente para su mercado con el fabricante.</p>
+    </div>
+  </section>
+
+  {compare && (
+    <section class="section container prose">
+      <h2>{model.model} vs {compare.against}</h2>
+      <ul>
+        {compare.points.map((point) => <li>{point}</li>)}
+      </ul>
+      <p><a href={`/${locale}${modelPath(compare.against)}`}>Ver la batería {compare.against} &rarr;</a></p>
+    </section>
+  )}
+
+  {relatedModels.length > 0 && (
+    <section class="section section--alt">
+      <div class="container">
+        <h2>Modelos {model.standard} relacionados</h2>
+        <p class="lead">Otras referencias {model.standard} del conjunto de modelos actual.</p>
+        <div class="model-list">
+          {relatedModels.map((m) => (
+            <article class="model-card">
+              <h3><a href={`/${locale}${modelPath(m.model)}`}>{m.model} Batería</a></h3>
+              <p class="model-card__meta">{m.standard} · {m.voltage}V · {m.capacity_ah} Ah · {m.cca.value} CCA (referencia)</p>
+              <a href={`/${locale}${modelPath(m.model)}`}>Ver especificación <span aria-hidden="true">&rarr;</span></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Disponibilidad OEM y marca privada</h2>
+      <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). La {model.model} está disponible para suministro OEM y de marca privada. La marca, el muestreo, el embalaje y las especificaciones finales se confirman al solicitar.</p>
+      <p><a href={`/${locale}/oem/`}>Programas OEM &rarr;</a> · <a href={`/${locale}/private-label/`}>Programas de marca privada &rarr;</a> · <a href={`/${locale}${categoryHref}`}>Ver {categoryLabel.toLowerCase()} &rarr;</a> · <a href={`/${locale}/contact/`}>Solicitar Cotización OEM &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Preguntas frecuentes</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Fuentes y fecha de verificación</h2>
+      <ul>
+        <li>Fuente: {model.source}</li>
+        <li>Fecha de verificación: {model.verified_date}</li>
+        <li>Confianza: {translateConfidence(model.confidence, locale)}</li>
+      </ul>
+      <p class="note">Esta es una página de referencia. Los campos marcados &ldquo;confirmar al solicitar&rdquo; no se publican intencionadamente, en lugar de estimarse.</p>
+    </div>
+  </section>
+
+  <CTASection title={`Confirme la especificación de la ${model.model}`} />
+</BaseLayout>

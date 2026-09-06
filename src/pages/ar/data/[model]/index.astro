@@ -1,0 +1,392 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER } from '../../../../data/site';
+import { batteryModels, modelPath } from '../../../../data/battery-models';
+import type { BatteryModel } from '../../../../data/site';
+import { translateApplication, translateTechnology, translateConfidence, translateCcaBasis, translateCcaNote } from '../../../../i18n/model';
+import type { Locale } from '../../../../i18n/ui';
+
+export function getStaticPaths() {
+  return batteryModels.map((model) => ({ params: { model: model.model.toLowerCase() }, props: { model } }));
+}
+
+interface Props { model: BatteryModel; }
+const { model } = Astro.props;
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+
+const HEAVY = ['105D31', '115D31', 'N100', 'N150', 'N200'];
+const isHeavy = HEAVY.includes(model.model);
+const categoryHref = isHeavy ? '/heavy-duty-batteries/' : '/oem/car-batteries/';
+const categoryLabel = isHeavy ? 'بطاريات الخدمة الشاقة' : 'بطاريات السيارات';
+const relatedModels = batteryModels
+  .filter((m) => m.model !== model.model && m.standard === model.standard)
+  .slice(0, 4);
+
+const dims = model.dimensions_mm;
+const dimsLabel = `${dims.length} × ${dims.width} × ${dims.height} مم`;
+const pagePath = modelPath(model.model);
+const url = `${SITE.url}/${locale}${pagePath}`;
+
+const title = `${model.model} مواصفات البطارية | Dingwei OEM`;
+const description = `${model.model} مرجع بطارية: ${model.voltage}V، ${model.capacity_ah} Ah، ${model.cca.value} CCA (مرجع)، ${dimsLabel}، ${model.standard}. يُرجى تأكيد القيم النهائية مع الشركة المصنعة.`;
+
+const h1 = `${model.model} بطارية — ${model.standard} ${translateApplication(model.application, locale)} | Dingwei OEM`;
+const lead = `بطارية ${model.model} هي بطارية ${model.standard} مخصصة لـ ${translateApplication(model.application, locale).toLowerCase()} بجهد اسمي ${model.voltage}V وسعة ${model.capacity_ah} Ah. وهي متاحة للتوريد OEM والعلامة الخاصة، مع تأكيد المواصفات وفق ${model.standard_code}.`;
+
+const faqs = [
+  {
+    q: `ما هي بطارية ${model.model}؟`,
+    a: `بطارية ${model.model} هي بطارية تشغيل بمعيار ${model.standard} مخصصة لـ ${translateApplication(model.application, locale).toLowerCase()}. تستخدم هيكل ${model.case_size} المرجعي بجهد اسمي ${model.voltage}V وسعة ${model.capacity_ah} Ah — وهو تركيب شائع في ${model.standard === 'JIS' ? 'سيارات السوق الآسيوية' : model.standard === 'DIN/EN' ? 'السيارات الأوروبية' : 'مركبات السوق المستهدفة'}.${isHeavy ? ' المراجع الثقيلة كهذه صُممت لطلب تدوير عالٍ واهتزاز مستمر، وليست للاستخدام الخفيف.' : ''}`,
+  },
+  {
+    q: `ما هي قيمة CCA لبطارية ${model.model}؟`,
+    a: `القيمة المدرجة هي ${model.cca.value} CCA، مقيسة وفق ${translateCcaBasis(model.cca.basis, locale)}. تعتمد CCA على طريقة الاختبار — قيمة JIS (&minus;15&deg;C) لا تقارن مباشرة بقيمة EN/SAE (&minus;18&deg;C)، لذا تأكد من الأساس قبل مقارنة عروض الأسعار.${isHeavy ? ' بالنسبة للديزل، فإن التدوير في الطقس البارد هو القيد الحاسم: يتكثف الزيت ويبقى الضغط مرتفعًا، وهذا بالضبط ما يغطيه تصنيف CCA.' : ''}`,
+  },
+  {
+    q: `هل يمكنني طلب بطارية ${model.model} كـ OEM أو علامة خاصة؟`,
+    a: `نعم. OEM يعني أنك تحدد المواصفات وتمتلك التصميم والعلامة التجارية؛ بينما تطبق العلامة الخاصة هويتك على هذه المنصة المثبتة. كلا المسارين متاحان، مع تأكيد العلامة التجارية والعينات والتغليف عند الاستفسار. اختيار OEM بدلًا من طراز جاهز يمنحك منتجًا لا يستطيع أي منافس شراءه ببساطة من نفس الرف.`,
+  },
+  {
+    q: `ما هي أبعاد بطارية ${model.model}؟`,
+    a: `الأبعاد المدرجة هي ${dimsLabel}. تحدد الأبعاد التركيب — يجب أن تترك البطارية مساحة للحاضنة والمثبّت وغطاء المحرك، وفرق بضعة ملليمترات كافٍ لمنعها من التثبيت الصحيح. نوع الطرف والقطبية غير منشورين هنا ويجب تأكيدهما وفق المركبة.`,
+  },
+  {
+    q: `ما المعيار الذي تستخدمه بطارية ${model.model}؟`,
+    a: `إنها مرجعية وفق ${model.standard_code} (${model.standard}). إذا كان سوقك يستخدم عائلة معايير مختلفة، فتأكد من حجم الهيكل المكافئ — بطاريات JIS وDIN/EN وBCI ليست قابلة للتبادل تلقائيًا، وطلب العائلة الخاطئة يعني أن البطارية لن تلائم الحاضنة حتى لو بدا تصنيف Ah صحيحًا.`,
+  },
+];
+
+const breadcrumbs = [{ label: `${model.model}` }];
+
+const productJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: `${model.model} بطارية`,
+  description: `${model.model} مرجع بطارية ${model.standard} مورّد من ${BRAND} ومصنّع من ${MANUFACTURER.name}.`,
+  brand: { '@type': 'Brand', name: BRAND },
+  manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName },
+  mpn: model.model,
+  additionalProperty: [
+    { '@type': 'PropertyValue', name: 'المعيار', value: model.standard },
+    { '@type': 'PropertyValue', name: 'رمز المعيار', value: model.standard_code },
+    { '@type': 'PropertyValue', name: 'الجهد', value: `${model.voltage} V` },
+    { '@type': 'PropertyValue', name: 'السعة', value: `${model.capacity_ah} Ah` },
+    { '@type': 'PropertyValue', name: 'الأبعاد', value: dimsLabel },
+    { '@type': 'PropertyValue', name: 'الوزن', value: `${model.weight_kg} kg` },
+    { '@type': 'PropertyValue', name: 'حجم الهيكل', value: model.case_size },
+    { '@type': 'PropertyValue', name: 'التقنية', value: translateTechnology(model.technology, locale) },
+  ],
+};
+
+const jsonLd = [
+  productJsonLd,
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/${locale}/` },
+      { '@type': 'ListItem', position: 2, name: `${model.model} بطارية`, item: url },
+    ],
+  },
+];
+
+const comparison: Record<string, { against: string; points: string[] }> = {
+  '65d26': {
+    against: '65D23',
+    points: [
+      `كلتاهما بطاريتا JIS بسعة 60 أمبير-ساعة؛ بطارية 65D26 أطول (256 مم) من 65D23 (230 مم).`,
+      `تشترك الاثنتان في نفس قيمة CCA البالغة ${model.cca.value} (مرجع) في مجموعة المراجع هذه، لكن يجب تأكيد القيم النهائية مع الشركة المصنعة.`,
+    ],
+  },
+  '65d23': {
+    against: '65D26',
+    points: [
+      `كلتاهما بطاريتا JIS بسعة 60 أمبير-ساعة؛ بطارية 65D23 أقصر (230 مم) من 65D26 (256 مم).`,
+      `تشترك الاثنتان في نفس قيمة CCA البالغة ${model.cca.value} (مرجع) في مجموعة المراجع هذه، لكن يجب تأكيد القيم النهائية مع الشركة المصنعة.`,
+    ],
+  },
+  '80d26': {
+    against: '65D26',
+    points: [
+      `كلتاهما تستخدمان مجموعة الهيكل D26، لكن 80D26 مصنّفة بسعة 72 أمبير-ساعة مقابل 60 أمبير-ساعة لـ 65D26.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ 80D26 و370 لـ 65D26؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  '105d31': {
+    against: '115D31',
+    points: [
+      `كلتاهما تستخدمان هيكل D31 (305 × 175 × 220 مم)، لكن 105D31 مصنّفة بسعة 84 أمبير-ساعة مقابل 96 أمبير-ساعة لـ 115D31.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ 105D31 و710 لـ 115D31؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  '115d31': {
+    against: '105D31',
+    points: [
+      `كلتاهما تستخدمان هيكل D31 (305 × 175 × 220 مم)، لكن 115D31 مصنّفة بسعة 96 أمبير-ساعة مقابل 84 أمبير-ساعة لـ 105D31.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ 115D31 و655 لـ 105D31؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  h6: {
+    against: '80D26',
+    points: [
+      `بطارية H6 مرجع DIN/EN بينما 80D26 مرجع JIS؛ كلتاهما 12 فولت ومصنّفتان بسعة 72 أمبير-ساعة.`,
+      `تعتمد CCA على طريقة الاختبار: تدرج H6 قيمة ${model.cca.value} CCA (مرجع EN -18°C) بينما تدرج 80D26 قيمة 490 CCA (مرجع JIS -15°C). يُرجى تأكيد القيم النهائية مع الشركة المصنعة.`,
+    ],
+  },
+  '75d23': {
+    against: '65D23',
+    points: [
+      `كلتاهما تستخدمان هيكل D23 (230 × 175 × 220 مم)، لكن 75D23 مصنّفة بسعة 72 أمبير-ساعة مقابل 60 أمبير-ساعة لـ 65D23.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ 75D23 و370 لـ 65D23؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  '55b24': {
+    against: '65B24',
+    points: [
+      `كلتاهما تستخدمان هيكل B24 (238 × 129 × 220 مم)، لكن 55B24 مصنّفة بسعة 48 أمبير-ساعة مقابل 50 أمبير-ساعة لـ 65B24.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ 55B24 و370 لـ 65B24؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  '65b24': {
+    against: '55B24',
+    points: [
+      `كلتاهما تستخدمان هيكل B24 (238 × 129 × 220 مم)، لكن 65B24 مصنّفة بسعة 50 أمبير-ساعة مقابل 48 أمبير-ساعة لـ 55B24.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ 65B24 و370 لـ 55B24؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  '85d26': {
+    against: '95D26',
+    points: [
+      `كلتاهما تستخدمان هيكل D26 (256 × 175 × 220 مم) ومصنّفتان بسعة 84 أمبير-ساعة؛ وتختلفان في مرجع CCA.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ 85D26 و565 لـ 95D26؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  '95d26': {
+    against: '85D26',
+    points: [
+      `كلتاهما تستخدمان هيكل D26 (256 × 175 × 220 مم) ومصنّفتان بسعة 84 أمبير-ساعة؛ وتختلفان في مرجع CCA.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ 95D26 و520 لـ 85D26؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  '55d23': {
+    against: '65D23',
+    points: [
+      `كلتاهما مرجعان JIS D23 بسعة 60 أمبير-ساعة، لكن 55D23 أضيق وأقصر (232 × 173 × 202 مم) من 65D23 (230 × 175 × 220 مم).`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ 55D23 و370 لـ 65D23؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  h5: {
+    against: 'H6',
+    points: [
+      `كلتاهما مرجعان DIN/EN؛ H5 مصنّفة بسعة 60 أمبير-ساعة (طول 242 مم) بينما H6 مصنّفة بسعة 72 أمبير-ساعة (طول 278 مم).`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ H5 و660 لـ H6؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  h7: {
+    against: 'H8',
+    points: [
+      `كلتاهما مرجعان DIN/EN؛ H7 مصنّفة بسعة 84 أمبير-ساعة (طول 315 مم) بينما H8 مصنّفة بسعة 96 أمبير-ساعة (طول 352 مم).`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ H7 و900 لـ H8؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  h8: {
+    against: 'H7',
+    points: [
+      `كلتاهما مرجعان DIN/EN؛ H8 مصنّفة بسعة 96 أمبير-ساعة (طول 352 مم) بينما H7 مصنّفة بسعة 84 أمبير-ساعة (طول 315 مم).`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ H8 و760 لـ H7؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  din70: {
+    against: 'DIN72',
+    points: [
+      `كلتاهما تتشاركان هيكل L3 (278 × 175 × 190 مم)؛ DIN70 مصنّفة بسعة 70 أمبير-ساعة مقابل 72 أمبير-ساعة لـ DIN72.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ DIN70 و660 لـ DIN72؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  din72: {
+    against: 'DIN75',
+    points: [
+      `كلتاهما تتشاركان هيكل L3 (278 × 175 × 190 مم)؛ DIN72 مصنّفة بسعة 72 أمبير-ساعة مقابل 75 أمبير-ساعة لـ DIN75.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ DIN72 و680 لـ DIN75؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  din75: {
+    against: 'DIN80',
+    points: [
+      `تستخدم DIN75 هيكل L3 (طول 278 مم) بينما تستخدم DIN80 هيكل L4 الأطول (طول 315 مم)؛ والسعات 75 أمبير-ساعة مقابل 80 أمبير-ساعة.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ DIN75 و760 لـ DIN80؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  din80: {
+    against: 'DIN100',
+    points: [
+      `تستخدم DIN80 هيكل L4 (طول 315 مم) بينما تستخدم DIN100 هيكل L5 الأطول (طول 353 مم)؛ والسعات 80 أمبير-ساعة مقابل 100 أمبير-ساعة.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ DIN80 و900 لـ DIN100؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  din100: {
+    against: 'DIN80',
+    points: [
+      `تستخدم DIN100 هيكل L5 (طول 353 مم) بينما تستخدم DIN80 هيكل L4 الأقصر (طول 315 مم)؛ والسعات 100 أمبير-ساعة مقابل 80 أمبير-ساعة.`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ DIN100 و760 لـ DIN80؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  n100: {
+    against: 'N150',
+    points: [
+      `كلتاهما مرجعان من سلسلة N الثقيلة لمعيار JIS؛ N100 مصنّفة بسعة 100 أمبير-ساعة (طول 406 مم) بينما N150 مصنّفة بسعة 160 أمبير-ساعة (طول 508 مم).`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ N100 و1050 لـ N150؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  n150: {
+    against: 'N200',
+    points: [
+      `كلتاهما مرجعان من سلسلة N الثقيلة لمعيار JIS؛ N150 مصنّفة بسعة 160 أمبير-ساعة (طول 508 مم) بينما N200 مصنّفة بسعة 200 أمبير-ساعة (طول 518 مم).`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ N150 و1100 لـ N200؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+  n200: {
+    against: 'N150',
+    points: [
+      `كلتاهما مرجعان من سلسلة N الثقيلة لمعيار JIS؛ N200 مصنّفة بسعة 200 أمبير-ساعة (طول 518 مم) بينما N150 مصنّفة بسعة 160 أمبير-ساعة (طول 508 مم).`,
+      `مراجع CCA المدرجة هي ${model.cca.value} لـ N200 و1050 لـ N150؛ ويجب تأكيد كليهما مع الشركة المصنعة.`,
+    ],
+  },
+};
+const compare = comparison[model.model.toLowerCase()];
+const aliases = model.aliases ?? [];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">بيانات الموديل / {model.standard}</span>
+    <h1>{h1}</h1>
+    <p class="lead">{lead}</p>
+    {model.image && (
+      <img class="model-photo" src={model.image} alt={`${model.model} بطارية`} width="800" height="800" loading="lazy" decoding="async" />
+    )}
+    <p><a href={`/${locale}/contact/`}>اطلب عرض سعر OEM</a> · <a href={`/${locale}/tools/battery-finder/`}>استخدم أداة البحث عن البطارية</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>ما هي بطارية {model.model}؟</h2>
+      <p>بطارية {model.model} هي بطارية سيارة بمعيار {model.standard} تُستخدم لـ {translateApplication(model.application, locale).toLowerCase()}. هيكلها المرجعي هو {model.case_size}، ويتم توريدها وفق اتفاقية {model.standard_code}.</p>
+      <p>{model.aliases && aliases.length > 0 ? `تشمل الأسماء البديلة الشائعة لهذا المرجع ${aliases.join('، ')}.` : `تختلف التسمية بين عائلات المعايير حسب السوق؛ تأكد من التوافق الدقيق مع الجدول المرجعي لمركبتك قبل الطلب.`}</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>المواصفات السريعة</h2>
+    <table>
+      <thead><tr><th>الحقل</th><th>القيمة</th></tr></thead>
+      <tbody>
+        <tr><td>الموديل</td><td>{model.model}</td></tr>
+        <tr><td>المعيار</td><td>{model.standard} ({model.standard_code})</td></tr>
+        <tr><td>الجهد</td><td>{model.voltage} V</td></tr>
+        <tr><td>السعة (C20)</td><td>{model.c20_ah} Ah</td></tr>
+        <tr><td>CCA</td><td>{model.cca.value} CCA <strong>(مرجعي)</strong> — {translateCcaBasis(model.cca.basis, locale)}</td></tr>
+        <tr><td>الأبعاد (الطول × العرض × الارتفاع)</td><td>{dimsLabel}</td></tr>
+        <tr><td>الوزن</td><td>{model.weight_kg} kg</td></tr>
+        <tr><td>التقنية</td><td>{translateTechnology(model.technology, locale)}</td></tr>
+        <tr><td>الطرف</td><td>يُؤكَّد عند الاستفسار</td></tr>
+        <tr><td>القطبية</td><td>يُؤكَّد عند الاستفسار</td></tr>
+        <tr><td>السعة الاحتياطية (RC)</td><td>يُؤكَّد عند الاستفسار</td></tr>
+      </tbody>
+    </table>
+    <p class="note">تُعرض CCA كقيمة مرجعية. {translateCcaNote(model.cca.note, locale)} قبل استخدام هذه القيمة في مواصفات المنتج.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>الأبعاد والطرف</h2>
+      <p>الأبعاد المدرجة هي {dimsLabel}. نوع الطرف والقطبية غير منشورين لهذا المرجع؛ يرجى تأكيدهما عند الاستفسار قبل إتمام المواصفات.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>التطبيقات وتوافق المركبات</h2>
+    <p>مرجع التطبيق: {translateApplication(model.application, locale)}. التوافق الدقيق للمركبة قرار يعتمد على المرجع المتبادل — تأكد دائمًا من متطلبات المركبة أو الأسطول ومن الشركة المصنعة قبل الطلب.</p>
+    <p><a href={`/${locale}/tools/battery-finder/`}>استخدم أداة البحث عن البطارية &larr;</a> · <a href={`/${locale}/knowledge/oem-battery-specification-guide/`}>اقرأ دليل المواصفات &larr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>التكافؤ / المرجع المتبادل</h2>
+      <p>يعتمد تكافؤ البطاريات على عائلة المعايير وأبعاد الهيكل وترتيب الأطراف. مراجع JIS وDIN/EN وBCI غير قابلة للتبادل تلقائيًا حتى عندما تكون الأبعاد المادية متشابهة.</p>
+      <p>لا تُنشر جدول مرجعي متبادل مُتحقق منه لهذه الصفحة. تأكد من الموديل المكافئ لسوقك مع الشركة المصنعة.</p>
+    </div>
+  </section>
+
+  {compare && (
+    <section class="section container prose">
+      <h2>{model.model} مقابل {compare.against}</h2>
+      <ul>
+        {compare.points.map((point) => <li>{point}</li>)}
+      </ul>
+      <p><a href={`/${locale}${modelPath(compare.against)}`}>عرض بطارية {compare.against} &larr;</a></p>
+    </section>
+  )}
+
+  {relatedModels.length > 0 && (
+    <section class="section section--alt">
+      <div class="container">
+        <h2>موديلات {model.standard} ذات الصلة</h2>
+        <p class="lead">مراجع {model.standard} أخرى في مجموعة الموديلات الحالية.</p>
+        <div class="model-list">
+          {relatedModels.map((m) => (
+            <article class="model-card">
+              <h3><a href={`/${locale}${modelPath(m.model)}`}>{m.model} بطارية</a></h3>
+              <p class="model-card__meta">{m.standard} · {m.voltage}V · {m.capacity_ah} Ah · {m.cca.value} CCA (مرجعي)</p>
+              <a href={`/${locale}${modelPath(m.model)}`}>عرض المواصفات <span aria-hidden="true">&larr;</span></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>توفر OEM والعلامة الخاصة</h2>
+      <p>توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). بطارية {model.model} متاحة للتوريد OEM والعلامة الخاصة. تُؤكَّد العلامة التجارية والعينات والتغليف والمواصفات النهائية عند الاستفسار.</p>
+      <p><a href={`/${locale}/oem/`}>برامج OEM &larr;</a> · <a href={`/${locale}/private-label/`}>برامج العلامة الخاصة &larr;</a> · <a href={`/${locale}${categoryHref}`}>تصفح {categoryLabel.toLowerCase()} &larr;</a> · <a href={`/${locale}/contact/`}>اطلب عرض سعر OEM &larr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>الأسئلة الشائعة</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>المصادر وتاريخ التحقق</h2>
+      <ul>
+        <li>المصدر: {model.source}</li>
+        <li>تاريخ التحقق: {model.verified_date}</li>
+        <li>مستوى الثقة: {translateConfidence(model.confidence, locale)}</li>
+      </ul>
+      <p class="note">هذه صفحة مرجعية. الحقول المميزة بـ&ldquo;يُؤكَّد عند الاستفسار&rdquo; لا تُنشر عمدًا بدلًا من تقديرها.</p>
+    </div>
+  </section>
+
+  <CTASection title={`أكّد مواصفات ${model.model}`} />
+</BaseLayout>
