@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE } from '../../../../data/site';
+import { batteryModels, modelPath } from '../../../../data/battery-models';
+
+const title = 'Подбор аккумулятора: найдите вашу модель | Dingwei Battery';
+const description = 'Отфильтруйте 23 эталонные модели аккумуляторов по применению, семейству стандартов и ёмкости. Найдите эталоны стартерных аккумуляторов JIS, DIN/EN и тяжёлого режима от Dingwei Battery.';
+
+const breadcrumbs = [{ label: 'Подбор аккумулятора', href: '/ru/tools/battery-finder/' }];
+
+const HEAVY = ['105D31', '115D31', 'N100', 'N150', 'N200'];
+
+const finderData = batteryModels.map((m) => ({
+  model: m.model,
+  standard: m.standard,
+  capacity: m.capacity_ah,
+  voltage: m.voltage,
+  cca: m.cca.value,
+  dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+  caseSize: m.case_size,
+  app: HEAVY.includes(m.model) ? 'Тяжёлый режим' : 'Легковой',
+  href: '/ru' + modelPath(m.model),
+}));
+
+const finderJson = JSON.stringify(finderData);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE.url}/ru/` },
+      { '@type': 'ListItem', position: 2, name: 'Подбор аккумулятора', item: `${SITE.url}/ru/tools/battery-finder/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Инструмент</span>
+    <h1>Подбор аккумулятора</h1>
+    <p class="lead">Отфильтруйте текущий набор эталонных моделей по применению, семейству стандартов и ёмкости. Спецификации справочные; подтверждайте окончательные значения у производителя.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="finder-filters">
+        <div class="field">
+          <label for="f-app">Применение</label>
+          <select id="f-app">
+            <option value="all">Все</option>
+            <option value="Легковой">Легковой</option>
+            <option value="Тяжёлый режим">Тяжёлый режим</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-std">Семейство стандартов</label>
+          <select id="f-std">
+            <option value="all">Все</option>
+            <option value="JIS">JIS</option>
+            <option value="DIN/EN">DIN/EN</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-cap">Ёмкость (Ah)</label>
+          <select id="f-cap">
+            <option value="all">Все</option>
+            <option value="low">&le; 60</option>
+            <option value="mid">61&ndash;80</option>
+            <option value="high">81&ndash;100</option>
+            <option value="xhigh">&gt; 100</option>
+          </select>
+        </div>
+        <div class="finder-actions">
+          <button class="btn" type="button" id="finder-search">Поиск</button>
+          <button class="btn btn--ghost" type="button" id="finder-reset">Сбросить</button>
+        </div>
+      </div>
+      <p class="finder-count" id="finder-count" aria-live="polite"></p>
+      <div class="finder-results" id="finder-results"></div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Нужна точная установка?</h2>
+    <p>Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Укажите автомобиль, стандарт и эталон корпуса в форме RFQ, и экспортная команда производителя подтвердит установку.</p>
+    <p><a href="/ru/contact/">Запросить подтверждение установки &rarr;</a> · <a href="/ru/knowledge/oem-battery-specification-guide/">Прочитать руководство по спецификации &rarr;</a></p>
+  </section>
+
+  <CTASection title="Запросить проверку установки OEM" />
+
+  <script type="application/json" id="finder-data" set:html={finderJson}></script>
+  <script is:inline>
+    const MODELS = JSON.parse(document.getElementById('finder-data').textContent);
+    const resultsEl = document.getElementById('finder-results');
+    const countEl = document.getElementById('finder-count');
+
+    function matchCapacity(cap, filter) {
+      if (filter === 'all') return true;
+      if (filter === 'low') return cap <= 60;
+      if (filter === 'mid') return cap >= 61 && cap <= 80;
+      if (filter === 'high') return cap >= 81 && cap <= 100;
+      if (filter === 'xhigh') return cap > 100;
+      return true;
+    }
+
+    function render() {
+      const app = document.getElementById('f-app').value;
+      const std = document.getElementById('f-std').value;
+      const cap = document.getElementById('f-cap').value;
+
+      const filtered = MODELS.filter((m) => {
+        if (app !== 'all' && m.app !== app) return false;
+        if (std !== 'all' && m.standard !== std) return false;
+        return matchCapacity(m.capacity, cap);
+      });
+
+      countEl.textContent = 'Совпадений: ' + filtered.length;
+
+      if (filtered.length === 0) {
+        resultsEl.innerHTML = '<p class="note">Ни одна эталонная модель не соответствует этим фильтрам. <a href="/ru/contact/">Запросите индивидуальную установку</a>.</p>';
+        return;
+      }
+
+      resultsEl.innerHTML = filtered.map((m) => `
+        <article class="finder-card">
+          <h3><a href="${m.href}">${m.model} аккумулятор</a></h3>
+          <p class="model-card__meta">${m.app} · ${m.standard} · ${m.voltage}V · ${m.capacity} Ah</p>
+          <p class="model-card__meta">${m.cca} CCA (справочно) · ${m.dims} мм</p>
+          <a href="${m.href}">Смотреть спецификацию <span aria-hidden="true">&rarr;</span></a>
+        </article>
+      `).join('');
+    }
+
+    document.getElementById('f-app').addEventListener('change', render);
+    document.getElementById('f-std').addEventListener('change', render);
+    document.getElementById('f-cap').addEventListener('change', render);
+
+    document.getElementById('finder-search').addEventListener('click', () => {
+      render();
+      document.getElementById('finder-results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    document.getElementById('finder-reset').addEventListener('click', () => {
+      document.getElementById('f-app').value = 'all';
+      document.getElementById('f-std').value = 'all';
+      document.getElementById('f-cap').value = 'all';
+      render();
+    });
+
+    render();
+  </script>
+</BaseLayout>

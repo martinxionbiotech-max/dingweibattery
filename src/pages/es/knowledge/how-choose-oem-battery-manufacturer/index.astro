@@ -1,0 +1,95 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS } from '../../../../data/site';
+
+const title = 'Cómo Elegir un Fabricante de Baterías OEM | Dingwei';
+const description = 'Un método práctico para elegir un fabricante de baterías OEM: estándares, certificaciones, capacidad de fábrica, muestreo y condiciones de exportación.';
+const articleTitle = 'Cómo elegir un fabricante de baterías OEM';
+
+const faqs = [
+  { q: '¿Cuál es el factor más importante al elegir un fabricante?', a: 'La repetibilidad: si el décimo contenedor coincide con la primera muestra aprobada. Un precio bajo no vale nada si la especificación deriva entre pedidos.' },
+  { q: '¿Debo elegir el precio más bajo?', a: 'No. El precio solo importa cuando la especificación, la certificación y la repetibilidad son iguales. Una cotización más barata que omite la base de CCA o el detalle del terminal no es realmente comparable.' },
+  { q: '¿Cómo verifico una fábrica sin visitarla?', a: 'Pida tres cosas: certificados vigentes, una muestra de producción reciente y su procedimiento de ensayo de CCA. Un proveedor que no puede aportar las tres es un riesgo, independientemente del folleto.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Aprovisionamiento" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Cómo elegir un fabricante de baterías OEM</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-01 · Fuente: documentación técnica de Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">Elija un fabricante que pueda igualar su estándar, mantener sistemas de calidad y repetir su especificación pedido tras pedido.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> El factor más importante al elegir un fabricante de baterías OEM es la repetibilidad: si el décimo contenedor coincide con la primera muestra aprobada. Iguale la familia de estándares, verifique los certificados vigentes y compruebe la producción contra su volumen, pero un precio bajo no vale nada si la especificación deriva entre pedidos.
+    </div>
+
+    <h2>1. Iguale la familia de estándares</h2>
+    <p>Su mercado determina el estándar: JIS, DIN, BCI, AS o SA. Confirme que la fábrica produce esa familia con regularidad en lugar de tratar su pedido como algo puntual.</p>
+
+    <h2>2. Compruebe los sistemas de calidad</h2>
+    <p>Pregunte qué certificaciones posee el fabricante. Para el suministro automotriz, IATF 16949 es el sistema de calidad relevante; ISO 9001 cubre la gestión de calidad general.</p>
+    <p>{MANUFACTURER.name} posee IATF 16949, ISO 9001, ISO 45001 y CE.</p>
+
+    <h2>3. Verifique la capacidad de fábrica</h2>
+    <p>Mire el tamaño de la planta, el número de líneas, la producción diaria, la experiencia de exportación y si la instalación puede soportar su volumen. {MANUFACTURER.name} opera una instalación de {MANUFACTURER.factoryArea} con {MANUFACTURER.productionLines}, produciendo {MANUFACTURER.dailyOutput} y exportando a {MANUFACTURER.exportMarkets}.</p>
+
+    <h2>4. Defina la especificación antes de cotizar</h2>
+    <p>Fije primero el voltaje, la capacidad, la CCA, el tamaño de carcasa, el terminal y la polaridad. Las especificaciones ambiguas producen muestras que no pueden compararse con justicia.</p>
+    <p><a href="/es/knowledge/oem-battery-specification-guide/">Guía de especificación de baterías OEM &rarr;</a></p>
+
+    <h2>5. Evalúe el muestreo y las condiciones</h2>
+    <p>Confirme el paso de muestreo, el plazo de entrega, el pago y la garantía antes de comprometerse. Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+    <p><a href="/es/knowledge/oem-battery-supplier-checklist/">Lista de verificación del proveedor de baterías OEM &rarr;</a> · <a href="/es/oem/">Capacidad OEM &rarr;</a></p>
+
+    <h2>Un marco de decisión de cinco puntos</h2>
+    <p class="lead">Puntúe a cada fabricante con las mismas cinco preguntas en lugar de comparar afirmaciones de marketing.</p>
+    <ol>
+      <li><strong>Especificación</strong> — &ldquo;¿Qué estándares y modelos producen internamente?&rdquo;</li>
+      <li><strong>Certificación</strong> — &ldquo;¿Pueden compartir certificados vigentes IATF 16949 / ISO 9001?&rdquo;</li>
+      <li><strong>Escala</strong> — &ldquo;¿Cuál es su producción diaria y cómo se asigna a mi volumen anual?&rdquo;</li>
+      <li><strong>Repetibilidad</strong> — &ldquo;¿Cómo bloquean una especificación para que los pedidos repetidos coincidan?&rdquo;</li>
+      <li><strong>Exportación</strong> — &ldquo;¿A qué mercados envían y qué documentos proporcionan?&rdquo;</li>
+    </ol>
+    <p>Combine este marco con la <a href="/es/knowledge/oem-battery-specification-guide/">guía de especificación de baterías OEM</a> para puntuar los mismos requisitos que realmente pedirá.</p>
+
+    <h2>Preguntas que delatan a un proveedor débil</h2>
+    <ul>
+      <li>No pueden nombrar el método de ensayo de CCA.</li>
+      <li>Cotizan antes de confirmar la familia de estándares.</li>
+      <li>No pueden mostrar una muestra de una serie de producción reciente.</li>
+    </ul>
+    <p>Pase cada fábrica preseleccionada por la <a href="/es/knowledge/oem-battery-supplier-checklist/">lista de verificación del proveedor de baterías OEM</a> antes de comprometer volumen.</p>
+
+    <h2>Pondere los cinco factores</h2>
+    <p>No elija por un solo número. Puntúe cada fabricante preseleccionado con los mismos cinco factores y sume el resultado.</p>
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>Peso</th><th>Qué puntuar</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cobertura de especificación</td><td>25%</td><td>¿Pueden producir la familia de estándares y los modelos que necesita?</td></tr>
+        <tr><td>Certificaciones</td><td>25%</td><td>¿Hay certificados vigentes IATF 16949 / ISO 9001 disponibles?</td></tr>
+        <tr><td>Escala</td><td>20%</td><td>¿La producción diaria se asigna a su volumen anual?</td></tr>
+        <tr><td>Repetibilidad</td><td>20%</td><td>¿Hay una especificación bloqueada y un proceso de muestra?</td></tr>
+        <tr><td>Experiencia de exportación</td><td>10%</td><td>¿A qué mercados sirven y documentan?</td></tr>
+      </tbody>
+    </table>
+    <p>{MANUFACTURER.name} posee {CERTIFICATIONS.join(', ')}, exporta a {MANUFACTURER.exportMarkets} y opera {MANUFACTURER.productionLines}, así que sus respuestas pueden puntuarse igual que las de cualquier proveedor candidato. Luego pase el resultado por la <a href="/es/knowledge/oem-battery-supplier-checklist/">lista de verificación del proveedor</a> antes de comprometer volumen.</p>
+
+    <h2>Comprobaciones específicas del plomo-ácido</h2>
+    <p>Para el plomo-ácido, las comprobaciones de mayor riesgo son comprobaciones de proceso, no de marketing:</p>
+    <ul>
+      <li><strong>Aleación de rejilla</strong> — las baterías sin mantenimiento normalmente usan rejillas de plomo-calcio; confirme que la aleación está indicada.</li>
+      <li><strong>Consistencia de la pasta</strong> — pregunte cómo se controla la pasta entre lotes.</li>
+      <li><strong>Curado</strong> — verifique que la ventana de curado de placas es suficiente, normalmente 2–4 días.</li>
+      <li><strong>Formación</strong> — confirme que la batería está totalmente formada y ensayada 100% al final de línea.</li>
+    </ul>
+    <p>Estas son las mismas comprobaciones que un comprador debería recorrer en una <a href="/es/knowledge/how-audit-battery-factory/">auditoría de fábrica de plomo-ácido</a>.</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Evalúe a Dingwei Battery como su fabricante" />
+</ArticleLayout>

@@ -1,0 +1,61 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Dimensiones y Tamaño de Carcasa de Baterías | Dingwei Battery';
+const description = 'Cómo las dimensiones de la batería (longitud × anchura × altura) y los grupos de tamaño de carcasa determinan la compatibilidad, y cómo leer una referencia de carcasa como D26, H6 o Grupo 34.';
+const articleTitle = 'Dimensiones y tamaño de carcasa de baterías';
+
+const faqs = [
+  { q: '¿Qué significan las dimensiones de la batería?', a: 'Longitud × anchura × altura en milímetros: la huella física que debe caber en la bandeja, la fijación y el espacio del capó. Una diferencia de unos pocos milímetros en altura o longitud basta para impedir que la batería asiente correctamente.' },
+  { q: '¿Qué es un tamaño de carcasa?', a: 'Una abreviatura de una huella fija dentro de una familia de estándares: D26 en JIS, H6 en DIN/EN, Grupo 34 en BCI. El tamaño de carcasa permite que dos partes se refieran a la misma batería sin citar tres números cada vez.' },
+  { q: '¿Dos baterías con el mismo tamaño de carcasa siempre caben?', a: 'No necesariamente: la posición del terminal (L/R) y el tipo pueden seguir difiriendo, así que confirme las dimensiones de carcasa y la disposición de terminales juntas.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Ingeniería" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento · Ingeniería</span>
+    <h1>Dimensiones y tamaño de carcasa de baterías</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-03 · Fuente: documentación de normas de baterías</p>
+    <p class="lead">La huella física de una batería — longitud, anchura y altura — decide si cabe en la bandeja, la fijación y el espacio del capó. El tamaño de carcasa es la abreviatura de esa huella.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Una batería unos pocos milímetros demasiado larga o alta no cabrá en la bandeja ni cerrará el capó, así que las dimensiones deciden la compatibilidad antes que nada. El tamaño de carcasa (D26 en JIS, H6 en DIN, Grupo 34 en BCI) es la abreviatura de esa huella fija.
+    </div>
+
+    <h2>Qué significan las dimensiones</h2>
+    <p>La longitud es el borde largo, la anchura el borde corto y la altura se mide hasta la parte superior de la carcasa (algunos estándares añaden una &ldquo;altura total&rdquo; incluyendo el terminal). Una batería unos pocos milímetros demasiado larga o alta no cabrá en la bandeja ni cerrará el capó.</p>
+
+    <h2>El tamaño de carcasa como abreviatura</h2>
+    <p>En lugar de citar tres números, los compradores usan la referencia de carcasa de la familia de estándares:</p>
+    <table>
+      <thead><tr><th>Estándar</th><th>Referencias de carcasa</th><th>Dimensiones de ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>JIS</td><td>D23, D26, D31, B24</td><td>D26 ≈ 256 × 175 × 220 mm</td></tr>
+        <tr><td>DIN / EN</td><td>H5–H8 (LN2–LN5)</td><td>H6/LN3 ≈ 278 × 175 × 190 mm</td></tr>
+        <tr><td>BCI</td><td>Grupo 24, 27, 31, 34, 48, 65</td><td>Grupo 34 ≈ 260 × 173 × 200 mm</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Las dimensiones de ejemplo son referencias típicas, no universales: confirme siempre las dimensiones exactas del modelo específico.</p>
+
+    <h2>Por qué el tamaño de carcasa y el terminal deben confirmarse juntos</h2>
+    <p>Dos baterías con el mismo tamaño de carcasa pueden diferir en la posición del terminal (L/R) y el tipo de terminal. La compatibilidad se confirma haciendo coincidir las dimensiones de carcasa <em>y</em> la disposición de terminales con el vehículo. Vea la <a href="/es/knowledge/battery-terminal-types-polarity/">guía de terminal y polaridad</a>.</p>
+
+    <h2>Qué deberían preguntar los compradores</h2>
+    <ul>
+      <li>¿Cuáles son las dimensiones exactas (L × A × Al) de este modelo?</li>
+      <li>¿La altura es hasta la parte superior de la carcasa, o la altura total incluyendo terminales?</li>
+      <li>¿Este tamaño de carcasa coincide con la bandeja y la fijación de mi vehículo objetivo?</li>
+      <li>¿La posición del terminal (L/R) es compatible?</li>
+    </ul>
+
+    <p>Filtre modelos por tamaño de carcasa y dimensiones en la <a href="/es/data/">base de datos de modelos</a>, y vea cómo difieren los estándares en <a href="/es/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+    <p><a href="/es/data/">Explore modelos con dimensiones &rarr;</a> · <a href="/es/contact/">Confirme la compatibilidad &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirme las dimensiones y el tamaño de carcasa" />
+</ArticleLayout>

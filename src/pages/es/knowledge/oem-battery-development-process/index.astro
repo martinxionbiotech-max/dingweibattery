@@ -1,0 +1,79 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'El Proceso de Desarrollo de Baterías OEM | Dingwei Battery';
+const description = 'El proceso paso a paso de desarrollo de baterías OEM — desde el requisito hasta el envío — y dónde deben implicarse los compradores.';
+const articleTitle = 'El proceso de desarrollo de baterías OEM';
+
+const faqs = [
+  { q: '¿Dónde se equivocan más a menudo los compradores?', a: 'Saltarse la puerta de aprobación de muestras: aprobar un plano pero no ensayar la muestra física. Así es como un pedido repetido vuelve distinto de lo que aprobó.' },
+  { q: '¿Quién firma en cada puerta?', a: 'El comprador firma la especificación, la muestra, los criterios de calidad y el envío. Si el fabricante firma los cuatro, ha cedido el control del resultado.' },
+  { q: '¿Por qué las puertas importan más que la velocidad?', a: 'Porque una puerta saltada es como ocurre la deriva de especificación. Un proceso más lento y por puertas protege la repetibilidad que hace rentable un programa OEM.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentos" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>El proceso de desarrollo de baterías OEM</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-01 · Fuente: documentación técnica de Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">El desarrollo OEM es un proceso por puertas. Comprender las etapas le dice dónde implicarse y dónde insistir en la aprobación.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> El desarrollo de baterías OEM avanza por consulta, especificación, diseño y marca, muestreo, producción en serie, inspección de calidad y envío. Los compradores deberían implicarse más en especificación, muestreo, inspección y envío, porque son las puertas que evitan la deriva de especificación.
+    </div>
+
+    <h2>Las siete etapas</h2>
+    <ol>
+      <li>Consulta</li>
+      <li>Especificación</li>
+      <li>Diseño y marca</li>
+      <li>Muestreo</li>
+      <li>Producción en serie</li>
+      <li>Inspección de calidad</li>
+      <li>Logística y envío</li>
+    </ol>
+
+    <h2>Dónde deberían implicarse los compradores</h2>
+    <ul>
+      <li>Especificación — firme cada parámetro</li>
+      <li>Muestreo — ensaye antes de aprobar</li>
+      <li>Inspección de calidad — acuerde los criterios de aceptación</li>
+      <li>Envío — confirme la documentación</li>
+    </ul>
+
+    <h2>Por qué importan las puertas</h2>
+    <p>Cada puerta es un punto de decisión. Saltarse una puerta es como una especificación deriva y un pedido repetido vuelve distinto.</p>
+
+    <h2>Etapa por etapa: quién hace qué</h2>
+    <table>
+      <thead><tr><th>Etapa</th><th>El fabricante entrega</th><th>Acción del comprador</th></tr></thead>
+      <tbody>
+        <tr><td>1. Consulta</td><td>Visión de viabilidad sobre la especificación solicitada</td><td>Confirme la intención de vehículo, mercado y volumen</td></tr>
+        <tr><td>2. Especificación</td><td>Ficha de especificación escrita con cada parámetro</td><td>Firme cada línea, incluida la base de ensayo de CCA</td></tr>
+        <tr><td>3. Diseño y marca</td><td>Arte de etiqueta y embalaje</td><td>Apruebe el arte y la documentación</td></tr>
+        <tr><td>4. Muestreo</td><td>Muestra de preproducción de una línea equivalente a producción</td><td>Ensaye antes de aprobar; registre los resultados</td></tr>
+        <tr><td>5. Producción en serie</td><td>Producción programada con control en proceso</td><td>Confirme el calendario y cualquier congelación de cambios</td></tr>
+        <tr><td>6. Inspección de calidad</td><td>Datos de inspección y ensayo</td><td>Acuerde los criterios de aceptación antes de la liberación</td></tr>
+        <tr><td>7. Envío</td><td>Embalaje y documentos de exportación</td><td>Confirme los documentos antes del envío</td></tr>
+      </tbody>
+    </table>
+    <p><a href="/es/oem/">Programas de baterías OEM &rarr;</a> · <a href="/es/contact/">Proyecto de desarrollo de baterías OEM &rarr;</a></p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+
+    <h2>Dónde debe firmar el comprador</h2>
+    <p>Cuatro puertas necesitan la firma del comprador, no solo la confirmación del fabricante:</p>
+    <ol>
+      <li><strong>Especificación</strong> — firme cada parámetro, incluida la base de ensayo de CCA.</li>
+      <li><strong>Muestra</strong> — ensaye la muestra de preproducción antes de la aprobación.</li>
+      <li><strong>Estándar de calidad</strong> — acuerde los criterios de aceptación antes de la producción en serie.</li>
+      <li><strong>Envío</strong> — confirme los documentos antes de la liberación.</li>
+    </ol>
+    <p>Salte una puerta y el siguiente pedido puede derivar de la muestra aprobada. Mantenga la secuencia de aprobación ligada a las <a href="/es/knowledge/how-oem-battery-programs-work/">fases del programa OEM</a> para que ambas partes sepan dónde se requiere la aprobación.</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Planifique su proceso de desarrollo OEM" />
+</ArticleLayout>

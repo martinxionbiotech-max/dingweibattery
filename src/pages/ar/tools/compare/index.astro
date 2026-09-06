@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE } from '../../../../data/site';
+import { batteryModels, modelPath } from '../../../../data/battery-models';
+
+const title = 'قارن موديلات البطاريات | Dingwei Battery';
+const description = 'قارن موديلي بطارية جنبًا إلى جنب — الجهد، السعة، CCA، الأبعاد، حجم الهيكل والتطبيق — من قاعدة البيانات المرجعية لـDingwei Battery.';
+
+const breadcrumbs = [{ label: 'المقارنة', href: '/ar/tools/compare/' }];
+
+const modelsJson = JSON.stringify(
+  batteryModels.map((m) => ({
+    model: m.model,
+    standard: m.standard,
+    standard_code: m.standard_code,
+    voltage: m.voltage,
+    capacity: m.capacity_ah,
+    c20: m.c20_ah,
+    cca: m.cca.value,
+    cca_basis: m.cca.basis,
+    rc: m.rc_min,
+    dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+    case_size: m.case_size,
+    weight: m.weight_kg,
+    technology: m.technology,
+    application: m.application,
+    aliases: m.aliases ?? [],
+    href: '/ar' + modelPath(m.model),
+  })),
+);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/ar/` },
+      { '@type': 'ListItem', position: 2, name: 'المقارنة', item: `${SITE.url}/ar/tools/compare/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">أداة</span>
+    <h1>قارن موديلات البطاريات</h1>
+    <p class="lead">اختر موديلين لمقارنة مواصفاتهما جنبًا إلى جنب. يعتمد CCA على طريقة الاختبار، لذا قارن ضمن عائلة المعايير نفسها حيثما أمكن.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="finder-filters">
+        <div class="field">
+          <label for="c-a">الموديل أ</label>
+          <select id="c-a"></select>
+        </div>
+        <div class="field">
+          <label for="c-b">الموديل ب</label>
+          <select id="c-b"></select>
+        </div>
+      </div>
+      <div id="compare-output" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>كيف تقرأ المقارنة</h2>
+    <p>تحدد الأبعاد المادية وحجم الهيكل التوافق؛ وتحدد السعة وCCA الأداء الكهربائي. يعني رقم الهيكل الأكبر في عائلة المعايير نفسها عمومًا بطارية أكبر، لكن يجب تأكيد نوع الطرف والقطبية على حدة.</p>
+    <p><a href="/ar/data/">تصفح قاعدة بيانات الموديلات الكاملة &larr;</a> · <a href="/ar/knowledge/oem-battery-specification-guide/">اقرأ دليل المواصفات &larr;</a></p>
+  </section>
+
+  <CTASection title="أكّد مواصفة مع الشركة المصنعة" />
+
+  <script type="application/json" id="compare-data" set:html={modelsJson}></script>
+  <script is:inline>
+    const MODELS = JSON.parse(document.getElementById('compare-data').textContent);
+    const selA = document.getElementById('c-a');
+    const selB = document.getElementById('c-b');
+    const out = document.getElementById('compare-output');
+
+    const opts = MODELS.map((m) => `<option value="${m.model}">${m.model} (${m.standard}, ${m.capacity}Ah)</option>`).join('');
+    selA.innerHTML = opts;
+    selB.innerHTML = opts;
+    selA.value = MODELS[0].model;
+    selB.value = MODELS[1].model;
+
+    function field(label, a, b) {
+      const same = a === b;
+      return `<tr><th>${label}</th><td${same ? '' : ' class="diff"'}>${a}</td><td${same ? '' : ' class="diff"'}>${b}</td></tr>`;
+    }
+
+    function render() {
+      const a = MODELS.find((m) => m.model === selA.value);
+      const b = MODELS.find((m) => m.model === selB.value);
+      if (!a || !b) return;
+
+      const aliases = (m) => (m.aliases.length ? m.aliases.join(', ') : '—');
+
+      out.innerHTML = `
+        <table class="data-table compare-table">
+          <thead><tr><th>الحقل</th><th>${a.model}</th><th>${b.model}</th></tr></thead>
+          <tbody>
+            ${field('المعيار', a.standard + ' (' + a.standard_code + ')', b.standard + ' (' + b.standard_code + ')')}
+            ${field('الجهد', a.voltage + ' V', b.voltage + ' V')}
+            ${field('السعة (C20)', a.capacity + ' Ah', b.capacity + ' Ah')}
+            ${field('CCA (مرجعي)', a.cca + ' CCA', b.cca + ' CCA')}
+            ${field('أساس CCA', a.cca_basis, b.cca_basis)}
+            ${field('السعة الاحتياطية', a.rc !== null ? a.rc + ' min' : 'يُؤكَّد عند الاستفسار', b.rc !== null ? b.rc + ' min' : 'يُؤكَّد عند الاستفسار')}
+            ${field('الأبعاد (مم)', a.dims, b.dims)}
+            ${field('حجم الهيكل', a.case_size, b.case_size)}
+            ${field('الوزن', a.weight + ' kg', b.weight + ' kg')}
+            ${field('التقنية', a.technology, b.technology)}
+            ${field('التطبيق', a.application, b.application)}
+            ${field('الأسماء البديلة', aliases(a), aliases(b))}
+          </tbody>
+        </table>
+        <p class="note">يعتمد CCA على طريقة الاختبار (JIS −15°م مقابل EN/SAE −18°م). تُظهر الخلايا المميزة أين يختلف الموديلان. أكّد جميع القيم مع الشركة المصنعة.</p>
+        <p style="margin-top:0.8rem"><a href="${a.href}">عرض ${a.model} &larr;</a> · <a href="${b.href}">عرض ${b.model} &larr;</a> · <a href="/ar/contact/">اطلب عرض سعر &larr;</a></p>
+      `;
+    }
+
+    selA.addEventListener('change', render);
+    selB.addEventListener('change', render);
+    render();
+  </script>
+</BaseLayout>

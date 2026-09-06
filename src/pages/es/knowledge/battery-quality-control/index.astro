@@ -1,0 +1,68 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS } from '../../../../data/site';
+
+const title = 'Control de Calidad y Ensayo de Baterías | Dingwei Battery';
+const description = 'Cómo funciona el control de calidad de baterías — desde la inspección de material entrante hasta el ensayo 100% al final de línea y la trazabilidad por lotes — y qué deberían verificar los compradores.';
+const articleTitle = 'Control de calidad y ensayo de baterías';
+
+const faqs = [
+  { q: '¿Qué es el control de calidad de baterías?', a: 'Un proceso de cuatro capas — material entrante, en proceso, final de línea y trazabilidad por lotes — que mantiene los pedidos repetidos coincidiendo con la muestra aprobada.' },
+  { q: '¿Qué ensayos importan más para una batería?', a: 'CCA (detecta un arranque en frío débil), capacidad a C20 (detecta energía almacenada baja), ensayo de fugas (detecta una carcasa que perderá ácido) y tensión en circuito abierto (detecta un problema de celda antes del envío). Cada ensayo detecta un fallo distinto, así que &ldquo;ensayada&rdquo; significa poco si no sabe cuáles se ejecutaron realmente.' },
+  { q: '¿Las certificaciones son una garantía de calidad?', a: 'No, pero son una señal fuerte. Pida certificados vigentes que cubran el producto específico en lugar de afirmaciones de marketing.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Calidad" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento · Calidad</span>
+    <h1>Control de calidad y ensayo de baterías</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-03 · Fuente: sistemas de calidad automotriz</p>
+    <p class="lead">El control de calidad es lo que hace que un pedido repetido coincida con la muestra aprobada. Va desde el material entrante hasta el último ensayo de la línea, y un comprador puede verificarlo sin visitar la planta.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> El control de calidad de baterías son cuatro capas: material entrante, en proceso, final de línea y trazabilidad por lotes. Cada ensayo detecta un fallo distinto: la CCA detecta un arranque en frío débil, las fugas detectan una carcasa que pierde ácido, la tensión detecta un problema de celda, así que &ldquo;ensayada&rdquo; significa poco si no sabe qué ensayos se ejecutaron realmente.
+    </div>
+
+    <h2>Las cuatro capas del control de calidad</h2>
+    <table>
+      <thead><tr><th>Capa</th><th>Qué comprueba</th><th>Por qué importa</th></tr></thead>
+      <tbody>
+        <tr><td>Material entrante</td><td>Aleación de plomo, materiales de pasta, separadores, carcasas</td><td>Detecta la variación de entrada antes de que llegue a la línea</td></tr>
+        <tr><td>En proceso</td><td>Parámetros de curado, empastado, formación</td><td>Mantiene cada lote dentro de la misma ventana de proceso</td></tr>
+        <tr><td>Final de línea</td><td>CCA, capacidad, tensión, ensayo de fugas</td><td>Retira unidades defectuosas antes de empacar</td></tr>
+        <tr><td>Trazabilidad por lotes</td><td>Seguimiento de lote a través de la producción</td><td>Aísla un problema a un lote, no a todo el pedido</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Los ensayos que importan</h2>
+    <ul>
+      <li><strong>Ensayo de CCA</strong> — verifica el rendimiento de arranque en frío contra el estándar declarado (JIS / EN / SAE).</li>
+      <li><strong>Ensayo de capacidad</strong> — verifica el valor de Ah a la tasa declarada (C20).</li>
+      <li><strong>Ensayo de fugas</strong> — confirma que la carcasa sellada aguanta bajo presión.</li>
+      <li><strong>Comprobación de tensión</strong> — confirma una tensión en circuito abierto sana antes del envío.</li>
+    </ul>
+
+    <h2>Certificaciones como indicador de calidad</h2>
+    <p>Las certificaciones no son una garantía, pero son una señal fuerte. {MANUFACTURER.name} posee {CERTIFICATIONS.join(', ')}, lo que indica un sistema formal de gestión de calidad en lugar de una inspección ad hoc.</p>
+    <p class="note">Pida certificados <em>vigentes</em>, no afirmaciones de marketing. Un certificado caducado o que no cubre el producto específico no es evidencia.</p>
+
+    <h2>Qué deberían preguntar los compradores</h2>
+    <ul>
+      <li>¿Qué se ensaya al final de línea: CCA, capacidad, fugas o las tres?</li>
+      <li>¿Se ensaya cada unidad o solo una muestra?</li>
+      <li>¿Cómo se mantiene la trazabilidad por lotes?</li>
+      <li>¿Pueden proporcionar certificaciones vigentes que cubran este producto?</li>
+      <li>¿Cuál es el proceso de gestión de defectos y garantía?</li>
+    </ul>
+
+    <p>Conecte la calidad con el proceso físico en <a href="/es/knowledge/how-lead-acid-batteries-are-made/">cómo se fabrican las baterías</a>, y con la evaluación de proveedores en la <a href="/es/knowledge/oem-battery-supplier-checklist/">lista de verificación del proveedor</a>.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+    <p><a href="/es/factory/">Perfil de calidad de fábrica de baterías &rarr;</a> · <a href="/es/contact/">Documentación de calidad de baterías &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Verifique el control de calidad con el fabricante" />
+</ArticleLayout>

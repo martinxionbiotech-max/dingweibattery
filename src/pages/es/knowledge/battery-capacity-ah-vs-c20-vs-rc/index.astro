@@ -1,0 +1,65 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Capacidad de Baterías: Ah vs C20 vs RC | Dingwei Battery';
+const description = 'Comprenda los valores de capacidad de baterías — amperios-hora (Ah), la tasa C20 y la capacidad de reserva (RC) — y cómo compararlos en una especificación de batería OEM.';
+const articleTitle = 'Capacidad de baterías: Ah vs C20 vs RC';
+
+const faqs = [
+  { q: '¿Cuál es la diferencia entre Ah y C20?', a: 'Ah es la carga total almacenada, mientras que C20 es la tasa de descarga de 20 horas a la que se mide ese Ah. La misma batería entrega menos energía total a una tasa de descarga más rápida.' },
+  { q: '¿Qué significa la capacidad de reserva (RC)?', a: 'La capacidad de reserva es el número de minutos que una batería puede entregar una carga fija de 25 amperios antes de caer por debajo de 10,5 V: una métrica de autonomía bajo carga.' },
+  { q: '¿Un Ah más alto es siempre mejor?', a: 'No siempre. Un Ah más alto almacena más energía pero también hace la batería físicamente más grande y pesada, y debe caber en la bandeja y coincidir con el sistema de carga del vehículo. Sobredimensionar la capacidad significa pagar por energía que nunca usará.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Ingeniería" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento · Ingeniería</span>
+    <h1>Capacidad de baterías: Ah vs C20 vs RC</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-03 · Fuente: normas de ensayo de baterías</p>
+    <p class="lead">Tres números describen la capacidad de una batería y miden cosas distintas. Confundirlos es uno de los errores de aprovisionamiento más comunes.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Ah, C20 y RC responden preguntas distintas y no son intercambiables: confundirlos es uno de los errores de aprovisionamiento más comunes. Ah es la carga total almacenada, C20 es la tasa de descarga de 20 horas a la que se mide el Ah, y RC es la autonomía en minutos bajo una carga fija.
+    </div>
+
+    <h2>Ah: carga total almacenada</h2>
+    <p>Los amperios-hora son la carga total que una batería puede entregar durante una descarga. Una batería de 60 Ah puede, en principio, suministrar 1 amperio durante 60 horas, o 6 amperios durante 10 horas, dentro de los límites de la tasa de descarga nominal.</p>
+    <p>El punto clave: el Ah solo es significativo cuando está ligado a una tasa de descarga. Una batería valorada &ldquo;60 Ah&rdquo; sin una tasa está incompleta.</p>
+
+    <h2>C20: la tasa de 20 horas</h2>
+    <p>C20 (o la tasa de 20 horas) es la tasa de descarga estándar para la mayoría de baterías automotrices: la corriente que descarga totalmente la batería en 20 horas. Una batería de 60 Ah (C20) está valorada para entregar 3 amperios durante 20 horas.</p>
+    <p>Descargar más rápido reduce la capacidad efectiva (una batería entrega menos energía total a una tasa de descarga alta). Por eso la misma batería muestra un Ah más alto a C20 que a una tasa rápida como C5.</p>
+
+    <h2>RC: capacidad de reserva</h2>
+    <p>La capacidad de reserva mide los minutos que una batería totalmente cargada puede entregar una carga fija de 25 amperios antes de caer por debajo de 10,5 V. Responde a una pregunta distinta: cuánto tiempo puede la batería alimentar la carga eléctrica del vehículo si falla el sistema de carga.</p>
+    <p>RC es más útil que Ah para vehículos con cargas de accesorios pesadas: es una métrica de autonomía bajo carga, no una métrica de energía total.</p>
+
+    <h2>Cómo se relacionan — y cómo no</h2>
+    <table>
+      <thead><tr><th>Métrica</th><th>Mide</th><th>Unidad</th><th>Responde</th></tr></thead>
+      <tbody>
+        <tr><td>Ah</td><td>Carga total almacenada</td><td>amperios-hora</td><td>¿Cuánta energía hay almacenada?</td></tr>
+        <tr><td>C20</td><td>Tasa de descarga para el valor de Ah</td><td>tasa de 20 horas</td><td>¿A qué tasa se mide el Ah?</td></tr>
+        <tr><td>RC</td><td>Autonomía bajo una carga fija</td><td>minutos</td><td>¿Cuánto tiempo bajo carga si falla la carga?</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Un Ah más alto no significa automáticamente un RC más alto: la relación depende del diseño de la batería. Confirme cada valor por separado para su especificación.</p>
+
+    <h2>Qué deberían preguntar los compradores</h2>
+    <ul>
+      <li>¿El valor de Ah es a C20 u otra tasa?</li>
+      <li>¿Qué capacidad de reserva (RC) lleva la batería?</li>
+      <li>¿Qué valor importa más para mi aplicación: autonomía (RC) o energía total (Ah)?</li>
+    </ul>
+
+    <p>Use esto junto con la <a href="/es/knowledge/what-is-cca/">guía de CCA</a>: la CCA es potencia de arranque, Ah/RC es capacidad, y ambos pertenecen a una <a href="/es/knowledge/oem-battery-specification-guide/">especificación OEM</a>.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+    <p><a href="/es/data/">Explore referencias de capacidad de modelos &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirme los valores de capacidad de su modelo" />
+</ArticleLayout>

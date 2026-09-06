@@ -1,0 +1,63 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Aplicaciones de Baterías por Tipo de Vehículo | Dingwei Battery';
+const description = 'Cómo difieren los requisitos de batería por vehículo — turismo, SUV, pickup, camión, autobús y construcción — y cómo especificar la batería correcta para cada uno.';
+const articleTitle = 'Aplicaciones de baterías por tipo de vehículo';
+
+const faqs = [
+  { q: '¿Qué batería necesita un coche start-stop?', a: 'AGM o EFB. Un sistema start-stop cicla la batería mucho más a menudo que un vehículo convencional, y una batería SLI estándar fallará pronto bajo ese régimen.' },
+  { q: '¿Por qué los camiones diésel necesitan CCA alta?', a: 'Los motores diésel grandes tienen alta compresión y necesitan una corriente de arranque fuerte, especialmente en frío, lo que impulsa un requisito de CCA alta.' },
+  { q: '¿Qué batería conviene a los equipos de construcción?', a: 'Una batería de servicio pesado con CCA alta y resistencia a la vibración. Las máquinas de construcción permanecen paradas en frío y luego necesitan un arranque duro, y la vibración constante desarma una batería ligera, por eso el servicio pesado usa placas más gruesas y una carcasa más rígida.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Aplicaciones" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento · Aplicaciones</span>
+    <h1>Aplicaciones de baterías por tipo de vehículo</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-03 · Fuente: requisitos de aplicación automotriz</p>
+    <p class="lead">Vehículos distintos hacen demandas distintas a una batería. Un turismo, un SUV start-stop y un camión diésel necesitan especificaciones distintas, y elegir la equivocada acorta la vida de la batería.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> El tipo de vehículo decide la batería, no al revés: un coche start-stop necesita la durabilidad de ciclado AGM/EFB en la que una batería SLI estándar fallará pronto, y un camión diésel necesita una CCA muy superior a la de un turismo porque el arranque en frío es su restricción vinculante.
+    </div>
+
+    <h2>Requisitos por clase de vehículo</h2>
+    <table>
+      <thead><tr><th>Vehículo</th><th>Demanda típica</th><th>Elección de batería</th></tr></thead>
+      <tbody>
+        <tr><td>Turismo</td><td>Arranque estándar</td><td>SLI, compatibilidad JIS/DIN/BCI</td></tr>
+        <tr><td>SUV / pickup</td><td>Mayor carga, algo de start-stop</td><td>SLI de mayor capacidad o EFB/AGM</td></tr>
+        <tr><td>Coche start-stop</td><td>Ciclado frecuente</td><td>AGM o EFB</td></tr>
+        <tr><td>Comercial ligero / furgoneta</td><td>Carga de accesorios, mayor servicio</td><td>SLI de mayor Ah</td></tr>
+        <tr><td>Camión / autobús</td><td>CCA alta, vibración</td><td>Servicio pesado, serie N JIS / DIN / BCI</td></tr>
+        <tr><td>Construcción / agrícola</td><td>Vibración, ciclado profundo</td><td>Servicio pesado, CCA alta</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Por qué el start-stop cambia la batería</h2>
+    <p>Un sistema start-stop apaga el motor en ralentí y lo rearranca repetidamente, ciclando la batería mucho más a menudo que un vehículo convencional. Eso requiere una batería diseñada para el ciclado — AGM (malla de fibra de vidrio absorbente) o EFB (inundada mejorada) — en lugar de una batería SLI estándar, que fallará pronto bajo ese régimen.</p>
+
+    <h2>Por qué los camiones diésel necesitan CCA alta</h2>
+    <p>Los motores diésel grandes tienen alta compresión y necesitan una corriente de arranque fuerte, especialmente en frío. Esto impulsa un requisito de CCA alta (a menudo del orden de 800–1100 A, referencia), además de una carcasa físicamente más grande y una construcción más pesada para sobrevivir a la vibración.</p>
+    <p class="note">La CCA depende del método de ensayo: confirme si el valor es JIS, EN o SAE. Vea la <a href="/es/knowledge/what-is-cca/">guía de CCA</a>.</p>
+
+    <h2>Qué deberían preguntar los compradores</h2>
+    <ul>
+      <li>¿Qué clase de vehículo estoy suministrando: turismo, start-stop, comercial o servicio pesado?</li>
+      <li>¿El vehículo usa start-stop y necesita AGM o EFB?</li>
+      <li>¿Qué tamaño de carcasa y familia de estándares requiere el vehículo?</li>
+      <li>¿Qué CCA (y qué base de ensayo) necesita el motor?</li>
+    </ul>
+
+    <p>Asigne el tipo de vehículo al estándar correcto en <a href="/es/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>, y explore modelos en la <a href="/es/data/">base de datos de modelos</a>.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+    <p><a href="/es/heavy-duty-batteries/">Opciones de baterías de servicio pesado &rarr;</a> · <a href="/es/oem/car-batteries/">Opciones de baterías de automóvil &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Especifique la batería correcta para su clase de vehículo" />
+</ArticleLayout>

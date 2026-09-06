@@ -1,0 +1,60 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS } from '../../../../data/site';
+
+const title = 'MOQ y Plazo de Entrega de Baterías OEM Explicados | Dingwei Battery';
+const description = 'Qué significan el MOQ y el plazo de entrega para los pedidos de baterías OEM, y cómo se fijan — con las condiciones de referencia de Chengguang Power Tech Co., Ltd.';
+const articleTitle = 'MOQ y plazo de entrega de baterías OEM';
+
+const faqs = [
+  { q: '¿Por qué el MOQ de baterías está ligado a un contenedor?', a: 'Las baterías son pesadas, así que un contenedor de 20 pies alcanza su límite de peso antes que su límite de volumen. El MOQ sigue al contenedor de forma natural, y mezclar modelos lo llena de forma eficiente.' },
+  { q: '¿Puedo conseguir un MOQ más bajo para un primer pedido?', a: 'A veces: comente un lote de prototipo o piloto antes de comprometerse con el MOQ de producción completo. Espere un coste unitario más alto a bajo volumen.' },
+  { q: '¿La producción de plomo-ácido tiene un ciclo estacional?', a: 'No. A diferencia de los productos agrícolas, las baterías de plomo-ácido se producen todo el año, así que el plazo de entrega es estable en lugar de estacional.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logística" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>MOQ y plazo de entrega de baterías OEM</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-01 · Fuente: documentación técnica de Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">El MOQ y el plazo de entrega los fijan la economía de producción y la logística de contenedores, no la negociación por sí sola. Así funcionan.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> El MOQ de baterías OEM sigue al contenedor porque las baterías son pesadas: un contenedor de 20 pies alcanza su límite de peso antes que su límite de volumen, así que el MOQ está ligado al peso, no al espacio. Mezclar modelos en un contenedor mantiene bajo el coste unitario, y el plazo de entrega es estable todo el año porque el plomo-ácido no tiene ciclo estacional.
+    </div>
+
+    <h2>Qué determina el MOQ</h2>
+    <p>El MOQ de baterías suele estar ligado a una carga de contenedor, porque el coste de envío por unidad se desploma en FCL. El MOQ de referencia de {MANUFACTURER.name} es {TRADE_TERMS.moq}.</p>
+
+    <h2>Qué determina el plazo de entrega</h2>
+    <p>El plazo de entrega cubre la confirmación del pedido, la producción y los ensayos previos al envío. El plazo de entrega de referencia de {MANUFACTURER.name} es {TRADE_TERMS.leadTime}; los pedidos con etiqueta personalizada añaden tiempo de muestreo.</p>
+
+    <h2>Cómo reducir ambos</h2>
+    <ul>
+      <li>Pida en múltiplos de contenedor completo</li>
+      <li>Consolide modelos mixtos en un contenedor</li>
+      <li>Confirme la especificación pronto para evitar retrasos de muestreo</li>
+      <li>Planifique en torno a la producción continua, sin cosecha, de las baterías de plomo-ácido</li>
+    </ul>
+    <p><a href="/es/contact/">Confirme MOQ y plazo de entrega &rarr;</a> · <a href="/es/knowledge/how-oem-battery-programs-work/">Cómo funcionan los programas OEM &rarr;</a></p>
+
+    <h2>Economía de contenedores en una línea</h2>
+    <p>El coste unitario baja cuando llena un contenedor de 20 pies porque los gastos fijos de exportación y flete se reparten entre más baterías. Una vez lleno el contenedor, añadir más modelos a esa misma carga suele mantener el coste unitario más bajo que dividir en cargas parciales.</p>
+    <p>Envíe un plan completo de volumen y modelos en su <a href="/es/knowledge/oem-battery-rfq-guide/">RFQ de baterías OEM</a> para que el fabricante pueda construir el contenedor de forma eficiente.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+
+    <h2>El plomo-ácido es pesado: las matemáticas del contenedor</h2>
+    <p>Las baterías de plomo-ácido son densas, así que un contenedor de 20 pies suele alcanzar su límite de peso antes que su límite de volumen. Por tanto, el MOQ sigue al contenedor en lugar de a un número de marketing. Mezclar varios modelos en un FCL reparte ese peso y flete entre más líneas, lo que suele mantener el coste unitario más bajo que dividir cargas parciales.</p>
+    <p>El MOQ de referencia de {MANUFACTURER.name} de {TRADE_TERMS.moq} es un término de lógica de contenedor, no un mínimo por modelo. Envíe la mezcla completa de modelos en la <a href="/es/knowledge/oem-battery-rfq-guide/">RFQ de baterías OEM</a> para que la carga se planifique correctamente.</p>
+
+    <h2>Por qué el plomo-ácido no tiene ciclo estacional</h2>
+    <p>La producción de plomo-ácido no está ligada a una cosecha ni a una ventana estacional de materia prima. La línea de fabricación puede funcionar todo el año, lo que mantiene el plazo de entrega más estable que las categorías estacionales. Para un importador, eso significa que un plazo de producción confirmado es una variable de planificación, no un riesgo de cosecha.</p>
+    <p>Use esa estabilidad al fijar el plan de volumen en la <a href="/es/knowledge/oem-battery-rfq-guide/">RFQ de baterías OEM</a> o recorra las <a href="/es/knowledge/how-oem-battery-programs-work/">fases del programa OEM</a>.</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirme el MOQ y el plazo de entrega de su pedido" />
+</ArticleLayout>

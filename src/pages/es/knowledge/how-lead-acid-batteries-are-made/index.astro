@@ -1,0 +1,71 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER } from '../../../../data/site';
+
+const title = 'Cómo se Fabrican las Baterías de Plomo-Ácido | Dingwei Battery';
+const description = 'El proceso de fabricación de baterías de plomo-ácido en diez etapas — fundición de rejilla, empastado, curado, ensamblaje, formación y ensayo — y qué significa cada etapa para la calidad de la batería.';
+const articleTitle = 'Cómo se fabrican las baterías de plomo-ácido';
+
+const faqs = [
+  { q: '¿Cómo se fabrica una batería de plomo-ácido?', a: 'En diez etapas, pero tres deciden la mayor parte de la calidad: el curado (2&ndash;4 días de cristalización que da resistencia a las placas), la mezcla de pasta (una pasta consistente significa una capacidad consistente) y la carga de formación (la primera carga que activa el material activo). Las otras siete etapas ensamblan lo que fabricaron esas tres.' },
+  { q: '¿Qué etapa de fabricación afecta más a la vida de la batería?', a: 'El curado. Un curado apresurado produce placas débiles que desprenden material y fallan pronto, por eso el tiempo de curado (2&ndash;4 días) es una pregunta de auditoría significativa.' },
+  { q: '¿Por qué importa la carga de formación?', a: 'La formación es la primera carga que convierte la pasta en material activo funcional. Una formación incompleta deja pasta sin formar dentro de la placa, así que la batería muestra el voltaje completo pero entrega menos capacidad y se desvanece más rápido: un defecto que aparece meses después, no al final de la línea.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fabricación" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento · Fabricación</span>
+    <h1>Cómo se fabrican las baterías de plomo-ácido</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-03 · Fuente: proceso de fabricación de plomo-ácido</p>
+    <p class="lead">Una batería de arranque de plomo-ácido se construye en diez etapas, desde la fundición de la rejilla de plomo hasta el ensayo eléctrico final. Comprender las etapas le dice al comprador qué buscar al auditar una fábrica.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> La fabricación de baterías de plomo-ácido recorre diez etapas, pero tres deciden la mayor parte de la calidad: el curado (2&ndash;4 días de cristalización que da resistencia a las placas), la mezcla de pasta (una pasta consistente significa una capacidad consistente) y la carga de formación (la primera carga que activa el material). Una fábrica que apresura estas tres envía baterías que miden bien el primer día y se desvanecen pronto.
+    </div>
+
+    <h2>Las diez etapas</h2>
+    <ol>
+      <li><strong>Fundición de rejilla</strong> — la aleación de plomo fundido se funde en el marco de la rejilla. Las baterías sin mantenimiento usan una aleación de plomo-calcio que reduce la pérdida de agua.</li>
+      <li><strong>Mezcla de pasta</strong> — el óxido de plomo se mezcla en una pasta; su consistencia determina la capacidad del material activo.</li>
+      <li><strong>Empastado</strong> — la pasta se aplica uniformemente sobre la rejilla.</li>
+      <li><strong>Curado</strong> — las placas empastadas curan durante 2–4 días, desarrollando la estructura cristalina que da resistencia mecánica.</li>
+      <li><strong>Ensamblaje</strong> — las placas positivas y negativas se apilan con separadores y se insertan en la carcasa.</li>
+      <li><strong>Soldadura</strong> — los lóbulos de placa y los terminales se sueldan para formar el camino eléctrico.</li>
+      <li><strong>Llenado de electrolito</strong> — se añade electrolito de ácido sulfúrico.</li>
+      <li><strong>Carga de formación</strong> — la primera carga convierte la pasta en material activo.</li>
+      <li><strong>Sellado y acabado</strong> — la tapa se sella y la batería se termina.</li>
+      <li><strong>Ensayo y embalaje</strong> — ensayo eléctrico 100% antes de empacar.</li>
+    </ol>
+
+    <h2>Dónde se gana o se pierde la calidad</h2>
+    <p>Tres etapas tienen un efecto desproporcionado en la batería final:</p>
+    <ul>
+      <li><strong>Curado</strong> — un curado apresurado produce placas débiles que desprenden material y fallan pronto. Por eso el tiempo de curado (2–4 días) es una pregunta de auditoría significativa.</li>
+      <li><strong>Mezcla de pasta</strong> — una pasta inconsistente produce una capacidad inconsistente célula a célula.</li>
+      <li><strong>Formación</strong> — una formación incompleta deja material activo sin formar, reduciendo tanto la capacidad como la vida de ciclo.</li>
+    </ul>
+
+    <h2>Qué significa esto para un comprador</h2>
+    <p>No necesita operar la línea: necesita saber qué preguntas separan una planta disciplinada de una apresurada. Al auditar, pregunte por el tiempo de curado, el control de consistencia de la pasta y la completitud de la formación, no solo por la capacidad y el precio.</p>
+    <p class="note">Esto es un marco editorial para evaluar la fabricación, no una especificación técnica.</p>
+
+    <h2>Qué deberían preguntar los compradores</h2>
+    <ul>
+      <li>¿Cuál es la aleación de la rejilla, y es plomo-calcio para sin mantenimiento?</li>
+      <li>¿Cuánto tiempo curan las placas?</li>
+      <li>¿Cómo se controla la consistencia de la pasta?</li>
+      <li>¿Se completa la carga de formación antes del ensayo?</li>
+      <li>¿Se ensaya eléctricamente cada batería antes de empacar?</li>
+    </ul>
+
+    <p>Vea cómo se asignan estas etapas a una auditoría en la <a href="/es/knowledge/how-audit-battery-factory/">guía de auditoría de fábrica</a>, y cómo se conectan con el sistema de <a href="/es/knowledge/battery-quality-control/">control de calidad</a>.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). La fabricación la realiza {MANUFACTURER.name} en una instalación de {MANUFACTURER.factoryArea} con {MANUFACTURER.productionLines}.</p>
+    <p><a href="/es/factory/">Resumen de fábrica de baterías de plomo-ácido &rarr;</a> · <a href="/es/oem/">Programas de baterías OEM &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Audite el proceso de fabricación" />
+</ArticleLayout>

@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE } from '../../../../data/site';
+import { batteryModels, modelPath } from '../../../../data/battery-models';
+
+const title = 'أداة البحث عن البطارية: طابق موديل بطاريتك | Dingwei Battery';
+const description = 'رشّح 23 موديل بطارية مرجعيًا حسب التطبيق وعائلة المعايير والسعة. اعثر على مراجع بطاريات تشغيل JIS وDIN/EN والخدمة الشاقة من Dingwei Battery.';
+
+const breadcrumbs = [{ label: 'أداة البحث عن البطارية', href: '/ar/tools/battery-finder/' }];
+
+const HEAVY = ['105D31', '115D31', 'N100', 'N150', 'N200'];
+
+const finderData = batteryModels.map((m) => ({
+  model: m.model,
+  standard: m.standard,
+  capacity: m.capacity_ah,
+  voltage: m.voltage,
+  cca: m.cca.value,
+  dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+  caseSize: m.case_size,
+  app: HEAVY.includes(m.model) ? 'الخدمة الشاقة' : 'سيارة ركاب',
+  href: '/ar' + modelPath(m.model),
+}));
+
+const finderJson = JSON.stringify(finderData);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: `${SITE.url}/ar/` },
+      { '@type': 'ListItem', position: 2, name: 'أداة البحث عن البطارية', item: `${SITE.url}/ar/tools/battery-finder/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">أداة</span>
+    <h1>أداة البحث عن البطارية</h1>
+    <p class="lead">رشّح المجموعة الحالية من الموديلات المرجعية حسب التطبيق وعائلة المعايير والسعة. المواصفات للمرجعية؛ أكّد القيم النهائية مع الشركة المصنعة.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="finder-filters">
+        <div class="field">
+          <label for="f-app">التطبيق</label>
+          <select id="f-app">
+            <option value="all">الكل</option>
+            <option value="سيارة ركاب">سيارة ركاب</option>
+            <option value="الخدمة الشاقة">الخدمة الشاقة</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-std">عائلة المعايير</label>
+          <select id="f-std">
+            <option value="all">الكل</option>
+            <option value="JIS">JIS</option>
+            <option value="DIN/EN">DIN/EN</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-cap">السعة (Ah)</label>
+          <select id="f-cap">
+            <option value="all">الكل</option>
+            <option value="low">&le; 60</option>
+            <option value="mid">61&ndash;80</option>
+            <option value="high">81&ndash;100</option>
+            <option value="xhigh">&gt; 100</option>
+          </select>
+        </div>
+        <div class="finder-actions">
+          <button class="btn" type="button" id="finder-search">بحث</button>
+          <button class="btn btn--ghost" type="button" id="finder-reset">إعادة تعيين</button>
+        </div>
+      </div>
+      <p class="finder-count" id="finder-count" aria-live="polite"></p>
+      <div class="finder-results" id="finder-results"></div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>هل تحتاج توافقًا دقيقًا؟</h2>
+    <p>توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). شارك المركبة والمعيار ومرجع الهيكل في نموذج RFQ، وسيؤكد فريق التصدير لدى الشركة المصنعة التوافق.</p>
+    <p><a href="/ar/contact/">اطلب تأكيد التوافق &larr;</a> · <a href="/ar/knowledge/oem-battery-specification-guide/">اقرأ دليل المواصفات &larr;</a></p>
+  </section>
+
+  <CTASection title="اطلب فحص توافق OEM" />
+
+  <script type="application/json" id="finder-data" set:html={finderJson}></script>
+  <script is:inline>
+    const MODELS = JSON.parse(document.getElementById('finder-data').textContent);
+    const resultsEl = document.getElementById('finder-results');
+    const countEl = document.getElementById('finder-count');
+
+    function matchCapacity(cap, filter) {
+      if (filter === 'all') return true;
+      if (filter === 'low') return cap <= 60;
+      if (filter === 'mid') return cap >= 61 && cap <= 80;
+      if (filter === 'high') return cap >= 81 && cap <= 100;
+      if (filter === 'xhigh') return cap > 100;
+      return true;
+    }
+
+    function render() {
+      const app = document.getElementById('f-app').value;
+      const std = document.getElementById('f-std').value;
+      const cap = document.getElementById('f-cap').value;
+
+      const filtered = MODELS.filter((m) => {
+        if (app !== 'all' && m.app !== app) return false;
+        if (std !== 'all' && m.standard !== std) return false;
+        return matchCapacity(m.capacity, cap);
+      });
+
+      countEl.textContent = 'الموديلات المطابقة: ' + filtered.length;
+
+      if (filtered.length === 0) {
+        resultsEl.innerHTML = '<p class="note">لا يوجد موديل مرجعي يطابق تلك المرشحات. <a href="/ar/contact/">اطلب توافقًا مخصصًا</a> بدلًا من ذلك.</p>';
+        return;
+      }
+
+      resultsEl.innerHTML = filtered.map((m) => `
+        <article class="finder-card">
+          <h3><a href="${m.href}">${m.model} بطارية</a></h3>
+          <p class="model-card__meta">${m.app} · ${m.standard} · ${m.voltage}V · ${m.capacity} Ah</p>
+          <p class="model-card__meta">${m.cca} CCA (مرجعي) · ${m.dims} مم</p>
+          <a href="${m.href}">عرض المواصفات <span aria-hidden="true">&larr;</span></a>
+        </article>
+      `).join('');
+    }
+
+    document.getElementById('f-app').addEventListener('change', render);
+    document.getElementById('f-std').addEventListener('change', render);
+    document.getElementById('f-cap').addEventListener('change', render);
+
+    document.getElementById('finder-search').addEventListener('click', () => {
+      render();
+      document.getElementById('finder-results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    document.getElementById('finder-reset').addEventListener('click', () => {
+      document.getElementById('f-app').value = 'all';
+      document.getElementById('f-std').value = 'all';
+      document.getElementById('f-cap').value = 'all';
+      render();
+    });
+
+    render();
+  </script>
+</BaseLayout>

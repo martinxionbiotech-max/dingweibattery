@@ -1,0 +1,73 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { STANDARDS } from '../../../../data/site';
+
+const title = '¿Qué es la CCA (amperios de arranque en frío)? | Dingwei Battery';
+const description = 'Los amperios de arranque en frío (CCA) miden la potencia de arranque de una batería. Descubra por qué la CCA depende del método de ensayo (JIS vs EN vs SAE) y cómo compararla correctamente.';
+const articleTitle = '¿Qué es la CCA (amperios de arranque en frío)?';
+
+const faqs = [
+  { q: '¿Qué significan las siglas CCA?', a: 'Amperios de arranque en frío (cold cranking amps): la corriente que una batería puede suministrar durante 30 segundos a baja temperatura antes de caer por debajo de una tensión de corte.' },
+  { q: '¿Por qué la misma batería tiene dos valores de CCA?', a: 'Porque JIS ensaya a &minus;15&deg;C mientras que EN/SAE/DIN ensayan a &minus;18&deg;C. El ensayo más cálido produce un número distinto, por lo que los valores no son intercambiables.' },
+  { q: '¿Una CCA más alta es siempre mejor?', a: 'No necesariamente. La batería debe caber en la bandeja y coincidir con la disposición de terminales del vehículo: la CCA es uno de varios criterios de compatibilidad y rendimiento.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Ingeniería" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento · Ingeniería</span>
+    <h1>¿Qué es la CCA (amperios de arranque en frío)?</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-03 · Fuente: normas de ensayo de baterías</p>
+    <p class="lead">La CCA mide cuánta corriente puede suministrar una batería durante 30 segundos a baja temperatura antes de caer por debajo de una tensión de corte. Es el número que más compradores comparan, y el que más a menudo se compara de forma incorrecta.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Los amperios de arranque en frío (CCA) son la corriente que una batería totalmente cargada puede suministrar durante 30 segundos a una temperatura fría definida manteniendo una tensión mínima. Como los umbrales de temperatura y tensión difieren entre estándares, una CCA JIS y una CCA EN no son el mismo número para la misma batería.
+    </div>
+
+    <h2>Qué mide realmente la CCA</h2>
+    <p>La CCA responde a una pregunta: ¿arrancará esta batería el motor en tiempo frío? Una CCA más alta significa más corriente disponible para el motor de arranque a baja temperatura, donde el aceite del motor es más espeso y la demanda de arranque es máxima.</p>
+    <p>Es una métrica de potencia de arranque, no de capacidad. Una batería puede tener una CCA alta y una capacidad modesta en amperios-hora (Ah), o al revés: ambas miden cosas distintas.</p>
+
+    <h2>Por qué una batería tiene dos valores de CCA</h2>
+    <p>La CCA no es una única prueba universal. Los principales estándares miden a temperaturas diferentes:</p>
+    <table>
+      <thead><tr><th>Estándar</th><th>Temperatura de ensayo</th><th>Uso habitual</th></tr></thead>
+      <tbody>
+        <tr><td>JIS</td><td>&minus;15&deg;C</td><td>Baterías japonesas / del mercado asiático</td></tr>
+        <tr><td>EN</td><td>&minus;18&deg;C</td><td>Baterías europeas</td></tr>
+        <tr><td>SAE</td><td>&minus;18&deg;C</td><td>Baterías norteamericanas</td></tr>
+        <tr><td>DIN</td><td>&minus;18&deg;C</td><td>Baterías alemanas / europeas</td></tr>
+      </tbody>
+    </table>
+    <p>Como JIS ensaya a una temperatura más cálida de &minus;15&deg;C, la misma batería puede mostrar un valor de CCA distinto según JIS que según EN/SAE. Ambos no son intercambiables y no existe una conversión porcentual universal.</p>
+
+    <h2>Cómo comparar la CCA correctamente</h2>
+    <ol>
+      <li><strong>Confirme primero la base del ensayo</strong> — JIS, EN, SAE o DIN. Pregunte al proveedor a qué estándar se refiere el número.</li>
+      <li><strong>Compare dentro de un mismo estándar</strong> — compare solo JIS con JIS, EN con EN.</li>
+      <li><strong>Haga coincidir la tensión de corte</strong> — algunos estándares usan tensiones finales distintas, lo que desplaza el resultado.</li>
+      <li><strong>Trate el número como referencia</strong> — la CCA final de una batería concreta la confirma el fabricante según su procedimiento de ensayo.</li>
+    </ol>
+    <p class="note">En las páginas de referencia de Dingwei, la CCA se muestra como un valor <strong>(referencia)</strong>. Confirme la CCA final y su base de ensayo con el fabricante antes de usarla en una especificación de producto.</p>
+
+    <h2>Qué deberían preguntar los compradores</h2>
+    <ul>
+      <li>¿Según qué estándar se mide esta CCA: JIS, EN, SAE o DIN?</li>
+      <li>¿A qué temperatura y tensión de corte?</li>
+      <li>¿Es un valor nominal o un valor ensayado de un lote de producción concreto?</li>
+      <li>¿Cómo se relaciona la CCA con la capacidad (Ah) que está cotizando?</li>
+    </ul>
+
+    <h2>CCA vs Ah: no las confunda</h2>
+    <p>Los Ah (amperios-hora) miden la energía almacenada a lo largo del tiempo: cuánto tiempo puede suministrar corriente la batería. La CCA mide el pico de corriente para el arranque. Un vehículo con muchos accesorios eléctricos necesita Ah; un diésel en clima frío necesita CCA. La mayoría de las especificaciones OEM indican ambos, y ambos deben confirmarse.</p>
+    <p>Lea la diferencia completa en la <a href="/es/knowledge/battery-capacity-ah-vs-c20-vs-rc/">guía de capacidad</a> y vea cómo encajan ambos en una <a href="/es/knowledge/oem-battery-specification-guide/">especificación OEM</a>.</p>
+
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Hay modelos de {STANDARDS.join(', ')} disponibles con valores de CCA confirmados según el estándar de ensayo correspondiente.</p>
+    <p><a href="/es/data/">Ver referencias de CCA de modelos &rarr;</a> · <a href="/es/tools/compare/">Comparar dos modelos &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirme la base de CCA de su modelo" />
+</ArticleLayout>

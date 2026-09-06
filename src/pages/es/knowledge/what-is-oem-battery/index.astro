@@ -1,0 +1,69 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER } from '../../../../data/site';
+
+const title = '¿Qué es una batería OEM? | Dingwei Battery';
+const description = 'Una batería OEM se fabrica según la especificación y la marca del comprador. Descubra en qué se diferencia el OEM del suministro ODM y de marca privada, con la visión de Dingwei Battery.';
+const articleTitle = '¿Qué es una batería OEM?';
+
+const faqs = [
+  { q: '¿Una batería OEM es de menor calidad que una batería de marca?', a: 'No necesariamente. La calidad OEM la define la especificación, no la etiqueta: la misma fábrica suele fabricar baterías de marca y OEM en la misma línea. Lo que importa es según qué especificación se fabrica la batería.' },
+  { q: '¿Soy dueño del diseño de una batería OEM?', a: 'Sí. Esa es la diferencia definitoria: usted es dueño del diseño y de la marca, y la fábrica es dueña de la fabricación. Esa titularidad es lo que hace consistentes los pedidos repetidos.' },
+  { q: '¿Por qué elegir OEM en lugar de comprar de catálogo?', a: 'Porque necesita un producto que nadie más pueda vender: su especificación, su disposición de terminales, su etiqueta. Comprar de catálogo significa que un competidor puede adquirir la misma batería.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentos" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>¿Qué es una batería OEM?</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-01 · Fuente: documentación técnica de Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">Una batería OEM es una batería producida según la especificación del comprador y vendida bajo la marca del comprador, en lugar de la etiqueta propia de la fábrica.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Una batería OEM se fabrica según la especificación del comprador y se vende bajo su marca: la calidad la define la especificación, no la etiqueta. La misma fábrica suele fabricar baterías de marca y OEM en la misma línea; la especificación del comprador decide el resultado.
+    </div>
+
+    <h2>La idea central</h2>
+    <p>OEM significa fabricante de equipo original. En el aprovisionamiento de baterías, OEM significa que el proveedor fabrica según una especificación acordada: voltaje, capacidad, CCA, familia de estándares, tamaño de carcasa, disposición de terminales y etiquetado. El comprador controla la definición del producto y la marca.</p>
+
+    <h2>En qué se diferencia OEM de ODM y de la marca privada</h2>
+    <ul>
+      <li><strong>OEM</strong> — usted aporta la especificación; el fabricante fabrica conforme a ella.</li>
+      <li><strong>ODM</strong> — el fabricante ofrece un diseño existente que usted puede marcar y ajustar.</li>
+      <li><strong>Marca privada</strong> — su identidad se aplica a una plataforma de producto suministrada.</li>
+    </ul>
+    <p><a href="/es/knowledge/oem-vs-odm-vs-private-label/">Lea la comparación completa de OEM vs ODM vs marca privada &rarr;</a></p>
+
+    <h2>Qué incluye una especificación de batería OEM</h2>
+    <p>Como mínimo, un proyecto de batería OEM define la familia de estándares (JIS, DIN, BCI, AS o SA), el voltaje, la capacidad (Ah), la CCA, las dimensiones, el tipo de terminal y la polaridad. Los modelos de referencia como 65D26 o H6 suelen usarse como punto de partida.</p>
+    <p><a href="/es/knowledge/oem-battery-specification-guide/">Guía de especificación de baterías OEM &rarr;</a></p>
+
+    <h2>Dingwei Battery y su fabricante</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). {MANUFACTURER.name} opera una instalación de {MANUFACTURER.factoryArea} con {MANUFACTURER.productionLines} y fabrica según los estándares JIS, DIN, BCI, AS y SA.</p>
+    <p><a href="/es/oem/">Programas de baterías OEM &rarr;</a></p>
+
+    <h2>OEM, ODM y marca privada: ¿quién es dueño de qué?</h2>
+    <p>En términos de compras, los tres modelos difieren en quién es dueño del diseño y quién es dueño de la marca. Mantenga visible esa división de titularidad antes de firmar un acuerdo de aprovisionamiento.</p>
+    <table>
+      <thead>
+        <tr><th>Modelo</th><th>Quién es dueño del diseño</th><th>Quién es dueño de la marca</th><th>Comprador típico</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>OEM</td><td>Comprador</td><td>Comprador</td><td>El comprador tiene una especificación definida</td></tr>
+        <tr><td>ODM</td><td>Fabricante</td><td>Comprador</td><td>El comprador quiere una plataforma probada</td></tr>
+        <tr><td>Marca privada</td><td>Fabricante</td><td>Comprador</td><td>El comprador quiere la entrada al mercado más rápida</td></tr>
+      </tbody>
+    </table>
+    <p>Si sus requisitos se sitúan entre dos modelos, use la <a href="/es/knowledge/oem-vs-odm-vs-private-label/">guía completa de decisión OEM vs ODM vs marca privada</a> antes de comprometerse.</p>
+
+    <h2>Por qué el OEM de plomo-ácido es distinto del litio</h2>
+    <p>El plomo-ácido es una cadena de suministro con 150 años de historia. A diferencia de las celdas de litio, las baterías de arranque de plomo-ácido no son mercancías peligrosas de Clase 9, por lo que el envío y el cumplimiento normativo son más sencillos. Para los importadores, esto significa menos restricciones de transporte y menor carga documental.</p>
+    <p>Esa realidad del transporte es una ventaja de aprovisionamiento, no solo un detalle técnico: simplifica la selección del transportista y reduce el conjunto de documentos que puede retrasar un contenedor. Revise la misma cadena de suministro en el contexto de una fábrica con la <a href="/es/knowledge/how-audit-battery-factory/">auditoría de fábrica de plomo-ácido</a>.</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Defina su especificación de batería OEM" />
+</ArticleLayout>

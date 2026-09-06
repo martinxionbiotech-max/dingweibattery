@@ -1,0 +1,85 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, TRADE_TERMS } from '../../../../data/site';
+
+const title = 'Lista de Verificación del Proveedor de Baterías OEM | Dingwei Battery';
+const description = 'Una lista de verificación de evaluación de proveedores para el aprovisionamiento de baterías OEM: especificación, certificaciones, capacidad de fábrica, muestreo, condiciones y repetibilidad.';
+const articleTitle = 'Lista de verificación del proveedor de baterías OEM';
+
+const faqs = [
+  { q: '¿Qué señal de alarma debería hacerme parar de inmediato?', a: 'Una cotización dada antes de fijar la familia de estándares y la base de CCA. Si un proveedor valora una &ldquo;batería de 72 Ah&rdquo; sin preguntar qué estándar, está adivinando, y el precio también.' },
+  { q: '¿Basta una lista de verificación para protegerme?', a: 'Una lista de verificación es un filtro, no una garantía. Descarta a los proveedores débiles pero no sustituye a ensayar una muestra y confirmar el control de cambios en el contrato.' },
+  { q: '¿Qué separa a un proveedor fiable de uno que solo destaca en una muestra?', a: 'La repetibilidad. Pregunte cómo mantienen el décimo contenedor idéntico a la muestra aprobada: un proveedor que no puede describir su control de cambios es un riesgo.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Aprovisionamiento" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Lista de verificación del proveedor de baterías OEM</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-01 · Fuente: documentación técnica de Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">Pase a un proveedor por estas comprobaciones antes de comprometerse con un pedido de baterías OEM.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> La señal de alarma que debería hacerle parar de inmediato es una cotización dada antes de fijar la familia de estándares y la base de CCA: un proveedor que valora una &ldquo;batería de 72 Ah&rdquo; sin preguntar qué estándar está adivinando, y el precio también. Una lista de verificación es un filtro, no una garantía.
+    </div>
+
+    <h2>Especificación</h2>
+    <ul>
+      <li>Familia de estándares confirmada: JIS, DIN, BCI, AS o SA.</li>
+      <li>Voltaje, capacidad (Ah) y CCA acordados por escrito.</li>
+      <li>Tamaño de carcasa, tipo de terminal y polaridad definidos.</li>
+      <li>Modelo de referencia o plano adjunto al pedido.</li>
+    </ul>
+
+    <h2>Certificaciones</h2>
+    <p>Solicite certificados vigentes en lugar de afirmaciones de marketing. {MANUFACTURER.name} posee {CERTIFICATIONS.join(', ')}.</p>
+
+    <h2>Capacidad de fábrica</h2>
+    <ul>
+      <li>Superficie de fábrica y número de líneas de producción.</li>
+      <li>Producción diaria frente a su volumen anual.</li>
+      <li>Experiencia de exportación y mercados de destino.</li>
+    </ul>
+    <p>{MANUFACTURER.name} opera una planta de {MANUFACTURER.factoryArea} con {MANUFACTURER.productionLines} y exporta a {MANUFACTURER.exportMarkets}.</p>
+
+    <h2>Condiciones comerciales</h2>
+    <ul>
+      <li>MOQ: {TRADE_TERMS.moq}.</li>
+      <li>Plazo de entrega: {TRADE_TERMS.leadTime}.</li>
+      <li>Pago: {TRADE_TERMS.payment}.</li>
+      <li>Incoterms: {TRADE_TERMS.incoterms}.</li>
+      <li>Garantía: {TRADE_TERMS.warranty}.</li>
+    </ul>
+
+    <h2>Repetibilidad</h2>
+    <p>Confirme cómo mantiene el fabricante idénticos los pedidos posteriores a la muestra aprobada: etiqueta, embalaje, especificación y calidad.</p>
+    <p><a href="/es/knowledge/how-choose-oem-battery-manufacturer/">Cómo elegir un fabricante &rarr;</a> · <a href="/es/oem/">Programas OEM de Dingwei &rarr;</a></p>
+
+    <h2>Señales de alarma</h2>
+    <ul>
+      <li>No hay certificados vigentes cuando los solicita.</li>
+      <li>Cotizan antes de fijar la familia de estándares y la base de CCA.</li>
+      <li>No hay muestra disponible de una serie de producción reciente.</li>
+    </ul>
+    <p>Si aparece cualquiera de estas, ralentice el proceso y vuelva a revisar el <a href="/es/knowledge/how-choose-oem-battery-manufacturer/">marco de decisión de cinco puntos</a> antes de colocar volumen.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+
+    <h2>Revise la cotización, no solo el precio</h2>
+    <p>Una cotización es un alcance de seis partes. Si falta alguna, el número no es comparable:</p>
+    <ul>
+      <li><strong>Costes de utillaje</strong> — únicos o por fases, y reembolsables o no.</li>
+      <li><strong>Estructura de MOQ</strong> — prototipo / piloto / producción claramente separados.</li>
+      <li><strong>Alcance del informe de ensayo</strong> — informes de transporte, seguridad y rendimiento enumerados.</li>
+      <li><strong>Condiciones de garantía</strong> — duración, exclusiones y gestión de fallos.</li>
+      <li><strong>Soporte de ingeniería</strong> — incluido o facturado por separado.</li>
+      <li><strong>Control de cambios</strong> — un proceso ECO formal, no un acuerdo verbal.</li>
+    </ul>
+    <p>Use los mismos seis campos cuando emita la <a href="/es/knowledge/oem-battery-rfq-guide/">RFQ de baterías OEM</a> para que los proveedores se vean obligados a cotizar sobre el alcance, no sobre un número de unidad sin contexto.</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Pase a Dingwei Battery por su lista de verificación" />
+</ArticleLayout>

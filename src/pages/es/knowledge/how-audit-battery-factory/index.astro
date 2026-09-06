@@ -1,0 +1,89 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS } from '../../../../data/site';
+
+const title = 'Cómo Auditar una Fábrica de Baterías de Plomo-Ácido | Dingwei Battery';
+const description = 'Cómo auditar una fábrica de baterías de plomo-ácido para el aprovisionamiento OEM: certificaciones, capacidad de producción, control de calidad, ensayo y preparación para la exportación.';
+const articleTitle = 'Cómo auditar una fábrica de baterías de plomo-ácido';
+
+const faqs = [
+  { q: '¿Necesito visitar la fábrica en persona?', a: 'No siempre. Una auditoría documentada — certificados, descripciones de proceso y datos de ensayo — más una muestra de producción cubre la mayor parte del riesgo. Pero para un programa grande, una auditoría in situ merece el viaje.' },
+  { q: '¿Qué es lo más revelador que hay que mirar?', a: 'El tiempo de curado. Una fábrica que apresura el curado para ahorrar días produce placas débiles que fallan pronto: pregunte por su ventana de curado, no solo por sus cifras de capacidad.' },
+  { q: '¿Por qué una auditoría de plomo-ácido es más simple que una de litio?', a: 'El plomo-ácido no necesita auditoría de fuga térmica ni de seguridad de celdas. El enfoque de la auditoría se desplaza a la consistencia de proceso y el control de materias primas, que son más fáciles de verificar.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Calidad" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Cómo auditar una fábrica de baterías de plomo-ácido</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-01 · Fuente: documentación técnica de Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">Una auditoría de fábrica es cómo verifica que un fabricante de baterías puede entregar su especificación de forma repetible, no solo una vez. Ejecute estas comprobaciones antes de comprometer volumen.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Audite una fábrica de baterías contra cinco áreas verificables: certificaciones, capacidad, control de calidad, trazabilidad y documentos de exportación. La pregunta individual más reveladora es el tiempo de curado: una fábrica que apresura el curado para ahorrar días produce placas débiles que fallan pronto, así que pregunte por la ventana de curado, no solo por las cifras de capacidad.
+    </div>
+
+    <h2>Certificaciones</h2>
+    <p>Solicite certificados vigentes, no afirmaciones. {MANUFACTURER.name} posee {CERTIFICATIONS.join(', ')}.</p>
+
+    <h2>Capacidad de producción</h2>
+    <p>Compruebe la superficie de fábrica, el número de líneas de producción y la producción diaria contra su volumen anual. {MANUFACTURER.name} opera una planta de {MANUFACTURER.factoryArea} con {MANUFACTURER.productionLines} produciendo {MANUFACTURER.dailyOutput}.</p>
+
+    <h2>Control de calidad y ensayo</h2>
+    <ul>
+      <li>Inspección de material entrante</li>
+      <li>Comprobaciones en proceso (fundición de rejilla, empastado, curado, formación)</li>
+      <li>Ensayo eléctrico 100% al final de línea</li>
+      <li>Trazabilidad por lotes</li>
+      <li>Ensayo de laboratorio de CCA y capacidad</li>
+    </ul>
+
+    <h2>Preparación para la exportación</h2>
+    <p>Confirme la experiencia de exportación, la capacidad documental y los mercados de destino. {MANUFACTURER.name} exporta a {MANUFACTURER.exportMarkets}.</p>
+
+    <h2>Cuadro de mando de auditoría</h2>
+    <ul>
+      <li><strong>Certificación</strong> — los certificados vigentes son visibles y verificables.</li>
+      <li><strong>Capacidad</strong> — la superficie de planta, las líneas y la producción se asignan a su volumen anual.</li>
+      <li><strong>Calidad</strong> — los ensayos en proceso y al final de línea están documentados.</li>
+      <li><strong>Exportación</strong> — los mercados de destino y la capacidad documental son claros.</li>
+    </ul>
+    <p>Use las mismas cuatro columnas para cada fábrica y luego compare con el <a href="/es/factory/">resumen de fábrica de Dingwei</a> como ejemplo resuelto.</p>
+
+    <h2>Qué llevarse de una auditoría</h2>
+    <ul>
+      <li>Certificados vigentes</li>
+      <li>Muestra de una serie de producción reciente</li>
+      <li>Una ficha de especificación para su modelo de referencia</li>
+      <li>Condiciones comerciales acordadas</li>
+    </ul>
+    <p><a href="/es/knowledge/oem-battery-supplier-checklist/">Lista de verificación del proveedor de baterías OEM &rarr;</a> · <a href="/es/factory/">Capacidad de fábrica de baterías &rarr;</a></p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+
+    <h2>Las diez etapas a auditar</h2>
+    <p>Recorra la fábrica en el orden en que se fabrica la batería. Para cada etapa, pregunte qué se mide y cómo se controlan los rechazos.</p>
+    <ol>
+      <li><strong>Fundición de rejilla</strong> — compruebe el grosor de la rejilla y la consistencia de la aleación.</li>
+      <li><strong>Mezcla de pasta</strong> — compruebe el control de la mezcla y los registros de lote.</li>
+      <li><strong>Empastado</strong> — compruebe el peso de placa y la aplicación de pasta.</li>
+      <li><strong>Curado</strong> — compruebe el tiempo y las condiciones; una ventana típica es 2–4 días.</li>
+      <li><strong>Ensamblaje</strong> — compruebe la alineación de placas y el manejo de separadores.</li>
+      <li><strong>Soldadura</strong> — compruebe las soldaduras entre celdas y de terminales.</li>
+      <li><strong>Llenado de electrolito</strong> — compruebe el control de volumen y densidad del ácido.</li>
+      <li><strong>Carga de formación</strong> — compruebe el perfil de carga y la duración.</li>
+      <li><strong>Sellado</strong> — compruebe la tapa, el venteo y el control de fugas.</li>
+      <li><strong>Ensayo</strong> — confirme el ensayo eléctrico 100% al final de línea más el muestreo de CCA y capacidad.</li>
+    </ol>
+    <p>Lleve esta secuencia consigo y compárela con las comprobaciones documentadas en la <a href="/es/knowledge/oem-battery-supplier-checklist/">lista de verificación del proveedor de baterías OEM</a>.</p>
+
+    <h2>La auditoría de plomo-ácido es más simple que la de litio</h2>
+    <p>El esfuerzo de auditoría del plomo-ácido se concentra en la consistencia de proceso y las materias primas. Una auditoría de celdas de litio añade controles de seguridad de celdas y fuga térmica; el plomo-ácido no conlleva la misma carga de auditoría de seguridad de celdas. Eso hace la auditoría de plomo-ácido más corta y fácil de estandarizar para los compradores OEM.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Revise la huella de fábrica en el <a href="/es/factory/">resumen de fábrica de Dingwei</a> como ejemplo resuelto de los datos de auditoría a solicitar.</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Pase a Dingwei Battery por su auditoría" />
+</ArticleLayout>

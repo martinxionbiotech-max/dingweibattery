@@ -1,0 +1,74 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS } from '../../../../data/site';
+
+const title = 'Envío, Embalaje y Garantía de Baterías | Dingwei Battery';
+const description = 'Cómo se embalan, envían y garantizan las baterías de plomo-ácido — carga de contenedor, documentación de exportación y qué cubre realmente una garantía de 12 meses.';
+const articleTitle = 'Envío, embalaje y garantía de baterías';
+
+const faqs = [
+  { q: '¿Las baterías de plomo-ácido son mercancías peligrosas?', a: 'No. A diferencia de las celdas de litio, las baterías de arranque de plomo-ácido no son mercancías peligrosas de Clase 9, así que el envío y el cumplimiento son más simples: sin informe UN38.3 ni documentación especial de mercancías peligrosas. Es una ventaja logística real del plomo-ácido para un programa OEM.' },
+  { q: '¿Por qué el MOQ de baterías sigue al contenedor?', a: 'Las baterías son pesadas, así que el contenedor de 20 pies suele alcanzar su límite de peso antes que su límite de volumen, que es por lo que el MOQ está ligado al contenedor.' },
+  { q: '¿Qué cubre realmente una garantía de 12 meses?', a: 'Depende del alcance escrito: duración, exclusiones y gestión de reclamaciones. Confirme los tres por escrito antes de confiar en ella.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logística" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento · Logística</span>
+    <h1>Envío, embalaje y garantía de baterías</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-03 · Fuente: práctica de logística de exportación</p>
+    <p class="lead">Un pedido de baterías no está completo cuando sale de la línea: está completo cuando llega sin daños, con los documentos correctos y con una garantía que usted comprende.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Las baterías de plomo-ácido se envían como carga ordinaria (no mercancías peligrosas de Clase 9 como el litio), lo que simplifica el transporte. Los puntos logísticos clave son los límites de peso del contenedor, la documentación de exportación y una garantía cuyo alcance — duración, exclusiones y gestión — está por escrito.
+    </div>
+
+    <h2>Por qué el plomo-ácido es más simple de enviar</h2>
+    <p>A diferencia de las celdas de litio, las baterías de arranque de plomo-ácido no son mercancías peligrosas de Clase 9. Para los importadores esto significa menos restricciones de transporte, sin informe UN38.3 y una carga documental más ligera: una ventaja logística real del plomo-ácido para un programa OEM.</p>
+
+    <h2>Embalaje y carga de contenedor</h2>
+    <p>Las baterías son pesadas, así que el contenedor de 20 pies suele alcanzar su límite de peso antes que su límite de volumen. Por eso el MOQ sigue al contenedor (típicamente {TRADE_TERMS.moq}). El embalaje debe proteger los terminales del cortocircuito y la carcasa del impacto durante el manejo.</p>
+    <ul>
+      <li>Palés y cajas dimensionados según el plan de contenedor.</li>
+      <li>Protección de terminales y orientación vertical.</li>
+      <li>Carga de modelos mixtos para llenar un contenedor de forma eficiente y repartir el coste unitario.</li>
+    </ul>
+
+    <h2>Documentación de exportación</h2>
+    <p>Un conjunto de exportación limpio evita retrasos en aduanas. Los documentos típicos incluyen:</p>
+    <ul>
+      <li>Factura comercial y lista de embalaje</li>
+      <li>Conocimiento de embarque</li>
+      <li>Certificado de origen</li>
+      <li>Informes de ensayo (CCA / capacidad) cuando se requieran</li>
+    </ul>
+    <p>Las condiciones de envío siguen {TRADE_TERMS.incoterms}, con exportación desde {MANUFACTURER.exportPorts}.</p>
+
+    <h2>Garantía: lea el alcance, no solo el número</h2>
+    <p>La garantía es de {TRADE_TERMS.warranty}. Pero una garantía solo es tan buena como su alcance escrito. Confirme tres cosas:</p>
+    <ol>
+      <li><strong>Duración</strong> — desde la fecha del conocimiento de embarque.</li>
+      <li><strong>Exclusiones</strong> — qué <em>no</em> está cubierto (descarga profunda, mal uso, daño físico).</li>
+      <li><strong>Gestión</strong> — cómo se presenta, inspecciona y resuelve una reclamación.</li>
+    </ol>
+    <p class="note">Una &ldquo;garantía de 12 meses&rdquo; con exclusiones amplias no es lo mismo que una garantía de 12 meses con exclusiones claras y reducidas. Obtenga las condiciones por escrito.</p>
+
+    <h2>Qué deberían preguntar los compradores</h2>
+    <ul>
+      <li>¿Cómo se embalan y cargan las baterías? ¿El contenedor está limitado por peso o por volumen?</li>
+      <li>¿Qué documentos de exportación se proporcionan como estándar?</li>
+      <li>¿Cuáles son las exclusiones exactas de garantía y la gestión de reclamaciones?</li>
+      <li>¿Qué Incoterm se aplica y dónde se transfiere el riesgo?</li>
+    </ul>
+
+    <p>Vea cómo funcionan el plazo de entrega y el MOQ en la <a href="/es/knowledge/oem-battery-moq-lead-time/">guía de MOQ y plazo de entrega</a>, y cómo fijar las condiciones en una <a href="/es/knowledge/oem-battery-rfq-guide/">RFQ</a>.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+    <p><a href="/es/contact/">Condiciones de envío y garantía de baterías &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirme las condiciones de envío y garantía" />
+</ArticleLayout>

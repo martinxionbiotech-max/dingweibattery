@@ -1,0 +1,61 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS } from '../../../../data/site';
+
+const title = 'Cómo Funcionan los Programas de Baterías OEM | Dingwei Battery';
+const description = 'Cómo funciona un programa de baterías OEM de principio a fin — especificación, muestreo, producción y pedidos repetidos — para importadores y propietarios de marca.';
+const articleTitle = 'Cómo funcionan los programas de baterías OEM';
+
+const faqs = [
+  { q: '¿Qué hace distinto a un programa OEM de un pedido puntual?', a: 'El bloqueo de especificación. Un programa bloquea la muestra aprobada para que el décimo pedido coincida con el primero; un pedido puntual no tiene esa garantía.' },
+  { q: '¿Cuánto se tarda en llegar a los pedidos repetidos?', a: 'Depende del muestreo y la aprobación: el proceso de desarrollo tiene puertas que debe firmar antes de la producción. Apresurar las puertas arriesga la repetibilidad que el programa existe para proteger.' },
+  { q: '¿Cuál es la aprobación más importante del comprador?', a: 'La muestra. Aprobar un plano pero no ensayar la muestra física es como un pedido repetido vuelve distinto de lo que aprobó.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentos" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Cómo funcionan los programas de baterías OEM</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-01 · Fuente: documentación técnica de Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">Un programa de baterías OEM es un acuerdo de suministro repetible, no un pedido puntual. Funciona en cuatro fases.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Un programa de baterías OEM funciona en cuatro fases repetibles: especificación, muestreo, producción y pedidos repetidos. El comprador firma la especificación y la muestra, mientras el fabricante bloquea ese estándar aprobado para que los contenedores posteriores coincidan con la primera unidad aprobada.
+    </div>
+
+    <h2>1. Especificación</h2>
+    <p>Usted define la batería: estándar, modelo, capacidad, CCA, terminal, etiqueta y embalaje. El fabricante la confirma contra su capacidad de producción.</p>
+
+    <h2>2. Muestreo</h2>
+    <p>El fabricante produce muestras de preproducción para su ensayo y aprobación antes de la producción en serie.</p>
+
+    <h2>3. Producción</h2>
+    <p>La especificación aprobada pasa a la línea de producción. {MANUFACTURER.name} opera {MANUFACTURER.productionLines} con control de calidad {CERTIFICATIONS[0]} y ensayo 100% al final de línea.</p>
+
+    <h2>4. Pedidos repetidos</h2>
+    <p>La especificación se bloquea para que los pedidos posteriores coincidan con la muestra aprobada. La repetibilidad es el objetivo de un programa OEM.</p>
+
+    <h2>Las cuatro fases de un vistazo</h2>
+    <table>
+      <thead><tr><th>Fase</th><th>Qué se produce</th><th>Punto de control del comprador</th></tr></thead>
+      <tbody>
+        <tr><td>Especificación</td><td>Ficha de especificación escrita</td><td>Firme cada parámetro, incluida la base de CCA</td></tr>
+        <tr><td>Muestreo</td><td>Muestra de preproducción</td><td>Ensaye antes de aprobar; guarde el registro</td></tr>
+        <tr><td>Producción</td><td>Lotes de carga de contenedor</td><td>Confirme el calendario y la congelación de cambios</td></tr>
+        <tr><td>Pedidos repetidos</td><td>Lotes de continuación idénticos</td><td>Vuelva a comprobar contra la muestra aprobada</td></tr>
+      </tbody>
+    </table>
+    <p><a href="/es/oem/">Programas de baterías OEM &rarr;</a> · <a href="/es/knowledge/oem-battery-development-process/">Proceso de desarrollo de baterías OEM &rarr;</a></p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+
+    <h2>El bloqueo de especificación</h2>
+    <p>El núcleo de un programa OEM no es el primer pedido; es la especificación bloqueada que hace que el décimo pedido coincida con la primera muestra aprobada. Sin un bloqueo, un pedido repetido se convierte en un nuevo proyecto de desarrollo con riesgo de aprobación renovado.</p>
+    <p>Defina el bloqueo como la muestra aprobada por el comprador más parámetros escritos y control de cambios. El <a href="/es/knowledge/oem-battery-development-process/">proceso de desarrollo OEM</a> muestra dónde debe firmarse cada puerta antes de liberar el bloqueo a producción.</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Inicie su programa de baterías OEM" />
+</ArticleLayout>

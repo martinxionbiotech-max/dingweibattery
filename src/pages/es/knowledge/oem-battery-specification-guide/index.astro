@@ -1,0 +1,91 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import ModelCard from '../../../../components/ModelCard.astro';
+import { STANDARDS, MANUFACTURER } from '../../../../data/site';
+import { batteryModels } from '../../../../data/battery-models';
+
+const title = 'Guía de Especificación de Baterías OEM | Dingwei Battery';
+const description = 'Guía del comprador sobre especificaciones de baterías OEM: familia de estándares, voltaje, capacidad, CCA, dimensiones, terminal, polaridad y cómo confirmar los valores.';
+const articleTitle = 'Guía de especificación de baterías OEM';
+
+const faqs = [
+  { q: '¿Cuál es el error de especificación más común?', a: 'Cotizar la CCA sin la base de ensayo. Los números JIS y EN no son comparables, así que una especificación sin la base no es realmente una especificación.' },
+  { q: '¿Puedo copiar la especificación de un competidor?', a: 'Puede usarla como referencia de partida, pero confirme cada campo según la compatibilidad de su propio vehículo: el tamaño de carcasa, el terminal y la polaridad son específicos de cada mercado y críticos para la compatibilidad.' },
+  { q: '¿Qué significa &ldquo;confirmar al solicitar&rdquo; en una ficha técnica?', a: 'Significa que el valor se omite deliberadamente en lugar de estimarse. El tipo de terminal y la polaridad, por ejemplo, deben confirmarse con su vehículo antes de pedir.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Ingeniería" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Guía de especificación de baterías OEM</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-01 · Fuente: documentación técnica de Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">Una especificación de batería solo es tan útil como los campos que fija de antemano. Esta guía explica cada campo que los compradores deberían confirmar.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Una especificación de batería OEM utilizable fija la familia de estándares, el voltaje, la capacidad, la CCA con su base de ensayo, las dimensiones, el tipo de terminal y la polaridad. Nunca compare valores de CCA sin indicar si son JIS (&minus;15&deg;C) o EN (&minus;18&deg;C).
+    </div>
+
+    <h2>Familia de estándares</h2>
+    <p>Empiece por el estándar que usan sus vehículos: {STANDARDS.join(', ')}. Los modelos JIS como 65D26 y los modelos DIN/EN como H6 describen convenciones de denominación y ensayo distintas.</p>
+
+    <h2>Voltaje</h2>
+    <p>Las baterías de arranque de turismos suelen ser de 12V; las aplicaciones de servicio pesado también pueden usar 6V. Confirme el voltaje del sistema del vehículo objetivo.</p>
+
+    <h2>Capacidad (Ah)</h2>
+    <p>La capacidad describe el contenido energético de la batería durante un ensayo de descarga definido. Debe leerse junto con el estándar, porque el mismo tamaño físico puede llevar valores distintos entre familias.</p>
+
+    <h2>CCA</h2>
+    <p>Los amperios de arranque en frío indican el rendimiento de arranque a baja temperatura. Los valores de CCA dependen del método de ensayo y deben llevar una base de referencia, por ejemplo JIS (-15&deg;C) o EN (-18&deg;C). Confirme siempre la CCA final con el fabricante antes de pedir.</p>
+
+    <h2>Dimensiones, terminal y polaridad</h2>
+    <p>Fije longitud &times; anchura &times; altura en milímetros, tipo de terminal y polaridad. Si un campo aún no se conoce, márquelo como &ldquo;confirmar al solicitar&rdquo; en lugar de adivinar.</p>
+
+    <h2>Modelos de referencia</h2>
+    <div class="model-list">
+      {batteryModels.map((model) => <ModelCard model={model} />)}
+    </div>
+    <p>Las especificaciones anteriores son de referencia; confirme los valores finales con el fabricante. <a href="/es/tools/battery-finder/">Herramienta buscador de baterías &rarr;</a></p>
+
+    <h2>Visión de Dingwei Battery</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). {MANUFACTURER.name} fabrica según los estándares JIS, DIN, BCI, AS y SA.</p>
+    <p><a href="/es/oem/">Inicie un programa de baterías OEM &rarr;</a></p>
+
+    <h2>CCA: dos números para una batería</h2>
+    <p>Los valores de amperios de arranque en frío solo se comparan cuando se indica el método de ensayo. La misma batería puede llevar un número JIS más bajo y un número EN / SAE más alto porque cada método usa una condición de ensayo distinta.</p>
+    <table>
+      <thead>
+        <tr><th>Método de ensayo</th><th>Temperatura</th><th>Nota</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>JIS</td><td>&minus;15&deg;C</td><td>Número más bajo; común en Asia</td></tr>
+        <tr><td>EN / SAE</td><td>&minus;18&deg;C</td><td>Número más alto; internacional</td></tr>
+      </tbody>
+    </table>
+    <p>No son directamente convertibles. Indique siempre el método de ensayo junto a un valor de CCA cuando emita una RFQ.</p>
+
+    <h2>Los campos de especificación que realmente importan</h2>
+    <ul>
+      <li>Familia de estándares y modelo de referencia</li>
+      <li>Voltaje y capacidad</li>
+      <li>CCA con su base de ensayo</li>
+      <li>Tamaño de carcasa y tipo de terminal</li>
+      <li>Polaridad</li>
+      <li>Requisitos de etiqueta y embalaje</li>
+    </ul>
+    <p>Incluya esos campos en la <a href="/es/knowledge/oem-battery-rfq-guide/">guía de RFQ de baterías OEM</a> y luego compruebe las respuestas con la <a href="/es/knowledge/oem-battery-supplier-checklist/">lista de verificación del proveedor</a>.</p>
+
+    <h2>Deriva de especificación: el riesgo oculto</h2>
+    <p>La deriva de especificación ocurre silenciosamente en un pedido repetido: la muestra aprobada se sustituye por una aleación de rejilla distinta, un tiempo de curado más corto o un cambio de terminal no aprobado. El comprador solo lo nota cuando el nuevo contenedor se comporta de forma distinta al primero.</p>
+    <p>El único control duradero es fijar la especificación aprobada y exigir un control de cambios formal para cualquier desviación. Deje ese control por escrito usando la <a href="/es/knowledge/oem-battery-supplier-checklist/">lista de verificación del proveedor</a> antes de reiniciar la producción.</p>
+
+    <h2>CCA: por qué una batería tiene dos números</h2>
+    <p>Una sola batería puede mostrar dos valores de CCA porque JIS (&minus;15&deg;C) y EN / SAE (&minus;18&deg;C) son métodos de ensayo distintos, no una valoración &ldquo;alta&rdquo; y &ldquo;baja&rdquo;. Si la RFQ no indica el método de ensayo, dos proveedores pueden parecer cotizar baterías distintas cuando cotizan el mismo producto sobre bases diferentes.</p>
+    <p>Indique la base en cada línea y compare solo valores del mismo método. Vea cómo encaja esa instrucción en la solicitud más amplia en la <a href="/es/knowledge/oem-battery-rfq-guide/">guía de RFQ de baterías OEM</a>.</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Finalice su especificación de batería" />
+</ArticleLayout>

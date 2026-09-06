@@ -1,0 +1,102 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { STANDARDS } from '../../../../data/site';
+
+const title = 'Cómo Redactar una RFQ de Baterías OEM | Dingwei Battery';
+const description = 'Cómo redactar una RFQ de baterías OEM que obtenga cotizaciones precisas: campos de especificación, volumen, embalaje, certificación y requisitos de entrega.';
+const articleTitle = 'Guía de RFQ de baterías OEM';
+
+const faqs = [
+  { q: '¿Por qué fracasan la mayoría de las RFQ?', a: 'Tres campos ausentes: la base de CCA, el volumen anual y un único estándar por línea. Un proveedor solo puede cotizar con precisión sobre un alcance, no sobre uno vago.' },
+  { q: '¿Debo incluir un precio objetivo en la RFQ?', a: 'No en la primera RFQ. Cotice primero sobre el alcance para obtener respuestas de ingeniería honestas y negocie el precio una vez fijado el alcance.' },
+  { q: '¿Cuántos modelos debe cubrir una línea de la RFQ?', a: 'Uno. Mezclar modelos JIS y DIN en una sola línea obliga al proveedor a adivinar, y obtiene un rango en lugar de una cotización.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Aprovisionamiento" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Guía de RFQ de baterías OEM</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-01 · Fuente: documentación técnica de Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">Una RFQ completa le da cotizaciones comparables; una vaga le da un rango tan amplio que resulta inútil. Incluya estos campos.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> La mayoría de las RFQ de baterías OEM fracasan por tres campos ausentes: la base de ensayo de CCA, el volumen anual y un estándar por línea. Un proveedor solo puede cotizar con precisión sobre un alcance, así que una RFQ vaga devuelve un rango tan amplio que resulta inútil.
+    </div>
+
+    <h2>El bloque de especificación</h2>
+    <ul>
+      <li>Tipo de batería (SLI, AGM, EFB, servicio pesado)</li>
+      <li>Familia de estándares ({STANDARDS.join(', ')})</li>
+      <li>Modelo de referencia (p. ej. 65D26)</li>
+      <li>Voltaje, capacidad (Ah), CCA</li>
+      <li>Tamaño de carcasa, tipo de terminal, polaridad</li>
+    </ul>
+
+    <h2>El bloque de volumen</h2>
+    <ul>
+      <li>Volumen anual</li>
+      <li>Cantidad del primer pedido</li>
+      <li>Previsión por modelo si es mixta</li>
+      <li>Mercado objetivo (afecta al estándar y la certificación)</li>
+    </ul>
+
+    <h2>El bloque de marca</h2>
+    <ul>
+      <li>Marca privada u OEM</li>
+      <li>Arte de etiqueta y embalaje</li>
+      <li>Configuración de palé</li>
+      <li>Documentación multilingüe</li>
+    </ul>
+
+    <h2>El bloque comercial</h2>
+    <ul>
+      <li>Precio objetivo (opcional)</li>
+      <li>Incoterms</li>
+      <li>Condiciones de pago</li>
+      <li>Calendario de entrega</li>
+    </ul>
+    <p><a href="/es/contact/">Envíe una RFQ de baterías OEM &rarr;</a> · <a href="/es/knowledge/oem-battery-specification-guide/">Construya una especificación limpia &rarr;</a></p>
+
+    <h2>Lista de verificación de campos de la RFQ</h2>
+    <p>Un único campo ausente suele convertir una cotización en una conjetura. Repase esta tabla antes de enviar.</p>
+    <table>
+      <thead><tr><th>Bloque</th><th>Campo</th><th>Por qué importa</th></tr></thead>
+      <tbody>
+        <tr><td>Especificación</td><td>Familia de estándares + modelo de referencia</td><td>Las carcasas JIS, DIN y BCI no son intercambiables; el modelo fija el tamaño de carcasa.</td></tr>
+        <tr><td>Especificación</td><td>Base de ensayo de CCA</td><td>JIS (&minus;15&deg;C) y EN/SAE (&minus;18&deg;C) son ensayos distintos; sin la base, dos cotizaciones no son comparables.</td></tr>
+        <tr><td>Especificación</td><td>Tipo de terminal &amp; polaridad</td><td>La disposición de terminales decide si la batería cabe físicamente en el vehículo.</td></tr>
+        <tr><td>Volumen</td><td>Volumen anual + primer pedido</td><td>El MOQ y los precios escalonados dependen de ello; un volumen ausente hace que el proveedor asuma el peor caso.</td></tr>
+        <tr><td>Volumen</td><td>Mercado objetivo</td><td>El mercado decide la familia de estándares y el conjunto de certificaciones.</td></tr>
+        <tr><td>Marca</td><td>Etiqueta + embalaje + documentación</td><td>El alcance de marca privada cambia el utillaje y el plazo de entrega.</td></tr>
+        <tr><td>Comercial</td><td>Incoterms + pago</td><td>FOB, CFR y CIF mueven coste y riesgo de forma distinta entre comprador y proveedor.</td></tr>
+      </tbody>
+    </table>
+    <p class="note">No ponga un objetivo de precio en una primera RFQ salvo que quiera que los proveedores coticen según el número en lugar del alcance. Cotice primero sobre el alcance; negocie el precio después.</p>
+
+    <h2>Compare cotizaciones por alcance, no por precio</h2>
+    <p>Cuando vuelvan las cotizaciones, compruebe seis cosas antes de comparar el número de unidad:</p>
+    <ul>
+      <li><strong>Misma base de CCA</strong> — los números JIS y EN no son comparables.</li>
+      <li><strong>Misma referencia de carcasa</strong> — una cotización para un modelo &ldquo;similar&rdquo; es una batería distinta.</li>
+      <li><strong>Mismo tramo de MOQ</strong> — un precio a 10.000 unidades no es un precio a 1.000 unidades.</li>
+      <li><strong>Utillaje incluido</strong> — ¿el coste del molde o de la etiqueta va en el precio unitario o se factura por separado?</li>
+      <li><strong>Mismo Incoterm</strong> — FOB, CFR y CIF son tres bases de coste distintas.</li>
+      <li><strong>Alcance de garantía</strong> — una garantía de 12 meses con exclusiones no es lo mismo que una garantía de 12 meses.</li>
+    </ul>
+
+    <h2>Por qué fracasan la mayoría de las RFQ</h2>
+    <ul>
+      <li>Falta la base de CCA, así que las cotizaciones llegan con métodos de ensayo distintos.</li>
+      <li>Falta el volumen anual, así que varían el MOQ y las suposiciones de producción.</li>
+      <li>Se mezclan varios estándares en una línea, así que el proveedor adivina en lugar de cotizar un alcance.</li>
+    </ul>
+    <p>Compare las cotizaciones devueltas solo después de fijar esos campos. Empiece por la <a href="/es/knowledge/oem-battery-specification-guide/">guía de especificación</a> y mantenga un modelo por línea.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Envíe una RFQ OEM completa" />
+</ArticleLayout>

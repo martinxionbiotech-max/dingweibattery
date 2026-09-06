@@ -1,0 +1,66 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'OEM vs ODM vs Marca Privada | Dingwei Battery';
+const description = 'OEM, ODM y marca privada describen distintos niveles de control del diseño. Compárelos y elija el camino correcto para su marca de baterías.';
+const articleTitle = 'OEM vs ODM vs marca privada';
+
+const faqs = [
+  { q: '¿Cuál es la forma más rápida de lanzar una marca de baterías?', a: 'La marca privada: usted marca una batería que la fábrica ya fabrica. Es el camino más rápido, pero el menos diferenciado: cada competidor puede aprovisionarse de la misma plataforma.' },
+  { q: '¿Qué modelo me da más control?', a: 'OEM: usted define la especificación y es dueño del diseño. El inconveniente es un ciclo más largo con muestreo y puertas de aprobación antes de la producción.' },
+  { q: '¿Puedo pasar de marca privada a OEM más adelante?', a: 'Sí, y es un camino habitual: empiece con marca privada para probar el mercado y luego pase a OEM cuando tenga volumen y una especificación diferenciada que merezca protegerse.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentos" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>OEM vs ODM vs marca privada</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-01 · Fuente: documentación técnica de Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">Los tres modelos le permiten vender baterías bajo su propia marca. La diferencia es cuánto control de la especificación y el diseño tiene usted.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Los tres modelos difieren en quién es dueño del diseño: OEM significa que lo posee usted, ODM que lo posee la fábrica, y marca privada que usted marca un producto existente. Equivocarse le cuesta o la titularidad del diseño que quería, o unos costes de desarrollo que no necesitaba.
+    </div>
+
+    <h2>Definiciones</h2>
+    <ul>
+      <li><strong>OEM</strong> — usted define la especificación y la marca; el fabricante fabrica según sus requisitos.</li>
+      <li><strong>ODM</strong> — el fabricante posee un diseño listo; usted lo selecciona, adapta la marca y, opcionalmente, solicita cambios.</li>
+      <li><strong>Marca privada</strong> — un producto suministrado lleva su nombre, etiqueta y embalaje.</li>
+    </ul>
+
+    <h2>Cuál encaja con su objetivo de aprovisionamiento</h2>
+    <div class="grid grid--3">
+      <div class="card"><h3>Elija OEM</h3><p>Cuando tiene una especificación técnica definida y necesita un control exacto.</p></div>
+      <div class="card"><h3>Elija ODM</h3><p>Cuando quiere una plataforma probada y una salida al mercado más rápida.</p></div>
+      <div class="card"><h3>Elija marca privada</h3><p>Cuando la prioridad es la identidad de marca sobre un producto existente.</p></div>
+    </div>
+
+    <h2>Lo que permanece constante</h2>
+    <p>Sea cual sea el camino que elija, verifique la familia de estándares, el voltaje, la capacidad, la CCA, las dimensiones, la disposición de terminales, las certificaciones y las condiciones de exportación antes de pedir.</p>
+    <p><a href="/es/knowledge/oem-battery-supplier-checklist/">Lista de verificación del proveedor de baterías OEM &rarr;</a> · <a href="/es/knowledge/oem-battery-specification-guide/">Construya una especificación limpia &rarr;</a></p>
+
+    <h2>Visión de Dingwei Battery</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). El programa puede configurarse como OEM, ODM o marca privada según la especificación que ya controle.</p>
+    <p><a href="/es/oem/">Programas de baterías OEM &rarr;</a> · <a href="/es/private-label/">Programas de marca privada &rarr;</a></p>
+
+    <h2>¿Qué modelo le encaja?</h2>
+    <p>Elija por el activo que ya tiene, no por el tamaño del primer pedido:</p>
+    <ul>
+      <li><strong>Tiene una especificación o capacidad de diseño</strong> — elija OEM, porque controla la definición del producto.</li>
+      <li><strong>Quiere un diseño probado y un lanzamiento más rápido</strong> — elija ODM.</li>
+      <li><strong>Quiere probar un mercado bajo su marca</strong> — elija marca privada.</li>
+    </ul>
+    <p>Si la respuesta cambia según el modelo o el mercado, pase cada línea por la <a href="/es/knowledge/oem-battery-specification-guide/">guía de especificación de baterías OEM</a> antes de dividir el programa.</p>
+
+    <h2>El coste de equivocarse</h2>
+    <p>Elegir el modelo equivocado cuesta el doble: o paga un trabajo de desarrollo que debería haber sido ODM, o firma un acuerdo ODM esperando poseer el diseño y descubre después que el fabricante es el dueño. La solución comercial es dejar la titularidad por escrito, no asumir que el nombre del modelo transfiere el diseño.</p>
+    <p>Mantenga visible esa distinción de titularidad cuando compare las respuestas de los proveedores con la <a href="/es/knowledge/oem-battery-supplier-checklist/">lista de verificación del proveedor de baterías OEM</a>.</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Elija el programa de baterías correcto" />
+</ArticleLayout>

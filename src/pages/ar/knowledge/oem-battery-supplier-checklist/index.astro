@@ -1,0 +1,85 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, TRADE_TERMS } from '../../../../data/site';
+
+const title = 'قائمة مراجعة مورد بطاريات OEM | Dingwei Battery';
+const description = 'قائمة مراجعة لتقييم الموردين في توريد بطاريات OEM: المواصفات، الشهادات، قدرة المصنع، العينات، الشروط والتكرارية.';
+const articleTitle = 'قائمة مراجعة مورد بطاريات OEM';
+
+const faqs = [
+  { q: 'ما العلامة التحذيرية التي يجب أن تجعلني أتوقف فورًا؟', a: 'عرض سعر يُقدَّم قبل تثبيت عائلة المعايير وأساس CCA. إذا سعّر مورد «بطارية 72 أمبير-ساعة» دون السؤال عن المعيار، فهو يخمّن — والسعر كذلك.' },
+  { q: 'هل تكفي قائمة المراجعة لحمايتي؟', a: 'قائمة المراجعة مرشّح، وليست ضمانًا. فهي تكشف الموردين الضعفاء لكنها لا تحل محل اختبار عينة وتأكيد التحكم بالتغيير في العقد.' },
+  { q: 'ما الذي يفصل المورد الموثوق عن الذي يبرع في عينة واحدة؟', a: 'التكرارية. اسأل كيف يُبقون الحاوية العاشرة مطابقة للعينة المعتمدة — فالمورد الذي لا يستطيع وصف التحكم بالتغيير لديه هو خطر.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="التوريد" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">المعرفة</span>
+    <h1>قائمة مراجعة مورد بطاريات OEM</h1>
+    <p class="byline">نُشر بواسطة Dingwei Battery · آخر مراجعة 2026-09-01 · المصدر: الوثائق الفنية لشركة Chengguang Power Tech Co., Ltd.</p>
+    <p class="lead">مرّر المورد عبر هذه الفحوصات قبل الالتزام بطلب بطاريات OEM.</p>
+
+    <div class="takeaways">
+      <strong>الإجابة المختصرة:</strong> العلامة التحذيرية التي يجب أن تجعلك تتوقف فورًا هي عرض سعر يُقدَّم قبل تثبيت عائلة المعايير وأساس CCA — فالمورد الذي يسعّر «بطارية 72 أمبير-ساعة» دون السؤال عن المعيار يخمّن، والسعر كذلك. قائمة المراجعة مرشّح، وليست ضمانًا.
+    </div>
+
+    <h2>المواصفات</h2>
+    <ul>
+      <li>تأكيد عائلة المعايير: JIS أو DIN أو BCI أو AS أو SA.</li>
+      <li>الاتفاق كتابيًا على الجهد والسعة (Ah) وCCA.</li>
+      <li>تحديد حجم الهيكل ونوع الطرف والقطبية.</li>
+      <li>إرفاق موديل مرجعي أو رسم بالطلب.</li>
+    </ul>
+
+    <h2>الشهادات</h2>
+    <p>اطلب شهادات سارية بدلًا من الادعاءات التسويقية. تمتلك {MANUFACTURER.name} {CERTIFICATIONS.join(', ')}.</p>
+
+    <h2>قدرة المصنع</h2>
+    <ul>
+      <li>مساحة المصنع وعدد خطوط الإنتاج.</li>
+      <li>الإنتاج اليومي مقابل حجمك السنوي.</li>
+      <li>خبرة التصدير وأسواق الوجهة.</li>
+    </ul>
+    <p>تدير {MANUFACTURER.name} مصنعًا بمساحة {MANUFACTURER.factoryArea} مع {MANUFACTURER.productionLines} وتصدّر إلى {MANUFACTURER.exportMarkets}.</p>
+
+    <h2>الشروط التجارية</h2>
+    <ul>
+      <li>MOQ: {TRADE_TERMS.moq}.</li>
+      <li>مهلة التسليم: {TRADE_TERMS.leadTime}.</li>
+      <li>الدفع: {TRADE_TERMS.payment}.</li>
+      <li>شروط التسليم (Incoterms): {TRADE_TERMS.incoterms}.</li>
+      <li>الضمان: {TRADE_TERMS.warranty}.</li>
+    </ul>
+
+    <h2>التكرارية</h2>
+    <p>أكّد كيف تُبقي الشركة المصنعة الطلبات اللاحقة مطابقة للعينة المعتمدة — الملصق والتغليف والمواصفات والجودة.</p>
+    <p><a href="/ar/knowledge/how-choose-oem-battery-manufacturer/">كيف تختار شركة مصنعة &larr;</a> · <a href="/ar/oem/">برامج Dingwei OEM &larr;</a></p>
+
+    <h2>العلامات التحذيرية</h2>
+    <ul>
+      <li>لا توجد شهادات سارية عند طلبها.</li>
+      <li>تسعير قبل تثبيت عائلة المعايير وأساس CCA.</li>
+      <li>لا توجد عينة متاحة من دفعة إنتاج حديثة.</li>
+    </ul>
+    <p>إذا ظهر أي منها، أبطئ العملية وأعد فحص <a href="/ar/knowledge/how-choose-oem-battery-manufacturer/">إطار القرار الخماسي</a> قبل وضع الحجم.</p>
+    <p>توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002).</p>
+
+    <h2>افحص عرض السعر، لا السعر فقط</h2>
+    <p>عرض السعر نطاق من ستة أجزاء. إذا فُقد أي جزء، فالرقم غير قابل للمقارنة:</p>
+    <ul>
+      <li><strong>تكاليف القوالب</strong> — لمرة واحدة أو على مراحل، وقابلة للاسترداد أم لا.</li>
+      <li><strong>هيكل MOQ</strong> — النموذج الأولي / التجريبي / الإنتاج مفصولة بوضوح.</li>
+      <li><strong>نطاق تقرير الاختبار</strong> — تقارير النقل والسلامة والأداء مذكورة.</li>
+      <li><strong>شروط الضمان</strong> — المدة والاستثناءات ومعالجة الأعطال.</li>
+      <li><strong>الدعم الهندسي</strong> — مشمول أم يُحتسب منفصلًا.</li>
+      <li><strong>التحكم بالتغيير</strong> — عملية ECO رسمية، لا اتفاق شفهي.</li>
+    </ul>
+    <p>استخدم الحقول الستة نفسها عند إصدار <a href="/ar/knowledge/oem-battery-rfq-guide/">RFQ بطاريات OEM</a> حتى يُجبر الموردون على التسعير على النطاق، لا على رقم وحدة مجرد.</p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="مرّر Dingwei Battery عبر قائمة المراجعة" />
+</ArticleLayout>

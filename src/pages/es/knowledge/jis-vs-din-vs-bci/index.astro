@@ -1,0 +1,70 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Estándares de Baterías JIS vs DIN vs BCI | Dingwei Battery';
+const description = 'En qué difieren los estándares de baterías JIS, DIN/EN y BCI en tamaño de carcasa, disposición de terminales y método de ensayo de CCA — y cómo elegir el correcto para su mercado.';
+const articleTitle = 'Estándares de baterías JIS vs DIN vs BCI';
+
+const faqs = [
+  { q: '¿Cuál es la diferencia entre las baterías JIS, DIN y BCI?', a: 'Definen dimensiones de carcasa, disposiciones de terminales y métodos de ensayo de CCA distintos para mercados diferentes: JIS para Japón/Asia, DIN/EN para Europa, BCI para Norteamérica.' },
+  { q: '¿Las baterías JIS y DIN son intercambiables?', a: 'No. Incluso con valores eléctricos similares, la carcasa física y la disposición de terminales difieren, así que una familia no cabrá en un vehículo especificado para otra.' },
+  { q: '¿Cómo elijo el estándar de batería correcto?', a: 'Elija por el mercado del vehículo, no por las especificaciones de la batería: JIS para vehículos japoneses/asiáticos, DIN/EN para europeos, BCI para norteamericanos.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Estándares" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento · Estándares</span>
+    <h1>Estándares de baterías JIS vs DIN vs BCI</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-03 · Fuente: documentación de normas de baterías</p>
+    <p class="lead">El &ldquo;tamaño&rdquo; de una batería lo define la familia de estándares que usa su mercado. Las baterías JIS, DIN/EN y BCI con valores eléctricos similares son físicamente distintas y no intercambiables.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Las baterías JIS, DIN/EN y BCI no son intercambiables ni siquiera con valores de Ah similares: las dimensiones de carcasa, la disposición de terminales y el método de ensayo de CCA difieren. Pedir la familia equivocada significa que la batería no cabrá en la bandeja, independientemente de la ficha técnica.
+    </div>
+
+    <h2>Las tres familias de un vistazo</h2>
+    <table>
+      <thead><tr><th>Estándar</th><th>Región</th><th>Referencia de carcasa típica</th><th>Ensayo de CCA</th></tr></thead>
+      <tbody>
+        <tr><td>JIS</td><td>Japón / Asia</td><td>D23, D26, D31, B24</td><td>&minus;15&deg;C</td></tr>
+        <tr><td>DIN / EN</td><td>Europa</td><td>H5–H8 (LN2–LN5), L3–L5</td><td>&minus;18&deg;C</td></tr>
+        <tr><td>BCI</td><td>Norteamérica</td><td>Grupo 24, 27, 31, 34, 48, 65</td><td>&minus;18&deg;C (SAE)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Por qué no son intercambiables</h2>
+    <p>Tres diferencias impiden que una batería cruce familias de estándares:</p>
+    <ol>
+      <li><strong>Dimensiones de carcasa</strong> — un JIS D26 y un DIN H6 pueden ser ambos de ~12V/72Ah, pero su longitud, anchura y altura difieren, así que no caben en la misma bandeja.</li>
+      <li><strong>Disposición de terminales</strong> — el tipo de terminal, la posición y la convención de polaridad difieren entre mercados. Una batería que cabe físicamente puede tener los terminales equivocados.</li>
+      <li><strong>Método de ensayo de CCA</strong> — JIS ensaya a &minus;15&deg;C, EN/SAE a &minus;18&deg;C, así que la CCA impresa no es directamente comparable entre familias.</li>
+    </ol>
+
+    <h2>Cómo elegir el estándar correcto</h2>
+    <p>Elija por el mercado del vehículo, no por las especificaciones de la batería:</p>
+    <ul>
+      <li><strong>Vehículos japoneses o asiáticos</strong> → especifique JIS y elija el grupo de carcasa D/B.</li>
+      <li><strong>Vehículos europeos</strong> → especifique DIN/EN y elija el grupo de carcasa H/LN/L.</li>
+      <li><strong>Vehículos norteamericanos</strong> → especifique BCI y elija el número de Grupo.</li>
+    </ul>
+    <p class="note">Una fábrica puede suministrar cada estándar principal, pero el comprador debe nombrar la familia correcta. Una &ldquo;batería de 72Ah&rdquo; sin un estándar no es una especificación completa.</p>
+
+    <h2>Qué deberían preguntar los compradores</h2>
+    <ul>
+      <li>¿Qué familia de estándares usa mi vehículo objetivo?</li>
+      <li>¿Cuál es la referencia de carcasa exacta (D26, H6, Grupo 34)?</li>
+      <li>¿Qué tipo de terminal y polaridad necesita el vehículo?</li>
+      <li>¿El número de CCA es JIS o EN/SAE?</li>
+    </ul>
+
+    <p>Vea cómo difiere la CCA entre estándares en la <a href="/es/knowledge/what-is-cca/">guía de CCA</a>, y explore modelos por estándar en la <a href="/es/data/">base de datos de modelos</a>.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+    <p><a href="/es/data/">Explore modelos por estándar &rarr;</a> · <a href="/es/knowledge/oem-battery-specification-guide/">Construya una especificación limpia &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Especifique el estándar correcto para su mercado" />
+</ArticleLayout>

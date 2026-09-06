@@ -1,0 +1,56 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Tipos de Terminal y Polaridad de Baterías | Dingwei Battery';
+const description = 'Tipos, posiciones y polaridad de terminales de batería — y por qué equivocarse significa que la batería no cabrá en el vehículo. Una guía para compradores de baterías OEM.';
+const articleTitle = 'Tipos de terminal y polaridad de baterías';
+
+const faqs = [
+  { q: '¿Qué significan L y R en una batería?', a: 'Marcan si el terminal positivo está a la izquierda o a la derecha de la carcasa. La posición importa porque las longitudes de cable del vehículo son fijas.' },
+  { q: '¿Por qué es importante la polaridad de la batería?', a: 'Invertir la polaridad al conectar puede hacer circular corriente hacia atrás por el sistema eléctrico del vehículo y causar daños reales, así que la polaridad debe confirmarse contra el cableado antes del montaje. Una batería correcta con la polaridad invertida sigue siendo una batería equivocada.' },
+  { q: '¿Por qué los detalles del terminal se marcan &ldquo;confirmar al solicitar&rdquo;?', a: 'Porque una especificación de terminal equivocada convierte una batería correcta en una batería equivocada. El fabricante confirma el detalle del terminal contra el vehículo del comprador en lugar de adivinar.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Ingeniería" dateModified="2026-09-03" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento · Ingeniería</span>
+    <h1>Tipos de terminal y polaridad de baterías</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-03 · Fuente: documentación de normas de baterías</p>
+    <p class="lead">Una batería puede coincidir con el estándar y el tamaño de carcasa correctos y aun así no caber, porque el tipo de terminal, la posición o la polaridad están mal. El detalle del terminal es una decisión de compatibilidad, no un detalle de última hora.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Una batería con el tamaño de carcasa y la capacidad correctos puede ser la batería equivocada si el tipo de terminal, la posición o la polaridad están mal: el detalle del terminal es una decisión de compatibilidad, no un detalle de última hora. Los tres deben confirmarse contra el vehículo antes de pedir.
+    </div>
+
+    <h2>Tipo de terminal</h2>
+    <p>Los distintos mercados usan diseños de borne distintos. Los tipos automotrices comunes incluyen el borne superior cónico (la mayoría de turismos JIS/DIN/BCI), el terminal lateral (algunas aplicaciones GM norteamericanas) y los terminales de espárrago/bandera usados en baterías de servicio pesado y marinas.</p>
+    <p>Un terminal que no coincide con la abrazadera del cable del vehículo no se conectará de forma segura: es un problema de compatibilidad física, no de rendimiento.</p>
+
+    <h2>Posición del terminal</h2>
+    <p>El mismo modelo de batería puede enviarse con el borne positivo a la izquierda o a la derecha. Los fabricantes suelen denotarlo con un sufijo L o R (por ejemplo, un D23L frente a un D23R). La posición importa porque las longitudes de cable del vehículo son fijas.</p>
+
+    <h2>Polaridad</h2>
+    <p>La polaridad es la asignación de positivo y negativo a los dos bornes. Invertir la polaridad al conectar puede dañar el sistema eléctrico del vehículo, así que la polaridad se confirma contra el cableado del vehículo antes del montaje.</p>
+
+    <h2>Por qué se confirman al solicitar</h2>
+    <p>En las páginas de referencia de Dingwei, el tipo de terminal y la polaridad se marcan &ldquo;confirmar al solicitar&rdquo; en lugar de adivinarse. Es deliberado: una especificación de terminal equivocada convierte una batería correcta en una batería equivocada. El fabricante confirma el detalle del terminal contra el vehículo o el requisito de flota del comprador.</p>
+
+    <h2>Qué deberían preguntar los compradores</h2>
+    <ul>
+      <li>¿Qué tipo de terminal usa el vehículo: borne superior, terminal lateral o espárrago?</li>
+      <li>¿El borne positivo está a la izquierda o a la derecha (L/R)?</li>
+      <li>¿Cuál es la polaridad correcta para el cableado del vehículo?</li>
+      <li>¿La aplicación de servicio pesado necesita terminales dobles o de bandera?</li>
+    </ul>
+
+    <p>Confirme los terminales junto con las <a href="/es/knowledge/battery-dimensions-case-size/">dimensiones y el tamaño de carcasa</a>, y luego fíjelos en la <a href="/es/knowledge/oem-battery-specification-guide/">especificación OEM</a>.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002).</p>
+    <p><a href="/es/contact/">Confirme los detalles del terminal en su RFQ &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirme el tipo de terminal y la polaridad" />
+</ArticleLayout>
