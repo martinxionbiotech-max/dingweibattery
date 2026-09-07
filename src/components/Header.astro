@@ -79,3 +79,29 @@ const currentLabel = LOCALES.find((l) => l.code === locale)?.label ?? 'English';
     </details>
   </div>
 </header>
+
+<script is:inline>
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  // Accordion: opening one closes the others
+  dropdowns.forEach((dd) => {
+    dd.addEventListener('toggle', () => {
+      if (dd.open) {
+        dropdowns.forEach((other) => {
+          if (other !== dd) other.removeAttribute('open');
+        });
+      }
+    });
+  });
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    dropdowns.forEach((dd) => {
+      if (dd.open && !dd.contains(e.target)) dd.removeAttribute('open');
+    });
+  });
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      dropdowns.forEach((dd) => dd.removeAttribute('open'));
+    }
+  });
+</script>
