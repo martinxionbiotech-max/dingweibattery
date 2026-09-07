@@ -7,19 +7,28 @@ const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const t = UI[locale];
 const pathname = Astro.url.pathname;
 
-const navItems = [
-  { label: t.nav.home, href: '/' },
-  { label: t.nav.oem, href: '/oem/' },
-  { label: t.nav.privateLabel, href: '/private-label/' },
-  { label: t.nav.heavyDuty, href: '/heavy-duty-batteries/' },
-  { label: t.nav.models, href: '/data/' },
-  { label: t.nav.factory, href: '/factory/' },
-  { label: t.nav.knowledge, href: '/knowledge/what-is-oem-battery/' },
-  { label: t.nav.contact, href: '/contact/' },
-];
-
 const hrefFor = (href: string) => (locale === DEFAULT_LOCALE ? href : `/${locale}${href}`);
 const isActive = (href: string) => pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
+
+const productsItems = [
+  { label: t.footer.oemBatteries, href: '/oem/' },
+  { label: t.footer.carBatteries, href: '/oem/car-batteries/' },
+  { label: t.footer.truckBatteries, href: '/oem/truck-batteries/' },
+  { label: t.footer.privateLabel, href: '/private-label/' },
+  { label: t.footer.heavyDutyBatteries, href: '/heavy-duty-batteries/' },
+];
+const modelsItems = [
+  { label: t.nav.models, href: '/data/' },
+  { label: t.footer.batteryFinder, href: '/tools/battery-finder/' },
+  { label: t.nav.compare, href: '/tools/compare/' },
+];
+const knowledgeItems = [
+  { label: t.footer.whatIsOem, href: '/knowledge/what-is-oem-battery/' },
+  { label: t.footer.oemVsOdm, href: '/knowledge/oem-vs-odm-vs-private-label/' },
+  { label: t.footer.choosingManufacturer, href: '/knowledge/how-choose-oem-battery-manufacturer/' },
+  { label: t.footer.supplierChecklist, href: '/knowledge/oem-battery-supplier-checklist/' },
+  { label: t.footer.specGuide, href: '/knowledge/oem-battery-specification-guide/' },
+];
 
 const currentLabel = LOCALES.find((l) => l.code === locale)?.label ?? 'English';
 ---
@@ -31,9 +40,30 @@ const currentLabel = LOCALES.find((l) => l.code === locale)?.label ?? 'English';
       <span>{BRAND}</span>
     </a>
     <nav class="nav" aria-label="Primary">
-      {navItems.map((link) => (
-        <a href={hrefFor(link.href)} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
-      ))}
+      <a href={hrefFor('/')} aria-current={isActive('/') ? 'page' : undefined}>{t.nav.home}</a>
+
+      <details class="nav-dropdown">
+        <summary>{t.nav.products}</summary>
+        <div class="nav-dropdown__menu">
+          {productsItems.map((i) => <a href={hrefFor(i.href)}>{i.label}</a>)}
+        </div>
+      </details>
+
+      <details class="nav-dropdown">
+        <summary>{t.nav.models}</summary>
+        <div class="nav-dropdown__menu">
+          {modelsItems.map((i) => <a href={hrefFor(i.href)}>{i.label}</a>)}
+        </div>
+      </details>
+
+      <details class="nav-dropdown">
+        <summary>{t.nav.knowledge}</summary>
+        <div class="nav-dropdown__menu">
+          {knowledgeItems.map((i) => <a href={hrefFor(i.href)}>{i.label}</a>)}
+        </div>
+      </details>
+
+      <a href={hrefFor('/factory/')} aria-current={isActive('/factory/') ? 'page' : undefined}>{t.nav.factory}</a>
       <a class="btn btn--light" href={hrefFor('/contact/')}>{t.requestOemQuote}</a>
       <a class="btn btn--whatsapp" href={CONTACT.whatsappLink} target="_blank" rel="noopener">{t.whatsapp}</a>
     </nav>

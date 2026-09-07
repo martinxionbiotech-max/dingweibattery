@@ -19,10 +19,12 @@ export const isDefaultLocale = (locale: string): boolean => locale === DEFAULT_L
 
 interface NavStrings {
   home: string;
+  products: string;
   oem: string;
   privateLabel: string;
   heavyDuty: string;
   models: string;
+  compare: string;
   factory: string;
   knowledge: string;
   contact: string;
@@ -103,10 +105,12 @@ export const UI: Record<Locale, UiStrings> = {
     breadcrumb: 'Breadcrumb',
     nav: {
       home: 'Home',
+      products: 'Products',
       oem: 'OEM',
       privateLabel: 'Private Label',
       heavyDuty: 'Heavy Duty',
       models: 'Models',
+      compare: 'Compare Models',
       factory: 'Factory',
       knowledge: 'Knowledge',
       contact: 'Contact',
@@ -162,10 +166,12 @@ export const UI: Record<Locale, UiStrings> = {
     breadcrumb: 'Ruta de navegación',
     nav: {
       home: 'Inicio',
+      products: 'Productos',
       oem: 'OEM',
       privateLabel: 'Marca Privada',
       heavyDuty: 'Servicio Pesado',
       models: 'Modelos',
+      compare: 'Comparar Modelos',
       factory: 'Fábrica',
       knowledge: 'Conocimiento',
       contact: 'Contacto',
@@ -221,10 +227,12 @@ export const UI: Record<Locale, UiStrings> = {
     breadcrumb: 'مسار التنقل',
     nav: {
       home: 'الرئيسية',
+      products: 'المنتجات',
       oem: 'OEM',
       privateLabel: 'علامة خاصة',
       heavyDuty: 'الخدمة الشاقة',
       models: 'الموديلات',
+      compare: 'مقارنة الموديلات',
       factory: 'المصنع',
       knowledge: 'المعرفة',
       contact: 'اتصل بنا',
@@ -280,10 +288,12 @@ export const UI: Record<Locale, UiStrings> = {
     breadcrumb: 'Хлебные крошки',
     nav: {
       home: 'Главная',
+      products: 'Продукция',
       oem: 'OEM',
       privateLabel: 'Частная марка',
       heavyDuty: 'Тяжёлый режим',
       models: 'Модели',
+      compare: 'Сравнить модели',
       factory: 'Завод',
       knowledge: 'База знаний',
       contact: 'Контакты',
