@@ -29,10 +29,10 @@ const dimsLabel = `${dims.length} × ${dims.width} × ${dims.height} مم`;
 const pagePath = modelPath(model.model);
 const url = `${SITE.url}/${locale}${pagePath}`;
 
-const title = `${model.model} مواصفات البطارية | Dingwei OEM`;
+const title = `${model.model} مواصفات البطارية | Dingwei Battery`;
 const description = `${model.model} مرجع بطارية: ${model.voltage}V، ${model.capacity_ah} Ah، ${model.cca.value} CCA (مرجع)، ${dimsLabel}، ${model.standard}. يُرجى تأكيد القيم النهائية مع الشركة المصنعة.`;
 
-const h1 = `${model.model} بطارية — ${model.standard} ${translateApplication(model.application, locale)} | Dingwei OEM`;
+const h1 = `${model.model} بطارية — ${model.standard} ${translateApplication(model.application, locale)} | Dingwei Battery`;
 const lead = `بطارية ${model.model} هي بطارية ${model.standard} مخصصة لـ ${translateApplication(model.application, locale).toLowerCase()} بجهد اسمي ${model.voltage}V وسعة ${model.capacity_ah} Ah. وهي متاحة للتوريد OEM والعلامة الخاصة، مع تأكيد المواصفات وفق ${model.standard_code}.`;
 
 const faqs = [

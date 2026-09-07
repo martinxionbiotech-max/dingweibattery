@@ -29,10 +29,10 @@ const dimsLabel = `${dims.length} × ${dims.width} × ${dims.height} mm`;
 const pagePath = modelPath(model.model);
 const url = `${SITE.url}/${locale}${pagePath}`;
 
-const title = `${model.model} Especificaciones de la Batería | Dingwei OEM`;
+const title = `${model.model} Especificaciones de la Batería | Dingwei Battery`;
 const description = `${model.model} referencia de batería: ${model.voltage}V, ${model.capacity_ah} Ah, ${model.cca.value} CCA (referencia), ${dimsLabel}, ${model.standard}. Confirme los valores finales con el fabricante.`;
 
-const h1 = `${model.model} Batería — ${model.standard} ${translateApplication(model.application, locale)} | Dingwei OEM`;
+const h1 = `${model.model} Batería — ${model.standard} ${translateApplication(model.application, locale)} | Dingwei Battery`;
 const lead = `La ${model.model} es una batería ${model.standard} para ${translateApplication(model.application, locale).toLowerCase()} con una tensión nominal de ${model.voltage}V y ${model.capacity_ah} Ah. Está disponible para suministro OEM y de marca privada, con las especificaciones confirmadas según ${model.standard_code}.`;
 
 const faqs = [

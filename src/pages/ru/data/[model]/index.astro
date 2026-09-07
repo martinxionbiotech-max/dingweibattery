@@ -29,10 +29,10 @@ const dimsLabel = `${dims.length} × ${dims.width} × ${dims.height} мм`;
 const pagePath = modelPath(model.model);
 const url = `${SITE.url}/${locale}${pagePath}`;
 
-const title = `${model.model} Характеристики аккумулятора | Dingwei OEM`;
+const title = `${model.model} Характеристики аккумулятора | Dingwei Battery`;
 const description = `${model.model} справочные данные аккумулятора: ${model.voltage}V, ${model.capacity_ah} Ah, ${model.cca.value} CCA (справочно), ${dimsLabel}, ${model.standard}. Уточните окончательные значения у производителя.`;
 
-const h1 = `${model.model} Аккумулятор — ${model.standard} ${translateApplication(model.application, locale)} | Dingwei OEM`;
+const h1 = `${model.model} Аккумулятор — ${model.standard} ${translateApplication(model.application, locale)} | Dingwei Battery`;
 const lead = `Аккумулятор ${model.model} — это аккумулятор стандарта ${model.standard} для ${translateApplication(model.application, locale).toLowerCase()} с номинальным напряжением ${model.voltage}V и ёмкостью ${model.capacity_ah} Ah. Доступен для поставок OEM и частных марок; характеристики подтверждаются согласно ${model.standard_code}.`;
 
 const faqs = [

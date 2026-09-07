@@ -26,10 +26,10 @@ const dimsLabel = `${dims.length} × ${dims.width} × ${dims.height} mm`;
 const pagePath = modelPath(model.model);
 const url = `${SITE.url}${pagePath}`;
 
-const title = `${model.model} Battery Specifications | Dingwei OEM`;
+const title = `${model.model} Battery Specifications | Dingwei Battery`;
 const description = `${model.model} battery reference: ${model.voltage}V, ${model.capacity_ah} Ah, ${model.cca.value} CCA (reference), ${dimsLabel}, ${model.standard}. Confirm final values with the manufacturer.`;
 
-const h1 = `${model.model} Battery — ${model.standard} ${model.application} | Dingwei OEM`;
+const h1 = `${model.model} Battery — ${model.standard} ${model.application} | Dingwei Battery`;
 const lead = `The ${model.model} is a ${model.standard} ${model.application.toLowerCase()} battery with a nominal ${model.voltage}V and ${model.capacity_ah} Ah rating. It is available for OEM and private-label supply, with specifications confirmed against ${model.standard_code}.`;
 
 const faqs = [
