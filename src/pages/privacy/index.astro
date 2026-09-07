@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER } from '../../data/site';
+
+const title = 'Privacy Policy | Dingwei Battery';
+const description = 'How Dingwei Battery and its manufacturer Chengguang Power Tech Co., Ltd. collect and handle the information you submit through this website.';
+const breadcrumbs = [{ label: 'Privacy', href: '/privacy/' }];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="lead">This website is operated on behalf of {MANUFACTURER.name} ({MANUFACTURER.legalNameZh}). We keep data collection minimal and use it only to respond to OEM and private-label battery inquiries.</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+      <h2>Information we collect</h2>
+      <p>When you submit the RFQ form or contact us, you may provide: your company name, country or market, buyer type, battery specifications (type, standard, model, voltage, capacity, CCA), target annual volume, packaging preferences, your email address and phone number, and any notes you include.</p>
+
+      <h2>How we use it</h2>
+      <p>We use this information solely to prepare an OEM or private-label battery quotation, respond to your inquiry, and communicate about the requested program. We do not sell, rent, or share your contact details with third parties for marketing.</p>
+
+      <h2>Cookies &amp; analytics</h2>
+      <p>This site does not use advertising or behavioural-tracking cookies. Basic analytics may be used in aggregate to understand traffic; this does not identify you personally.</p>
+
+      <h2>Data retention</h2>
+      <p>Inquiry details are retained only as long as needed to service the request and for legitimate business records. You may request access to, correction of, or deletion of your information at any time.</p>
+
+      <h2>Contact</h2>
+      <p>For any privacy question or request, contact us at <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> or {CONTACT.phone}.</p>
+    </div>
+  </section>
+</BaseLayout>

@@ -10,15 +10,17 @@ export const BRAND = 'Dingwei Battery';
 
 export const MANUFACTURER = {
   name: 'Chengguang Power Tech Co., Ltd.',
-  legalName: 'Jinzhou Chengguang Power Source Co., Ltd.',
+  legalName: 'Chengguang Power Tech Co., Ltd.',
+  legalNameZh: '晋州成光电源有限公司',
+  legalRepresentative: 'Zhu Yuanhao',
   shortName: 'Chengguang Power Tech',
   founded: 2002,
-  address: 'Jinzhou, Hebei, China',
+  address: 'Maju Industrial Park, Jinzhou, Hebei, China',
   factoryArea: '200,000 m²',
   productionLines: '18 lines',
   dailyOutput: '40,000+ batteries per day',
-  employees: '500+',
-  registeredCapital: 'RMB 50 million',
+  employees: '1,000+',
+  registeredCapital: 'RMB 60 million',
   exportMarkets: '70+ countries',
   exportPorts: 'Tianjin / Shanghai',
 };
@@ -28,6 +30,8 @@ export const RELATIONSHIP =
 
 export const CONTACT = {
   email: 'martin@dinweys.com',
+  phone: '+86 13323237275',
+  phoneLink: 'tel:+8613323237275',
   whatsapp: '+86 13323237275',
   whatsappLink: 'https://wa.me/8613323237275',
 };

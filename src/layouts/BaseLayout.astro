@@ -2,7 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { SITE } from '../data/site';
+import { SITE, MANUFACTURER, CONTACT } from '../data/site';
 import { LOCALES, DEFAULT_LOCALE, localeDir, type Locale } from '../i18n/ui';
 import { localizedPath } from '../i18n/url';
 import '../styles/global.css';
@@ -21,12 +21,34 @@ const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const dir = localeDir(locale);
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site).toString();
-
 const alternates = LOCALES.map(({ code }) => ({
   code,
   url: new URL(localizedPath(Astro.url.pathname, code), Astro.site).toString(),
 }));
 const xDefault = alternates.find((a) => a.code === DEFAULT_LOCALE)?.url;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: MANUFACTURER.name,
+  legalName: MANUFACTURER.legalNameZh,
+  url: SITE.url,
+  logo: `${SITE.url}/favicon.svg`,
+  foundingDate: String(MANUFACTURER.founded),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Maju Industrial Park',
+    addressLocality: 'Jinzhou',
+    addressRegion: 'Hebei',
+    addressCountry: 'CN',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    email: CONTACT.email,
+    telephone: CONTACT.phone,
+  },
+};
 ---
 <!doctype html>
 <html lang={locale} dir={dir}>
@@ -53,7 +75,9 @@ const xDefault = alternates.find((a) => a.code === DEFAULT_LOCALE)?.url;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="theme-color" content="#0f1f3a" />
+    <meta name="ai-train" content="no" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
     <slot name="head" />
   </head>
   <body>

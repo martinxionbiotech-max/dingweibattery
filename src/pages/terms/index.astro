@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER } from '../../data/site';
+
+const title = 'Terms of Use | Dingwei Battery';
+const description = 'Terms governing use of the Dingwei Battery website. Specifications are for reference only and must be confirmed with the manufacturer before ordering.';
+const breadcrumbs = [{ label: 'Terms', href: '/terms/' }];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">Legal</span>
+    <h1>Terms of Use</h1>
+    <p class="lead">By using this website you agree to these terms. This site provides battery reference information and OEM program guidance; it is not a sales contract.</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+      <h2>Reference information only</h2>
+      <p>Battery models, specifications (voltage, capacity, CCA, dimensions, weight), trade terms, and certifications published on this site are provided for reference and preliminary evaluation. Final values must be confirmed in writing with {MANUFACTURER.name} before any order.</p>
+
+      <h2>No warranty</h2>
+      <p>The information is provided &ldquo;as is&rdquo; without warranty of any kind. We make reasonable efforts to keep it accurate but do not guarantee completeness, accuracy, or fitness for any particular purpose.</p>
+
+      <h2>Intellectual property</h2>
+      <p>All content on this site is the property of {MANUFACTURER.name} or its licensors. You may not reproduce or republish it for commercial use without written permission.</p>
+
+      <h2>Limitation of liability</h2>
+      <p>To the fullest extent permitted by law, {MANUFACTURER.name} is not liable for any direct, indirect, or consequential loss arising from use of this website or reliance on its content.</p>
+
+      <h2>Governing law</h2>
+      <p>These terms are governed by the laws of the People&rsquo;s Republic of China. Disputes are subject to the jurisdiction of the courts of Hebei Province.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about these terms: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> or {CONTACT.phone}.</p>
+    </div>
+  </section>
+</BaseLayout>

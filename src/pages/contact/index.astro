@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JsonLd from '../../components/JsonLd.astro';
-import { SITE, RELATIONSHIP, TRADE_TERMS, CONTACT } from '../../data/site';
+import { SITE, RELATIONSHIP, TRADE_TERMS, CONTACT, MANUFACTURER } from '../../data/site';
 
 const title = 'Contact Us & Request an OEM Battery Quote | Dingwei Battery';
 const description = 'Request an OEM or private-label battery quote from Dingwei Battery. Share your specification, target market and annual volume for a custom program.';
@@ -40,6 +40,22 @@ const jsonLd = [
         <p><a href={CONTACT.whatsappLink} target="_blank" rel="noopener">{CONTACT.whatsapp}</a></p>
         <a class="btn btn--whatsapp" href={CONTACT.whatsappLink} target="_blank" rel="noopener">Chat on WhatsApp</a>
       </div>
+      <div class="card">
+        <h3>Phone</h3>
+        <p><a href={CONTACT.phoneLink}>{CONTACT.phone}</a></p>
+      </div>
+      <div class="card">
+        <h3>Address</h3>
+        <p>{MANUFACTURER.address}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+      <h2>Company entity</h2>
+      <p><strong>{MANUFACTURER.name}</strong> ({MANUFACTURER.legalNameZh}) &mdash; founded {MANUFACTURER.founded}, legal representative {MANUFACTURER.legalRepresentative}, registered capital {MANUFACTURER.registeredCapital}, {MANUFACTURER.employees} employees.</p>
+      <p>{RELATIONSHIP}</p>
     </div>
   </section>
 
