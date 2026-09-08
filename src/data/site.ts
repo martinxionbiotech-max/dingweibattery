@@ -12,15 +12,13 @@ export const MANUFACTURER = {
   name: 'Chengguang Power Tech Co., Ltd.',
   legalName: 'Chengguang Power Tech Co., Ltd.',
   legalNameZh: '晋州成光电源有限公司',
-  legalRepresentative: 'Zhu Yuanhao',
   shortName: 'Chengguang Power Tech',
   founded: 2002,
   address: 'Maju Industrial Park, Jinzhou, Hebei, China',
   factoryArea: '200,000 m²',
-  productionLines: '18 lines',
-  dailyOutput: '40,000+ batteries per day',
-  employees: '1,000+',
-  registeredCapital: 'RMB 60 million',
+  productionLines: '18 automated lines',
+  dailyOutput: '40,000 batteries per day',
+  annualCapacity: '10,000,000 KVAh',
   exportMarkets: '70+ countries',
   exportPorts: 'Tianjin / Shanghai',
 };
@@ -36,7 +34,7 @@ export const CONTACT = {
   whatsappLink: 'https://wa.me/8613323237275',
 };
 
-export const CERTIFICATIONS = ['IATF 16949', 'ISO 9001', 'ISO 45001', 'CE'];
+export const CERTIFICATIONS = ['IATF 16949', 'ISO 9001', 'ISO 45001', 'OHSAS 18001'];
 
 export const STANDARDS = ['JIS', 'DIN', 'BCI', 'AS', 'SA'];
 
