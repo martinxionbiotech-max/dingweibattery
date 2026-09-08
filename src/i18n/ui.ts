@@ -44,6 +44,7 @@ interface FooterStrings {
   supplierChecklist: string;
   specGuide: string;
   batteryFinder: string;
+  techDocs: string;
   contact: string;
   requestQuote: string;
   manufacturer: string;
@@ -129,6 +130,7 @@ export const UI: Record<Locale, UiStrings> = {
       supplierChecklist: 'Supplier Checklist',
       specGuide: 'Specification Guide',
       batteryFinder: 'Battery Finder',
+      techDocs: 'Technical Documentation',
       contact: 'Contact',
       requestQuote: 'Request OEM Quote',
       manufacturer: 'Manufacturer',
@@ -190,6 +192,7 @@ export const UI: Record<Locale, UiStrings> = {
       supplierChecklist: 'Lista de Verificación del Proveedor',
       specGuide: 'Guía de Especificaciones',
       batteryFinder: 'Buscador de Baterías',
+      techDocs: 'Documentación Técnica',
       contact: 'Contacto',
       requestQuote: 'Solicitar Cotización OEM',
       manufacturer: 'Fabricante',
@@ -251,6 +254,7 @@ export const UI: Record<Locale, UiStrings> = {
       supplierChecklist: 'قائمة مراجعة المورد',
       specGuide: 'دليل المواصفات',
       batteryFinder: 'أداة البحث عن البطارية',
+      techDocs: 'التوثيق الفني',
       contact: 'اتصل بنا',
       requestQuote: 'اطلب عرض سعر OEM',
       manufacturer: 'الشركة المصنعة',
@@ -312,6 +316,7 @@ export const UI: Record<Locale, UiStrings> = {
       supplierChecklist: 'Чек-лист поставщика',
       specGuide: 'Руководство по спецификациям',
       batteryFinder: 'Подбор аккумулятора',
+      techDocs: 'Техническая документация',
       contact: 'Контакты',
       requestQuote: 'Запросить расчёт OEM',
       manufacturer: 'Производитель',
