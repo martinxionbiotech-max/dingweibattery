@@ -1,0 +1,60 @@
+# llms.txt — Dingwei Battery
+
+> Dingwei Battery provides OEM and private-label automotive battery programs,
+> manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).
+> This file helps AI assistants and crawlers discover the site's key pages.
+
+## Main website
+
+- [Home](https://dingweibattery.com/): OEM & private-label automotive battery programs.
+- [Factory](https://dingweibattery.com/factory/): Manufacturing capability and quality control.
+- [Heavy-duty batteries](https://dingweibattery.com/heavy-duty-batteries/): Truck, bus and commercial-vehicle batteries.
+- [OEM](https://dingweibattery.com/oem/): OEM battery program overview.
+- [Private label](https://dingweibattery.com/private-label/): Private-label battery brand programs.
+- [Contact](https://dingweibattery.com/contact/): Sales contact and inquiry.
+
+## Data
+
+- [Battery model database](https://dingweibattery.com/data/): Reference specifications for 23 battery models.
+- [Battery model database (JSON)](https://dingweibattery.com/data/battery-models.json): Machine-readable model specifications (23 models, JIS / DIN-EN / heavy-duty).
+
+## Tools
+
+- [Battery finder](https://dingweibattery.com/tools/battery-finder/): Filter models by standard, case size and capacity.
+- [Compare models](https://dingweibattery.com/tools/compare/): Side-by-side specification comparison.
+
+## Knowledge
+
+- [What is an OEM battery?](https://dingweibattery.com/knowledge/what-is-oem-battery/)
+- [What is CCA (cold cranking amps)?](https://dingweibattery.com/knowledge/what-is-cca/)
+- [JIS vs DIN vs BCI](https://dingweibattery.com/knowledge/jis-vs-din-vs-bci/)
+- [OEM vs ODM vs private label](https://dingweibattery.com/knowledge/oem-vs-odm-vs-private-label/)
+- [Battery applications by vehicle](https://dingweibattery.com/knowledge/battery-applications-by-vehicle/)
+- [Battery capacity: Ah vs C20 vs RC](https://dingweibattery.com/knowledge/battery-capacity-ah-vs-c20-vs-rc/)
+- [Battery dimensions & case size](https://dingweibattery.com/knowledge/battery-dimensions-case-size/)
+- [Battery quality control](https://dingweibattery.com/knowledge/battery-quality-control/)
+- [Battery shipping & warranty](https://dingweibattery.com/knowledge/battery-shipping-warranty/)
+- [Battery terminal types & polarity](https://dingweibattery.com/knowledge/battery-terminal-types-polarity/)
+- [How to audit a battery factory](https://dingweibattery.com/knowledge/how-audit-battery-factory/)
+- [How to build a private-label battery brand](https://dingweibattery.com/knowledge/how-build-private-label-battery-brand/)
+- [How to choose an OEM battery manufacturer](https://dingweibattery.com/knowledge/how-choose-oem-battery-manufacturer/)
+- [How lead-acid batteries are made](https://dingweibattery.com/knowledge/how-lead-acid-batteries-are-made/)
+- [How OEM battery programs work](https://dingweibattery.com/knowledge/how-oem-battery-programs-work/)
+- [OEM battery development process](https://dingweibattery.com/knowledge/oem-battery-development-process/)
+- [OEM battery MOQ & lead time](https://dingweibattery.com/knowledge/oem-battery-moq-lead-time/)
+- [OEM battery RFQ guide](https://dingweibattery.com/knowledge/oem-battery-rfq-guide/)
+- [OEM battery specification guide](https://dingweibattery.com/knowledge/oem-battery-specification-guide/)
+- [OEM battery supplier checklist](https://dingweibattery.com/knowledge/oem-battery-supplier-checklist/)
+- [Private-label battery strategy](https://dingweibattery.com/knowledge/private-label-battery-strategy/)
+
+## Localized sites
+
+- Spanish: [es](https://dingweibattery.com/es/)
+- Arabic: [ar](https://dingweibattery.com/ar/)
+- Russian: [ru](https://dingweibattery.com/ru/)
+
+## Notes
+
+- CCA values are reference values; confirm final values and test basis with the manufacturer.
+- Charging data, terminal and polarity fields shown as "Confirm on inquiry" are not published.
+- This site does not publish prices.

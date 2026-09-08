@@ -28,6 +28,26 @@ const standards = [...new Set(rows.map((r) => r.standard))];
 const jsonLd = [
   {
     '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: 'Dingwei Battery — Reference Model Database',
+    description:
+      'Reference specifications for automotive SLI/EFB/AGM and heavy-duty battery models. CCA values are reference only; confirm final values with the manufacturer.',
+    url: `${SITE.url}/data/`,
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    isAccessibleForFree: true,
+    creator: {
+      '@type': 'Organization',
+      name: 'Dingwei Battery',
+    },
+    distribution: {
+      '@type': 'DataDownload',
+      encodingFormat: 'application/json',
+      contentUrl: `${SITE.url}/data/battery-models.json`,
+    },
+    dateModified: '2026-09-03',
+  },
+  {
+    '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Battery Model Database',
     numberOfItems: rows.length,
