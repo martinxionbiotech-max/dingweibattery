@@ -1,0 +1,6212 @@
+[
+  {
+    "url": "/ar/",
+    "title": "Dingwei Battery — OEM & Private-Label Automotive Batteries",
+    "content_type": "Landing Page",
+    "primary_keyword": "OEM battery manufacturer",
+    "secondary_keywords": [
+      "automotive battery manufacturer",
+      "private label battery",
+      "China battery factory"
+    ],
+    "entities": [
+      "Dingwei Battery",
+      "OEM",
+      "private label",
+      "Chengguang Power",
+      "manufacturer"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ar/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 8,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/contact/",
+    "title": "Contact | Dingwei Battery",
+    "content_type": "Contact Page",
+    "primary_keyword": "contact Dingwei battery",
+    "secondary_keywords": [
+      "battery manufacturer contact",
+      "battery RFQ contact"
+    ],
+    "entities": [
+      "Dingwei Battery",
+      "contact",
+      "RFQ",
+      "email"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ar/contact/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/",
+    "title": "Battery Model Database | Dingwei Battery",
+    "content_type": "Database / Hub",
+    "primary_keyword": "battery model database",
+    "secondary_keywords": [
+      "battery specs database",
+      "JIS DIN battery list",
+      "car battery reference"
+    ],
+    "entities": [
+      "battery",
+      "JIS",
+      "DIN",
+      "BCI",
+      "model",
+      "CCA"
+    ],
+    "search_intent": "Navigational",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ar/data/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/105d31/",
+    "title": "105D31 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "105D31 battery",
+    "secondary_keywords": [
+      "105D31 battery",
+      "105D31 battery specs",
+      "105D31 dimensions",
+      "105D31 CCA"
+    ],
+    "entities": [
+      "105D31",
+      "JIS",
+      "D31",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/115d31/",
+    "title": "115D31 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "115D31 battery",
+    "secondary_keywords": [
+      "115D31 battery",
+      "115D31 battery specs",
+      "115D31 dimensions",
+      "115D31 CCA"
+    ],
+    "entities": [
+      "115D31",
+      "JIS",
+      "D31",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/55b24/",
+    "title": "55B24 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "55B24 battery",
+    "secondary_keywords": [
+      "55B24 battery",
+      "55B24 battery specs",
+      "55B24 dimensions",
+      "55B24 CCA"
+    ],
+    "entities": [
+      "55B24",
+      "JIS",
+      "B24",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/55d23/",
+    "title": "55D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "55D23 battery",
+    "secondary_keywords": [
+      "55D23 battery",
+      "55D23 battery specs",
+      "55D23 dimensions",
+      "55D23 CCA"
+    ],
+    "entities": [
+      "55D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/65b24/",
+    "title": "65B24 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65B24 battery",
+    "secondary_keywords": [
+      "65B24 battery",
+      "65B24 battery specs",
+      "65B24 dimensions",
+      "65B24 CCA"
+    ],
+    "entities": [
+      "65B24",
+      "JIS",
+      "B24",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/65d23/",
+    "title": "65D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65D23 battery",
+    "secondary_keywords": [
+      "65D23 battery",
+      "65D23 battery specs",
+      "65D23 dimensions",
+      "65D23 CCA"
+    ],
+    "entities": [
+      "65D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/65d26/",
+    "title": "65D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65D26 battery",
+    "secondary_keywords": [
+      "65D26 battery",
+      "65D26 battery specs",
+      "65D26 dimensions",
+      "65D26 CCA"
+    ],
+    "entities": [
+      "65D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/75d23/",
+    "title": "75D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "75D23 battery",
+    "secondary_keywords": [
+      "75D23 battery",
+      "75D23 battery specs",
+      "75D23 dimensions",
+      "75D23 CCA"
+    ],
+    "entities": [
+      "75D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/80d26/",
+    "title": "80D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "80D26 battery",
+    "secondary_keywords": [
+      "80D26 battery",
+      "80D26 battery specs",
+      "80D26 dimensions",
+      "80D26 CCA"
+    ],
+    "entities": [
+      "80D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/85d26/",
+    "title": "85D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "85D26 battery",
+    "secondary_keywords": [
+      "85D26 battery",
+      "85D26 battery specs",
+      "85D26 dimensions",
+      "85D26 CCA"
+    ],
+    "entities": [
+      "85D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/95d26/",
+    "title": "95D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "95D26 battery",
+    "secondary_keywords": [
+      "95D26 battery",
+      "95D26 battery specs",
+      "95D26 dimensions",
+      "95D26 CCA"
+    ],
+    "entities": [
+      "95D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/din100/",
+    "title": "DIN100 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN100 battery",
+    "secondary_keywords": [
+      "DIN100 battery",
+      "DIN100 battery specs",
+      "DIN100 dimensions",
+      "DIN100 CCA"
+    ],
+    "entities": [
+      "DIN100",
+      "DIN/EN",
+      "L5",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/din70/",
+    "title": "DIN70 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN70 battery",
+    "secondary_keywords": [
+      "DIN70 battery",
+      "DIN70 battery specs",
+      "DIN70 dimensions",
+      "DIN70 CCA"
+    ],
+    "entities": [
+      "DIN70",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/din72/",
+    "title": "DIN72 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN72 battery",
+    "secondary_keywords": [
+      "DIN72 battery",
+      "DIN72 battery specs",
+      "DIN72 dimensions",
+      "DIN72 CCA"
+    ],
+    "entities": [
+      "DIN72",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/din75/",
+    "title": "DIN75 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN75 battery",
+    "secondary_keywords": [
+      "DIN75 battery",
+      "DIN75 battery specs",
+      "DIN75 dimensions",
+      "DIN75 CCA"
+    ],
+    "entities": [
+      "DIN75",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/din80/",
+    "title": "DIN80 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN80 battery",
+    "secondary_keywords": [
+      "DIN80 battery",
+      "DIN80 battery specs",
+      "DIN80 dimensions",
+      "DIN80 CCA"
+    ],
+    "entities": [
+      "DIN80",
+      "DIN/EN",
+      "L4",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/h5/",
+    "title": "H5 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H5 battery",
+    "secondary_keywords": [
+      "H5 battery",
+      "H5 battery specs",
+      "H5 dimensions",
+      "H5 CCA"
+    ],
+    "entities": [
+      "H5",
+      "DIN/EN",
+      "H5/LN2",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/h6/",
+    "title": "H6 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H6 battery",
+    "secondary_keywords": [
+      "H6 battery",
+      "H6 battery specs",
+      "H6 dimensions",
+      "H6 CCA"
+    ],
+    "entities": [
+      "H6",
+      "DIN/EN",
+      "H6/LN3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/h7/",
+    "title": "H7 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H7 battery",
+    "secondary_keywords": [
+      "H7 battery",
+      "H7 battery specs",
+      "H7 dimensions",
+      "H7 CCA"
+    ],
+    "entities": [
+      "H7",
+      "DIN/EN",
+      "H7/LN4",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/h8/",
+    "title": "H8 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H8 battery",
+    "secondary_keywords": [
+      "H8 battery",
+      "H8 battery specs",
+      "H8 dimensions",
+      "H8 CCA"
+    ],
+    "entities": [
+      "H8",
+      "DIN/EN",
+      "H8/LN5",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/n100/",
+    "title": "N100 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N100 battery",
+    "secondary_keywords": [
+      "N100 battery",
+      "N100 battery specs",
+      "N100 dimensions",
+      "N100 CCA"
+    ],
+    "entities": [
+      "N100",
+      "JIS",
+      "N100",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/n150/",
+    "title": "N150 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N150 battery",
+    "secondary_keywords": [
+      "N150 battery",
+      "N150 battery specs",
+      "N150 dimensions",
+      "N150 CCA"
+    ],
+    "entities": [
+      "N150",
+      "JIS",
+      "N150",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/data/n200/",
+    "title": "N200 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N200 battery",
+    "secondary_keywords": [
+      "N200 battery",
+      "N200 battery specs",
+      "N200 dimensions",
+      "N200 CCA"
+    ],
+    "entities": [
+      "N200",
+      "JIS",
+      "N200",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/factory/",
+    "title": "Battery Factory — Chengguang Power Tech | Dingwei Battery",
+    "content_type": "Factory Page",
+    "primary_keyword": "battery factory China",
+    "secondary_keywords": [
+      "battery manufacturing plant",
+      "lead acid battery factory",
+      "battery factory tour"
+    ],
+    "entities": [
+      "factory",
+      "Chengguang Power",
+      "production",
+      "Jinzhou",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ar/factory/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/heavy-duty-batteries/",
+    "title": "Heavy-Duty Batteries — Truck, Bus & Commercial | Dingwei Battery",
+    "content_type": "Product Category Page",
+    "primary_keyword": "heavy duty truck battery",
+    "secondary_keywords": [
+      "truck battery",
+      "bus battery",
+      "N150 N200 battery",
+      "commercial vehicle battery"
+    ],
+    "entities": [
+      "heavy duty",
+      "truck",
+      "bus",
+      "N150",
+      "N200",
+      "battery"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ar/heavy-duty-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/battery-applications-by-vehicle/",
+    "title": "Battery Applications by Vehicle",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery applications by vehicle",
+    "secondary_keywords": [
+      "car battery types",
+      "start-stop battery",
+      "truck battery",
+      "battery for SUV"
+    ],
+    "entities": [
+      "vehicle",
+      "application",
+      "start-stop",
+      "AGM",
+      "EFB",
+      "heavy duty"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/battery-applications-by-vehicle/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/battery-capacity-ah-vs-c20-vs-rc/",
+    "title": "Battery Capacity: Ah vs C20 vs Reserve Capacity",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery capacity Ah vs C20 vs RC",
+    "secondary_keywords": [
+      "amp hour rating",
+      "C20 rate",
+      "reserve capacity",
+      "battery capacity explained"
+    ],
+    "entities": [
+      "Ah",
+      "C20",
+      "Reserve Capacity",
+      "capacity",
+      "battery"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/battery-capacity-ah-vs-c20-vs-rc/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/battery-dimensions-case-size/",
+    "title": "Battery Dimensions and Case Size Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery dimensions case size",
+    "secondary_keywords": [
+      "battery group size",
+      "JIS D26 dimensions",
+      "DIN L3 size",
+      "BCI group size"
+    ],
+    "entities": [
+      "case size",
+      "dimensions",
+      "JIS",
+      "DIN",
+      "BCI",
+      "fitment"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/battery-dimensions-case-size/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/battery-quality-control/",
+    "title": "Battery Quality Control",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery quality control",
+    "secondary_keywords": [
+      "battery QC process",
+      "battery testing standards",
+      "factory quality control"
+    ],
+    "entities": [
+      "quality control",
+      "testing",
+      "IATF 16949",
+      "inspection",
+      "manufacturing"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/battery-quality-control/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/battery-shipping-warranty/",
+    "title": "Battery Shipping and Warranty",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery shipping warranty",
+    "secondary_keywords": [
+      "shipping lead acid batteries",
+      "battery warranty terms",
+      "dangerous goods battery shipping"
+    ],
+    "entities": [
+      "shipping",
+      "warranty",
+      "logistics",
+      "UN2800",
+      "export"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/battery-shipping-warranty/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/battery-terminal-types-polarity/",
+    "title": "Battery Terminal Types and Polarity",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery terminal types polarity",
+    "secondary_keywords": [
+      "battery terminal type",
+      "JIS terminal",
+      "SAE post",
+      "reversed polarity"
+    ],
+    "entities": [
+      "terminal",
+      "polarity",
+      "JIS",
+      "SAE",
+      "post",
+      "battery"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/battery-terminal-types-polarity/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/how-audit-battery-factory/",
+    "title": "How to Audit a Battery Factory",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to audit battery factory",
+    "secondary_keywords": [
+      "battery factory audit",
+      "factory inspection checklist",
+      "battery manufacturing audit"
+    ],
+    "entities": [
+      "factory",
+      "audit",
+      "inspection",
+      "quality",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/how-audit-battery-factory/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/how-build-private-label-battery-brand/",
+    "title": "How to Build a Private Label Battery Brand",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to build private label battery brand",
+    "secondary_keywords": [
+      "start battery brand",
+      "private label battery business",
+      "battery import business"
+    ],
+    "entities": [
+      "private label",
+      "brand",
+      "import",
+      "distribution",
+      "business"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/how-build-private-label-battery-brand/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/how-choose-oem-battery-manufacturer/",
+    "title": "How to Choose an OEM Battery Manufacturer",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to choose OEM battery manufacturer",
+    "secondary_keywords": [
+      "battery manufacturer selection",
+      "China battery manufacturer",
+      "battery factory evaluation"
+    ],
+    "entities": [
+      "manufacturer",
+      "selection",
+      "China",
+      "factory",
+      "OEM"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/how-choose-oem-battery-manufacturer/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/how-lead-acid-batteries-are-made/",
+    "title": "How Lead-Acid Batteries Are Made",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how lead acid batteries are made",
+    "secondary_keywords": [
+      "lead acid battery manufacturing",
+      "battery production process",
+      "grid casting battery"
+    ],
+    "entities": [
+      "lead-acid",
+      "manufacturing",
+      "grid",
+      "pasting",
+      "formation"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/how-lead-acid-batteries-are-made/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/how-oem-battery-programs-work/",
+    "title": "How OEM Battery Programs Work",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how OEM battery programs work",
+    "secondary_keywords": [
+      "OEM battery program",
+      "private label battery program",
+      "battery manufacturer partnership"
+    ],
+    "entities": [
+      "OEM",
+      "private label",
+      "program",
+      "manufacturer",
+      "branding"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/how-oem-battery-programs-work/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/jis-vs-din-vs-bci/",
+    "title": "JIS vs DIN vs BCI Battery Standards",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "JIS vs DIN vs BCI",
+    "secondary_keywords": [
+      "JIS battery standard",
+      "DIN battery standard",
+      "BCI group size",
+      "battery standards comparison"
+    ],
+    "entities": [
+      "JIS",
+      "DIN",
+      "BCI",
+      "EN",
+      "SAE",
+      "standard"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/jis-vs-din-vs-bci/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/oem-battery-development-process/",
+    "title": "OEM Battery Development Process",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery development process",
+    "secondary_keywords": [
+      "battery development timeline",
+      "OEM battery sampling",
+      "battery design approval"
+    ],
+    "entities": [
+      "OEM",
+      "development",
+      "sampling",
+      "design",
+      "approval"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/oem-battery-development-process/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/oem-battery-moq-lead-time/",
+    "title": "OEM Battery MOQ and Lead Time",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery MOQ lead time",
+    "secondary_keywords": [
+      "battery MOQ",
+      "battery lead time",
+      "minimum order quantity battery"
+    ],
+    "entities": [
+      "MOQ",
+      "lead time",
+      "container",
+      "production",
+      "order"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/oem-battery-moq-lead-time/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/oem-battery-rfq-guide/",
+    "title": "OEM Battery RFQ Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery RFQ",
+    "secondary_keywords": [
+      "battery RFQ template",
+      "how to request battery quote",
+      "battery supplier quotation"
+    ],
+    "entities": [
+      "RFQ",
+      "quotation",
+      "specification",
+      "procurement",
+      "supplier"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/oem-battery-rfq-guide/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/oem-battery-specification-guide/",
+    "title": "OEM Battery Specification Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery specification",
+    "secondary_keywords": [
+      "battery spec sheet",
+      "battery specification fields",
+      "battery datasheet guide"
+    ],
+    "entities": [
+      "specification",
+      "datasheet",
+      "voltage",
+      "capacity",
+      "CCA",
+      "terminal"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/oem-battery-specification-guide/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/oem-battery-supplier-checklist/",
+    "title": "OEM Battery Supplier Checklist",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery supplier checklist",
+    "secondary_keywords": [
+      "how to vet battery supplier",
+      "battery supplier audit",
+      "battery manufacturer evaluation"
+    ],
+    "entities": [
+      "supplier",
+      "checklist",
+      "audit",
+      "qualification",
+      "procurement"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/oem-battery-supplier-checklist/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/oem-vs-odm-vs-private-label/",
+    "title": "OEM vs ODM vs Private Label",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM vs ODM vs private label",
+    "secondary_keywords": [
+      "OEM vs ODM",
+      "private label meaning",
+      "battery branding options"
+    ],
+    "entities": [
+      "OEM",
+      "ODM",
+      "private label",
+      "branding",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/oem-vs-odm-vs-private-label/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/private-label-battery-strategy/",
+    "title": "Private Label Battery Strategy",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "private label battery strategy",
+    "secondary_keywords": [
+      "build battery brand",
+      "private label battery business",
+      "battery brand launch"
+    ],
+    "entities": [
+      "private label",
+      "brand",
+      "strategy",
+      "distribution",
+      "market"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/private-label-battery-strategy/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/what-is-cca/",
+    "title": "What Is CCA (Cold Cranking Amps)?",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "what is CCA",
+    "secondary_keywords": [
+      "cold cranking amps",
+      "CCA vs Ah",
+      "JIS vs EN CCA",
+      "battery starting power"
+    ],
+    "entities": [
+      "CCA",
+      "Cold Cranking Amps",
+      "JIS",
+      "EN",
+      "SAE",
+      "DIN",
+      "battery",
+      "starter"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/what-is-cca/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/knowledge/what-is-oem-battery/",
+    "title": "What Is an OEM Battery?",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "what is OEM battery",
+    "secondary_keywords": [
+      "OEM battery meaning",
+      "OEM vs aftermarket battery",
+      "private label battery"
+    ],
+    "entities": [
+      "OEM battery",
+      "aftermarket",
+      "private label",
+      "manufacturer"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/knowledge/what-is-oem-battery/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/oem/",
+    "title": "OEM Battery Manufacturing | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "OEM battery manufacturer",
+    "secondary_keywords": [
+      "car battery OEM",
+      "battery private label OEM",
+      "OEM battery China"
+    ],
+    "entities": [
+      "OEM",
+      "manufacturer",
+      "private label",
+      "battery"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ar/oem/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/oem/car-batteries/",
+    "title": "Car Battery OEM & Private Label | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "car battery OEM",
+    "secondary_keywords": [
+      "OEM car battery manufacturer",
+      "JIS DIN car battery",
+      "passenger car battery supplier"
+    ],
+    "entities": [
+      "car battery",
+      "OEM",
+      "JIS",
+      "DIN",
+      "SLI",
+      "AGM",
+      "EFB"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ar/oem/car-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 2,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/oem/truck-batteries/",
+    "title": "Truck Battery OEM & Private Label | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "truck battery OEM",
+    "secondary_keywords": [
+      "heavy duty truck battery manufacturer",
+      "commercial battery OEM"
+    ],
+    "entities": [
+      "truck battery",
+      "OEM",
+      "heavy duty",
+      "commercial"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ar/oem/truck-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/private-label/",
+    "title": "Private Label Battery Program | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "private label battery",
+    "secondary_keywords": [
+      "private label battery manufacturer",
+      "custom battery branding",
+      "own brand battery"
+    ],
+    "entities": [
+      "private label",
+      "branding",
+      "OEM",
+      "battery"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ar/private-label/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/tools/battery-finder/",
+    "title": "Battery Finder Tool | Dingwei Battery",
+    "content_type": "Tool",
+    "primary_keyword": "battery finder",
+    "secondary_keywords": [
+      "find car battery",
+      "battery selection tool",
+      "battery fitment lookup"
+    ],
+    "entities": [
+      "battery",
+      "fitment",
+      "tool",
+      "model",
+      "CCA"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/tools/battery-finder/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/ar/tools/compare/",
+    "title": "Compare Battery Models | Dingwei Battery",
+    "content_type": "Tool",
+    "primary_keyword": "compare battery models",
+    "secondary_keywords": [
+      "battery comparison",
+      "65D26 vs 80D26",
+      "battery specs compare"
+    ],
+    "entities": [
+      "battery",
+      "comparison",
+      "model",
+      "specs",
+      "CCA"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ar/tools/compare/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Middle East / North Africa (Arabic)",
+    "language": "ar"
+  },
+  {
+    "url": "/",
+    "title": "Dingwei Battery — OEM & Private-Label Automotive Batteries",
+    "content_type": "Landing Page",
+    "primary_keyword": "OEM battery manufacturer",
+    "secondary_keywords": [
+      "automotive battery manufacturer",
+      "private label battery",
+      "China battery factory"
+    ],
+    "entities": [
+      "Dingwei Battery",
+      "OEM",
+      "private label",
+      "Chengguang Power",
+      "manufacturer"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 8,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/contact/",
+    "title": "Contact | Dingwei Battery",
+    "content_type": "Contact Page",
+    "primary_keyword": "contact Dingwei battery",
+    "secondary_keywords": [
+      "battery manufacturer contact",
+      "battery RFQ contact"
+    ],
+    "entities": [
+      "Dingwei Battery",
+      "contact",
+      "RFQ",
+      "email"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/contact/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/",
+    "title": "Battery Model Database | Dingwei Battery",
+    "content_type": "Database / Hub",
+    "primary_keyword": "battery model database",
+    "secondary_keywords": [
+      "battery specs database",
+      "JIS DIN battery list",
+      "car battery reference"
+    ],
+    "entities": [
+      "battery",
+      "JIS",
+      "DIN",
+      "BCI",
+      "model",
+      "CCA"
+    ],
+    "search_intent": "Navigational",
+    "status": "live",
+    "last_updated": "2026-09-03",
+    "source": "source: src/pages/data/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/105d31/",
+    "title": "105D31 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "105D31 battery",
+    "secondary_keywords": [
+      "105D31 battery",
+      "105D31 battery specs",
+      "105D31 dimensions",
+      "105D31 CCA"
+    ],
+    "entities": [
+      "105D31",
+      "JIS",
+      "D31",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/115d31/",
+    "title": "115D31 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "115D31 battery",
+    "secondary_keywords": [
+      "115D31 battery",
+      "115D31 battery specs",
+      "115D31 dimensions",
+      "115D31 CCA"
+    ],
+    "entities": [
+      "115D31",
+      "JIS",
+      "D31",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/55b24/",
+    "title": "55B24 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "55B24 battery",
+    "secondary_keywords": [
+      "55B24 battery",
+      "55B24 battery specs",
+      "55B24 dimensions",
+      "55B24 CCA"
+    ],
+    "entities": [
+      "55B24",
+      "JIS",
+      "B24",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/55d23/",
+    "title": "55D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "55D23 battery",
+    "secondary_keywords": [
+      "55D23 battery",
+      "55D23 battery specs",
+      "55D23 dimensions",
+      "55D23 CCA"
+    ],
+    "entities": [
+      "55D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/65b24/",
+    "title": "65B24 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65B24 battery",
+    "secondary_keywords": [
+      "65B24 battery",
+      "65B24 battery specs",
+      "65B24 dimensions",
+      "65B24 CCA"
+    ],
+    "entities": [
+      "65B24",
+      "JIS",
+      "B24",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/65d23/",
+    "title": "65D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65D23 battery",
+    "secondary_keywords": [
+      "65D23 battery",
+      "65D23 battery specs",
+      "65D23 dimensions",
+      "65D23 CCA"
+    ],
+    "entities": [
+      "65D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/65d26/",
+    "title": "65D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65D26 battery",
+    "secondary_keywords": [
+      "65D26 battery",
+      "65D26 battery specs",
+      "65D26 dimensions",
+      "65D26 CCA"
+    ],
+    "entities": [
+      "65D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/75d23/",
+    "title": "75D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "75D23 battery",
+    "secondary_keywords": [
+      "75D23 battery",
+      "75D23 battery specs",
+      "75D23 dimensions",
+      "75D23 CCA"
+    ],
+    "entities": [
+      "75D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/80d26/",
+    "title": "80D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "80D26 battery",
+    "secondary_keywords": [
+      "80D26 battery",
+      "80D26 battery specs",
+      "80D26 dimensions",
+      "80D26 CCA"
+    ],
+    "entities": [
+      "80D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/85d26/",
+    "title": "85D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "85D26 battery",
+    "secondary_keywords": [
+      "85D26 battery",
+      "85D26 battery specs",
+      "85D26 dimensions",
+      "85D26 CCA"
+    ],
+    "entities": [
+      "85D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/95d26/",
+    "title": "95D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "95D26 battery",
+    "secondary_keywords": [
+      "95D26 battery",
+      "95D26 battery specs",
+      "95D26 dimensions",
+      "95D26 CCA"
+    ],
+    "entities": [
+      "95D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/din100/",
+    "title": "DIN100 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN100 battery",
+    "secondary_keywords": [
+      "DIN100 battery",
+      "DIN100 battery specs",
+      "DIN100 dimensions",
+      "DIN100 CCA"
+    ],
+    "entities": [
+      "DIN100",
+      "DIN/EN",
+      "L5",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/din70/",
+    "title": "DIN70 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN70 battery",
+    "secondary_keywords": [
+      "DIN70 battery",
+      "DIN70 battery specs",
+      "DIN70 dimensions",
+      "DIN70 CCA"
+    ],
+    "entities": [
+      "DIN70",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/din72/",
+    "title": "DIN72 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN72 battery",
+    "secondary_keywords": [
+      "DIN72 battery",
+      "DIN72 battery specs",
+      "DIN72 dimensions",
+      "DIN72 CCA"
+    ],
+    "entities": [
+      "DIN72",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/din75/",
+    "title": "DIN75 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN75 battery",
+    "secondary_keywords": [
+      "DIN75 battery",
+      "DIN75 battery specs",
+      "DIN75 dimensions",
+      "DIN75 CCA"
+    ],
+    "entities": [
+      "DIN75",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/din80/",
+    "title": "DIN80 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN80 battery",
+    "secondary_keywords": [
+      "DIN80 battery",
+      "DIN80 battery specs",
+      "DIN80 dimensions",
+      "DIN80 CCA"
+    ],
+    "entities": [
+      "DIN80",
+      "DIN/EN",
+      "L4",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/h5/",
+    "title": "H5 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H5 battery",
+    "secondary_keywords": [
+      "H5 battery",
+      "H5 battery specs",
+      "H5 dimensions",
+      "H5 CCA"
+    ],
+    "entities": [
+      "H5",
+      "DIN/EN",
+      "H5/LN2",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/h6/",
+    "title": "H6 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H6 battery",
+    "secondary_keywords": [
+      "H6 battery",
+      "H6 battery specs",
+      "H6 dimensions",
+      "H6 CCA"
+    ],
+    "entities": [
+      "H6",
+      "DIN/EN",
+      "H6/LN3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/h7/",
+    "title": "H7 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H7 battery",
+    "secondary_keywords": [
+      "H7 battery",
+      "H7 battery specs",
+      "H7 dimensions",
+      "H7 CCA"
+    ],
+    "entities": [
+      "H7",
+      "DIN/EN",
+      "H7/LN4",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/h8/",
+    "title": "H8 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H8 battery",
+    "secondary_keywords": [
+      "H8 battery",
+      "H8 battery specs",
+      "H8 dimensions",
+      "H8 CCA"
+    ],
+    "entities": [
+      "H8",
+      "DIN/EN",
+      "H8/LN5",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/n100/",
+    "title": "N100 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N100 battery",
+    "secondary_keywords": [
+      "N100 battery",
+      "N100 battery specs",
+      "N100 dimensions",
+      "N100 CCA"
+    ],
+    "entities": [
+      "N100",
+      "JIS",
+      "N100",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/n150/",
+    "title": "N150 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N150 battery",
+    "secondary_keywords": [
+      "N150 battery",
+      "N150 battery specs",
+      "N150 dimensions",
+      "N150 CCA"
+    ],
+    "entities": [
+      "N150",
+      "JIS",
+      "N150",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/data/n200/",
+    "title": "N200 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N200 battery",
+    "secondary_keywords": [
+      "N200 battery",
+      "N200 battery specs",
+      "N200 dimensions",
+      "N200 CCA"
+    ],
+    "entities": [
+      "N200",
+      "JIS",
+      "N200",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Africa / Middle East / Global (heavy-duty)",
+    "language": "en"
+  },
+  {
+    "url": "/factory/",
+    "title": "Battery Factory — Chengguang Power Tech | Dingwei Battery",
+    "content_type": "Factory Page",
+    "primary_keyword": "battery factory China",
+    "secondary_keywords": [
+      "battery manufacturing plant",
+      "lead acid battery factory",
+      "battery factory tour"
+    ],
+    "entities": [
+      "factory",
+      "Chengguang Power",
+      "production",
+      "Jinzhou",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/factory/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/heavy-duty-batteries/",
+    "title": "Heavy-Duty Batteries — Truck, Bus & Commercial | Dingwei Battery",
+    "content_type": "Product Category Page",
+    "primary_keyword": "heavy duty truck battery",
+    "secondary_keywords": [
+      "truck battery",
+      "bus battery",
+      "N150 N200 battery",
+      "commercial vehicle battery"
+    ],
+    "entities": [
+      "heavy duty",
+      "truck",
+      "bus",
+      "N150",
+      "N200",
+      "battery"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/heavy-duty-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/battery-applications-by-vehicle/",
+    "title": "Battery Applications by Vehicle",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery applications by vehicle",
+    "secondary_keywords": [
+      "car battery types",
+      "start-stop battery",
+      "truck battery",
+      "battery for SUV"
+    ],
+    "entities": [
+      "vehicle",
+      "application",
+      "start-stop",
+      "AGM",
+      "EFB",
+      "heavy duty"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-04",
+    "source": "source: src/pages/knowledge/battery-applications-by-vehicle/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/battery-capacity-ah-vs-c20-vs-rc/",
+    "title": "Battery Capacity: Ah vs C20 vs Reserve Capacity",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery capacity Ah vs C20 vs RC",
+    "secondary_keywords": [
+      "amp hour rating",
+      "C20 rate",
+      "reserve capacity",
+      "battery capacity explained"
+    ],
+    "entities": [
+      "Ah",
+      "C20",
+      "Reserve Capacity",
+      "capacity",
+      "battery"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-04",
+    "source": "source: src/pages/knowledge/battery-capacity-ah-vs-c20-vs-rc/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/battery-dimensions-case-size/",
+    "title": "Battery Dimensions and Case Size Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery dimensions case size",
+    "secondary_keywords": [
+      "battery group size",
+      "JIS D26 dimensions",
+      "DIN L3 size",
+      "BCI group size"
+    ],
+    "entities": [
+      "case size",
+      "dimensions",
+      "JIS",
+      "DIN",
+      "BCI",
+      "fitment"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-04",
+    "source": "source: src/pages/knowledge/battery-dimensions-case-size/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/battery-quality-control/",
+    "title": "Battery Quality Control",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery quality control",
+    "secondary_keywords": [
+      "battery QC process",
+      "battery testing standards",
+      "factory quality control"
+    ],
+    "entities": [
+      "quality control",
+      "testing",
+      "IATF 16949",
+      "inspection",
+      "manufacturing"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-04",
+    "source": "source: src/pages/knowledge/battery-quality-control/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/battery-shipping-warranty/",
+    "title": "Battery Shipping and Warranty",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery shipping warranty",
+    "secondary_keywords": [
+      "shipping lead acid batteries",
+      "battery warranty terms",
+      "dangerous goods battery shipping"
+    ],
+    "entities": [
+      "shipping",
+      "warranty",
+      "logistics",
+      "UN2800",
+      "export"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-04",
+    "source": "source: src/pages/knowledge/battery-shipping-warranty/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/battery-terminal-types-polarity/",
+    "title": "Battery Terminal Types and Polarity",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery terminal types polarity",
+    "secondary_keywords": [
+      "battery terminal type",
+      "JIS terminal",
+      "SAE post",
+      "reversed polarity"
+    ],
+    "entities": [
+      "terminal",
+      "polarity",
+      "JIS",
+      "SAE",
+      "post",
+      "battery"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-04",
+    "source": "source: src/pages/knowledge/battery-terminal-types-polarity/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/how-audit-battery-factory/",
+    "title": "How to Audit a Battery Factory",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to audit battery factory",
+    "secondary_keywords": [
+      "battery factory audit",
+      "factory inspection checklist",
+      "battery manufacturing audit"
+    ],
+    "entities": [
+      "factory",
+      "audit",
+      "inspection",
+      "quality",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/how-audit-battery-factory/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/how-build-private-label-battery-brand/",
+    "title": "How to Build a Private Label Battery Brand",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to build private label battery brand",
+    "secondary_keywords": [
+      "start battery brand",
+      "private label battery business",
+      "battery import business"
+    ],
+    "entities": [
+      "private label",
+      "brand",
+      "import",
+      "distribution",
+      "business"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/how-build-private-label-battery-brand/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/how-choose-oem-battery-manufacturer/",
+    "title": "How to Choose an OEM Battery Manufacturer",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to choose OEM battery manufacturer",
+    "secondary_keywords": [
+      "battery manufacturer selection",
+      "China battery manufacturer",
+      "battery factory evaluation"
+    ],
+    "entities": [
+      "manufacturer",
+      "selection",
+      "China",
+      "factory",
+      "OEM"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/knowledge/how-choose-oem-battery-manufacturer/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/how-lead-acid-batteries-are-made/",
+    "title": "How Lead-Acid Batteries Are Made",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how lead acid batteries are made",
+    "secondary_keywords": [
+      "lead acid battery manufacturing",
+      "battery production process",
+      "grid casting battery"
+    ],
+    "entities": [
+      "lead-acid",
+      "manufacturing",
+      "grid",
+      "pasting",
+      "formation"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-04",
+    "source": "source: src/pages/knowledge/how-lead-acid-batteries-are-made/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/how-oem-battery-programs-work/",
+    "title": "How OEM Battery Programs Work",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how OEM battery programs work",
+    "secondary_keywords": [
+      "OEM battery program",
+      "private label battery program",
+      "battery manufacturer partnership"
+    ],
+    "entities": [
+      "OEM",
+      "private label",
+      "program",
+      "manufacturer",
+      "branding"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/how-oem-battery-programs-work/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/jis-vs-din-vs-bci/",
+    "title": "JIS vs DIN vs BCI Battery Standards",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "JIS vs DIN vs BCI",
+    "secondary_keywords": [
+      "JIS battery standard",
+      "DIN battery standard",
+      "BCI group size",
+      "battery standards comparison"
+    ],
+    "entities": [
+      "JIS",
+      "DIN",
+      "BCI",
+      "EN",
+      "SAE",
+      "standard"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-04",
+    "source": "source: src/pages/knowledge/jis-vs-din-vs-bci/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/oem-battery-development-process/",
+    "title": "OEM Battery Development Process",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery development process",
+    "secondary_keywords": [
+      "battery development timeline",
+      "OEM battery sampling",
+      "battery design approval"
+    ],
+    "entities": [
+      "OEM",
+      "development",
+      "sampling",
+      "design",
+      "approval"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/oem-battery-development-process/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/oem-battery-moq-lead-time/",
+    "title": "OEM Battery MOQ and Lead Time",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery MOQ lead time",
+    "secondary_keywords": [
+      "battery MOQ",
+      "battery lead time",
+      "minimum order quantity battery"
+    ],
+    "entities": [
+      "MOQ",
+      "lead time",
+      "container",
+      "production",
+      "order"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/oem-battery-moq-lead-time/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/oem-battery-rfq-guide/",
+    "title": "OEM Battery RFQ Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery RFQ",
+    "secondary_keywords": [
+      "battery RFQ template",
+      "how to request battery quote",
+      "battery supplier quotation"
+    ],
+    "entities": [
+      "RFQ",
+      "quotation",
+      "specification",
+      "procurement",
+      "supplier"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/oem-battery-rfq-guide/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/oem-battery-specification-guide/",
+    "title": "OEM Battery Specification Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery specification",
+    "secondary_keywords": [
+      "battery spec sheet",
+      "battery specification fields",
+      "battery datasheet guide"
+    ],
+    "entities": [
+      "specification",
+      "datasheet",
+      "voltage",
+      "capacity",
+      "CCA",
+      "terminal"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/oem-battery-specification-guide/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/oem-battery-supplier-checklist/",
+    "title": "OEM Battery Supplier Checklist",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery supplier checklist",
+    "secondary_keywords": [
+      "how to vet battery supplier",
+      "battery supplier audit",
+      "battery manufacturer evaluation"
+    ],
+    "entities": [
+      "supplier",
+      "checklist",
+      "audit",
+      "qualification",
+      "procurement"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/oem-battery-supplier-checklist/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/oem-vs-odm-vs-private-label/",
+    "title": "OEM vs ODM vs Private Label",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM vs ODM vs private label",
+    "secondary_keywords": [
+      "OEM vs ODM",
+      "private label meaning",
+      "battery branding options"
+    ],
+    "entities": [
+      "OEM",
+      "ODM",
+      "private label",
+      "branding",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/oem-vs-odm-vs-private-label/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/private-label-battery-strategy/",
+    "title": "Private Label Battery Strategy",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "private label battery strategy",
+    "secondary_keywords": [
+      "build battery brand",
+      "private label battery business",
+      "battery brand launch"
+    ],
+    "entities": [
+      "private label",
+      "brand",
+      "strategy",
+      "distribution",
+      "market"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/private-label-battery-strategy/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/what-is-cca/",
+    "title": "What Is CCA (Cold Cranking Amps)?",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "what is CCA",
+    "secondary_keywords": [
+      "cold cranking amps",
+      "CCA vs Ah",
+      "JIS vs EN CCA",
+      "battery starting power"
+    ],
+    "entities": [
+      "CCA",
+      "Cold Cranking Amps",
+      "JIS",
+      "EN",
+      "SAE",
+      "DIN",
+      "battery",
+      "starter"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-04",
+    "source": "source: src/pages/knowledge/what-is-cca/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/knowledge/what-is-oem-battery/",
+    "title": "What Is an OEM Battery?",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "what is OEM battery",
+    "secondary_keywords": [
+      "OEM battery meaning",
+      "OEM vs aftermarket battery",
+      "private label battery"
+    ],
+    "entities": [
+      "OEM battery",
+      "aftermarket",
+      "private label",
+      "manufacturer"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/knowledge/what-is-oem-battery/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/oem/",
+    "title": "OEM Battery Manufacturing | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "OEM battery manufacturer",
+    "secondary_keywords": [
+      "car battery OEM",
+      "battery private label OEM",
+      "OEM battery China"
+    ],
+    "entities": [
+      "OEM",
+      "manufacturer",
+      "private label",
+      "battery"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/oem/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/oem/car-batteries/",
+    "title": "Car Battery OEM & Private Label | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "car battery OEM",
+    "secondary_keywords": [
+      "OEM car battery manufacturer",
+      "JIS DIN car battery",
+      "passenger car battery supplier"
+    ],
+    "entities": [
+      "car battery",
+      "OEM",
+      "JIS",
+      "DIN",
+      "SLI",
+      "AGM",
+      "EFB"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/oem/car-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 2,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/oem/truck-batteries/",
+    "title": "Truck Battery OEM & Private Label | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "truck battery OEM",
+    "secondary_keywords": [
+      "heavy duty truck battery manufacturer",
+      "commercial battery OEM"
+    ],
+    "entities": [
+      "truck battery",
+      "OEM",
+      "heavy duty",
+      "commercial"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-05",
+    "source": "source: src/pages/oem/truck-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/privacy/",
+    "title": "Privacy Policy | Dingwei Battery",
+    "content_type": "Legal Page",
+    "primary_keyword": "privacy policy",
+    "secondary_keywords": [],
+    "entities": [
+      "privacy"
+    ],
+    "search_intent": "Navigational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/privacy/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/private-label/",
+    "title": "Private Label Battery Program | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "private label battery",
+    "secondary_keywords": [
+      "private label battery manufacturer",
+      "custom battery branding",
+      "own brand battery"
+    ],
+    "entities": [
+      "private label",
+      "branding",
+      "OEM",
+      "battery"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/private-label/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/terms/",
+    "title": "Terms of Service | Dingwei Battery",
+    "content_type": "Legal Page",
+    "primary_keyword": "terms of service",
+    "secondary_keywords": [],
+    "entities": [
+      "terms"
+    ],
+    "search_intent": "Navigational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/terms/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/tools/battery-finder/",
+    "title": "Battery Finder Tool | Dingwei Battery",
+    "content_type": "Tool",
+    "primary_keyword": "battery finder",
+    "secondary_keywords": [
+      "find car battery",
+      "battery selection tool",
+      "battery fitment lookup"
+    ],
+    "entities": [
+      "battery",
+      "fitment",
+      "tool",
+      "model",
+      "CCA"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-03",
+    "source": "source: src/pages/tools/battery-finder/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/tools/compare/",
+    "title": "Compare Battery Models | Dingwei Battery",
+    "content_type": "Tool",
+    "primary_keyword": "compare battery models",
+    "secondary_keywords": [
+      "battery comparison",
+      "65D26 vs 80D26",
+      "battery specs compare"
+    ],
+    "entities": [
+      "battery",
+      "comparison",
+      "model",
+      "specs",
+      "CCA"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-03",
+    "source": "source: src/pages/tools/compare/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Global (primary English)",
+    "language": "en"
+  },
+  {
+    "url": "/es/",
+    "title": "Dingwei Battery — OEM & Private-Label Automotive Batteries",
+    "content_type": "Landing Page",
+    "primary_keyword": "OEM battery manufacturer",
+    "secondary_keywords": [
+      "automotive battery manufacturer",
+      "private label battery",
+      "China battery factory"
+    ],
+    "entities": [
+      "Dingwei Battery",
+      "OEM",
+      "private label",
+      "Chengguang Power",
+      "manufacturer"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/es/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 8,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/contact/",
+    "title": "Contact | Dingwei Battery",
+    "content_type": "Contact Page",
+    "primary_keyword": "contact Dingwei battery",
+    "secondary_keywords": [
+      "battery manufacturer contact",
+      "battery RFQ contact"
+    ],
+    "entities": [
+      "Dingwei Battery",
+      "contact",
+      "RFQ",
+      "email"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/es/contact/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/",
+    "title": "Battery Model Database | Dingwei Battery",
+    "content_type": "Database / Hub",
+    "primary_keyword": "battery model database",
+    "secondary_keywords": [
+      "battery specs database",
+      "JIS DIN battery list",
+      "car battery reference"
+    ],
+    "entities": [
+      "battery",
+      "JIS",
+      "DIN",
+      "BCI",
+      "model",
+      "CCA"
+    ],
+    "search_intent": "Navigational",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/es/data/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/105d31/",
+    "title": "105D31 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "105D31 battery",
+    "secondary_keywords": [
+      "105D31 battery",
+      "105D31 battery specs",
+      "105D31 dimensions",
+      "105D31 CCA"
+    ],
+    "entities": [
+      "105D31",
+      "JIS",
+      "D31",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/115d31/",
+    "title": "115D31 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "115D31 battery",
+    "secondary_keywords": [
+      "115D31 battery",
+      "115D31 battery specs",
+      "115D31 dimensions",
+      "115D31 CCA"
+    ],
+    "entities": [
+      "115D31",
+      "JIS",
+      "D31",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/55b24/",
+    "title": "55B24 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "55B24 battery",
+    "secondary_keywords": [
+      "55B24 battery",
+      "55B24 battery specs",
+      "55B24 dimensions",
+      "55B24 CCA"
+    ],
+    "entities": [
+      "55B24",
+      "JIS",
+      "B24",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/55d23/",
+    "title": "55D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "55D23 battery",
+    "secondary_keywords": [
+      "55D23 battery",
+      "55D23 battery specs",
+      "55D23 dimensions",
+      "55D23 CCA"
+    ],
+    "entities": [
+      "55D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/65b24/",
+    "title": "65B24 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65B24 battery",
+    "secondary_keywords": [
+      "65B24 battery",
+      "65B24 battery specs",
+      "65B24 dimensions",
+      "65B24 CCA"
+    ],
+    "entities": [
+      "65B24",
+      "JIS",
+      "B24",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/65d23/",
+    "title": "65D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65D23 battery",
+    "secondary_keywords": [
+      "65D23 battery",
+      "65D23 battery specs",
+      "65D23 dimensions",
+      "65D23 CCA"
+    ],
+    "entities": [
+      "65D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/65d26/",
+    "title": "65D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65D26 battery",
+    "secondary_keywords": [
+      "65D26 battery",
+      "65D26 battery specs",
+      "65D26 dimensions",
+      "65D26 CCA"
+    ],
+    "entities": [
+      "65D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/75d23/",
+    "title": "75D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "75D23 battery",
+    "secondary_keywords": [
+      "75D23 battery",
+      "75D23 battery specs",
+      "75D23 dimensions",
+      "75D23 CCA"
+    ],
+    "entities": [
+      "75D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/80d26/",
+    "title": "80D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "80D26 battery",
+    "secondary_keywords": [
+      "80D26 battery",
+      "80D26 battery specs",
+      "80D26 dimensions",
+      "80D26 CCA"
+    ],
+    "entities": [
+      "80D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/85d26/",
+    "title": "85D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "85D26 battery",
+    "secondary_keywords": [
+      "85D26 battery",
+      "85D26 battery specs",
+      "85D26 dimensions",
+      "85D26 CCA"
+    ],
+    "entities": [
+      "85D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/95d26/",
+    "title": "95D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "95D26 battery",
+    "secondary_keywords": [
+      "95D26 battery",
+      "95D26 battery specs",
+      "95D26 dimensions",
+      "95D26 CCA"
+    ],
+    "entities": [
+      "95D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/din100/",
+    "title": "DIN100 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN100 battery",
+    "secondary_keywords": [
+      "DIN100 battery",
+      "DIN100 battery specs",
+      "DIN100 dimensions",
+      "DIN100 CCA"
+    ],
+    "entities": [
+      "DIN100",
+      "DIN/EN",
+      "L5",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/din70/",
+    "title": "DIN70 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN70 battery",
+    "secondary_keywords": [
+      "DIN70 battery",
+      "DIN70 battery specs",
+      "DIN70 dimensions",
+      "DIN70 CCA"
+    ],
+    "entities": [
+      "DIN70",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/din72/",
+    "title": "DIN72 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN72 battery",
+    "secondary_keywords": [
+      "DIN72 battery",
+      "DIN72 battery specs",
+      "DIN72 dimensions",
+      "DIN72 CCA"
+    ],
+    "entities": [
+      "DIN72",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/din75/",
+    "title": "DIN75 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN75 battery",
+    "secondary_keywords": [
+      "DIN75 battery",
+      "DIN75 battery specs",
+      "DIN75 dimensions",
+      "DIN75 CCA"
+    ],
+    "entities": [
+      "DIN75",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/din80/",
+    "title": "DIN80 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN80 battery",
+    "secondary_keywords": [
+      "DIN80 battery",
+      "DIN80 battery specs",
+      "DIN80 dimensions",
+      "DIN80 CCA"
+    ],
+    "entities": [
+      "DIN80",
+      "DIN/EN",
+      "L4",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/h5/",
+    "title": "H5 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H5 battery",
+    "secondary_keywords": [
+      "H5 battery",
+      "H5 battery specs",
+      "H5 dimensions",
+      "H5 CCA"
+    ],
+    "entities": [
+      "H5",
+      "DIN/EN",
+      "H5/LN2",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/h6/",
+    "title": "H6 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H6 battery",
+    "secondary_keywords": [
+      "H6 battery",
+      "H6 battery specs",
+      "H6 dimensions",
+      "H6 CCA"
+    ],
+    "entities": [
+      "H6",
+      "DIN/EN",
+      "H6/LN3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/h7/",
+    "title": "H7 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H7 battery",
+    "secondary_keywords": [
+      "H7 battery",
+      "H7 battery specs",
+      "H7 dimensions",
+      "H7 CCA"
+    ],
+    "entities": [
+      "H7",
+      "DIN/EN",
+      "H7/LN4",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/h8/",
+    "title": "H8 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H8 battery",
+    "secondary_keywords": [
+      "H8 battery",
+      "H8 battery specs",
+      "H8 dimensions",
+      "H8 CCA"
+    ],
+    "entities": [
+      "H8",
+      "DIN/EN",
+      "H8/LN5",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/n100/",
+    "title": "N100 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N100 battery",
+    "secondary_keywords": [
+      "N100 battery",
+      "N100 battery specs",
+      "N100 dimensions",
+      "N100 CCA"
+    ],
+    "entities": [
+      "N100",
+      "JIS",
+      "N100",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/n150/",
+    "title": "N150 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N150 battery",
+    "secondary_keywords": [
+      "N150 battery",
+      "N150 battery specs",
+      "N150 dimensions",
+      "N150 CCA"
+    ],
+    "entities": [
+      "N150",
+      "JIS",
+      "N150",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/data/n200/",
+    "title": "N200 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N200 battery",
+    "secondary_keywords": [
+      "N200 battery",
+      "N200 battery specs",
+      "N200 dimensions",
+      "N200 CCA"
+    ],
+    "entities": [
+      "N200",
+      "JIS",
+      "N200",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/factory/",
+    "title": "Battery Factory — Chengguang Power Tech | Dingwei Battery",
+    "content_type": "Factory Page",
+    "primary_keyword": "battery factory China",
+    "secondary_keywords": [
+      "battery manufacturing plant",
+      "lead acid battery factory",
+      "battery factory tour"
+    ],
+    "entities": [
+      "factory",
+      "Chengguang Power",
+      "production",
+      "Jinzhou",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/es/factory/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/heavy-duty-batteries/",
+    "title": "Heavy-Duty Batteries — Truck, Bus & Commercial | Dingwei Battery",
+    "content_type": "Product Category Page",
+    "primary_keyword": "heavy duty truck battery",
+    "secondary_keywords": [
+      "truck battery",
+      "bus battery",
+      "N150 N200 battery",
+      "commercial vehicle battery"
+    ],
+    "entities": [
+      "heavy duty",
+      "truck",
+      "bus",
+      "N150",
+      "N200",
+      "battery"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/es/heavy-duty-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/battery-applications-by-vehicle/",
+    "title": "Battery Applications by Vehicle",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery applications by vehicle",
+    "secondary_keywords": [
+      "car battery types",
+      "start-stop battery",
+      "truck battery",
+      "battery for SUV"
+    ],
+    "entities": [
+      "vehicle",
+      "application",
+      "start-stop",
+      "AGM",
+      "EFB",
+      "heavy duty"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/battery-applications-by-vehicle/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/battery-capacity-ah-vs-c20-vs-rc/",
+    "title": "Battery Capacity: Ah vs C20 vs Reserve Capacity",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery capacity Ah vs C20 vs RC",
+    "secondary_keywords": [
+      "amp hour rating",
+      "C20 rate",
+      "reserve capacity",
+      "battery capacity explained"
+    ],
+    "entities": [
+      "Ah",
+      "C20",
+      "Reserve Capacity",
+      "capacity",
+      "battery"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/battery-capacity-ah-vs-c20-vs-rc/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/battery-dimensions-case-size/",
+    "title": "Battery Dimensions and Case Size Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery dimensions case size",
+    "secondary_keywords": [
+      "battery group size",
+      "JIS D26 dimensions",
+      "DIN L3 size",
+      "BCI group size"
+    ],
+    "entities": [
+      "case size",
+      "dimensions",
+      "JIS",
+      "DIN",
+      "BCI",
+      "fitment"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/battery-dimensions-case-size/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/battery-quality-control/",
+    "title": "Battery Quality Control",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery quality control",
+    "secondary_keywords": [
+      "battery QC process",
+      "battery testing standards",
+      "factory quality control"
+    ],
+    "entities": [
+      "quality control",
+      "testing",
+      "IATF 16949",
+      "inspection",
+      "manufacturing"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/battery-quality-control/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/battery-shipping-warranty/",
+    "title": "Battery Shipping and Warranty",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery shipping warranty",
+    "secondary_keywords": [
+      "shipping lead acid batteries",
+      "battery warranty terms",
+      "dangerous goods battery shipping"
+    ],
+    "entities": [
+      "shipping",
+      "warranty",
+      "logistics",
+      "UN2800",
+      "export"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/battery-shipping-warranty/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/battery-terminal-types-polarity/",
+    "title": "Battery Terminal Types and Polarity",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery terminal types polarity",
+    "secondary_keywords": [
+      "battery terminal type",
+      "JIS terminal",
+      "SAE post",
+      "reversed polarity"
+    ],
+    "entities": [
+      "terminal",
+      "polarity",
+      "JIS",
+      "SAE",
+      "post",
+      "battery"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/battery-terminal-types-polarity/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/how-audit-battery-factory/",
+    "title": "How to Audit a Battery Factory",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to audit battery factory",
+    "secondary_keywords": [
+      "battery factory audit",
+      "factory inspection checklist",
+      "battery manufacturing audit"
+    ],
+    "entities": [
+      "factory",
+      "audit",
+      "inspection",
+      "quality",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/how-audit-battery-factory/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/how-build-private-label-battery-brand/",
+    "title": "How to Build a Private Label Battery Brand",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to build private label battery brand",
+    "secondary_keywords": [
+      "start battery brand",
+      "private label battery business",
+      "battery import business"
+    ],
+    "entities": [
+      "private label",
+      "brand",
+      "import",
+      "distribution",
+      "business"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/how-build-private-label-battery-brand/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/how-choose-oem-battery-manufacturer/",
+    "title": "How to Choose an OEM Battery Manufacturer",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to choose OEM battery manufacturer",
+    "secondary_keywords": [
+      "battery manufacturer selection",
+      "China battery manufacturer",
+      "battery factory evaluation"
+    ],
+    "entities": [
+      "manufacturer",
+      "selection",
+      "China",
+      "factory",
+      "OEM"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/how-choose-oem-battery-manufacturer/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/how-lead-acid-batteries-are-made/",
+    "title": "How Lead-Acid Batteries Are Made",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how lead acid batteries are made",
+    "secondary_keywords": [
+      "lead acid battery manufacturing",
+      "battery production process",
+      "grid casting battery"
+    ],
+    "entities": [
+      "lead-acid",
+      "manufacturing",
+      "grid",
+      "pasting",
+      "formation"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/how-lead-acid-batteries-are-made/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/how-oem-battery-programs-work/",
+    "title": "How OEM Battery Programs Work",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how OEM battery programs work",
+    "secondary_keywords": [
+      "OEM battery program",
+      "private label battery program",
+      "battery manufacturer partnership"
+    ],
+    "entities": [
+      "OEM",
+      "private label",
+      "program",
+      "manufacturer",
+      "branding"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/how-oem-battery-programs-work/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/jis-vs-din-vs-bci/",
+    "title": "JIS vs DIN vs BCI Battery Standards",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "JIS vs DIN vs BCI",
+    "secondary_keywords": [
+      "JIS battery standard",
+      "DIN battery standard",
+      "BCI group size",
+      "battery standards comparison"
+    ],
+    "entities": [
+      "JIS",
+      "DIN",
+      "BCI",
+      "EN",
+      "SAE",
+      "standard"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/jis-vs-din-vs-bci/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/oem-battery-development-process/",
+    "title": "OEM Battery Development Process",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery development process",
+    "secondary_keywords": [
+      "battery development timeline",
+      "OEM battery sampling",
+      "battery design approval"
+    ],
+    "entities": [
+      "OEM",
+      "development",
+      "sampling",
+      "design",
+      "approval"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/oem-battery-development-process/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/oem-battery-moq-lead-time/",
+    "title": "OEM Battery MOQ and Lead Time",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery MOQ lead time",
+    "secondary_keywords": [
+      "battery MOQ",
+      "battery lead time",
+      "minimum order quantity battery"
+    ],
+    "entities": [
+      "MOQ",
+      "lead time",
+      "container",
+      "production",
+      "order"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/oem-battery-moq-lead-time/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/oem-battery-rfq-guide/",
+    "title": "OEM Battery RFQ Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery RFQ",
+    "secondary_keywords": [
+      "battery RFQ template",
+      "how to request battery quote",
+      "battery supplier quotation"
+    ],
+    "entities": [
+      "RFQ",
+      "quotation",
+      "specification",
+      "procurement",
+      "supplier"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/oem-battery-rfq-guide/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/oem-battery-specification-guide/",
+    "title": "OEM Battery Specification Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery specification",
+    "secondary_keywords": [
+      "battery spec sheet",
+      "battery specification fields",
+      "battery datasheet guide"
+    ],
+    "entities": [
+      "specification",
+      "datasheet",
+      "voltage",
+      "capacity",
+      "CCA",
+      "terminal"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/oem-battery-specification-guide/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/oem-battery-supplier-checklist/",
+    "title": "OEM Battery Supplier Checklist",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery supplier checklist",
+    "secondary_keywords": [
+      "how to vet battery supplier",
+      "battery supplier audit",
+      "battery manufacturer evaluation"
+    ],
+    "entities": [
+      "supplier",
+      "checklist",
+      "audit",
+      "qualification",
+      "procurement"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/oem-battery-supplier-checklist/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/oem-vs-odm-vs-private-label/",
+    "title": "OEM vs ODM vs Private Label",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM vs ODM vs private label",
+    "secondary_keywords": [
+      "OEM vs ODM",
+      "private label meaning",
+      "battery branding options"
+    ],
+    "entities": [
+      "OEM",
+      "ODM",
+      "private label",
+      "branding",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/oem-vs-odm-vs-private-label/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/private-label-battery-strategy/",
+    "title": "Private Label Battery Strategy",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "private label battery strategy",
+    "secondary_keywords": [
+      "build battery brand",
+      "private label battery business",
+      "battery brand launch"
+    ],
+    "entities": [
+      "private label",
+      "brand",
+      "strategy",
+      "distribution",
+      "market"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/private-label-battery-strategy/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/what-is-cca/",
+    "title": "What Is CCA (Cold Cranking Amps)?",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "what is CCA",
+    "secondary_keywords": [
+      "cold cranking amps",
+      "CCA vs Ah",
+      "JIS vs EN CCA",
+      "battery starting power"
+    ],
+    "entities": [
+      "CCA",
+      "Cold Cranking Amps",
+      "JIS",
+      "EN",
+      "SAE",
+      "DIN",
+      "battery",
+      "starter"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/what-is-cca/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/knowledge/what-is-oem-battery/",
+    "title": "What Is an OEM Battery?",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "what is OEM battery",
+    "secondary_keywords": [
+      "OEM battery meaning",
+      "OEM vs aftermarket battery",
+      "private label battery"
+    ],
+    "entities": [
+      "OEM battery",
+      "aftermarket",
+      "private label",
+      "manufacturer"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/knowledge/what-is-oem-battery/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/oem/",
+    "title": "OEM Battery Manufacturing | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "OEM battery manufacturer",
+    "secondary_keywords": [
+      "car battery OEM",
+      "battery private label OEM",
+      "OEM battery China"
+    ],
+    "entities": [
+      "OEM",
+      "manufacturer",
+      "private label",
+      "battery"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/es/oem/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/oem/car-batteries/",
+    "title": "Car Battery OEM & Private Label | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "car battery OEM",
+    "secondary_keywords": [
+      "OEM car battery manufacturer",
+      "JIS DIN car battery",
+      "passenger car battery supplier"
+    ],
+    "entities": [
+      "car battery",
+      "OEM",
+      "JIS",
+      "DIN",
+      "SLI",
+      "AGM",
+      "EFB"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/es/oem/car-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 2,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/oem/truck-batteries/",
+    "title": "Truck Battery OEM & Private Label | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "truck battery OEM",
+    "secondary_keywords": [
+      "heavy duty truck battery manufacturer",
+      "commercial battery OEM"
+    ],
+    "entities": [
+      "truck battery",
+      "OEM",
+      "heavy duty",
+      "commercial"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/es/oem/truck-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/private-label/",
+    "title": "Private Label Battery Program | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "private label battery",
+    "secondary_keywords": [
+      "private label battery manufacturer",
+      "custom battery branding",
+      "own brand battery"
+    ],
+    "entities": [
+      "private label",
+      "branding",
+      "OEM",
+      "battery"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/es/private-label/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/tools/battery-finder/",
+    "title": "Battery Finder Tool | Dingwei Battery",
+    "content_type": "Tool",
+    "primary_keyword": "battery finder",
+    "secondary_keywords": [
+      "find car battery",
+      "battery selection tool",
+      "battery fitment lookup"
+    ],
+    "entities": [
+      "battery",
+      "fitment",
+      "tool",
+      "model",
+      "CCA"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/tools/battery-finder/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/es/tools/compare/",
+    "title": "Compare Battery Models | Dingwei Battery",
+    "content_type": "Tool",
+    "primary_keyword": "compare battery models",
+    "secondary_keywords": [
+      "battery comparison",
+      "65D26 vs 80D26",
+      "battery specs compare"
+    ],
+    "entities": [
+      "battery",
+      "comparison",
+      "model",
+      "specs",
+      "CCA"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/es/tools/compare/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "Latin America / Spain (Spanish)",
+    "language": "es"
+  },
+  {
+    "url": "/ru/",
+    "title": "Dingwei Battery — OEM & Private-Label Automotive Batteries",
+    "content_type": "Landing Page",
+    "primary_keyword": "OEM battery manufacturer",
+    "secondary_keywords": [
+      "automotive battery manufacturer",
+      "private label battery",
+      "China battery factory"
+    ],
+    "entities": [
+      "Dingwei Battery",
+      "OEM",
+      "private label",
+      "Chengguang Power",
+      "manufacturer"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ru/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 8,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/contact/",
+    "title": "Contact | Dingwei Battery",
+    "content_type": "Contact Page",
+    "primary_keyword": "contact Dingwei battery",
+    "secondary_keywords": [
+      "battery manufacturer contact",
+      "battery RFQ contact"
+    ],
+    "entities": [
+      "Dingwei Battery",
+      "contact",
+      "RFQ",
+      "email"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ru/contact/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/",
+    "title": "Battery Model Database | Dingwei Battery",
+    "content_type": "Database / Hub",
+    "primary_keyword": "battery model database",
+    "secondary_keywords": [
+      "battery specs database",
+      "JIS DIN battery list",
+      "car battery reference"
+    ],
+    "entities": [
+      "battery",
+      "JIS",
+      "DIN",
+      "BCI",
+      "model",
+      "CCA"
+    ],
+    "search_intent": "Navigational",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ru/data/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/105d31/",
+    "title": "105D31 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "105D31 battery",
+    "secondary_keywords": [
+      "105D31 battery",
+      "105D31 battery specs",
+      "105D31 dimensions",
+      "105D31 CCA"
+    ],
+    "entities": [
+      "105D31",
+      "JIS",
+      "D31",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/115d31/",
+    "title": "115D31 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "115D31 battery",
+    "secondary_keywords": [
+      "115D31 battery",
+      "115D31 battery specs",
+      "115D31 dimensions",
+      "115D31 CCA"
+    ],
+    "entities": [
+      "115D31",
+      "JIS",
+      "D31",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/55b24/",
+    "title": "55B24 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "55B24 battery",
+    "secondary_keywords": [
+      "55B24 battery",
+      "55B24 battery specs",
+      "55B24 dimensions",
+      "55B24 CCA"
+    ],
+    "entities": [
+      "55B24",
+      "JIS",
+      "B24",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/55d23/",
+    "title": "55D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "55D23 battery",
+    "secondary_keywords": [
+      "55D23 battery",
+      "55D23 battery specs",
+      "55D23 dimensions",
+      "55D23 CCA"
+    ],
+    "entities": [
+      "55D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/65b24/",
+    "title": "65B24 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65B24 battery",
+    "secondary_keywords": [
+      "65B24 battery",
+      "65B24 battery specs",
+      "65B24 dimensions",
+      "65B24 CCA"
+    ],
+    "entities": [
+      "65B24",
+      "JIS",
+      "B24",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/65d23/",
+    "title": "65D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65D23 battery",
+    "secondary_keywords": [
+      "65D23 battery",
+      "65D23 battery specs",
+      "65D23 dimensions",
+      "65D23 CCA"
+    ],
+    "entities": [
+      "65D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/65d26/",
+    "title": "65D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "65D26 battery",
+    "secondary_keywords": [
+      "65D26 battery",
+      "65D26 battery specs",
+      "65D26 dimensions",
+      "65D26 CCA"
+    ],
+    "entities": [
+      "65D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/75d23/",
+    "title": "75D23 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "75D23 battery",
+    "secondary_keywords": [
+      "75D23 battery",
+      "75D23 battery specs",
+      "75D23 dimensions",
+      "75D23 CCA"
+    ],
+    "entities": [
+      "75D23",
+      "JIS",
+      "D23",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/80d26/",
+    "title": "80D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "80D26 battery",
+    "secondary_keywords": [
+      "80D26 battery",
+      "80D26 battery specs",
+      "80D26 dimensions",
+      "80D26 CCA"
+    ],
+    "entities": [
+      "80D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/85d26/",
+    "title": "85D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "85D26 battery",
+    "secondary_keywords": [
+      "85D26 battery",
+      "85D26 battery specs",
+      "85D26 dimensions",
+      "85D26 CCA"
+    ],
+    "entities": [
+      "85D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/95d26/",
+    "title": "95D26 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "95D26 battery",
+    "secondary_keywords": [
+      "95D26 battery",
+      "95D26 battery specs",
+      "95D26 dimensions",
+      "95D26 CCA"
+    ],
+    "entities": [
+      "95D26",
+      "JIS",
+      "D26",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/din100/",
+    "title": "DIN100 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN100 battery",
+    "secondary_keywords": [
+      "DIN100 battery",
+      "DIN100 battery specs",
+      "DIN100 dimensions",
+      "DIN100 CCA"
+    ],
+    "entities": [
+      "DIN100",
+      "DIN/EN",
+      "L5",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/din70/",
+    "title": "DIN70 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN70 battery",
+    "secondary_keywords": [
+      "DIN70 battery",
+      "DIN70 battery specs",
+      "DIN70 dimensions",
+      "DIN70 CCA"
+    ],
+    "entities": [
+      "DIN70",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/din72/",
+    "title": "DIN72 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN72 battery",
+    "secondary_keywords": [
+      "DIN72 battery",
+      "DIN72 battery specs",
+      "DIN72 dimensions",
+      "DIN72 CCA"
+    ],
+    "entities": [
+      "DIN72",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/din75/",
+    "title": "DIN75 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN75 battery",
+    "secondary_keywords": [
+      "DIN75 battery",
+      "DIN75 battery specs",
+      "DIN75 dimensions",
+      "DIN75 CCA"
+    ],
+    "entities": [
+      "DIN75",
+      "DIN/EN",
+      "L3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/din80/",
+    "title": "DIN80 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "DIN80 battery",
+    "secondary_keywords": [
+      "DIN80 battery",
+      "DIN80 battery specs",
+      "DIN80 dimensions",
+      "DIN80 CCA"
+    ],
+    "entities": [
+      "DIN80",
+      "DIN/EN",
+      "L4",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/h5/",
+    "title": "H5 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H5 battery",
+    "secondary_keywords": [
+      "H5 battery",
+      "H5 battery specs",
+      "H5 dimensions",
+      "H5 CCA"
+    ],
+    "entities": [
+      "H5",
+      "DIN/EN",
+      "H5/LN2",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/h6/",
+    "title": "H6 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H6 battery",
+    "secondary_keywords": [
+      "H6 battery",
+      "H6 battery specs",
+      "H6 dimensions",
+      "H6 CCA"
+    ],
+    "entities": [
+      "H6",
+      "DIN/EN",
+      "H6/LN3",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/h7/",
+    "title": "H7 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H7 battery",
+    "secondary_keywords": [
+      "H7 battery",
+      "H7 battery specs",
+      "H7 dimensions",
+      "H7 CCA"
+    ],
+    "entities": [
+      "H7",
+      "DIN/EN",
+      "H7/LN4",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/h8/",
+    "title": "H8 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "H8 battery",
+    "secondary_keywords": [
+      "H8 battery",
+      "H8 battery specs",
+      "H8 dimensions",
+      "H8 CCA"
+    ],
+    "entities": [
+      "H8",
+      "DIN/EN",
+      "H8/LN5",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/n100/",
+    "title": "N100 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N100 battery",
+    "secondary_keywords": [
+      "N100 battery",
+      "N100 battery specs",
+      "N100 dimensions",
+      "N100 CCA"
+    ],
+    "entities": [
+      "N100",
+      "JIS",
+      "N100",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/n150/",
+    "title": "N150 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N150 battery",
+    "secondary_keywords": [
+      "N150 battery",
+      "N150 battery specs",
+      "N150 dimensions",
+      "N150 CCA"
+    ],
+    "entities": [
+      "N150",
+      "JIS",
+      "N150",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/data/n200/",
+    "title": "N200 Battery — Specs, CCA, Dimensions | Dingwei Battery",
+    "content_type": "Battery Model Page",
+    "primary_keyword": "N200 battery",
+    "secondary_keywords": [
+      "N200 battery",
+      "N200 battery specs",
+      "N200 dimensions",
+      "N200 CCA"
+    ],
+    "entities": [
+      "N200",
+      "JIS",
+      "N200",
+      "battery",
+      "CCA",
+      "Ah"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/data/[model]/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 0,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/factory/",
+    "title": "Battery Factory — Chengguang Power Tech | Dingwei Battery",
+    "content_type": "Factory Page",
+    "primary_keyword": "battery factory China",
+    "secondary_keywords": [
+      "battery manufacturing plant",
+      "lead acid battery factory",
+      "battery factory tour"
+    ],
+    "entities": [
+      "factory",
+      "Chengguang Power",
+      "production",
+      "Jinzhou",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ru/factory/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/heavy-duty-batteries/",
+    "title": "Heavy-Duty Batteries — Truck, Bus & Commercial | Dingwei Battery",
+    "content_type": "Product Category Page",
+    "primary_keyword": "heavy duty truck battery",
+    "secondary_keywords": [
+      "truck battery",
+      "bus battery",
+      "N150 N200 battery",
+      "commercial vehicle battery"
+    ],
+    "entities": [
+      "heavy duty",
+      "truck",
+      "bus",
+      "N150",
+      "N200",
+      "battery"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ru/heavy-duty-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/battery-applications-by-vehicle/",
+    "title": "Battery Applications by Vehicle",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery applications by vehicle",
+    "secondary_keywords": [
+      "car battery types",
+      "start-stop battery",
+      "truck battery",
+      "battery for SUV"
+    ],
+    "entities": [
+      "vehicle",
+      "application",
+      "start-stop",
+      "AGM",
+      "EFB",
+      "heavy duty"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/battery-applications-by-vehicle/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/battery-capacity-ah-vs-c20-vs-rc/",
+    "title": "Battery Capacity: Ah vs C20 vs Reserve Capacity",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery capacity Ah vs C20 vs RC",
+    "secondary_keywords": [
+      "amp hour rating",
+      "C20 rate",
+      "reserve capacity",
+      "battery capacity explained"
+    ],
+    "entities": [
+      "Ah",
+      "C20",
+      "Reserve Capacity",
+      "capacity",
+      "battery"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/battery-capacity-ah-vs-c20-vs-rc/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/battery-dimensions-case-size/",
+    "title": "Battery Dimensions and Case Size Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery dimensions case size",
+    "secondary_keywords": [
+      "battery group size",
+      "JIS D26 dimensions",
+      "DIN L3 size",
+      "BCI group size"
+    ],
+    "entities": [
+      "case size",
+      "dimensions",
+      "JIS",
+      "DIN",
+      "BCI",
+      "fitment"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/battery-dimensions-case-size/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/battery-quality-control/",
+    "title": "Battery Quality Control",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery quality control",
+    "secondary_keywords": [
+      "battery QC process",
+      "battery testing standards",
+      "factory quality control"
+    ],
+    "entities": [
+      "quality control",
+      "testing",
+      "IATF 16949",
+      "inspection",
+      "manufacturing"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/battery-quality-control/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/battery-shipping-warranty/",
+    "title": "Battery Shipping and Warranty",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery shipping warranty",
+    "secondary_keywords": [
+      "shipping lead acid batteries",
+      "battery warranty terms",
+      "dangerous goods battery shipping"
+    ],
+    "entities": [
+      "shipping",
+      "warranty",
+      "logistics",
+      "UN2800",
+      "export"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/battery-shipping-warranty/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/battery-terminal-types-polarity/",
+    "title": "Battery Terminal Types and Polarity",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "battery terminal types polarity",
+    "secondary_keywords": [
+      "battery terminal type",
+      "JIS terminal",
+      "SAE post",
+      "reversed polarity"
+    ],
+    "entities": [
+      "terminal",
+      "polarity",
+      "JIS",
+      "SAE",
+      "post",
+      "battery"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/battery-terminal-types-polarity/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/how-audit-battery-factory/",
+    "title": "How to Audit a Battery Factory",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to audit battery factory",
+    "secondary_keywords": [
+      "battery factory audit",
+      "factory inspection checklist",
+      "battery manufacturing audit"
+    ],
+    "entities": [
+      "factory",
+      "audit",
+      "inspection",
+      "quality",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/how-audit-battery-factory/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/how-build-private-label-battery-brand/",
+    "title": "How to Build a Private Label Battery Brand",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to build private label battery brand",
+    "secondary_keywords": [
+      "start battery brand",
+      "private label battery business",
+      "battery import business"
+    ],
+    "entities": [
+      "private label",
+      "brand",
+      "import",
+      "distribution",
+      "business"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/how-build-private-label-battery-brand/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/how-choose-oem-battery-manufacturer/",
+    "title": "How to Choose an OEM Battery Manufacturer",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how to choose OEM battery manufacturer",
+    "secondary_keywords": [
+      "battery manufacturer selection",
+      "China battery manufacturer",
+      "battery factory evaluation"
+    ],
+    "entities": [
+      "manufacturer",
+      "selection",
+      "China",
+      "factory",
+      "OEM"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/how-choose-oem-battery-manufacturer/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 7,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/how-lead-acid-batteries-are-made/",
+    "title": "How Lead-Acid Batteries Are Made",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how lead acid batteries are made",
+    "secondary_keywords": [
+      "lead acid battery manufacturing",
+      "battery production process",
+      "grid casting battery"
+    ],
+    "entities": [
+      "lead-acid",
+      "manufacturing",
+      "grid",
+      "pasting",
+      "formation"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/how-lead-acid-batteries-are-made/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/how-oem-battery-programs-work/",
+    "title": "How OEM Battery Programs Work",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "how OEM battery programs work",
+    "secondary_keywords": [
+      "OEM battery program",
+      "private label battery program",
+      "battery manufacturer partnership"
+    ],
+    "entities": [
+      "OEM",
+      "private label",
+      "program",
+      "manufacturer",
+      "branding"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/how-oem-battery-programs-work/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/jis-vs-din-vs-bci/",
+    "title": "JIS vs DIN vs BCI Battery Standards",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "JIS vs DIN vs BCI",
+    "secondary_keywords": [
+      "JIS battery standard",
+      "DIN battery standard",
+      "BCI group size",
+      "battery standards comparison"
+    ],
+    "entities": [
+      "JIS",
+      "DIN",
+      "BCI",
+      "EN",
+      "SAE",
+      "standard"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/jis-vs-din-vs-bci/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/oem-battery-development-process/",
+    "title": "OEM Battery Development Process",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery development process",
+    "secondary_keywords": [
+      "battery development timeline",
+      "OEM battery sampling",
+      "battery design approval"
+    ],
+    "entities": [
+      "OEM",
+      "development",
+      "sampling",
+      "design",
+      "approval"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/oem-battery-development-process/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/oem-battery-moq-lead-time/",
+    "title": "OEM Battery MOQ and Lead Time",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery MOQ lead time",
+    "secondary_keywords": [
+      "battery MOQ",
+      "battery lead time",
+      "minimum order quantity battery"
+    ],
+    "entities": [
+      "MOQ",
+      "lead time",
+      "container",
+      "production",
+      "order"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/oem-battery-moq-lead-time/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/oem-battery-rfq-guide/",
+    "title": "OEM Battery RFQ Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery RFQ",
+    "secondary_keywords": [
+      "battery RFQ template",
+      "how to request battery quote",
+      "battery supplier quotation"
+    ],
+    "entities": [
+      "RFQ",
+      "quotation",
+      "specification",
+      "procurement",
+      "supplier"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/oem-battery-rfq-guide/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/oem-battery-specification-guide/",
+    "title": "OEM Battery Specification Guide",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery specification",
+    "secondary_keywords": [
+      "battery spec sheet",
+      "battery specification fields",
+      "battery datasheet guide"
+    ],
+    "entities": [
+      "specification",
+      "datasheet",
+      "voltage",
+      "capacity",
+      "CCA",
+      "terminal"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/oem-battery-specification-guide/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/oem-battery-supplier-checklist/",
+    "title": "OEM Battery Supplier Checklist",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM battery supplier checklist",
+    "secondary_keywords": [
+      "how to vet battery supplier",
+      "battery supplier audit",
+      "battery manufacturer evaluation"
+    ],
+    "entities": [
+      "supplier",
+      "checklist",
+      "audit",
+      "qualification",
+      "procurement"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/oem-battery-supplier-checklist/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/oem-vs-odm-vs-private-label/",
+    "title": "OEM vs ODM vs Private Label",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "OEM vs ODM vs private label",
+    "secondary_keywords": [
+      "OEM vs ODM",
+      "private label meaning",
+      "battery branding options"
+    ],
+    "entities": [
+      "OEM",
+      "ODM",
+      "private label",
+      "branding",
+      "manufacturing"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/oem-vs-odm-vs-private-label/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 6,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/private-label-battery-strategy/",
+    "title": "Private Label Battery Strategy",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "private label battery strategy",
+    "secondary_keywords": [
+      "build battery brand",
+      "private label battery business",
+      "battery brand launch"
+    ],
+    "entities": [
+      "private label",
+      "brand",
+      "strategy",
+      "distribution",
+      "market"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/private-label-battery-strategy/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/what-is-cca/",
+    "title": "What Is CCA (Cold Cranking Amps)?",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "what is CCA",
+    "secondary_keywords": [
+      "cold cranking amps",
+      "CCA vs Ah",
+      "JIS vs EN CCA",
+      "battery starting power"
+    ],
+    "entities": [
+      "CCA",
+      "Cold Cranking Amps",
+      "JIS",
+      "EN",
+      "SAE",
+      "DIN",
+      "battery",
+      "starter"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/what-is-cca/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 4,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/knowledge/what-is-oem-battery/",
+    "title": "What Is an OEM Battery?",
+    "content_type": "Knowledge Article",
+    "primary_keyword": "what is OEM battery",
+    "secondary_keywords": [
+      "OEM battery meaning",
+      "OEM vs aftermarket battery",
+      "private label battery"
+    ],
+    "entities": [
+      "OEM battery",
+      "aftermarket",
+      "private label",
+      "manufacturer"
+    ],
+    "search_intent": "Informational",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/knowledge/what-is-oem-battery/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/oem/",
+    "title": "OEM Battery Manufacturing | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "OEM battery manufacturer",
+    "secondary_keywords": [
+      "car battery OEM",
+      "battery private label OEM",
+      "OEM battery China"
+    ],
+    "entities": [
+      "OEM",
+      "manufacturer",
+      "private label",
+      "battery"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ru/oem/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 5,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/oem/car-batteries/",
+    "title": "Car Battery OEM & Private Label | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "car battery OEM",
+    "secondary_keywords": [
+      "OEM car battery manufacturer",
+      "JIS DIN car battery",
+      "passenger car battery supplier"
+    ],
+    "entities": [
+      "car battery",
+      "OEM",
+      "JIS",
+      "DIN",
+      "SLI",
+      "AGM",
+      "EFB"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ru/oem/car-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 2,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/oem/truck-batteries/",
+    "title": "Truck Battery OEM & Private Label | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "truck battery OEM",
+    "secondary_keywords": [
+      "heavy duty truck battery manufacturer",
+      "commercial battery OEM"
+    ],
+    "entities": [
+      "truck battery",
+      "OEM",
+      "heavy duty",
+      "commercial"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ru/oem/truck-batteries/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/private-label/",
+    "title": "Private Label Battery Program | Dingwei Battery",
+    "content_type": "OEM Buyer Page",
+    "primary_keyword": "private label battery",
+    "secondary_keywords": [
+      "private label battery manufacturer",
+      "custom battery branding",
+      "own brand battery"
+    ],
+    "entities": [
+      "private label",
+      "branding",
+      "OEM",
+      "battery"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-06",
+    "source": "source: src/pages/ru/private-label/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/tools/battery-finder/",
+    "title": "Battery Finder Tool | Dingwei Battery",
+    "content_type": "Tool",
+    "primary_keyword": "battery finder",
+    "secondary_keywords": [
+      "find car battery",
+      "battery selection tool",
+      "battery fitment lookup"
+    ],
+    "entities": [
+      "battery",
+      "fitment",
+      "tool",
+      "model",
+      "CCA"
+    ],
+    "search_intent": "Transactional",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/tools/battery-finder/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  },
+  {
+    "url": "/ru/tools/compare/",
+    "title": "Compare Battery Models | Dingwei Battery",
+    "content_type": "Tool",
+    "primary_keyword": "compare battery models",
+    "secondary_keywords": [
+      "battery comparison",
+      "65D26 vs 80D26",
+      "battery specs compare"
+    ],
+    "entities": [
+      "battery",
+      "comparison",
+      "model",
+      "specs",
+      "CCA"
+    ],
+    "search_intent": "Commercial Investigation",
+    "status": "live",
+    "last_updated": "2026-09-07",
+    "source": "source: src/pages/ru/tools/compare/index.astro",
+    "quality_score": null,
+    "quality_note": "estimate pending deep audit",
+    "internal_links": 3,
+    "target_market": "CIS / Russia (Russian)",
+    "language": "ru"
+  }
+]

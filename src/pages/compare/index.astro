@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE } from '../../data/site';
+
+const title = 'Battery Model Comparisons | Dingwei Battery';
+const description = 'Written, buyer-focused comparisons of battery models that share a case size or standard family — capacity, CCA, fitment and which one to choose.';
+
+const breadcrumbs = [{ label: 'Compare', href: '/compare/' }];
+
+const comparisons = [
+  {
+    title: '65D26 vs 80D26',
+    summary: 'Same JIS D26 case, different power: 60 Ah / 370 CCA vs 72 Ah / 490 CCA (reference). Learn why they share a tray and which grade to stock.',
+    href: '/compare/65d26-vs-80d26/',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: `${SITE.url}/compare/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Compare</span>
+    <h1>Battery model comparisons</h1>
+    <p class="lead">Written comparisons that explain what the spec table alone cannot: whether two batteries share a case, why their numbers differ, and which one a buyer should choose.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="model-list">
+        {comparisons.map((c) => (
+          <article class="model-card">
+            <h2><a href={c.href}>{c.title}</a></h2>
+            <p class="model-card__meta">{c.summary}</p>
+            <a href={c.href}>Read the comparison <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        ))}
+      </div>
+      <p class="note">Prefer a side-by-side spec table? Use the <a href="/tools/compare/">interactive compare tool</a> to diff any two models from the reference database.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Why comparisons matter</h2>
+    <p>A model code rarely tells you the whole story. Two JIS batteries can share a case size but sit in different performance classes, and two DIN/EN references can look similar while using different terminal layouts. These comparisons walk through the difference and what to verify before ordering.</p>
+    <p><a href="/data/">Browse the full model database &rarr;</a> · <a href="/knowledge/jis-vs-din-vs-bci/">Read the standards guide &rarr;</a></p>
+  </section>
+
+  <CTASection title="Confirm the right model for your market" />
+</BaseLayout>
