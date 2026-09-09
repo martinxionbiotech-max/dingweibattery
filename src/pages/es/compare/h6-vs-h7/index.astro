@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const mH6 = findModel('H6');
+const mH7 = findModel('H7');
+
+const title = 'Batería H6 vs H7: LN3 vs LN4 — la longitud es la diferencia | Dingwei Battery';
+const description = 'La H6 (LN3, 72 Ah) y la H7 (LN4, 84 Ah) difieren solo en longitud. Descubra si caben en la misma bandeja y cuál necesita su vehículo europeo.';
+const articleTitle = 'Batería H6 vs H7: LN3 vs LN4 — la longitud es la diferencia';
+
+const breadcrumbs = [
+  { label: 'Comparar', href: '/es/compare/' },
+  { label: 'H6 vs H7' },
+];
+
+const faqs = [
+  { q: '¿La H7 es más grande que la H6?', a: 'Sí, más larga. Ambas comparten la misma anchura (175 mm) y altura (190 mm), pero la H7 mide 315 mm de largo frente a 278 mm de la H6. Ese extra de 37 mm es de donde sale la capacidad adicional.' },
+  { q: '¿Puedo montar una H7 donde se especificó una H6?', a: 'Solo si la bandeja y la sujeción admiten la caja más larga. Muchas bandejas europeas se estandarizan en anchura y altura con sujeción ajustable, de modo que una mejora puede encajar, pero verifique antes la longitud de la bandeja.' },
+  { q: '¿Puedo sustituir una H7 por una H6?', a: 'Arrancará el vehículo en condiciones suaves, pero aporta menos reserva y menor CCA. En una aplicación de arranque-parada o con muchos accesorios trabajará más y no es un sustituto fiable a largo plazo.' },
+  { q: '¿Por qué la H6 también se llama LN3 y Grupo 48?', a: 'Sistemas de nomenclatura distintos describen la misma caja: H6 (serie H), LN3 (perfil bajo DIN/EN), Grupo 48 (BCI) y DIN66 (nominal). Son alias, no baterías distintas.' },
+];
+
+const url = `${SITE.url}/es/compare/h6-vs-h7/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'Comparación',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Comparar', item: `${SITE.url}/es/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'H6 vs H7', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">Comparar · DIN/EN</span>
+    <h1>Batería H6 vs H7: LN3 vs LN4 — la longitud es la diferencia</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-09 · Solo valores de referencia</p>
+    <p class="lead">La H6 y la H7 son dos miembros de la familia moderna DIN/EN &ldquo;H&rdquo; que se usa en la mayoría de coches europeos (y muchos americanos recientes). Comparten anchura y altura; la única diferencia física es la longitud —278 mm frente a 315 mm— y ese extra de longitud es lo que compra la mayor capacidad y el arranque en frío.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> A diferencia de parejas de la misma caja como 65D26 vs 80D26, la H6 y la H7 son <em>tamaños distintos</em>. La H7 es 37 mm más larga y aporta más reserva (84 vs 72 Ah). A veces pueden compartir bandeja cuando la sujeción es ajustable, pero una H7 no cabrá en un vehículo cuya longitud de bandeja esté fijada para H6.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Especificaciones clave (referencia)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Campo</th><th>H6 (LN3)</th><th>H7 (LN4)</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Estándar</th><td>DIN/EN (EN 50342)</td><td>DIN/EN (EN 50342)</td></tr>
+          <tr><th>Tensión</th><td>{mH6?.voltage} V</td><td>{mH7?.voltage} V</td></tr>
+          <tr><th>Capacidad (referencia)</th><td>{mH6?.capacity_ah} Ah</td><td>{mH7?.capacity_ah} Ah</td></tr>
+          <tr><th>CCA (referencia, EN &minus;18&deg;C)</th><td>{mH6?.cca.value}</td><td>{mH7?.cca.value}</td></tr>
+          <tr><th>Tamaño de caja</th><td>{mH6?.case_size}</td><td>{mH7?.case_size}</td></tr>
+          <tr><th>Dimensiones (mm)</th><td>{mH6?.dimensions_mm.length} × {mH6?.dimensions_mm.width} × {mH6?.dimensions_mm.height}</td><td>{mH7?.dimensions_mm.length} × {mH7?.dimensions_mm.width} × {mH7?.dimensions_mm.height}</td></tr>
+          <tr><th>Aplicación típica</th><td>{mH6?.application}</td><td>{mH7?.application}</td></tr>
+          <tr><th>OEM / marca privada</th><td>Disponible</td><td>Disponible</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Los valores son de referencia de la base de datos de modelos de Dingwei. Confirme las especificaciones finales —incluida la base de CCA, el tipo de terminal y la polaridad— con el fabricante antes de pedir.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>La serie H: una familia, cuatro longitudes</h2>
+    <p>La serie H se construye sobre una sola anchura (175 mm) y altura (190 mm). Solo cambia la longitud al subir en la escalera:</p>
+    <ul>
+      <li><strong>H5 / LN2</strong> — 242 mm</li>
+      <li><strong>H6 / LN3</strong> — 278 mm</li>
+      <li><strong>H7 / LN4</strong> — 315 mm</li>
+      <li><strong>H8 / LN5</strong> — 352 mm</li>
+    </ul>
+    <p>Esta es la idea estructural clave: <strong>en la familia H, la longitud es el eje de mejora.</strong> Más longitud significa más superficie de placa, y por tanto más Ah y CCA. También significa que las bandejas europeas se estandarizan a menudo en anchura y altura, con una sujeción deslizante o multiposición para que una plataforma acepte varios tamaños H. Por eso &ldquo;¿puedo montar una más grande?&rdquo; es aquí una pregunta mucho más realista que en el mundo JIS, aunque la longitud de la bandeja sigue teniendo un límite duro.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>El problema de la nomenclatura: H6, LN3, Grupo 48, DIN66</h2>
+      <p>Los compradores se confunden a menudo porque la misma caja tiene cuatro nombres según quién hable:</p>
+      <ul>
+        <li><strong>H6</strong> — el nombre de la serie H</li>
+        <li><strong>LN3</strong> — la designación de perfil bajo DIN/EN</li>
+        <li><strong>Grupo 48</strong> — el número de grupo BCI (Norteamérica)</li>
+        <li><strong>DIN66</strong> — una etiqueta nominal de &ldquo;66 Ah&rdquo; que <em>subestima</em> la capacidad C20 real de 72 Ah</li>
+      </ul>
+      <p>La H7 se corresponde con LN4 / Grupo 94R / DIN77. La trampa es el número DIN nominal: &ldquo;DIN77&rdquo; no significa 77 Ah de capacidad C20 real; el grado de referencia es 84 Ah. Cuando un comprador pide una batería de &ldquo;77 Ah&rdquo; o &ldquo;66 Ah&rdquo; por el nombre nominal, está usando una etiqueta, no una especificación. Confirme siempre el Ah y la CCA reales frente a la referencia de caja.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>¿Son intercambiables?</h2>
+    <p><strong>No automáticamente.</strong> La H7 es físicamente más larga que la H6, así que la pregunta es si la bandeja y la sujeción admiten 315 mm donde se especificó 278 mm.</p>
+    <ol>
+      <li><strong>Bandeja de longitud fija</strong> — una H7 no cabrá; deberá quedarse con la H6 (o con el tamaño para el que se diseñó la bandeja).</li>
+      <li><strong>Bandeja ajustable / multiposición</strong> — a menudo se puede pasar de H6 a H7 para ganar reserva y CCA, lo cual es una mejora legítima para vehículos con muchos accesorios.</li>
+      <li><strong>Nunca al revés.</strong> Montar una H6 donde se especificó una H7 encaja, pero devuelve capacidad y margen de arranque en frío que el vehículo tenía previstos.</li>
+    </ol>
+    <p>En todo caso, el tipo de terminal y la polaridad también deben coincidir: una misma caja de la familia H no garantiza los mismos terminales en todas las plataformas.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>¿Cuál debería elegir?</h2>
+      <table class="data-table">
+        <thead><tr><th>Elija…</th><th>Cuando…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>H6</strong></td><td>Coches europeos compactos y medianos, sistemas de arranque-parada estándar, o cualquier vehículo cuya longitud de bandeja esté fijada en 278 mm; programas de sustitución sensibles al precio.</td></tr>
+          <tr><td><strong>H7</strong></td><td>SUV medianos y grandes, vehículos premium, diésel o vehículos con gran carga de accesorios, y solo donde la bandeja acepte la longitud de 315 mm.</td></tr>
+        </tbody>
+      </table>
+      <p>Para un importador de marca privada, H6 y H7 son dos SKU distintos de la misma familia. Como la anchura y la altura son idénticas, comparten lógica de embalaje, palé y envío, pero <strong>no</strong> son stock intercambiable. Un comprador que vende a plataformas europeas necesita ambas longitudes para cubrir el rango de bandejas.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Errores comunes</h2>
+    <ul>
+      <li>Tratar H6 y H7 como intercambiables porque comparten anchura y altura. La longitud es la dimensión limitante.</li>
+      <li>Pedir &ldquo;66 Ah&rdquo; o &ldquo;77 Ah&rdquo; por el nombre DIN nominal e ignorar la capacidad C20 real.</li>
+      <li>Comparar la CCA SAE de la H7 con la CCA EN de la H6 y leer una brecha mayor de la que existe.</li>
+      <li>Mejorar a una H7 sin comprobar que la sujeción puede bloquear de verdad la caja más larga.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Nota sobre OEM y marca privada</h2>
+      <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Ambos modelos están disponibles para programas OEM y de marca privada. Un propietario de marca que cubre plataformas europeas suele llevar la escalera completa de longitudes H5&ndash;H8 bajo una etiqueta, con utillaje compartido para anchura y altura y la longitud como única variable. Confirme tensión, capacidad, base de CCA, tipo de terminal, polaridad y diseño de etiqueta durante la especificación.</p>
+      <p><a href="/es/oem/">Programas OEM &rarr;</a> · <a href="/es/private-label/">Programas de marca privada &rarr;</a> · <a href="/es/data/h6/">Especificación H6 &rarr;</a> · <a href="/es/data/h7/">Especificación H7 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Preguntas frecuentes</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Conclusión</h2>
+      <p>La H6 y la H7 son una misma familia de batería en dos longitudes. La H7 no es una &ldquo;H6 más fuerte&rdquo;: es una batería más larga con más superficie de placa, más reserva y más arranque en frío. Decida primero por la longitud de bandeja y después por la reserva y la CCA que el vehículo necesita. Con eso resuelto, el resto son terminales, polaridad y diseño de etiqueta.</p>
+      <p><a href="/es/compare/h5-vs-h6/">Compare el paso H5 vs H6 &rarr;</a> · <a href="/es/knowledge/jis-vs-din-vs-bci/">Lea la guía de estándares &rarr;</a> · <a href="/es/tools/compare/">Compare dos modelos lado a lado &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Confirme la especificación H6 o H7 para su programa" />
+</BaseLayout>

@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const mH5 = findModel('H5');
+const mH6 = findModel('H6');
+
+const title = 'Аккумулятор H5 vs H6: LN2 vs LN3 — та же высота, разная длина | Dingwei Battery';
+const description = 'H5 (LN2, 60 Ач) vs H6 (LN3, 72 Ач): разница в длине и резерве. Узнайте, какой встанет в ваш автомобиль и какой выбрать.';
+const articleTitle = 'Аккумулятор H5 vs H6: LN2 vs LN3 — та же высота, разная длина';
+
+const breadcrumbs = [
+  { label: 'Сравнение', href: '/ru/compare/' },
+  { label: 'H5 vs H6' },
+];
+
+const faqs = [
+  { q: 'H6 больше, чем H5?', a: 'Да — длиннее. Оба имеют ширину 175 мм и высоту 190 мм, но H6 длиной 278 мм против 242 мм у H5. Дополнительные 36 мм дают больше ёмкости и резерва.' },
+  { q: 'Можно ли поставить H6 туда, где указана H5?', a: 'Только если ниша и крепление принимают более длинный корпус. Многие европейские ниши делят ширину и высоту с регулируемым креплением, поэтому апгрейд может встать — но подтвердите длину ниши.' },
+  { q: 'Можно ли заменить H6 на H5?', a: 'Он встанет и заведёт машину в мягких условиях, но даёт меньший резерв (60 против 72 Ач) и более низкий CCA. В приложении start-stop или с большим числом потребителей он работает на износ и не является надёжной долгосрочной заменой.' },
+  { q: 'Сопоставим ли CCA напрямую между H5 и H6?', a: 'Да. Оба — аккумуляторы DIN/EN, нормируемые при &minus;18&deg;C, поэтому числа CCA (600 против 660 справочно) на одной испытательной базе, в отличие от перекрёстного сравнения JIS vs EN.' },
+];
+
+const url = `${SITE.url}/ru/compare/h5-vs-h6/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'Сравнение',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Сравнение', item: `${SITE.url}/ru/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'H5 vs H6', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">Сравнение · DIN/EN</span>
+    <h1>Аккумулятор H5 vs H6: LN2 vs LN3 — та же высота, разная длина</h1>
+    <p class="byline">Опубликовано Dingwei Battery · Последняя проверка 2026-09-09 · Только справочные значения</p>
+    <p class="lead">H5 и H6 — два меньших члена семейства DIN/EN &ldquo;H&rdquo;. Они делят ширину и высоту; H6 на 36 мм длиннее. Эта разница в длине несёт ощутимый разрыв в резерве — 60 Ач против 72 Ач — хотя разрыв в CCA выглядит скромно на бумаге.</p>
+
+    <div class="takeaways">
+      <strong>Краткий ответ:</strong> H5 и H6 — разные длины (242 против 278 мм), не взаимозаменяемый склад. Оба нормируются на одной базе CCA EN &minus;18&deg;C, поэтому их CCA сопоставим напрямую. Выбирайте H5 для компактных машин и базового start-stop; выбирайте H6, когда ниша принимает длину и автомобилю полезен больший резерв.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Ключевые характеристики (справочно)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Поле</th><th>H5 (LN2)</th><th>H6 (LN3)</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Стандарт</th><td>DIN/EN (EN 50342)</td><td>DIN/EN (EN 50342)</td></tr>
+          <tr><th>Напряжение</th><td>{mH5?.voltage} В</td><td>{mH6?.voltage} В</td></tr>
+          <tr><th>Ёмкость (справочно)</th><td>{mH5?.capacity_ah} Ач</td><td>{mH6?.capacity_ah} Ач</td></tr>
+          <tr><th>CCA (справочно, EN &minus;18&deg;C)</th><td>{mH5?.cca.value}</td><td>{mH6?.cca.value}</td></tr>
+          <tr><th>Размер корпуса</th><td>{mH5?.case_size}</td><td>{mH6?.case_size}</td></tr>
+          <tr><th>Габариты (мм)</th><td>{mH5?.dimensions_mm.length} × {mH5?.dimensions_mm.width} × {mH5?.dimensions_mm.height}</td><td>{mH6?.dimensions_mm.length} × {mH6?.dimensions_mm.width} × {mH6?.dimensions_mm.height}</td></tr>
+          <tr><th>Типовое применение</th><td>{mH5?.application}</td><td>{mH6?.application}</td></tr>
+          <tr><th>OEM / частная марка</th><td>Доступно</td><td>Доступно</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Значения справочные из базы моделей Dingwei. Окончательные характеристики — включая базис CCA, тип клемм и полярность — подтверждайте у производителя перед заказом.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Серия H: длина — это ось апгрейда</h2>
+    <p>Всё семейство H — от H5 до H8 — делит одну ширину (175 мм) и одну высоту (190 мм). Меняется только длина:</p>
+    <ul>
+      <li><strong>H5 / LN2</strong> — 242 мм</li>
+      <li><strong>H6 / LN3</strong> — 278 мм</li>
+      <li><strong>H7 / LN4</strong> — 315 мм</li>
+      <li><strong>H8 / LN5</strong> — 352 мм</li>
+    </ul>
+    <p>Практическое следствие: <strong>H5 — самый короткий в современном семействе H, и переход с H5 на H6 — самый распространённый апгрейд длины в диапазоне.</strong> Европейские платформы часто стандартизируют нишу по ширине и высоте с регулируемым креплением, поэтому компактный автомобиль, рассчитанный на H5, часто может шагнуть до H6 ради большего резерва — при условии, что длина ниши позволяет.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Почему разрыв в CCA занижает реальную разницу</h2>
+      <p>На бумаге разница в CCA выглядит малой — 600 против 660 А (справочно). Разница в ёмкости, однако, составляет 20%: 60 Ач против 72 Ач.</p>
+      <p>Это важно, потому что CCA и ёмкость отвечают на разные вопросы:</p>
+      <ul>
+        <li><strong>CCA</strong> — это короткий высокотоковый импульс, который заводит холодный двигатель. Оба аккумулятора легко заводят компактный автомобиль в типичных условиях.</li>
+        <li><strong>Ёмкость (Ач)</strong> — это то, как долго батарея может питать нагрузки при выключенном двигателе или когда генератор не справляется: повторные запуски start-stop, нагрузка потребителей на светофоре, электроника на парковке.</li>
+      </ul>
+      <p>Поэтому реальная разница между H5 и H6 проявляется меньше при первом холодном пуске и больше в <strong>стойкости резерва под start-stop и нагрузкой потребителей</strong>. Именно поэтому две батареи с разрывом в 60 А по CCA могут вести себя совершенно по-разному в машине со start-stop. Подробнее в разборе <a href="/ru/knowledge/battery-capacity-ah-vs-c20-vs-rc/">ёмкость vs CCA vs резерв</a> и в <a href="/ru/knowledge/what-is-cca/">руководстве по CCA</a>.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Ловушка именования: DIN55 и DIN66</h2>
+    <p>Как и остальное семейство, H5 и H6 несут несколько псевдонимов:</p>
+    <ul>
+      <li><strong>H5</strong> = LN2 = Group 47 = DIN55 (номинал)</li>
+      <li><strong>H6</strong> = LN3 = Group 48 = DIN66 (номинал)</li>
+    </ul>
+    <p>Номинальные метки &ldquo;DIN55&rdquo; и &ldquo;DIN66&rdquo; — <em>не</em> реальная ёмкость C20: справочная ступень H5 — 60 Ач, а H6 — 72 Ач. Покупатели, заказывающие &ldquo;батарею 55 Ач&rdquo; или &ldquo;батарею 66 Ач&rdquo;, цитируют метку, а не спецификацию. При спецификации называйте ссылку на корпус (H5/LN2 или H6/LN3) и реальные Ач и CCA, которые вам нужны.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Какую выбрать?</h2>
+      <table class="data-table">
+        <thead><tr><th>Выбирайте…</th><th>Когда…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>H5</strong></td><td>Компактные европейские автомобили, базовые системы start-stop или любой автомобиль, длина ниши которого фиксирована на 242 мм; ценово-чувствительные программы замены.</td></tr>
+          <tr><td><strong>H6</strong></td><td>Средние автомобили и внедорожники, более высокие нагрузки потребителей или компактный автомобиль, ниша которого принимает более длинный корпус, а покупатель хочет больший резерв и стойкость start-stop.</td></tr>
+        </tbody>
+      </table>
+      <p>Для импортёра H5 и H6 — две самые распространённые точки входа на европейский рынок аккумуляторов. Это разные SKU — та же ширина и высота, разная длина, — поэтому они делят логику упаковки и отгрузки, но должны храниться как отдельные длины.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Распространённые ошибки</h2>
+    <ul>
+      <li>Считать H5 и H6 взаимозаменяемыми, потому что они похожи рядом. Длина — ограничивающий размер.</li>
+      <li>Читать разрыв в 60 А по CCA и считать батареи почти идентичными. Разница в ёмкости 20% важна для резерва.</li>
+      <li>Заказывать &ldquo;55 Ач&rdquo; или &ldquo;66 Ач&rdquo; по номинальному имени DIN и игнорировать реальную ёмкость C20.</li>
+      <li>Переходить на H6, не подтвердив, что крепление действительно может удержать более длинный корпус.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Примечание об OEM и частной марке</h2>
+      <p>Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Обе модели доступны для программ OEM и частной марки. Владелец марки, выходящий на европейский рынок, обычно запускает сначала H5 и H6 — они покрывают самые массовые компактные и средние платформы — затем расширяется до H7 и H8 для внедорожников и премиальных автомобилей. Подтверждайте напряжение, ёмкость, базис CCA, тип клемм, полярность и макет этикетки на этапе спецификации.</p>
+      <p><a href="/ru/oem/">Программы OEM &rarr;</a> · <a href="/ru/private-label/">Программы частной марки &rarr;</a> · <a href="/ru/data/h5/">Спецификация H5 &rarr;</a> · <a href="/ru/data/h6/">Спецификация H6 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Частые вопросы</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Вывод</h2>
+      <p>H5 и H6 — одно семейство аккумуляторов на двух длинах. Решение — сначала длина ниши, затем резерв: H6 даёт на 20% больше ёмкости и более сильный холодный пуск для автомобилей, которые принимают более длинный корпус. С подтверждёнными клеммами, полярностью и креплением остальное — детали спецификации.</p>
+      <p><a href="/ru/compare/h6-vs-h7/">Сравните шаг H6 vs H7 &rarr;</a> · <a href="/ru/knowledge/jis-vs-din-vs-bci/">Читать руководство по стандартам &rarr;</a> · <a href="/ru/tools/compare/">Сравнить две модели рядом &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Подтвердите спецификацию H5 или H6 для вашей программы" />
+</BaseLayout>

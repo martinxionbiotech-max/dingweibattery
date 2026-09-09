@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+
+const title = 'بطارية AGM مقابل EFB: أي نوع تشغيل/إيقاف تحتاج؟ | Dingwei Battery';
+const description = 'AGM (بساط زجاجي ماص) وEFB (مغمورة محسّنة) كلتاهما بطاريتا تشغيل/إيقاف، لكنهما تختلفان في البنية وعمر التدوير والسعر. تعرّف على أيهما تختار.';
+const articleTitle = 'بطارية AGM مقابل EFB: أي نوع تشغيل/إيقاف تحتاج؟';
+
+const breadcrumbs = [
+  { label: 'المقارنة', href: '/ar/compare/' },
+  { label: 'AGM مقابل EFB' },
+];
+
+const faqs = [
+  { q: 'ما الفرق بين بطاريتي AGM وEFB؟', a: 'تستخدم AGM بساطًا زجاجيًا ماصًا لحفظ الإلكتروليت وهي محكمة الإغلاق ومقاومة للتسرب؛ بينما EFB بطارية مغمورة محسّنة بشبكة تقوية على الصفيحة الموجبة وإلكتروليت سائل. تقدم AGM عمر تدوير أعلى وتحمّل تفريغ أعمق، وتكلف أكثر.' },
+  { q: 'هل يمكنني استبدال بطارية AGM ببطارية EFB؟', a: 'لا يُنصح بذلك. فالانتقال من AGM إلى EFB تنزيل قد يخلّ بنظام إدارة البطارية ويقلل أداء التشغيل/الإيقاف. استبدال EFB بـ AGM مقبول عمومًا، لكن يجب ترميز نظام BMS للنوع الجديد.' },
+  { q: 'أيهما أفضل للتشغيل/الإيقاف، AGM أم EFB؟', a: 'كلتاهما مصممتان للتشغيل/الإيقاف. EFB هي الخيار الاقتصادي للتشغيل/الإيقاف الأساسي والسيارات المدمجة؛ وAGM هي خيار الأداء الأعلى للتشغيل/الإيقاف مع استعادة طاقة الكبح والمركبات الفاخرة والأحمال الكهربائية العالية.' },
+  { q: 'هل أحتاج إلى تسجيل البطارية الجديدة؟', a: 'في العديد من المركبات الحديثة، نعم. يجب إخبار نظام إدارة البطارية بتركيب بطارية جديدة، وترميز نوعها (EFB أو AGM)، لتتطابق استراتيجية الشحن مع البطارية. ويمكن للورش والوكلاء القيام بذلك.' },
+];
+
+const url = `${SITE.url}/ar/compare/agm-vs-efb/`;
+
+const sources = [
+  { label: 'VARTA Automotive — الفروق بين EFB وAGM', href: 'https://www.varta-automotive.com/en/knowledge/articles/article-details/efb-and-agm-differences' },
+  { label: 'RAC Shop — AGM مقابل EFB: أي بطارية أحتاج؟', href: 'https://www.racshop.co.uk/advice/agm-vs-efb-which-battery-do-i-need' },
+  { label: 'Continental Battery — EFB مقابل AGM: اختيار بطارية التشغيل/الإيقاف المناسبة', href: 'https://www.continentalbattery.com/blog/efb-vs-agm-choosing-the-right-start-stop-battery' },
+  { label: 'Stryten — EFB مقابل AGM لمركبات التشغيل/الإيقاف والهجينة', href: 'https://www.stryten.com/efb-vs-agm-for-start-stop-and-hybrid-vehicles' },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'المقارنة',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'المقارنة', item: `${SITE.url}/ar/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'AGM مقابل EFB', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">المقارنة · نوع البطارية</span>
+    <h1>بطارية AGM مقابل EFB: أي نوع تشغيل/إيقاف تحتاج؟</h1>
+    <p class="byline">نُشر بواسطة Dingwei Battery · آخر مراجعة 2026-09-09 · مصادر خارجية مستشهد بها</p>
+    <p class="lead">AGM وEFB هما تقنيتا البطارية المصممتان لمركبات التشغيل/الإيقاف — لكنهما ليستا الشيء نفسه، وليستا قابلتين للتبادل بحرية. AGM تصميم بساط زجاجي ماص مع إلكتروليت مربوط في بساط؛ وEFB تصميم مغمور محسّن ما يزال يحوي إلكتروليتًا سائلًا. يظهر الفرق في عمر التدوير والسعر وعمق التفريغ الذي تتحمله كل منهما.</p>
+
+    <div class="takeaways">
+      <strong>الإجابة المختصرة:</strong> اختر EFB للتشغيل/الإيقاف الأساسي والسيارات المدمجة حيث يهم التكلفة؛ واختر AGM للتشغيل/الإيقاف مع استعادة طاقة الكبح والمركبات الفاخرة والأحمال الكهربائية العالية. استبدل المماثل بالمماثل أو ارتقِ من EFB&rarr;AGM — ولا تنزّل من AGM&rarr;EFB — وسجّل/رمّز البطارية الجديدة في نظام إدارة بطارية المركبة.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>التقنيتان في لمحة</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>الخاصية</th><th>EFB</th><th>AGM</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>الاسم الكامل</th><td>بطارية مغمورة محسّنة (Enhanced Flooded Battery)</td><td>بطارية بساط زجاجي ماص (Absorbent Glass Mat)</td></tr>
+          <tr><th>البنية</th><td>مغمورة (إلكتروليت سائل) بشبكة تقوية على الصفيحة الموجبة</td><td>إلكتروليت ممتص في بساط زجاجي؛ محكمة الإغلاق ومنظّمة بصمام</td></tr>
+          <tr><th>عمر التدوير مقابل التقليدية</th><td>نحو 2&times;</td><td>أعلى مجددًا — الأكثر استقرارًا في التدوير ضمن عائلة الرصاص الحمضية</td></tr>
+          <tr><th>عمق التفريغ النموذجي</th><td>محسّنة عند نحو 60% من عمق التفريغ</td><td>تتحمل تفريغًا أعمق، حتى نحو 80%</td></tr>
+          <tr><th>التركيب النموذجي</th><td>تشغيل/إيقاف أساسي، سيارات مدمجة ومتوسطة</td><td>تشغيل/إيقاف مع استعادة الطاقة، مركبات فاخرة، إلكترونيات كثيرة</td></tr>
+          <tr><th>التكلفة النسبية</th><td>أقل</td><td>أعلى</td></tr>
+        </tbody>
+      </table>
+      <p class="note">يلخّص هذا الجدول إرشادات المصنّعين المنشورة (VARTA وRAC وContinental Battery وStryten — المصادر أدناه). وهو مقارنة عامة لا مواصفة موديل؛ أكّد الكيمياء والقيم الدقيقة مع مصنّع البطارية قبل الطلب.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>ما هي كل تقنية فعلًا</h2>
+    <p><strong>EFB (Enhanced Flooded Battery)</strong> هي التطور المباشر لبطارية الرصاص الحمضية المغمورة التقليدية. ما تزال تحوي إلكتروليتًا سائلًا، لكنها تضيف مادة تقوية — شبكة بوليستر (&ldquo;polyvlies&rdquo;) — على سطح الصفيحة الموجبة. يقلل ذلك التعزيز من تساقط المادة النشطة الذي يقتل البطاريات المغمورة العادية تحت التدوير المتكرر، مما يضاعف تقريبًا عمر التدوير مقارنة ببطارية تشغيل تقليدية.</p>
+    <p><strong>AGM (Absorbent Glass Mat)</strong> تتبع نهجًا مختلفًا: يُمتص الإلكتروليت في بساط دقيق من ألياف الزجاج بين الصفائح، وتكون البطارية محكمة الإغلاق ومنظّمة بصمام. ولعدم وجود سائل حر، تكون بطاريات AGM مقاومة للتسرب وبلا صيانة، ويجعلها تصميمها المعاد التركيب أكثر تحملًا للتدوير العميق والشحن/التفريغ المتكررين — وهي الظروف التي تخلقها سيارة التشغيل/الإيقاف مع استعادة طاقة الكبح.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>لماذا يهم الفرق في سيارة التشغيل/الإيقاف</h2>
+      <p>يطفئ نظام التشغيل/الإيقاف المحرك عند كل إشارة ويعيد تشغيله عند رفع الفرامل. وهذا يعني تشغيلات أكثر بكثير لكل رحلة، ويجب أن تواصل البطارية تغذية الإلكترونيات والمحرك مطفأ ثم تقبل الشحن مجددًا. البطارية المغمورة التقليدية ليست مصممة لهذا العمل وتبلى بسرعة؛ أما EFB وAGM فهما مصممتان له.</p>
+      <p>التمييز العملي هو مدى قسوة دورة العمل:</p>
+      <ul>
+        <li><strong>تشغيل/إيقاف بسيط، سيارة مدمجة، حساسة للسعر</strong> — تكون EFB عادة الخيار الصحيح والاقتصادي.</li>
+        <li><strong>تشغيل/إيقاف مع استعادة طاقة الكبح، أو حمل كهربائي عالٍ</strong> — يجعل تحمّل AGM للتفريغ العميق واستقرارها في التدوير الخيارَ الصحيح، وهي عادة ما بُنيت المركبة حولها.</li>
+      </ul>
+      <p>طريقة مفيدة للتفكير: <strong>تتحمل EFB عبء عمل &ldquo;الإيقاف والتشغيل&rdquo;; وتتحمل AGM عبء &ldquo;الإيقاف والتشغيل + الاستعادة + الإلكترونيات الفاخرة&rdquo;.</strong> كلما طُلب من البطارية التدوير أكثر وتخزين الطاقة المستعادة، زادت قيمة علاوة سعر AGM.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>قواعد الترقية والتنزيل</h2>
+    <p>هنا تفشل أعمال الاستبدال. القواعد الأساسية، المأخوذة من إرشادات التركيب:</p>
+    <ol>
+      <li><strong>استبدل المماثل بالمماثل.</strong> إذا بُنيت المركبة ببطارية EFB، فبطارية EFB هي الاستبدال الآمن؛ وإذا بُنيت ببطارية AGM، فاستخدم AGM.</li>
+      <li><strong>الترقية من EFB &rarr; AGM مقبولة عمومًا.</strong> تكسب عمر تدوير واحتياطيًا، لكن يجب ترميز نظام إدارة البطارية (BMS) للنوع الجديد حتى يشحن AGM بشكل صحيح.</li>
+      <li><strong>التنزيل من AGM &rarr; EFB تنزيل.</strong> قد يخلّ بنظام BMS ويقلل سلوك التشغيل/الإيقاف ويقصّر عمر البطارية. تجنّبه.</li>
+      <li><strong>لا تركّب أبدًا بطارية مغمورة تقليدية</strong> حيث تُحدد EFB أو AGM. فهي لن تنجو من عبء التشغيل/الإيقاف.</li>
+    </ol>
+    <p>وفي العديد من المركبات الحديثة، يجب أيضًا <strong>تسجيل</strong> البطارية الجديدة في نظام BMS لتُعاد ضبط استراتيجية الشحن للبطارية الجديدة — وهي خطوة مهمة يجب أن توصلها الورش والموزعون إلى المستخدم النهائي.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>أيهما يجب أن تختار؟</h2>
+      <table class="data-table">
+        <thead><tr><th>اختر…</th><th>عندما…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>EFB</strong></td><td>التشغيل/الإيقاف الأساسي، والسيارات المدمجة والمتوسطة، وبرامج الاستبدال الحساسة للسعر، والأسواق حيث سعر الوحدة هو العامل الحاسم.</td></tr>
+          <tr><td><strong>AGM</strong></td><td>التشغيل/الإيقاف مع استعادة طاقة الكبح، والمركبات الفاخرة، وحمل الملحقات/الإلكترونيات العالي، والأسواق حيث يتوقع المشترون خيار العمر الأطول.</td></tr>
+        </tbody>
+      </table>
+      <p>بالنسبة لمستورد العلامة الخاصة، فإن EFB وAGM مستويا سعر لفئة التشغيل/الإيقاف نفسها — وليستا متنافستين. يتيح حمل كلتيهما للعلامة خدمة الشريحة الاقتصادية بـ EFB والفاخرة بـ AGM، ويعكس كيف يحدد مصنّعو المركبات أنفسهم التقنيتين.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>ملاحظة حول OEM والعلامة الخاصة</h2>
+    <p>توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). كلا نوعي البطارية، EFB وAGM، متاحان لبرامج OEM والعلامة الخاصة. عند التحديد، أكّد الكيمياء (EFB أو AGM) والسعة وأساس CCA (EN &minus;18&deg;م) ومرجع العلبة (عادة عائلة H5&ndash;H8) ونوع الطرف والقطبية وتصميم الملصق، ووضّح توقعات السوق المستهدف بشأن التسجيل في نظام BMS، لأن ذلك يؤثر على دعم ما بعد البيع.</p>
+    <p><a href="/ar/oem/">برامج OEM &rarr;</a> · <a href="/ar/private-label/">برامج العلامة الخاصة &rarr;</a> · <a href="/ar/knowledge/jis-vs-din-vs-bci/">اقرأ دليل المعايير &rarr;</a> · <a href="/ar/knowledge/battery-capacity-ah-vs-c20-vs-rc/">اقرأ السعة مقابل CCA مقابل الاحتياطي &rarr;</a></p>
+  </section>
+
+  <section class="section container prose">
+    <h2>الأسئلة الشائعة</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>المصادر</h2>
+      <p>تستند هذه المقارنة إلى الإرشادات المنشورة التالية، والتي اطُّلع عليها في 2026-09-09:</p>
+      <ul>
+        {sources.map((s) => (
+          <li><a href={s.href} rel="noopener">{s.label}</a></li>
+        ))}
+      </ul>
+      <p class="note">تختلف المواصفات وأرقام عمر التدوير حسب المصنّع ودرجة المنتج؛ وتُستشهد هذه المصادر للتمييز العام بين التقنيتين، لا كبيانات خاصة بموديل.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>الخلاصة</h2>
+    <p>AGM وEFB كلتاهما تقنيتا تشغيل/إيقاف، لكنهما تقعان عند نقطتين مختلفتين من منحنى التكلفة مقابل المتانة. EFB هي العمود الفقري الاقتصادي للتشغيل/الإيقاف البسيط؛ وAGM هي خيار المواصفات الأعلى للاستعادة والحمل الكهربائي الثقيل. طابق الاستبدال مع المواصفة الأصلية للمركبة، وتجنّب التنزيلات، وسجّل البطارية الجديدة في نظام BMS، فيصبح الاختيار مباشرًا.</p>
+    <p><a href="/ar/compare/h6-vs-h7/">قارن H6 مقابل H7 (حجم شائع للتشغيل/الإيقاف) &rarr;</a> · <a href="/ar/knowledge/battery-applications-by-vehicle/">اقرأ التطبيقات حسب المركبة &rarr;</a> · <a href="/ar/tools/battery-finder/">استخدم أداة البحث عن البطارية &rarr;</a></p>
+  </section>
+
+  <CTASection title="حدّد برنامج EFB أو AGM لسوقك" />
+</BaseLayout>

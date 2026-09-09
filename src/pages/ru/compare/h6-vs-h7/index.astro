@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const mH6 = findModel('H6');
+const mH7 = findModel('H7');
+
+const title = 'Аккумулятор H6 vs H7: LN3 vs LN4 — разница в длине | Dingwei Battery';
+const description = 'H6 (LN3, 72 Ач) и H7 (LN4, 84 Ач) различаются только длиной. Узнайте, встают ли они в одну нишу и какой нужен вашему европейскому автомобилю.';
+const articleTitle = 'Аккумулятор H6 vs H7: LN3 vs LN4 — разница в длине';
+
+const breadcrumbs = [
+  { label: 'Сравнение', href: '/ru/compare/' },
+  { label: 'H6 vs H7' },
+];
+
+const faqs = [
+  { q: 'H7 больше, чем H6?', a: 'Да — длиннее. Оба имеют одинаковую ширину (175 мм) и высоту (190 мм), но H7 длиной 315 мм против 278 мм у H6. Эти дополнительные 37 мм и дают дополнительную ёмкость.' },
+  { q: 'Можно ли поставить H7 туда, где указана H6?', a: 'Только если ниша и крепление принимают более длинный корпус. Многие европейские ниши стандартизированы по ширине и высоте с регулируемым креплением, поэтому апгрейд может встать — но сначала проверьте длину ниши.' },
+  { q: 'Можно ли заменить H7 на H6?', a: 'Он заведёт автомобиль в мягких условиях, но даёт меньший резерв и более низкий CCA. В приложении start-stop или с большим числом потребителей он работает на износ и не является надёжной долгосрочной заменой.' },
+  { q: 'Почему H6 также называют LN3 и Group 48?', a: 'Разные системы именования описывают один корпус: H6 (серия H), LN3 (низкопрофильный DIN/EN), Group 48 (BCI) и DIN66 (номинал). Это псевдонимы, а не разные батареи.' },
+];
+
+const url = `${SITE.url}/ru/compare/h6-vs-h7/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'Сравнение',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Сравнение', item: `${SITE.url}/ru/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'H6 vs H7', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">Сравнение · DIN/EN</span>
+    <h1>Аккумулятор H6 vs H7: LN3 vs LN4 — разница в длине</h1>
+    <p class="byline">Опубликовано Dingwei Battery · Последняя проверка 2026-09-09 · Только справочные значения</p>
+    <p class="lead">H6 и H7 — два члена современного семейства DIN/EN &ldquo;H&rdquo;, используемого в большинстве европейских (и многих новых американских) автомобилей. Они делят ширину и высоту; единственное физическое отличие — длина: 278 мм против 315 мм. Именно эта дополнительная длина даёт большую ёмкость и пусковую мощность на холоде.</p>
+
+    <div class="takeaways">
+      <strong>Краткий ответ:</strong> В отличие от пар одного корпуса, таких как 65D26 vs 80D26, H6 и H7 — это <em>разные размеры</em>. H7 на 37 мм длиннее и несёт больший резерв (84 против 72 Ач). Иногда они могут делить нишу, когда крепление регулируется, но H7 не встанет в автомобиль, длина ниши которого жёстко задана под H6.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Ключевые характеристики (справочно)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Поле</th><th>H6 (LN3)</th><th>H7 (LN4)</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Стандарт</th><td>DIN/EN (EN 50342)</td><td>DIN/EN (EN 50342)</td></tr>
+          <tr><th>Напряжение</th><td>{mH6?.voltage} В</td><td>{mH7?.voltage} В</td></tr>
+          <tr><th>Ёмкость (справочно)</th><td>{mH6?.capacity_ah} Ач</td><td>{mH7?.capacity_ah} Ач</td></tr>
+          <tr><th>CCA (справочно, EN &minus;18&deg;C)</th><td>{mH6?.cca.value}</td><td>{mH7?.cca.value}</td></tr>
+          <tr><th>Размер корпуса</th><td>{mH6?.case_size}</td><td>{mH7?.case_size}</td></tr>
+          <tr><th>Габариты (мм)</th><td>{mH6?.dimensions_mm.length} × {mH6?.dimensions_mm.width} × {mH6?.dimensions_mm.height}</td><td>{mH7?.dimensions_mm.length} × {mH7?.dimensions_mm.width} × {mH7?.dimensions_mm.height}</td></tr>
+          <tr><th>Типовое применение</th><td>{mH6?.application}</td><td>{mH7?.application}</td></tr>
+          <tr><th>OEM / частная марка</th><td>Доступно</td><td>Доступно</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Значения справочные из базы моделей Dingwei. Окончательные характеристики — включая базис CCA, тип клемм и полярность — подтверждайте у производителя перед заказом.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Серия H: одно семейство, четыре длины</h2>
+    <p>Серия H построена на одной ширине (175 мм) и одной высоте (190 мм). Меняется только длина при движении вверх по лестнице:</p>
+    <ul>
+      <li><strong>H5 / LN2</strong> — 242 мм</li>
+      <li><strong>H6 / LN3</strong> — 278 мм</li>
+      <li><strong>H7 / LN4</strong> — 315 мм</li>
+      <li><strong>H8 / LN5</strong> — 352 мм</li>
+    </ul>
+    <p>Это ключевая структурная идея: <strong>в семействе H длина — это ось апгрейда.</strong> Больше длины означает больше площади пластин, а значит больше Ач и CCA. Это также означает, что европейские ниши часто стандартизированы по ширине и высоте, со скользящим или многопозиционным креплением, чтобы платформа принимала несколько размеров H. Поэтому вопрос «можно ли поставить больше» здесь гораздо реалистичнее, чем в мире JIS, — но у длины ниши всё равно есть жёсткий предел.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Проблема именования: H6, LN3, Group 48, DIN66</h2>
+      <p>Покупатели регулярно путаются, потому что у одного корпуса четыре имени в зависимости от того, кто говорит:</p>
+      <ul>
+        <li><strong>H6</strong> — имя серии H</li>
+        <li><strong>LN3</strong> — низкопрофильное обозначение DIN/EN</li>
+        <li><strong>Group 48</strong> — номер группы BCI (Северная Америка)</li>
+        <li><strong>DIN66</strong> — номинальная метка &ldquo;66 Ач&rdquo;, которая <em>занижает</em> реальную ёмкость C20 в 72 Ач</li>
+      </ul>
+      <p>H7 соответствует LN4 / Group 94R / DIN77. Ловушка в номинальном числе DIN: &ldquo;DIN77&rdquo; не означает 77 Ач реальной ёмкости C20 — справочная ступень составляет 84 Ач. Когда покупатель заказывает батарею &ldquo;77 Ач&rdquo; или &ldquo;66 Ач&rdquo; по номинальному имени, он использует метку, а не спецификацию. Всегда подтверждайте реальные Ач и CCA по ссылке на корпус.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Взаимозаменяемы ли они?</h2>
+    <p><strong>Не автоматически.</strong> H7 физически длиннее H6, поэтому вопрос в том, принимают ли ниша и крепление 315 мм там, где указано 278 мм.</p>
+    <ol>
+      <li><strong>Ниша фиксированной длины</strong> — H7 не встанет; придётся остаться на H6 (или на том размере, под который спроектирована ниша).</li>
+      <li><strong>Регулируемая / многопозиционная ниша</strong> — часто можно перейти с H6 на H7, чтобы получить резерв и CCA, что является законным апгрейдом для автомобилей с большим числом потребителей.</li>
+      <li><strong>Никогда наоборот.</strong> Установка H6 там, где указана H7, встанет, но вы отдаёте ёмкость и запас холодного пуска, на которые был рассчитан автомобиль.</li>
+    </ol>
+    <p>В любом случае тип клемм и полярность тоже должны совпадать — один корпус семейства H не гарантирует одни и те же клеммы на всех платформах.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Какую выбрать?</h2>
+      <table class="data-table">
+        <thead><tr><th>Выбирайте…</th><th>Когда…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>H6</strong></td><td>Компактные и средние европейские автомобили, стандартные системы start-stop или любой автомобиль, длина ниши которого фиксирована на 278 мм; ценово-чувствительные программы замены.</td></tr>
+          <tr><td><strong>H7</strong></td><td>Средние и крупные внедорожники, премиальные автомобили, дизели или автомобили с высокой нагрузкой потребителей — и только там, где ниша принимает длину 315 мм.</td></tr>
+        </tbody>
+      </table>
+      <p>Для импортёра частной марки H6 и H7 — два разных SKU одного семейства. Поскольку ширина и высота идентичны, они делят логику упаковки, палет и отгрузки, но это <strong>не</strong> взаимозаменяемый склад. Покупателю, который продаёт на европейские платформы, нужны обе длины, чтобы покрыть диапазон ниш.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Распространённые ошибки</h2>
+    <ul>
+      <li>Считать H6 и H7 взаимозаменяемыми, потому что они делят ширину и высоту. Длина — ограничивающий размер.</li>
+      <li>Заказывать &ldquo;66 Ач&rdquo; или &ldquo;77 Ач&rdquo; по номинальному имени DIN и игнорировать реальную ёмкость C20.</li>
+      <li>Сравнивать CCA по SAE у H7 с CCA по EN у H6 и читать больший разрыв, чем есть.</li>
+      <li>Переходить на H7, не проверив, что крепление действительно может зафиксировать более длинный корпус.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Примечание об OEM и частной марке</h2>
+      <p>Dingwei Battery предлагает программы OEM и частных марок аккумуляторов, произведённых Chengguang Power Tech Co., Ltd. (основана в 2002). Обе модели доступны для программ OEM и частной марки. Владелец марки, покрывающий европейские платформы, обычно держит всю лестницу длин H5&ndash;H8 под одной маркой, с общей оснасткой по ширине и высоте и длиной как единственной переменной. Подтверждайте напряжение, ёмкость, базис CCA, тип клемм, полярность и макет этикетки на этапе спецификации.</p>
+      <p><a href="/ru/oem/">Программы OEM &rarr;</a> · <a href="/ru/private-label/">Программы частной марки &rarr;</a> · <a href="/ru/data/h6/">Спецификация H6 &rarr;</a> · <a href="/ru/data/h7/">Спецификация H7 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Частые вопросы</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Вывод</h2>
+      <p>H6 и H7 — одно семейство аккумуляторов на двух длинах. H7 — это не «более сильный H6», а более длинный аккумулятор с большей площадью пластин, большим резервом и большей пусковой мощностью на холоде. Решайте сначала по длине ниши, затем по резерву и CCA, которые нужны автомобилю. Когда это решено, остальное — клеммы, полярность и макет этикетки.</p>
+      <p><a href="/ru/compare/h5-vs-h6/">Сравните шаг H5 vs H6 &rarr;</a> · <a href="/ru/knowledge/jis-vs-din-vs-bci/">Читать руководство по стандартам &rarr;</a> · <a href="/ru/tools/compare/">Сравнить две модели рядом &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Подтвердите спецификацию H6 или H7 для вашей программы" />
+</BaseLayout>

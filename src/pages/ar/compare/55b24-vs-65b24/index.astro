@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const m55 = findModel('55B24');
+const m65 = findModel('65B24');
+
+const title = 'بطارية 55B24 مقابل 65B24: علبة B24 نفسها، فرق هامشي | Dingwei Battery';
+const description = 'تشترك 55B24 (48 أمبير-ساعة) و65B24 (50 أمبير-ساعة) في علبة JIS B24 ونفس 370 CCA. تعرّف على سبب كون الفجوة أصغر مما يوحي به الرمز.';
+const articleTitle = 'بطارية 55B24 مقابل 65B24: علبة B24 نفسها، فرق هامشي';
+
+const breadcrumbs = [
+  { label: 'المقارنة', href: '/ar/compare/' },
+  { label: '55B24 مقابل 65B24' },
+];
+
+const faqs = [
+  { q: 'هل 65B24 أكبر من 55B24؟', a: 'لا. فكلتاهما تستخدمان علبة JIS B24 (نحو 238 × 129 × 220 مم؛ ويذكر المرجع المتبادل BCI قياس 238 × 129 × 227 مم). إن 65B24 خطوة سعة هامشية، وليست حجمًا مختلفًا.' },
+  { q: 'هل يمكنني تبديل 55B24 و65B24؟', a: 'ماديًا نعم — فهما تشتركان في حاضنة B24 نفسها وبصمة الأطراف نفسها. الفرق الكهربائي نحو 2 أمبير-ساعة فقط، لذا فهما شبه قابلتين للتبادل؛ أكّد نوع الطرف والقطبية.' },
+  { q: 'لماذا تُظهر 55B24 و65B24 كلتاهما 370 CCA؟', a: 'لأن خطوة السعة أصغر من أن تغيّر فئة التشغيل البارد في معظم البيانات المرجعية. عمليًا، يختلف CCA بين المصنّعين أكثر بكثير منه بين هذين الرمزين.' },
+  { q: 'هل يعني "65" في 65B24 أنها 65 أمبير-ساعة؟', a: 'لا. ففي ترميز JIS الرقم الأول مؤشر لفئة الأداء، وليس الأمبير-ساعة. تكون 65B24 عادة نحو 48–52 أمبير-ساعة حسب المصنع، وليست 65 أمبير-ساعة.' },
+];
+
+const url = `${SITE.url}/ar/compare/55b24-vs-65b24/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'المقارنة',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'المقارنة', item: `${SITE.url}/ar/compare/` },
+      { '@type': 'ListItem', position: 3, name: '55B24 مقابل 65B24', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">المقارنة · JIS</span>
+    <h1>بطارية 55B24 مقابل 65B24: علبة B24 نفسها، فرق هامشي</h1>
+    <p class="byline">نُشر بواسطة Dingwei Battery · آخر مراجعة 2026-09-09 · قيم مرجعية فقط</p>
+    <p class="lead">تشترك 55B24 و65B24 في العلبة المادية نفسها — علبة JIS B24 الضيقة المستخدمة في السيارات الآسيوية المدمجة ومواضع البطارية المساعدة في السيارات الهجينة. وعلى عكس أزواج D26 أو D31، فإن الفجوة هنا صغيرة حقًا: إن 65B24 خطوة سعة هامشية، وليست ترقية قوة ملموسة.</p>
+
+    <div class="takeaways">
+      <strong>الإجابة المختصرة:</strong> هما درجتان متجاورتان لعلبة B24 نفسها، بقيم كهربائية شبه متطابقة (48 مقابل 50 أمبير-ساعة، وكلتاهما 370 CCA مرجعيًا). وهما فعليًا قابلتان للتبادل في الحاضنة نفسها. القرار الحقيقي هو السعر والتوافر، لا الأداء.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>المواصفات الرئيسية (مرجعية)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>الحقل</th><th>55B24</th><th>65B24</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>المعيار</th><td>JIS (JIS D 5301)</td><td>JIS (JIS D 5301)</td></tr>
+          <tr><th>الجهد</th><td>{m55?.voltage} فولت</td><td>{m65?.voltage} فولت</td></tr>
+          <tr><th>السعة (مرجعية)</th><td>{m55?.capacity_ah} أمبير-ساعة</td><td>{m65?.capacity_ah} أمبير-ساعة</td></tr>
+          <tr><th>CCA (مرجعي، JIS &minus;15&deg;م)</th><td>{m55?.cca.value}</td><td>{m65?.cca.value}</td></tr>
+          <tr><th>حجم العلبة</th><td>{m55?.case_size}</td><td>{m65?.case_size}</td></tr>
+          <tr><th>الأبعاد (مم)</th><td>{m55?.dimensions_mm.length} × {m55?.dimensions_mm.width} × {m55?.dimensions_mm.height}</td><td>{m65?.dimensions_mm.length} × {m65?.dimensions_mm.width} × {m65?.dimensions_mm.height}</td></tr>
+          <tr><th>التطبيق النموذجي</th><td>{m55?.application}</td><td>{m65?.application}</td></tr>
+          <tr><th>OEM / علامة خاصة</th><td>متاح</td><td>متاح</td></tr>
+        </tbody>
+      </table>
+      <p class="note">القيم مرجعية من قاعدة بيانات موديلات Dingwei. أكّد المواصفات النهائية — بما في ذلك أساس CCA ونوع الطرف والقطبية — مع الشركة المصنعة قبل الطلب.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>ماذا يعني رمز الموديل فعلًا</h2>
+    <p>يتحلل رمز JIS إلى <code>[فئة الأداء][فئة العلبة][الطول]</code>:</p>
+    <ul>
+      <li><strong>55 / 65</strong> — <em>فئة الأداء</em>. وهنا النقطة الحاسمة: <strong>هذا الرقم ليس السعة بالأمبير-ساعة.</strong> إن 65B24 ليست بطارية 65 أمبير-ساعة؛ فالسعة الفعلية C20 تكون عادة نحو 48–52 أمبير-ساعة حسب المصنع.</li>
+      <li><strong>B</strong> — <em>فئة حجم العلبة</em>. &ldquo;B&rdquo; علبة ضيقة وطويلة (بعرض 129 مم) للمركبات الآسيوية الصغيرة.</li>
+      <li><strong>24</strong> — <em>الطول</em> بالسنتيمتر، نحو 238 مم.</li>
+    </ul>
+    <p>علبة B24 هي البصمة &ldquo;الآسيوية الصغيرة&rdquo; (المرجع المتبادل BCI المجموعة 51، وعائلة NS60 / N40). وهي النظير المدمج لسلسلة D الأعرض: الارتفاع نفسه، لكن بعرض ~129 مم فقط مقابل ~173 مم. ذلك العرض الضيق هو ما يحدّ من مساحة الصفيحة، ولهذا تصل B24 إلى نحو 50 أمبير-ساعة بينما تصل D26 إلى 72–84 أمبير-ساعة.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>الفجوة أصغر مما يوحي به الرمز</h2>
+      <p>في البيانات المرجعية لـ Dingwei، الفرق بين الرمزين هو <strong>2 أمبير-ساعة و0 CCA</strong>. ليس هذا خطأ مطبعيًا — فهكذا تستقر فئات أداء JIS في هذه العلبة الصغيرة.</p>
+      <p>ولنضع هذين الأمبيرين في سياقهما: <strong>إن تشتت CCA <em>بين المصنّعين</em> للرمز 55B24 نفسه أكبر بكثير من الفرق بين 55B24 و65B24 داخل مصنع واحد.</strong> تتراوح أرقام 55B24 المنشورة من نحو 330 إلى 570 أمبير عبر العلامات التجارية، والسعة من ~45 إلى 48 أمبير-ساعة. وقد تتفوق 55B24 من &ldquo;درجة عالية&rdquo; في مصنع على 65B24 من &ldquo;درجة منخفضة&rdquo; في مصنع آخر.</p>
+      <p>القاعدة العملية: <strong>داخل مُصنِّع واحد، تكون 65B24 ترقية صفيحة هامشية فوق 55B24. وبين المصنّعين، يقول الرمز القليل جدًا.</strong> اشترِ وفق ورقة المواصفات الفعلية للمصنع، لا وفق البادئة ذات الرقمين.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>هل هما قابلتان للتبادل؟</h2>
+    <p><strong>نعم، عمليًا.</strong> فكلتاهما تشغلان حاضنة B24 نفسها وتثبيتها، والفرق الكهربائي صغير بما يكفي لتتصرفا بشكل شبه متطابق في تطبيقات المدمج والمساعد الهجين التي تخدمها هذه العلبة.</p>
+    <ol>
+      <li><strong>نوع الطرف والقطبية.</strong> تستخدم بطاريات B24 نوع الطرف JIS الضيق وتأتي في نسختين يسار/يمين. وهذا هو الشيء الوحيد الذي يجب أن يتطابق تمامًا.</li>
+      <li><strong>التطبيق.</strong> علبة B24 شائعة في السيارات الآسيوية المدمجة (عائلة NS60 / N40) وبشكل متزايد كبطارية مساعدة في السيارات الهجينة، حيث يهم النوع الصحيح والتهوية أكثر من فرق 2 أمبير-ساعة.</li>
+      <li><strong>السعر.</strong> ولأن فجوة الأداء هامشية، يأتي قرار الشراء عادة من السعر والتوافر ودرجة المصنع — لا من أي رمز هو &ldquo;الأفضل&rdquo;.</li>
+    </ol>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>أيهما يجب أن تختار؟</h2>
+      <table class="data-table">
+        <thead><tr><th>اختر…</th><th>عندما…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>55B24</strong></td><td>برامج الاستبدال الاقتصادية، والسيارات الآسيوية المدمجة القياسية، أو حيث تكون درجة 48 أمبير-ساعة هي الأساس المستقر والسعر هو العامل الحاسم.</td></tr>
+          <tr><td><strong>65B24</strong></td><td>حيث تطلب مواصفة المركبة أو كتالوج المشتري الرمز الأعلى، أو حيث تستحق زيادة احتياطي طفيفة العلاوة الصغيرة.</td></tr>
+        </tbody>
+      </table>
+      <p>بالنسبة للمستورد، الإطار الصادق هو: <strong>هذان الرمزان شبه مكررين في علبة واحدة.</strong> تخزّن العديد من البرامج أحدهما وتتعامل مع الآخر كمرجع متبادل. وقرار الهامش الحقيقي هو أي درجة أداء تُوسم كقياسية مقابل اقتصادية — وذلك يحدده Ah/CCA الفعليان للمصنع، لا البادئة ذات الرقمين.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>أخطاء شائعة</h2>
+    <ul>
+      <li>افتراض أن &ldquo;65&rdquo; تعني 65 أمبير-ساعة. إنه رمز فئة أداء، والسعة الفعلية نحو 48–52 أمبير-ساعة.</li>
+      <li>دفع مبلغ أكبر مقابل 65B24 توقعًا لترقية ملموسة. ففي المصنع نفسه الكسب نحو 2 أمبير-ساعة.</li>
+      <li>مقارنة 55B24 من درجة عالية في علامة مع 65B24 من درجة منخفضة في أخرى واستنتاج أن الرمز بلا معنى.</li>
+      <li>تجاهل نوع الطرف JIS الضيق والقطبية يسار/يمين — العامل الوحيد الذي يمنع التبديل فعلًا.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>ملاحظة حول OEM والعلامة الخاصة</h2>
+      <p>توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). كلا الموديلين متاحان لبرامج OEM والعلامة الخاصة. ولأنهما تشتركان في العلبة وقيم شبه متطابقة، يمكن لمالك العلامة ترشيد عائلة B24 إلى وحدة أو وحدتي تخزين بدلًا من حمل كل البادئات. أكّد الجهد والسعة وأساس CCA ونوع الطرف والقطبية وتصميم الملصق أثناء وضع المواصفات.</p>
+      <p><a href="/ar/oem/">برامج OEM &rarr;</a> · <a href="/ar/private-label/">برامج العلامة الخاصة &rarr;</a> · <a href="/ar/data/55b24/">مواصفة 55B24 &rarr;</a> · <a href="/ar/data/65b24/">مواصفة 65B24 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>الأسئلة الشائعة</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>الخلاصة</h2>
+      <p>إن 55B24 و65B24 هما علبة B24 نفسها بدرجتين متجاورتين، والفرق هامشي — نحو 2 أمبير-ساعة ولا تغيير في فئة التشغيل البارد. عاملهما كشبه قابلتين للتبادل، وأكّد أطراف JIS الضيقة والقطبية، ودع السعر والمواصفة الفعلية للمصنع يقودان قرار الشراء.</p>
+      <p><a href="/ar/compare/65d26-vs-80d26/">قارن عائلة D26 &rarr;</a> · <a href="/ar/knowledge/battery-dimensions-case-size/">اقرأ دليل أحجام العلب &rarr;</a> · <a href="/ar/tools/compare/">قارن بين موديلين جنبًا إلى جنب &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="أكّد مواصفة 55B24 أو 65B24 لبرنامجك" />
+</BaseLayout>

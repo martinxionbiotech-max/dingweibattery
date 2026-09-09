@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, RELATIONSHIP, PUBLISHED_DATE } from '../../../data/site';
+import { findModel, modelPath } from '../../../data/battery-models';
+
+const m105 = findModel('105D31');
+const m115 = findModel('115D31');
+
+const title = '105D31 vs 115D31 Battery: Same D31 Case, Two Power Grades | Dingwei Battery';
+const description = '105D31 (84 Ah) and 115D31 (96 Ah) share the JIS D31 case. Learn the real difference, whether they are interchangeable, and which grade to stock.';
+const articleTitle = '105D31 vs 115D31 battery: same D31 case, two power grades';
+
+const breadcrumbs = [
+  { label: 'Compare', href: '/compare/' },
+  { label: '105D31 vs 115D31' },
+];
+
+const faqs = [
+  { q: 'Is the 115D31 bigger than the 105D31?', a: 'No. Both use the JIS D31 case (roughly 305 × 175 × 220 mm; the BCI cross-reference lists 306 × 173 × 225 mm). The 115D31 has more capacity and CCA, not more physical size.' },
+  { q: 'Can I replace a 105D31 with a 115D31?', a: 'Usually yes physically, provided terminal type and polarity match. The 115D31 adds reserve and cold-cranking power, which is safe for most heavy SUV, 4WD and marine starting applications — but confirm the terminals first.' },
+  { q: 'Can I replace a 115D31 with a 105D31?', a: 'It will fit and start in mild conditions, but it carries less reserve and lower CCA. Under sustained diesel-cranking, winching or deep accessory load it works harder and is not a reliable long-term substitute.' },
+  { q: 'Why do 105D31 CCA figures vary across brands?', a: 'Because JIS (&minus;15&deg;C) and SAE/EN (&minus;18&deg;C) are different test methods, and factories build the D31 case to different plate and paste grades. Compare within one standard and one manufacturer only.' },
+];
+
+const url = `${SITE.url}/compare/105d31-vs-115d31/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'Comparison',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: `${SITE.url}/compare/` },
+      { '@type': 'ListItem', position: 3, name: '105D31 vs 115D31', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">Compare · JIS</span>
+    <h1>105D31 vs 115D31 battery: same D31 case, two power grades</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-09 · Reference values only</p>
+    <p class="lead">The 105D31 and 115D31 share the same physical case — the JIS D31, the largest of the standard Japanese passenger/light-truck boxes. The difference is electrical: the 115D31 is the higher performance grade of the same box, with more capacity and a higher cold-cranking rating.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> These are two performance grades of the same JIS D31 case, not two different battery sizes. Choose 105D31 for standard SUV / light-commercial diesel and 4WD replacement economics; choose 115D31 for heavy SUVs, 4WDs, marine starting or any application that needs deeper reserve. They drop into the same tray, but terminal type and polarity must still be confirmed.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Key specifications (reference)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Field</th><th>105D31</th><th>115D31</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Standard</th><td>JIS (JIS D 5301)</td><td>JIS (JIS D 5301)</td></tr>
+          <tr><th>Voltage</th><td>{m105?.voltage} V</td><td>{m115?.voltage} V</td></tr>
+          <tr><th>Capacity (reference)</th><td>{m105?.capacity_ah} Ah</td><td>{m115?.capacity_ah} Ah</td></tr>
+          <tr><th>CCA (reference, JIS &minus;15&deg;C)</th><td>{m105?.cca.value}</td><td>{m115?.cca.value}</td></tr>
+          <tr><th>Case size</th><td>{m105?.case_size}</td><td>{m115?.case_size}</td></tr>
+          <tr><th>Dimensions (mm)</th><td>{m105?.dimensions_mm.length} × {m105?.dimensions_mm.width} × {m105?.dimensions_mm.height}</td><td>{m115?.dimensions_mm.length} × {m115?.dimensions_mm.width} × {m115?.dimensions_mm.height}</td></tr>
+          <tr><th>Typical application</th><td>{m105?.application}</td><td>{m115?.application}</td></tr>
+          <tr><th>OEM / private label</th><td>Available</td><td>Available</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Values are reference values from the Dingwei model database. Confirm final specifications — including CCA basis, terminal type and polarity — with the manufacturer before ordering.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>What the model code actually means</h2>
+    <p>The JIS code breaks down as <code>[performance class][case class][length]</code>, exactly like the smaller D26 family:</p>
+    <ul>
+      <li><strong>105 / 115</strong> — the <em>performance class</em>, which correlates roughly with capacity (Ah) and CCA. A higher number means a higher electrical grade, <strong>not a physically larger battery</strong>.</li>
+      <li><strong>D</strong> — the <em>case-size class</em> (width and height). Both batteries are &ldquo;D&rdquo;.</li>
+      <li><strong>31</strong> — the <em>length</em> in centimetres, roughly 305 mm. This is the part most people miss: <strong>D31 is not the same tray as D26.</strong></li>
+    </ul>
+    <p>The D31 box sits at the top of the standard JIS passenger ladder — D23 (232 mm) &rarr; D26 (256 mm) &rarr; D31 (305 mm). The extra length over a D26 is where the extra plate area and, therefore, the higher Ah and CCA come from. If a vehicle is specced for a D26, a D31 will usually <em>not</em> fit the tray, even though all three are &ldquo;D&rdquo; width and height.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Are they interchangeable?</h2>
+      <p>Physically, yes — the 105D31 and 115D31 occupy the same D31 tray and the same hold-down footprint, so either one drops into a vehicle built for a D31 battery.</p>
+      <p>Three things must still be confirmed before treating them as replacements:</p>
+      <ol>
+        <li><strong>Terminal type and polarity.</strong> D31 batteries come in left/right variants (e.g. <code>105D31L</code> vs <code>105D31R</code>) and with different terminal styles. Same case &ne; same terminals.</li>
+        <li><strong>Reserve fit for the load.</strong> A 105D31 in an application engineered for a 115D31 will still start, but it will cycle deeper under winching, sustained accessory or marine house-load demand and wear faster.</li>
+        <li><strong>CCA basis.</strong> Confirm whether the quoted CCA is JIS (&minus;15&deg;C) or SAE/EN (&minus;18&deg;C). They are not the same number for the same battery.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Why the CCA numbers look different across brands</h2>
+    <p>You will see 105D31 CCA figures from roughly 670 up to 700, and capacity from about 83 to 90 Ah, depending on the source. This is not usually a contradiction — it is two effects at once:</p>
+    <ul>
+      <li><strong>Test method.</strong> JIS measures at &minus;15&deg;C; SAE/EN measure at &minus;18&deg;C. The same battery produces different numbers under the two standards.</li>
+      <li><strong>Manufacturer grade.</strong> Different factories fill the D31 case to different plate-count and paste specifications, so the &ldquo;105&rdquo; class has a legitimate performance spread. A high-grade 105D31 from one factory can sit close to a low-grade 115D31 from another.</li>
+    </ul>
+    <p>The practical rule: <strong>compare CCA within one standard, and compare grade-to-grade within one manufacturer.</strong> Comparing one brand&rsquo;s 105D31 against another brand&rsquo;s 115D31 tells you more about the factory than about the model code. Read more in the <a href="/knowledge/what-is-cca/">CCA guide</a> and the <a href="/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a> explanation.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Which one should you choose?</h2>
+      <table class="data-table">
+        <thead><tr><th>Choose…</th><th>When…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>105D31</strong></td><td>Standard SUV, 4WD and light-commercial diesel vehicles with moderate accessory load; cost-sensitive replacement programs; markets where 84 Ah is the OEM baseline.</td></tr>
+          <tr><td><strong>115D31</strong></td><td>Heavy SUVs, 4WDs with winches or auxiliary systems, marine starting, or any application that needs deeper reserve and a stronger cold crank.</td></tr>
+        </tbody>
+      </table>
+      <p>For an importer or private-label brand owner, the framing is the same as the D26 family: <strong>these are two SKUs in one case, not two different batteries.</strong> You can offer a two-tier D31 lineup — standard and heavy — under one label with one tray fitment, one set of tooling and one logistics footprint.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Common mistakes</h2>
+    <ul>
+      <li>Assuming the &ldquo;115&rdquo; battery is <em>larger</em> than the &ldquo;105&rdquo; and ordering different trays. It is the same D31 tray.</li>
+      <li>Assuming a D31 drops into a D26 vehicle. D31 is ~50 mm longer; it is a different tray family.</li>
+      <li>Comparing one brand&rsquo;s 105D31 CCA against another brand&rsquo;s 115D31 CCA and concluding a bigger gap than the grade actually implies.</li>
+      <li>Ignoring terminal and polarity when swapping one grade for the other.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>OEM &amp; private-label note</h2>
+      <p>{RELATIONSHIP} Both models are available for OEM and private-label programs. Because they share a case, a brand owner can launch a two-tier D31 lineup (standard + heavy) under one label with a single mould and packaging family. Confirm voltage, capacity, CCA basis, terminal type, polarity and label artwork during specification.</p>
+      <p><a href="/oem/">OEM programs &rarr;</a> · <a href="/private-label/">Private-label programs &rarr;</a> · <a href={modelPath('105D31')}>105D31 specification &rarr;</a> · <a href={modelPath('115D31')}>115D31 specification &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Conclusion</h2>
+      <p>The 105D31 and 115D31 are the same D31 box at two performance grades. The decision is not about size — it is about matching capacity and CCA to the vehicle&rsquo;s electrical and starting demand, then confirming terminals and polarity. For buyers and brand owners, that turns two apparently different batteries into one flexible platform in the largest standard JIS case.</p>
+      <p><a href="/compare/65d26-vs-80d26/">Compare the D26 family instead &rarr;</a> · <a href="/data/">Browse the model database &rarr;</a> · <a href="/tools/compare/">Compare two models side by side &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Confirm the 105D31 or 115D31 specification for your program" />
+</BaseLayout>

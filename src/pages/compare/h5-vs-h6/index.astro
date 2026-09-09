@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, RELATIONSHIP, PUBLISHED_DATE } from '../../../data/site';
+import { findModel, modelPath } from '../../../data/battery-models';
+
+const mH5 = findModel('H5');
+const mH6 = findModel('H6');
+
+const title = 'H5 vs H6 Battery: LN2 vs LN3 — Same Height, Different Length | Dingwei Battery';
+const description = 'H5 (LN2, 60 Ah) vs H6 (LN3, 72 Ah): the difference is length and reserve. Learn which fits your vehicle and which one to choose.';
+const articleTitle = 'H5 vs H6 battery: LN2 vs LN3 — same height, different length';
+
+const breadcrumbs = [
+  { label: 'Compare', href: '/compare/' },
+  { label: 'H5 vs H6' },
+];
+
+const faqs = [
+  { q: 'Is the H6 bigger than the H5?', a: 'Yes — longer. Both are 175 mm wide and 190 mm tall, but the H6 is 278 mm long versus 242 mm for the H5. The extra 36 mm buys more capacity and reserve.' },
+  { q: 'Can I fit an H6 where an H5 was specified?', a: 'Only if the tray and hold-down accept the longer case. Many European trays share width and height with an adjustable hold-down, so an upgrade can fit — but confirm the tray length first.' },
+  { q: 'Can I replace an H6 with an H5?', a: 'It will fit and start the car in mild conditions, but carries less reserve (60 vs 72 Ah) and lower CCA. In a start-stop or high-accessory application it works harder and is not a reliable long-term substitute.' },
+  { q: 'Is the CCA directly comparable between H5 and H6?', a: 'Yes. Both are DIN/EN batteries rated at &minus;18&deg;C, so the CCA numbers (600 vs 660 reference) are on the same test basis — unlike a JIS vs EN cross-comparison.' },
+];
+
+const url = `${SITE.url}/compare/h5-vs-h6/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'Comparison',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: `${SITE.url}/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'H5 vs H6', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">Compare · DIN/EN</span>
+    <h1>H5 vs H6 battery: LN2 vs LN3 — same height, different length</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-09 · Reference values only</p>
+    <p class="lead">The H5 and H6 are the two smaller members of the DIN/EN &ldquo;H&rdquo; family. They share width and height; the H6 is 36 mm longer. That length difference carries a meaningful reserve gap — 60 Ah vs 72 Ah — even though the CCA gap looks modest on paper.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> H5 and H6 are different lengths (242 vs 278 mm), not interchangeable stock. Both are rated on the same EN &minus;18&deg;C CCA basis, so their CCA is directly comparable. Choose H5 for compact cars and entry start-stop; choose H6 when the tray accepts the length and the vehicle benefits from more reserve.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Key specifications (reference)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Field</th><th>H5 (LN2)</th><th>H6 (LN3)</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Standard</th><td>DIN/EN (EN 50342)</td><td>DIN/EN (EN 50342)</td></tr>
+          <tr><th>Voltage</th><td>{mH5?.voltage} V</td><td>{mH6?.voltage} V</td></tr>
+          <tr><th>Capacity (reference)</th><td>{mH5?.capacity_ah} Ah</td><td>{mH6?.capacity_ah} Ah</td></tr>
+          <tr><th>CCA (reference, EN &minus;18&deg;C)</th><td>{mH5?.cca.value}</td><td>{mH6?.cca.value}</td></tr>
+          <tr><th>Case size</th><td>{mH5?.case_size}</td><td>{mH6?.case_size}</td></tr>
+          <tr><th>Dimensions (mm)</th><td>{mH5?.dimensions_mm.length} × {mH5?.dimensions_mm.width} × {mH5?.dimensions_mm.height}</td><td>{mH6?.dimensions_mm.length} × {mH6?.dimensions_mm.width} × {mH6?.dimensions_mm.height}</td></tr>
+          <tr><th>Typical application</th><td>{mH5?.application}</td><td>{mH6?.application}</td></tr>
+          <tr><th>OEM / private label</th><td>Available</td><td>Available</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Values are reference values from the Dingwei model database. Confirm final specifications — including CCA basis, terminal type and polarity — with the manufacturer before ordering.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>The H-series: length is the upgrade axis</h2>
+    <p>The whole H family — H5 through H8 — shares one width (175 mm) and one height (190 mm). Only length changes:</p>
+    <ul>
+      <li><strong>H5 / LN2</strong> — 242 mm</li>
+      <li><strong>H6 / LN3</strong> — 278 mm</li>
+      <li><strong>H7 / LN4</strong> — 315 mm</li>
+      <li><strong>H8 / LN5</strong> — 352 mm</li>
+    </ul>
+    <p>The practical consequence: <strong>the H5 is the shortest of the modern H family, and moving from H5 to H6 is the most common length upgrade in the range.</strong> European platforms often standardize the tray to width and height with an adjustable hold-down, so a compact car specced for H5 can frequently step up to H6 for extra reserve — provided the tray length allows it.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Why the CCA gap understates the real difference</h2>
+      <p>On paper the CCA difference looks small — 600 vs 660 A (reference). The capacity difference, however, is 20%: 60 Ah vs 72 Ah.</p>
+      <p>This matters because CCA and capacity answer different questions:</p>
+      <ul>
+        <li><strong>CCA</strong> is about the short, high-current burst that starts a cold engine. Both batteries start a compact car easily in typical conditions.</li>
+        <li><strong>Capacity (Ah)</strong> is about how long the battery can support loads when the engine is off or the alternator is not keeping up — start-stop restarts, stoplight accessory draw, parking-lot electronics.</li>
+      </ul>
+      <p>So the real-world difference between H5 and H6 shows up less at the first cold crank and more in <strong>reserve endurance under start-stop and accessory load</strong>. That is why two batteries with a 60 A CCA gap can behave very differently in a start-stop car. Read more in the <a href="/knowledge/battery-capacity-ah-vs-c20-vs-rc/">capacity vs CCA vs reserve</a> explainer and the <a href="/knowledge/what-is-cca/">CCA guide</a>.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>The naming trap: DIN55 and DIN66</h2>
+    <p>Like the rest of the family, the H5 and H6 carry multiple aliases:</p>
+    <ul>
+      <li><strong>H5</strong> = LN2 = Group 47 = DIN55 (nominal)</li>
+      <li><strong>H6</strong> = LN3 = Group 48 = DIN66 (nominal)</li>
+    </ul>
+    <p>The nominal &ldquo;DIN55&rdquo; and &ldquo;DIN66&rdquo; labels are <em>not</em> the real C20 capacity — the H5 reference is 60 Ah and the H6 reference is 72 Ah. Buyers ordering &ldquo;a 55 Ah battery&rdquo; or &ldquo;a 66 Ah battery&rdquo; are quoting the label, not the spec. When specifying, name the case reference (H5/LN2 or H6/LN3) and the real Ah and CCA you need.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Which one should you choose?</h2>
+      <table class="data-table">
+        <thead><tr><th>Choose…</th><th>When…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>H5</strong></td><td>Compact European cars, entry-level start-stop systems, or any vehicle whose tray length is fixed at 242 mm; cost-sensitive replacement programs.</td></tr>
+          <tr><td><strong>H6</strong></td><td>Mid-size cars and SUVs, heavier accessory loads, or a compact car where the tray accepts the longer case and the buyer wants more reserve and start-stop endurance.</td></tr>
+        </tbody>
+      </table>
+      <p>For an importer, H5 and H6 are the two most common entry points into the European battery market. They are distinct SKUs — same width and height, different length — so they share packaging and shipping logic but must be stocked as separate lengths.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Common mistakes</h2>
+    <ul>
+      <li>Treating H5 and H6 as interchangeable because they look similar side by side. Length is the limiting dimension.</li>
+      <li>Reading the 60 A CCA gap and assuming the batteries are near-identical. The 20% capacity difference matters for reserve.</li>
+      <li>Ordering &ldquo;55 Ah&rdquo; or &ldquo;66 Ah&rdquo; by the nominal DIN name and ignoring the real C20 capacity.</li>
+      <li>Upgrading to an H6 without confirming the hold-down can actually clamp the longer case.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>OEM &amp; private-label note</h2>
+      <p>{RELATIONSHIP} Both models are available for OEM and private-label programs. A brand owner entering the European market typically launches H5 and H6 first — they cover the highest-volume compact and mid-size platforms — then extends to H7 and H8 for SUVs and premium vehicles. Confirm voltage, capacity, CCA basis, terminal type, polarity and label artwork during specification.</p>
+      <p><a href="/oem/">OEM programs &rarr;</a> · <a href="/private-label/">Private-label programs &rarr;</a> · <a href={modelPath('H5')}>H5 specification &rarr;</a> · <a href={modelPath('H6')}>H6 specification &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Conclusion</h2>
+      <p>The H5 and H6 are the same battery family at two lengths. The decision is tray length first, then reserve: the H6 buys 20% more capacity and a stronger cold crank for vehicles that can accept the longer case. Confirmed terminals, polarity and the hold-down, and the rest is specification detail.</p>
+      <p><a href="/compare/h6-vs-h7/">Compare the H6 vs H7 step &rarr;</a> · <a href="/knowledge/jis-vs-din-vs-bci/">Read the standards guide &rarr;</a> · <a href="/tools/compare/">Compare two models side by side &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Confirm the H5 or H6 specification for your program" />
+</BaseLayout>

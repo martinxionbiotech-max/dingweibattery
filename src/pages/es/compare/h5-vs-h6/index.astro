@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const mH5 = findModel('H5');
+const mH6 = findModel('H6');
+
+const title = 'Batería H5 vs H6: LN2 vs LN3 — misma altura, distinta longitud | Dingwei Battery';
+const description = 'H5 (LN2, 60 Ah) vs H6 (LN3, 72 Ah): la diferencia es la longitud y la reserva. Descubra cuál encaja en su vehículo y cuál elegir.';
+const articleTitle = 'Batería H5 vs H6: LN2 vs LN3 — misma altura, distinta longitud';
+
+const breadcrumbs = [
+  { label: 'Comparar', href: '/es/compare/' },
+  { label: 'H5 vs H6' },
+];
+
+const faqs = [
+  { q: '¿La H6 es más grande que la H5?', a: 'Sí, más larga. Ambas miden 175 mm de ancho y 190 mm de alto, pero la H6 mide 278 mm de largo frente a 242 mm de la H5. Los 36 mm extra compran más capacidad y reserva.' },
+  { q: '¿Puedo montar una H6 donde se especificó una H5?', a: 'Solo si la bandeja y la sujeción admiten la caja más larga. Muchas bandejas europeas comparten anchura y altura con sujeción ajustable, de modo que una mejora puede encajar, pero confirme antes la longitud de la bandeja.' },
+  { q: '¿Puedo sustituir una H6 por una H5?', a: 'Cabrá y arrancará el coche en condiciones suaves, pero aporta menos reserva (60 vs 72 Ah) y menor CCA. En una aplicación de arranque-parada o con muchos accesorios trabajará más y no es un sustituto fiable a largo plazo.' },
+  { q: '¿Es la CCA directamente comparable entre H5 y H6?', a: 'Sí. Ambas son baterías DIN/EN clasificadas a &minus;18&deg;C, de modo que las cifras de CCA (600 vs 660 de referencia) están sobre la misma base de ensayo, a diferencia de una comparación cruzada JIS vs EN.' },
+];
+
+const url = `${SITE.url}/es/compare/h5-vs-h6/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'Comparación',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Comparar', item: `${SITE.url}/es/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'H5 vs H6', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">Comparar · DIN/EN</span>
+    <h1>Batería H5 vs H6: LN2 vs LN3 — misma altura, distinta longitud</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-09 · Solo valores de referencia</p>
+    <p class="lead">La H5 y la H6 son los dos miembros más pequeños de la familia DIN/EN &ldquo;H&rdquo;. Comparten anchura y altura; la H6 es 36 mm más larga. Esa diferencia de longitud conlleva una brecha de reserva significativa —60 Ah frente a 72 Ah— aunque la brecha de CCA parezca modesta sobre el papel.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> H5 y H6 son longitudes distintas (242 vs 278 mm), no stock intercambiable. Ambas se clasifican sobre la misma base de CCA EN &minus;18&deg;C, de modo que su CCA es directamente comparable. Elija H5 para coches compactos y arranque-parada básico; elija H6 cuando la bandeja acepte la longitud y el vehículo se beneficie de más reserva.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Especificaciones clave (referencia)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Campo</th><th>H5 (LN2)</th><th>H6 (LN3)</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Estándar</th><td>DIN/EN (EN 50342)</td><td>DIN/EN (EN 50342)</td></tr>
+          <tr><th>Tensión</th><td>{mH5?.voltage} V</td><td>{mH6?.voltage} V</td></tr>
+          <tr><th>Capacidad (referencia)</th><td>{mH5?.capacity_ah} Ah</td><td>{mH6?.capacity_ah} Ah</td></tr>
+          <tr><th>CCA (referencia, EN &minus;18&deg;C)</th><td>{mH5?.cca.value}</td><td>{mH6?.cca.value}</td></tr>
+          <tr><th>Tamaño de caja</th><td>{mH5?.case_size}</td><td>{mH6?.case_size}</td></tr>
+          <tr><th>Dimensiones (mm)</th><td>{mH5?.dimensions_mm.length} × {mH5?.dimensions_mm.width} × {mH5?.dimensions_mm.height}</td><td>{mH6?.dimensions_mm.length} × {mH6?.dimensions_mm.width} × {mH6?.dimensions_mm.height}</td></tr>
+          <tr><th>Aplicación típica</th><td>{mH5?.application}</td><td>{mH6?.application}</td></tr>
+          <tr><th>OEM / marca privada</th><td>Disponible</td><td>Disponible</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Los valores son de referencia de la base de datos de modelos de Dingwei. Confirme las especificaciones finales —incluida la base de CCA, el tipo de terminal y la polaridad— con el fabricante antes de pedir.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>La serie H: la longitud es el eje de mejora</h2>
+    <p>Toda la familia H —de H5 a H8— comparte una anchura (175 mm) y una altura (190 mm). Solo cambia la longitud:</p>
+    <ul>
+      <li><strong>H5 / LN2</strong> — 242 mm</li>
+      <li><strong>H6 / LN3</strong> — 278 mm</li>
+      <li><strong>H7 / LN4</strong> — 315 mm</li>
+      <li><strong>H8 / LN5</strong> — 352 mm</li>
+    </ul>
+    <p>La consecuencia práctica: <strong>la H5 es la más corta de la familia H moderna, y pasar de H5 a H6 es la mejora de longitud más común del rango.</strong> Las plataformas europeas suelen estandarizar la bandeja en anchura y altura con una sujeción ajustable, de modo que un coche compacto especificado para H5 puede subir con frecuencia a H6 para más reserva, siempre que la longitud de la bandeja lo permita.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Por qué la brecha de CCA subestima la diferencia real</h2>
+      <p>Sobre el papel la diferencia de CCA parece pequeña —600 frente a 660 A (referencia)—. La diferencia de capacidad, sin embargo, es del 20%: 60 Ah frente a 72 Ah.</p>
+      <p>Esto importa porque CCA y capacidad responden a preguntas distintas:</p>
+      <ul>
+        <li><strong>CCA</strong> es el pico corto de alta corriente que arranca un motor frío. Ambas baterías arrancan un coche compacto sin problema en condiciones típicas.</li>
+        <li><strong>Capacidad (Ah)</strong> es cuánto tiempo puede la batería sostener cargas con el motor apagado o cuando el alternador no da abasto: rearranques de arranque-parada, consumo de accesorios en semáforo, electrónica en aparcamiento.</li>
+      </ul>
+      <p>Así que la diferencia real entre H5 y H6 se nota menos en el primer arranque en frío y más en la <strong>resistencia de reserva bajo arranque-parada y carga de accesorios</strong>. Por eso dos baterías con una brecha de 60 A de CCA pueden comportarse de forma muy distinta en un coche con arranque-parada. Lea más en la explicación de <a href="/es/knowledge/battery-capacity-ah-vs-c20-vs-rc/">capacidad vs CCA vs reserva</a> y en la <a href="/es/knowledge/what-is-cca/">guía de CCA</a>.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>La trampa de la nomenclatura: DIN55 y DIN66</h2>
+    <p>Como el resto de la familia, la H5 y la H6 llevan varios alias:</p>
+    <ul>
+      <li><strong>H5</strong> = LN2 = Grupo 47 = DIN55 (nominal)</li>
+      <li><strong>H6</strong> = LN3 = Grupo 48 = DIN66 (nominal)</li>
+    </ul>
+    <p>Las etiquetas nominales &ldquo;DIN55&rdquo; y &ldquo;DIN66&rdquo; <em>no</em> son la capacidad C20 real: la referencia de la H5 es 60 Ah y la de la H6 es 72 Ah. Los compradores que piden &ldquo;una batería de 55 Ah&rdquo; o &ldquo;una de 66 Ah&rdquo; están citando la etiqueta, no la especificación. Al especificar, nombre la referencia de caja (H5/LN2 o H6/LN3) y el Ah y la CCA reales que necesita.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>¿Cuál debería elegir?</h2>
+      <table class="data-table">
+        <thead><tr><th>Elija…</th><th>Cuando…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>H5</strong></td><td>Coches europeos compactos, sistemas de arranque-parada básicos, o cualquier vehículo cuya longitud de bandeja esté fijada en 242 mm; programas de sustitución sensibles al precio.</td></tr>
+          <tr><td><strong>H6</strong></td><td>Coches medianos y SUV, cargas de accesorios más altas, o un coche compacto donde la bandeja acepte la caja más larga y el comprador quiera más reserva y resistencia de arranque-parada.</td></tr>
+        </tbody>
+      </table>
+      <p>Para un importador, H5 y H6 son los dos puntos de entrada más comunes al mercado europeo de baterías. Son SKU distintos —misma anchura y altura, distinta longitud—, así que comparten lógica de embalaje y envío pero deben almacenarse como longitudes separadas.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Errores comunes</h2>
+    <ul>
+      <li>Tratar H5 y H6 como intercambiables porque se parecen lado a lado. La longitud es la dimensión limitante.</li>
+      <li>Leer la brecha de 60 A de CCA y asumir que las baterías son casi idénticas. La diferencia de capacidad del 20% importa para la reserva.</li>
+      <li>Pedir &ldquo;55 Ah&rdquo; o &ldquo;66 Ah&rdquo; por el nombre DIN nominal e ignorar la capacidad C20 real.</li>
+      <li>Mejorar a una H6 sin confirmar que la sujeción puede sujetar de verdad la caja más larga.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Nota sobre OEM y marca privada</h2>
+      <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Ambos modelos están disponibles para programas OEM y de marca privada. Un propietario de marca que entra en el mercado europeo suele lanzar primero H5 y H6 —cubren las plataformas compactas y medianas de mayor volumen— y luego amplía a H7 y H8 para SUV y vehículos premium. Confirme tensión, capacidad, base de CCA, tipo de terminal, polaridad y diseño de etiqueta durante la especificación.</p>
+      <p><a href="/es/oem/">Programas OEM &rarr;</a> · <a href="/es/private-label/">Programas de marca privada &rarr;</a> · <a href="/es/data/h5/">Especificación H5 &rarr;</a> · <a href="/es/data/h6/">Especificación H6 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Preguntas frecuentes</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Conclusión</h2>
+      <p>La H5 y la H6 son la misma familia de batería en dos longitudes. La decisión es primero la longitud de bandeja y después la reserva: la H6 compra un 20% más de capacidad y un arranque en frío más fuerte para vehículos que aceptan la caja más larga. Con terminales, polaridad y sujeción confirmadas, el resto es detalle de especificación.</p>
+      <p><a href="/es/compare/h6-vs-h7/">Compare el paso H6 vs H7 &rarr;</a> · <a href="/es/knowledge/jis-vs-din-vs-bci/">Lea la guía de estándares &rarr;</a> · <a href="/es/tools/compare/">Compare dos modelos lado a lado &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Confirme la especificación H5 o H6 para su programa" />
+</BaseLayout>

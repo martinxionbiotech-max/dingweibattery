@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+
+const title = 'Batería AGM vs EFB: ¿Qué tipo de arranque-parada necesita? | Dingwei Battery';
+const description = 'AGM (malla de fibra de vidrio absorbente) y EFB (inundada mejorada) son ambas baterías de arranque-parada, pero difieren en construcción, vida de ciclado y precio. Descubra cuál elegir.';
+const articleTitle = 'Batería AGM vs EFB: ¿qué tipo de arranque-parada necesita?';
+
+const breadcrumbs = [
+  { label: 'Comparar', href: '/es/compare/' },
+  { label: 'AGM vs EFB' },
+];
+
+const faqs = [
+  { q: '¿Cuál es la diferencia entre baterías AGM y EFB?', a: 'La AGM usa una malla de fibra de vidrio absorbente para retener el electrolito y es sellada y a prueba de fugas; la EFB es una batería inundada mejorada con una malla de refuerzo en la placa positiva y electrolito líquido. La AGM ofrece mayor vida de ciclado y tolera descargas más profundas, y cuesta más.' },
+  { q: '¿Puedo sustituir una batería AGM por una EFB?', a: 'No se recomienda. Pasar de AGM a EFB es una degradación que puede alterar el sistema de gestión de batería y reducir el rendimiento del arranque-parada. Sustituir EFB por AGM suele ser aceptable, pero la BMS debe codificarse para el nuevo tipo.' },
+  { q: '¿Cuál es mejor para arranque-parada, AGM o EFB?', a: 'Ambas están pensadas para arranque-parada. La EFB es la opción económica para arranque-parada básico y coches compactos; la AGM es la opción de mayor rendimiento para arranque-parada con recuperación de energía de frenado, vehículos premium y cargas eléctricas altas.' },
+  { q: '¿Debo registrar la batería nueva?', a: 'En muchos vehículos modernos, sí. Debe comunicarse al sistema de gestión de batería que se ha instalado una nueva, y codificarse su tipo (EFB o AGM), para que la estrategia de carga se ajuste a la batería. Talleres y concesionarios pueden hacerlo.' },
+];
+
+const url = `${SITE.url}/es/compare/agm-vs-efb/`;
+
+const sources = [
+  { label: 'VARTA Automotive — Diferencias entre EFB y AGM', href: 'https://www.varta-automotive.com/en/knowledge/articles/article-details/efb-and-agm-differences' },
+  { label: 'RAC Shop — AGM vs EFB: ¿qué batería necesito?', href: 'https://www.racshop.co.uk/advice/agm-vs-efb-which-battery-do-i-need' },
+  { label: 'Continental Battery — EFB vs AGM: cómo elegir la batería de arranque-parada', href: 'https://www.continentalbattery.com/blog/efb-vs-agm-choosing-the-right-start-stop-battery' },
+  { label: 'Stryten — EFB vs AGM para vehículos de arranque-parada e híbridos', href: 'https://www.stryten.com/efb-vs-agm-for-start-stop-and-hybrid-vehicles' },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'Comparación',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Comparar', item: `${SITE.url}/es/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'AGM vs EFB', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">Comparar · Tipo de batería</span>
+    <h1>Batería AGM vs EFB: ¿qué tipo de arranque-parada necesita?</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-09 · Fuentes externas citadas</p>
+    <p class="lead">AGM y EFB son las dos tecnologías de batería creadas para vehículos con arranque-parada, pero no son lo mismo y no son libremente intercambiables. La AGM es un diseño de malla de vidrio absorbente con el electrolito ligado a una malla; la EFB es un diseño inundado mejorado que sigue conteniendo electrolito líquido. La diferencia se nota en la vida de ciclado, el precio y la profundidad de descarga que cada una tolera.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Elija EFB para arranque-parada básico y coches compactos donde el coste importa; elija AGM para arranque-parada con recuperación de energía de frenado, vehículos premium y cargas eléctricas altas. Sustituya igual por igual o mejore EFB&rarr;AGM —no degrade AGM&rarr;EFB— y registre/codifique la batería nueva en el sistema de gestión de batería del vehículo.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Las dos tecnologías de un vistazo</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Atributo</th><th>EFB</th><th>AGM</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Nombre completo</th><td>Batería inundada mejorada (Enhanced Flooded Battery)</td><td>Batería de malla de vidrio absorbente (Absorbent Glass Mat)</td></tr>
+          <tr><th>Construcción</th><td>Inundada (electrolito líquido) con malla de refuerzo en la placa positiva</td><td>Electrolito absorbido en una malla de vidrio; sellada, regulada por válvula</td></tr>
+          <tr><th>Vida de ciclado vs convencional</th><td>Aproximadamente 2&times;</td><td>Aún mayor —la más estable en ciclado de la familia plomo-ácido</td></tr>
+          <tr><th>Profundidad de descarga típica</th><td>Optimizada en torno al ~60% de profundidad de descarga</td><td>Tolera descargas más profundas, hasta ~80%</td></tr>
+          <tr><th>Montaje típico</th><td>Arranque-parada básico, coches compactos y medianos</td><td>Arranque-parada con recuperación, vehículos premium, mucha electrónica</td></tr>
+          <tr><th>Coste relativo</th><td>Menor</td><td>Mayor</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Esta tabla resume la guía publicada de fabricantes (VARTA, RAC, Continental Battery, Stryten — fuentes abajo). Es una comparación general, no una especificación de modelo; confirme la química y los valores exactos con el fabricante de la batería antes de pedir.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Qué es realmente cada tecnología</h2>
+    <p><strong>EFB (Enhanced Flooded Battery)</strong> es la evolución directa de la batería de plomo-ácido inundada convencional. Sigue conteniendo electrolito líquido, pero añade un material de refuerzo —una malla de poliéster (&ldquo;polyvlies&rdquo;)— sobre la superficie de la placa positiva. Ese refuerzo reduce el desprendimiento de material activo que mata a las baterías inundadas ordinarias bajo ciclado repetido, duplicando aproximadamente la vida de ciclado frente a una batería de arranque convencional.</p>
+    <p><strong>AGM (Absorbent Glass Mat)</strong> adopta un enfoque distinto: el electrolito se absorbe en una malla fina de fibra de vidrio entre las placas, y la batería es sellada y regulada por válvula. Al no haber líquido libre, las baterías AGM son a prueba de fugas y sin mantenimiento, y su diseño recombinante las hace más tolerantes al ciclado profundo y a cargas/descargas repetidas: las condiciones que crea un coche de arranque-parada con recuperación de energía de frenado.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Por qué importa la diferencia en un coche de arranque-parada</h2>
+      <p>Un sistema de arranque-parada apaga el motor en cada semáforo y lo rearranca al levantar el freno. Eso significa muchos más arranques por trayecto, y la batería debe seguir alimentando la electrónica con el motor apagado para luego aceptar carga de nuevo. Una batería inundada convencional no está hecha para ese trabajo y se desgasta rápido; la EFB y la AGM sí lo están.</p>
+      <p>La distinción práctica es lo duro que es el ciclo de trabajo:</p>
+      <ul>
+        <li><strong>Arranque-parada simple, coche compacto, sensible al precio</strong> — la EFB suele ser la elección correcta y económica.</li>
+        <li><strong>Arranque-parada más recuperación de energía de frenado, o carga eléctrica alta</strong> — la tolerancia a descargas profundas y la estabilidad de ciclado de la AGM la hacen la elección correcta, y suele ser con la que se construyó el vehículo.</li>
+      </ul>
+      <p>Una forma útil de pensarlo: <strong>la EFB soporta la carga de trabajo del &ldquo;parar-arrancar&rdquo;; la AGM soporta la del &ldquo;parar-arrancar + recuperación + electrónica premium&rdquo;.</strong> Cuanto más se pida a la batería ciclar y amortiguar la energía recuperada, más se gana la prima de precio de la AGM.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Las reglas de mejora y degradación</h2>
+    <p>Aquí es donde fallan los trabajos de sustitución. Las reglas clave, tomadas de la guía de montaje:</p>
+    <ol>
+      <li><strong>Sustituya igual por igual.</strong> Si el vehículo se construyó con una EFB, una EFB es la sustitución segura; si se construyó con una AGM, use una AGM.</li>
+      <li><strong>EFB &rarr; AGM es generalmente una mejora aceptable.</strong> Gana vida de ciclado y reserva, pero el sistema de gestión de batería (BMS) debe codificarse para el nuevo tipo a fin de que cargue la AGM correctamente.</li>
+      <li><strong>AGM &rarr; EFB es una degradación.</strong> Puede alterar la BMS, degradar el comportamiento del arranque-parada y acortar la vida de la batería. Evítela.</li>
+      <li><strong>Nunca monte una batería inundada convencional</strong> donde se especifica una EFB o AGM. No sobrevivirá al trabajo de arranque-parada.</li>
+    </ol>
+    <p>En muchos vehículos modernos, la batería nueva debe además <strong>registrarse</strong> en la BMS para que la estrategia de carga se reinicie para la batería fresca: un paso importante que talleres y distribuidores deben comunicar al usuario final.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>¿Cuál debería elegir?</h2>
+      <table class="data-table">
+        <thead><tr><th>Elija…</th><th>Cuando…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>EFB</strong></td><td>Arranque-parada básico, coches compactos y medianos, programas de sustitución sensibles al precio, mercados donde el precio por unidad decide.</td></tr>
+          <tr><td><strong>AGM</strong></td><td>Arranque-parada con recuperación de energía de frenado, vehículos premium, alta carga de accesorios/electrónica, y mercados donde los compradores esperan la opción de mayor vida.</td></tr>
+        </tbody>
+      </table>
+      <p>Para un importador de marca privada, EFB y AGM son dos niveles de precio de la misma categoría de arranque-parada, no competidores. Llevar ambos permite a una marca servir al segmento económico con EFB y al premium con AGM, y refleja cómo los propios fabricantes de vehículos especifican las dos tecnologías.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Nota sobre OEM y marca privada</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Ambos tipos de batería, EFB y AGM, están disponibles para programas OEM y de marca privada. Al especificar, confirme la química (EFB o AGM), la capacidad, la base de CCA (EN &minus;18&deg;C), la referencia de caja (normalmente la familia H5&ndash;H8), el tipo de terminal, la polaridad y el diseño de etiqueta, y aclare las expectativas del mercado objetivo sobre el registro en la BMS, ya que eso afecta al soporte posventa.</p>
+    <p><a href="/es/oem/">Programas OEM &rarr;</a> · <a href="/es/private-label/">Programas de marca privada &rarr;</a> · <a href="/es/knowledge/jis-vs-din-vs-bci/">Lea la guía de estándares &rarr;</a> · <a href="/es/knowledge/battery-capacity-ah-vs-c20-vs-rc/">Lea capacidad vs CCA vs reserva &rarr;</a></p>
+  </section>
+
+  <section class="section container prose">
+    <h2>Preguntas frecuentes</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Fuentes</h2>
+      <p>Esta comparación se basa en la siguiente guía publicada, consultada el 2026-09-09:</p>
+      <ul>
+        {sources.map((s) => (
+          <li><a href={s.href} rel="noopener">{s.label}</a></li>
+        ))}
+      </ul>
+      <p class="note">Las especificaciones y cifras de vida de ciclado varían según fabricante y grado de producto; estas fuentes se citan por la distinción general entre las dos tecnologías, no como datos específicos de un modelo.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Conclusión</h2>
+    <p>AGM y EFB son ambas tecnologías de arranque-parada, pero se sitúan en puntos distintos de la curva de coste frente a durabilidad. La EFB es el caballo de batalla económico para el arranque-parada simple; la AGM es la opción de mayor especificación para la recuperación y la carga eléctrica pesada. Iguale la sustitución a la especificación original del vehículo, evite las degradaciones, registre la batería nueva en la BMS, y la elección se vuelve directa.</p>
+    <p><a href="/es/compare/h6-vs-h7/">Compare H6 vs H7 (un tamaño común de arranque-parada) &rarr;</a> · <a href="/es/knowledge/battery-applications-by-vehicle/">Lea aplicaciones por vehículo &rarr;</a> · <a href="/es/tools/battery-finder/">Use el buscador de baterías &rarr;</a></p>
+  </section>
+
+  <CTASection title="Especifique un programa EFB o AGM para su mercado" />
+</BaseLayout>

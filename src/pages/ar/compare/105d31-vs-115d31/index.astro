@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const m105 = findModel('105D31');
+const m115 = findModel('115D31');
+
+const title = 'بطارية 105D31 مقابل 115D31: علبة D31 نفسها، درجتا قوة | Dingwei Battery';
+const description = 'تتشابه 105D31 (84 أمبير-ساعة) و115D31 (96 أمبير-ساعة) في علبة JIS D31. تعرّف على الفرق الحقيقي ومدى قابليتهما للتبادل وأي درجة تستحق التخزين.';
+const articleTitle = 'بطارية 105D31 مقابل 115D31: علبة D31 نفسها، درجتا قوة';
+
+const breadcrumbs = [
+  { label: 'المقارنة', href: '/ar/compare/' },
+  { label: '105D31 مقابل 115D31' },
+];
+
+const faqs = [
+  { q: 'هل 115D31 أكبر من 105D31؟', a: 'لا. فكلاهما يستخدم علبة JIS D31 (نحو 305 × 175 × 220 مم؛ ويذكر المرجع المتبادل BCI قياس 306 × 173 × 225 مم). تمتلك 115D31 سعة وCCA أعلى، وليس حجمًا ماديًا أكبر.' },
+  { q: 'هل يمكنني استبدال 105D31 بـ 115D31؟', a: 'عادة نعم، ماديًا، بشرط تطابق نوع الطرف والقطبية. تضيف 115D31 احتياطيًا وقوة تشغيل بارد، وهو آمن لمعظم تطبيقات سيارات الدفع الرباعي الثقيلة والدفع الرباعي والتشغيل البحري — لكن أكّد الأطراف أولًا.' },
+  { q: 'هل يمكنني استبدال 115D31 بـ 105D31؟', a: 'ستتسع وتشغّل في الظروف المعتدلة، لكنها توفر احتياطيًا أقل وCCA أدنى. تحت تشغيل الديزل المستمر أو الروافع أو حمل الملحقات العميق ستعمل بجهد أكبر وليست بديلًا موثوقًا على المدى الطويل.' },
+  { q: 'لماذا تختلف أرقام CCA لـ 105D31 بين العلامات التجارية؟', a: 'لأن JIS (&minus;15&deg;م) وSAE/EN (&minus;18&deg;م) طريقتا اختبار مختلفتان، وتبني المصانع علبة D31 بمواصفات صفيحة وعجينة مختلفة. قارن ضمن معيار واحد وضمن مُصنِّع واحد فقط.' },
+];
+
+const url = `${SITE.url}/ar/compare/105d31-vs-115d31/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'المقارنة',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'المقارنة', item: `${SITE.url}/ar/compare/` },
+      { '@type': 'ListItem', position: 3, name: '105D31 مقابل 115D31', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">المقارنة · JIS</span>
+    <h1>بطارية 105D31 مقابل 115D31: علبة D31 نفسها، درجتا قوة</h1>
+    <p class="byline">نُشر بواسطة Dingwei Battery · آخر مراجعة 2026-09-09 · قيم مرجعية فقط</p>
+    <p class="lead">تشترك 105D31 و115D31 في العلبة المادية نفسها — وهي JIS D31، أكبر العلب اليابانية القياسية لسيارات الركاب والمركبات التجارية الخفيفة. الفرق كهربائي: 115D31 هي درجة الأداء الأعلى للعلبة نفسها، بسعة أكبر وتصنيف تشغيل بارد أعلى.</p>
+
+    <div class="takeaways">
+      <strong>الإجابة المختصرة:</strong> هما درجتا أداء لعلبة JIS D31 نفسها، وليسا حجمين مختلفين. اختر 105D31 لاقتصاد الاستبدال في سيارات الدفع الرباعي / الديزل التجاري الخفيف والدفع الرباعي؛ واختر 115D31 لسيارات الدفع الرباعي الثقيلة والدفع الرباعي والتشغيل البحري أو أي تطبيق يحتاج احتياطيًا أعمق. إنهما تتسعان في الحاضنة نفسها، لكن يجب تأكيد نوع الطرف والقطبية.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>المواصفات الرئيسية (مرجعية)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>الحقل</th><th>105D31</th><th>115D31</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>المعيار</th><td>JIS (JIS D 5301)</td><td>JIS (JIS D 5301)</td></tr>
+          <tr><th>الجهد</th><td>{m105?.voltage} فولت</td><td>{m115?.voltage} فولت</td></tr>
+          <tr><th>السعة (مرجعية)</th><td>{m105?.capacity_ah} أمبير-ساعة</td><td>{m115?.capacity_ah} أمبير-ساعة</td></tr>
+          <tr><th>CCA (مرجعي، JIS &minus;15&deg;م)</th><td>{m105?.cca.value}</td><td>{m115?.cca.value}</td></tr>
+          <tr><th>حجم العلبة</th><td>{m105?.case_size}</td><td>{m115?.case_size}</td></tr>
+          <tr><th>الأبعاد (مم)</th><td>{m105?.dimensions_mm.length} × {m105?.dimensions_mm.width} × {m105?.dimensions_mm.height}</td><td>{m115?.dimensions_mm.length} × {m115?.dimensions_mm.width} × {m115?.dimensions_mm.height}</td></tr>
+          <tr><th>التطبيق النموذجي</th><td>{m105?.application}</td><td>{m115?.application}</td></tr>
+          <tr><th>OEM / علامة خاصة</th><td>متاح</td><td>متاح</td></tr>
+        </tbody>
+      </table>
+      <p class="note">القيم مرجعية من قاعدة بيانات موديلات Dingwei. أكّد المواصفات النهائية — بما في ذلك أساس CCA ونوع الطرف والقطبية — مع الشركة المصنعة قبل الطلب.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>ماذا يعني رمز الموديل فعلًا</h2>
+    <p>يتحلل رمز JIS إلى <code>[فئة الأداء][فئة العلبة][الطول]</code>، تمامًا مثل عائلة D26 الأصغر:</p>
+    <ul>
+      <li><strong>105 / 115</strong> — <em>فئة الأداء</em>، التي ترتبط تقريبًا بالسعة (أمبير-ساعة) وCCA. الرقم الأعلى يعني درجة كهربائية أعلى، <strong>وليس بطارية أكبر ماديًا</strong>.</li>
+      <li><strong>D</strong> — <em>فئة حجم العلبة</em> (العرض والارتفاع). كلتا البطاريتين من الفئة &ldquo;D&rdquo;.</li>
+      <li><strong>31</strong> — <em>الطول</em> بالسنتيمتر، نحو 305 مم. هذا ما يتجاهله معظم الناس: <strong>إن D31 ليست الحاضنة نفسها مثل D26.</strong></li>
+    </ul>
+    <p>تقع علبة D31 في قمة سلم JIS القياسي لسيارات الركاب: D23 (232 مم) &rarr; D26 (256 مم) &rarr; D31 (305 مم). الطول الإضافي مقارنة بـ D26 هو مصدر مساحة الصفيحة الأكبر وبالتالي السعة وCCA الأعلى. إذا كانت المركبة مخصصة لـ D26، فلن تتسع D31 عادة في الحاضنة، رغم أن الثلاثة جميعها من عرض وارتفاع الفئة &ldquo;D&rdquo;.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>هل هما قابلتان للتبادل؟</h2>
+      <p>ماديًا، نعم — فكل من 105D31 و115D31 تشغلان حاضنة D31 نفسها وبصمة التثبيت نفسها، لذا تتسع أي منهما في مركبة مصممة لبطارية D31.</p>
+      <p>ومع ذلك، يجب تأكيد ثلاثة أمور قبل معاملتهما كبديلتين:</p>
+      <ol>
+        <li><strong>نوع الطرف والقطبية.</strong> تأتي بطاريات D31 في نسختين يسار/يمين (مثلًا <code>105D31L</code> مقابل <code>105D31R</code>) وبأنماط أطراف مختلفة. العلبة نفسها &ne; الأطراف نفسها.</li>
+        <li><strong>ملاءمة الاحتياطي للحمل.</strong> ستعمل 105D31 في تطبيق مصمم لـ 115D31 على التشغيل، لكنها ستدور أعمق تحت الروافع أو الملحقات المستمرة أو حمل الخدمة البحري وتبلى أسرع.</li>
+        <li><strong>أساس CCA.</strong> أكّد ما إذا كان CCA المقتبس وفق JIS (&minus;15&deg;م) أو SAE/EN (&minus;18&deg;م). فهما ليسا الرقم نفسه للبطارية نفسها.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>لماذا تختلف أرقام CCA بين العلامات التجارية</h2>
+    <p>سترى أرقام CCA لـ 105D31 من نحو 670 حتى 700، وسعات من نحو 83 حتى 90 أمبير-ساعة، حسب المصدر. لا يكون هذا عادة تناقضًا — بل تأثيران معًا:</p>
+    <ul>
+      <li><strong>طريقة الاختبار.</strong> يقيس JIS عند &minus;15&deg;م؛ ويقيس SAE/EN عند &minus;18&deg;م. تنتج البطارية نفسها أرقامًا مختلفة وفق المعيار.</li>
+      <li><strong>درجة المصنّع.</strong> تملأ مصانع مختلفة علبة D31 بعدد صفائح ومواصفات عجينة مختلفين، لذا فإن فئة &ldquo;105&rdquo; لها تشتت أداء مشروع. وقد تقترب 105D31 من درجة عالية في مصنع من 115D31 من درجة منخفضة في مصنع آخر.</li>
+    </ul>
+    <p>القاعدة العملية: <strong>قارن CCA ضمن معيار واحد، وقارن درجة بدرجة ضمن مُصنِّع واحد.</strong> إن مقارنة 105D31 من علامة مع 115D31 من علامة أخرى تخبرك عن المصنع أكثر مما تخبرك عن الرمز. اقرأ المزيد في <a href="/ar/knowledge/what-is-cca/">دليل CCA</a> وشرح <a href="/ar/knowledge/jis-vs-din-vs-bci/">JIS مقابل DIN مقابل BCI</a>.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>أيهما يجب أن تختار؟</h2>
+      <table class="data-table">
+        <thead><tr><th>اختر…</th><th>عندما…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>105D31</strong></td><td>سيارات الدفع الرباعي القياسية والدفع الرباعي والديزل التجاري الخفيف ذات حمل ملحقات معتدل؛ برامج الاستبدال الحساسة للسعر؛ الأسواق حيث 84 أمبير-ساعة هو الأساس OEM.</td></tr>
+          <tr><td><strong>115D31</strong></td><td>سيارات الدفع الرباعي الثقيلة والدفع الرباعي ذات الروافع أو الأنظمة المساعدة، والتشغيل البحري، أو أي تطبيق يحتاج احتياطيًا أعمق وتشغيلًا باردًا أقوى.</td></tr>
+        </tbody>
+      </table>
+      <p>بالنسبة للمستورد أو مالك العلامة الخاصة، الإطار هو نفسه كما في عائلة D26: <strong>هما وحدتا تخزين (SKU) في علبة واحدة، وليستا بطاريتين مختلفتين.</strong> يمكنك تقديم تشكيلة D31 من مستويين — قياسية وثقيلة — تحت علامة واحدة بتوافق حاضنة واحد ومجموعة أدوات واحدة وبصمة لوجستية واحدة.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>أخطاء شائعة</h2>
+    <ul>
+      <li>افتراض أن بطارية &ldquo;115&rdquo; <em>أكبر</em> من &ldquo;105&rdquo; وطلب حاضنات مختلفة. إنها حاضنة D31 نفسها.</li>
+      <li>افتراض أن D31 تتسع في مركبة D26. إن D31 أطول بنحو 50 مم؛ وهي عائلة حاضنة مختلفة.</li>
+      <li>مقارنة CCA لـ 105D31 من علامة مع CCA لـ 115D31 من علامة أخرى واستنتاج فجوة أكبر مما تعنيه الدرجة.</li>
+      <li>تجاهل الطرف والقطبية عند استبدال درجة بأخرى.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>ملاحظة حول OEM والعلامة الخاصة</h2>
+      <p>توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). كلا الموديلين متاحان لبرامج OEM والعلامة الخاصة. ولأنهما تشتركان في العلبة، يمكن لمالك العلامة إطلاق تشكيلة D31 من مستويين (قياسية + ثقيلة) تحت علامة واحدة بقولب واحد وعائلة تغليف واحدة. أكّد الجهد والسعة وأساس CCA ونوع الطرف والقطبية وتصميم الملصق أثناء وضع المواصفات.</p>
+      <p><a href="/ar/oem/">برامج OEM &rarr;</a> · <a href="/ar/private-label/">برامج العلامة الخاصة &rarr;</a> · <a href="/ar/data/105d31/">مواصفة 105D31 &rarr;</a> · <a href="/ar/data/115d31/">مواصفة 115D31 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>الأسئلة الشائعة</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>الخلاصة</h2>
+      <p>إن 105D31 و115D31 هما علبة D31 نفسها بدرجتي أداء. القرار ليس بشأن الحجم — بل بشأن مطابقة السعة وCCA مع الطلب الكهربائي وطلب التشغيل للمركبة، ثم تأكيد الأطراف والقطبية. وبالنسبة للمشترين ومالكي العلامات، يحوّل ذلك بطاريتين مختلفتين ظاهريًا إلى منصة واحدة مرنة في أكبر علبة JIS قياسية.</p>
+      <p><a href="/ar/compare/65d26-vs-80d26/">قارن عائلة D26 بدلًا من ذلك &rarr;</a> · <a href="/ar/data/">تصفح قاعدة بيانات الموديلات &rarr;</a> · <a href="/ar/tools/compare/">قارن بين موديلين جنبًا إلى جنب &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="أكّد مواصفة 105D31 أو 115D31 لبرنامجك" />
+</BaseLayout>

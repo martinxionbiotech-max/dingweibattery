@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const mH5 = findModel('H5');
+const mH6 = findModel('H6');
+
+const title = 'بطارية H5 مقابل H6: LN2 مقابل LN3 — الارتفاع نفسه، طول مختلف | Dingwei Battery';
+const description = 'H5 (LN2، 60 أمبير-ساعة) مقابل H6 (LN3، 72 أمبير-ساعة): الفرق هو الطول والاحتياطي. تعرّف على أيهما تتسع في مركبتك وأيهما تختار.';
+const articleTitle = 'بطارية H5 مقابل H6: LN2 مقابل LN3 — الارتفاع نفسه، طول مختلف';
+
+const breadcrumbs = [
+  { label: 'المقارنة', href: '/ar/compare/' },
+  { label: 'H5 مقابل H6' },
+];
+
+const faqs = [
+  { q: 'هل H6 أكبر من H5؟', a: 'نعم — أطول. فكلتاهما بعرض 175 مم وارتفاع 190 مم، لكن H6 بطول 278 مم مقابل 242 مم لـ H5. الفارق البالغ 36 مم يمنح سعة واحتياطيًا أكبر.' },
+  { q: 'هل يمكنني تركيب H6 حيث حُددت H5؟', a: 'فقط إذا كانت الحاضنة والتثبيت يقبلان العلبة الأطول. العديد من الحاضنات الأوروبية تشترك في العرض والارتفاع مع تثبيت قابل للتعديل، لذا قد تتسع الترقية — لكن أكّد طول الحاضنة أولًا.' },
+  { q: 'هل يمكنني استبدال H6 بـ H5؟', a: 'ستتسع وتشغّل السيارة في الظروف المعتدلة، لكنها توفر احتياطيًا أقل (60 مقابل 72 أمبير-ساعة) وCCA أدنى. في تطبيق التشغيل/الإيقاف أو ذي الملحقات الكثيرة ستعمل بجهد أكبر وليست بديلًا موثوقًا على المدى الطويل.' },
+  { q: 'هل CCA قابل للمقارنة المباشرة بين H5 وH6؟', a: 'نعم. فكلتاهما بطاريتان DIN/EN مصنّفتان عند &minus;18&deg;م، لذا فإن رقمي CCA (600 مقابل 660 مرجعيًا) على أساس اختبار واحد، على عكس المقارنة المتقاطعة JIS مقابل EN.' },
+];
+
+const url = `${SITE.url}/ar/compare/h5-vs-h6/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'المقارنة',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'المقارنة', item: `${SITE.url}/ar/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'H5 مقابل H6', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">المقارنة · DIN/EN</span>
+    <h1>بطارية H5 مقابل H6: LN2 مقابل LN3 — الارتفاع نفسه، طول مختلف</h1>
+    <p class="byline">نُشر بواسطة Dingwei Battery · آخر مراجعة 2026-09-09 · قيم مرجعية فقط</p>
+    <p class="lead">إن H5 وH6 هما العضوان الأصغر في عائلة DIN/EN &ldquo;H&rdquo;. تشتركان في العرض والارتفاع؛ وH6 أطول بـ 36 مم. ويحمل فارق الطول ذاك فجوة احتياطي ملموسة — 60 أمبير-ساعة مقابل 72 أمبير-ساعة — رغم أن فجوة CCA تبدو متواضعة على الورق.</p>
+
+    <div class="takeaways">
+      <strong>الإجابة المختصرة:</strong> إن H5 وH6 طولان مختلفان (242 مقابل 278 مم)، وليسا مخزونًا قابلًا للتبادل. كلتاهما مصنّفتان على أساس CCA نفسه EN &minus;18&deg;م، لذا فإن CCA قابل للمقارنة المباشرة. اختر H5 للسيارات المدمجة والتشغيل/الإيقاف الأساسي؛ واختر H6 عندما تقبل الحاضنة الطول وتستفيد المركبة من احتياطي أكبر.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>المواصفات الرئيسية (مرجعية)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>الحقل</th><th>H5 (LN2)</th><th>H6 (LN3)</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>المعيار</th><td>DIN/EN (EN 50342)</td><td>DIN/EN (EN 50342)</td></tr>
+          <tr><th>الجهد</th><td>{mH5?.voltage} فولت</td><td>{mH6?.voltage} فولت</td></tr>
+          <tr><th>السعة (مرجعية)</th><td>{mH5?.capacity_ah} أمبير-ساعة</td><td>{mH6?.capacity_ah} أمبير-ساعة</td></tr>
+          <tr><th>CCA (مرجعي، EN &minus;18&deg;م)</th><td>{mH5?.cca.value}</td><td>{mH6?.cca.value}</td></tr>
+          <tr><th>حجم العلبة</th><td>{mH5?.case_size}</td><td>{mH6?.case_size}</td></tr>
+          <tr><th>الأبعاد (مم)</th><td>{mH5?.dimensions_mm.length} × {mH5?.dimensions_mm.width} × {mH5?.dimensions_mm.height}</td><td>{mH6?.dimensions_mm.length} × {mH6?.dimensions_mm.width} × {mH6?.dimensions_mm.height}</td></tr>
+          <tr><th>التطبيق النموذجي</th><td>{mH5?.application}</td><td>{mH6?.application}</td></tr>
+          <tr><th>OEM / علامة خاصة</th><td>متاح</td><td>متاح</td></tr>
+        </tbody>
+      </table>
+      <p class="note">القيم مرجعية من قاعدة بيانات موديلات Dingwei. أكّد المواصفات النهائية — بما في ذلك أساس CCA ونوع الطرف والقطبية — مع الشركة المصنعة قبل الطلب.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>سلسلة H: الطول هو محور الترقية</h2>
+    <p>تتشارك عائلة H بأكملها — من H5 إلى H8 — عرضًا واحدًا (175 مم) وارتفاعًا واحدًا (190 مم). يتغير الطول فقط:</p>
+    <ul>
+      <li><strong>H5 / LN2</strong> — 242 مم</li>
+      <li><strong>H6 / LN3</strong> — 278 مم</li>
+      <li><strong>H7 / LN4</strong> — 315 مم</li>
+      <li><strong>H8 / LN5</strong> — 352 مم</li>
+    </ul>
+    <p>النتيجة العملية: <strong>إن H5 هي الأقصر في عائلة H الحديثة، والانتقال من H5 إلى H6 هو ترقية الطول الأكثر شيوعًا في النطاق.</strong> غالبًا ما توحّد المنصات الأوروبية الحاضنة في العرض والارتفاع مع تثبيت قابل للتعديل، لذا يمكن لسيارة مدمجة مخصصة لـ H5 أن تصعد كثيرًا إلى H6 لاحتياطي أكبر — بشرط أن يسمح طول الحاضنة بذلك.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>لماذا تقلل فجوة CCA من الفرق الحقيقي</h2>
+      <p>على الورق تبدو فجوة CCA صغيرة — 600 مقابل 660 أمبير (مرجعيًا) —. لكن فجوة السعة هي 20%: 60 أمبير-ساعة مقابل 72 أمبير-ساعة.</p>
+      <p>هذا مهم لأن CCA والسعة يجيبان عن سؤالين مختلفين:</p>
+      <ul>
+        <li><strong>CCA</strong> هو الدفقة القصيرة عالية التيار التي تشغّل محركًا باردًا. كلتا البطاريتين تشغّلان سيارة مدمجة بسهولة في الظروف النموذجية.</li>
+        <li><strong>السعة (أمبير-ساعة)</strong> هي مدة قدرة البطارية على دعم الأحمال عند إطفاء المحرك أو عجز المولّد: إعادة تشغيل التشغيل/الإيقاف، واستهلاك الملحقات عند الإشارة، وإلكترونيات الركن.</li>
+      </ul>
+      <p>لذا يظهر الفرق الحقيقي بين H5 وH6 أقل عند أول تشغيل بارد وأكثر في <strong>تحمّل الاحتياطي تحت التشغيل/الإيقاف وحمل الملحقات</strong>. ولهذا يمكن لبطاريتين بفجوة 60 أمبير من CCA أن تتصرفا بشكل مختلف جدًا في سيارة ذات تشغيل/إيقاف. اقرأ المزيد في شرح <a href="/ar/knowledge/battery-capacity-ah-vs-c20-vs-rc/">السعة مقابل CCA مقابل الاحتياطي</a> وفي <a href="/ar/knowledge/what-is-cca/">دليل CCA</a>.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>فخ التسمية: DIN55 وDIN66</h2>
+    <p>مثل بقية العائلة، تحمل H5 وH6 عدة أسماء مستعارة:</p>
+    <ul>
+      <li><strong>H5</strong> = LN2 = المجموعة 47 = DIN55 (اسمي)</li>
+      <li><strong>H6</strong> = LN3 = المجموعة 48 = DIN66 (اسمي)</li>
+    </ul>
+    <p>إن التسميتين الاسميتين &ldquo;DIN55&rdquo; و&ldquo;DIN66&rdquo; <em>ليستا</em> السعة الفعلية C20 — فالمرجع لـ H5 هو 60 أمبير-ساعة ولـ H6 هو 72 أمبير-ساعة. المشترون الذين يطلبون &ldquo;بطارية 55 أمبير-ساعة&rdquo; أو &ldquo;بطارية 66 أمبير-ساعة&rdquo; يقتبسون التسمية لا المواصفة. عند التحديد، سمِّ مرجع العلبة (H5/LN2 أو H6/LN3) والسعة وCCA الفعليين اللذين تحتاجهما.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>أيهما يجب أن تختار؟</h2>
+      <table class="data-table">
+        <thead><tr><th>اختر…</th><th>عندما…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>H5</strong></td><td>السيارات الأوروبية المدمجة، وأنظمة التشغيل/الإيقاف الأساسية، أو أي مركبة طول حاضنتها مثبت عند 242 مم؛ برامج الاستبدال الحساسة للسعر.</td></tr>
+          <tr><td><strong>H6</strong></td><td>السيارات المتوسطة وسيارات الدفع الرباعي، وأحمال الملحقات الأعلى، أو سيارة مدمجة تقبل حاضنتها العلبة الأطول ويريد المشتري احتياطيًا أكبر وتحملًا أكبر للتشغيل/الإيقاف.</td></tr>
+        </tbody>
+      </table>
+      <p>بالنسبة للمستورد، فإن H5 وH6 هما نقطتا الدخول الأكثر شيوعًا إلى سوق البطاريات الأوروبية. إنهما وحدتا تخزين (SKU) مميزتان — العرض والارتفاع نفسهما والطول مختلف — لذا تشتركان في منطق التغليف والشحن لكن يجب تخزينهما كطولين منفصلين.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>أخطاء شائعة</h2>
+    <ul>
+      <li>معاملة H5 وH6 كقابلتين للتبادل لأنهما متشابهتان جنبًا إلى جنب. الطول هو البعد المحدِّد.</li>
+      <li>قراءة فجوة 60 أمبير من CCA وافتراض أن البطاريتين شبه متطابقتين. ففارق السعة البالغ 20% مهم للاحتياطي.</li>
+      <li>طلب &ldquo;55 أمبير-ساعة&rdquo; أو &ldquo;66 أمبير-ساعة&rdquo; بالاسم DIN الاسمي وتجاهل السعة C20 الفعلية.</li>
+      <li>الترقية إلى H6 دون تأكيد أن التثبيت يمكنه إمساك العلبة الأطول فعلًا.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>ملاحظة حول OEM والعلامة الخاصة</h2>
+      <p>توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). كلا الموديلين متاحان لبرامج OEM والعلامة الخاصة. مالك العلامة الذي يدخل السوق الأوروبية يطلق عادة H5 وH6 أولًا — فهما يغطيان المنصات المدمجة والمتوسطة الأعلى حجمًا — ثم يتوسع إلى H7 وH8 لسيارات الدفع الرباعي والمركبات الفاخرة. أكّد الجهد والسعة وأساس CCA ونوع الطرف والقطبية وتصميم الملصق أثناء وضع المواصفات.</p>
+      <p><a href="/ar/oem/">برامج OEM &rarr;</a> · <a href="/ar/private-label/">برامج العلامة الخاصة &rarr;</a> · <a href="/ar/data/h5/">مواصفة H5 &rarr;</a> · <a href="/ar/data/h6/">مواصفة H6 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>الأسئلة الشائعة</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>الخلاصة</h2>
+      <p>إن H5 وH6 عائلة البطارية نفسها بطولين. القرار هو طول الحاضنة أولًا ثم الاحتياطي: تشتري H6 سعة أكبر بنسبة 20% وتشغيلًا باردًا أقوى للمركبات التي تقبل العلبة الأطول. وبعد تأكيد الأطراف والقطبية والتثبيت، يبقى الباقي تفاصيل مواصفة.</p>
+      <p><a href="/ar/compare/h6-vs-h7/">قارن خطوة H6 مقابل H7 &rarr;</a> · <a href="/ar/knowledge/jis-vs-din-vs-bci/">اقرأ دليل المعايير &rarr;</a> · <a href="/ar/tools/compare/">قارن بين موديلين جنبًا إلى جنب &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="أكّد مواصفة H5 أو H6 لبرنامجك" />
+</BaseLayout>

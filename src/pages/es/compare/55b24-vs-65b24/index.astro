@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const m55 = findModel('55B24');
+const m65 = findModel('65B24');
+
+const title = 'Batería 55B24 vs 65B24: Misma caja B24, diferencia marginal | Dingwei Battery';
+const description = 'La 55B24 (48 Ah) y la 65B24 (50 Ah) comparten la caja JIS B24 y los mismos 370 CCA. Descubra por qué la brecha es menor de lo que sugiere el código.';
+const articleTitle = 'Batería 55B24 vs 65B24: misma caja B24, diferencia marginal';
+
+const breadcrumbs = [
+  { label: 'Comparar', href: '/es/compare/' },
+  { label: '55B24 vs 65B24' },
+];
+
+const faqs = [
+  { q: '¿La 65B24 es más grande que la 55B24?', a: 'No. Ambas usan la caja JIS B24 (aproximadamente 238 × 129 × 220 mm; la referencia cruzada BCI indica 238 × 129 × 227 mm). La 65B24 es un paso de capacidad marginal, no un tamaño distinto.' },
+  { q: '¿Puedo intercambiar una 55B24 y una 65B24?', a: 'Físicamente sí: comparten la misma bandeja B24 y la misma huella de terminal. La diferencia eléctrica es de solo unos 2 Ah, así que son casi intercambiables; confirme el tipo de terminal y la polaridad.' },
+  { q: '¿Por qué la 55B24 y la 65B24 muestran ambas 370 CCA?', a: 'Porque el paso de capacidad es demasiado pequeño para cambiar la clase de arranque en frío en la mayoría de datos de referencia. En la práctica, la CCA varía mucho más entre fabricantes que entre estos dos códigos.' },
+  { q: '¿El "65" de 65B24 significa 65 Ah?', a: 'No. En la codificación JIS el número inicial es un indicador de clase de rendimiento, no el Ah. Una 65B24 suele estar en torno a 48–52 Ah según la fábrica, no 65 Ah.' },
+];
+
+const url = `${SITE.url}/es/compare/55b24-vs-65b24/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'Comparación',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Comparar', item: `${SITE.url}/es/compare/` },
+      { '@type': 'ListItem', position: 3, name: '55B24 vs 65B24', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">Comparar · JIS</span>
+    <h1>Batería 55B24 vs 65B24: misma caja B24, diferencia marginal</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-09 · Solo valores de referencia</p>
+    <p class="lead">La 55B24 y la 65B24 comparten la misma caja física: la estrecha caja JIS B24 que se usa en compactos asiáticos y posiciones auxiliares de híbridos. A diferencia de las parejas D26 o D31, aquí la brecha es realmente pequeña: la 65B24 es un paso de capacidad marginal, no una mejora de potencia significativa.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Son dos grados adyacentes de la misma caja B24, con valores eléctricos casi idénticos (48 vs 50 Ah, ambas 370 CCA de referencia). Son efectivamente intercambiables en la misma bandeja. La decisión real es precio y disponibilidad, no rendimiento.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Especificaciones clave (referencia)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Campo</th><th>55B24</th><th>65B24</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Estándar</th><td>JIS (JIS D 5301)</td><td>JIS (JIS D 5301)</td></tr>
+          <tr><th>Tensión</th><td>{m55?.voltage} V</td><td>{m65?.voltage} V</td></tr>
+          <tr><th>Capacidad (referencia)</th><td>{m55?.capacity_ah} Ah</td><td>{m65?.capacity_ah} Ah</td></tr>
+          <tr><th>CCA (referencia, JIS &minus;15&deg;C)</th><td>{m55?.cca.value}</td><td>{m65?.cca.value}</td></tr>
+          <tr><th>Tamaño de caja</th><td>{m55?.case_size}</td><td>{m65?.case_size}</td></tr>
+          <tr><th>Dimensiones (mm)</th><td>{m55?.dimensions_mm.length} × {m55?.dimensions_mm.width} × {m55?.dimensions_mm.height}</td><td>{m65?.dimensions_mm.length} × {m65?.dimensions_mm.width} × {m65?.dimensions_mm.height}</td></tr>
+          <tr><th>Aplicación típica</th><td>{m55?.application}</td><td>{m65?.application}</td></tr>
+          <tr><th>OEM / marca privada</th><td>Disponible</td><td>Disponible</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Los valores son de referencia de la base de datos de modelos de Dingwei. Confirme las especificaciones finales —incluida la base de CCA, el tipo de terminal y la polaridad— con el fabricante antes de pedir.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Qué significa realmente el código del modelo</h2>
+    <p>El código JIS se descompone en <code>[clase de rendimiento][clase de caja][longitud]</code>:</p>
+    <ul>
+      <li><strong>55 / 65</strong> — la <em>clase de rendimiento</em>. Aquí está el punto crucial: <strong>este número no es la capacidad en Ah.</strong> Una 65B24 no es una batería de 65 Ah; la capacidad C20 real suele rondar los 48–52 Ah según la fábrica.</li>
+      <li><strong>B</strong> — la <em>clase de tamaño de caja</em>. &ldquo;B&rdquo; es una caja estrecha y alta (129 mm de ancho) para vehículos asiáticos pequeños.</li>
+      <li><strong>24</strong> — la <em>longitud</em> en centímetros, aproximadamente 238 mm.</li>
+    </ul>
+    <p>La caja B24 es la huella &ldquo;asiática pequeña&rdquo; (referencia cruzada BCI Grupo 51, y la familia NS60 / N40). Es la contraparte compacta de la serie D, más ancha: misma altura, pero solo ~129 mm de ancho frente a ~173 mm. Esa anchura estrecha limita la superficie de placa, y por eso las B24 llegan a unos 50 Ah donde las D26 alcanzan 72–84 Ah.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La brecha es menor de lo que sugiere el código</h2>
+      <p>En los datos de referencia de Dingwei, la diferencia entre los dos códigos es de <strong>2 Ah y 0 CCA</strong>. No es un error de imprenta: así aterrizan las clases de rendimiento JIS en esta caja pequeña.</p>
+      <p>Para poner esos 2 Ah en contexto: <strong>la dispersión de CCA <em>entre fabricantes</em> para el mismo código 55B24 es mucho mayor que la diferencia entre una 55B24 y una 65B24 dentro de una misma fábrica.</strong> Las cifras publicadas de 55B24 van desde unos 330 hasta 570 A según la marca, y la capacidad desde ~45 hasta 48 Ah. Una 55B24 de &ldquo;grado alto&rdquo; de una fábrica puede superar a una 65B24 de &ldquo;grado bajo&rdquo; de otra.</p>
+      <p>La regla práctica: <strong>dentro de un mismo fabricante, la 65B24 es una mejora marginal de placa sobre la 55B24. Entre fabricantes, el código dice muy poco.</strong> Compre por la hoja de especificaciones real de la fábrica, no por el prefijo de dos dígitos.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>¿Son intercambiables?</h2>
+    <p><strong>Sí, en la práctica.</strong> Ambas ocupan la misma bandeja B24 y sujeción, y la diferencia eléctrica es lo bastante pequeña como para comportarse casi idénticamente en las aplicaciones de compacto y auxiliar de híbrido que esta caja sirve.</p>
+    <ol>
+      <li><strong>Tipo de terminal y polaridad.</strong> Las baterías B24 usan el tipo de terminal JIS estrecho y vienen en variantes izquierda/derecha. Es lo único que debe coincidir exactamente.</li>
+      <li><strong>Aplicación.</strong> La caja B24 es común en compactos asiáticos (familia NS60 / N40) y cada vez más como batería auxiliar en híbridos, donde el tipo correcto y la ventilación importan más que una diferencia de 2 Ah.</li>
+      <li><strong>Precio.</strong> Como la brecha de rendimiento es marginal, la decisión de compra suele venir del precio, la disponibilidad y el grado de la fábrica, no de qué código es &ldquo;mejor&rdquo;.</li>
+    </ol>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>¿Cuál debería elegir?</h2>
+      <table class="data-table">
+        <thead><tr><th>Elija…</th><th>Cuando…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>55B24</strong></td><td>Programas de sustitución económicos, compactos asiáticos estándar, o donde el grado de 48 Ah es la base establecida y el precio decide.</td></tr>
+          <tr><td><strong>65B24</strong></td><td>Donde la especificación del vehículo o el catálogo del comprador pida el código superior, o donde una ligera mejora de reserva valga la pequeña prima.</td></tr>
+        </tbody>
+      </table>
+      <p>Para un importador, el marco honesto es: <strong>estos dos códigos son casi duplicados en una caja.</strong> Muchos programas almacenan uno y tratan el otro como referencia cruzada. La verdadera decisión de margen es qué grado de rendimiento marcar como estándar frente a económico, y eso lo dicta el Ah/CCA real de la fábrica, no el prefijo de dos dígitos.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Errores comunes</h2>
+    <ul>
+      <li>Asumir que &ldquo;65&rdquo; significa 65 Ah. Es un código de clase de rendimiento, y la capacidad real ronda los 48–52 Ah.</li>
+      <li>Pagar de más por una 65B24 esperando una mejora significativa. En la misma fábrica la ganancia es de ~2 Ah.</li>
+      <li>Comparar una 55B24 de grado alto de una marca con una 65B24 de grado bajo de otra y concluir que el código no significa nada.</li>
+      <li>Ignorar el tipo de terminal JIS estrecho y la polaridad izquierda/derecha: el único factor que impide de verdad un intercambio.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Nota sobre OEM y marca privada</h2>
+      <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Ambos modelos están disponibles para programas OEM y de marca privada. Como comparten caja y valores casi idénticos, un propietario de marca puede racionalizar la familia B24 a uno o dos SKU en lugar de llevar todos los prefijos. Confirme tensión, capacidad, base de CCA, tipo de terminal, polaridad y diseño de etiqueta durante la especificación.</p>
+      <p><a href="/es/oem/">Programas OEM &rarr;</a> · <a href="/es/private-label/">Programas de marca privada &rarr;</a> · <a href="/es/data/55b24/">Especificación 55B24 &rarr;</a> · <a href="/es/data/65b24/">Especificación 65B24 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Preguntas frecuentes</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Conclusión</h2>
+      <p>La 55B24 y la 65B24 son la misma caja B24 en dos grados adyacentes, y la diferencia es marginal: unos 2 Ah y ningún cambio en la clase de arranque en frío. Trátelas como casi intercambiables, confirme los terminales JIS estrechos y la polaridad, y deje que el precio y la especificación real de la fábrica guíen la decisión de compra.</p>
+      <p><a href="/es/compare/65d26-vs-80d26/">Compare la familia D26 &rarr;</a> · <a href="/es/knowledge/battery-dimensions-case-size/">Lea la guía de tamaños de caja &rarr;</a> · <a href="/es/tools/compare/">Compare dos modelos lado a lado &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Confirme la especificación 55B24 o 65B24 para su programa" />
+</BaseLayout>

@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const mH6 = findModel('H6');
+const mH7 = findModel('H7');
+
+const title = 'بطارية H6 مقابل H7: LN3 مقابل LN4 — الطول هو الفرق | Dingwei Battery';
+const description = 'تختلف H6 (LN3، 72 أمبير-ساعة) وH7 (LN4، 84 أمبير-ساعة) في الطول فقط. تعرّف على ما إذا كانتا تتسعان في الحاضنة نفسها وأيهما تحتاج مركبتك الأوروبية.';
+const articleTitle = 'بطارية H6 مقابل H7: LN3 مقابل LN4 — الطول هو الفرق';
+
+const breadcrumbs = [
+  { label: 'المقارنة', href: '/ar/compare/' },
+  { label: 'H6 مقابل H7' },
+];
+
+const faqs = [
+  { q: 'هل H7 أكبر من H6؟', a: 'نعم — أطول. فكلتاهما تشتركان في العرض نفسه (175 مم) والارتفاع نفسه (190 مم)، لكن H7 بطول 315 مم مقابل 278 مم لـ H6. ذلك الفارق البالغ 37 مم هو مصدر السعة الإضافية.' },
+  { q: 'هل يمكنني تركيب H7 حيث حُددت H6؟', a: 'فقط إذا كانت الحاضنة والتثبيت يقبلان العلبة الأطول. العديد من الحاضنات الأوروبية موحّدة في العرض والارتفاع مع تثبيت قابل للتعديل، لذا قد تتسع الترقية — لكن تحقق من طول الحاضنة أولًا.' },
+  { q: 'هل يمكنني استبدال H7 بـ H6؟', a: 'ستشغّل المركبة في الظروف المعتدلة، لكنها توفر احتياطيًا أقل وCCA أدنى. في تطبيق التشغيل/الإيقاف أو ذي الملحقات الكثيرة ستعمل بجهد أكبر وليست بديلًا موثوقًا على المدى الطويل.' },
+  { q: 'لماذا تُسمى H6 أيضًا LN3 والمجموعة 48؟', a: 'أنظمة تسمية مختلفة تصف العلبة نفسها: H6 (سلسلة H)، LN3 (المظهر المنخفض DIN/EN)، المجموعة 48 (BCI) وDIN66 (الاسمي). إنها أسماء مستعارة، وليست بطاريات مختلفة.' },
+];
+
+const url = `${SITE.url}/ar/compare/h6-vs-h7/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'المقارنة',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'المقارنة', item: `${SITE.url}/ar/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'H6 مقابل H7', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">المقارنة · DIN/EN</span>
+    <h1>بطارية H6 مقابل H7: LN3 مقابل LN4 — الطول هو الفرق</h1>
+    <p class="byline">نُشر بواسطة Dingwei Battery · آخر مراجعة 2026-09-09 · قيم مرجعية فقط</p>
+    <p class="lead">إن H6 وH7 عضوان في عائلة DIN/EN الحديثة &ldquo;H&rdquo; المستخدمة في معظم السيارات الأوروبية (والعديد من السيارات الأمريكية الأحدث). تشتركان في العرض والارتفاع؛ الفرق المادي الوحيد هو الطول — 278 مم مقابل 315 مم — وذلك الطول الإضافي هو ما يمنح السعة الأعلى وقوة التشغيل البارد.</p>
+
+    <div class="takeaways">
+      <strong>الإجابة المختصرة:</strong> على عكس أزواج العلبة نفسها مثل 65D26 مقابل 80D26، فإن H6 وH7 هما <em>حجمان مختلفان</em>. إن H7 أطول بـ 37 مم وتحمل احتياطيًا أكبر (84 مقابل 72 أمبير-ساعة). وقد تتشاركان الحاضنة أحيانًا عندما يكون التثبيت قابلًا للتعديل، لكن H7 لن تتسع في مركبة طول حاضنتها مثبت لـ H6.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>المواصفات الرئيسية (مرجعية)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>الحقل</th><th>H6 (LN3)</th><th>H7 (LN4)</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>المعيار</th><td>DIN/EN (EN 50342)</td><td>DIN/EN (EN 50342)</td></tr>
+          <tr><th>الجهد</th><td>{mH6?.voltage} فولت</td><td>{mH7?.voltage} فولت</td></tr>
+          <tr><th>السعة (مرجعية)</th><td>{mH6?.capacity_ah} أمبير-ساعة</td><td>{mH7?.capacity_ah} أمبير-ساعة</td></tr>
+          <tr><th>CCA (مرجعي، EN &minus;18&deg;م)</th><td>{mH6?.cca.value}</td><td>{mH7?.cca.value}</td></tr>
+          <tr><th>حجم العلبة</th><td>{mH6?.case_size}</td><td>{mH7?.case_size}</td></tr>
+          <tr><th>الأبعاد (مم)</th><td>{mH6?.dimensions_mm.length} × {mH6?.dimensions_mm.width} × {mH6?.dimensions_mm.height}</td><td>{mH7?.dimensions_mm.length} × {mH7?.dimensions_mm.width} × {mH7?.dimensions_mm.height}</td></tr>
+          <tr><th>التطبيق النموذجي</th><td>{mH6?.application}</td><td>{mH7?.application}</td></tr>
+          <tr><th>OEM / علامة خاصة</th><td>متاح</td><td>متاح</td></tr>
+        </tbody>
+      </table>
+      <p class="note">القيم مرجعية من قاعدة بيانات موديلات Dingwei. أكّد المواصفات النهائية — بما في ذلك أساس CCA ونوع الطرف والقطبية — مع الشركة المصنعة قبل الطلب.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>سلسلة H: عائلة واحدة، أربعة أطوال</h2>
+    <p>تُبنى سلسلة H على عرض واحد (175 مم) وارتفاع واحد (190 مم). يتغير الطول فقط كلما صعدت السلم:</p>
+    <ul>
+      <li><strong>H5 / LN2</strong> — 242 مم</li>
+      <li><strong>H6 / LN3</strong> — 278 مم</li>
+      <li><strong>H7 / LN4</strong> — 315 مم</li>
+      <li><strong>H8 / LN5</strong> — 352 مم</li>
+    </ul>
+    <p>هذه هي الفكرة البنيوية الأساسية: <strong>في عائلة H، الطول هو محور الترقية.</strong> طول أكبر يعني مساحة صفيحة أكبر، وبالتالي سعة وCCA أعلى. ويعني أيضًا أن الحاضنات الأوروبية كثيرًا ما تكون موحّدة في العرض والارتفاع، مع تثبيت منزلق أو متعدد المواضع بحيث تقبل المنصة عدة أحجام H. ولهذا فإن سؤال &ldquo;هل أستطيع تركيب واحدة أكبر؟&rdquo; أكثر واقعية بكثير هنا منه في عالم JIS — لكن طول الحاضنة ما يزال له حد صارم.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>مشكلة التسمية: H6 وLN3 والمجموعة 48 وDIN66</h2>
+      <p>يختلط الأمر على المشترين كثيرًا لأن العلبة نفسها لها أربعة أسماء حسب المتحدث:</p>
+      <ul>
+        <li><strong>H6</strong> — اسم سلسلة H</li>
+        <li><strong>LN3</strong> — تسمية المظهر المنخفض DIN/EN</li>
+        <li><strong>المجموعة 48</strong> — رقم مجموعة BCI (أمريكا الشمالية)</li>
+        <li><strong>DIN66</strong> — تسمية اسمية &ldquo;66 أمبير-ساعة&rdquo; <em>تقلل</em> من السعة الفعلية C20 البالغة 72 أمبير-ساعة</li>
+      </ul>
+      <p>تقابل H7 كلًا من LN4 / المجموعة 94R / DIN77. والفخ هو رقم DIN الاسمي: &ldquo;DIN77&rdquo; لا يعني 77 أمبير-ساعة من سعة C20 الفعلية — فالدرجة المرجعية هي 84 أمبير-ساعة. عندما يطلب المشتري بطارية &ldquo;77 أمبير-ساعة&rdquo; أو &ldquo;66 أمبير-ساعة&rdquo; بالاسم الاسمي، فهو يستخدم تسمية لا مواصفة. أكّد دائمًا السعة وCCA الفعليين مقابل مرجع العلبة.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>هل هما قابلتان للتبادل؟</h2>
+    <p><strong>ليس تلقائيًا.</strong> إن H7 أطول ماديًا من H6، لذا فالسؤال هو ما إذا كانت الحاضنة والتثبيت يقبلان 315 مم حيث حُدد 278 مم.</p>
+    <ol>
+      <li><strong>حاضنة بطول ثابت</strong> — لن تتسع H7؛ ويجب البقاء على H6 (أو الحجم الذي صُممت الحاضنة له).</li>
+      <li><strong>حاضنة قابلة للتعديل / متعددة المواضع</strong> — يمكن غالبًا الانتقال من H6 إلى H7 لكسب احتياطي وCCA، وهي ترقية مشروعة للمركبات ذات الملحقات الكثيرة.</li>
+      <li><strong>وليس العكس أبدًا.</strong> تركيب H6 حيث حُددت H7 يتسع، لكنك تعيد سعة وهامش تشغيل بارد كانا مقصودين للمركبة.</li>
+    </ol>
+    <p>وفي كل الأحوال، يجب أن يتطابق نوع الطرف والقطبية أيضًا — فالعائلة نفسها من H لا تضمن الأطراف نفسها عبر كل منصات المركبات.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>أيهما يجب أن تختار؟</h2>
+      <table class="data-table">
+        <thead><tr><th>اختر…</th><th>عندما…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>H6</strong></td><td>السيارات الأوروبية المدمجة والمتوسطة، وأنظمة التشغيل/الإيقاف القياسية، أو أي مركبة طول حاضنتها مثبت عند 278 مم؛ برامج الاستبدال الحساسة للسعر.</td></tr>
+          <tr><td><strong>H7</strong></td><td>سيارات الدفع الرباعي المتوسطة والكبيرة، والمركبات الفاخرة، والديزل، أو المركبات ذات حمل الملحقات العالي — وفقط حيث تقبل الحاضنة طول 315 مم.</td></tr>
+        </tbody>
+      </table>
+      <p>بالنسبة لمستورد العلامة الخاصة، فإن H6 وH7 وحدتا تخزين (SKU) مميزتان في العائلة نفسها. ولأن العرض والارتفاع متطابقان، تشتركان في منطق التغليف والمنصات والشحن — لكنهما <strong>ليستا</strong> مخزونًا قابلًا للتبادل. المشتري الذي يبيع إلى المنصات الأوروبية يحتاج الطولين لتغطية نطاق الحاضنات.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>أخطاء شائعة</h2>
+    <ul>
+      <li>معاملة H6 وH7 كقابلتين للتبادل لأنهما تشتركان في العرض والارتفاع. الطول هو البعد المحدِّد.</li>
+      <li>طلب &ldquo;66 أمبير-ساعة&rdquo; أو &ldquo;77 أمبير-ساعة&rdquo; بالاسم DIN الاسمي وتجاهل السعة C20 الفعلية.</li>
+      <li>مقارنة CCA وفق SAE لـ H7 مع CCA وفق EN لـ H6 وقراءة فجوة أكبر مما هي عليه.</li>
+      <li>الترقية إلى H7 دون التحقق من أن التثبيت يمكنه قفل العلبة الأطول فعلًا.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>ملاحظة حول OEM والعلامة الخاصة</h2>
+      <p>توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). كلا الموديلين متاحان لبرامج OEM والعلامة الخاصة. مالك العلامة الذي يغطي المنصات الأوروبية يحمل عادة سلم الأطوال الكامل H5&ndash;H8 تحت علامة واحدة، بأدوات مشتركة للعرض والارتفاع والطول هو المتغير الوحيد. أكّد الجهد والسعة وأساس CCA ونوع الطرف والقطبية وتصميم الملصق أثناء وضع المواصفات.</p>
+      <p><a href="/ar/oem/">برامج OEM &rarr;</a> · <a href="/ar/private-label/">برامج العلامة الخاصة &rarr;</a> · <a href="/ar/data/h6/">مواصفة H6 &rarr;</a> · <a href="/ar/data/h7/">مواصفة H7 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>الأسئلة الشائعة</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>الخلاصة</h2>
+      <p>إن H6 وH7 عائلة بطارية واحدة بطولين. إن H7 ليست &ldquo;H6 أقوى&rdquo; — بل بطارية أطول بمساحة صفيحة أكبر واحتياطي أكبر وقوة تشغيل بارد أكبر. قرّر بطول الحاضنة أولًا، ثم بالاحتياطي وCCA اللذين تحتاجهما المركبة. وبعد ضبط ذلك، يبقى الباقي أطرافًا وقطبية وتصميم ملصق.</p>
+      <p><a href="/ar/compare/h5-vs-h6/">قارن خطوة H5 مقابل H6 &rarr;</a> · <a href="/ar/knowledge/jis-vs-din-vs-bci/">اقرأ دليل المعايير &rarr;</a> · <a href="/ar/tools/compare/">قارن بين موديلين جنبًا إلى جنب &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="أكّد مواصفة H6 أو H7 لبرنامجك" />
+</BaseLayout>

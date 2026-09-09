@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, RELATIONSHIP, PUBLISHED_DATE } from '../../../data/site';
+
+const title = 'AGM vs EFB Battery: Which Start-Stop Type Do You Need? | Dingwei Battery';
+const description = 'AGM (absorbent glass mat) and EFB (enhanced flooded) are both start-stop batteries, but they differ in construction, cycle life and price. Learn which to choose.';
+const articleTitle = 'AGM vs EFB battery: which start-stop type do you need?';
+
+const breadcrumbs = [
+  { label: 'Compare', href: '/compare/' },
+  { label: 'AGM vs EFB' },
+];
+
+const faqs = [
+  { q: 'What is the difference between AGM and EFB batteries?', a: 'AGM uses an absorbent glass mat to hold the electrolyte and is sealed and leak-proof; EFB is an enhanced flooded battery with a reinforcing scrim on the positive plate and liquid electrolyte. AGM offers higher cycle life and deeper discharge tolerance, and costs more.' },
+  { q: 'Can I replace an AGM battery with an EFB battery?', a: 'Not recommended. Going from AGM down to EFB is a downgrade that can upset the battery management system and reduce start-stop performance. Replacing EFB with AGM is generally acceptable, but the BMS should be coded for the new type.' },
+  { q: 'Which is better for start-stop, AGM or EFB?', a: 'Both are built for start-stop. EFB is the cost-effective choice for entry-level start-stop and compact cars; AGM is the higher-performance choice for start-stop with brake-energy recuperation, premium vehicles and heavy electrical loads.' },
+  { q: 'Do I need to register the new battery?', a: 'On many modern vehicles, yes. The battery management system should be told a new battery is installed, and its type (EFB or AGM) coded, so the charging strategy matches the battery. Fitment shops and dealers can do this.' },
+];
+
+const url = `${SITE.url}/compare/agm-vs-efb/`;
+
+const sources = [
+  { label: 'VARTA Automotive — EFB and AGM differences', href: 'https://www.varta-automotive.com/en/knowledge/articles/article-details/efb-and-agm-differences' },
+  { label: 'RAC Shop — AGM vs EFB: which battery do I need?', href: 'https://www.racshop.co.uk/advice/agm-vs-efb-which-battery-do-i-need' },
+  { label: 'Continental Battery — EFB vs AGM: choosing the right start-stop battery', href: 'https://www.continentalbattery.com/blog/efb-vs-agm-choosing-the-right-start-stop-battery' },
+  { label: 'Stryten — EFB vs AGM for start-stop and hybrid vehicles', href: 'https://www.stryten.com/efb-vs-agm-for-start-stop-and-hybrid-vehicles' },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'Comparison',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: `${SITE.url}/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'AGM vs EFB', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">Compare · Battery type</span>
+    <h1>AGM vs EFB battery: which start-stop type do you need?</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-09 · External sources cited</p>
+    <p class="lead">AGM and EFB are the two battery technologies built for start-stop vehicles — but they are not the same thing, and they are not freely interchangeable. AGM is an absorbed-glass-mat design with the electrolyte bound in a mat; EFB is an enhanced flooded design that still holds liquid electrolyte. The difference shows up in cycle life, price and how deep a discharge each can tolerate.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Choose EFB for entry-level start-stop and compact cars where cost matters; choose AGM for start-stop with brake-energy recuperation, premium vehicles and heavy electrical loads. Replace like-for-like or upgrade EFB&rarr;AGM — do not downgrade AGM&rarr;EFB — and register/code the new battery to the vehicle&rsquo;s battery management system.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>The two technologies at a glance</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Attribute</th><th>EFB</th><th>AGM</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Full name</th><td>Enhanced Flooded Battery</td><td>Absorbent Glass Mat battery</td></tr>
+          <tr><th>Construction</th><td>Flooded (liquid electrolyte) with a reinforcing scrim on the positive plate</td><td>Electrolyte absorbed in a glass mat; sealed, valve-regulated</td></tr>
+          <tr><th>Cycle life vs conventional</th><td>Roughly 2&times;</td><td>Higher again — the most cycle-stable of the lead-acid family</td></tr>
+          <tr><th>Typical discharge depth</th><td>Optimized around ~60% depth of discharge</td><td>Tolerates deeper discharge, up to ~80%</td></tr>
+          <tr><th>Typical fitment</th><td>Entry start-stop, compact and mid-size cars</td><td>Start-stop with recuperation, premium vehicles, high electronics</td></tr>
+          <tr><th>Relative cost</th><td>Lower</td><td>Higher</td></tr>
+        </tbody>
+      </table>
+      <p class="note">This table summarizes published manufacturer guidance (VARTA, RAC, Continental Battery, Stryten — sources listed below). It is a general comparison, not a model specification; confirm the exact chemistry and ratings with the battery manufacturer before ordering.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>What each technology actually is</h2>
+    <p><strong>EFB (Enhanced Flooded Battery)</strong> is the direct evolution of the conventional flooded lead-acid battery. It still contains liquid electrolyte, but adds a reinforcing material — a polyester scrim (&ldquo;polyvlies&rdquo;) — on the surface of the positive plate. That reinforcement reduces the active-material shedding that kills ordinary flooded batteries under repeated cycling, roughly doubling the cycle life versus a conventional starter battery.</p>
+    <p><strong>AGM (Absorbent Glass Mat)</strong> takes a different approach: the electrolyte is absorbed into a fine glass-fibre mat between the plates, and the battery is sealed and valve-regulated. Because there is no free liquid, AGM batteries are leak-proof and maintenance-free, and their recombinant design makes them more tolerant of deep cycling and repeated charge/discharge — the conditions a start-stop car with brake-energy recuperation creates.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Why the difference matters in a start-stop car</h2>
+      <p>A start-stop system shuts the engine off at every stoplight and restarts it when you lift the brake. That means many more starts per trip, and the battery must keep powering the car&rsquo;s electronics while the engine is off — then accept charge again. A conventional flooded battery is not built for that duty and wears out quickly; EFB and AGM are.</p>
+      <p>The practical distinction is how hard the duty cycle is:</p>
+      <ul>
+        <li><strong>Simple start-stop, compact car, cost-sensitive</strong> — EFB is usually the correct and economical choice.</li>
+        <li><strong>Start-stop plus brake-energy recuperation, or heavy electrical load</strong> — AGM&rsquo;s deeper discharge tolerance and cycle stability make it the right choice, and it is generally what the vehicle was built around.</li>
+      </ul>
+      <p>A useful way to think about it: <strong>EFB handles the &ldquo;stop-start&rdquo; workload; AGM handles the &ldquo;stop-start + recuperation + premium electronics&rdquo; workload.</strong> The more the battery is asked to cycle and to buffer energy recovery, the more AGM earns its price premium.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>The upgrade and downgrade rules</h2>
+    <p>This is where replacement jobs go wrong. The key rules, drawn from fitment guidance:</p>
+    <ol>
+      <li><strong>Replace like-for-like.</strong> If the vehicle was built with an EFB, an EFB is the safe replacement; if it was built with an AGM, use an AGM.</li>
+      <li><strong>EFB &rarr; AGM is generally an acceptable upgrade.</strong> You gain cycle life and reserve — but the battery management system (BMS) should be coded for the new type so it charges the AGM correctly.</li>
+      <li><strong>AGM &rarr; EFB is a downgrade.</strong> It can upset the BMS, degrade start-stop behaviour and shorten battery life. Avoid it.</li>
+      <li><strong>Never fit a conventional flooded battery</strong> where an EFB or AGM is specified. It will not survive the start-stop duty.</li>
+    </ol>
+    <p>On many modern vehicles, the new battery must also be <strong>registered</strong> with the BMS so the charging strategy resets for the fresh battery — an important step for both workshops and distributors to communicate to end users.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Which one should you choose?</h2>
+      <table class="data-table">
+        <thead><tr><th>Choose…</th><th>When…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>EFB</strong></td><td>Entry-level start-stop, compact and mid-size cars, cost-sensitive replacement programs, markets where price per unit is the deciding factor.</td></tr>
+          <tr><td><strong>AGM</strong></td><td>Start-stop with brake-energy recuperation, premium vehicles, high accessory/electronics load, and markets where buyers expect the longer-life option.</td></tr>
+        </tbody>
+      </table>
+      <p>For a private-label importer, EFB and AGM are two price tiers of the same start-stop category — not competitors. Carrying both lets a brand serve the economy segment with EFB and the premium segment with AGM, and it mirrors how vehicle manufacturers themselves specify the two technologies.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>OEM &amp; private-label note</h2>
+    <p>{RELATIONSHIP} Both EFB and AGM battery types are available for OEM and private-label programs. When specifying, confirm the chemistry (EFB or AGM), capacity, CCA basis (EN &minus;18&deg;C), case reference (typically the H5&ndash;H8 family), terminal type, polarity and label artwork — and clarify the target market&rsquo;s expectations around BMS registration, since that affects after-sales support.</p>
+    <p><a href="/oem/">OEM programs &rarr;</a> · <a href="/private-label/">Private-label programs &rarr;</a> · <a href="/knowledge/jis-vs-din-vs-bci/">Read the standards guide &rarr;</a> · <a href="/knowledge/battery-capacity-ah-vs-c20-vs-rc/">Read capacity vs CCA vs reserve &rarr;</a></p>
+  </section>
+
+  <section class="section container prose">
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Sources</h2>
+      <p>This comparison is based on the following published guidance, accessed 2026-09-09:</p>
+      <ul>
+        {sources.map((s) => (
+          <li><a href={s.href} rel="noopener">{s.label}</a></li>
+        ))}
+      </ul>
+      <p class="note">Specifications and cycle-life figures vary by manufacturer and product grade; these sources are cited for the general distinction between the two technologies, not as model-specific data.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Conclusion</h2>
+    <p>AGM and EFB are both start-stop technologies, but they sit at different points on the cost-versus-durability curve. EFB is the economical workhorse for simple start-stop; AGM is the higher-spec choice for recuperation and heavy electrical loads. Match the replacement to the vehicle&rsquo;s original specification, avoid downgrades, register the new battery with the BMS, and the choice becomes straightforward.</p>
+    <p><a href="/compare/h6-vs-h7/">Compare H6 vs H7 (a common start-stop size) &rarr;</a> · <a href="/knowledge/battery-applications-by-vehicle/">Read applications by vehicle &rarr;</a> · <a href="/tools/battery-finder/">Use the battery finder &rarr;</a></p>
+  </section>
+
+  <CTASection title="Specify an EFB or AGM program for your market" />
+</BaseLayout>
