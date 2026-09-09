@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE } from '../../../data/site';
+
+const title = 'مقارنة موديلات البطاريات | Dingwei Battery';
+const description = 'مقارنات مكتوبة وموجّهة للمشتري لموديلات البطاريات التي تشترك في حجم علبة أو عائلة معيار: السعة، وCCA، والتوافق، وأيها تختار.';
+
+const breadcrumbs = [{ label: 'المقارنة', href: '/ar/compare/' }];
+
+const comparisons = [
+  {
+    title: '65D26 مقابل 80D26',
+    summary: 'علبة JIS D26 نفسها، وقوة مختلفة: 60 أمبير-ساعة / 370 CCA مقابل 72 أمبير-ساعة / 490 CCA (مرجعي). اكتشف لماذا يشتركان في الحاضنة وأي درجة يستحق التخزين.',
+    href: '/ar/compare/65d26-vs-80d26/',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'المقارنة', item: `${SITE.url}/ar/compare/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">المقارنة</span>
+    <h1>مقارنة موديلات البطاريات</h1>
+    <p class="lead">مقارنات مكتوبة تشرح ما لا تستطيع جدول المواصفات وحده شرحه: هل تشترك بطاريتان في العلبة، ولماذا تختلف أرقامهما، وأيها يجب أن يختار المشتري.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="model-list">
+        {comparisons.map((c) => (
+          <article class="model-card">
+            <h2><a href={c.href}>{c.title}</a></h2>
+            <p class="model-card__meta">{c.summary}</p>
+            <a href={c.href}>اقرأ المقارنة <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        ))}
+      </div>
+      <p class="note">تفضّل جدول مقارنة جنبًا إلى جنب؟ استخدم <a href="/ar/tools/compare/">أداة المقارنة التفاعلية</a> لمقابلة أي موديلين من قاعدة البيانات المرجعية.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>لماذا تهمّ المقارنات</h2>
+    <p>نادرًا ما يحكي رمز الموديل القصة كاملة. يمكن لبطاريتين JIS أن تشتركا في حجم علبة لكن تنتميان إلى فئتي أداء مختلفتين، ويمكن لمرجعين DIN/EN أن يبدوا متشابهين مع استخدام توزيعات أطراف مختلفة. تستعرض هذه المقارنات الفرق وما يجب التحقق منه قبل الطلب.</p>
+    <p><a href="/ar/data/">تصفح قاعدة البيانات الكاملة للموديلات &rarr;</a> · <a href="/ar/knowledge/jis-vs-din-vs-bci/">اقرأ دليل المعايير &rarr;</a></p>
+  </section>
+
+  <CTASection title="أكّد الموديل الصحيح لسوقك" />
+</BaseLayout>

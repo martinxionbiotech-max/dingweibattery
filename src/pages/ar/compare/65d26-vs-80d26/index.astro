@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const m65 = findModel('65D26');
+const m80 = findModel('80D26');
+
+const title = 'بطارية 65D26 مقابل 80D26: العلبة نفسها، قوة مختلفة | Dingwei Battery';
+const description = 'تشترك 65D26 و80D26 في علبة JIS D26 لكنهما تختلفان في السعة (60 مقابل 72 أمبير-ساعة) وCCA. تعرّف على ما إذا كانتا قابلتين للتبادل وأيهما تختار.';
+const articleTitle = 'بطارية 65D26 مقابل 80D26: العلبة نفسها، قوة مختلفة';
+
+const breadcrumbs = [
+  { label: 'المقارنة', href: '/ar/compare/' },
+  { label: '65D26 مقابل 80D26' },
+];
+
+const faqs = [
+  { q: 'هل 80D26 أكبر من 65D26؟', a: 'لا. فهما تشتركان في علبة JIS D26 (نحو 260 × 175 × 220 مم). تمتلك 80D26 سعة وCCA أعلى، وليس حجمًا ماديًا أكبر.' },
+  { q: 'هل يمكنني استبدال 65D26 بـ 80D26؟', a: 'عادة نعم، ماديًا، بشرط تطابق نوع الطرف والقطبية. تضيف 80D26 سعة وقوة تشغيل، وهو آمن لمعظم المركبات — لكن أكّد الأطراف أولًا.' },
+  { q: 'هل يمكنني استبدال 80D26 بـ 65D26؟', a: 'ستتسع وتشغّل المركبة في الظروف المعتدلة، لكنها توفر احتياطيًا أقل وCCA أدنى. في الديزل أو التطبيق ذي الملحقات الكثيرة ستعمل بجهد أكبر وليست بديلًا موثوقًا على المدى الطويل.' },
+  { q: 'لماذا يظهر CCA الخاص بـ 80D26 مختلفًا في مواقع مختلفة؟', a: 'لأن JIS (&minus;15&deg;م) وSAE/EN (&minus;18&deg;م) طريقتا اختبار مختلفتان، ويبني المصنّعون وفق درجات مختلفة. قارن ضمن معيار واحد فقط.' },
+];
+
+const url = `${SITE.url}/ar/compare/65d26-vs-80d26/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'المقارنة',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'المقارنة', item: `${SITE.url}/ar/compare/` },
+      { '@type': 'ListItem', position: 3, name: '65D26 مقابل 80D26', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">المقارنة · JIS</span>
+    <h1>بطارية 65D26 مقابل 80D26: العلبة نفسها، قوة مختلفة</h1>
+    <p class="byline">نُشر بواسطة Dingwei Battery · آخر مراجعة 2026-09-09 · قيم مرجعية فقط</p>
+    <p class="lead">تشترك 65D26 و80D26 في العلبة المادية نفسها (JIS D26، نحو 260 × 175 × 220 مم)، لذا تتسعان في حاضنة البطارية نفسها. الفرق كهربائي: 80D26 هي درجة الأداء الأعلى للعلبة نفسها، بسعة أكبر وتصنيف تدوير بارد أعلى.</p>
+
+    <div class="takeaways">
+      <strong>الإجابة المختصرة:</strong> هما درجتا أداء لعلبة JIS D26 نفسها — وليسا حجمين مختلفين للبطارية. اختر 65D26 لاقتصاد الاستبدال في سيارات الركاب / المركبات التجارية الخفيفة؛ واختر 80D26 للشاحنات الصغيرة وسيارات الدفع الرباعي والديزل أو حمل الملحقات الأعلى. إنهما قابلتان للتبادل ماديًا في الحاضنة نفسها، لكن يجب تأكيد نوع الطرف والقطبية.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>المواصفات الرئيسية (مرجعية)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>الحقل</th><th>65D26</th><th>80D26</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>المعيار</th><td>JIS (JIS D 5301)</td><td>JIS (JIS D 5301)</td></tr>
+          <tr><th>الجهد</th><td>{m65?.voltage} فولت</td><td>{m80?.voltage} فولت</td></tr>
+          <tr><th>السعة (مرجعية)</th><td>{m65?.capacity_ah} أمبير-ساعة</td><td>{m80?.capacity_ah} أمبير-ساعة</td></tr>
+          <tr><th>CCA (مرجعي، JIS &minus;15&deg;م)</th><td>{m65?.cca.value}</td><td>{m80?.cca.value}</td></tr>
+          <tr><th>حجم العلبة</th><td>{m65?.case_size}</td><td>{m80?.case_size}</td></tr>
+          <tr><th>الأبعاد (مم)</th><td>{m65?.dimensions_mm.length} × {m65?.dimensions_mm.width} × {m65?.dimensions_mm.height}</td><td>{m80?.dimensions_mm.length} × {m80?.dimensions_mm.width} × {m80?.dimensions_mm.height}</td></tr>
+          <tr><th>التطبيق النموذجي</th><td>{m65?.application}</td><td>{m80?.application}</td></tr>
+          <tr><th>OEM / علامة خاصة</th><td>متاح</td><td>متاح</td></tr>
+        </tbody>
+      </table>
+      <p class="note">القيم مرجعية من قاعدة بيانات موديلات Dingwei. أكّد المواصفات النهائية — بما في ذلك أساس CCA ونوع الطرف والقطبية — مع الشركة المصنعة قبل الطلب.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>ماذا يعني رمز الموديل فعلًا</h2>
+    <p>رمز الموديل JIS ليس اسمًا عشوائيًا. يتحلل إلى <code>[فئة الأداء][فئة العلبة][الطول]</code>:</p>
+    <ul>
+      <li><strong>65 / 80</strong> — <em>فئة الأداء</em>، التي ترتبط تقريبًا بالسعة (أمبير-ساعة) وCCA. الرقم الأعلى يعني درجة كهربائية أعلى، <strong>وليس بطارية أكبر ماديًا</strong>.</li>
+      <li><strong>D</strong> — <em>فئة حجم العلبة</em> (العرض والارتفاع). A هي الأصغر وH الأكبر. كلتا البطاريتين من الفئة &ldquo;D&rdquo;.</li>
+      <li><strong>26</strong> — <em>الطول</em> بالسنتيمتر، نحو 260 مم.</li>
+    </ul>
+    <p>هذا هو الجزء الذي تتخطاه معظم صفحات المقارنة: <strong>إن 65D26 و80D26 هما العلبة نفسها.</strong> يغيّر الرقم الأول كمية مادة الصفيحة النشطة وبالتالي الطاقة وقوة التشغيل — وتبقى الأبعاد الخارجية كما هي.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>هل هما قابلتان للتبادل؟</h2>
+      <p>ماديًا، نعم — بمعنى أن كليهما تشغلان الحاضنة نفسها وتستخدمان بصمة التثبيت نفسها. إذا كانت المركبة تقبل بطارية D26 واحدة، فستتسع الأخرى عمومًا دون تعديل الحامل.</p>
+      <p>ومع ذلك، يجب التحقق من ثلاثة أمور قبل معاملتهما كبديلتين:</p>
+      <ol>
+        <li><strong>نوع الطرف والقطبية.</strong> تأتي بطاريات JIS في نسختين يسار/يمين (مثلًا <code>65D26L</code> مقابل <code>65D26R</code>) وبأنماط أطراف مختلفة. العلبة نفسها &ne; الأطراف نفسها.</li>
+        <li><strong>ملاءمة السعة للمولّد وحمل الملحقات.</strong> ستعمل 65D26 في مركبة مصممة لـ 80D26 على التشغيل، لكنها ستعمل بجهد أكبر وتبلى أسرع تحت حمل ملحقات مستمر أو حمل تشغيل ديزل.</li>
+        <li><strong>أساس CCA.</strong> أكّد ما إذا كان CCA المقتبس وفق JIS (&minus;15&deg;م) أو SAE/EN (&minus;18&deg;م). فهما ليسا الرقم نفسه للبطارية نفسها.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>لماذا قد تبدو أرقام CCA مربكة</h2>
+    <p>سترى أرقام CCA لـ 80D26 تتراوح من نحو 490 حتى 650 حسب المصدر. لا يكون هذا عادة تناقضًا — بل أمران يحدثان معًا:</p>
+    <ul>
+      <li><strong>طريقة الاختبار.</strong> يقيس JIS عند &minus;15&deg;م؛ ويقيس SAE/EN عند &minus;18&deg;م. تنتج البطارية نفسها أرقامًا مختلفة وفق المعيار.</li>
+      <li><strong>درجة المصنّع.</strong> تبني مصانع مختلفة علبة D26 بمواصفات كثافة صفيحة وعجينة مختلفة، لذا فإن فئة &ldquo;80&rdquo; لها تشتت أداء مشروع.</li>
+    </ul>
+    <p>القاعدة العملية: <strong>قارن CCA ضمن معيار واحد، وعامل الرقم المطبوع كمرجع حتى تؤكده الشركة المصنعة وفق إجراء اختبار محدد.</strong> اقرأ المزيد في <a href="/ar/knowledge/what-is-cca/">دليل CCA</a> وشرح <a href="/ar/knowledge/jis-vs-din-vs-bci/">JIS مقابل DIN مقابل BCI</a>.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>أيهما يجب أن تختار؟</h2>
+      <table class="data-table">
+        <thead><tr><th>اختر…</th><th>عندما…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>65D26</strong></td><td>سيارات الركاب والمركبات التجارية الخفيفة القياسية ذات حمل ملحقات متواضع؛ برامج الاستبدال الحساسة للسعر؛ الأسواق حيث 60 أمبير-ساعة هو الأساس OEM.</td></tr>
+          <tr><td><strong>80D26</strong></td><td>الشاحنات الصغيرة وسيارات الدفع الرباعي المتوسطة والديزل، أو المركبات ذات الطلب الكهربائي العالي (الروافع، الأضواء المساعدة، تتبّع الأساطيل)؛ الأسواق حيث يتوقع المشترون ترقية فوق الأساس OEM.</td></tr>
+        </tbody>
+      </table>
+      <p>بالنسبة للمستورد أو مالك العلامة الخاصة، الإطار المفيد هو: <strong>هما وحدتا تخزين (SKU) في العلبة نفسها، وليستا بطاريتين مختلفتين.</strong> يمكنك تقديم درجتي الأداء للعميل نفسه بتوافق حاضنة واحد ومجموعة أدوات واحدة وبصمة لوجستية واحدة.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>أخطاء شائعة</h2>
+    <ul>
+      <li>افتراض أن بطارية &ldquo;80&rdquo; <em>أكبر</em> من &ldquo;65&rdquo; وطلب حاضنات مختلفة. إنها الحاضنة نفسها.</li>
+      <li>مقارنة CCA وفق SAE لـ 80D26 مع CCA وفق JIS لـ 65D26 واستنتاج فجوة أكبر مما هي عليه.</li>
+      <li>تخزين الدرجة الأعلى فقط وخسارة شريحة الاستبدال الحساسة للسعر.</li>
+      <li>تجاهل الطرف والقطبية عند استبدال إحداهما بالأخرى.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>ملاحظة حول OEM والعلامة الخاصة</h2>
+      <p>توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). كلا الموديلين متاحان لبرامج OEM والعلامة الخاصة. ولأنهما تشتركان في العلبة، يمكن لمالك العلامة إطلاق تشكيلة من مستويين (قياسي + أداء) تحت علامة واحدة بقولب واحد وعائلة تغليف واحدة. أكّد الجهد والسعة وأساس CCA ونوع الطرف والقطبية وتصميم الملصق أثناء وضع المواصفات.</p>
+      <p><a href="/ar/oem/">برامج OEM &rarr;</a> · <a href="/ar/private-label/">برامج العلامة الخاصة &rarr;</a> · <a href="/ar/data/65d26/">مواصفة 65D26 &rarr;</a> · <a href="/ar/data/80d26/">مواصفة 80D26 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>الأسئلة الشائعة</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>الخلاصة</h2>
+      <p>إن 65D26 و80D26 هما العلبة نفسها بدرجتي أداء. القرار ليس بشأن الحجم — بل بشأن مطابقة السعة وCCA مع الطلب الكهربائي وطلب التشغيل للمركبة، ثم تأكيد الأطراف والقطبية. وبالنسبة للمشترين ومالكي العلامات، يحوّل ذلك بطاريتين مختلفتين ظاهريًا إلى منصة واحدة مرنة.</p>
+      <p><a href="/ar/data/">تصفح قاعدة بيانات الموديلات &rarr;</a> · <a href="/ar/tools/compare/">قارن بين موديلين جنبًا إلى جنب &rarr;</a> · <a href="/ar/knowledge/battery-dimensions-case-size/">اقرأ دليل أحجام العلب &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="أكّد مواصفة 65D26 أو 80D26 لبرنامجك" />
+</BaseLayout>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE } from '../../../data/site';
+
+const title = 'Сравнение моделей аккумуляторов | Dingwei Battery';
+const description = 'Письменные сравнения моделей аккумуляторов с общим размером корпуса или семейством стандарта, ориентированные на покупателя: ёмкость, CCA, совместимость и какую выбрать.';
+
+const breadcrumbs = [{ label: 'Сравнение', href: '/ru/compare/' }];
+
+const comparisons = [
+  {
+    title: '65D26 vs 80D26',
+    summary: 'Один корпус JIS D26, разная мощность: 60 Ач / 370 CCA против 72 Ач / 490 CCA (справочно). Узнайте, почему они делят одну нишу и какую ступень стоит держать на складе.',
+    href: '/ru/compare/65d26-vs-80d26/',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Сравнение', item: `${SITE.url}/ru/compare/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Сравнение</span>
+    <h1>Сравнение моделей аккумуляторов</h1>
+    <p class="lead">Письменные сравнения, объясняющие то, чего не может таблица характеристик сама по себе: делят ли два аккумулятора один корпус, почему различаются их цифры и какой выбрать покупателю.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="model-list">
+        {comparisons.map((c) => (
+          <article class="model-card">
+            <h2><a href={c.href}>{c.title}</a></h2>
+            <p class="model-card__meta">{c.summary}</p>
+            <a href={c.href}>Читать сравнение <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        ))}
+      </div>
+      <p class="note">Предпочитаете таблицу «рядом»? Воспользуйтесь <a href="/ru/tools/compare/">интерактивным инструментом сравнения</a>, чтобы сопоставить любые две модели из справочной базы.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Почему сравнения важны</h2>
+    <p>Код модели редко рассказывает всю историю. Два аккумулятора JIS могут иметь один размер корпуса, но относиться к разным классам производительности, а два обозначения DIN/EN могут выглядеть похожими, но использовать разную раскладку клемм. Эти сравнения разбирают разницу и то, что нужно проверить перед заказом.</p>
+    <p><a href="/ru/data/">Просмотреть полную базу моделей &rarr;</a> · <a href="/ru/knowledge/jis-vs-din-vs-bci/">Читать справочник по стандартам &rarr;</a></p>
+  </section>
+
+  <CTASection title="Подтвердите правильную модель для вашего рынка" />
+</BaseLayout>

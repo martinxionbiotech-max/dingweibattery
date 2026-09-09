@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel } from '../../../../data/battery-models';
+
+const m65 = findModel('65D26');
+const m80 = findModel('80D26');
+
+const title = 'Batería 65D26 vs 80D26: Misma caja, distinta potencia | Dingwei Battery';
+const description = 'La 65D26 y la 80D26 comparten la caja JIS D26 pero difieren en capacidad (60 vs 72 Ah) y CCA. Descubra si son intercambiables y cuál elegir.';
+const articleTitle = 'Batería 65D26 vs 80D26: misma caja, distinta potencia';
+
+const breadcrumbs = [
+  { label: 'Comparar', href: '/es/compare/' },
+  { label: '65D26 vs 80D26' },
+];
+
+const faqs = [
+  { q: '¿La 80D26 es más grande que la 65D26?', a: 'No. Comparten la caja JIS D26 (aproximadamente 260 × 175 × 220 mm). La 80D26 tiene más capacidad y CCA, no más tamaño físico.' },
+  { q: '¿Puedo sustituir una 65D26 por una 80D26?', a: 'Normalmente sí, en lo físico, siempre que el tipo de terminal y la polaridad coincidan. La 80D26 añade capacidad y potencia de arranque, lo cual es seguro para la mayoría de vehículos, pero confirme antes los terminales.' },
+  { q: '¿Puedo sustituir una 80D26 por una 65D26?', a: 'Cabrá y arrancará el vehículo en condiciones suaves, pero aporta menos reserva y menor CCA. En un diésel o una aplicación con muchos accesorios trabajará más y no es un sustituto fiable a largo plazo.' },
+  { q: '¿Por qué la CCA de la 80D26 aparece distinta en distintas webs?', a: 'Porque JIS (&minus;15&deg;C) y SAE/EN (&minus;18&deg;C) son métodos de ensayo distintos, y los fabricantes construyen según grados diferentes. Compare solo dentro de un mismo estándar.' },
+];
+
+const url = `${SITE.url}/es/compare/65d26-vs-80d26/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-09',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: 'Comparación',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Comparar', item: `${SITE.url}/es/compare/` },
+      { '@type': 'ListItem', position: 3, name: '65D26 vs 80D26', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">Comparar · JIS</span>
+    <h1>Batería 65D26 vs 80D26: misma caja, distinta potencia</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-09 · Solo valores de referencia</p>
+    <p class="lead">La 65D26 y la 80D26 comparten la misma caja física (JIS D26, aproximadamente 260 × 175 × 220 mm), de modo que caben en la misma bandeja de batería. La diferencia es eléctrica: la 80D26 es el grado de rendimiento superior de la misma caja, con más capacidad y una mayor capacidad de arranque en frío.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Son dos grados de rendimiento de la misma caja JIS D26, no dos tamaños distintos de batería. Elija la 65D26 para la economía de sustitución en turismos / vehículos comerciales ligeros; elija la 80D26 para pickups, SUV, diésel o mayor carga de accesorios. Son físicamente intercambiables en la misma bandeja, pero el tipo de terminal y la polaridad deben confirmarse igualmente.
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Especificaciones clave (referencia)</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Campo</th><th>65D26</th><th>80D26</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Estándar</th><td>JIS (JIS D 5301)</td><td>JIS (JIS D 5301)</td></tr>
+          <tr><th>Tensión</th><td>{m65?.voltage} V</td><td>{m80?.voltage} V</td></tr>
+          <tr><th>Capacidad (referencia)</th><td>{m65?.capacity_ah} Ah</td><td>{m80?.capacity_ah} Ah</td></tr>
+          <tr><th>CCA (referencia, JIS &minus;15&deg;C)</th><td>{m65?.cca.value}</td><td>{m80?.cca.value}</td></tr>
+          <tr><th>Tamaño de caja</th><td>{m65?.case_size}</td><td>{m80?.case_size}</td></tr>
+          <tr><th>Dimensiones (mm)</th><td>{m65?.dimensions_mm.length} × {m65?.dimensions_mm.width} × {m65?.dimensions_mm.height}</td><td>{m80?.dimensions_mm.length} × {m80?.dimensions_mm.width} × {m80?.dimensions_mm.height}</td></tr>
+          <tr><th>Aplicación típica</th><td>{m65?.application}</td><td>{m80?.application}</td></tr>
+          <tr><th>OEM / marca privada</th><td>Disponible</td><td>Disponible</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Los valores son de referencia de la base de datos de modelos de Dingwei. Confirme las especificaciones finales —incluida la base de CCA, el tipo de terminal y la polaridad— con el fabricante antes de pedir.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Qué significa realmente el código del modelo</h2>
+    <p>El código del modelo JIS no es un nombre al azar. Se descompone en <code>[clase de rendimiento][clase de caja][longitud]</code>:</p>
+    <ul>
+      <li><strong>65 / 80</strong> — la <em>clase de rendimiento</em>, que se correlaciona aproximadamente con la capacidad (Ah) y la CCA. Un número mayor significa un grado eléctrico superior, <strong>no una batería físicamente más grande</strong>.</li>
+      <li><strong>D</strong> — la <em>clase de tamaño de caja</em> (anchura y altura). A es la más pequeña, H la más grande. Ambas baterías son &ldquo;D&rdquo;.</li>
+      <li><strong>26</strong> — la <em>longitud</em> en centímetros, aproximadamente 260 mm.</li>
+    </ul>
+    <p>Esta es la parte que la mayoría de páginas de comparación omiten: <strong>la 65D26 y la 80D26 son la misma caja.</strong> El número inicial cambia la cantidad de material activo de placa y, por tanto, la energía y la potencia de arranque; las dimensiones exteriores siguen siendo las mismas.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>¿Son intercambiables?</h2>
+      <p>Físicamente, sí — en el sentido de que ambas ocupan la misma bandeja y usan la misma huella de sujeción. Si un vehículo admite una batería D26, la otra encajará generalmente sin modificar el soporte.</p>
+      <p>Dicho esto, deben verificarse tres cosas antes de tratarlas como sustitutas:</p>
+      <ol>
+        <li><strong>Tipo de terminal y polaridad.</strong> Las baterías JIS vienen en variantes izquierda/derecha (p. ej. <code>65D26L</code> vs <code>65D26R</code>) y con estilos de terminal distintos. Misma caja &ne; mismos terminales.</li>
+        <li><strong>Capacidad acorde al alternador y a la carga de accesorios.</strong> Una 65D26 en un vehículo diseñado para una 80D26 seguirá arrancando, pero trabajará más y se desgastará antes bajo una carga sostenida de accesorios o de arranque diésel.</li>
+        <li><strong>Base de CCA.</strong> Confirme si la CCA citada es JIS (&minus;15&deg;C) o SAE/EN (&minus;18&deg;C). No son el mismo número para la misma batería.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Por qué las cifras de CCA pueden parecer confusas</h2>
+    <p>Verá cifras de CCA de la 80D26 que van desde unos 490 hasta 650 según la fuente. No suele ser una contradicción: son dos cosas a la vez.</p>
+    <ul>
+      <li><strong>Método de ensayo.</strong> JIS mide a &minus;15&deg;C; SAE/EN miden a &minus;18&deg;C. La misma batería produce números distintos según el estándar.</li>
+      <li><strong>Grado del fabricante.</strong> Distintas fábricas construyen la caja D26 con especificaciones de densidad de placa y pasta diferentes, de modo que la clase &ldquo;80&rdquo; tiene una dispersión de rendimiento legítima.</li>
+    </ul>
+    <p>La regla práctica: <strong>compare la CCA dentro de un mismo estándar y trate el número impreso como referencia hasta que el fabricante lo confirme con un procedimiento de ensayo concreto.</strong> Lea más en la <a href="/es/knowledge/what-is-cca/">guía de CCA</a> y en la explicación de <a href="/es/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>¿Cuál debería elegir?</h2>
+      <table class="data-table">
+        <thead><tr><th>Elija…</th><th>Cuando…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>65D26</strong></td><td>Turismos y vehículos comerciales ligeros estándar con carga de accesorios modesta; programas de sustitución sensibles al precio; mercados donde 60 Ah es la base OEM.</td></tr>
+          <tr><td><strong>80D26</strong></td><td>Pickups, SUV medianos, diésel, o vehículos con gran demanda eléctrica (cabrestantes, luces auxiliares, telemática de flotas); mercados donde los compradores esperan una mejora sobre la base OEM.</td></tr>
+        </tbody>
+      </table>
+      <p>Para un importador o propietario de marca privada, el marco útil es: <strong>son dos SKU en la misma caja, no dos baterías distintas.</strong> Puede ofrecer ambos grados de rendimiento al mismo cliente con una sola compatibilidad de bandeja, un solo utillaje y una sola huella logística.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Errores comunes</h2>
+    <ul>
+      <li>Suponer que la batería &ldquo;80&rdquo; es <em>más grande</em> que la &ldquo;65&rdquo; y pedir bandejas distintas. Es la misma bandeja.</li>
+      <li>Comparar la CCA SAE de la 80D26 con la CCA JIS de la 65D26 y concluir una brecha mayor de la que existe.</li>
+      <li>Almacenar solo el grado superior y perder el segmento de sustitución sensible al precio.</li>
+      <li>Ignorar el terminal y la polaridad al intercambiar una por otra.</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Nota sobre OEM y marca privada</h2>
+      <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Ambos modelos están disponibles para programas OEM y de marca privada. Como comparten caja, un propietario de marca puede lanzar una gama de dos niveles (estándar + rendimiento) bajo una sola etiqueta con un solo molde y una sola familia de embalaje. Confirme tensión, capacidad, base de CCA, tipo de terminal, polaridad y diseño de etiqueta durante la especificación.</p>
+      <p><a href="/es/oem/">Programas OEM &rarr;</a> · <a href="/es/private-label/">Programas de marca privada &rarr;</a> · <a href="/es/data/65d26/">Especificación 65D26 &rarr;</a> · <a href="/es/data/80d26/">Especificación 80D26 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Preguntas frecuentes</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Conclusión</h2>
+      <p>La 65D26 y la 80D26 son la misma caja en dos grados de rendimiento. La decisión no es sobre el tamaño, sino sobre adecuar la capacidad y la CCA a la demanda eléctrica y de arranque del vehículo, para después confirmar terminales y polaridad. Para compradores y propietarios de marca, eso convierte dos baterías aparentemente distintas en una plataforma flexible.</p>
+      <p><a href="/es/data/">Explore la base de datos de modelos &rarr;</a> · <a href="/es/tools/compare/">Compare dos modelos lado a lado &rarr;</a> · <a href="/es/knowledge/battery-dimensions-case-size/">Lea la guía de tamaños de caja &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="Confirme la especificación 65D26 u 80D26 para su programa" />
+</BaseLayout>
