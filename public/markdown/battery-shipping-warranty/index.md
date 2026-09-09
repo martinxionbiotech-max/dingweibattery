@@ -6,11 +6,11 @@ Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: export logis
 
 A battery order is not complete when it leaves the line — it is complete when it arrives undamaged, with the right documents, and with a warranty you understand.
 
-**Short answer:** Lead-acid batteries ship as ordinary cargo (not Class 9 dangerous goods like lithium), which simplifies transport. The key logistics points are container weight limits, export documentation, and a warranty whose scope — duration, exclusions and handling — is written down.
+**Short answer:** Lead-acid batteries are Class 8 (corrosive) dangerous goods (UN 2794 filled with acid, or UN 2800 non-spillable), but — unlike lithium — they do not require a UN 38.3 report. The key logistics points are container weight limits, export documentation, and a warranty whose scope — duration, exclusions and handling — is written down.
 
 ## Why lead-acid is simpler to ship
 
-Unlike lithium cells, lead-acid starting batteries are not Class 9 dangerous goods. For importers this means fewer transport restrictions, no UN38.3 report, and a lighter documentation burden — a real logistics advantage of lead-acid for an OEM program.
+Unlike lithium cells (Class 9), lead-acid starting batteries are Class 8 (corrosive) dangerous goods — UN 2794 filled with acid, or UN 2800 non-spillable. For importers the key advantage is that they do not require a UN 38.3 report; they do still require compliant dangerous-goods packaging and, where applicable, a declaration.
 
 ## Packaging and container loading
 

@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER, TRADE_TERMS } from '../../../data/site';
+
+const title = 'Envío y Cumplimiento | Dingwei Battery';
+const description = 'Cómo se embalan, clasifican para el transporte, documentan y envían las baterías de plomo-ácido OEM y de marca privada de Dingwei Battery: clasificación UN 2794/2800, Incoterms y condiciones de entrega.';
+const breadcrumbs = [{ label: 'Envío y Cumplimiento', href: '/es/shipping-compliance/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">Legal</span>
+    <h1>Envío y Cumplimiento</h1>
+    <p class="lead">Esta política describe cómo se embalan, clasifican y envían las baterías OEM y de marca privada suministradas por {MANUFACTURER.name}. Las baterías de plomo-ácido son mercancías de transporte reguladas, por lo que la clasificación y la documentación correctas son importantes.</p>
+    <p class="note">Última actualización: {lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. Modo y puerto de envío</h2>
+      <p>Las baterías se envían normalmente por vía marítima, exportadas desde {MANUFACTURER.exportPorts}. El transporte aéreo está disponible para pequeñas cantidades de muestras cuando el transportista y la normativa lo permiten. El modo de envío de un pedido se confirma por escrito.</p>
+
+      <h2>2. Clasificación para el transporte</h2>
+      <p>Las baterías de plomo-ácido húmedas se clasifican como <strong>mercancías peligrosas de Clase 8 (corrosivas)</strong> conforme al Código IMDG para el transporte marítimo. Según el tipo de batería y el estado de carga, el número UN aplicable es:</p>
+      <ul>
+        <li><strong>UN 2794</strong> — Baterías húmedas, llenas de ácido (Clase 8).</li>
+        <li><strong>UN 2800</strong> — Baterías húmedas, no derramables (Clase 8), cuando la batería supera las pruebas de vibración y fisuración para la clasificación de no derramable.</li>
+      </ul>
+      <p>A diferencia de las baterías de litio (Clase 9, UN 3480/3481), las baterías de arranque de plomo-ácido no requieren un informe de ensayo UN 38.3. Sin embargo, sí requieren un embalaje de mercancías peligrosas conforme, marcado y, en su caso, una declaración de mercancías peligrosas. La clasificación y la declaración exactas de cada envío se confirman conforme al Código IMDG vigente en el momento del envío y a los requisitos del transportista.</p>
+      <p class="note">Las normativas de transporte cambian. Confirme siempre la clasificación vigente y cualquier restricción del transportista o del país de destino antes del envío.</p>
+
+      <h2>3. Embalaje</h2>
+      <p>Las baterías se embalan para evitar cortocircuitos y daños durante la manipulación:</p>
+      <ul>
+        <li>Protección de terminales para evitar cortocircuitos.</li>
+        <li>Orientación vertical con separación y amortiguación adecuadas.</li>
+        <li>Cajas paletizadas dimensionadas según el plano de contenedor.</li>
+        <li>Carga de modelos mixtos para aprovechar eficientemente la capacidad del contenedor cuando se acuerde.</li>
+      </ul>
+
+      <h2>4. Documentación de exportación</h2>
+      <p>Un juego de exportación estándar evita retrasos en aduanas. Los documentos habituales incluyen:</p>
+      <ul>
+        <li>Factura comercial y lista de embalaje.</li>
+        <li>Conocimiento de embarque.</li>
+        <li>Certificado de origen.</li>
+        <li>Informes de ensayo (CCA / capacidad) cuando se requieran.</li>
+        <li>Declaración de mercancías peligrosas, en su caso.</li>
+      </ul>
+
+      <h2>5. Incoterms y transmisión del riesgo</h2>
+      <p>El envío se realiza conforme a los Incoterms acordados por escrito ({TRADE_TERMS.incoterms}). El riesgo de pérdida o daño se transmite al comprador en el punto definido por el Incoterm acordado. Los compradores deben asegurar las mercancías en consecuencia a partir del punto en que se transmite el riesgo.</p>
+
+      <h2>6. Plazo de entrega</h2>
+      <p>El plazo de entrega indicativo es {TRADE_TERMS.leadTime}. El calendario de producción y envío confirmado se indica en la confirmación del pedido y está sujeto a fuerza mayor y a los horarios de los transportistas.</p>
+
+      <h2>7. Responsabilidades del comprador</h2>
+      <p>Salvo que se acuerde lo contrario, el comprador es responsable de:</p>
+      <ul>
+        <li>El despacho de importación, los aranceles y los impuestos en destino.</li>
+        <li>El cumplimiento de la normativa del país de destino, incluidos los requisitos de importación, etiquetado o reciclaje de baterías.</li>
+        <li>El transporte interior desde el puerto de destino.</li>
+      </ul>
+
+      <h2>8. Cumplimiento de normas</h2>
+      <p>Los productos se fabrican conforme a un sistema de calidad referenciado a las certificaciones de {MANUFACTURER.name} (IATF 16949, ISO 9001, ISO 45001). El cumplimiento de cualquier normativa del mercado de destino (por ejemplo, REACH, o las normas regionales sobre baterías y reciclaje) debe confirmarlo el comprador para su mercado.</p>
+
+      <h2>9. Contacto</h2>
+      <p>Consultas sobre envío y cumplimiento: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> o {CONTACT.phone} (WhatsApp: {CONTACT.whatsapp}).</p>
+
+    </div>
+  </section>
+</BaseLayout>

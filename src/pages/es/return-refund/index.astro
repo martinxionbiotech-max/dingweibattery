@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER } from '../../../data/site';
+
+const title = 'Devoluciones y Reembolsos | Dingwei Battery';
+const description = 'Condiciones de devolución y reembolso de los pedidos de baterías OEM y de marca privada de Dingwei Battery: periodo de aceptación, casos admisibles, proceso de devolución y quién asume los gastos de envío.';
+const breadcrumbs = [{ label: 'Devoluciones y Reembolsos', href: '/es/return-refund/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">Legal</span>
+    <h1>Devoluciones y Reembolsos</h1>
+    <p class="lead">Esta política establece cuándo y cómo pueden devolverse los productos suministrados por {MANUFACTURER.name} y cómo se gestionan los reembolsos o las sustituciones. Dado que la mayoría de los pedidos son OEM o de marca privada, las devoluciones están limitadas y sujetas a acuerdo por escrito.</p>
+    <p class="note">Última actualización: {lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. Alcance</h2>
+      <p>Esta política se aplica a los pedidos de baterías OEM y de marca privada realizados en virtud de un contrato de venta por escrito o de una factura proforma. Las baterías se fabrican por encargo, por lo que el derecho de devolución es más limitado que en el caso de los productos minoristas estándar.</p>
+
+      <h2>2. Periodo de aceptación</h2>
+      <p>El comprador debe inspeccionar las mercancías a su llegada y notificar por escrito cualquier discrepancia (modelo incorrecto, cantidad o daños visibles externamente) en un plazo de <strong>7 días desde la entrega</strong>. Es posible que no se acepten reclamaciones presentadas después de este periodo.</p>
+
+      <h2>3. Cuándo se aceptan devoluciones</h2>
+      <p>Aceptamos devoluciones u ofrecemos una solución en los siguientes casos:</p>
+      <ul>
+        <li><strong>Mercancía incorrecta enviada</strong> — el modelo, el estándar o la cantidad no coinciden con el pedido por escrito.</li>
+        <li><strong>Incumplimiento de especificación</strong> — el producto no cumple las especificaciones confirmadas por escrito (sujeto a nuestra inspección).</li>
+        <li><strong>Daños de transporte</strong> — cuando el daño se produjo antes de que el riesgo se transmitiera al comprador y se notifica de conformidad con el Incoterm y las condiciones de seguro acordadas.</li>
+        <li><strong>Defecto de fabricación</strong> — cubierto por la <a href="/es/warranty/">Política de Garantía</a>.</li>
+      </ul>
+
+      <h2>4. Cuándo no se aceptan devoluciones</h2>
+      <p>Por lo general, no se aceptan devoluciones en estos casos:</p>
+      <ul>
+        <li><strong>Productos personalizados / de marca privada</strong> — salvo que el producto sea defectuoso o no se ajuste a la especificación confirmada.</li>
+        <li><strong>Especificación facilitada por el comprador</strong> — cuando el comprador facilitó un modelo o una especificación incorrectos para su aplicación.</li>
+        <li><strong>Baterías usadas o parcialmente descargadas</strong> — mercancías que se han instalado, utilizado o cargado.</li>
+        <li><strong>Reclamaciones tardías</strong> — discrepancias notificadas después del periodo de aceptación de la sección 2.</li>
+      </ul>
+
+      <h2>5. Proceso de devolución</h2>
+      <ol>
+        <li>Póngase en contacto con nosotros por escrito indicando el número de pedido, el modelo, la cantidad y el motivo, e incluya fotografías.</li>
+        <li>Confirmamos por escrito si la devolución está autorizada y emitimos una referencia de devolución.</li>
+        <li>Devuelva las mercancías únicamente después de la autorización, en el embalaje original (o uno protector equivalente).</li>
+        <li>Inspeccionamos las mercancías y confirmamos el resultado por escrito.</li>
+      </ol>
+      <p>No envíe baterías de vuelta sin autorización previa por escrito; las devoluciones no autorizadas pueden rechazarse.</p>
+
+      <h2>6. Reembolsos y sustituciones</h2>
+      <p>Cuando se acepta una devolución, la solución es, a nuestra elección:</p>
+      <ul>
+        <li><strong>Sustitución</strong> de mercancías conformes, o</li>
+        <li><strong>Reembolso o abono</strong> por el valor de las mercancías afectadas.</li>
+      </ul>
+      <p>Los reembolsos se realizan por el mismo método utilizado para el pago original, dentro de un plazo razonable después de que se confirme la devolución.</p>
+
+      <h2>7. Envío y costes</h2>
+      <p>Cuando la devolución se deba a un error nuestro (mercancía incorrecta, incumplimiento, defecto cubierto), asumimos el flete de devolución acordado. Cuando la devolución se deba a cualquier otro motivo, o cuando no se detecte ningún defecto en la inspección, el comprador asume el flete de devolución y los costes asociados.</p>
+
+      <h2>8. Relación con la garantía</h2>
+      <p>Los defectos de fabricación detectados después de la aceptación se gestionan conforme a la <a href="/es/warranty/">Política de Garantía</a>, y no conforme a esta política de devoluciones.</p>
+
+      <h2>9. Contacto</h2>
+      <p>Solicitudes de devolución: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> o {CONTACT.phone} (WhatsApp: {CONTACT.whatsapp}).</p>
+
+    </div>
+  </section>
+</BaseLayout>

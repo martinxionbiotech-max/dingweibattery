@@ -49,6 +49,11 @@ interface FooterStrings {
   requestQuote: string;
   manufacturer: string;
   factoryOverview: string;
+  privacy: string;
+  terms: string;
+  warranty: string;
+  returnRefund: string;
+  shippingCompliance: string;
 }
 
 interface StatsbarStrings {
@@ -135,6 +140,11 @@ export const UI: Record<Locale, UiStrings> = {
       requestQuote: 'Request OEM Quote',
       manufacturer: 'Manufacturer',
       factoryOverview: 'Factory overview',
+      privacy: 'Privacy Policy',
+      terms: 'Terms & Conditions',
+      warranty: 'Warranty Policy',
+      returnRefund: 'Return & Refund',
+      shippingCompliance: 'Shipping & Compliance',
     },
     statsbar: {
       factoryArea: 'Factory area',
@@ -197,6 +207,11 @@ export const UI: Record<Locale, UiStrings> = {
       requestQuote: 'Solicitar Cotización OEM',
       manufacturer: 'Fabricante',
       factoryOverview: 'Vista general de la fábrica',
+      privacy: 'Política de Privacidad',
+      terms: 'Términos y Condiciones',
+      warranty: 'Política de Garantía',
+      returnRefund: 'Devoluciones y Reembolsos',
+      shippingCompliance: 'Envío y Cumplimiento',
     },
     statsbar: {
       factoryArea: 'Superficie de fábrica',
@@ -259,6 +274,11 @@ export const UI: Record<Locale, UiStrings> = {
       requestQuote: 'اطلب عرض سعر OEM',
       manufacturer: 'الشركة المصنعة',
       factoryOverview: 'نظرة عامة على المصنع',
+      privacy: 'سياسة الخصوصية',
+      terms: 'الشروط والأحكام',
+      warranty: 'سياسة الضمان',
+      returnRefund: 'الإرجاع والاسترداد',
+      shippingCompliance: 'الشحن والامتثال',
     },
     statsbar: {
       factoryArea: 'مساحة المصنع',
@@ -321,6 +341,11 @@ export const UI: Record<Locale, UiStrings> = {
       requestQuote: 'Запросить расчёт OEM',
       manufacturer: 'Производитель',
       factoryOverview: 'Обзор завода',
+      privacy: 'Политика конфиденциальности',
+      terms: 'Условия и положения',
+      warranty: 'Гарантийная политика',
+      returnRefund: 'Возврат и возврат средств',
+      shippingCompliance: 'Доставка и соответствие',
     },
     statsbar: {
       factoryArea: 'Площадь завода',

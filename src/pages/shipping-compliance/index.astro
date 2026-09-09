@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER, TRADE_TERMS } from '../../data/site';
+
+const title = 'Shipping & Compliance Policy | Dingwei Battery';
+const description = 'How Dingwei Battery OEM and private-label lead-acid batteries are packaged, classified for transport, documented and shipped — UN 2794/2800 classification, Incoterms and delivery terms.';
+const breadcrumbs = [{ label: 'Shipping & Compliance', href: '/shipping-compliance/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">Legal</span>
+    <h1>Shipping &amp; Compliance Policy</h1>
+    <p class="lead">This policy describes how OEM and private-label batteries supplied by {MANUFACTURER.name} are packaged, classified and shipped. Lead-acid batteries are regulated transport goods, so correct classification and documentation matter.</p>
+    <p class="note">Last updated: {lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. Mode and port of shipment</h2>
+      <p>Batteries are typically shipped by sea, exported from {MANUFACTURER.exportPorts}. Air freight is available for small sample quantities where the carrier and regulations permit. The shipment mode for an order is confirmed in writing.</p>
+
+      <h2>2. Transport classification</h2>
+      <p>Wet lead-acid batteries are classified as <strong>Class 8 (corrosive) dangerous goods</strong> under the IMDG Code for sea transport. Depending on the battery type and state of charge, the applicable UN number is:</p>
+      <ul>
+        <li><strong>UN 2794</strong> — Batteries, wet, filled with acid (Class 8).</li>
+        <li><strong>UN 2800</strong> — Batteries, wet, non-spillable (Class 8), where the battery meets the vibration and crack tests for non-spillable classification.</li>
+      </ul>
+      <p>Unlike lithium batteries (Class 9, UN 3480/3481), lead-acid starting batteries do not require a UN 38.3 test report. They do, however, require compliant dangerous-goods packaging, marking and, where applicable, a dangerous-goods declaration. The exact classification and declaration for each shipment is confirmed against the IMDG Code in force at the time of shipment and the carrier&rsquo;s requirements.</p>
+      <p class="note">Transport regulations change. Always confirm the current classification and any carrier or destination-country restrictions before shipment.</p>
+
+      <h2>3. Packaging</h2>
+      <p>Batteries are packed to prevent shorting and damage during handling:</p>
+      <ul>
+        <li>Terminal protection to prevent short circuits.</li>
+        <li>Upright orientation with adequate separation and cushioning.</li>
+        <li>Palletised cartons sized to the container plan.</li>
+        <li>Mixed-model loading to use container capacity efficiently where agreed.</li>
+      </ul>
+
+      <h2>4. Export documentation</h2>
+      <p>A standard export set avoids customs delays. Typical documents include:</p>
+      <ul>
+        <li>Commercial invoice and packing list.</li>
+        <li>Bill of lading.</li>
+        <li>Certificate of origin.</li>
+        <li>Test reports (CCA / capacity) where required.</li>
+        <li>Dangerous-goods declaration, where applicable.</li>
+      </ul>
+
+      <h2>5. Incoterms and risk transfer</h2>
+      <p>Shipment is made under the Incoterms agreed in writing ({TRADE_TERMS.incoterms}). Risk of loss or damage passes to the buyer at the point defined by the agreed Incoterm. Buyers should insure the goods accordingly from the point where risk transfers.</p>
+
+      <h2>6. Delivery time</h2>
+      <p>Indicative lead time is {TRADE_TERMS.leadTime}. The confirmed production and shipment schedule is stated in the order confirmation and is subject to force majeure and carrier schedules.</p>
+
+      <h2>7. Buyer responsibilities</h2>
+      <p>Unless otherwise agreed, the buyer is responsible for:</p>
+      <ul>
+        <li>Import clearance, duties and taxes at destination.</li>
+        <li>Compliance with destination-country regulations, including any battery import, labelling or recycling requirements.</li>
+        <li>Inland transport from the destination port.</li>
+      </ul>
+
+      <h2>8. Compliance with standards</h2>
+      <p>Products are manufactured under a quality system referenced to {MANUFACTURER.name}&rsquo;s certifications (IATF 16949, ISO 9001, ISO 45001). Compliance with any destination-market regulation (for example, REACH, or regional battery and recycling rules) must be confirmed by the buyer for its market.</p>
+
+      <h2>9. Contact</h2>
+      <p>Shipping and compliance questions: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> or {CONTACT.phone} (WhatsApp: {CONTACT.whatsapp}).</p>
+
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER, TRADE_TERMS } from '../../data/site';
+
+const title = 'Warranty Policy | Dingwei Battery';
+const description = 'Warranty terms for Dingwei Battery OEM and private-label lead-acid batteries: 12-month coverage, what is and is not covered, and how to file and settle a warranty claim.';
+const breadcrumbs = [{ label: 'Warranty', href: '/warranty/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">Legal</span>
+    <h1>Warranty Policy</h1>
+    <p class="lead">Our standard warranty covers manufacturing defects in OEM and private-label batteries supplied by {MANUFACTURER.name}. The exact scope for your order is confirmed in the written sales contract.</p>
+    <p class="note">Last updated: {lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. Warranty period</h2>
+      <p>Unless otherwise agreed in writing, the warranty period is <strong>{TRADE_TERMS.warranty}</strong>. The warranty period begins on the bill of lading date and is not extended by repair, replacement or any period during which the battery is out of service.</p>
+
+      <h2>2. What is covered</h2>
+      <p>Within the warranty period, we warrant that batteries are free from <strong>defects in materials and workmanship</strong>, including:</p>
+      <ul>
+        <li>Manufacturing defects in the case, grids, plates, separators and terminal welds.</li>
+        <li>Failure to meet the specifications confirmed in writing for the order (voltage, capacity, CCA) under standard test conditions.</li>
+      </ul>
+
+      <h2>3. What is not covered</h2>
+      <p>The warranty does not cover failure or degradation caused by anything other than a manufacturing defect. In particular, it excludes:</p>
+      <ul>
+        <li><strong>Deep discharge</strong> — leaving the battery discharged for an extended period.</li>
+        <li><strong>Overcharging or incorrect charging</strong> — use with a mismatched or faulty charging system.</li>
+        <li><strong>Improper installation or use</strong> — wrong orientation, incorrect terminal connection, or use outside the intended application.</li>
+        <li><strong>Physical damage</strong> — impact, dropping, or damage during handling after delivery.</li>
+        <li><strong>Normal wear and ageing</strong> — gradual loss of capacity from normal use over time.</li>
+        <li><strong>Improper storage</strong> — storage in high temperature, or storage without the prescribed maintenance charge.</li>
+        <li><strong>Neglect of electrolyte</strong> — where applicable, failure to maintain the correct electrolyte level.</li>
+      </ul>
+
+      <h2>4. How to make a claim</h2>
+      <ol>
+        <li><strong>Notify us in writing</strong> within the warranty period, with the model, batch / serial number, quantity and a description of the fault.</li>
+        <li><strong>Provide evidence</strong> — photographs, and (where requested) a returned sample for inspection, or an independent test report.</li>
+        <li><strong>Inspection</strong> — we inspect the battery or evidence and confirm in writing whether the defect is covered.</li>
+      </ol>
+      <p>Claims must be submitted within a reasonable time after the defect is discovered, and in any event within the warranty period.</p>
+
+      <h2>5. Remedy</h2>
+      <p>If a defect is confirmed as covered, the remedy is at our option:</p>
+      <ul>
+        <li><strong>Replacement</strong> of the defective unit, or</li>
+        <li><strong>Credit</strong> against a future order, in proportion to the remaining warranty period.</li>
+      </ul>
+      <p>We do not cover labour, freight, duties or other incidental costs unless otherwise agreed in writing.</p>
+
+      <h2>6. Warranty transfer</h2>
+      <p>The warranty is extended to the direct buyer under the sales contract. If you resell the batteries to end users, you are responsible for handling end-user claims; our warranty obligations run to you as the buyer.</p>
+
+      <h2>7. No other warranties</h2>
+      <p>To the fullest extent permitted by law, this warranty is the sole and exclusive warranty and is in lieu of all other warranties, express or implied. Nothing in this policy limits rights that cannot be excluded under mandatory law.</p>
+
+      <h2>8. Contact</h2>
+      <p>Warranty claims and questions: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> or {CONTACT.phone} (WhatsApp: {CONTACT.whatsapp}).</p>
+
+    </div>
+  </section>
+</BaseLayout>

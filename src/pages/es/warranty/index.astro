@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER, TRADE_TERMS } from '../../../data/site';
+
+const title = 'Política de Garantía | Dingwei Battery';
+const description = 'Condiciones de garantía de las baterías de plomo-ácido OEM y de marca privada de Dingwei Battery: cobertura de 12 meses, qué está cubierto y qué no, y cómo presentar y resolver una reclamación de garantía.';
+const breadcrumbs = [{ label: 'Garantía', href: '/es/warranty/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">Legal</span>
+    <h1>Política de Garantía</h1>
+    <p class="lead">Nuestra garantía estándar cubre los defectos de fabricación de las baterías OEM y de marca privada suministradas por {MANUFACTURER.name}. El alcance exacto para su pedido se confirma en el contrato de venta por escrito.</p>
+    <p class="note">Última actualización: {lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. Periodo de garantía</h2>
+      <p>Salvo que se acuerde lo contrario por escrito, el periodo de garantía es <strong>{TRADE_TERMS.warranty}</strong>. El periodo de garantía comienza en la fecha del conocimiento de embarque y no se amplía por reparación, sustitución ni por ningún periodo durante el cual la batería esté fuera de servicio.</p>
+
+      <h2>2. Qué está cubierto</h2>
+      <p>Dentro del periodo de garantía, garantizamos que las baterías están libres de <strong>defectos de materiales y mano de obra</strong>, incluidos:</p>
+      <ul>
+        <li>Defectos de fabricación en la carcasa, las rejillas, las placas, los separadores y las soldaduras de los terminales.</li>
+        <li>El incumplimiento de las especificaciones confirmadas por escrito para el pedido (voltaje, capacidad, CCA) en condiciones de ensayo estándar.</li>
+      </ul>
+
+      <h2>3. Qué no está cubierto</h2>
+      <p>La garantía no cubre fallos ni degradaciones causados por algo distinto de un defecto de fabricación. En particular, excluye:</p>
+      <ul>
+        <li><strong>Descarga profunda</strong> — dejar la batería descargada durante un periodo prolongado.</li>
+        <li><strong>Sobrecarga o carga incorrecta</strong> — uso con un sistema de carga inadecuado o defectuoso.</li>
+        <li><strong>Instalación o uso inadecuados</strong> — orientación incorrecta, conexión de terminales incorrecta o uso fuera de la aplicación prevista.</li>
+        <li><strong>Daños físicos</strong> — golpes, caídas o daños durante la manipulación tras la entrega.</li>
+        <li><strong>Desgaste y envejecimiento normales</strong> — pérdida gradual de capacidad por el uso normal a lo largo del tiempo.</li>
+        <li><strong>Almacenamiento inadecuado</strong> — almacenamiento a alta temperatura o sin la carga de mantenimiento prescrita.</li>
+        <li><strong>Descuido del electrolito</strong> — en su caso, el incumplimiento del mantenimiento del nivel correcto de electrolito.</li>
+      </ul>
+
+      <h2>4. Cómo presentar una reclamación</h2>
+      <ol>
+        <li><strong>Notifíquenos por escrito</strong> dentro del periodo de garantía, indicando el modelo, el lote / número de serie, la cantidad y una descripción del fallo.</li>
+        <li><strong>Aporte pruebas</strong> — fotografías y (cuando se solicite) una muestra devuelta para su inspección, o un informe de ensayo independiente.</li>
+        <li><strong>Inspección</strong> — inspeccionamos la batería o las pruebas y confirmamos por escrito si el defecto está cubierto.</li>
+      </ol>
+      <p>Las reclamaciones deben presentarse dentro de un plazo razonable tras la detección del defecto y, en todo caso, dentro del periodo de garantía.</p>
+
+      <h2>5. Solución</h2>
+      <p>Si se confirma que un defecto está cubierto, la solución es, a nuestra elección:</p>
+      <ul>
+        <li><strong>Sustitución</strong> de la unidad defectuosa, o</li>
+        <li><strong>Abono</strong> contra un pedido futuro, en proporción al periodo de garantía restante.</li>
+      </ul>
+      <p>No cubrimos la mano de obra, el flete, los aranceles ni otros costes incidentales, salvo que se acuerde lo contrario por escrito.</p>
+
+      <h2>6. Transferencia de la garantía</h2>
+      <p>La garantía se extiende al comprador directo conforme al contrato de venta. Si usted revende las baterías a usuarios finales, es responsable de gestionar las reclamaciones de los usuarios finales; nuestras obligaciones de garantía le corresponden a usted como comprador.</p>
+
+      <h2>7. Ausencia de otras garantías</h2>
+      <p>En la máxima medida permitida por la ley, esta garantía es la única y exclusiva garantía y sustituye a todas las demás garantías, expresas o implícitas. Nada en esta política limita los derechos que no puedan excluirse en virtud de una ley imperativa.</p>
+
+      <h2>8. Contacto</h2>
+      <p>Reclamaciones y consultas de garantía: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> o {CONTACT.phone} (WhatsApp: {CONTACT.whatsapp}).</p>
+
+    </div>
+  </section>
+</BaseLayout>

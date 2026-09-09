@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER } from '../../data/site';
+
+const title = 'Return & Refund Policy | Dingwei Battery';
+const description = 'Return and refund conditions for Dingwei Battery OEM and private-label battery orders: acceptance period, eligible cases, the return process, and who bears shipping costs.';
+const breadcrumbs = [{ label: 'Return & Refund', href: '/return-refund/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">Legal</span>
+    <h1>Return &amp; Refund Policy</h1>
+    <p class="lead">This policy sets out when and how products supplied by {MANUFACTURER.name} may be returned and how refunds or replacements are handled. Because most orders are OEM or private-label, returns are limited and subject to written agreement.</p>
+    <p class="note">Last updated: {lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. Scope</h2>
+      <p>This policy applies to OEM and private-label battery orders placed under a written sales contract or proforma invoice. Batteries are made to order, so the right of return is narrower than for standard retail goods.</p>
+
+      <h2>2. Acceptance period</h2>
+      <p>The buyer must inspect the goods on arrival and give written notice of any discrepancy (wrong model, quantity, or externally visible damage) within <strong>7 days of delivery</strong>. Claims made after this period may not be accepted.</p>
+
+      <h2>3. When returns are accepted</h2>
+      <p>We accept returns or offer a remedy in the following cases:</p>
+      <ul>
+        <li><strong>Wrong goods shipped</strong> — the model, standard or quantity does not match the written order.</li>
+        <li><strong>Specification non-conformance</strong> — the product does not meet the specifications confirmed in writing (subject to our inspection).</li>
+        <li><strong>Transport damage</strong> — where the damage occurred before risk passed to the buyer and is reported in accordance with the agreed Incoterm and insurance terms.</li>
+        <li><strong>Manufacturing defect</strong> — covered by the <a href="/warranty/">Warranty Policy</a>.</li>
+      </ul>
+
+      <h2>4. When returns are not accepted</h2>
+      <p>Returns are generally not accepted in these cases:</p>
+      <ul>
+        <li><strong>Custom / private-label products</strong> — unless the product is defective or does not conform to the confirmed specification.</li>
+        <li><strong>Specification provided by the buyer</strong> — where the buyer supplied the wrong model or specification for its application.</li>
+        <li><strong>Used or partially discharged batteries</strong> — goods that have been installed, used or charged.</li>
+        <li><strong>Late claims</strong> — discrepancies reported after the acceptance period in section 2.</li>
+      </ul>
+
+      <h2>5. Return process</h2>
+      <ol>
+        <li>Contact us in writing with the order number, model, quantity and reason, including photographs.</li>
+        <li>We confirm in writing whether the return is authorised and issue a return reference.</li>
+        <li>Return the goods only after authorisation, in the original (or equivalent protective) packaging.</li>
+        <li>We inspect the goods and confirm the outcome in writing.</li>
+      </ol>
+      <p>Do not ship batteries back without prior written authorisation; unauthorised returns may be refused.</p>
+
+      <h2>6. Refunds and replacements</h2>
+      <p>Where a return is accepted, the remedy is at our option:</p>
+      <ul>
+        <li><strong>Replacement</strong> of conforming goods, or</li>
+        <li><strong>Refund or credit</strong> for the value of the affected goods.</li>
+      </ul>
+      <p>Refunds are made by the same method used for the original payment, within a reasonable period after the return is confirmed.</p>
+
+      <h2>7. Shipping and costs</h2>
+      <p>Where the return is due to our error (wrong goods, non-conformance, covered defect), we bear the agreed return freight. Where the return is for any other reason, or where no defect is found on inspection, the buyer bears the return freight and any associated costs.</p>
+
+      <h2>8. Relationship to warranty</h2>
+      <p>Manufacturing defects discovered after acceptance are handled under the <a href="/warranty/">Warranty Policy</a>, not under this return policy.</p>
+
+      <h2>9. Contact</h2>
+      <p>Return requests: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> or {CONTACT.phone} (WhatsApp: {CONTACT.whatsapp}).</p>
+
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER } from '../../../data/site';
+
+const title = 'Política de Privacidad | Dingwei Battery';
+const description = 'Cómo Dingwei Battery y su fabricante Chengguang Power Tech Co., Ltd. recopilan, utilizan, comparten y protegen la información que usted envía a través de este sitio web, y los derechos que tiene sobre ella.';
+const breadcrumbs = [{ label: 'Privacidad', href: '/es/privacy/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">Legal</span>
+    <h1>Política de Privacidad</h1>
+    <p class="lead">Este sitio web es operado en nombre de <strong>{MANUFACTURER.name}</strong> ({MANUFACTURER.legalNameZh}). Mantenemos la recopilación de datos al mínimo y los utilizamos únicamente para responder a consultas de baterías OEM y de marca privada.</p>
+    <p class="note">Última actualización: {lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. Quiénes somos</h2>
+      <p>El responsable del tratamiento de la información personal enviada a través de este sitio web es <strong>{MANUFACTURER.name}</strong> ({MANUFACTURER.legalNameZh}), {MANUFACTURER.address}. El sitio web Dingwei Battery es la marca orientada a la exportación operada en nombre de este fabricante. Esta política describe cómo tratamos la información que usted nos proporciona aquí.</p>
+
+      <h2>2. Información que recopilamos</h2>
+      <p>Recopilamos únicamente la información que usted decide facilitarnos, normalmente a través del formulario RFQ o por contacto directo (correo electrónico, WhatsApp o teléfono). Esta puede incluir:</p>
+      <ul>
+        <li><strong>Identidad empresarial</strong> — nombre de la empresa, país o mercado y tipo de comprador (distribuidor, minorista, operador de flota, propietario de marca u otro).</li>
+        <li><strong>Requisitos de la batería</strong> — tipo de batería (SLI / AGM / EFB / Servicio Pesado), estándar (JIS / DIN / BCI / AS / SA / EN), modelo o referencia de carcasa, voltaje, capacidad (Ah), referencia CCA, volumen anual y preferencia de embalaje.</li>
+        <li><strong>Datos de contacto</strong> — su dirección de correo electrónico y su número de teléfono / WhatsApp, cuando los proporciona.</li>
+        <li><strong>Notas de texto libre</strong> — cualquier requisito adicional que incluya en el campo de notas o en sus mensajes.</li>
+      </ul>
+      <p>No recopilamos datos personales sensibles y no requerimos una cuenta ni inicio de sesión para utilizar este sitio web.</p>
+
+      <h2>3. Cómo utilizamos su información</h2>
+      <p>Utilizamos su información únicamente para responder a su consulta y para respaldar un programa OEM / de marca privada potencial o real. En concreto:</p>
+      <ul>
+        <li>Para preparar una cotización de baterías y evaluar la especificación, el volumen y la adecuación al mercado.</li>
+        <li>Para comunicarnos con usted sobre el programa solicitado, las muestras, la producción y el envío.</li>
+        <li>Para mantener registros comerciales legítimos de consultas y transacciones.</li>
+      </ul>
+      <p>No vendemos, alquilamos ni intercambiamos sus datos de contacto, y no los utilizamos para marketing de terceros.</p>
+
+      <h2>4. Base jurídica del tratamiento (EEE / Reino Unido)</h2>
+      <p>Cuando se aplique el Reglamento General de Protección de Datos de la UE (GDPR) o el GDPR del Reino Unido, nos basamos en las siguientes bases jurídicas:</p>
+      <ul>
+        <li><strong>Diligencias previas a la celebración de un contrato</strong> (Art. 6(1)(b)) — tratamiento de su consulta para preparar una cotización.</li>
+        <li><strong>Intereses legítimos</strong> (Art. 6(1)(f)) — mantenimiento de registros comerciales y protección de nuestros sistemas.</li>
+        <li><strong>Consentimiento</strong> (Art. 6(1)(a)) — cuando usted acepta expresamente recibir comunicaciones de seguimiento.</li>
+      </ul>
+
+      <h2>5. Cómo compartimos la información</h2>
+      <p>Compartimos su información únicamente en la medida necesaria para atender su consulta, y nunca con fines de publicidad de terceros. Esto puede incluir:</p>
+      <ul>
+        <li><strong>Proveedores de logística y transporte</strong> — para organizar la exportación, el envío y la entrega cuando resulte un pedido.</li>
+        <li><strong>Intermediarios bancarios y de pago</strong> — para procesar pagos documentarios (T/T o L/C).</li>
+        <li><strong>Asesores profesionales o autoridades</strong> — cuando lo exija la ley o la normativa aplicable.</li>
+      </ul>
+
+      <h2>6. Cookies y almacenamiento local</h2>
+      <p>Este sitio web no utiliza cookies publicitarias ni de seguimiento de comportamiento. Podemos utilizar analítica básica y respetuosa con la privacidad (datos de tráfico agregados) para comprender qué páginas se visitan; esto no le identifica personalmente. No se almacenan datos personales en cookies con fines de segmentación o elaboración de perfiles.</p>
+
+      <h2>7. Transferencias internacionales de datos</h2>
+      <p>Tenemos nuestra sede en China, y la información que usted envía puede tratarse en China, así como en el país donde se encuentra, para poder responderle. Cuando su información se transfiere a través de fronteras, adoptamos medidas razonables para aplicar las salvaguardias adecuadas y limitar el acceso a quienes lo necesiten.</p>
+
+      <h2>8. Conservación de datos</h2>
+      <p>Los datos de las consultas se conservan únicamente el tiempo necesario para atender la solicitud y mantener registros comerciales legítimos, tras lo cual se eliminan o anonimizan. Si una consulta no da lugar a un pedido, conservamos el registro durante un periodo limitado para gestionar cualquier seguimiento y, a continuación, lo eliminamos.</p>
+
+      <h2>9. Seguridad de los datos</h2>
+      <p>Aplicamos medidas técnicas y organizativas razonables para proteger su información frente al acceso, la alteración, la divulgación o la destrucción no autorizados. Ningún método de transmisión o almacenamiento es completamente seguro y no podemos garantizar una seguridad absoluta, pero trabajamos para mantener sus datos protegidos conforme a la práctica del sector.</p>
+
+      <h2>10. Sus derechos</h2>
+      <p>Según su ubicación, puede tener derecho a:</p>
+      <ul>
+        <li>Acceder a una copia de los datos personales que conservamos sobre usted.</li>
+        <li>Solicitar la corrección de datos inexactos.</li>
+        <li>Solicitar la eliminación de sus datos («derecho al olvido»).</li>
+        <li>Limitar u oponerse a determinados tratamientos.</li>
+        <li>Solicitar la portabilidad de los datos cuando sea aplicable.</li>
+      </ul>
+      <p>Cuando se aplique la Ley de Privacidad del Consumidor de California (CCPA/CPRA), los residentes de California tienen los correspondientes derechos de acceso, eliminación y exclusión voluntaria de la venta de información personal, teniendo en cuenta que no vendemos información personal. Para ejercer cualquiera de estos derechos, póngase en contacto con nosotros a través de los datos indicados a continuación. Responderemos dentro del plazo exigido por la legislación aplicable.</p>
+
+      <h2>11. Privacidad de los menores</h2>
+      <p>Este sitio web es un recurso entre empresas y no está dirigido a menores de 16 años. No recopilamos deliberadamente información personal de menores.</p>
+
+      <h2>12. Cambios en esta política</h2>
+      <p>Podemos actualizar esta política periódicamente. La fecha de «Última actualización» en la parte superior de esta página indica la revisión más reciente. El uso continuado del sitio web después de un cambio implica la aceptación de la política actualizada.</p>
+
+      <h2>13. Contacto</h2>
+      <p>Para cualquier pregunta o solicitud relacionada con la privacidad, póngase en contacto con nosotros en <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> o en el {CONTACT.phone} (WhatsApp: {CONTACT.whatsapp}).</p>
+
+    </div>
+  </section>
+</BaseLayout>

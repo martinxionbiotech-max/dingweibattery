@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER, TRADE_TERMS } from '../../../data/site';
+
+const title = 'Términos y Condiciones | Dingwei Battery';
+const description = 'Condiciones que rigen el uso del sitio web de Dingwei Battery y las condiciones generales de venta de los pedidos de baterías OEM y de marca privada, incluida la cotización, el pago, el MOQ, el plazo de entrega, la garantía y la legislación aplicable.';
+const breadcrumbs = [{ label: 'Términos', href: '/es/terms/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">Legal</span>
+    <h1>Términos y Condiciones</h1>
+    <p class="lead">Estas condiciones rigen tanto el uso de este sitio web como las condiciones generales en las que {MANUFACTURER.name} suministra baterías OEM y de marca privada. Las condiciones finales y vinculantes de cualquier pedido son las establecidas en el contrato de venta por escrito.</p>
+    <p class="note">Última actualización: {lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>Parte A — Condiciones de uso del sitio web</h2>
+
+      <h3>1. Aceptación de las condiciones</h3>
+      <p>Al acceder o utilizar este sitio web, usted acepta estas condiciones. Si no está de acuerdo, no utilice el sitio.</p>
+
+      <h3>2. Solo información de referencia</h3>
+      <p>Los modelos de batería, las especificaciones (voltaje, capacidad, CCA, dimensiones, peso), las condiciones comerciales y las certificaciones publicadas en este sitio se facilitan únicamente como referencia y para una evaluación preliminar. Los valores finales deben confirmarse por escrito con {MANUFACTURER.name} antes de realizar cualquier pedido. Nada en este sitio web constituye una oferta susceptible de aceptación.</p>
+
+      <h3>3. Propiedad intelectual</h3>
+      <p>Todo el contenido de este sitio web — textos, especificaciones, imágenes, logotipos y diseño — es propiedad de {MANUFACTURER.name} o de sus licenciantes. No puede reproducirlo, volver a publicarlo, distribuirlo ni utilizarlo con fines comerciales sin autorización previa por escrito.</p>
+
+      <h3>4. Ausencia de garantía sobre la información</h3>
+      <p>La información del sitio web se proporciona «tal cual», sin garantía de ningún tipo, expresa o implícita. Hacemos esfuerzos razonables por mantenerla precisa y actualizada, pero no garantizamos su integridad, exactitud ni idoneidad para ningún fin concreto.</p>
+
+      <h3>5. Limitación de responsabilidad</h3>
+      <p>En la máxima medida permitida por la ley, {MANUFACTURER.name} no será responsable de ninguna pérdida directa, indirecta, incidental o consecuente derivada del uso de este sitio web o de la confianza depositada en su contenido.</p>
+
+      <h3>6. Enlaces a terceros</h3>
+      <p>Este sitio web puede enlazar a sitios de terceros (por ejemplo, nuestra documentación técnica). No somos responsables del contenido ni de las prácticas de dichos sitios.</p>
+
+      <h2>Parte B — Condiciones generales de venta</h2>
+
+      <h3>7. Cotizaciones y formación del contrato</h3>
+      <p>Los precios nunca se publican en este sitio web y solo se facilitan previa consulta. Una cotización solo es válida durante el periodo indicado en ella. El contrato vinculante se forma cuando ambas partes firman o confirman de otro modo por escrito un pedido o una factura proforma; las confirmaciones por correo electrónico y la factura proforma son los documentos operativos.</p>
+
+      <h3>8. Precio y pago</h3>
+      <p>Salvo que se acuerde lo contrario por escrito, las condiciones de pago son: <strong>{TRADE_TERMS.payment}</strong>. El calendario de pago específico de un pedido se indica en la factura proforma.</p>
+
+      <h3>9. Cantidad mínima de pedido y plazo de entrega</h3>
+      <p>La cantidad mínima de pedido es {TRADE_TERMS.moq}. El plazo de entrega indicativo es {TRADE_TERMS.leadTime}; el calendario de producción y entrega confirmado se indica en la confirmación del pedido.</p>
+
+      <h3>10. Entrega e Incoterms</h3>
+      <p>El envío se realiza desde {MANUFACTURER.exportPorts} conforme a los Incoterms acordados por escrito ({TRADE_TERMS.incoterms}). La titularidad y el riesgo de pérdida se transmiten al comprador de acuerdo con el Incoterm acordado. Los detalles completos figuran en la <a href="/es/shipping-compliance/">Política de Envío y Cumplimiento</a>.</p>
+
+      <h3>11. Especificaciones y aceptación</h3>
+      <p>El comprador es responsable de confirmar que el modelo, el estándar, el voltaje, la capacidad, el CCA, el terminal y la polaridad solicitados se ajustan a la aplicación prevista. Cuando se acuerde, se facilitan muestras de preproducción para su aprobación. Los productos se consideran aceptados salvo que el comprador notifique por escrito cualquier discrepancia dentro del periodo indicado en la <a href="/es/return-refund/">Política de Devoluciones y Reembolsos</a>.</p>
+
+      <h3>12. Garantía</h3>
+      <p>Los productos están garantizados contra defectos de fabricación durante {TRADE_TERMS.warranty}, sujeto a las exclusiones y al proceso de reclamación de la <a href="/es/warranty/">Política de Garantía</a>. La garantía se aplica únicamente a los productos suministrados en virtud de un pedido por escrito y no cubre el mal uso, la instalación incorrecta, la descarga profunda ni los daños físicos.</p>
+
+      <h3>13. Propiedad intelectual en productos OEM / de marca privada</h3>
+      <p>Cuando el comprador aporte su propia marca, logotipo o material gráfico, conserva sus derechos sobre dicho material y declara que posee los derechos necesarios para utilizarlo. Utilizamos dicho material únicamente para fabricar los productos solicitados.</p>
+
+      <h3>14. Confidencialidad</h3>
+      <p>Cada parte se compromete a mantener confidencial la información comercial no pública de la otra parte (especificaciones, precios, volúmenes, diseños) divulgada en relación con una consulta o pedido, y a no utilizarla salvo para los fines de la transacción.</p>
+
+      <h3>15. Fuerza mayor</h3>
+      <p>Ninguna de las partes será responsable de retrasos o incumplimientos causados por acontecimientos fuera de su control razonable, incluidos desastres naturales, guerras, huelgas, congestión portuaria, restricciones epidémicas o cambios legislativos o normativos.</p>
+
+      <h3>16. Limitación de responsabilidad</h3>
+      <p>Salvo lo dispuesto en la garantía, y en la máxima medida permitida por la ley, la responsabilidad total del fabricante por cualquier pedido se limita al valor de las mercancías suministradas en virtud de dicho pedido, y excluye las pérdidas indirectas o consecuentes.</p>
+
+      <h3>17. Legislación aplicable y jurisdicción</h3>
+      <p>Estas condiciones y cualquier venta se rigen por las leyes de la República Popular China. Las controversias quedan sometidas a la jurisdicción de los tribunales de la provincia de Hebei, China. En asuntos comerciales, las partes podrán acordar alternativamente por escrito resolver una controversia mediante arbitraje.</p>
+
+      <h3>18. Contacto</h3>
+      <p>Preguntas sobre estas condiciones: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> o {CONTACT.phone}.</p>
+
+    </div>
+  </section>
+</BaseLayout>

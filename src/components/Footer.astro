@@ -68,7 +68,7 @@ const legal = t.legalLine
     <div class="site-footer__legal">
       <p>{certs}</p>
       <p>{legal}</p>
-      <p><a href={hrefFor('/privacy/')}>Privacy Policy</a> &middot; <a href={hrefFor('/terms/')}>Terms of Use</a></p>
+      <p class="site-footer__legal-links"><a href={hrefFor('/privacy/')}>{f.privacy}</a> &middot; <a href={hrefFor('/terms/')}>{f.terms}</a> &middot; <a href={hrefFor('/warranty/')}>{f.warranty}</a> &middot; <a href={hrefFor('/return-refund/')}>{f.returnRefund}</a> &middot; <a href={hrefFor('/shipping-compliance/')}>{f.shippingCompliance}</a></p>
     </div>
   </div>
 </footer>

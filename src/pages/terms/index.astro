@@ -1,37 +1,81 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { SITE, CONTACT, MANUFACTURER } from '../../data/site';
+import { SITE, CONTACT, MANUFACTURER, TRADE_TERMS } from '../../data/site';
 
-const title = 'Terms of Use | Dingwei Battery';
-const description = 'Terms governing use of the Dingwei Battery website. Specifications are for reference only and must be confirmed with the manufacturer before ordering.';
+const title = 'Terms & Conditions | Dingwei Battery';
+const description = 'Terms governing use of the Dingwei Battery website and the general conditions of sale for OEM and private-label battery orders, including quoting, payment, MOQ, lead time, warranty and governing law.';
 const breadcrumbs = [{ label: 'Terms', href: '/terms/' }];
+const lastUpdated = '2026-09-09';
 ---
 <BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
   <section class="section container">
     <span class="tag">Legal</span>
-    <h1>Terms of Use</h1>
-    <p class="lead">By using this website you agree to these terms. This site provides battery reference information and OEM program guidance; it is not a sales contract.</p>
+    <h1>Terms &amp; Conditions</h1>
+    <p class="lead">These terms govern both your use of this website and the general conditions under which {MANUFACTURER.name} supplies OEM and private-label batteries. The final, binding terms for any order are those set out in the written sales contract.</p>
+    <p class="note">Last updated: {lastUpdated}</p>
   </section>
 
   <section class="section--tight container">
     <div class="card">
-      <h2>Reference information only</h2>
-      <p>Battery models, specifications (voltage, capacity, CCA, dimensions, weight), trade terms, and certifications published on this site are provided for reference and preliminary evaluation. Final values must be confirmed in writing with {MANUFACTURER.name} before any order.</p>
 
-      <h2>No warranty</h2>
-      <p>The information is provided &ldquo;as is&rdquo; without warranty of any kind. We make reasonable efforts to keep it accurate but do not guarantee completeness, accuracy, or fitness for any particular purpose.</p>
+      <h2>Part A — Website terms of use</h2>
 
-      <h2>Intellectual property</h2>
-      <p>All content on this site is the property of {MANUFACTURER.name} or its licensors. You may not reproduce or republish it for commercial use without written permission.</p>
+      <h3>1. Acceptance of terms</h3>
+      <p>By accessing or using this website you agree to these terms. If you do not agree, please do not use the site.</p>
 
-      <h2>Limitation of liability</h2>
-      <p>To the fullest extent permitted by law, {MANUFACTURER.name} is not liable for any direct, indirect, or consequential loss arising from use of this website or reliance on its content.</p>
+      <h3>2. Reference information only</h3>
+      <p>Battery models, specifications (voltage, capacity, CCA, dimensions, weight), trade terms and certifications published on this site are provided for reference and preliminary evaluation only. Final values must be confirmed in writing with {MANUFACTURER.name} before any order. Nothing on this website constitutes an offer capable of acceptance.</p>
 
-      <h2>Governing law</h2>
-      <p>These terms are governed by the laws of the People&rsquo;s Republic of China. Disputes are subject to the jurisdiction of the courts of Hebei Province.</p>
+      <h3>3. Intellectual property</h3>
+      <p>All content on this website — text, specifications, images, logos and design — is the property of {MANUFACTURER.name} or its licensors. You may not reproduce, republish, distribute or use it for commercial purposes without prior written permission.</p>
 
-      <h2>Contact</h2>
+      <h3>4. No warranty on information</h3>
+      <p>Website information is provided &ldquo;as is&rdquo; without warranty of any kind, express or implied. We make reasonable efforts to keep it accurate and current but do not guarantee completeness, accuracy or fitness for any particular purpose.</p>
+
+      <h3>5. Limitation of liability</h3>
+      <p>To the fullest extent permitted by law, {MANUFACTURER.name} is not liable for any direct, indirect, incidental or consequential loss arising from your use of this website or reliance on its content.</p>
+
+      <h3>6. Third-party links</h3>
+      <p>This website may link to third-party sites (for example, our technical documentation). We are not responsible for the content or practices of those sites.</p>
+
+      <h2>Part B — General conditions of sale</h2>
+
+      <h3>7. Quotations and contract formation</h3>
+      <p>Prices are never published on this website and are provided only on inquiry. A quotation is valid only for the period stated in it. A binding contract is formed when both parties sign or otherwise confirm in writing an order or proforma invoice; email confirmations and the proforma invoice are the operative documents.</p>
+
+      <h3>8. Price and payment</h3>
+      <p>Unless otherwise agreed in writing, payment terms are: <strong>{TRADE_TERMS.payment}</strong>. The specific payment schedule for an order is stated on the proforma invoice.</p>
+
+      <h3>9. Minimum order quantity and lead time</h3>
+      <p>Minimum order quantity is {TRADE_TERMS.moq}. Indicative lead time is {TRADE_TERMS.leadTime}; the confirmed production and delivery schedule is stated in the order confirmation.</p>
+
+      <h3>10. Delivery and Incoterms</h3>
+      <p>Shipment is made from {MANUFACTURER.exportPorts} under the Incoterms agreed in writing ({TRADE_TERMS.incoterms}). Title and risk of loss pass to the buyer in accordance with the agreed Incoterm. Full details are in the <a href="/shipping-compliance/">Shipping &amp; Compliance Policy</a>.</p>
+
+      <h3>11. Specifications and acceptance</h3>
+      <p>The buyer is responsible for confirming that the ordered model, standard, voltage, capacity, CCA, terminal and polarity fit the intended application. Pre-production samples are provided for approval where agreed. Products are deemed accepted unless the buyer gives written notice of a discrepancy within the period stated in the <a href="/return-refund/">Return &amp; Refund Policy</a>.</p>
+
+      <h3>12. Warranty</h3>
+      <p>Products are warranted against manufacturing defects for {TRADE_TERMS.warranty}, subject to the exclusions and claim process in the <a href="/warranty/">Warranty Policy</a>. The warranty applies only to products supplied under a written order and does not cover misuse, improper installation, deep discharge or physical damage.</p>
+
+      <h3>13. Intellectual property in OEM / private-label products</h3>
+      <p>Where the buyer supplies its own brand, logo or artwork, the buyer retains its rights in that material and represents that it holds the necessary rights to use it. We use such material solely to produce the ordered products.</p>
+
+      <h3>14. Confidentiality</h3>
+      <p>Each party agrees to keep confidential the other&rsquo;s non-public business information (specifications, pricing, volumes, designs) disclosed in connection with an inquiry or order, and not to use it except for the purpose of the transaction.</p>
+
+      <h3>15. Force majeure</h3>
+      <p>Neither party is liable for delay or failure caused by events beyond its reasonable control, including natural disasters, war, strikes, port congestion, epidemic restrictions or changes in law or regulation.</p>
+
+      <h3>16. Limitation of liability</h3>
+      <p>Except as set out in the warranty, and to the fullest extent permitted by law, the manufacturer&rsquo;s aggregate liability for any order is limited to the value of the goods supplied under that order, and excludes indirect or consequential loss.</p>
+
+      <h3>17. Governing law and jurisdiction</h3>
+      <p>These terms and any sale are governed by the laws of the People&rsquo;s Republic of China. Disputes are subject to the jurisdiction of the courts of Hebei Province, China. In commercial matters the parties may alternatively agree in writing to resolve a dispute by arbitration.</p>
+
+      <h3>18. Contact</h3>
       <p>Questions about these terms: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> or {CONTACT.phone}.</p>
+
     </div>
   </section>
 </BaseLayout>
