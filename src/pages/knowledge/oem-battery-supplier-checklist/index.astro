@@ -4,67 +4,104 @@ import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, CERTIFICATIONS, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
 
-const title = 'OEM Battery Supplier Checklist | Dingwei Battery';
-const description = 'A supplier evaluation checklist for OEM battery sourcing: specification, certifications, factory capability, sampling, terms and repeatability.';
+const title = 'OEM Battery Supplier Checklist: 24-Point Evaluation | Dingwei Battery';
+const description = 'A 24-point OEM battery supplier checklist across credentials, capacity, testing, lead time and after-sales — with red flags and a pass threshold for shortlisting.';
 const articleTitle = 'OEM battery supplier checklist';
 
 const faqs = [
-  { q: 'What red flag should make me stop immediately?', a: 'A quote given before the standard family and CCA basis are fixed. If a supplier prices a &ldquo;72 Ah battery&rdquo; without asking which standard, they are guessing — and so is the price.' },
-  { q: 'Is a checklist enough to protect me?', a: 'A checklist is a filter, not a guarantee. It catches weak suppliers but does not replace testing a sample and confirming change control in the contract.' },
-  { q: 'What separates a dependable supplier from a one-sample wonder?', a: 'Repeatability. Ask how they keep the tenth container identical to the approved sample — a supplier that cannot describe its change control is a risk.' },
+  { q: 'What red flag should make me stop immediately?', a: 'A quote given before the standard family and CCA basis are fixed. If a supplier prices a “72 Ah battery” without asking which standard, they are guessing — and so is the price.' },
+  { q: 'Is a checklist enough to protect me?', a: 'A checklist is a filter, not a guarantee. It catches weak suppliers but does not replace testing a sample and confirming change control in the contract — treat a supplier failing 3 or more of the 24 checks as unqualified.' },
+  { q: 'What separates a dependable supplier from a one-sample wonder?', a: 'Repeatability. Ask how they keep the 10th container identical to the approved sample — a supplier that cannot describe its change control is a risk.' },
+  { q: 'How many items should a full supplier checklist have?', a: 'At least 20 items across five groups — credentials, capacity, testing, lead time and after-sales. A supplier that fails 3 or more of the 24 checks below should not progress to a factory audit.' },
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-10" faqs={faqs}>
   <section class="section container prose">
-    <span class="tag">Knowledge</span>
+    <span class="tag">Knowledge · Sourcing</span>
     <h1>OEM battery supplier checklist</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-01 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
-    <p class="lead">Run a supplier through these checks before you commit to an OEM battery order.</p>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
+    <p class="lead">Run a supplier through these checks before you commit to an OEM battery order. The checklist is a filter: it removes the candidates that would waste a factory audit, but it does not replace the audit itself.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> The red flag that should stop you immediately is a quote given before the standard family and CCA basis are fixed — a supplier that prices a &ldquo;72 Ah battery&rdquo; without asking which standard is guessing, and so is the price. A checklist is a filter, not a guarantee.
+      <strong>Short answer:</strong> The red flag that should stop you immediately is a quote given before the standard family and CCA basis are fixed. Use a 24-point checklist across five groups — credentials, capacity, testing, lead time and after-sales — and treat a supplier that fails 3 or more checks as unqualified. A checklist is a filter, not a guarantee: it catches weak suppliers but does not replace sampling and change control.
     </div>
 
-    <h2>Specification</h2>
-    <ul>
-      <li>Standard family confirmed: JIS, DIN, BCI, AS or SA.</li>
-      <li>Voltage, capacity (Ah) and CCA agreed in writing.</li>
-      <li>Case size, terminal type and polarity defined.</li>
-      <li>Reference model or drawing attached to the order.</li>
-    </ul>
+    <h2>How to use this checklist</h2>
+    <p>Work top to bottom. The five groups are ordered by the cost of getting each one wrong: a credential failure is the cheapest to catch and the most expensive to discover late, so it comes first. Mark each item pass or fail, and stop the process if any single item in the credentials group fails — the rest of the list is moot if the entity is not what it claims.</p>
+    <p>For the verification method behind the credentials group, see the <a href="/knowledge/battery-supplier-verification/">supplier verification</a> guide.</p>
 
-    <h2>Certifications</h2>
-    <p>Request current certificates rather than marketing claims. {MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')}.</p>
+    <h2>Group 1 — Credentials (qualification)</h2>
+    <table>
+      <thead><tr><th>#</th><th>Check</th><th>Pass signal</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Business licence with unified social credit code</td><td>Matches gsxt.gov.cn; scope is production, not trading</td></tr>
+        <tr><td>2</td><td>Registered capital</td><td>Consistent with running a production line</td></tr>
+        <tr><td>3</td><td>IATF 16949 certificate (automotive supply)</td><td>Number verifiable with the certifier; within a 3-year cycle</td></tr>
+        <tr><td>4</td><td>ISO 9001 certificate</td><td>Current, and scope actually covers batteries</td></tr>
+        <tr><td>5</td><td>Destination-market certifications (CE / SASO / etc.)</td><td>Issued by a recognised body for your market</td></tr>
+      </tbody>
+    </table>
 
-    <h2>Factory capability</h2>
-    <ul>
-      <li>Factory area and number of production lines.</li>
-      <li>Daily output versus your annual volume.</li>
-      <li>Export experience and destination markets.</li>
-    </ul>
-    <p>{MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} plant with {MANUFACTURER.productionLines} and exports to {MANUFACTURER.exportMarkets}.</p>
+    <h2>Group 2 — Capacity</h2>
+    <table>
+      <thead><tr><th>#</th><th>Check</th><th>Pass signal</th></tr></thead>
+      <tbody>
+        <tr><td>6</td><td>Factory area and production lines</td><td>Stated and consistent with the audit</td></tr>
+        <tr><td>7</td><td>Daily output vs your annual volume</td><td>Absorbs your volume without making you the smallest customer</td></tr>
+        <tr><td>8</td><td>Casting capacity</td><td>Stated and believable against equipment</td></tr>
+        <tr><td>9</td><td>Formation capacity</td><td>The real bottleneck; consistent with the output claim</td></tr>
+        <tr><td>10</td><td>Export experience and destinations</td><td>Names markets they serve and can document them</td></tr>
+      </tbody>
+    </table>
+    <p>{MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} plant with {MANUFACTURER.productionLines} producing {MANUFACTURER.dailyOutput} and exporting to {MANUFACTURER.exportMarkets}.</p>
 
-    <h2>Commercial terms</h2>
-    <ul>
-      <li>MOQ: {TRADE_TERMS.moq}.</li>
-      <li>Lead time: {TRADE_TERMS.leadTime}.</li>
-      <li>Payment: {TRADE_TERMS.payment}.</li>
-      <li>Incoterms: {TRADE_TERMS.incoterms}.</li>
-      <li>Warranty: {TRADE_TERMS.warranty}.</li>
-    </ul>
+    <h2>Group 3 — Testing</h2>
+    <table>
+      <thead><tr><th>#</th><th>Check</th><th>Pass signal</th></tr></thead>
+      <tbody>
+        <tr><td>11</td><td>CCA test method named</td><td>JIS −15°C vs EN/SAE −18°C stated, not “CCA” alone</td></tr>
+        <tr><td>12</td><td>100% end-of-line electrical test</td><td>Confirmed as a line step, not a sample</td></tr>
+        <tr><td>13</td><td>Capacity (C20) verification</td><td>Tested to 10.5 V at the 20-hour rate</td></tr>
+        <tr><td>14</td><td>Incoming material inspection</td><td>Lead alloy and separator checked on receipt</td></tr>
+        <tr><td>15</td><td>Batch traceability</td><td>A batch maps back to raw materials and date</td></tr>
+      </tbody>
+    </table>
 
-    <h2>Repeatability</h2>
-    <p>Confirm how the manufacturer keeps subsequent orders identical to the approved sample — label, packaging, specification and quality.</p>
-    <p><a href="/knowledge/how-choose-oem-battery-manufacturer/">How to choose a manufacturer &rarr;</a> · <a href="/oem/">Dingwei OEM programs &rarr;</a></p>
+    <h2>Group 4 — Lead time</h2>
+    <table>
+      <thead><tr><th>#</th><th>Check</th><th>Pass signal</th></tr></thead>
+      <tbody>
+        <tr><td>16</td><td>Production lead time</td><td>Stated as a breakdown, not a single number</td></tr>
+        <tr><td>17</td><td>Sampling lead time</td><td>Separated from mass-production lead time</td></tr>
+        <tr><td>18</td><td>Pre-shipment inspection window</td><td>Included in the schedule, not added later</td></tr>
+        <tr><td>19</td><td>MOQ logic</td><td>Explained in container terms, not a bare number</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Group 5 — After-sales & terms</h2>
+    <table>
+      <thead><tr><th>#</th><th>Check</th><th>Pass signal</th></tr></thead>
+      <tbody>
+        <tr><td>20</td><td>Warranty duration</td><td>{TRADE_TERMS.warranty}, from bill of lading date</td></tr>
+        <tr><td>21</td><td>Warranty exclusions written</td><td>Narrow, explicit, not “broad exclusions apply”</td></tr>
+        <tr><td>22</td><td>Claim handling process</td><td>Defined inspection and settlement steps</td></tr>
+        <tr><td>23</td><td>Change control (ECO)</td><td>A written process, not a verbal promise</td></tr>
+        <tr><td>24</td><td>Payment and Incoterms</td><td>{TRADE_TERMS.payment}; {TRADE_TERMS.incoterms}</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Scoring the result</h2>
+    <p>Count the failures. Zero to two failures across all five groups and you have a candidate worth auditing. Three or more failures, or any failure in the credentials group, and the candidate is unqualified — remove it before you spend an audit on it. The threshold is deliberately strict on credentials because a supplier that is not what it claims cannot be fixed by a better price.</p>
 
     <h2>Red flags</h2>
     <ul>
-      <li>No current certificates when you ask for them.</li>
+      <li>No current certificates when you ask for them, or no certificate numbers.</li>
       <li>Quoting before the standard family and CCA basis are fixed.</li>
       <li>No sample available from a recent production run.</li>
+      <li>A capacity claim the formation area cannot support.</li>
+      <li>A warranty with exclusions so broad the coverage is effectively empty.</li>
     </ul>
-    <p>If any of these appear, slow the process down and re-check the <a href="/knowledge/how-choose-oem-battery-manufacturer/">five-point decision framework</a> before placing volume.</p>
-    <p>{RELATIONSHIP}</p>
+    <p>If any of these appear, slow the process down and re-check the <a href="/knowledge/how-choose-oem-battery-manufacturer/">five-point decision framework</a> before placing volume. {RELATIONSHIP}</p>
 
     <h2>Check the quote, not just the price</h2>
     <p>A quote is a six-part scope. If any part is missing, the number is not comparable:</p>
@@ -76,8 +113,69 @@ const faqs = [
       <li><strong>Engineering support</strong> — included or separately charged.</li>
       <li><strong>Change control</strong> — a formal ECO process, not a verbal agreement.</li>
     </ul>
-    <p>Use the same six fields when you issue the <a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ</a> so suppliers are forced to quote on scope, not on a bare unit number.</p>
+    <p>Use the same six fields when you issue the <a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ</a> so suppliers are forced to quote on scope, not on a bare unit number. Then see the <a href="/knowledge/how-audit-battery-factory/">factory audit guide</a> for the on-site half of the evaluation, and the <a href="/knowledge/battery-sourcing-guide/">sourcing guide</a> for where the checklist sits in the full sequence.</p>
   </section>
+
+
+    <h2>How to score each check</h2>
+    <p>A pass/fail list is only useful with a rule for scoring. Use three marks, and be strict about the difference between them:</p>
+    <ul>
+      <li><strong>Pass</strong> &mdash; the evidence is produced and verifiable (a certificate number, a batch record, a document).</li>
+      <li><strong>Fail</strong> &mdash; the evidence is missing or does not check out.</li>
+      <li><strong>Unverified</strong> &mdash; the supplier asserts it but will not produce the evidence. Treat unverified as fail for anything in the credentials group.</li>
+    </ul>
+    <p>The discipline is in treating an assertion as evidence only when the document arrives. &ldquo;We are IATF 16949 certified&rdquo; is an assertion; a certificate number that checks out is evidence. Mark the first as unverified and move on.</p>
+
+    <h2>A worked scoring example</h2>
+    <p>Here is the checklist run against a candidate, to show what a real pass/fail pattern looks like:</p>
+    <table>
+      <thead><tr><th>Group</th><th>Checks</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Credentials (1&ndash;5)</td><td>5</td><td>4 pass, 1 unverified (destination cert)</td></tr>
+        <tr><td>Capacity (6&ndash;10)</td><td>5</td><td>4 pass, 1 fail (formation claim)</td></tr>
+        <tr><td>Testing (11&ndash;15)</td><td>5</td><td>5 pass</td></tr>
+        <tr><td>Lead time (16&ndash;19)</td><td>4</td><td>3 pass, 1 unverified</td></tr>
+        <tr><td>After-sales (20&ndash;24)</td><td>5</td><td>4 pass, 1 unverified (warranty exclusions)</td></tr>
+      </tbody>
+    </table>
+    <p>Total: 20 pass, 1 fail, 3 unverified out of 24. The single fail on formation capacity is the one to resolve first &mdash; it is a hard, checkable claim that contradicts what the numbers should show. A supplier with this pattern is worth an audit, but only after the formation question is answered. The point: you do not need a perfect score, but you need to know exactly which checks are weak before you spend money.</p>
+
+    <h2>Golden sample and pilot batch</h2>
+    <p>The checklist is the paper half of due diligence; the sample and pilot are the physical half. Once the checklist clears, lock two things before mass production:</p>
+    <ol>
+      <li><strong>The golden sample</strong> &mdash; approve a pre-production sample with its own test report, and reference it in the purchase order so every later batch is checked against a physical anchor.</li>
+      <li><strong>The pilot batch</strong> &mdash; run a small first order (or a portion of a shared container) before committing your full annual volume, so the process &mdash; not just the sample &mdash; is validated.</li>
+    </ol>
+    <p>Together they turn the checklist from a one-time filter into a control that protects every subsequent order. See the <a href="/knowledge/battery-sourcing-guide/">sourcing guide</a> for where sampling sits in the full sequence.</p>
+
+
+
+    <h2>Verify the credentials, not just collect them</h2>
+    <p>A checklist item that says &ldquo;has IATF 16949&rdquo; is only as strong as your ability to check it. Two registers turn a collected certificate into a verified one:</p>
+    <ul>
+      <li><a href="https://www.gsxt.gov.cn/index.html">gsxt.gov.cn</a> &mdash; confirms the business licence, the unified social credit code and whether the scope is production or trading.</li>
+      <li><a href="https://www.iatfglobaloversight.org/">IATF Global Oversight</a> and the issuing certification bodies &mdash; confirm an IATF 16949 number is current and its scope covers automotive batteries.</li>
+    </ul>
+    <p>The discipline is the difference between a checklist that protects you and one that just makes you feel organised. A certificate you have not verified is a claim you have not checked, and in the credentials group an unverified item should be scored as a fail.</p>
+
+    <h2>Sources and further reading</h2>
+    <ul>
+      <li><a href="https://www.iso.org/iso-9001-quality-management.html">ISO 9001</a> &mdash; the general quality-management standard that underpins the credentials group.</li>
+      <li><a href="https://www.iatfglobaloversight.org/">IATF 16949</a> &mdash; the automotive quality system, verified by certificate number against the certifier.</li>
+    </ul>
+    <p>The checklist is a filter, not a verdict. Run it, then confirm the survivors with a <a href="/knowledge/how-audit-battery-factory/">factory audit</a> and a sample before you commit volume.</p>
+
+
+
+    <h2>When to run the checklist</h2>
+    <p>Timing matters as much as the items. Run the checklist at three moments, and it protects you at each:</p>
+    <ol>
+      <li><strong>Before the audit</strong> &mdash; filter out the candidates that would waste the visit.</li>
+      <li><strong>Before the RFQ</strong> &mdash; only send a complete RFQ to suppliers that passed, so you are comparing credible scopes.</li>
+      <li><strong>Before every repeat order</strong> &mdash; re-check the credentials group, because a certificate that was current six months ago may not be now.</li>
+    </ol>
+    <p>A checklist used once is a form. A checklist used at all three moments is a control system &mdash; and the difference is whether the 10th container matches the first.</p>
+
 
   <ArticleFaq faqs={faqs} />
 

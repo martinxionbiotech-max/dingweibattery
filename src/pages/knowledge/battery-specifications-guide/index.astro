@@ -1,0 +1,204 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP, STANDARDS, MANUFACTURER } from '../../../data/site';
+
+const title = 'Automotive Battery Specifications: The Complete Reference | Dingwei Battery';
+const description = 'A complete reference to automotive battery specifications: CCA, capacity (Ah/C20/RC), JIS/DIN/BCI/EN standards, group sizes, terminals and vehicle fitment — for OEM and private-label buyers.';
+const articleTitle = 'Automotive battery specifications: the complete reference';
+
+const faqs = [
+  { q: 'What are the four specifications I must specify for an OEM battery?', a: 'Four things: (1) the standard family and case group (e.g. JIS D26 or DIN H6), (2) capacity in Ah at the C20 rate, (3) CCA and its test basis (JIS at &minus;15&deg;C vs EN/SAE at &minus;18&deg;C), and (4) terminal type and polarity. Miss any one and the battery may not fit or perform as quoted.' },
+  { q: 'Why does a JIS CCA number look higher than an EN CCA for the same battery?', a: 'Because JIS tests at &minus;15&deg;C while EN/SAE test at &minus;18&deg;C — a warmer test produces a higher number. A battery rated 600 CCA (JIS) and 540 CCA (EN) can be the same physical battery, so the values are not interchangeable.' },
+  { q: 'How many cells make up a 12V car battery?', a: 'Six series-connected lead-acid cells, each nominally 2 V, giving a 12 V system. A 24 V heavy-truck system uses twelve cells — either one 24 V battery or two 12 V batteries in series.' },
+  { q: 'Is Ah or CCA more important?', a: 'They measure different things and both belong in a specification. CCA is peak starting current for cold cranking; Ah is total stored energy (at the 20-hour rate). A cold-climate diesel needs CCA; a high-accessory vehicle needs Ah.' },
+  { q: 'Does the BCI group size apply outside North America?', a: 'The BCI group number is a North American convention, but its dimensions overlap other standards — BCI Group 48 equals DIN/EN H6/LN3 at 278 &times; 175 &times; 190 mm. Knowing the mapping lets one factory serve every market from one mould set.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-09" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Engineering</span>
+    <h1>Automotive battery specifications: the complete reference</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-09 · Sources: SAE J537, EN 50342, JIS D 5301, BCI Battery Replacement Data Book</p>
+    <p class="lead">A battery specification is a list of five decisions — standard family, case size, electrical ratings, terminal layout and technology. Get any one of them wrong and a "correct" battery will not fit, will not start the engine, or will fail early. This reference walks through each decision in the order a specification is actually written, and ends with the two things most guides leave out: the mistakes that cost real money, and the seven-line cheat sheet you can paste into an RFQ.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> A complete automotive battery specification has five parts: the standard family (JIS / DIN-EN / BCI), the case group (D26, H6/LN3, Group 48), the capacity at the 20-hour rate (Ah, measured to 10.5 V at 26.7&deg;C), the cold cranking amps with its test basis (JIS at &minus;15&deg;C vs SAE/EN at &minus;18&deg;C), and the terminal type and polarity. CCA and Ah measure different things and are not interchangeable, and neither is interchangeable across standards.
+    </div>
+
+    <h2>The five-part specification in order</h2>
+    <p>A specification is built in this order, because each decision constrains the next:</p>
+    <ol>
+      <li><strong>Standard family</strong> — decided by the vehicle&rsquo;s market (JIS for Japan/Asia, DIN/EN for Europe, BCI for North America).</li>
+      <li><strong>Case size / group</strong> — the physical footprint that must fit the tray and hold-down.</li>
+      <li><strong>Electrical ratings</strong> — capacity (Ah at C20) plus CCA on a named test basis.</li>
+      <li><strong>Terminal type and polarity</strong> — the connection that must match the vehicle&rsquo;s cables.</li>
+      <li><strong>Technology</strong> — SLI, EFB or AGM, decided by the vehicle&rsquo;s duty cycle.</li>
+    </ol>
+    <p>Skip straight to electrical ratings without confirming the standard and case, and you can produce a battery that looks right on a datasheet and fits nothing. This is where most buyer-side comparisons go wrong.</p>
+
+    <h2>Part 1 — CCA: starting power, and why the number is test-dependent</h2>
+    <p>Cold cranking amps (CCA) is the current a fully charged battery can deliver for 30 seconds at a defined cold temperature while holding a minimum voltage. Under the North American SAE J537 method that temperature is &minus;18&deg;C (0&deg;F) and the voltage must stay at or above 7.2 V. That definition — 30 seconds, &minus;18&deg;C, 7.2 V — is the reference most of the world quotes, but it is not the only one.</p>
+    <p>Three things shift the printed number: the temperature, the cut-off voltage, and the test duration.</p>
+    <table>
+      <thead><tr><th>Standard</th><th>Test temperature</th><th>Typical cut-off</th><th>Effect on the number</th></tr></thead>
+      <tbody>
+        <tr><td>JIS D 5301</td><td>&minus;15&deg;C</td><td>reference</td><td>Warmer test &rarr; higher number</td></tr>
+        <tr><td>SAE J537</td><td>&minus;18&deg;C</td><td>7.2 V</td><td>Baseline</td></tr>
+        <tr><td>EN 50342</td><td>&minus;18&deg;C</td><td>7.5 V (10 s)</td><td>Higher cut-off &rarr; higher number</td></tr>
+        <tr><td>DIN 43539</td><td>&minus;18&deg;C</td><td>9.0 V (30 s)</td><td>Higher cut-off &rarr; lower number</td></tr>
+      </tbody>
+    </table>
+    <p>The practical consequence: a JIS CCA and an EN CCA are not the same number for the same battery, and there is no universal percentage conversion. JIS tests warmer (&minus;15&deg;C), which pushes the number up; EN tests at &minus;18&deg;C but allows a higher cut-off voltage, which also shifts the result. The only safe comparison is within one standard. Read the full test-method breakdown in the <a href="/knowledge/what-is-cca/">CCA guide</a>.</p>
+    <p class="note">The related ratings CA (cranking amps, 0&deg;C / 32&deg;F) and HCA (hot cranking amps, 27&deg;C / 80&deg;F) are always higher than CCA because they are measured warmer. A 250 CCA battery carries more cold-weather starting power than a 250 CA battery — the number is only meaningful with its temperature attached.</p>
+
+    <h2>Part 2 — Capacity: Ah, C20 and RC are three different questions</h2>
+    <p>Capacity is quoted three ways, and mixing them is one of the most common sourcing errors:</p>
+    <table>
+      <thead><tr><th>Metric</th><th>What it measures</th><th>Definition</th><th>Answers</th></tr></thead>
+      <tbody>
+        <tr><td>Ah (C20)</td><td>Total stored charge</td><td>Current delivered over 20 hours to 10.5 V at 26.7&deg;C</td><td>How much energy is stored?</td></tr>
+        <tr><td>C20</td><td>The discharge rate for the Ah rating</td><td>20-hour rate (Ah &divide; 20 = amps)</td><td>At what current is Ah rated?</td></tr>
+        <tr><td>RC</td><td>Runtime under load</td><td>Minutes at a fixed 25 A load to 10.5 V</td><td>How long if charging fails?</td></tr>
+      </tbody>
+    </table>
+    <p>A 60 Ah (C20) battery is rated to deliver 3 A for 20 hours (60 &divide; 20 = 3 A) before falling below 10.5 V. At a faster discharge the same battery delivers <em>less</em> total energy — the capacity is not linear with rate. That is why a battery shows a higher Ah at C20 than at a fast rate like C5.</p>
+    <p>Reserve capacity (RC) answers a different question: how many minutes the battery can carry the vehicle&rsquo;s electrical load if the alternator fails. It is a runtime-under-load metric, measured as minutes at a fixed 25 A draw down to 10.5 V. A higher Ah does not automatically mean a higher RC — the relationship is design-dependent. See the <a href="/knowledge/battery-capacity-ah-vs-c20-vs-rc/">capacity guide</a> for the full treatment.</p>
+    <div class="takeaways">
+      <strong>Original calculation — energy content:</strong> nominal stored energy = voltage &times; capacity. A 12 V, 60 Ah battery stores about 12 &times; 60 = 720 Wh. A single 6 V, 200 Ah heavy-duty cell stores 6 &times; 200 = 1,200 Wh, and a pair in series (12 V) stores 2,400 Wh. This is why capacity alone understates a battery&rsquo;s value — you pay for energy, not for Ah in isolation.
+    </div>
+
+    <h2>Why a warmer test produces a bigger number</h2>
+    <p>The reason the temperature matters is electrochemistry, not marketing. A lead-acid battery&rsquo;s internal resistance rises as temperature falls, so at &minus;18&deg;C the cell simply cannot push out as much current while holding voltage as it can at &minus;15&deg;C. Three degrees does not sound like much, but near the bottom of the electrolyte&rsquo;s working range the difference is enough to shift the printed CCA by a visible margin.</p>
+    <p>This is the trap behind "JIS CCA looks higher". A battery labelled 600 CCA under JIS and 540 CCA under EN can be the same physical battery — the JIS number is not a better battery, it is a warmer test. The number looks attractive, but it is not directly comparable. The only correct move is to compare JIS with JIS and EN with EN, and to ask the supplier which basis the number refers to before it goes on a label.</p>
+
+    <h2>Part 3 — Standard families: JIS, DIN/EN, BCI, AS, SA</h2>
+    <p>The standard family defines case dimensions, terminal layout and the CCA test method together. {STANDARDS.join(', ')} are all in scope for {MANUFACTURER.shortName}, but a buyer must name the correct family — a "72 Ah battery" without a standard is not a complete specification.</p>
+    <table>
+      <thead><tr><th>Family</th><th>Region</th><th>Typical case references</th><th>CCA test</th></tr></thead>
+      <tbody>
+        <tr><td>JIS</td><td>Japan / Asia</td><td>B24, D23, D26, D31, N-series</td><td>&minus;15&deg;C</td></tr>
+        <tr><td>DIN / EN</td><td>Europe</td><td>H5&ndash;H8 (LN2&ndash;LN5), L3&ndash;L5</td><td>&minus;18&deg;C</td></tr>
+        <tr><td>BCI</td><td>North America</td><td>Group 24, 27, 31, 34, 35, 47, 48, 49, 65, 94R</td><td>&minus;18&deg;C (SAE)</td></tr>
+        <tr><td>AS / SA</td><td>Australia / South America</td><td>Localised equivalents of the above</td><td>Varies by market</td></tr>
+      </tbody>
+    </table>
+    <p>Families overlap at the dimension level more than buyers expect: BCI Group 48 is the same 278 &times; 175 &times; 190 mm footprint as DIN/EN H6/LN3, and Group 47 matches H5/LN2 at 242 &times; 175 &times; 190 mm. A factory with one mould set can therefore serve several markets — provided the terminal layout and CCA basis are confirmed for each. The full cross-reference is in the <a href="/knowledge/battery-group-size-chart/">group size chart</a> and the <a href="/knowledge/jis-vs-din-vs-bci/">standards comparison</a>.</p>
+
+    <h2>Who publishes the standards</h2>
+    <p>Each family is published by a named body, and the primary document is where a buyer should go for the definitive test conditions:</p>
+    <ul>
+      <li><a href="https://www.jsa.or.jp/en/">JSA (Japanese Standards Association)</a> — publishes JIS D 5301 for lead-acid starter batteries, including the &minus;15&deg;C cold-cranking test.</li>
+      <li><a href="https://www.cenelec.eu/">CENELEC</a> — publishes EN 50342 (Parts 1&ndash;4), covering test methods, dimensions and terminal marking for European starter batteries.</li>
+      <li><a href="https://www.din.de/en">DIN</a> — publishes the German national test standard for starter batteries, the source of the DIN CCA method.</li>
+      <li><a href="https://www.sae.org/standards/content/j537_201608/">SAE International</a> — publishes SAE J537, the North American CCA/CA reference (&minus;18&deg;C, 30 s, 7.2 V).</li>
+      <li><a href="https://batterycouncil.org/">Battery Council International (BCI)</a> — maintains the BCI Battery Replacement Data Book, the source of group-size dimensions.</li>
+    </ul>
+    <p>These are the references a disciplined supplier quotes from. When a spec sheet cites "JIS D 5301" or "SAE J537" rather than just "CCA", that is a signal the value is tied to a test method — and a number you can actually verify.</p>
+
+    <h2>Part 4 — Case size and dimensions</h2>
+    <p>Case size is shorthand for a fixed footprint. Within JIS it is a code like D26 (about 256 &times; 175 &times; 220 mm); within DIN/EN it is H6/LN3 or L3; within BCI it is a group number. A difference of a few millimetres in length or height stops a battery seating in the tray or clearing the hood.</p>
+    <p>Two batteries with the same case size can still differ in terminal position (L/R), so dimensions and terminals must always be confirmed together. The <a href="/knowledge/battery-dimensions-case-size/">dimensions guide</a> explains how case size also drives packaging — a 20 ft container typically holds 600&ndash;800 units once pallets and stacking limits are accounted for, which is why the group number is as much a logistics decision as a fitment one.</p>
+
+    <h2>Part 5 — Terminals and polarity</h2>
+    <p>Terminal type, position and polarity are fitment decisions, not afterthoughts. Markets use different post designs — the tapered top post (most cars), the side terminal (some North American applications) and stud/flag terminals (heavy-duty and marine). Manufacturers mark the positive side with an L or R suffix (a D23L vs a D23R). Reversing polarity on connection can damage the vehicle&rsquo;s electrical system, and modern vehicles are negative-ground — the negative terminal connects to the chassis. See the <a href="/knowledge/battery-terminal-types-polarity/">terminal and polarity guide</a>.</p>
+
+    <h2>Part 6 — Voltage: 6 V, 12 V and series logic</h2>
+    <p>A nominal 12 V battery is six series-connected 2 V cells; a 24 V heavy-truck system is twelve cells, often built as two 12 V batteries in series. The industry ran on 6 V until the mid-1950s, when higher-compression engines forced the change to 12 V. Voltage is a system decision — pairing two 6 V batteries in series gives 12 V, but wiring them in parallel keeps 6 V and doubles capacity. Choosing the wrong configuration is a common heavy-duty mistake. See the <a href="/knowledge/battery-voltage-6v-vs-12v/">6 V vs 12 V guide</a>.</p>
+
+    <h2>Part 7 — Technology: SLI, EFB, AGM</h2>
+    <p>The battery&rsquo;s technology is decided by the vehicle&rsquo;s duty cycle, not by preference. A conventional SLI (starting, lighting, ignition) battery suits a standard passenger car; an EFB (enhanced flooded) battery adds cycling durability for basic start-stop; an AGM (absorbent glass mat) battery handles the frequent cycling of advanced start-stop and high electrical demand. Fitting an SLI battery where the vehicle cycles deeply will fail it early. The <a href="/knowledge/battery-applications-by-vehicle/">application guide</a> maps each vehicle class to its technology.</p>
+
+    <h2>The specification decision tree</h2>
+    <ol>
+      <li><strong>Which market is the vehicle from?</strong> Japan/Asia &rarr; JIS; Europe &rarr; DIN/EN; North America &rarr; BCI.</li>
+      <li><strong>What case group?</strong> Read the OE battery label or measure the tray, then map to D26 / H6 / Group 48.</li>
+      <li><strong>What capacity and CCA?</strong> Confirm Ah at C20 and CCA with its test basis, not one number alone.</li>
+      <li><strong>What terminal and polarity?</strong> Top post, side terminal or stud, plus L/R position.</li>
+      <li><strong>What technology?</strong> SLI, EFB or AGM, matched to the duty cycle.</li>
+    </ol>
+    <p class="note">The terminal type and polarity on {STANDARDS.join(' / ')} reference models are marked "confirm on inquiry" rather than guessed. That is deliberate: a wrong terminal turns a correct battery into a wrong battery, and the manufacturer confirms it against your vehicle or fleet requirement before production.</p>
+
+    <h2>A worked example: three vehicles, three specifications</h2>
+    <p>The difference between the standards stops being abstract once you write three real specifications side by side:</p>
+    <table>
+      <thead><tr><th>Vehicle</th><th>Market</th><th>Standard</th><th>Case group</th><th>Ah (C20)</th><th>CCA (basis)</th><th>Technology</th></tr></thead>
+      <tbody>
+        <tr><td>Toyota Hilux (pickup)</td><td>Japan / Asia</td><td>JIS</td><td>D26</td><td>72</td><td>490 (JIS &minus;15&deg;C)</td><td>SLI</td></tr>
+        <tr><td>VW Golf (start-stop)</td><td>Europe</td><td>DIN/EN</td><td>H6 / LN3</td><td>70</td><td>640 (EN &minus;18&deg;C)</td><td>EFB / AGM</td></tr>
+        <tr><td>Ford F-150 (pickup)</td><td>North America</td><td>BCI</td><td>Group 65</td><td>70</td><td>650 (SAE &minus;18&deg;C)</td><td>SLI / AGM</td></tr>
+      </tbody>
+    </table>
+    <p>All three are roughly 70&ndash;72 Ah starting batteries, yet no two are interchangeable. The Hilux battery is 256 &times; 175 &times; 220 mm; the Golf battery is 278 &times; 175 &times; 190 mm; the F-150 battery (Group 65) is about 306 &times; 190 &times; 192 mm. Three different boxes, three different CCA test bases, three different terminal layouts — and a buyer who orders "a 72 Ah battery" gets whichever one the supplier happens to quote. Naming the standard and the case group removes the ambiguity in one line.</p>
+    <p class="note">The Hilux 80D26 example (72 Ah, 490 CCA JIS reference) is a Dingwei catalogue value; the Golf H6 and F-150 Group 65 figures are typical references from the standard families. Confirm the final values against the specific vehicle and model.</p>
+
+    <h2>Seven specification errors that cost money</h2>
+    <p>These are the recurring mistakes seen in real RFQs — each one traces back to treating one part of the specification as the whole:</p>
+    <ol>
+      <li><strong>Quoting Ah without the standard</strong> — "72 Ah" is three different batteries across JIS, DIN and BCI. Always pair the capacity with the family and case group.</li>
+      <li><strong>Comparing CCA across standards</strong> — a JIS CCA and an EN CCA are not the same number for the same battery. Compare within one standard only.</li>
+      <li><strong>Ignoring terminal polarity until it is too late</strong> — the battery fits the tray but the positive post is on the wrong side, and the cables will not reach. Confirm L/R before production.</li>
+      <li><strong>Specifying capacity for a vehicle that cycles</strong> — fitting an SLI battery to a start-stop vehicle means early failure. Match technology to the duty cycle, not just Ah to Ah.</li>
+      <li><strong>Forgetting the 24 V system</strong> — heavy trucks are not "bigger 12 V". They run 24 V, usually two 12 V batteries in series. Quoting one 12 V battery is half an order.</li>
+      <li><strong>Using total height as case height</strong> — a few millimetres of terminal height can stop the hood closing. Confirm height-to-case-top versus total height.</li>
+      <li><strong>Treating CCA as a quality score</strong> — beyond the OEM requirement, a higher CCA buys cost and plate surface you will not use. CCA is a fitment criterion, not a ranking.</li>
+    </ol>
+    <p>The common thread: the specification is one decision with five parts, and the failure is almost always in the parts that are <em>not</em> on the headline — the standard, the terminal, the polarity, the technology. That is why a disciplined supplier asks all five before quoting.</p>
+
+    <h2>Verifying a specification before you sign</h2>
+    <p>Once the five parts are written, verify them in this order — the order that catches the most expensive mistakes first:</p>
+    <ol>
+      <li><strong>Physical fit</strong> — hold the case dimensions against the tray, hold-down and hood clearance. This is the cheapest mistake to avoid and the most expensive to ship.</li>
+      <li><strong>Terminal and polarity</strong> — confirm the type (top post / side / stud), the L/R position and the ground convention against the actual vehicle.</li>
+      <li><strong>Electrical ratings</strong> — confirm Ah is at C20, confirm CCA is on a named test basis, and ask whether the values are nominal or batch-tested.</li>
+      <li><strong>Technology</strong> — confirm SLI, EFB or AGM against the vehicle&rsquo;s duty cycle, not the buyer&rsquo;s preference.</li>
+      <li><strong>Voltage</strong> — confirm 6 V, 12 V or 24 V, and whether the application wires batteries in series or parallel.</li>
+    </ol>
+    <p>If any of the five cannot be confirmed, that part is a risk to carry — not a detail to skip. The specification is only as strong as its weakest confirmed part, and a supplier who confirms all five is doing the job; one who quotes on Ah alone is not.</p>
+
+    <h2>How the specification connects to price and lead time</h2>
+    <p>The specification is not just a fitment exercise — it is the thing that drives cost and schedule. Three parts matter most commercially:</p>
+    <ul>
+      <li><strong>Case group and mould</strong> — a standard group (D26, H6, Group 48) runs on an existing mould with no tooling wait. An uncommon or custom case adds tooling cost and lead time, which is why most OEM programs start from a standard footprint.</li>
+      <li><strong>Capacity and CCA</strong> — more lead and plate surface mean more material cost. A 60 Ah and a 90 Ah battery are not a 50% price difference — the cost scales roughly with lead content, but the engineering, terminals and case are largely fixed.</li>
+      <li><strong>Technology</strong> — AGM costs more than EFB, which costs more than SLI, because of the separator and plate design. The step is for durability, not capacity, so it should be justified by the vehicle&rsquo;s duty cycle.</li>
+    </ul>
+    <p>The practical consequence: a specification that is fully confirmed before quoting — standard, case, Ah, CCA basis, terminal and technology — moves straight to sampling and production. A specification with one unconfirmed part loops back through questions and re-quotes, and that loop is where lead time is lost. Confirming the five parts upfront is the cheapest way to shorten the order-to-shipment time.</p>
+    <p>When the specification is settled, the next step is a clean RFQ — see the <a href="/knowledge/oem-battery-rfq-guide/">RFQ guide</a> and the <a href="/knowledge/oem-battery-specification-guide/">OEM specification guide</a> in the sourcing cluster.</p>
+
+    <h2>The specification cheat sheet</h2>
+    <p>A single reference table to copy into your RFQ:</p>
+    <table>
+      <thead><tr><th>Decision</th><th>What to write</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Standard family</td><td>JIS / DIN-EN / BCI / AS / SA</td><td>JIS</td></tr>
+        <tr><td>Case group</td><td>Code + footprint</td><td>D26 (256 &times; 175 &times; 220 mm)</td></tr>
+        <tr><td>Capacity</td><td>Ah at C20</td><td>72 Ah (C20)</td></tr>
+        <tr><td>CCA</td><td>Value + test basis</td><td>490 A (JIS &minus;15&deg;C)</td></tr>
+        <tr><td>Terminal</td><td>Type + L/R position</td><td>Top post, R (positive right)</td></tr>
+        <tr><td>Voltage</td><td>System voltage</td><td>12 V</td></tr>
+        <tr><td>Technology</td><td>SLI / EFB / AGM</td><td>SLI</td></tr>
+      </tbody>
+    </table>
+    <p>Send these seven lines and the supplier can quote the right battery on the first pass. Send only "72 Ah" and the conversation has to start over.</p>
+
+    <h2>How to use this reference</h2>
+    <p>{RELATIONSHIP} The pages below each drill into one part of the specification. Use the pillar to decide the order of decisions, then follow the cluster links for the details:</p>
+    <ul>
+      <li><a href="/knowledge/what-is-cca/">CCA: test methods and why the number differs</a></li>
+      <li><a href="/knowledge/battery-capacity-ah-vs-c20-vs-rc/">Capacity: Ah vs C20 vs RC</a></li>
+      <li><a href="/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI: the three families</a></li>
+      <li><a href="/knowledge/battery-dimensions-case-size/">Dimensions and case size</a></li>
+      <li><a href="/knowledge/battery-terminal-types-polarity/">Terminal types and polarity</a></li>
+      <li><a href="/knowledge/battery-group-size-chart/">Battery group size chart (dataset)</a></li>
+      <li><a href="/knowledge/battery-voltage-6v-vs-12v/">6 V vs 12 V systems</a></li>
+      <li><a href="/knowledge/battery-applications-by-vehicle/">Applications by vehicle type</a></li>
+    </ul>
+    <p><a href="/data/">Browse model specifications &rarr;</a> · <a href="/tools/compare/">Compare two models &rarr;</a> · <a href="/oem/car-batteries/">Start an OEM specification &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Send us a complete specification to quote" />
+</ArticleLayout>

@@ -1,0 +1,122 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Group Size Chart: BCI, JIS & DIN Case Sizes | Dingwei Battery';
+const description = 'A battery group size chart mapping BCI group numbers, JIS D/B codes and DIN/EN H/LN codes to dimensions and vehicle types — the core fitment dataset for OEM battery buyers.';
+const articleTitle = 'Battery group size chart';
+
+const faqs = [
+  { q: 'What are the dimensions of a JIS D26 battery?', a: 'About 256 &times; 175 &times; 220 mm (L &times; W &times; H). It is the standard case for mid-size pickups and SUVs in the Japanese/Asian market, typically 60&ndash;84 Ah.' },
+  { q: 'Is a DIN H6 battery the same size as a BCI Group 48?', a: 'Yes — both are 278 &times; 175 &times; 190 mm. H6 is the EN/DIN code and Group 48 is the North American BCI code for the same footprint, so one mould serves both markets.' },
+  { q: 'What BCI group does a European H7/LN4 start-stop battery correspond to?', a: 'BCI Group 94R, at 315 &times; 175 &times; 190 mm. This is the most common AGM start-stop footprint in European vehicles.' },
+  { q: 'How many batteries fit in a 20 ft container?', a: 'Typically 600&ndash;800 units once pallets, packaging and stacking limits are accounted for — for lead-acid, palletisation and safe stacking height, not raw weight, are the binding constraints at that count.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-09" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Engineering</span>
+    <h1>Battery group size chart</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-09 · Sources: BCI Battery Replacement Data Book, EN 50342, JIS D 5301, Dingwei model database</p>
+    <p class="lead">"Group size" is the industry&rsquo;s shorthand for a battery&rsquo;s physical footprint. Three naming systems describe largely the same boxes — BCI group numbers in North America, JIS D/B codes in Japan/Asia, and DIN/EN H and L codes in Europe. This chart maps them to dimensions and vehicle types so a buyer can speak one factory&rsquo;s language from any market.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> A battery group size is a fixed L &times; W &times; H footprint with a market-specific name. The same box is Group 48 in BCI, H6/LN3 in DIN/EN, at 278 &times; 175 &times; 190 mm; the smaller H5/LN2 (Group 47) is 242 &times; 175 &times; 190 mm; and the JIS D26 is 256 &times; 175 &times; 220 mm. Confirming the group is the first fitment check, before any electrical rating.
+    </div>
+
+    <h2>The master cross-reference</h2>
+    <table>
+      <thead><tr><th>Footprint (L&times;W&times;H, mm)</th><th>BCI group</th><th>JIS code</th><th>DIN/EN code</th><th>Typical use</th></tr></thead>
+      <tbody>
+        <tr><td>238 &times; 129 &times; 220</td><td>&mdash;</td><td>B24</td><td>&mdash;</td><td>Asian compact, hybrid auxiliary</td></tr>
+        <tr><td>230 &times; 175 &times; 220</td><td>&mdash;</td><td>D23</td><td>&mdash;</td><td>Mid-size sedan (JIS)</td></tr>
+        <tr><td>256 &times; 175 &times; 220</td><td>&mdash;</td><td>D26</td><td>&mdash;</td><td>Pickup / SUV (JIS)</td></tr>
+        <tr><td>305 &times; 175 &times; 220</td><td>&mdash;</td><td>D31</td><td>&mdash;</td><td>Heavy SUV / 4WD / light diesel</td></tr>
+        <tr><td>242 &times; 175 &times; 190</td><td>47</td><td>&mdash;</td><td>H5 / LN2</td><td>European compact / start-stop</td></tr>
+        <tr><td>278 &times; 175 &times; 190</td><td>48</td><td>&mdash;</td><td>H6 / LN3 / L3</td><td>European mid-size / start-stop</td></tr>
+        <tr><td>315 &times; 175 &times; 190</td><td>94R</td><td>&mdash;</td><td>H7 / LN4 / L4</td><td>European SUV / premium AGM</td></tr>
+        <tr><td>354 &times; 175 &times; 190</td><td>49</td><td>&mdash;</td><td>H8 / LN5 / L5</td><td>European large / high load</td></tr>
+        <tr><td>260 &times; 173 &times; 200</td><td>34</td><td>&mdash;</td><td>&mdash;</td><td>North American car / SUV</td></tr>
+        <tr><td>260 &times; 173 &times; 225</td><td>24</td><td>&mdash;</td><td>&mdash;</td><td>North American car / light truck</td></tr>
+        <tr><td>306 &times; 173 &times; 225</td><td>27</td><td>&mdash;</td><td>&mdash;</td><td>North American truck / marine</td></tr>
+        <tr><td>330 &times; 173 &times; 240</td><td>31</td><td>&mdash;</td><td>&mdash;</td><td>Heavy-duty / RV / marine</td></tr>
+        <tr><td>406&ndash;518 &times; 173&ndash;276 &times; 209&ndash;234</td><td>&mdash;</td><td>N100&ndash;N200</td><td>&mdash;</td><td>Truck / bus / commercial</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Dimensions are the standard nominal footprints; individual manufacturers may vary by a few millimetres. Confirm exact L &times; W &times; H and terminal position against the specific model before ordering. The <a href="/knowledge/battery-dimensions-case-size/">dimensions guide</a> explains why a few millimetres matter.</p>
+
+    <h2>Reading the three naming systems</h2>
+    <ul>
+      <li><strong>JIS D/B codes</strong> — the number after D or B relates to the case size: B24 is the narrow compact box (129 mm wide), D23 the short sedan box, D26 the standard pickup/SUV box, D31 the long 4WD/diesel box. The two-digit prefix (55D23, 65D26, 80D26, 105D31) is a performance/capacity grade, not a size.</li>
+      <li><strong>DIN/EN H and L codes</strong> — H5&ndash;H8 (equivalently LN2&ndash;LN5) are the modern European boxes, 175 mm wide and 190 mm tall, distinguished by length (242&rarr;354 mm). L3&ndash;L5 are the older DIN numbering for the same lengths. H6/LN3 and L3 are the same 278 mm box.</li>
+      <li><strong>BCI group numbers</strong> — arbitrary integers assigned by Battery Council International; the group maps to a fixed footprint and terminal layout. Group 48 and Group 94R are the most common European-vehicle footprints in North America.</li>
+    </ul>
+    <p>The overlap is the useful part: H6/LN3/L3 = Group 48 at 278 mm; H7/LN4/L4 = Group 94R at 315 mm. One mould, several markets, three labels. See the <a href="/knowledge/jis-vs-din-vs-bci/">standards comparison</a> for the terminal and test-method differences that still separate the families.</p>
+
+    <h2>Why the group number is also a logistics decision</h2>
+    <p>Group size sets the packaging footprint, which sets how many units fit on a pallet and in a container. A 20 ft container typically carries 600&ndash;800 automotive batteries once pallets, cartons, separators and stacking limits are counted. For lead-acid the interesting point is that <em>weight is not the binding constraint at that count</em> — 800 units at an average 15 kg is about 12,000 kg, well under a 20 ft container&rsquo;s roughly 25,000 kg payload. Palletisation, carton dimensions and safe stacking height (batteries are heavy and acid-filled, so they are not stacked high) cap the count first. This is why MOQ is quoted per container, not per pallet.</p>
+
+    <div class="takeaways">
+      <strong>Original calculation — weight vs volume:</strong> 800 units &times; ~15 kg average &asymp; 12,000 kg &asymp; 12 tonnes, against a 20 ft container payload of roughly 25 tonnes. So volume and stacking — not weight — are the binding constraints, which is the opposite of most lead-heavy thinking. The practical ceiling is packaging, not mass.
+    </div>
+
+    <h2>More BCI groups worth knowing</h2>
+    <p>Beyond the European-mapped groups, several North American groups appear constantly in replacement and export work:</p>
+    <table>
+      <thead><tr><th>BCI group</th><th>Footprint (mm)</th><th>Footprint (in)</th><th>Typical use</th></tr></thead>
+      <tbody>
+        <tr><td>35</td><td>230 &times; 175 &times; 225</td><td>9.06 &times; 6.88 &times; 8.88</td><td>Compact cars (Honda, Toyota NA)</td></tr>
+        <tr><td>65</td><td>306 &times; 190 &times; 192</td><td>12.06 &times; 7.5 &times; 7.56</td><td>Ford trucks / SUVs</td></tr>
+        <tr><td>75</td><td>230 &times; 179 &times; 186</td><td>9.06 &times; 7.06 &times; 7.31</td><td>GM compact / mid-size</td></tr>
+        <tr><td>78</td><td>260 &times; 179 &times; 186</td><td>10.25 &times; 7.06 &times; 7.31</td><td>GM trucks (side terminal)</td></tr>
+        <tr><td>51 / 51R</td><td>238 &times; 129 &times; 223</td><td>9.37 &times; 5.06 &times; 8.81</td><td>Compact / hybrid auxiliary</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Dimensions are nominal from the BCI group chart; confirm the exact figure and terminal layout for the specific model.</p>
+
+    <h2>Heavy-duty N-series at a glance</h2>
+    <p>The JIS N-series is the truck-and-bus case family, and it is worth reading separately because the numbers scale with vehicle size:</p>
+    <table>
+      <thead><tr><th>Case</th><th>Footprint (mm)</th><th>Capacity (Ah)</th><th>CCA (reference)</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td>N100</td><td>406 &times; 173 &times; 209</td><td>100</td><td>740 (SAE)</td><td>Truck / bus / light commercial</td></tr>
+        <tr><td>N150</td><td>508 &times; 220 &times; 234</td><td>160</td><td>1050 (SAE)</td><td>Heavy truck / bus</td></tr>
+        <tr><td>N200</td><td>518 &times; 276 &times; 216</td><td>200</td><td>1100 (SAE)</td><td>Heavy truck / bus</td></tr>
+      </tbody>
+    </table>
+    <p>These are single 12 V units; a 24 V truck takes two in series. See the <a href="/knowledge/battery-voltage-6v-vs-12v/">6 V vs 12 V guide</a> for the series logic.</p>
+
+    <h2>Vehicle-to-group examples</h2>
+    <p>Mapping a few well-known vehicles to their group makes the chart concrete:</p>
+    <ul>
+      <li><strong>Toyota Hilux / Fortuner (Asia)</strong> — JIS D26 (80D26, ~72 Ah) or D31 for diesels.</li>
+      <li><strong>Toyota Camry / Honda Accord (Asia)</strong> — JIS D23 (55D23/65D23, ~60 Ah).</li>
+      <li><strong>Small Asian compact / hybrid auxiliary</strong> — JIS B24.</li>
+      <li><strong>VW Golf / Audi A3 (Europe)</strong> — DIN H5/LN2 or H6/LN3, EFB or AGM.</li>
+      <li><strong>BMW / Mercedes (Europe)</strong> — DIN H7/LN4 or H8/LN5, AGM.</li>
+      <li><strong>Ford F-150 (North America)</strong> — BCI Group 65.</li>
+      <li><strong>Honda Civic / Toyota Corolla (North America)</strong> — BCI Group 35 or 51R.</li>
+    </ul>
+    <p class="note">These are common OEM conventions and can vary by year, engine and trim — always confirm against the vehicle&rsquo;s actual label or tray.</p>
+
+    <h2>Bigger group is not automatically bigger capacity</h2>
+    <p>It is tempting to read the chart left-to-right and assume a larger footprint means more amp-hours, but the two are correlated, not identical. A Group 24 (260 mm) and a Group 34 (260 mm) share a length but differ in height, and each is offered in a range of Ah ratings. The group fixes the <em>shape</em>; the Ah rating fixes the <em>lead content within that shape</em>. This is why a buyer should quote both — the group for fit, and the Ah for performance — rather than assuming one implies the other.</p>
+
+    <h2>How to pick the right group</h2>
+    <ol>
+      <li>Read the OE battery&rsquo;s label or measure the tray (L &times; W &times; H, including hold-down and hood clearance).</li>
+      <li>Map the footprint to the group number in the table above.</li>
+      <li>Confirm terminal position (L/R) and type — two batteries in the same group can still differ here.</li>
+      <li>Confirm electrical ratings (Ah at C20, CCA with its test basis) <em>after</em> the physical fit is locked.</li>
+    </ol>
+
+    <p>{RELATIONSHIP} Every model in the <a href="/data/">model database</a> carries its case size and dimensions. Filter by case code to see the full range within each group.</p>
+    <p><a href="/data/">Browse models by group size &rarr;</a> · <a href="/tools/compare/">Compare two models &rarr;</a> · <a href="/contact/">Confirm fitment &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Get the exact group size for your market" />
+</ArticleLayout>

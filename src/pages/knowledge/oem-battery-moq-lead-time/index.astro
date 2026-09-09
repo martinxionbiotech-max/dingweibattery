@@ -4,55 +4,145 @@ import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
 
-const title = 'OEM Battery MOQ & Lead Time Explained | Dingwei Battery';
-const description = 'What MOQ and lead time mean for OEM battery orders, and how they are set — with Chengguang Power Tech Co., Ltd.’s reference terms.';
+const title = 'OEM Battery MOQ & Lead Time: The Container Math | Dingwei Battery';
+const description = 'Why OEM battery MOQ follows the 20ft container, how lead time breaks down into production, shipping and clearance, and how to compress both.';
 const articleTitle = 'OEM battery MOQ & lead time';
 
 const faqs = [
-  { q: 'Why is battery MOQ tied to a container?', a: 'Batteries are heavy, so a 20ft container hits its weight limit before its volume limit. MOQ follows the container naturally, and mixing models fills it efficiently.' },
-  { q: 'Can I get a lower MOQ for a first order?', a: 'Sometimes — discuss a prototype or pilot batch before committing to the full production MOQ. Expect a higher unit cost at low volume.' },
-  { q: 'Does lead-acid production have a seasonal cycle?', a: 'No. Unlike agricultural products, lead-acid batteries are produced year-round, so lead time is stable rather than seasonal.' },
+  { q: 'Why is battery MOQ tied to a container?', a: 'Freight cost per unit collapses at a full container load, and pallet stacking caps the practical load — a 20ft container holds about 33 m³ but starter batteries load to roughly 600–800 units long before volume or the 28,000 kg payload limit binds.' },
+  { q: 'Can I get a lower MOQ for a first order?', a: 'Sometimes — discuss a prototype or pilot batch before committing to the full production MOQ. Expect the freight per unit to run 2–3× the full-container rate at low volume.' },
+  { q: 'Does lead-acid production have a seasonal cycle?', a: 'No. Unlike agricultural products, lead-acid batteries are produced year-round on 365-day lines, so lead time is stable rather than seasonal.' },
+  { q: 'How does a 30–45 day lead time actually break down?', a: 'Roughly 3–5 days for order confirmation and sampling approval, 20–30 days of production, 2–3 days of pre-shipment inspection, then 3–5 weeks of ocean freight and clearance on top of the stated production lead time.' },
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-10" faqs={faqs}>
   <section class="section container prose">
-    <span class="tag">Knowledge</span>
-    <h1>OEM battery MOQ &amp; lead time</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-01 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
-    <p class="lead">MOQ and lead time are set by production economics and container logistics, not by negotiation alone. Here is how they work.</p>
+    <span class="tag">Knowledge · Sourcing</span>
+    <h1>OEM battery MOQ & lead time</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Source: Chengguang Power Tech Co., Ltd. technical documentation; export logistics practice</p>
+    <p class="lead">MOQ and lead time are set by production economics and container logistics, not by negotiation alone. Here is the arithmetic behind both, and how to move them in your favour.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> OEM battery MOQ follows the container because batteries are heavy — a 20ft container hits its weight limit before its volume limit, so MOQ is tied to weight, not space. Mixing models into one container keeps unit cost down, and lead time is stable year-round because lead-acid has no seasonal cycle.
+      <strong>Short answer:</strong> OEM battery MOQ follows the 20ft container — about 33 m³ and a 28,000 kg payload — but pallet stacking caps the practical load at roughly 600–800 units long before either limit binds, which is why MOQ is a container-logic number. A 30–45 day lead time breaks into 3–5 days confirmation, 20–30 days production and 2–3 days pre-shipment inspection, with 3–5 weeks of freight on top.
     </div>
 
     <h2>What drives MOQ</h2>
-    <p>Battery MOQ is usually tied to a container load, because shipping cost per unit collapses at FCL. {MANUFACTURER.name}&rsquo;s reference MOQ is {TRADE_TERMS.moq}.</p>
+    <p>Battery MOQ is tied to a container load because shipping cost per unit collapses at FCL. {MANUFACTURER.name}’s reference MOQ is {TRADE_TERMS.moq}.</p>
+
+    <h2>The container math, done honestly</h2>
+    <p>Why 600–800 units and not 1,400? Run the three limits:</p>
+    <table>
+      <thead><tr><th>Limit</th><th>Calculation</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Volume</td><td>20ft container ≈ 33 m³ ÷ ~0.011 m³ per boxed battery</td><td>≈ 3,000 units</td></tr>
+        <tr><td>Payload</td><td>≈ 28,000 kg ÷ ~19 kg per battery</td><td>≈ 1,470 units</td></tr>
+        <tr><td>Stacking / handling</td><td>Pallet load limit and carton crush strength cap the practical load</td><td>≈ 600–800 units</td></tr>
+      </tbody>
+    </table>
+    <p>The honest conclusion: for starter batteries the binding constraint is neither raw volume nor raw weight — it is pallet stacking and carton crush strength. A pallet holding 70 batteries at 19 kg each already weighs about 1,330 kg, near the practical handling limit, and you cannot stack cartons indefinitely without crushing the bottom layer. That is why the “weight before volume” intuition is right at the pallet level even though the container itself could carry more. The MOQ is not a marketing number — it is the safe, economical load.</p>
 
     <h2>What drives lead time</h2>
-    <p>Lead time covers order confirmation, production and pre-shipment testing. {MANUFACTURER.name}&rsquo;s reference lead time is {TRADE_TERMS.leadTime}; custom-label orders add sampling time.</p>
+    <p>Lead time covers order confirmation, production and pre-shipment testing. {MANUFACTURER.name}’s reference lead time is {TRADE_TERMS.leadTime}; custom-label orders add sampling time. Here is the breakdown:</p>
+    <table>
+      <thead><tr><th>Stage</th><th>Typical days</th><th>What it covers</th></tr></thead>
+      <tbody>
+        <tr><td>Order confirmation</td><td>3–5</td><td>Specification lock, deposit, sampling approval</td></tr>
+        <tr><td>Production</td><td>20–30</td><td>Casting through formation and sealing</td></tr>
+        <tr><td>Pre-shipment inspection</td><td>2–3</td><td>Final test, packaging check, loading</td></tr>
+        <tr><td>Ocean freight + clearance</td><td>3–5 weeks</td><td>Transit, customs and inland delivery (outside the 30–45 day figure)</td></tr>
+      </tbody>
+    </table>
+    <p class="note">The quoted 30–45 days is production lead time, not door-to-door. Freight and clearance add 3–5 weeks on top — a distinction buyers miss when they promise a launch date to a customer.</p>
 
     <h2>How to reduce both</h2>
     <ul>
-      <li>Order in full container multiples</li>
-      <li>Consolidate mixed models into one container</li>
-      <li>Confirm specification early to avoid sampling delays</li>
-      <li>Plan around the harvest-free, year-round production of lead-acid batteries</li>
+      <li>Order in full container multiples — FCL pricing is the single biggest unit-cost lever.</li>
+      <li>Consolidate mixed models into one container — spreads the fixed freight across more line items.</li>
+      <li>Confirm specification early — sampling delays are the most avoidable lead-time cost.</li>
+      <li>Plan around the harvest-free, year-round production of lead-acid batteries.</li>
     </ul>
-    <p><a href="/contact/">Confirm MOQ and lead time &rarr;</a> · <a href="/knowledge/how-oem-battery-programs-work/">How OEM programs run &rarr;</a></p>
-
-    <h2>Container economics in one line</h2>
-    <p>Unit cost drops when you fill a 20ft container because the fixed export and freight overhead is spread across more batteries. Once the container is full, adding more models to that same load usually keeps unit cost lower than splitting into part loads.</p>
-    <p>Send one complete volume and model plan in your <a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ</a> so the manufacturer can build the container efficiently.</p>
-    <p>{RELATIONSHIP}</p>
-
-    <h2>Lead-acid is heavy: the container math</h2>
-    <p>Lead-acid batteries are dense, so a 20ft container usually reaches its weight limit before its volume limit. MOQ therefore follows the container rather than a marketing number. Mixing several models into one FCL spreads that weight and freight across more line items, which usually keeps unit cost lower than splitting part loads.</p>
-    <p>{MANUFACTURER.name}&rsquo;s reference MOQ of {TRADE_TERMS.moq} is a container-logic term, not a per-model minimum. Send the full model mix in the <a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ</a> so the load can be planned correctly.</p>
+    <p><a href="/contact/">Confirm MOQ and lead time →</a> · <a href="/knowledge/how-oem-battery-programs-work/">How OEM programs run →</a></p>
 
     <h2>Why lead-acid has no seasonal cycle</h2>
-    <p>Lead-acid production is not tied to a harvest or seasonal raw-material window. The manufacturing line can run through the year, which keeps lead time more stable than seasonal categories. For an importer, that means a confirmed production lead time is a planning variable, not a harvest risk.</p>
-    <p>Use that stability when you set the volume plan in the <a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ</a> or walk through the <a href="/knowledge/how-oem-battery-programs-work/">OEM program phases</a>.</p>
+    <p>Lead-acid production is not tied to a harvest or seasonal raw-material window. The manufacturing line can run through the year, which keeps lead time more stable than seasonal categories. For an importer, that means a confirmed production lead time is a planning variable, not a harvest risk — and the calendar is something you control, not something you wait on.</p>
+
+    <h2>MOQ reflects inventory pressure, not just freight</h2>
+    <p>Here is the part suppliers do not volunteer: MOQ is not only about your freight economics — it is also about the supplier’s inventory. A factory pushing a very high MOQ may be clearing stock or batching production for its own efficiency, not protecting your unit cost. Ask for the MOQ <em>logic</em> — container terms, pallet load, and the model mix — rather than accepting a bare number. A supplier that explains the container math is protecting your cost; one that just names a number may be protecting its own.</p>
+
+    <h2>Where MOQ and lead time fit in the sequence</h2>
+    <p>MOQ and lead time are stage six of the <a href="/knowledge/battery-sourcing-guide/">sourcing guide</a>, after the <a href="/knowledge/oem-battery-rfq-guide/">RFQ</a> has returned comparable quotes. Send the full model mix in the RFQ so the supplier can plan the container load correctly, and confirm the lead-time breakdown before you promise a delivery date. {RELATIONSHIP}</p>
+    <p>See the <a href="/knowledge/battery-shipping-warranty/">shipping and warranty guide</a> for the dangerous-goods and freight half, and the <a href="/knowledge/battery-import-regulations/">import regulations guide</a> for the clearance half of the door-to-door timeline.</p>
   </section>
+
+
+    <h2>Production lead time versus door-to-door</h2>
+    <p>The number suppliers quote &mdash; 30&ndash;45 days &mdash; is production lead time. It is not the time from order to your warehouse. The full door-to-door timeline adds ocean freight and clearance on top:</p>
+    <table>
+      <thead><tr><th>Segment</th><th>Duration</th><th>Controlled by</th></tr></thead>
+      <tbody>
+        <tr><td>Order confirmation + sampling</td><td>3&ndash;5 days</td><td>You and the factory</td></tr>
+        <tr><td>Production</td><td>20&ndash;30 days</td><td>Factory</td></tr>
+        <tr><td>Pre-shipment inspection</td><td>2&ndash;3 days</td><td>Factory + inspector</td></tr>
+        <tr><td>Ocean freight</td><td>3&ndash;5 weeks</td><td>Carrier</td></tr>
+        <tr><td>Customs + inland</td><td>1&ndash;2 weeks</td><td>Broker + market</td></tr>
+      </tbody>
+    </table>
+    <p>Add it up and a &ldquo;30&ndash;45 day&rdquo; order is realistically 60&ndash;90 days from deposit to your warehouse. Promise your customer the production number and you will miss every launch date. Plan with the door-to-door number.</p>
+
+    <h2>How to compress the timeline</h2>
+    <p>You can shorten the total without squeezing the factory, by attacking the parts you control:</p>
+    <ul>
+      <li><strong>Lock the specification before the order</strong> &mdash; sampling delays are the most avoidable part of the schedule.</li>
+      <li><strong>Hold a small buffer stock</strong> &mdash; carry one month of fast movers so you are not always ordering reactively.</li>
+      <li><strong>Use a rolling forecast</strong> &mdash; give the factory 3&ndash;6 months of visibility so it reserves formation capacity for you instead of slotting you in late.</li>
+      <li><strong>Pre-clear the import path</strong> &mdash; arrange the certification and pre-shipment inspection before production finishes, not after.</li>
+    </ul>
+    <p>The factory&rsquo;s 20&ndash;30 production days are mostly fixed. The compressible time is everything around it &mdash; the weeks you lose to re-quoting, re-sampling and discovering certification late.</p>
+
+    <h2>MOQ negotiation: the levers that actually work</h2>
+    <p>MOQ follows the container, so the negotiation is about how you fill it, not about arguing the number down:</p>
+    <ol>
+      <li><strong>Mix models into one FCL</strong> &mdash; a container of three models still meets the container MOQ and spreads your risk.</li>
+      <li><strong>Share a container (LCL) for the pilot</strong> &mdash; pay a higher freight per unit on a part-load to validate before you commit a full container.</li>
+      <li><strong>Consolidate with another buyer</strong> &mdash; a freight forwarder can combine your part-load with others, at a lower premium than pure LCL.</li>
+      <li><strong>Negotiate the price tier, not the MOQ</strong> &mdash; a supplier may hold MOQ but drop the unit price at a higher tier; sometimes the better deal is a bigger order, not a smaller one.</li>
+    </ol>
+    <p>The trap to avoid is accepting a huge MOQ without asking why. A supplier pushing 5,000 units when a container is 600&ndash;800 may be clearing inventory, not protecting your cost. Ask for the MOQ logic and the number usually explains itself.</p>
+
+    <h2>A worked first-order timeline</h2>
+    <p>One order, start to finish, on the calendar:</p>
+    <table>
+      <thead><tr><th>Day</th><th>Milestone</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Specification locked, RFQ issued</td></tr>
+        <tr><td>7</td><td>Quotes compared, supplier selected</td></tr>
+        <tr><td>14</td><td>Deposit paid, sample approved</td></tr>
+        <tr><td>44</td><td>Production complete, pre-shipment inspection passed</td></tr>
+        <tr><td>49</td><td>Balance paid, container loaded at Tianjin</td></tr>
+        <tr><td>70&ndash;84</td><td>Ocean freight, clearance, arrival at your warehouse</td></tr>
+      </tbody>
+    </table>
+    <p>Day 0 to day 49 is the part the supplier quotes; day 70 to 84 is the part buyers forget. Both are real, and the plan only works when you budget for both.</p>
+
+
+
+    <h2>Where the freight rules come from</h2>
+    <p>Two references govern the shipping half of this page. First, lead-acid batteries are Class 8 corrosive dangerous goods under the <a href="https://www.imo.org/">IMDG Code</a> (UN 2794 / UN 2800), which shapes how the container is packed and documented &mdash; and why the load is palletised and orientation-controlled rather than stacked to the roof. Second, the <a href="https://iccwbo.org/business-solutions/incoterms-rules/">ICC Incoterms</a> rules (FOB / CFR / CIF) determine where your cost and risk begin and end, which is what decides whether the freight and clearance weeks are yours or the factory&rsquo;s to manage.</p>
+    <p>Neither reference changes the production math &mdash; 20&ndash;30 days is 20&ndash;30 days &mdash; but both change what you can promise your customer and what you will pay if something goes wrong in transit. Get the Incoterm and the dangerous-goods declaration right and the door-to-door timeline is a plan; get them wrong and it is a gamble.</p>
+
+    <h2>Sources and further reading</h2>
+    <ul>
+      <li><a href="https://www.imo.org/">International Maritime Organization (IMDG Code)</a> &mdash; the dangerous-goods classification for lead-acid battery shipping.</li>
+      <li><a href="https://iccwbo.org/business-solutions/incoterms-rules/">ICC Incoterms rules</a> &mdash; the definitions behind FOB, CFR and CIF, which allocate freight and risk.</li>
+    </ul>
+
+
+
+    <h2>The reorder point, calculated</h2>
+    <p>Lead time only matters in relation to how you reorder. The simple formula that keeps you from stocking out is:</p>
+    <p class="lead">Reorder point = daily sales &times; total lead time in days, plus a safety buffer.</p>
+    <p>If you sell 25 batteries a day and your door-to-door lead time is 75 days, you reorder at 1,875 units (25 &times; 75) plus whatever safety stock your seasonality demands. The mistake is plugging the 30&ndash;45 day production figure into that formula &mdash; it understates the real reorder point by a month or more, and the shortfall shows up as an out-of-stock right when demand peaks. Use the door-to-door number, not the production number, and the container math does the rest.</p>
+
 
   <ArticleFaq faqs={faqs} />
 

@@ -4,25 +4,26 @@ import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { STANDARDS, RELATIONSHIP } from '../../../data/site';
 
-const title = 'How to Write an OEM Battery RFQ | Dingwei Battery';
-const description = 'How to write an OEM battery RFQ that gets accurate quotes: specification fields, volume, packaging, certification and delivery requirements.';
+const title = 'How to Write an OEM Battery RFQ: Template, Fields & Comparison | Dingwei Battery';
+const description = 'How to write an OEM battery RFQ that gets comparable quotes: the full template fields, the three missing fields that fail RFQs, and a quote-comparison table.';
 const articleTitle = 'OEM battery RFQ guide';
 
 const faqs = [
-  { q: 'Why do most RFQs fail?', a: 'Three missing fields: the CCA basis, the annual volume, and a single standard per line. A supplier can only quote accurately on one scope, not a vague one.' },
-  { q: 'Should I include a target price in the RFQ?', a: 'Not in the first RFQ. Quote on scope first so you get honest engineering responses, then negotiate price once the scope is locked.' },
-  { q: 'How many models should one RFQ line item cover?', a: 'One. Mixing JIS and DIN models in a single line forces the supplier to guess, and you get a range instead of a quote.' },
+  { q: 'Why do most RFQs fail?', a: '3 missing fields: the CCA basis, the annual volume, and a single standard per line. A supplier can only quote accurately on 1 scope, not a vague one.' },
+  { q: 'Should I include a target price in the RFQ?', a: 'Not in the first RFQ. Quote on scope first so you get honest engineering responses, then negotiate price once the 15-field scope is locked.' },
+  { q: 'How many models should one RFQ line item cover?', a: '1. Mixing JIS and DIN models in a single line forces the supplier to guess, and you get a range instead of a quote.' },
+  { q: 'How many fields should a complete RFQ carry?', a: 'At least 15 fields across four blocks — specification, volume, branding and commercial. Missing the CCA basis, the annual volume or the per-line standard is what turns a quote into a guess.' },
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-10" faqs={faqs}>
   <section class="section container prose">
-    <span class="tag">Knowledge</span>
+    <span class="tag">Knowledge · Sourcing</span>
     <h1>OEM battery RFQ guide</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-01 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
-    <p class="lead">A complete RFQ gets you comparable quotes; a vague one gets you a range so wide it is useless. Include these fields.</p>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
+    <p class="lead">A complete RFQ gets you comparable quotes; a vague one gets you a range so wide it is useless. The template below is four blocks and at least fifteen fields — and three of those fields are where almost every failed RFQ goes wrong.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> Most OEM battery RFQs fail on three missing fields — the CCA test basis, the annual volume, and one standard per line. A supplier can only quote accurately on one scope, so a vague RFQ returns a range wide enough to be useless.
+      <strong>Short answer:</strong> Most OEM battery RFQs fail on three missing fields — the CCA test basis, the annual volume, and one standard per line. A complete RFQ carries at least 15 fields across four blocks (specification, volume, branding, commercial), one model per line, so every supplier quotes the same scope and the prices become comparable.
     </div>
 
     <h2>The specification block</h2>
@@ -30,7 +31,7 @@ const faqs = [
       <li>Battery type (SLI, AGM, EFB, heavy-duty)</li>
       <li>Standard family ({STANDARDS.join(', ')})</li>
       <li>Reference model (e.g. 65D26)</li>
-      <li>Voltage, capacity (Ah), CCA</li>
+      <li>Voltage, capacity (Ah), CCA — with the CCA test basis named</li>
       <li>Case size, terminal type, polarity</li>
     </ul>
 
@@ -52,12 +53,21 @@ const faqs = [
 
     <h2>The commercial block</h2>
     <ul>
-      <li>Target price (optional)</li>
+      <li>Target price (optional — omit from the first RFQ)</li>
       <li>Incoterms</li>
       <li>Payment terms</li>
       <li>Delivery schedule</li>
+      <li>Destination market and its certification set</li>
     </ul>
-    <p><a href="/contact/">Send an OEM battery RFQ &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
+    <p><a href="/contact/">Send an OEM battery RFQ →</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification →</a></p>
+
+    <h2>The three missing fields that fail an RFQ</h2>
+    <p>Every one of these turns a quote into a guess, and a guess into a range wide enough to be useless:</p>
+    <ol>
+      <li><strong>CCA test basis</strong> — JIS (−15°C) and EN/SAE (−18°C) are different tests. Without the basis, two suppliers quote two different measurements and you compare them anyway.</li>
+      <li><strong>Annual volume</strong> — MOQ and tiered pricing depend on it. A missing volume makes every supplier assume its own worst case, and the tier you land in is a lottery.</li>
+      <li><strong>One standard per line</strong> — mixing JIS and DIN models in a single line forces the supplier to guess which case and which CCA method you mean. One model, one line, one scope.</li>
+    </ol>
 
     <h2>RFQ field checklist</h2>
     <p>A single missing field is usually what turns a quote into a guess. Work through this table before sending.</p>
@@ -65,8 +75,8 @@ const faqs = [
       <thead><tr><th>Block</th><th>Field</th><th>Why it matters</th></tr></thead>
       <tbody>
         <tr><td>Specification</td><td>Standard family + reference model</td><td>JIS, DIN and BCI cases are not interchangeable; the model anchors the case size.</td></tr>
-        <tr><td>Specification</td><td>CCA test basis</td><td>JIS (&minus;15&deg;C) and EN/SAE (&minus;18&deg;C) are different tests; without the basis, two quotes are not comparable.</td></tr>
-        <tr><td>Specification</td><td>Terminal type &amp; polarity</td><td>Terminal layout decides whether the battery physically fits the vehicle.</td></tr>
+        <tr><td>Specification</td><td>CCA test basis</td><td>JIS (−15°C) and EN/SAE (−18°C) are different tests; without the basis, two quotes are not comparable.</td></tr>
+        <tr><td>Specification</td><td>Terminal type & polarity</td><td>Terminal layout decides whether the battery physically fits the vehicle.</td></tr>
         <tr><td>Volume</td><td>Annual volume + first order</td><td>MOQ and tiered pricing depend on it; a missing volume makes the supplier assume the worst case.</td></tr>
         <tr><td>Volume</td><td>Target market</td><td>The market decides the standard family and the certification set.</td></tr>
         <tr><td>Branding</td><td>Label + packaging + documentation</td><td>Private-label scope changes tooling and lead time.</td></tr>
@@ -79,12 +89,27 @@ const faqs = [
     <p>When quotes come back, check six things before comparing the unit number:</p>
     <ul>
       <li><strong>Same CCA basis</strong> — JIS and EN numbers are not comparable.</li>
-      <li><strong>Same case reference</strong> — a quote for a &ldquo;similar&rdquo; model is a different battery.</li>
+      <li><strong>Same case reference</strong> — a quote for a “similar” model is a different battery.</li>
       <li><strong>Same MOQ tier</strong> — a price at 10,000 units is not a price at 1,000 units.</li>
       <li><strong>Tooling included</strong> — is the mould or label cost in the unit price, or charged separately?</li>
       <li><strong>Same Incoterm</strong> — FOB, CFR and CIF are three different cost bases.</li>
       <li><strong>Warranty scope</strong> — a 12-month warranty with exclusions is not the same as a 12-month warranty.</li>
     </ul>
+
+    <h2>The quote-comparison table</h2>
+    <p>Put every returned quote into one table before you rank anything. The rows are the six scope fields; the columns are the suppliers. A cell that is empty is a quote you cannot compare — go back and ask, rather than averaging around it.</p>
+    <table>
+      <thead><tr><th>Scope field</th><th>Supplier A</th><th>Supplier B</th><th>Supplier C</th></tr></thead>
+      <tbody>
+        <tr><td>Standard + case reference</td><td>JIS D26</td><td>JIS D26</td><td>“similar”</td></tr>
+        <tr><td>CCA basis</td><td>JIS −15°C</td><td>JIS −15°C</td><td>not stated</td></tr>
+        <tr><td>MOQ tier</td><td>1 × 20ft</td><td>1 × 20ft</td><td>5,000 units</td></tr>
+        <tr><td>Tooling</td><td>Included</td><td>Charged separately</td><td>Included</td></tr>
+        <tr><td>Incoterm</td><td>FOB Tianjin</td><td>FOB Tianjin</td><td>CIF</td></tr>
+        <tr><td>Warranty</td><td>12 mo, narrow exclusions</td><td>12 mo, broad exclusions</td><td>12 mo, not written</td></tr>
+      </tbody>
+    </table>
+    <p>In this example, Supplier C is uncomparable on three of six fields — the cheapest unit price there tells you nothing. Only Suppliers A and B are comparable, and between them the warranty scope is the deciding difference. This is the whole discipline: normalise the scope, then let price rank.</p>
 
     <h2>Why most RFQs fail</h2>
     <ul>
@@ -92,9 +117,75 @@ const faqs = [
       <li>Annual volume is missing, so MOQ and production assumptions vary.</li>
       <li>Multiple standards are mixed in one line, so the supplier guesses instead of quoting one scope.</li>
     </ul>
-    <p>Compare returned quotes only after fixing those fields. Start with the <a href="/knowledge/oem-battery-specification-guide/">specification guide</a> and keep one model per line item.</p>
-    <p>{RELATIONSHIP}</p>
+    <p>Compare returned quotes only after fixing those fields. Start with the <a href="/knowledge/oem-battery-specification-guide/">specification guide</a> and keep one model per line item. {RELATIONSHIP}</p>
+    <p>The RFQ is stage five of the <a href="/knowledge/battery-sourcing-guide/">sourcing guide</a> — run it after you have <a href="/knowledge/battery-supplier-verification/">verified</a> and <a href="/knowledge/how-audit-battery-factory/">audited</a> the candidates, so the shortlist you send it to is already credible.</p>
   </section>
+
+
+    <h2>A printable RFQ template</h2>
+    <p>Here is the full template with example values filled in, so you can see what a complete RFQ looks like before you adapt it:</p>
+    <table>
+      <thead><tr><th>Field</th><th>Example value</th></tr></thead>
+      <tbody>
+        <tr><td>Battery type</td><td>SLI (maintenance-free)</td></tr>
+        <tr><td>Standard family</td><td>JIS</td></tr>
+        <tr><td>Reference model</td><td>80D26L</td></tr>
+        <tr><td>Voltage</td><td>12 V</td></tr>
+        <tr><td>Capacity</td><td>68 Ah at C20</td></tr>
+        <tr><td>CCA + test basis</td><td>490 A (JIS &minus;15&deg;C)</td></tr>
+        <tr><td>Case size / terminal / polarity</td><td>D26 / top post / L</td></tr>
+        <tr><td>Annual volume</td><td>24,000 units (2,000/month)</td></tr>
+        <tr><td>First order</td><td>1 &times; 20ft container</td></tr>
+        <tr><td>Target market</td><td>Middle East (GCC)</td></tr>
+        <tr><td>Branding</td><td>Private label, English + Arabic label</td></tr>
+        <tr><td>Packaging</td><td>Individual carton, palletised, export grade</td></tr>
+        <tr><td>Incoterms</td><td>FOB Tianjin</td></tr>
+        <tr><td>Payment</td><td>T/T 30/70 or L/C at sight</td></tr>
+        <tr><td>Delivery</td><td>Within 45 days of deposit</td></tr>
+        <tr><td>Required certificates</td><td>SASO conformity + IATF 16949 + ISO 9001</td></tr>
+      </tbody>
+    </table>
+    <p>Sixteen fields, one scope. Every field you delete is a field the supplier will guess &mdash; and every guessed field widens the price range you get back.</p>
+
+    <h2>Evaluate the responses, not just the numbers</h2>
+    <p>When quotes return, score the response quality before you score the price:</p>
+    <ul>
+      <li><strong>Did they repeat your specification back?</strong> A quote that restates the model, standard and CCA basis is a supplier that read the RFQ.</li>
+      <li><strong>Did they ask a clarifying question?</strong> A good supplier asks one or two pointed questions; a bad one asks nothing or asks everything.</li>
+      <li><strong>Did they quote a range or a number?</strong> A range means they guessed; a number means they scoped.</li>
+      <li><strong>Did they attach the test report basis?</strong> A quote with the CCA test basis named is evidence of an engineering response, not a sales one.</li>
+    </ul>
+
+    <h2>Common supplier dodges in a quote</h2>
+    <p>Watch for these three, which look like answers but are not:</p>
+    <ol>
+      <li><strong>&ldquo;Similar model available&rdquo;</strong> &mdash; a different battery at a different price. Send it back.</li>
+      <li><strong>&ldquo;Price valid for 7 days&rdquo;</strong> &mdash; a pressure tactic to force a decision before you have compared scopes. Ignore the clock; lock the scope first.</li>
+      <li><strong>&ldquo;Price depends on quantity&rdquo;</strong> &mdash; true, but if they will not quote against the volume you gave, they are fishing for a bigger order.</li>
+    </ol>
+    <p>The rule is simple: a quote you cannot place into the comparison table is a quote you cannot act on, regardless of how good the number looks.</p>
+
+
+
+    <h2>The two references that make the RFQ precise</h2>
+    <p>Two of the RFQ fields deserve an external reference, because they are where precision is usually lost:</p>
+    <ul>
+      <li><strong>The CCA test basis</strong> &mdash; the North American reference is <a href="https://www.sae.org/standards/content/j537_201608/">SAE J537</a> (&minus;18&deg;C, 30 s, 7.2 V), while JIS tests at &minus;15&deg;C. Naming the standard in the RFQ is what makes two quotes comparable.</li>
+      <li><strong>The Incoterm</strong> &mdash; FOB, CFR and CIF are defined by the <a href="https://iccwbo.org/business-solutions/incoterms-rules/">ICC Incoterms</a> rules, which allocate cost and risk differently. Writing the Incoterm into the RFQ stops the supplier from assuming one that suits it.</li>
+    </ul>
+    <p>An RFQ that cites the test standard and the Incoterm is an engineering document; one that does not is an invitation to quote three different scopes. The difference is the width of the price range you get back.</p>
+
+    <h2>Sources and further reading</h2>
+    <ul>
+      <li><a href="https://www.sae.org/standards/content/j537_201608/">SAE J537</a> &mdash; the North American CCA reference used to anchor the CCA test basis field.</li>
+      <li><a href="https://iccwbo.org/business-solutions/incoterms-rules/">ICC Incoterms rules</a> &mdash; the definitions behind FOB, CFR and CIF.</li>
+    </ul>
+
+
+
+    <h2>Single model versus multi-model RFQs</h2>
+    <p>If your program spans several models, the instinct is to put them all in one RFQ. Resist it. A single-model RFQ returns a clean, comparable quote; a multi-model RFQ returns a spreadsheet where each line was guessed on a slightly different assumption. The correct pattern is one RFQ per model, or one RFQ with one model per line &mdash; and if you must mix, state the standard family and CCA basis separately for every line. The extra RFQ cost is nothing compared with comparing quotes that are not actually comparable.</p>
+
 
   <ArticleFaq faqs={faqs} />
 

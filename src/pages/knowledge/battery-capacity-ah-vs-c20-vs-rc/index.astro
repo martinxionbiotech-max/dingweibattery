@@ -5,37 +5,38 @@ import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
 const title = 'Battery Capacity: Ah vs C20 vs RC | Dingwei Battery';
-const description = 'Understand battery capacity ratings — amp-hours (Ah), the C20 rate and reserve capacity (RC) — and how to compare them in an OEM battery specification.';
+const description = 'Understand battery capacity ratings — amp-hours (Ah), the C20 rate and reserve capacity (RC) — how Ah × V gives watt-hours, and how RC relates to CCA in an OEM specification.';
 const articleTitle = 'Battery capacity: Ah vs C20 vs RC';
 
 const faqs = [
-  { q: 'What is the difference between Ah and C20?', a: 'Ah is the total stored charge, while C20 is the 20-hour discharge rate at which that Ah is measured. The same battery delivers less total energy at a faster discharge rate.' },
-  { q: 'What does reserve capacity (RC) mean?', a: 'Reserve capacity is the number of minutes a battery can deliver a fixed 25-amp load before dropping below 10.5 V — a runtime-under-load metric.' },
+  { q: 'What is the difference between Ah and C20?', a: 'Ah is the total stored charge, while C20 is the 20-hour discharge rate at which that Ah is measured. A 60 Ah (C20) battery is rated to deliver 3 A for 20 hours before dropping below 10.5 V. At a faster rate the same battery delivers less total energy.' },
+  { q: 'What does reserve capacity (RC) mean?', a: 'Reserve capacity is the number of minutes a battery can deliver a fixed 25-amp load before dropping below 10.5 V — a runtime-under-load metric that answers how long the battery carries the electrical load if the alternator fails.' },
+  { q: 'How many watt-hours is a 60 Ah car battery?', a: 'About 720 Wh. Stored energy = voltage &times; capacity, so 12 V &times; 60 Ah = 720 Wh. A 6 V, 200 Ah heavy-duty cell stores 6 &times; 200 = 1,200 Wh.' },
   { q: 'Is a higher Ah always better?', a: 'Not always. A higher Ah stores more energy but also makes the battery physically larger and heavier — and it must still fit the tray and match the vehicle&rsquo;s charging system. Over-specifying capacity means paying for energy you will never use.' },
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-09" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Engineering</span>
     <h1>Battery capacity: Ah vs C20 vs RC</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: battery test standards</p>
-    <p class="lead">Three numbers describe a battery&rsquo;s capacity, and they measure different things. Mixing them up is one of the most common sourcing mistakes.</p>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-09 · Sources: SAE J537, EN 50342</p>
+    <p class="lead">Three numbers describe a battery&rsquo;s capacity, and they measure different things. Mixing them up is one of the most common sourcing mistakes — a buyer who quotes "60 Ah" without the discharge rate, or "high RC" without asking the Ah, is comparing numbers that answer different questions.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> Ah, C20 and RC answer different questions and are not interchangeable — mixing them up is one of the most common sourcing mistakes. Ah is total stored charge, C20 is the 20-hour discharge rate that Ah is measured at, and RC is runtime in minutes under a fixed load.
+      <strong>Short answer:</strong> Ah, C20 and RC answer different questions and are not interchangeable. Ah is total stored charge, C20 is the 20-hour discharge rate that Ah is measured at (to 10.5 V at 26.7&deg;C), and RC is runtime in minutes under a fixed 25 A load. The useful derived figure is watt-hours: 12 V &times; 60 Ah = 720 Wh.
     </div>
 
     <h2>Ah: total stored charge</h2>
     <p>Amp-hours is the total charge a battery can deliver over a discharge. A 60 Ah battery can, in principle, supply 1 amp for 60 hours, or 6 amps for 10 hours — within the limits of the rated discharge rate.</p>
-    <p>The key point: Ah is only meaningful when tied to a discharge rate. A battery rated &ldquo;60 Ah&rdquo; without a rate is incomplete.</p>
+    <p>The key point: Ah is only meaningful when tied to a discharge rate. A battery rated "60 Ah" without a rate is incomplete, because capacity is not linear with discharge current.</p>
 
     <h2>C20: the 20-hour rate</h2>
-    <p>C20 (or the 20-hour rate) is the standard discharge rate for most automotive batteries: the current that fully discharges the battery over 20 hours. A 60 Ah (C20) battery is rated to deliver 3 amps for 20 hours.</p>
-    <p>Discharging faster reduces the effective capacity (a battery delivers less total energy at a high discharge rate). This is why the same battery shows a higher Ah at C20 than at a fast rate like C5.</p>
+    <p>C20 (or the 20-hour rate) is the standard discharge rate for most automotive batteries: the current that fully discharges the battery over 20 hours, down to a 10.5 V end voltage at a reference temperature of 26.7&deg;C (80&deg;F). A 60 Ah (C20) battery is rated to deliver 3 amps for 20 hours — that is 60 Ah &divide; 20 hours = 3 A.</p>
+    <p>Discharging faster reduces the effective capacity (a battery delivers less total energy at a high discharge rate). This is why the same battery shows a higher Ah at C20 than at a fast rate like C5. When a spec sheet lists a single Ah figure, it is almost always the C20 value — and it should say so.</p>
 
     <h2>RC: reserve capacity</h2>
-    <p>Reserve capacity measures minutes a fully charged battery can deliver a fixed 25-amp load before dropping below 10.5 V. It answers a different question: how long can the battery run the vehicle&rsquo;s electrical load if the charging system fails.</p>
-    <p>RC is more useful than Ah for vehicles with heavy accessory loads — it is a runtime-under-load metric, not a total-energy metric.</p>
+    <p>Reserve capacity measures the minutes a fully charged battery can deliver a fixed 25-amp load before dropping below 10.5 V. It answers a different question: how long can the battery run the vehicle&rsquo;s electrical load if the charging system fails.</p>
+    <p>RC is more useful than Ah for vehicles with heavy accessory loads — it is a runtime-under-load metric, not a total-energy metric. A high Ah does not automatically mean a high RC; the relationship depends on plate design and internal resistance.</p>
 
     <h2>How they relate — and how they don&rsquo;t</h2>
     <table>
@@ -44,18 +45,52 @@ const faqs = [
         <tr><td>Ah</td><td>Total stored charge</td><td>amp-hours</td><td>How much energy is stored?</td></tr>
         <tr><td>C20</td><td>Discharge rate for the Ah rating</td><td>20-hour rate</td><td>At what rate is Ah measured?</td></tr>
         <tr><td>RC</td><td>Runtime under a fixed load</td><td>minutes</td><td>How long under load if charging fails?</td></tr>
+        <tr><td>Wh</td><td>Stored energy</td><td>watt-hours</td><td>How much energy, in absolute terms?</td></tr>
       </tbody>
     </table>
-    <p class="note">A higher Ah does not automatically mean a higher RC — the relationship depends on battery design. Confirm each value separately for your specification.</p>
+
+    <div class="takeaways">
+      <strong>Original calculation — Ah &times; V = Wh:</strong> nominal stored energy = voltage &times; capacity. A 12 V, 60 Ah battery stores 12 &times; 60 = 720 Wh. This is why comparing Ah across different voltages is misleading — a 6 V, 200 Ah battery (1,200 Wh) stores more energy than a 12 V, 60 Ah battery (720 Wh), even though 60 sounds larger than nothing. Always convert to watt-hours before comparing batteries of different voltages.
+    </div>
+
+    <h2>RC and CCA: two different "power" numbers</h2>
+    <p>RC and CCA are often quoted side by side, but they measure opposite ends of the battery&rsquo;s behaviour. CCA is the peak current burst for cold starting (30 seconds at &minus;18&deg;C); RC is a sustained 25 A draw in minutes at ambient temperature. There is no fixed conversion between them — a battery engineered for high CCA (thin, high-surface-area plates) is not automatically optimised for long RC, and vice versa. The two are independent design choices, which is why a complete specification lists both. See the <a href="/knowledge/what-is-cca/">CCA guide</a> for the starting-power side.</p>
+
+    <h2>Why faster discharge means less capacity</h2>
+    <p>The reason capacity falls at higher discharge rates is a real battery effect, not a quirk of the label. At a high current, the electrolyte inside the plates cannot replenish fast enough, and the usable plate surface drops — so the battery delivers fewer total amp-hours before hitting the cut-off. This behaviour is described by a relationship called Peukert&rsquo;s law, which quantifies how much faster a battery&rsquo;s effective capacity shrinks as you draw more current.</p>
+    <p>For a buyer the practical version is simpler: a battery quoted at C20 will deliver noticeably less at a C5 or C1 rate. This is why a "60 Ah" battery running a heavy accessory load does not last 60 hours at 1 A in real conditions, and why the discharge rate must be part of any capacity claim. A supplier who quotes Ah without the rate is leaving the most important variable out.</p>
+
+    <h2>Worked example: what 60 Ah means in runtime</h2>
+    <table>
+      <thead><tr><th>Load</th><th>Math</th><th>Nominal runtime</th></tr></thead>
+      <tbody>
+        <tr><td>3 A (the C20 current)</td><td>60 Ah &divide; 3 A</td><td>20 hours (the rating)</td></tr>
+        <tr><td>6 A</td><td>60 Ah &divide; 6 A</td><td>~10 hours nominal, less in practice</td></tr>
+        <tr><td>25 A (the RC load)</td><td>RC minutes &divide; 60</td><td>Minutes, not hours — see RC below</td></tr>
+      </tbody>
+    </table>
+    <p>The table shows the trap: the 60 Ah figure makes a 6 A draw sound like 10 hours, but at that doubled rate the battery delivers less than the nominal 60 Ah, so real runtime is shorter. Ah is a <em>rating at a specified rate</em>, not a bank of hours you can divide up however you like.</p>
+
+    <h2>How capacity is rated</h2>
+    <p>A capacity test is straightforward in principle: fully charge the battery, discharge at the specified current (Ah &divide; 20 for C20) at the reference temperature, and time how long the voltage stays above the end voltage — 10.5 V for a 12 V battery, at 26.7&deg;C (80&deg;F) for the standard automotive rate. The rating is the current times the time. A battery that delivers 3 A for 20 hours is a 60 Ah battery; one that delivers 3 A for 18 hours is 54 Ah, even if its label says 60.</p>
+    <p>This is why capacity is one of the numbers a supplier verifies with a test report rather than asserts on a label — and why a buyer comparing two "60 Ah" batteries should ask what rate, what temperature and whether the value is nominal or tested.</p>
+
+    <h2>Choosing capacity for the application</h2>
+    <p>Capacity is not "more is better" — it is a fit to the vehicle&rsquo;s electrical load. A compact city car with few accessories is served by 40&ndash;50 Ah; a mid-size sedan with climate and infotainment by 60&ndash;70 Ah; a light commercial vehicle with a power tailgate and refrigeration by 80&ndash;100 Ah. Over-specifying means paying for lead you will never discharge and carrying weight the vehicle was not designed around. The right capacity is the one that matches the OEM value, not the biggest number that fits.</p>
+
+    <h2>Which number to specify first</h2>
+    <p>When writing a specification, the order matters because each number constrains the next. Confirm the capacity (Ah at C20) first — it sets the battery&rsquo;s size class and weight. Then confirm CCA on its test basis for the engine&rsquo;s cranking demand. Then confirm RC if the vehicle has heavy accessory load or the application needs runtime on battery alone. Asking for all three at once, with their units and rates, is what separates a complete specification from a vague request.</p>
+    <p>The reason capacity leads is practical: Ah is the number the battery industry uses to define a product, and CCA and RC are both optimised <em>within</em> that capacity class. A 60 Ah battery has a CCA and an RC band it can realistically achieve; asking for 90 Ah performance from a 60 Ah case is asking the impossible. Capacity first, then the two power numbers on top of it.</p>
 
     <h2>What buyers should ask</h2>
     <ul>
       <li>Is the Ah rating at C20, or another rate?</li>
       <li>What reserve capacity (RC) does the battery carry?</li>
       <li>Which value matters more for my application — runtime (RC) or total energy (Ah)?</li>
+      <li>What is the battery voltage, so I can convert to watt-hours and compare fairly?</li>
     </ul>
 
-    <p>Use this together with the <a href="/knowledge/what-is-cca/">CCA guide</a> — CCA is starting power, Ah/RC is capacity, and both belong in an <a href="/knowledge/oem-battery-specification-guide/">OEM specification</a>.</p>
+    <p>Capacity is one of five decisions in a full specification — see where it sits in the <a href="/knowledge/battery-specifications-guide/">specifications reference</a>, and how case size scales with capacity in the <a href="/knowledge/battery-dimensions-case-size/">dimensions guide</a>.</p>
     <p>{RELATIONSHIP}</p>
     <p><a href="/data/">Browse model capacity references &rarr;</a></p>
   </section>

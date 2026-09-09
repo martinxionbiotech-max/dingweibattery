@@ -4,84 +4,119 @@ import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
 
-const title = 'How to Audit a Lead-Acid Battery Factory | Dingwei Battery';
-const description = 'How to audit a lead-acid battery factory for OEM sourcing: certifications, production capability, quality control, testing and export readiness.';
+const title = 'How to Audit a Lead-Acid Battery Factory: Walkthrough & Documents | Dingwei Battery';
+const description = 'How to audit a lead-acid battery factory for OEM sourcing: the on-site walkthrough in production order, the documents to request, IATF 16949 review points and the audit-cost calculation.';
 const articleTitle = 'How to audit a lead-acid battery factory';
 
 const faqs = [
-  { q: 'Do I need to visit the factory in person?', a: 'Not always. A documented audit — certificates, process descriptions and test data — plus a production sample covers most of the risk. But for a large program, an on-site audit is worth the trip.' },
-  { q: 'What is the most telling thing to look at?', a: 'Curing time. A factory that rushes curing to save days produces weak plates that fail early — ask for their curing window, not just their capacity numbers.' },
-  { q: 'Why is a lead-acid audit simpler than a lithium audit?', a: 'Lead-acid needs no thermal-runaway or cell-safety audit. The audit focus shifts to process consistency and raw-material control, which are easier to verify.' },
+  { q: 'Do I need to visit the factory in person?', a: 'Not always. A documented audit — certificates, process descriptions and test data — plus a production sample covers most of the risk. But for a program above roughly US$500,000 a year, one on-site visit is usually worth the trip.' },
+  { q: 'What is the most telling thing to look at?', a: 'Curing time. A factory that rushes curing to save days produces weak plates that fail early — ask for their curing window (typically 2–4 days), not just their capacity numbers.' },
+  { q: 'Why is a lead-acid audit simpler than a lithium audit?', a: 'Lead-acid needs no thermal-runaway or cell-safety audit. The audit focus shifts to process consistency and raw-material control — the whole walkthrough is 10 stages, easier to verify than a lithium audit.' },
+  { q: 'How much does an on-site factory audit cost?', a: 'A one-day third-party audit in China typically runs US$1,500–3,000 — under 1% of a first container worth US$28,000 — so skipping it to save money is the expensive choice.' },
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Quality" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Quality" dateModified="2026-09-10" faqs={faqs}>
   <section class="section container prose">
-    <span class="tag">Knowledge</span>
+    <span class="tag">Knowledge · Sourcing</span>
     <h1>How to audit a lead-acid battery factory</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-01 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
-    <p class="lead">A factory audit is how you verify that a battery manufacturer can deliver your specification repeatably — not just once. Run these checks before committing volume.</p>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Source: Chengguang Power Tech Co., Ltd. technical documentation; IATF 16949</p>
+    <p class="lead">A factory audit is how you verify that a battery manufacturer can deliver your specification repeatably — not just once. Walk the line in production order, ask one question per stage, and check the documents against what you see.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> Audit a battery factory against five verifiable areas — certifications, capacity, quality control, traceability and export documents. The most telling single question is curing time: a factory that rushes curing to save days produces weak plates that fail early, so ask for the curing window, not just the capacity numbers.
+      <strong>Short answer:</strong> Audit a battery factory in production order — grid casting, paste mixing, pasting, curing, assembly, formation, sealing and test — and at each stage ask what is measured and how rejects are handled. The most telling single question is curing time: a factory that rushes curing to save days ships weak plates that fail early, so ask for the curing window (typically 2–4 days). A one-day third-party audit costs US$1,500–3,000, under 1% of a first container.
     </div>
 
-    <h2>Certifications</h2>
-    <p>Request current certificates, not claims. {MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')}.</p>
-
-    <h2>Production capability</h2>
-    <p>Check factory area, number of production lines and daily output against your annual volume. {MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} plant with {MANUFACTURER.productionLines} producing {MANUFACTURER.dailyOutput}.</p>
-
-    <h2>Quality control &amp; testing</h2>
+    <h2>Before the visit: the document set</h2>
+    <p>Half the audit happens before you walk the line. Request these documents and read them first — they tell you what the factory <em>claims</em>, which the walkthrough then confirms or contradicts:</p>
     <ul>
-      <li>Incoming material inspection</li>
-      <li>In-process checks (grid casting, pasting, curing, formation)</li>
-      <li>100% end-of-line electrical test</li>
-      <li>Batch traceability</li>
-      <li>Lab testing for CCA and capacity</li>
+      <li><strong>Certificates</strong> — IATF 16949 / ISO 9001 numbers and scopes, to verify as current. {MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')}.</li>
+      <li><strong>Process flow</strong> — a written production flow with control points at each stage.</li>
+      <li><strong>Control plan and FMEA</strong> — the automotive-style documents that show a factory thinks in failure modes, not just throughput.</li>
+      <li><strong>Batch records</strong> — a sample batch traced from raw material to finished battery.</li>
+      <li><strong>Test procedures</strong> — the CCA and capacity methods, with the test basis named.</li>
     </ul>
+    <p>A factory that has an IATF 16949 system should produce these on request. One that hesitates on the control plan is telling you it runs on habit, not on a documented system.</p>
 
-    <h2>Export readiness</h2>
-    <p>Confirm export experience, documentation capability and destination markets. {MANUFACTURER.name} exports to {MANUFACTURER.exportMarkets}.</p>
-
-    <h2>Audit scorecard</h2>
-    <ul>
-      <li><strong>Certification</strong> — current certificates are visible and verifiable.</li>
-      <li><strong>Capacity</strong> — plant area, lines and output map to your annual volume.</li>
-      <li><strong>Quality</strong> — in-process and end-of-line tests are documented.</li>
-      <li><strong>Export</strong> — destination markets and document capability are clear.</li>
-    </ul>
-    <p>Use the same four columns for every factory, then compare against the <a href="/factory/">Dingwei factory overview</a> as a worked example.</p>
-
-    <h2>What to bring home from an audit</h2>
-    <ul>
-      <li>Current certificates</li>
-      <li>Sample of a recent production run</li>
-      <li>A specification sheet for your reference model</li>
-      <li>Agreed commercial terms</li>
-    </ul>
-    <p><a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist &rarr;</a> · <a href="/factory/">Battery factory capability &rarr;</a></p>
-    <p>{RELATIONSHIP}</p>
-
-    <h2>The ten stages to audit</h2>
-    <p>Walk the factory in the order the battery is made. For each stage, ask what is measured and how rejects are controlled.</p>
+    <h2>The ten stages to walk, in production order</h2>
+    <p>Walk the factory in the order the battery is made. For each stage, ask what is measured and how rejects are controlled:</p>
     <ol>
-      <li><strong>Grid casting</strong> — check grid thickness and alloy consistency.</li>
-      <li><strong>Paste mixing</strong> — check mix control and batch records.</li>
-      <li><strong>Pasting</strong> — check plate weight and paste application.</li>
-      <li><strong>Curing</strong> — check time and conditions; a typical window is 2–4 days.</li>
+      <li><strong>Grid casting</strong> — check grid thickness and alloy consistency; ask what happens to a grid outside tolerance.</li>
+      <li><strong>Paste mixing</strong> — check mix control and batch records; ask how paste density is held between batches.</li>
+      <li><strong>Pasting</strong> — check plate weight and paste application; ask how plate weight is verified.</li>
+      <li><strong>Curing</strong> — check time and conditions; a typical window is 2–4 days. This is the stage to be strictest on — rushed curing is the classic shortcut.</li>
       <li><strong>Assembly</strong> — check plate alignment and separator handling.</li>
-      <li><strong>Welding</strong> — check inter-cell and terminal welds.</li>
+      <li><strong>Welding</strong> — check inter-cell and terminal welds; a poor weld is a hidden early failure.</li>
       <li><strong>Electrolyte filling</strong> — check acid volume and density control.</li>
-      <li><strong>Formation charging</strong> — check the charging profile and duration.</li>
+      <li><strong>Formation charging</strong> — check the charging profile and duration; formation is usually the capacity bottleneck.</li>
       <li><strong>Sealing</strong> — check lid, vent and leak control.</li>
       <li><strong>Testing</strong> — confirm 100% end-of-line electrical test plus CCA and capacity sampling.</li>
     </ol>
     <p>Take this sequence with you, and compare it to the documented checks on the <a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist</a>.</p>
 
+    <h2>IATF 16949 review points</h2>
+    <p>If the factory claims <a href="https://www.iatfglobaloversight.org/">IATF 16949</a>, three specific things should be visible that a non-certified plant usually lacks:</p>
+    <ul>
+      <li><strong>Control plan at each process step</strong> — not just a QC desk at the end, but defined controls at casting, pasting, curing and formation.</li>
+      <li><strong>Change management</strong> — a written engineering change (ECO) process so a specification change is approved, not improvised.</li>
+      <li><strong>Traceability</strong> — a batch that maps back to raw-material lots and forward to finished product, which is what makes recall and warranty adjudication possible.</li>
+    </ul>
+    <p>Ask to see all three on the walkthrough. An IATF certificate without a visible control plan and change process is a wall decoration, not a system.</p>
+
+    <h2>The audit-cost calculation</h2>
+    <p>The arithmetic that should end any hesitation about auditing:</p>
+    <p class="lead">Audit cost ÷ order value = a fraction of one percent.</p>
+    <p>A one-day third-party audit in China costs roughly US$1,500–3,000. A first container of 700 batteries at a US$40 landed unit cost is US$28,000. A 12-month program at one container a month exceeds US$300,000. The audit is under 1% of a single container — and it is the only line item in the program that <em>prevents</em> a much larger loss. A specification drift discovered after the deposit is paid costs a container, not an audit fee.</p>
+
+    <h2>What to bring home from an audit</h2>
+    <ul>
+      <li>Current certificates, with numbers you can verify.</li>
+      <li>Sample of a recent production run.</li>
+      <li>A specification sheet for your reference model.</li>
+      <li>Agreed commercial terms, in writing.</li>
+      <li>The control plan and change process, if you are doing a long program.</li>
+    </ul>
+    <p><a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist →</a> · <a href="/factory/">Battery factory capability →</a></p>
+
     <h2>Lead-acid audit is simpler than lithium</h2>
-    <p>Lead-acid audit effort concentrates on process consistency and raw materials. A lithium-cell audit adds cell safety and thermal-runaway controls; lead-acid does not carry the same cell-safety audit burden. That makes the lead-acid audit shorter and easier to standardize for OEM buyers.</p>
-    <p>{RELATIONSHIP} Review the factory footprint at <a href="/factory/">Dingwei factory overview</a> as a worked example of the audit data to request.</p>
+    <p>Lead-acid audit effort concentrates on process consistency and raw materials. A lithium-cell audit adds cell safety and thermal-runaway controls; lead-acid does not carry the same cell-safety audit burden. That makes the lead-acid audit shorter and easier to standardise — which in turn makes it cheap enough that skipping it is the expensive choice. {RELATIONSHIP} Review the factory footprint at <a href="/factory/">Dingwei factory overview</a> as a worked example of the audit data to request.</p>
+
+    <h2>Where the audit sits in the sequence</h2>
+    <p>The audit is stage four of seven in the <a href="/knowledge/battery-sourcing-guide/">sourcing guide</a>: after you have <a href="/knowledge/battery-supplier-verification/">verified the supplier is real</a> and before you <a href="/knowledge/oem-battery-rfq-guide/">issue the RFQ</a>. Auditing an unverified supplier wastes the visit; quoting an unaudited one wastes the order.</p>
   </section>
+
+
+    <h2>What to photograph and record</h2>
+    <p>An audit is only as useful as what you bring back. Document these, because they are the evidence you will rely on months later:</p>
+    <ul>
+      <li><strong>The curing room</strong> &mdash; the temperature/humidity display and the plate stacks, with the date visible. Curing is the stage most likely to be faked in a brochure.</li>
+      <li><strong>The formation area</strong> &mdash; the number of live circuits, which you will cross-check against the capacity claim.</li>
+      <li><strong>The end-of-line test station</strong> &mdash; the test in progress, showing the CCA/capacity values on a real unit.</li>
+      <li><strong>Batch records</strong> &mdash; one complete trace from raw lead to finished battery.</li>
+      <li><strong>Certificate numbers</strong> &mdash; photographed so you can verify them later, not just read them.</li>
+    </ul>
+    <p>If the factory will not let you photograph the curing room or the formation area, that is itself a finding &mdash; note it the same way you would note a failed test.</p>
+
+    <h2>Third-party audit versus doing it yourself</h2>
+    <p>You do not have to fly to run an audit. A third-party inspection firm in China can do the walkthrough for US$1,500&ndash;3,000, and the good ones will follow a lead-acid-specific checklist. The trade-off is simple: a third party is cheaper and often more objective, but it reports what you asked it to check &mdash; so you must hand it a complete checklist (use the <a href="/knowledge/oem-battery-supplier-checklist/">supplier checklist</a>). Do it yourself and you see the nuance but pay the trip and carry your own optimism. Most programs use a third party for the first screen and reserve a personal visit for the finalist.</p>
+
+    <h2>Sampling and AQL for batch testing</h2>
+    <p>End-of-line testing is 100% on the electrical parameters, but destructive or lab tests (cycle life, CCA at temperature, capacity at C20) are done on a sample. Confirm the sampling plan rather than accepting &ldquo;we test every batch&rdquo; &mdash; the useful answer names the standard and the acceptance level. An AQL-based sampling plan tells you how many units are tested per lot and what the accept/reject threshold is. A factory that cannot describe its sampling plan is testing by feel, and that is a finding.</p>
+
+    <h2>Non-conformance handling</h2>
+    <p>Ask one closing question that separates a quality system from a QC desk: &ldquo;When a batch fails a test, what happens next?&rdquo; A real system answers with a defined process &mdash; quarantine, root-cause, corrective action, and re-test &mdash; and can show a record of the last time it happened. A factory that answers &ldquo;it never happens&rdquo; has just told you it does not measure. This single question is worth more than half the walkthrough, because it reveals whether the controls you just saw are actually used.</p>
+
+
+
+    <h2>The standard behind the audit</h2>
+    <p>If you want the audit itself to follow a recognised method, <a href="https://www.iso.org/standard/70017.html">ISO 19011</a> is the international guideline for auditing management systems, and it is the reference a third-party auditor will work from. You do not need to be an auditor to use it &mdash; its core idea is that an audit is evidence-based, not impression-based: you collect documents and observations, then match them against defined criteria. That is exactly the discipline this walkthrough follows, and it is why the questions in this guide ask for records and measurements rather than assurances.</p>
+    <p>A factory that welcomes a process audit and can produce its control plan, FMEA and batch records is already behaving like an IATF 16949 plant. One that resists documentary evidence is failing the audit before you reach the curing room.</p>
+
+    <h2>Sources and further reading</h2>
+    <ul>
+      <li><a href="https://www.iatfglobaloversight.org/">IATF Global Oversight</a> &mdash; governs the IATF 16949 system whose control-plan and change-control points this guide checks.</li>
+      <li><a href="https://www.iso.org/standard/70017.html">ISO 19011</a> &mdash; the guideline for auditing management systems, the method behind a defensible audit.</li>
+    </ul>
+
 
   <ArticleFaq faqs={faqs} />
 

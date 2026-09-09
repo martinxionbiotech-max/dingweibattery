@@ -1,0 +1,97 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = '6V vs 12V Battery: Series, Parallel & System Voltage | Dingwei Battery';
+const description = '6V vs 12V batteries: how series and parallel wiring change voltage and capacity, why heavy vehicles use 24V, and the risk of wiring a battery to the wrong system voltage.';
+const articleTitle = '6V vs 12V batteries: system voltage explained';
+
+const faqs = [
+  { q: 'Do two 6V batteries in series make 12V?', a: 'Yes. Wiring two 6 V batteries in series adds the voltages to give 12 V while the amp-hour capacity stays the same — two 6 V, 200 Ah batteries become a 12 V, 200 Ah bank.' },
+  { q: 'Why do heavy trucks use 24V systems?', a: 'A 24 V system uses twelve 2 V cells (often two 12 V batteries in series) to deliver the cranking power a large diesel needs at half the current of a 12 V system, which reduces cable size and voltage drop.' },
+  { q: 'When did cars switch from 6V to 12V?', a: 'Through the mid-1950s, as higher-compression engines needed more starting power. Some small cars kept 6 V longer — the Volkswagen Beetle into the mid-1960s.' },
+  { q: 'What happens if I fit a 12V battery to a 6V system?', a: 'The electrical components receive twice their rated voltage, which can overheat and damage bulbs, regulators and electronics. Voltage is a system decision — the battery must match the vehicle, not the other way around.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-09" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Engineering</span>
+    <h1>6V vs 12V batteries: system voltage explained</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-09 · Sources: SAE J537, industry electrical-system documentation</p>
+    <p class="lead">Battery voltage is a system decision, not a spec you pick from a shelf. Most of the automotive world runs on 12 V, but the battery industry still makes 6 V and 24 V configurations because series wiring lets one cell design serve every voltage. The mistake to avoid is treating "12 V" as universal when the vehicle was built for something else.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> A lead-acid cell is nominally 2 V. Six cells in series make a 12 V battery; twelve cells make 24 V. Two 6 V batteries wired in series produce 12 V at the same capacity, and two 12 V batteries in series produce 24 V for heavy trucks. Voltage is fixed by the vehicle&rsquo;s electrical system — a 12 V battery must never be fitted to a 6 V or 24 V system.
+    </div>
+
+    <h2>Where the voltage comes from</h2>
+    <p>Every lead-acid cell produces a nominal 2 V (about 2.1 V fully charged). Battery voltage is just the number of cells wired in series:</p>
+    <ul>
+      <li><strong>3 cells &rarr; 6 V</strong> — the original automotive voltage, standard until the mid-1950s.</li>
+      <li><strong>6 cells &rarr; 12 V</strong> — today&rsquo;s standard for passenger cars and light trucks.</li>
+      <li><strong>12 cells &rarr; 24 V</strong> — heavy trucks, buses and earth-moving equipment.</li>
+    </ul>
+    <p>The industry moved from 6 V to 12 V because bigger, higher-compression engines needed more cranking power than a 6 V system could deliver without enormous cables. Smaller cars held on longer — the Volkswagen Beetle kept a 6 V system into the mid-1960s.</p>
+
+    <h2>Series vs parallel: what changes and what does not</h2>
+    <p>Wiring batteries together changes two different things, and they are easy to confuse:</p>
+    <table>
+      <thead><tr><th>Wiring</th><th>Voltage</th><th>Capacity (Ah)</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Series (positive to negative)</td><td>Adds</td><td>Stays the same</td><td>2 &times; 6 V, 200 Ah &rarr; 12 V, 200 Ah</td></tr>
+        <tr><td>Parallel (positive to positive)</td><td>Stays the same</td><td>Adds</td><td>2 &times; 6 V, 200 Ah &rarr; 6 V, 400 Ah</td></tr>
+      </tbody>
+    </table>
+    <div class="takeaways">
+      <strong>Original calculation — energy is conserved either way:</strong> a single 6 V, 200 Ah battery stores 6 &times; 200 = 1,200 Wh. Two in series give 12 V &times; 200 Ah = 2,400 Wh; two in parallel give 6 V &times; 400 Ah = 2,400 Wh. Series raises voltage, parallel raises runtime, but the stored energy doubles identically — the choice is about what the load needs, not about getting "more power" one way over the other.
+    </div>
+
+    <h2>Why heavy vehicles use 24 V</h2>
+    <p>A large diesel needs a strong cranking current. Power is voltage &times; current, so doubling the voltage to 24 V delivers the same cranking power at half the current. Lower current means thinner, lighter cables and less voltage drop across a long truck chassis. That is why heavy trucks, buses and earth-moving equipment run 24 V — commonly built from two 12 V batteries in series, or a single 24 V battery.</p>
+
+    <h2>Where 6 V batteries are still used today</h2>
+    <p>6 V batteries have not disappeared; they moved to specific applications:</p>
+    <ul>
+      <li><strong>Classic cars</strong> — pre-1950s vehicles still use 6 V systems and need 6 V batteries.</li>
+      <li><strong>Golf carts and floor machines</strong> — deep-cycle 6 V batteries wired in series to build 36 V or 48 V packs.</li>
+      <li><strong>Pairs wired to 12 V</strong> — two 6 V batteries in series as a 12 V bank where a single large case does not fit.</li>
+    </ul>
+
+    <h2>The risk of a voltage mismatch</h2>
+    <p>Voltage is set by the vehicle&rsquo;s wiring, regulators, bulbs and electronics. Fitting a 12 V battery to a 6 V system feeds every component twice its rated voltage — overheating bulbs, regulators and electronics. Fitting a 6 V battery to a 12 V system under-drives the starter and accessories. The rule is simple: the battery voltage must match the system voltage, and when building a bank, series and parallel wiring must be deliberate, not accidental.</p>
+    <p class="note">Modern vehicles are negative-ground — the negative terminal connects to the chassis. When wiring batteries in series or parallel, polarity and grounding must be confirmed against the vehicle before connection; reversing polarity can damage the electrical system. See the <a href="/knowledge/battery-terminal-types-polarity/">terminal and polarity guide</a>.</p>
+
+    <h2>Higher voltages: 36 V and 48 V banks</h2>
+    <p>The same series logic scales upward for electric vehicles and industrial equipment. Golf carts, floor machines and some utility vehicles build 36 V or 48 V banks from 6 V or 12 V batteries wired in series — six 6 V batteries in series give 36 V, and eight 6 V batteries give 48 V. The batteries themselves are the same 6 V deep-cycle cells; the system voltage is purely a matter of how many are chained. This is why a "6 V battery" is not a legacy curiosity — it is the building block of most series banks in the industrial and leisure-vehicle world.</p>
+
+    <h2>Charging voltage: why you cannot mix system voltages</h2>
+    <p>A battery&rsquo;s charging voltage scales with its nominal voltage. A 6 V system charges at roughly 7.2 V, a 12 V system at about 14.4 V, and a 24 V system at about 28.8 V (reference values — the exact figure depends on the battery type and charger). Fit a 12 V battery to a 6 V charger or vehicle and the battery never reaches a full charge; fit a 6 V battery to a 12 V charger and the cells are overcharged, gassing and corroding the plates. The charger and the battery must share the same system voltage, which is one more reason the battery voltage is set by the vehicle and cannot be swapped freely.</p>
+
+    <h2>How to identify a vehicle&rsquo;s system voltage</h2>
+    <p>If the system voltage is unknown, read it from the vehicle rather than guessing from the battery:</p>
+    <ol>
+      <li><strong>Count the cells</strong> — each lead-acid cell is 2 V, so a 6 V battery has 3 cells and a 12 V battery has 6 (visible as the number of filling caps or plate pairs on a vented design).</li>
+      <li><strong>Read the label</strong> — the OE battery label states its voltage; the replacement must match it.</li>
+      <li><strong>Check the alternator or charger</strong> — its output rating (roughly 14 V for 12 V systems, 28 V for 24 V) identifies the system.</li>
+      <li><strong>Count the batteries</strong> — two 12 V batteries in series point to a 24 V system; two 6 V batteries in series point to a 12 V system.</li>
+    </ol>
+    <p class="note">A voltmeter across the vehicle&rsquo;s battery with the engine off gives the resting voltage: about 6.3 V for a 6 V system, 12.6 V for 12 V, and 25.2 V for 24 V. This is the fastest definitive check.</p>
+
+    <h2>How to specify the right voltage</h2>
+    <ol>
+      <li>Confirm the system voltage of the target vehicle — 6 V, 12 V or 24 V.</li>
+      <li>For 24 V, decide between one 24 V battery or two 12 V batteries in series (the mounting space usually decides).</li>
+      <li>For 6 V applications, confirm whether the batteries run singly, in series, or in parallel, and match capacity accordingly.</li>
+      <li>Confirm terminal type, polarity and grounding for the final configuration.</li>
+    </ol>
+
+    <p>{RELATIONSHIP} Heavy-duty 6 V and 12 V configurations are available across the <a href="/heavy-duty-batteries/">heavy-duty range</a>, and passenger 12 V across the <a href="/oem/car-batteries/">car range</a>. Map voltage to the vehicle class in the <a href="/knowledge/battery-applications-by-vehicle/">application guide</a>.</p>
+    <p><a href="/data/">Browse models by voltage &rarr;</a> · <a href="/knowledge/battery-group-size-chart/">Group size chart &rarr;</a> · <a href="/contact/">Confirm system voltage &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Specify the correct voltage for your fleet" />
+</ArticleLayout>

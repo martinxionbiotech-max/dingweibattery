@@ -2,55 +2,107 @@
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
-import { RELATIONSHIP } from '../../../data/site';
+import { RELATIONSHIP, STANDARDS } from '../../../data/site';
 
 const title = 'JIS vs DIN vs BCI Battery Standards | Dingwei Battery';
-const description = 'How JIS, DIN/EN and BCI battery standards differ in case size, terminal layout and CCA test method — and how to pick the right one for your market.';
+const description = 'How JIS, DIN/EN and BCI battery standards differ in case size, terminal layout, naming rules and CCA test method — and the fitment traps that make them non-interchangeable.';
 const articleTitle = 'JIS vs DIN vs BCI battery standards';
 
 const faqs = [
-  { q: 'What is the difference between JIS, DIN and BCI batteries?', a: 'They define different case dimensions, terminal layouts and CCA test methods for different markets — JIS for Japan/Asia, DIN/EN for Europe, BCI for North America.' },
-  { q: 'Are JIS and DIN batteries interchangeable?', a: 'No. Even with similar electrical ratings, the physical case and terminal layout differ, so one family will not fit a vehicle specified for another.' },
-  { q: 'How do I choose the right battery standard?', a: 'Choose by the vehicle&rsquo;s market, not the battery&rsquo;s specs — JIS for Japanese/Asian vehicles, DIN/EN for European, BCI for North American.' },
+  { q: 'What is the difference between JIS, DIN and BCI batteries?', a: 'They define different case dimensions, terminal layouts, naming rules and CCA test methods for different markets — JIS for Japan/Asia (tested at &minus;15&deg;C), DIN/EN for Europe and BCI for North America (both &minus;18&deg;C).' },
+  { q: 'Are JIS and DIN batteries interchangeable?', a: 'No. Even with similar electrical ratings, the physical case and terminal layout differ, so one family will not fit a vehicle specified for another. A JIS D26 and a DIN H6 may both be ~72 Ah but are different shapes.' },
+  { q: 'Is a DIN H6 the same as a BCI Group 48?', a: 'Physically yes — both are 278 &times; 175 &times; 190 mm. The difference is the CCA test basis and terminal convention, so the same box is sold under two names for two markets.' },
+  { q: 'How do I choose the right battery standard?', a: 'Choose by the vehicle&rsquo;s market, not the battery&rsquo;s specs — JIS for Japanese/Asian vehicles, DIN/EN for European, BCI for North American. Then confirm the case reference, terminals and CCA basis within that family.' },
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Standards" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Standards" dateModified="2026-09-09" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Standards</span>
     <h1>JIS vs DIN vs BCI battery standards</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: battery standards documentation</p>
-    <p class="lead">A battery&rsquo;s &ldquo;size&rdquo; is defined by the standard family your market uses. JIS, DIN/EN and BCI batteries with similar electrical ratings are physically different — and not interchangeable.</p>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-09 · Sources: JIS D 5301, EN 50342, BCI Battery Replacement Data Book</p>
+    <p class="lead">A battery&rsquo;s "size" is defined by the standard family your market uses. JIS, DIN/EN and BCI batteries with similar electrical ratings are physically different — and mostly not interchangeable, despite sharing some footprints at the dimension level.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> JIS, DIN/EN and BCI batteries are not interchangeable even at similar Ah ratings — the case dimensions, terminal layout and CCA test method all differ. Ordering the wrong family means the battery will not fit the tray, regardless of the spec sheet.
+      <strong>Short answer:</strong> JIS, DIN/EN and BCI batteries are not interchangeable even at similar Ah ratings — the case dimensions, terminal layout, naming rules and CCA test method all differ. The one important overlap: DIN H6/LN3 and BCI Group 48 are the same 278 &times; 175 &times; 190 mm box. Ordering the wrong family means the battery will not fit the tray, regardless of the spec sheet.
     </div>
 
     <h2>The three families at a glance</h2>
     <table>
-      <thead><tr><th>Standard</th><th>Region</th><th>Typical case reference</th><th>CCA test</th></tr></thead>
+      <thead><tr><th>Standard</th><th>Region</th><th>Typical case reference</th><th>CCA test</th><th>Naming rule</th></tr></thead>
       <tbody>
-        <tr><td>JIS</td><td>Japan / Asia</td><td>D23, D26, D31, B24</td><td>&minus;15&deg;C</td></tr>
-        <tr><td>DIN / EN</td><td>Europe</td><td>H5–H8 (LN2–LN5), L3–L5</td><td>&minus;18&deg;C</td></tr>
-        <tr><td>BCI</td><td>North America</td><td>Group 24, 27, 31, 34, 48, 65</td><td>&minus;18&deg;C (SAE)</td></tr>
+        <tr><td>JIS</td><td>Japan / Asia</td><td>D23, D26, D31, B24, N-series</td><td>&minus;15&deg;C</td><td>Performance grade + case code (55D23, 80D26)</td></tr>
+        <tr><td>DIN / EN</td><td>Europe</td><td>H5&ndash;H8 (LN2&ndash;LN5), L3&ndash;L5</td><td>&minus;18&deg;C</td><td>Letter + length class (H6, L3)</td></tr>
+        <tr><td>BCI</td><td>North America</td><td>Group 24, 27, 31, 34, 47, 48, 49, 94R</td><td>&minus;18&deg;C (SAE)</td><td>Arbitrary group number</td></tr>
       </tbody>
     </table>
 
+    <h2>How the naming rules differ</h2>
+    <p>The naming systems encode different information, which is itself a source of confusion:</p>
+    <ul>
+      <li><strong>JIS</strong> — the two-digit prefix is a <em>performance/capacity grade</em>, and the letter+number suffix is the <em>case size</em>. So 55D23 and 75D23 share the D23 case (same footprint) but differ in capacity and CCA; 65D23 and 65D26 share the grade but differ in case length.</li>
+      <li><strong>DIN/EN</strong> — the H/LN code is a length class within a fixed 175 mm width and 190 mm height. H6 (LN3) and L3 are the same 278 mm box under old and new numbering. The code says nothing about capacity by itself.</li>
+      <li><strong>BCI</strong> — the group number is arbitrary and maps to a fixed footprint plus terminal layout. It carries no performance information.</li>
+    </ul>
+    <p>The practical consequence: quoting "72 Ah" is useless without the family, because a JIS 72 Ah battery, a DIN 72 Ah battery and a BCI 72 Ah battery are three different shapes. This is a real trap when a buyer copies an Ah rating from one market and applies it to another.</p>
+
     <h2>Why they are not interchangeable</h2>
-    <p>Three differences stop a battery from crossing standard families:</p>
     <ol>
-      <li><strong>Case dimensions</strong> — a JIS D26 and a DIN H6 may both be ~12V/72Ah, but their length, width and height differ, so they do not fit the same tray.</li>
+      <li><strong>Case dimensions</strong> — a JIS D26 (256 &times; 175 &times; 220 mm) and a DIN H6 (278 &times; 175 &times; 190 mm) may both be ~72 Ah, but one is longer and the other taller. They do not fit the same tray.</li>
       <li><strong>Terminal layout</strong> — terminal type, position and polarity convention differ between markets. A battery that fits physically can still have the wrong terminals.</li>
-      <li><strong>CCA test method</strong> — JIS tests at &minus;15&deg;C, EN/SAE at &minus;18&deg;C, so the printed CCA is not directly comparable across families.</li>
+      <li><strong>CCA test method</strong> — JIS tests at &minus;15&deg;C, EN/SAE at &minus;18&deg;C, so the printed CCA is not directly comparable across families. See the <a href="/knowledge/what-is-cca/">CCA guide</a>.</li>
     </ol>
+
+    <h2>The overlap that saves moulds</h2>
+    <p>Not everything is different. At the dimension level the families overlap more than most buyers assume:</p>
+    <table>
+      <thead><tr><th>DIN/EN code</th><th>BCI group</th><th>Footprint (mm)</th></tr></thead>
+      <tbody>
+        <tr><td>H5 / LN2</td><td>47</td><td>242 &times; 175 &times; 190</td></tr>
+        <tr><td>H6 / LN3 / L3</td><td>48</td><td>278 &times; 175 &times; 190</td></tr>
+        <tr><td>H7 / LN4 / L4</td><td>94R</td><td>315 &times; 175 &times; 190</td></tr>
+        <tr><td>H8 / LN5 / L5</td><td>49</td><td>354 &times; 175 &times; 190</td></tr>
+      </tbody>
+    </table>
+    <p>One mould set can therefore serve Europe and North America, provided the terminal layout and CCA basis are confirmed for each destination. The full cross-reference, including JIS, is in the <a href="/knowledge/battery-group-size-chart/">group size chart</a>.</p>
+
+    <h2>Each family in detail</h2>
+    <h3>JIS (Japan / Asia)</h3>
+    <p>JIS D 5301 is the Japanese national standard for lead-acid starter batteries. It is the default across Japan, and through Japanese vehicle exports it spread across Southeast Asia, the Middle East, Africa and Australia. The case codes (B24, D23, D26, D31, plus the N-series for trucks) are the buying language of these markets, and the two-digit prefix (55, 65, 75, 80, 95, 105) is a performance grade. The CCA test runs at &minus;15&deg;C, warmer than the European and American methods — which is why JIS CCA numbers run higher for the same battery.</p>
+    <h3>DIN / EN (Europe)</h3>
+    <p>EN 50342 is the harmonised European standard, descended from the older German DIN numbering. The modern case codes H5&ndash;H8 (equivalently LN2&ndash;LN5) describe batteries 175 mm wide and 190 mm tall, distinguished by length. The older L3&ndash;L5 codes describe the same lengths under the previous numbering. European vehicles increasingly use AGM and EFB for start-stop, so the EN family is where technology matters most, not just case size.</p>
+    <h3>BCI (North America)</h3>
+    <p>The BCI group number is a North American convention for footprint plus terminal layout, maintained by Battery Council International in its Battery Replacement Data Book. The group number carries no performance information — Group 24 and Group 34 are both common car sizes with very different capacities available within them. The CCA is quoted to the SAE method (&minus;18&deg;C, 30 s, 7.2 V).</p>
+    <h3>AS and SA (Australia and regional markets)</h3>
+    <p>Australia (AS) and a number of regional markets (SA) maintain their own standards or conventions that largely reuse JIS and BCI case dimensions with local terminal and labelling requirements. In practice a buyer exporting to these markets names the underlying JIS or BCI equivalent plus the local requirement, and the factory applies the regional standard to the same case. This is why a single product range can carry {STANDARDS.join(' / ')} together.</p>
+
+    <h2>Which standard for which export market</h2>
+    <table>
+      <thead><tr><th>Export destination</th><th>Dominant standard</th><th>Typical case codes</th></tr></thead>
+      <tbody>
+        <tr><td>Japan, Southeast Asia, Middle East, Africa</td><td>JIS</td><td>D23, D26, D31, N-series</td></tr>
+        <tr><td>Europe, CIS</td><td>DIN / EN</td><td>H5&ndash;H8, L3&ndash;L5</td></tr>
+        <tr><td>North America</td><td>BCI</td><td>Group 24, 34, 65, 48, 94R</td></tr>
+        <tr><td>Australia</td><td>AS (JIS-based)</td><td>D23, D26, D31</td></tr>
+        <tr><td>Regional markets (SA convention)</td><td>JIS / BCI mix</td><td>Varies by country</td></tr>
+      </tbody>
+    </table>
+    <p class="note">These are the dominant conventions, not universal rules — always confirm the specific market&rsquo;s requirement with the buyer or importer before locking the standard into a specification.</p>
+
+    <h2>The interchangeability trap in practice</h2>
+    <p>The cleanest example of the trap is a buyer who sees "72 Ah" in a European catalogue and asks for "the same thing" from a JIS supplier. The JIS equivalent in capacity is a D26 or D31 — but those are 220 mm tall and 175 mm wide, while the European H6 is 190 mm tall. The battery arrives, does not fit the tray, and the "same 72 Ah" turns out to have been two different boxes the whole time. The capacity matched; the standard did not. Confirming the standard and case group first would have caught it in one line.</p>
+
+    <h2>How one factory serves every standard</h2>
+    <p>A common buyer concern is whether a single manufacturer can really deliver JIS, DIN/EN and BCI batteries to the same quality. The answer is yes, and the reason is that the families differ in case dimensions, terminals and test basis — not in the underlying electrochemistry. The plates, separators, electrolyte and assembly are the same; what changes per market is the mould, the terminal, the label and the test report. A factory that holds multiple mould sets and runs an IATF 16949 quality system can switch between standards on the same line.</p>
+    <p>What this means for the buyer: the standard is a choice you make, not a capability you must hunt for. The risk is not that a factory cannot make your standard — it is that the factory does not <em>know</em> which standard you need. Naming the family and case group removes that ambiguity.</p>
 
     <h2>How to choose the right standard</h2>
     <p>Choose by the vehicle&rsquo;s market, not by the battery&rsquo;s specs:</p>
     <ul>
-      <li><strong>Japanese or Asian vehicles</strong> → specify JIS and pick the D/B case group.</li>
-      <li><strong>European vehicles</strong> → specify DIN/EN and pick the H/LN/L case group.</li>
-      <li><strong>North American vehicles</strong> → specify BCI and pick the Group number.</li>
+      <li><strong>Japanese or Asian vehicles</strong> &rarr; specify JIS and pick the D/B case group.</li>
+      <li><strong>European vehicles</strong> &rarr; specify DIN/EN and pick the H/LN/L case group.</li>
+      <li><strong>North American vehicles</strong> &rarr; specify BCI and pick the Group number.</li>
     </ul>
-    <p class="note">One factory can supply every major standard, but the buyer must name the correct family. A &ldquo;72Ah battery&rdquo; without a standard is not a complete specification.</p>
+    <p class="note">One factory can supply every major standard, but the buyer must name the correct family. A "72 Ah battery" without a standard is not a complete specification.</p>
 
     <h2>What buyers should ask</h2>
     <ul>
@@ -60,7 +112,7 @@ const faqs = [
       <li>Is the CCA number JIS or EN/SAE?</li>
     </ul>
 
-    <p>See how CCA differs between standards in the <a href="/knowledge/what-is-cca/">CCA guide</a>, and browse models by standard in the <a href="/data/">model database</a>.</p>
+    <p>See the full specification order in the <a href="/knowledge/battery-specifications-guide/">specifications reference</a>, and how CCA differs between standards in the <a href="/knowledge/what-is-cca/">CCA guide</a>. Browse models by standard in the <a href="/data/">model database</a>.</p>
     <p>{RELATIONSHIP}</p>
     <p><a href="/data/">Browse models by standard &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
   </section>

@@ -1,0 +1,146 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Supplier Verification: Business Licence, Certificates & Capacity | Dingwei Battery';
+const description = 'How to verify a Chinese battery supplier before you pay: business licence and unified social credit code, certificate authenticity, and whether claimed factory capacity is real.';
+const articleTitle = 'Battery supplier verification';
+
+const faqs = [
+  { q: 'What is the single most reliable way to confirm a supplier is a real factory?', a: 'Check the unified social credit code (统一社会信用代码) on the business licence against the National Enterprise Credit Information Publicity System (gsxt.gov.cn) — the licence carries an 18-character code, and the register shows the business scope, registered capital and legal representative.' },
+  { q: 'How long is an IATF 16949 certificate valid?', a: 'An IATF 16949 certificate is issued for a 3-year cycle with surveillance audits, so a certificate that looks current can still be suspended — always check the number against the certifier’s register, not just the expiry date on the paper.' },
+  { q: 'Can a supplier fake its production capacity?', a: 'Yes, on paper. Daily output is only believable when 3 numbers agree — the casting capacity, the number of formation circuits and the actual staff count — so cross-check the claim against the equipment you see, not the brochure.' },
+  { q: 'Why does verification matter more than price?', a: 'A trading company posing as a factory typically adds 5–15% and removes your quality control — so an unverified “cheaper” quote is usually the most expensive option in the end.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Sourcing</span>
+    <h1>Battery supplier verification</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Sources: National Enterprise Credit Information Publicity System, IATF 16949 certification rules</p>
+    <p class="lead">A supplier’s brochure tells you what it wants to be. Verification tells you what it is. Before you pay a deposit, three things must check out independently: the legal entity, the certificates, and the claimed capacity.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Verify a battery supplier in three layers before you pay: (1) the legal entity — check the 18-character unified social credit code on the business licence against gsxt.gov.cn to confirm it is a factory, not a trading company; (2) the certificates — an IATF 16949 certificate runs a 3-year cycle and can be suspended, so check the number with the certifier; (3) the capacity — daily output is only believable when casting capacity, formation circuits and headcount agree. A trading company fronting as a factory adds 5–15% and removes your quality control.
+    </div>
+
+    <h2>Layer 1 — Verify the legal entity</h2>
+    <p>Every legitimate Chinese company has a business licence carrying a unified social credit code (统一社会信用代码) — an 18-character alphanumeric identifier. That code is the key to the National Enterprise Credit Information Publicity System (<a href="https://www.gsxt.gov.cn/index.html">gsxt.gov.cn</a>), a free public register maintained by the State Administration for Market Regulation.</p>
+    <p>Look up the code and confirm four fields against what the supplier told you:</p>
+    <ul>
+      <li><strong>Business scope</strong> — does it say production and manufacturing (生产/制造), or only trading (贸易)? A trading company cannot legally run a battery production line, yet many present themselves as factories.</li>
+      <li><strong>Registered capital</strong> — {MANUFACTURER.name}’s registered capital is RMB 50 million. A “factory” with registered capital of RMB 100,000 is a red flag that it cannot fund a production line.</li>
+      <li><strong>Legal representative and registered address</strong> — these should match the licence you were sent and the address you will ship to.</li>
+      <li><strong>Operating status</strong> — the register shows whether the entity is in normal operation, revoked, or subject to enforcement.</li>
+    </ul>
+    <p class="note">A supplier that will not share its unified social credit code before an order will not share anything useful after it. There is no legitimate reason to hide the licence.</p>
+
+    <h2>Layer 2 — Verify the certificates</h2>
+    <p>Certificates are point-in-time documents, and they can be expired, suspended or simply faked. Do not accept a certificate image; ask for the number and check it.</p>
+    <table>
+      <thead><tr><th>Certificate</th><th>What it covers</th><th>How to check it</th></tr></thead>
+      <tbody>
+        <tr><td>IATF 16949</td><td>Automotive quality management system</td><td>Confirm the number and scope with the issuing certification body (see <a href="https://www.iatfglobaloversight.org/">IATF Global Oversight</a>).</td></tr>
+        <tr><td>ISO 9001</td><td>General quality management</td><td>Verify on the certifier’s register; confirm the scope actually includes batteries.</td></tr>
+        <tr><td>ISO 45001 / OHSAS 18001</td><td>Occupational health and safety</td><td>Check the certificate number and validity window.</td></tr>
+        <tr><td>Market certs (CE, SASO, etc.)</td><td>Destination-market conformity</td><td>Confirm the standard and the notified body or issuing authority.</td></tr>
+      </tbody>
+    </table>
+    <p>An IATF 16949 certificate is issued for a 3-year cycle with annual surveillance audits. A certificate can therefore be <em>within</em> its printed expiry date and still be suspended for a failed audit — the paper date is not proof of status. The number is what lets you confirm current standing. {MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')} and can supply the certificate numbers on request, the same as any candidate you should be willing to verify.</p>
+
+    <h2>Layer 3 — Verify the claimed capacity</h2>
+    <p>Capacity claims are the easiest number to inflate and the hardest for a buyer to test from a desk. The trick is that a real production line has bottlenecks, and the bottlenecks have to agree with each other. Three numbers must be consistent:</p>
+    <ul>
+      <li><strong>Casting capacity</strong> — how many grids per day the casting machines produce, which caps plate output.</li>
+      <li><strong>Formation capacity</strong> — how many cells the formation (charging) circuits can process at once, multiplied by cycles per day. Formation is usually the real bottleneck.</li>
+      <li><strong>Headcount</strong> — the number of line workers, which has to support the claimed throughput.</li>
+    </ul>
+    <p>If a factory claims 40,000 batteries a day but its formation area holds a fraction of that, the claim is marketing. Ask for the three numbers separately and check they multiply out. The <a href="/knowledge/how-audit-battery-factory/">factory audit guide</a> shows you what to look at on site to confirm this.</p>
+
+    <h2>The verification checklist</h2>
+    <table>
+      <thead><tr><th>Item</th><th>What to request</th><th>Pass signal</th></tr></thead>
+      <tbody>
+        <tr><td>Business licence</td><td>Unified social credit code</td><td>Matches gsxt.gov.cn; scope is production.</td></tr>
+        <tr><td>Registered capital</td><td>From the register</td><td>Consistent with running a production line.</td></tr>
+        <tr><td>IATF 16949 / ISO 9001</td><td>Certificate number + scope</td><td>Verifiable with the certifier.</td></tr>
+        <tr><td>Capacity</td><td>Casting + formation + headcount</td><td>The three numbers agree.</td></tr>
+        <tr><td>Ownership</td><td>Factory address vs registered address</td><td>They match; a video walkthrough is offered.</td></tr>
+        <tr><td>Export record</td><td>Bill of lading sample or customer reference</td><td>They can name destination markets they serve.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What fakes look like</h2>
+    <ul>
+      <li><strong>Borrowed photos</strong> — a trading company photographs another factory’s line. A live video call with a specific instruction (hold up today’s date) separates the owner from the tourist.</li>
+      <li><strong>Expired or suspended certificates</strong> — the paper looks current, the number does not check out.</li>
+      <li><strong>Inflated capacity</strong> — the brochure claims a number the formation area cannot support.</li>
+      <li><strong>A mailbox address</strong> — the registered address is an office, not the plant you are told exists.</li>
+    </ul>
+    <p>None of these requires an on-site visit to catch. Two of the three layers — the licence and the certificates — verify from a desk; only capacity truly benefits from eyes on the line.</p>
+
+    <h2>Where verification fits in the sequence</h2>
+    <p>Verification sits between the shortlist and the audit. It is cheap and fast — an hour of register checks — and it removes the candidates that would waste a full audit. Run it, then audit the survivors, then issue the <a href="/knowledge/oem-battery-rfq-guide/">RFQ</a>.</p>
+    <p>{RELATIONSHIP} The full sourcing sequence is in the <a href="/knowledge/battery-sourcing-guide/">sourcing guide</a>; see <a href="/knowledge/china-battery-industry-regions/">China battery industry regions</a> to build a shortlist worth verifying, and the <a href="/knowledge/how-choose-oem-battery-manufacturer/">how to choose a manufacturer</a> guide to score the survivors.</p>
+  </section>
+
+
+    <h2>The full register checklist</h2>
+    <p>gsxt.gov.cn is the first stop, but a thorough check uses four public registers, all free:</p>
+    <ul>
+      <li><strong>National Enterprise Credit Information Publicity System</strong> (<a href="https://www.gsxt.gov.cn/index.html">gsxt.gov.cn</a>) &mdash; the licence, unified social credit code, business scope and operating status.</li>
+      <li><strong>China Judgments Online / enforcement records</strong> &mdash; whether the entity is a defendant in unpaid-debt or quality disputes.</li>
+      <li><strong>The certifier&rsquo;s certificate register</strong> &mdash; confirms an IATF 16949 or ISO 9001 number is current and the scope matches.</li>
+      <li><strong>Customs / export records</strong> &mdash; where available, confirms the entity actually exports, not just advertises.</li>
+    </ul>
+    <p>None of these requires an on-site visit. Between them they answer the two questions that matter before you pay anything: is this entity real, and is it what it says it is?</p>
+
+    <h2>A worked verification example</h2>
+    <p>Run a supplier through the checks and the result is a pass/fail list, not a feeling:</p>
+    <table>
+      <thead><tr><th>Check</th><th>Supplier claims</th><th>Register shows</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Unified social credit code</td><td>18-character code provided</td><td>Resolves to a different name</td><td>Fail &mdash; stop</td></tr>
+        <tr><td>Business scope</td><td>&ldquo;Factory, 20 years&rdquo;</td><td>Scope is trading (贸易) only</td><td>Fail &mdash; stop</td></tr>
+        <tr><td>Registered capital</td><td>&ldquo;Large manufacturer&rdquo;</td><td>RMB 100,000</td><td>Fail &mdash; stop</td></tr>
+        <tr><td>IATF 16949</td><td>&ldquo;Fully certified&rdquo;</td><td>Certificate suspended</td><td>Fail &mdash; stop</td></tr>
+        <tr><td>Capacity</td><td>40,000/day</td><td>Formation area supports a fraction</td><td>Investigate</td></tr>
+      </tbody>
+    </table>
+    <p>In this example four of the five checks fail outright, and the correct action is to walk away before spending a single day on an audit. That is the value of verification: it removes candidates for free that an audit would have removed for US$1,500&ndash;3,000.</p>
+
+    <h2>The sample as a verification tool</h2>
+    <p>A production sample is evidence, but only if you ask the right question about it. When the sample arrives, confirm three things:</p>
+    <ol>
+      <li><strong>It came from a production run, not a lab bench</strong> &mdash; ask for the batch record that ties it to the line.</li>
+      <li><strong>It carries its own test report</strong> &mdash; CCA and capacity, on the named test basis, not a generic datasheet.</li>
+      <li><strong>It matches the licence</strong> &mdash; the label should name the entity you verified, not a different trading company.</li>
+    </ol>
+    <p>A supplier that can produce a sample with a batch record and a test report is showing you its process control, not just its product.</p>
+
+    <h2>Video walkthrough protocol</h2>
+    <p>If you cannot visit, a live video call replaces some of the visit. Make it verifiable rather than a tour video:</p>
+    <ul>
+      <li>Ask to start at the factory gate with the company sign visible.</li>
+      <li>Ask them to hold up a dated document or today&rsquo;s newspaper on camera.</li>
+      <li>Ask to walk the line in production order, and pause at the curing room and the formation area.</li>
+      <li>Ask a technical question at each stop &mdash; a real factory answers, a trader stalls.</li>
+    </ul>
+    <p>A video call is not as good as an audit, but it is dramatically better than a photo set, and it costs nothing. Use it as the bridge between desk verification and the on-site <a href="/knowledge/how-audit-battery-factory/">audit</a>.</p>
+
+
+
+    <h2>Sources and further reading</h2>
+    <ul>
+      <li><a href="https://www.gsxt.gov.cn/index.html">National Enterprise Credit Information Publicity System</a> &mdash; the primary register for business licences and unified social credit codes.</li>
+      <li><a href="https://www.iatfglobaloversight.org/">IATF Global Oversight</a> &mdash; the body that governs IATF 16949 certification and its 3-year audit cycle.</li>
+    </ul>
+    <p>Verification is the cheapest stage in the whole sourcing sequence and the most expensive one to skip. Run it on every candidate, every time.</p>
+
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Verify Dingwei Battery's credentials directly" />
+</ArticleLayout>

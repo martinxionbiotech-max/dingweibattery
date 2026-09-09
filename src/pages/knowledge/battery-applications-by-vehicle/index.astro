@@ -5,45 +5,91 @@ import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
 const title = 'Battery Applications by Vehicle Type | Dingwei Battery';
-const description = 'How battery requirements differ by vehicle — passenger car, SUV, pickup, truck, bus and construction — and how to specify the right battery for each.';
+const description = 'How battery requirements differ by vehicle — passenger, start-stop, commercial, truck, bus and construction — and the matching logic (SLI/EFB/AGM/heavy-duty) for each class.';
 const articleTitle = 'Battery applications by vehicle type';
 
 const faqs = [
-  { q: 'What battery does a start-stop car need?', a: 'AGM or EFB. A start-stop system cycles the battery far more often than a conventional vehicle, and a standard SLI battery will fail early under that duty.' },
-  { q: 'Why do diesel trucks need high CCA?', a: 'Large diesel engines have high compression and need a strong cranking current, especially in cold weather — driving a high CCA requirement.' },
-  { q: 'What battery suits construction equipment?', a: 'A heavy-duty battery with high CCA and vibration resistance. Construction machines sit idle in cold weather then need a hard start, and constant vibration shakes a light-duty battery apart — which is why heavy-duty uses thicker plates and a more rigid case.' },
+  { q: 'What battery does a start-stop car need?', a: 'AGM or EFB. A start-stop system cycles the battery far more often than a conventional vehicle — an AGM battery is typically rated for 2&ndash;3&times; the cycle life of a conventional SLI battery — and a standard SLI will fail early under that duty.' },
+  { q: 'Why do diesel trucks need high CCA?', a: 'Large diesel engines have high compression and need a strong cranking current, especially in cold weather — driving a high CCA requirement, often in the 800&ndash;1100 A range on a 12 V system, plus a physically larger case.' },
+  { q: 'Why do heavy trucks run 24V?', a: 'Doubling the voltage to 24 V delivers the same cranking power at half the current, which means thinner cables and less voltage drop across a long chassis. It is usually built from two 12 V batteries in series.' },
+  { q: 'What battery suits construction equipment?', a: 'A heavy-duty battery with high CCA and vibration resistance. Construction machines sit idle in cold weather then need a hard start, and constant vibration shakes a light-duty battery apart — heavy-duty uses thicker plates and a more rigid case.' },
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Applications" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Applications" dateModified="2026-09-09" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Applications</span>
     <h1>Battery applications by vehicle type</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-03 · Source: automotive application requirements</p>
-    <p class="lead">Different vehicles make different demands on a battery. A passenger car, a start-stop SUV and a diesel truck need different specifications — and picking the wrong one shortens battery life.</p>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-09 · Sources: automotive application requirements, SAE J537, EN 50342</p>
+    <p class="lead">Different vehicles make different demands on a battery. A passenger car, a start-stop SUV and a diesel truck need different specifications — and picking the wrong one shortens battery life, sometimes dramatically.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> Vehicle type decides the battery, not the other way around — a start-stop car needs AGM/EFB cycling durability that a standard SLI battery will fail early on, and a diesel truck needs CCA far beyond a passenger car because cold cranking is its binding constraint.
+      <strong>Short answer:</strong> Vehicle type decides the battery, not the other way around. A start-stop car needs AGM/EFB cycling durability that a standard SLI battery will fail early on, a diesel truck needs CCA far beyond a passenger car (often 800&ndash;1100 A on 12 V, or a 24 V series pair), and construction equipment needs vibration-resistant heavy-duty construction. Matching the battery to the duty cycle is the whole game.
     </div>
 
     <h2>Requirements by vehicle class</h2>
     <table>
-      <thead><tr><th>Vehicle</th><th>Typical demand</th><th>Battery choice</th></tr></thead>
+      <thead><tr><th>Vehicle</th><th>Typical demand</th><th>Battery choice</th><th>Key spec</th></tr></thead>
       <tbody>
-        <tr><td>Passenger car</td><td>Standard starting</td><td>SLI, JIS/DIN/BCI fitment</td></tr>
-        <tr><td>SUV / pickup</td><td>Higher load, some start-stop</td><td>Higher-capacity SLI or EFB/AGM</td></tr>
-        <tr><td>Start-stop car</td><td>Frequent cycling</td><td>AGM or EFB</td></tr>
-        <tr><td>Light commercial / van</td><td>Accessory load, longer duty</td><td>Higher Ah SLI</td></tr>
-        <tr><td>Truck / bus</td><td>High CCA, vibration</td><td>Heavy-duty, JIS N-series / DIN / BCI</td></tr>
-        <tr><td>Construction / agricultural</td><td>Vibration, deep cycling</td><td>Heavy-duty, high CCA</td></tr>
+        <tr><td>Passenger car</td><td>Standard starting</td><td>SLI, JIS/DIN/BCI fitment</td><td>Ah + CCA, case fit</td></tr>
+        <tr><td>SUV / pickup</td><td>Higher load, some start-stop</td><td>Higher-capacity SLI or EFB/AGM</td><td>Higher Ah + CCA</td></tr>
+        <tr><td>Start-stop car</td><td>Frequent cycling</td><td>AGM or EFB</td><td>Cycle life</td></tr>
+        <tr><td>Light commercial / van</td><td>Accessory load, longer duty</td><td>Higher Ah SLI</td><td>RC / runtime</td></tr>
+        <tr><td>Truck / bus</td><td>High CCA, vibration, 24 V</td><td>Heavy-duty, JIS N-series / DIN / BCI</td><td>CCA + voltage</td></tr>
+        <tr><td>Construction / agricultural</td><td>Vibration, deep cycling</td><td>Heavy-duty, high CCA</td><td>Vibration resistance</td></tr>
       </tbody>
     </table>
 
     <h2>Why start-stop changes the battery</h2>
     <p>A start-stop system shuts the engine off at idle and restarts it repeatedly, cycling the battery far more often than a conventional vehicle. That requires a battery designed for cycling — AGM (absorbent glass mat) or EFB (enhanced flooded) — rather than a standard SLI battery, which will fail early under that duty.</p>
+    <p>The rule of thumb buyers use: a conventional SLI battery is designed for the occasional start and a long float charge, while an AGM battery is built for repeated partial-state-of-charge cycling. Fitting an SLI battery into a start-stop vehicle is the single most common mis-specification in the passenger-car segment — the battery will crank, but it will die in a fraction of its expected life because it was never designed for the cycle count.</p>
 
     <h2>Why diesel trucks need high CCA</h2>
-    <p>Large diesel engines have high compression and need a strong cranking current, especially in cold weather. This drives a high CCA requirement (often in the 800–1100 A order of magnitude, reference), plus a physically larger case and heavier construction to survive vibration.</p>
+    <p>Large diesel engines have high compression and need a strong cranking current, especially in cold weather. This drives a high CCA requirement (often in the 800&ndash;1100 A order of magnitude on a 12 V system, reference), plus a physically larger case and heavier construction to survive vibration. Heavy trucks and buses frequently go further and run 24 V systems — two 12 V batteries in series — to halve the cranking current and reduce cable weight.</p>
     <p class="note">CCA is test-method dependent — confirm whether the value is JIS, EN or SAE. See the <a href="/knowledge/what-is-cca/">CCA guide</a>.</p>
+
+    <h2>Why construction equipment beats batteries apart</h2>
+    <p>Construction and agricultural machines sit idle in cold weather, then need a hard start, and spend their working life shaking. Vibration is the killer — it fatigues plates and breaks internal connections. Heavy-duty batteries use thicker plates, a more rigid case and stronger internal welds to survive it. This is a structural difference, not just a bigger CCA number.</p>
+
+    <h2>Hot climate vs cold climate: the CCA paradox</h2>
+    <p>Cold climate raises the cranking demand, so CCA matters most in winter. But heat is the battery&rsquo;s true long-term killer — high under-hood temperatures accelerate water loss and plate corrosion, which is why batteries fail faster in hot climates than cold ones even though the cold is what exposes a weak battery. The practical rule: size the CCA for the coldest morning the vehicle will see, and pick the construction (heat-tolerant, sealed, maintenance-free) for the hottest afternoon it will sit in. A battery specified only for the cold start can die early in the heat.</p>
+
+    <h2>Start-stop: AGM vs EFB</h2>
+    <p>Within start-stop, the choice between AGM and EFB is a step up in cycling durability and cost:</p>
+    <table>
+      <thead><tr><th>Technology</th><th>Cycling</th><th>Relative cost</th><th>Typical fit</th></tr></thead>
+      <tbody>
+        <tr><td>EFB</td><td>Higher than SLI</td><td>Lower than AGM</td><td>Basic start-stop, smaller engines</td></tr>
+        <tr><td>AGM</td><td>Highest</td><td>Highest</td><td>Advanced start-stop, regenerative braking, high load</td></tr>
+      </tbody>
+    </table>
+    <p>The trap is downgrading an AGM to an EFB to save cost. The vehicle&rsquo;s charging strategy is calibrated to the battery it was designed with — an AGM-equipped car charges to a different voltage profile than an EFB expects — so a cheaper EFB in an AGM vehicle can be overcharged and fail early. The technology is not interchangeable; it is part of the vehicle&rsquo;s specification.</p>
+
+    <h2>Worked specs by class</h2>
+    <p>Concrete reference examples make the mapping actionable:</p>
+    <ul>
+      <li><strong>Compact city car (Asia)</strong> — JIS B24, ~48 Ah (C20), ~370 CCA (JIS &minus;15&deg;C), SLI.</li>
+      <li><strong>Mid-size sedan (Asia)</strong> — JIS D23, 60&ndash;72 Ah, 370&ndash;600 CCA (JIS), SLI.</li>
+      <li><strong>Pickup / 4WD (Asia)</strong> — JIS D26 or D31, 72&ndash;96 Ah, 490&ndash;710 CCA (JIS), SLI.</li>
+      <li><strong>European start-stop</strong> — DIN H6/LN3, ~70 Ah, ~640 CCA (EN), EFB or AGM.</li>
+      <li><strong>North American pickup</strong> — BCI Group 65, ~70 Ah, ~650 CCA (SAE), SLI or AGM.</li>
+      <li><strong>Heavy truck (24 V)</strong> — two 12 V heavy-duty in series, 100&ndash;200 Ah each, 740&ndash;1100 CCA (SAE reference).</li>
+    </ul>
+    <p class="note">These are reference examples drawn from the standard families and the Dingwei model range — confirm each value against the specific vehicle before ordering.</p>
+
+    <h2>Marine, RV and deep-cycle: a different duty again</h2>
+    <p>Boats and recreational vehicles add a duty cycle the automotive chart does not cover: long periods of discharge running lights, pumps and electronics while the engine is off. That calls for a deep-cycle or dual-purpose (starting + deep-cycle) design rather than a pure starting battery, which is damaged by deep discharge. Marine batteries also face a different vibration and corrosion environment (salt, humidity), so the case and terminals are sealed differently. A buyer supplying the marine or RV channel is specifying a different product family from the passenger-car range, even though the voltage and case size may look familiar.</p>
+
+    <h2>Fleet consistency: one spec across a fleet</h2>
+    <p>For a buyer supplying a fleet — taxis, delivery vans, a construction company — consistency matters more than any single battery&rsquo;s peak spec. A fleet is easier to maintain when every vehicle takes the same case group and terminal, so one battery SKU covers the whole lot and one maintenance routine applies everywhere. That often means standardising on the most common vehicle&rsquo;s spec and accepting a slightly oversized battery in the smaller vehicles. The trade-off is worth it in inventory and maintenance time, and it is a decision the buyer should make deliberately rather than discovering it mid-fleet.</p>
+
+    <h2>The matching logic, step by step</h2>
+    <ol>
+      <li>Classify the vehicle — passenger, start-stop, light commercial, truck/bus, or construction.</li>
+      <li>Confirm the system voltage — 12 V for most, 24 V for heavy trucks/buses.</li>
+      <li>Decide the technology from the duty cycle — SLI, EFB or AGM for passenger; heavy-duty for commercial/construction.</li>
+      <li>Set the electrical ratings — Ah (at C20) for runtime, CCA (with its basis) for cold starting.</li>
+      <li>Confirm case size, terminals and polarity for the specific vehicle.</li>
+    </ol>
 
     <h2>What buyers should ask</h2>
     <ul>
@@ -53,7 +99,7 @@ const faqs = [
       <li>What CCA (and which test basis) does the engine need?</li>
     </ul>
 
-    <p>Map vehicle type to the right standard in <a href="/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>, and browse models in the <a href="/data/">model database</a>.</p>
+    <p>Map vehicle type to the right standard in <a href="/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>, and confirm the voltage logic in <a href="/knowledge/battery-voltage-6v-vs-12v/">6 V vs 12 V</a>. The full decision order is in the <a href="/knowledge/battery-specifications-guide/">specifications reference</a>.</p>
     <p>{RELATIONSHIP}</p>
     <p><a href="/heavy-duty-batteries/">Heavy-duty battery options &rarr;</a> · <a href="/oem/car-batteries/">Car battery options &rarr;</a></p>
   </section>

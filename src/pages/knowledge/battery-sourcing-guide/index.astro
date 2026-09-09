@@ -1,0 +1,236 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'How to Source OEM Batteries from China: Complete Guide | Dingwei Battery';
+const description = 'The complete guide to sourcing OEM lead-acid batteries from China: supplier selection, verification, factory audit, RFQ, MOQ and lead time, and import regulations — with a weighted supplier scorecard and a stage-by-stage decision tree.';
+const articleTitle = 'How to source OEM batteries from China: the complete guide';
+
+const faqs = [
+  { q: 'How long does sourcing an OEM battery order take end to end?', a: 'From first RFQ to first container, budget 60–90 days: 7–14 days to shortlist and verify suppliers, 10–20 days for sampling and approval, 30–45 days for production, then 3–5 weeks for ocean freight and clearance.' },
+  { q: 'What is a realistic first-order MOQ from a Chinese battery factory?', a: 'One 20ft container — roughly 600–800 batteries depending on group size — because freight cost per unit collapses at a full container load and pallet stacking caps the load well below the container’s raw volume.' },
+  { q: 'How much does a factory audit actually cost?', a: 'A one-day third-party audit in China typically runs US$1,500–3,000, which is under 1% of a first container worth US$200,000 — cheap insurance against a supplier that cannot repeat your specification.' },
+  { q: 'Do I need to visit the factory in person?', a: 'Not for a first order — a documented audit plus a production sample covers most risk. But for a program above roughly US$500,000 a year, one on-site visit is usually worth the trip.' },
+  { q: 'What is the single biggest risk when sourcing from China?', a: 'Buying from a trading company that presents itself as a factory, which typically adds 5–15% margin and removes your control over quality — so verify the business license and production line before you pay anything.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Sourcing</span>
+    <h1>How to source OEM batteries from China: the complete guide</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Sources: IATF 16949, USTR Section 301, EU Batteries Regulation (EU) 2023/1542, IMDG Code</p>
+    <p class="lead">Sourcing OEM batteries from China is not one decision — it is seven, and they happen in a fixed order. Get the order right and the process is mechanical; get it wrong and you lose a container’s margin to a supplier that never should have been shortlisted. This guide walks the sequence from specification to landed goods, gives you a weighted scorecard for choosing a factory, and ends with the parts suppliers would rather you skip: how to verify a factory is real, and what the landed-cost math actually looks like.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Source OEM batteries in seven stages — fix the specification, build a shortlist, verify the suppliers, audit the factory, issue a clean RFQ, confirm MOQ and lead time, and clear import compliance — in that order. The single highest-value step is verification: a trading company posing as a factory typically adds 5–15% and removes your quality control, so check the business licence before you pay. A first order is usually one 20ft container (600–800 units), lead time runs 30–45 days, and the whole cycle from RFQ to landed goods takes 60–90 days.
+    </div>
+
+    <h2>The seven-stage sequence</h2>
+    <p>Every sourcing failure traces back to doing a later stage before an earlier one — quoting before the specification is fixed, auditing before the shortlist is credible, or negotiating MOQ before the supplier is verified. The stages are:</p>
+    <ol>
+      <li><strong>Specify</strong> — fix standard family, case group, Ah, CCA basis, terminal and technology.</li>
+      <li><strong>Shortlist</strong> — pick 3–5 candidates from the right industry regions.</li>
+      <li><strong>Verify</strong> — confirm each is a real factory with current certificates.</li>
+      <li><strong>Audit</strong> — confirm process control and repeatability, on site or by third party.</li>
+      <li><strong>RFQ</strong> — issue one complete scope so quotes are comparable.</li>
+      <li><strong>Commit</strong> — confirm MOQ, lead time, payment and warranty.</li>
+      <li><strong>Import</strong> — clear tariffs, certifications and dangerous-goods shipping.</li>
+    </ol>
+    <p>Skip one stage and you pay for it later. A supplier you did not verify will surface a problem exactly when it is most expensive to fix — after the deposit is paid.</p>
+
+    <h2>The decision tree: what to ask at each stage</h2>
+    <p>Each stage has one question that matters more than the rest. Ask it, get a verifiable answer, then move on.</p>
+    <table>
+      <thead><tr><th>Stage</th><th>The one question</th><th>What a good answer looks like</th></tr></thead>
+      <tbody>
+        <tr><td>1. Specify</td><td>Which standard family and CCA test basis?</td><td>“JIS D26, 72 Ah, 490 CCA at −15°C.”</td></tr>
+        <tr><td>2. Shortlist</td><td>Which region and what is your real output?</td><td>Named plant location + daily output you can verify.</td></tr>
+        <tr><td>3. Verify</td><td>Show me your business licence and current IATF certificate.</td><td>Documents that check out against official registers.</td></tr>
+        <tr><td>4. Audit</td><td>What is your plate curing window?</td><td>A stated window (typically 2–4 days) plus batch records.</td></tr>
+        <tr><td>5. RFQ</td><td>Quote one scope, one model per line.</td><td>A line-item quote that repeats your specification back.</td></tr>
+        <tr><td>6. Commit</td><td>What is the MOQ logic and lead time breakdown?</td><td>Container-based MOQ + production/shipping split.</td></tr>
+        <tr><td>7. Import</td><td>Which certifications does my destination market require?</td><td>A named certificate set for your market.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Stage 1 — Fix the specification first</h2>
+    <p>A battery that is not fully specified cannot be quoted, compared or audited. The five parts — standard family (JIS / DIN-EN / BCI / AS / SA), case group, capacity at C20, CCA on a named test basis, and terminal type plus polarity — are one decision, not five separate ones. A supplier that quotes “a 72 Ah battery” without asking the standard is guessing, and so is the price.</p>
+    <p>The full treatment lives in the specifications cluster — start with the <a href="/knowledge/battery-specifications-guide/">automotive battery specifications reference</a> and lock the model against the <a href="/knowledge/battery-group-size-chart/">group size chart</a> before you contact anyone.</p>
+
+    <h2>Stage 2 — Build a shortlist from the right regions</h2>
+    <p>China’s lead-acid battery production is clustered, not spread evenly. Different regions specialise in different products and price points, and a buyer who shortlists by region gets a tighter set of candidates than one who shortlists by search ranking. The main clusters — Hebei (where {MANUFACTURER.shortName} is based, in Jinzhou), Shandong, Jiangsu, Zhejiang and Anhui — differ in process strength, export experience and cost structure. Read the <a href="/knowledge/china-battery-industry-regions/">China battery industry regions</a> guide before you build the list.</p>
+    <p>Keep the shortlist to 3–5 factories. More than that and the RFQ comparison becomes unmanageable; fewer than three and you have no competitive reference.</p>
+
+    <h2>Stage 3 — Verify the supplier is what it claims</h2>
+    <p>This is the stage buyers skip, and it is the most expensive stage to skip. Three things must be true before a factory earns a spot on your list:</p>
+    <ul>
+      <li><strong>It is a real legal entity</strong> — check the business licence and unified social credit code against the National Enterprise Credit Information Publicity System (<a href="https://www.gsxt.gov.cn/index.html">gsxt.gov.cn</a>).</li>
+      <li><strong>It is a factory, not a trading company</strong> — the licence lists the business scope; “production” (生产制造) versus “trading” (贸易) is written on it.</li>
+      <li><strong>Its certificates are current</strong> — an IATF 16949 certificate has a validity period and a scope; ask for the certificate number and confirm it against the certifier’s register.</li>
+    </ul>
+    <p>The full method — including how to test whether claimed capacity is real — is in the <a href="/knowledge/battery-supplier-verification/">supplier verification</a> guide. The short version: a supplier that will not show its licence before an order will show you nothing useful after it.</p>
+
+    <h2>Stage 4 — Audit the factory</h2>
+    <p>Verification confirms the supplier is real; the audit confirms it can repeat your specification. Walk the line in the order the battery is made — grid casting, paste mixing, pasting, curing, assembly, formation, sealing, test — and at each step ask what is measured and how rejects are handled. The single most telling question is the curing window: a factory that rushes plate curing to save days ships batteries that fail early.</p>
+    <p>For lead-acid the audit is lighter than for lithium — no cell-safety or thermal-runaway review — which makes it cheap to do properly. See the <a href="/knowledge/how-audit-battery-factory/">factory audit guide</a> for the full walkthrough, and run every candidate through the <a href="/knowledge/oem-battery-supplier-checklist/">supplier checklist</a> so they are scored the same way.</p>
+
+    <h2>Stage 5 — Issue one complete RFQ</h2>
+    <p>Most RFQs fail on three missing fields: the CCA test basis, the annual volume, and one standard per line. Without them, every supplier quotes a different scope and the prices are not comparable. Send the specification block, the volume block, the branding block and the commercial block as one document, one model per line. The <a href="/knowledge/oem-battery-rfq-guide/">RFQ guide</a> has the template and the field checklist.</p>
+    <p class="note">Do not put a price target in a first RFQ. Suppliers quote to a number when you give them one; quote on scope first and negotiate price second.</p>
+
+    <h2>Stage 6 — Confirm MOQ and lead time</h2>
+    <p>Battery MOQ is a container-logic number, not a marketing number. A 20ft container holds roughly 33 m³ and about 28,000 kg of payload, but the practical load for starter batteries is set by pallet stacking and carton crush strength — which is why a first order lands around 600–800 units rather than the 1,400+ the raw weight limit would allow. Lead time of 30–45 days is the sum of production plus pre-shipment testing, and it is stable year-round because lead-acid has no harvest season. The <a href="/knowledge/oem-battery-moq-lead-time/">MOQ and lead time guide</a> breaks both down.</p>
+
+    <h2>Stage 7 — Clear the import path</h2>
+    <p>Before you commit a cent, know the destination market’s tariff, certification and environmental requirements. The US adds a 25% Section 301 surcharge on Chinese batteries on top of the base duty; the EU applies the <a href="https://eur-lex.europa.eu/eli/reg/2023/1542/oj">Batteries Regulation (EU) 2023/1542</a> and CE marking; Gulf states require SASO/GSO conformity; and lead-acid ships as Class 8 corrosive dangerous goods (UN 2794 / UN 2800) under the <a href="https://www.imo.org/">IMDG Code</a>. The <a href="/knowledge/battery-import-regulations/">import regulations guide</a> maps the requirements market by market, and the <a href="/knowledge/battery-shipping-warranty/">shipping and warranty guide</a> covers the dangerous-goods paperwork.</p>
+
+    <h2>The weighted supplier scorecard</h2>
+    <p>Score every shortlisted factory against the same five dimensions. The weights below are a starting point — raise the repeatability weight if you plan a multi-year program, and raise the certification weight if your market requires IATF 16949 or SASO.</p>
+    <table>
+      <thead><tr><th>Dimension</th><th>Weight</th><th>What you are scoring</th><th>Where to find the data</th></tr></thead>
+      <tbody>
+        <tr><td>Specification coverage</td><td>25%</td><td>Can they produce your standard family and models in-house?</td><td>RFQ response + model list</td></tr>
+        <tr><td>Certifications</td><td>20%</td><td>Are current IATF 16949 / ISO 9001 / market certs verifiable?</td><td>Certificate register</td></tr>
+        <tr><td>Scale & capacity</td><td>20%</td><td>Does daily output map to your annual volume without strain?</td><td>Factory audit</td></tr>
+        <tr><td>Repeatability</td><td>20%</td><td>Is there a locked specification and change control?</td><td>Contract + sample history</td></tr>
+        <tr><td>Export experience</td><td>15%</td><td>Which markets do they serve, and can they document them?</td><td>Reference + docs</td></tr>
+      </tbody>
+    </table>
+    <p>Score each dimension 1–5, multiply by the weight, and total. A score below 3.5 overall, or below 3 on repeatability, should remove a candidate regardless of price. {MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')}, operates {MANUFACTURER.productionLines} producing {MANUFACTURER.dailyOutput}, and exports to {MANUFACTURER.exportMarkets} — so it can be scored with exactly this card. Run the detailed method in the <a href="/knowledge/how-choose-oem-battery-manufacturer/">how to choose a manufacturer</a> guide.</p>
+
+    <h2>Two calculations that reframe the decision</h2>
+    <p><strong>The audit-cost ratio.</strong> A one-day third-party audit in China costs roughly US$1,500–3,000. A first container of 700 batteries at a US$40 landed unit cost is US$28,000; a 12-month program at one container a month is over US$300,000. The audit is therefore under 1% of a single container and a rounding error against a year. Paying US$3,000 to avoid a specification drift that ruins a US$28,000 shipment is not a cost — it is the cheapest line item in the whole program.</p>
+    <p><strong>The trading-company margin.</strong> A trading company that fronts as a factory typically adds 5–15% to the ex-factory price and removes your visibility into quality. On a US$28,000 container that is US$1,400–4,200 per shipment — more than the audit costs — and you have traded it for a supplier you cannot hold accountable on process. Verify before you pay, and the margin question answers itself.</p>
+
+    <h2>What suppliers will not volunteer</h2>
+    <ul>
+      <li><strong>“Factory” photos can be bought.</strong> A trading company can photograph someone else’s line. The licence and a live walkthrough, not a photo set, establish who owns the equipment.</li>
+      <li><strong>Certificates can be expired or suspended.</strong> A certificate is a point-in-time document. Ask for the number and check the certifier’s register — a suspended IATF certificate is not worth the paper.</li>
+      <li><strong>A low unit price hides a hidden cost.</strong> A quote that skips the CCA basis, tooling or packaging is not a cheaper battery — it is a smaller scope. Compare on scope, not on the bare number.</li>
+      <li><strong>MOQ reflects the supplier’s inventory pressure, not yours.</strong> A supplier that pushes a huge MOQ may be offloading stock, not protecting your unit cost. Ask for the MOQ logic.</li>
+    </ul>
+
+    <h2>Common mistakes that cost a container</h2>
+    <ol>
+      <li><strong>Quoting before specifying</strong> — you collect prices for three different batteries and call it a comparison.</li>
+      <li><strong>Skipping verification</strong> — the cheapest stage to skip and the most expensive mistake to discover.</li>
+      <li><strong>Buying on price alone</strong> — a 5% cheaper quote that drifts on specification costs more than it saves.</li>
+      <li><strong>One model per RFQ line, ignored</strong> — mixed lines force a guess and a range instead of a quote.</li>
+      <li><strong>Discovering import duties after ordering</strong> — a 25% surcharge found late can wipe the entire margin.</li>
+    </ol>
+
+    <h2>How to use this guide</h2>
+    <p>{RELATIONSHIP} The pages below each drill into one stage of the sequence. Use the pillar to fix the order of decisions, then follow the cluster links for the detail:</p>
+    <ul>
+      <li><a href="/knowledge/how-choose-oem-battery-manufacturer/">How to choose an OEM battery manufacturer</a></li>
+      <li><a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist</a></li>
+      <li><a href="/knowledge/how-audit-battery-factory/">How to audit a lead-acid battery factory</a></li>
+      <li><a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ guide</a></li>
+      <li><a href="/knowledge/oem-battery-moq-lead-time/">OEM battery MOQ and lead time</a></li>
+      <li><a href="/knowledge/battery-supplier-verification/">Battery supplier verification</a></li>
+      <li><a href="/knowledge/china-battery-industry-regions/">China battery industry regions</a></li>
+      <li><a href="/knowledge/battery-import-regulations/">Battery import regulations by market</a></li>
+    </ul>
+    <p>Related: <a href="/knowledge/battery-specifications-guide/">battery specifications reference</a> · <a href="/knowledge/battery-shipping-warranty/">shipping and warranty</a> · <a href="/knowledge/oem-battery-specification-guide/">OEM specification guide</a> · <a href="/oem/">start an OEM program →</a></p>
+  </section>
+
+
+    <h2>The sourcing timeline, week by week</h2>
+    <p>The 60&ndash;90 day cycle breaks into a predictable calendar. Here is the realistic schedule, with the stages mapped to weeks:</p>
+    <table>
+      <thead><tr><th>Weeks</th><th>Stage</th><th>What happens</th></tr></thead>
+      <tbody>
+        <tr><td>1&ndash;2</td><td>Specify + shortlist</td><td>Lock the 5-part specification; build a 3&ndash;5 factory shortlist from the right regions.</td></tr>
+        <tr><td>2&ndash;3</td><td>Verify</td><td>Check licences, certificates and capacity; drop the trading companies.</td></tr>
+        <tr><td>3&ndash;4</td><td>Audit</td><td>Walk the line or commission a third-party audit; confirm repeatability.</td></tr>
+        <tr><td>4&ndash;6</td><td>RFQ + sampling</td><td>Issue one RFQ; approve the pre-production sample.</td></tr>
+        <tr><td>6&ndash;10</td><td>Production</td><td>30&ndash;45 days of casting through formation and sealing.</td></tr>
+        <tr><td>10&ndash;14</td><td>Shipping + clearance</td><td>3&ndash;5 weeks of ocean freight, customs and inland delivery.</td></tr>
+      </tbody>
+    </table>
+    <p>The two places the schedule slips are sampling (because the specification was not locked first) and clearance (because the certification was discovered late). Both are preventable at the front of the sequence, which is why stages 1 and 7 deserve as much attention as the production weeks in between.</p>
+
+    <h2>Payment terms, and the risk they carry</h2>
+    <p>The standard OEM payment is T/T &mdash; 30% deposit, 70% before shipment &mdash; or a letter of credit at sight. The structure exists to split the risk: the deposit funds raw materials, and the balance transfers only when the goods are ready. Three things to negotiate explicitly:</p>
+    <ul>
+      <li><strong>The deposit size</strong> &mdash; 30% is standard; a supplier demanding 50% up front is asking you to carry more of its working capital.</li>
+      <li><strong>The balance trigger</strong> &mdash; confirm the 70% is due against a pre-shipment inspection report and shipping documents, not just an invoice.</li>
+      <li><strong>Escrow or L/C for first orders</strong> &mdash; a letter of credit at sight puts a bank in the middle for a first order with an unfamiliar supplier.</li>
+    </ul>
+    <p>Payment terms are a verification tool as much as a cost. A supplier that will not accept a standard 30/70 split or an L/C at sight on a first order is signalling a risk it does not want you to see.</p>
+
+    <h2>Sampling and the golden sample</h2>
+    <p>Before mass production you approve a pre-production sample. That sample becomes the golden sample &mdash; the physical reference every later batch is checked against. Three disciplines make it worth anything:</p>
+    <ol>
+      <li><strong>Approve on the tested sample, not the photo.</strong> Ask for the CCA and capacity test report of the actual sample, on the named test basis.</li>
+      <li><strong>Lock the golden sample in the contract.</strong> The purchase order should reference the sample serial and its test report, so repeat orders have a physical anchor.</li>
+      <li><strong>Keep one sample yourself.</strong> You cannot adjudicate a future claim against a sample you never held.</li>
+    </ol>
+    <p>A supplier that rushes you past sampling into production is usually hiding the gap between its sample line and its production line. The <a href="/knowledge/oem-battery-moq-lead-time/">MOQ and lead time guide</a> covers how sampling adds to the timeline.</p>
+
+    <h2>How to structure a first order: pilot, then scale</h2>
+    <p>Do not put your entire annual volume on the first purchase order. Structure it in three steps:</p>
+    <ol>
+      <li><strong>Pilot</strong> &mdash; a small batch (or a portion of a shared container) to validate the sample and the process.</li>
+      <li><strong>First container</strong> &mdash; a full 20ft load, checked against the golden sample on arrival.</li>
+      <li><strong>Scale</strong> &mdash; a rolling forecast once the first container passes inspection in your market.</li>
+    </ol>
+    <p>The pilot costs a bit more per unit, but it buys you the evidence to scale with confidence &mdash; and it is far cheaper than discovering a drift across a year of containers.</p>
+
+    <h2>Trading company or factory: how to tell in five minutes</h2>
+    <p>Five checks separate a factory from a trader fronting as one:</p>
+    <table>
+      <thead><tr><th>Check</th><th>Factory</th><th>Trader</th></tr></thead>
+      <tbody>
+        <tr><td>Business scope</td><td>Production (生产制造) on the licence</td><td>Trading (贸易) only</td></tr>
+        <tr><td>Video call</td><td>Walks the line live, on request</td><td>Shows stock photos, deflects</td></tr>
+        <tr><td>Technical depth</td><td>Names the curing window, alloy, CCA method</td><td>Repeats the brochure</td></tr>
+        <tr><td>Sample control</td><td>Sends a production-run sample with test report</td><td>Sends whatever it can buy</td></tr>
+        <tr><td>Price</td><td>Ex-factory, no hidden layer</td><td>5&ndash;15% on top of a real factory</td></tr>
+      </tbody>
+    </table>
+    <p>None of these takes more than a day to run, and the licence check alone &mdash; free, on gsxt.gov.cn &mdash; eliminates most traders immediately. This is the highest-return five minutes in the whole sourcing process.</p>
+
+    <h2>How to read a factory's export record</h2>
+    <p>Export experience is the one scorecard dimension you can verify without visiting. Ask for three documents and read them for what they prove:</p>
+    <ul>
+      <li><strong>A recent bill of lading</strong> &mdash; proves they actually shipped to a named destination, not that they have a customer list.</li>
+      <li><strong>Certificate of origin samples</strong> &mdash; shows which markets they routinely document, the paperwork half of compliance.</li>
+      <li><strong>A customer reference</strong> &mdash; a real one you can call, ideally in your region, to ask the question you actually care about: did the 10th container match the first?</li>
+    </ul>
+    <p>A supplier with 70+ destination markets and no ability to show a bill of lading is describing a wish, not a record.</p>
+
+    <h2>A worked scorecard example</h2>
+    <p>Here is the weighted card filled in for a hypothetical candidate, to show how the numbers behave:</p>
+    <table>
+      <thead><tr><th>Dimension</th><th>Weight</th><th>Score (1&ndash;5)</th><th>Weighted</th></tr></thead>
+      <tbody>
+        <tr><td>Specification coverage</td><td>25%</td><td>4</td><td>1.00</td></tr>
+        <tr><td>Certifications</td><td>20%</td><td>5</td><td>1.00</td></tr>
+        <tr><td>Scale and capacity</td><td>20%</td><td>4</td><td>0.80</td></tr>
+        <tr><td>Repeatability</td><td>20%</td><td>3</td><td>0.60</td></tr>
+        <tr><td>Export experience</td><td>15%</td><td>4</td><td>0.60</td></tr>
+      </tbody>
+    </table>
+    <p>Total: 4.00 &mdash; a pass, but note the repeatability score of 3 is at the floor. A candidate with this profile should be pressed on change control before volume is committed; a candidate scoring 5 on price but 2 on repeatability would total below the 3.5 cut-off and should be removed. The point of the weights is that they surface the weak dimension even when the headline score looks fine.</p>
+
+    <h2>The pre-commitment checklist</h2>
+    <p>Before you sign, all seven of these should be answered in writing:</p>
+    <ol>
+      <li>The 5-part specification, confirmed and locked.</li>
+      <li>The supplier verified as a factory, not a trader.</li>
+      <li>The certificates checked as current.</li>
+      <li>The audit completed, with the curing window confirmed.</li>
+      <li>The RFQ returned on a single scope.</li>
+      <li>MOQ, lead time, payment and warranty in the contract.</li>
+      <li>The destination market's tariff and certification confirmed.</li>
+    </ol>
+    <p>If any one is missing, the order is not ready &mdash; and the missing one is exactly where the margin will leak.</p>
+
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Send us your specification for a factory-direct quote" />
+</ArticleLayout>

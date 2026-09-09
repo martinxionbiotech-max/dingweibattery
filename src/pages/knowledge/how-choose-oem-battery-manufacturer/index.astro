@@ -4,79 +4,88 @@ import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
 
-const title = 'Choosing an OEM Battery Manufacturer | Dingwei Battery';
-const description = 'A practical method for choosing an OEM battery manufacturer: standards, certifications, factory capability, sampling and export terms.';
+const title = 'How to Choose an OEM Battery Manufacturer: Weighted Scoring & Red Flags | Dingwei Battery';
+const description = 'A practical, weighted method for choosing an OEM battery manufacturer: standards, certifications, factory capability, repeatability and export experience — with red flags, traps and a capacity-fit calculation.';
 const articleTitle = 'How to choose an OEM battery manufacturer';
 
 const faqs = [
-  { q: 'What is the single most important factor when choosing a manufacturer?', a: 'Repeatability — whether the tenth container matches the first approved sample. A low price is worth nothing if the specification drifts between orders.' },
-  { q: 'Should I choose the lowest price?', a: 'No. Price only matters when the specification, certification and repeatability are equal. A cheaper quote that skips the CCA basis or terminal detail is not actually comparable.' },
-  { q: 'How do I verify a factory without visiting it?', a: 'Ask for three things: current certificates, a recent production sample, and their CCA test procedure. A supplier that cannot produce all three is a risk regardless of the brochure.' },
+  { q: 'What is the single most important factor when choosing a manufacturer?', a: 'Repeatability — whether the 10th container matches the first approved sample. A low price is worth nothing if the specification drifts between orders.' },
+  { q: 'Should I choose the lowest price?', a: 'No. Price only matters when the specification, certification and repeatability are equal — compare candidates on the same 5 factors, not the unit price. A quote that skips the CCA basis or terminal detail is not actually comparable; it is a smaller scope.' },
+  { q: 'How do I verify a factory without visiting it?', a: 'Ask for 3 things: current certificates, a recent production sample, and their CCA test procedure. A supplier that cannot produce all 3 is a risk regardless of the brochure.' },
+  { q: 'How do I know the factory is big enough for my order?', a: 'Compare your annual volume to their daily output — a 40,000-battery-per-day plant absorbs a 50,000-battery annual order in under 2 production days, so capacity fit is about not being their smallest, most interruptible customer, not just raw size.' },
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-10" faqs={faqs}>
   <section class="section container prose">
-    <span class="tag">Knowledge</span>
+    <span class="tag">Knowledge · Sourcing</span>
     <h1>How to choose an OEM battery manufacturer</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-01 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
-    <p class="lead">Choose a manufacturer that can match your standard, hold quality systems, and repeat your specification order after order.</p>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Source: Chengguang Power Tech Co., Ltd. technical documentation; IATF 16949</p>
+    <p class="lead">Choose a manufacturer that can match your standard, hold quality systems, and repeat your specification order after order. The method below weights the five factors that actually predict that — and lists the traps that make a weak supplier look strong.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> The single most important factor in choosing an OEM battery manufacturer is repeatability — whether the tenth container matches the first approved sample. Match the standard family, verify current certificates and check output against your volume, but a low price is worth nothing if the specification drifts between orders.
+      <strong>Short answer:</strong> The single most important factor in choosing an OEM battery manufacturer is repeatability — whether the 10th container matches the first approved sample. Score every candidate on five weighted dimensions: specification coverage (25%), certifications (20%), scale (20%), repeatability (20%) and export experience (15%). A score below 3.5 out of 5 overall, or below 3 on repeatability, removes a candidate regardless of price.
     </div>
 
     <h2>1. Match the standard family</h2>
-    <p>Your market determines the standard: JIS, DIN, BCI, AS or SA. Confirm the factory regularly produces that family rather than treating your order as a one-off.</p>
+    <p>Your market determines the standard: JIS, DIN, BCI, AS or SA. Confirm the factory regularly produces that family rather than treating your order as a one-off. A factory that runs JIS daily has the moulds, the test fixtures and the CCA measurement habits for your market; one that has “done a few DIN orders” is learning on your container. Lock the detail in the <a href="/knowledge/battery-specifications-guide/">specifications reference</a>.</p>
 
     <h2>2. Check quality systems</h2>
-    <p>Ask which certifications the manufacturer holds. For automotive supply, IATF 16949 is the relevant quality system; ISO 9001 covers general quality management.</p>
-    <p>{MANUFACTURER.name} holds IATF 16949, ISO 9001, ISO 45001 and CE.</p>
+    <p>Ask which certifications the manufacturer holds, and — this is the part most buyers skip — ask for the certificate <em>number</em> so you can confirm it is current. For automotive supply, <a href="https://www.iatfglobaloversight.org/">IATF 16949</a> is the relevant quality system; ISO 9001 covers general quality management. An IATF certificate runs a 3-year cycle with surveillance audits, so the paper date alone does not prove standing. {MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')} and can supply the numbers on request.</p>
 
     <h2>3. Verify factory capability</h2>
     <p>Look at plant size, line count, daily output, export experience and whether the facility can support your volume. {MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines}, producing {MANUFACTURER.dailyOutput} and exporting to {MANUFACTURER.exportMarkets}.</p>
+    <p><strong>Capacity fit, calculated.</strong> Capability is not just “big enough” — it is about where your order sits in their queue. If your annual need is 50,000 batteries and the plant makes 40,000 a day, your whole year is under 2 production days. That means two things: you are not their biggest customer, and — more importantly — you may be their most interruptible one when a larger order lands. The ideal fit is a factory big enough to absorb your volume without strain, but small enough that your order matters. Read the on-site method in the <a href="/knowledge/how-audit-battery-factory/">factory audit guide</a>.</p>
 
     <h2>4. Define the specification before quoting</h2>
-    <p>Fix voltage, capacity, CCA, case size, terminal and polarity first. Ambiguous specifications produce samples that cannot be fairly compared.</p>
-    <p><a href="/knowledge/oem-battery-specification-guide/">OEM battery specification guide &rarr;</a></p>
+    <p>Fix voltage, capacity, CCA, case size, terminal and polarity first. Ambiguous specifications produce samples that cannot be fairly compared. See the <a href="/knowledge/oem-battery-specification-guide/">OEM specification guide</a> and the <a href="/knowledge/battery-specifications-guide/">specifications reference</a>.</p>
 
     <h2>5. Evaluate sampling and terms</h2>
-    <p>Confirm the sampling step, lead time, payment and warranty before committing. {RELATIONSHIP}</p>
-    <p><a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist &rarr;</a> · <a href="/oem/">OEM capability &rarr;</a></p>
+    <p>Confirm the sampling step, lead time, payment and warranty before committing. {RELATIONSHIP} The <a href="/knowledge/oem-battery-rfq-guide/">RFQ guide</a> covers the terms; the <a href="/knowledge/oem-battery-moq-lead-time/">MOQ and lead time guide</a> covers the schedule.</p>
 
-    <h2>A five-point decision framework</h2>
-    <p class="lead">Score each manufacturer against the same five questions instead of comparing marketing claims.</p>
-    <ol>
-      <li><strong>Specification</strong> — &ldquo;Which standards and models do you produce in-house?&rdquo;</li>
-      <li><strong>Certification</strong> — &ldquo;Can you share current IATF 16949 / ISO 9001 certificates?&rdquo;</li>
-      <li><strong>Scale</strong> — &ldquo;What is your daily output and how does it map to my annual volume?&rdquo;</li>
-      <li><strong>Repeatability</strong> — &ldquo;How do you lock a specification so repeat orders match?&rdquo;</li>
-      <li><strong>Export</strong> — &ldquo;Which markets do you ship to, and what documents do you provide?&rdquo;</li>
-    </ol>
-    <p>Combine this framework with the <a href="/knowledge/oem-battery-specification-guide/">OEM battery specification guide</a> so you are scoring the same requirements you will actually order.</p>
+    <h2>The five-point decision framework, weighted</h2>
+    <p>Do not choose on one number. Score every shortlisted manufacturer against the same five factors, weight them, and total. This is the framework the sourcing pillar references, expanded to a usable scorecard.</p>
+    <table>
+      <thead><tr><th>Factor</th><th>Weight</th><th>What to score</th><th>Source of the score</th></tr></thead>
+      <tbody>
+        <tr><td>Specification coverage</td><td>25%</td><td>Can they produce the standard family and models you need in-house?</td><td>RFQ response + model list</td></tr>
+        <tr><td>Certifications</td><td>20%</td><td>Are current IATF 16949 / ISO 9001 certificates verifiable by number?</td><td>Certifier register</td></tr>
+        <tr><td>Scale</td><td>20%</td><td>Does daily output map to your annual volume without making you the smallest customer?</td><td>Factory audit</td></tr>
+        <tr><td>Repeatability</td><td>20%</td><td>Is there a locked specification and a written change-control process?</td><td>Contract + sample history</td></tr>
+        <tr><td>Export experience</td><td>15%</td><td>Which markets do they serve, and can they document them?</td><td>References + documents</td></tr>
+      </tbody>
+    </table>
+    <p>Score each factor 1–5, multiply by the weight, and sum. The thresholds that matter: below 3.5 overall, remove the candidate; below 3 on repeatability, remove the candidate no matter how cheap. A supplier that scores 5 on price and 1 on repeatability is the most expensive supplier on your list — it just bills you later, in warranty claims and rework.</p>
+    <p>{MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')}, exports to {MANUFACTURER.exportMarkets} and operates {MANUFACTURER.productionLines}, so its answers can be scored in exactly this way against any candidate.</p>
 
     <h2>Questions that expose a weak supplier</h2>
     <ul>
       <li>They cannot name the CCA test method.</li>
       <li>They quote before confirming the standard family.</li>
       <li>They cannot show a sample from a recent production run.</li>
+      <li>They will not share the certificate number for verification.</li>
+      <li>They cannot name their plate curing window.</li>
     </ul>
-    <p>Run each shortlisted factory through the <a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist</a> before you commit volume.</p>
+    <p>Run each shortlisted factory through the <a href="/knowledge/oem-battery-supplier-checklist/">OEM battery supplier checklist</a> before you commit volume, and verify the entity itself first — see the <a href="/knowledge/battery-supplier-verification/">supplier verification</a> guide.</p>
 
-    <h2>Weight the five factors</h2>
-    <p>Do not choose on one number. Score every shortlisted manufacturer against the same five factors and total the result.</p>
+    <h2>Traps that make a weak supplier look strong</h2>
+    <ul>
+      <li><strong>The brochure factory</strong> — glossy photos of a line the company does not own. Verify the business licence and a live walkthrough, not the photo set.</li>
+      <li><strong>The trading-company discount</strong> — a “factory-direct” price that is actually a trader’s 5–15% markup on someone else’s plant, with no quality control to match.</li>
+      <li><strong>The expired certificate</strong> — a certificate image that is within its printed dates but suspended. The number is what you check.</li>
+      <li><strong>The one-sample wonder</strong> — a flawless sample followed by a tenth container that is not the same battery, because there was no change control.</li>
+    </ul>
+
+    <h2>Red and green flag signals</h2>
     <table>
-      <thead>
-        <tr><th>Factor</th><th>Weight</th><th>What to score</th></tr>
-      </thead>
+      <thead><tr><th>Signal</th><th>Red flag</th><th>Green flag</th></tr></thead>
       <tbody>
-        <tr><td>Specification coverage</td><td>25%</td><td>Can they produce the standard family and models you need?</td></tr>
-        <tr><td>Certifications</td><td>25%</td><td>Are current IATF 16949 / ISO 9001 certificates available?</td></tr>
-        <tr><td>Scale</td><td>20%</td><td>Does daily output map to your annual volume?</td></tr>
-        <tr><td>Repeatability</td><td>20%</td><td>Is there a locked specification and sample process?</td></tr>
-        <tr><td>Export experience</td><td>10%</td><td>Which markets do they serve and document?</td></tr>
+        <tr><td>Quoting</td><td>Prices before the standard and CCA basis are fixed</td><td>Repeats your specification back before quoting</td></tr>
+        <tr><td>Certificates</td><td>“We have all certifications” with no numbers</td><td>Certificate numbers offered for verification</td></tr>
+        <tr><td>Capacity</td><td>Output claim the formation area cannot support</td><td>Casting, formation and headcount that agree</td></tr>
+        <tr><td>Change control</td><td>No written process for specification changes</td><td>A documented ECO process and locked sample</td></tr>
+        <tr><td>References</td><td>No bill of lading or customer reference offered</td><td>Names real destination markets and can document them</td></tr>
       </tbody>
     </table>
-    <p>{MANUFACTURER.name} holds {CERTIFICATIONS.join(', ')}, exports to {MANUFACTURER.exportMarkets} and operates {MANUFACTURER.productionLines}, so its answers can be scored in the same way as any candidate supplier. Then run the result through the <a href="/knowledge/oem-battery-supplier-checklist/">supplier checklist</a> before committing volume.</p>
 
     <h2>Lead-acid-specific checks</h2>
     <p>For lead-acid, the highest-risk checks are process checks, not marketing checks:</p>
@@ -87,7 +96,37 @@ const faqs = [
       <li><strong>Formation</strong> — confirm the battery is fully formed and 100% end-of-line tested.</li>
     </ul>
     <p>These are the same checks a buyer should walk through on a <a href="/knowledge/how-audit-battery-factory/">lead-acid factory audit</a>.</p>
+
+    <h2>The price you are not quoted</h2>
+    <p>Unit price is not the whole cost. The real cost of a manufacturer is the unit price plus the cost of its mistakes: warranty returns, rework, late shipments and the lost sales when a container arrives wrong. A supplier that is 5% cheaper on paper and drifts on specification costs far more than 5% in the field. This is why repeatability carries a 20% weight — it is the discount you never see on the invoice. For the full sourcing sequence that frames this decision, start at the <a href="/knowledge/battery-sourcing-guide/">sourcing guide</a>.</p>
   </section>
+
+
+    <h2>Capacity fit, worked out</h2>
+    <p>The capacity question is arithmetic, not judgement. Compare your annual volume to the factory&rsquo;s daily output:</p>
+    <p class="lead">Your annual units &divide; their daily output = your share of their production days.</p>
+    <p>A 50,000-battery annual order against a 40,000-per-day plant is 1.25 production days a year. That does not mean the factory is too big &mdash; it means you are a rounding error in their schedule, and when a 200,000-unit order lands, yours moves. The reverse problem is a plant where your order is 200% of their monthly capacity &mdash; they will take the order and then subcontract or slip the date. The comfortable band is roughly: your annual volume sits between 5% and 50% of their annual output, so you are big enough to matter but small enough to absorb.</p>
+
+    <h2>Two suppliers, scored</h2>
+    <p>The framework only helps if you actually run it. Here are two hypothetical candidates side by side:</p>
+    <table>
+      <thead><tr><th>Factor</th><th>Weight</th><th>Supplier A</th><th>Supplier B</th></tr></thead>
+      <tbody>
+        <tr><td>Specification coverage</td><td>25%</td><td>4 &rarr; 1.00</td><td>4 &rarr; 1.00</td></tr>
+        <tr><td>Certifications</td><td>20%</td><td>5 &rarr; 1.00</td><td>3 &rarr; 0.60</td></tr>
+        <tr><td>Scale</td><td>20%</td><td>4 &rarr; 0.80</td><td>5 &rarr; 1.00</td></tr>
+        <tr><td>Repeatability</td><td>20%</td><td>4 &rarr; 0.80</td><td>2 &rarr; 0.40</td></tr>
+        <tr><td>Export experience</td><td>15%</td><td>4 &rarr; 0.60</td><td>4 &rarr; 0.60</td></tr>
+        <tr><td><strong>Total</strong></td><td>100%</td><td><strong>4.20</strong></td><td><strong>3.60</strong></td></tr>
+      </tbody>
+    </table>
+    <p>Supplier A wins 4.20 to 3.60, but the more important reading is Supplier B&rsquo;s repeatability of 2 &mdash; below the 3.0 floor, which should remove B even before you look at price. This is the whole value of the framework: it forces the decisive factor into the open instead of letting the unit price decide.</p>
+
+
+
+    <h2>Where the certificates come from</h2>
+    <p>The two systems are published by different bodies, and it is worth knowing the source when you verify them: <a href="https://www.iatfglobaloversight.org/">IATF 16949</a> is the automotive quality system governed by IATF Global Oversight, while <a href="https://www.iso.org/iso-9001-quality-management.html">ISO 9001</a> is the general quality-management standard published by ISO. A supplier that can name the issuing body and the certificate number for each is showing you a real system; one that says only &ldquo;we are certified&rdquo; is showing you a wall decoration. The number is what you check, every time.</p>
+
 
   <ArticleFaq faqs={faqs} />
 
