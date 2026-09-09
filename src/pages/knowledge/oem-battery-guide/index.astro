@@ -104,6 +104,41 @@ const faqs = [
     </table>
     <p>The two places the schedule slips are sampling (because the specification was not locked first) and clearance (because a certification was discovered late). Both are preventable at the front of the sequence.</p>
 
+    <h2>Reading an OEM quote: the six lines that decide the price</h2>
+    <p>Two factories can quote the "same battery" and be US$8 apart, and the difference is almost never raw profit — it is scope. When you hold two quotes side by side, compare these six lines before you compare the total:</p>
+    <ol>
+      <li><strong>The CCA test basis</strong> — JIS (−15°C) and EN (−18°C) produce different numbers for the same battery. A quote that does not name the basis is quoting the easier test.</li>
+      <li><strong>The case and lid source</strong> — a custom mould is a one-time tooling cost; a stock case is not. Know which you are buying.</li>
+      <li><strong>The technology spec</strong> — SLI, EFB and AGM are three different products, not three price tiers of one product.</li>
+      <li><strong>Certification included</strong> — IATF 16949 is a factory-level given; per-market conformity (CE, SASO/GSO) is a line item. Confirm which are in the price.</li>
+      <li><strong>Packaging grade</strong> — domestic cartons and export-grade cartons cost differently and survive differently.</li>
+      <li><strong>The Incoterm</strong> — FOB, CFR and CIF move the freight and insurance cost between the two of you.</li>
+    </ol>
+    <p>The discipline is simple and mechanical: a quote is comparable only when all six lines are answered on the same basis. Send one RFQ on one scope, and the price spread that remains is real negotiation, not scope illusion. The <a href="/knowledge/oem-battery-rfq-guide/">RFQ guide</a> has the template.</p>
+
+    <h2>A worked program example: one container a month</h2>
+    <p>To make the economics concrete, take a buyer running one 20ft container a month for 24 months. At roughly 700 batteries a container and a landed cost near US$40 a unit, each container is about US$28,000, and the two-year program is around US$670,000. Now place the costs that decide whether the program survives:</p>
+    <table>
+      <thead><tr><th>Line</th><th>Cost</th><th>What it buys</th></tr></thead>
+      <tbody>
+        <tr><td>Factory audit (one-time)</td><td>US$1,500–3,000</td><td>Confirmation the supplier can repeat your spec</td></tr>
+        <tr><td>Sampling + approval (one-time)</td><td>10–20 days</td><td>The golden sample that anchors every later batch</td></tr>
+        <tr><td>Specification drift (if skipped)</td><td>One ruined container ≈ US$28,000</td><td>The failure the first two lines prevent</td></tr>
+      </tbody>
+    </table>
+    <p>The audit is under 0.5% of the program's value, and the sampling window is the cheapest insurance line in it. The reason to run a program rather than a string of orders is exactly this arithmetic: the one-time setup costs are amortised to nothing across 24 containers, while the drift risk they retire is present on every single one.</p>
+
+    <h2>The terms that get misused</h2>
+    <p>Five terms carry most of the confusion in OEM battery sourcing, so it is worth pinning them down:</p>
+    <ul>
+      <li><strong>OEM</strong> — you bring the specification; the factory builds to it. You own design and brand.</li>
+      <li><strong>ODM</strong> — the factory brings the design; you brand and adjust it. They own the design.</li>
+      <li><strong>White label</strong> — you label an off-the-shelf product a competitor can also buy.</li>
+      <li><strong>Golden sample</strong> — the approved pre-production sample every later batch is checked against.</li>
+      <li><strong>Specification lock</strong> — the sample plus written parameters plus change control that makes repeat orders consistent.</li>
+    </ul>
+    <p>Ownership is the thread through all five. The deeper your ownership of the design, the more control and the more development work — and the more the product is yours alone.</p>
+
     <h2>How to use this cluster</h2>
     <p>{RELATIONSHIP} {MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines} producing {MANUFACTURER.dailyOutput}, manufacturing to JIS, DIN, BCI, AS and SA standards and exporting to {MANUFACTURER.exportMarkets}. This pillar fixes the overall picture; the pages below drill into each part:</p>
     <ul>
