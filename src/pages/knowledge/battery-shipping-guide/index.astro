@@ -1,0 +1,94 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Shipping, Compliance & Warranty Guide | Dingwei Battery';
+const description = 'Lead-acid battery shipping, dangerous-goods compliance and warranty in one guide — UN 2794/2800 Class 8, export documents, claims and storage shelf life.';
+const articleTitle = 'Battery shipping, compliance and warranty: the complete guide';
+
+const faqs = [
+  { q: 'Are lead-acid batteries dangerous goods to ship?', a: 'Yes — Class 8 corrosive. Flooded starting batteries ship as UN 2794 (batteries, wet, filled with acid); non-spillable designs ship as UN 2800. The practical advantage over lithium is that lead-acid needs no UN 38.3 test report.' },
+  { q: 'How many starter batteries fit in a 20ft container?', a: 'Roughly 600–800 for a first order (900–1,200 depending on group size). The 20ft container is limited to about 28,000 kg of payload, and battery loads hit that weight ceiling before they fill the 33 m³ of volume.' },
+  { q: 'How long can a lead-acid battery sit in storage?', a: 'About 6 months before a top-up charge is required — lead-acid self-discharges at roughly 3–5% per month, and the rate doubles for every 10°C rise, so hot warehouses drain stock faster.' },
+  { q: 'What does a 12-month battery warranty actually cover?', a: 'Only what the written scope says — duration, exclusions and claim handling. Many "12-month" warranties exclude deep discharge, misuse and physical damage, and settle claims pro-rata rather than full replacement.' },
+  { q: 'Which export documents does a battery container need?', a: '5 documents at minimum — a commercial invoice, packing list, bill of lading, certificate of origin and a dangerous-goods declaration; test reports (CCA/capacity) and MSDS are added where the destination market or carrier requires them.' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Logistics</span>
+    <h1>Battery shipping, compliance and warranty: the complete guide</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Sources: IMO IMDG Code, UN Model Regulations, US DOT PHMSA, Battery University</p>
+    <p class="lead">A battery order is not complete when it leaves the line — it is complete when it arrives undamaged, with the right documents, under a warranty you understand. That means three disciplines at once: dangerous-goods classification, export documentation and warranty terms. Get any one wrong and the container either stalls at the port or costs you money after delivery. This guide covers all three in one place, plus storage, because a battery that sits too long in your warehouse is a warranty claim waiting to happen.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Lead-acid batteries ship as Class 8 corrosive dangerous goods — UN 2794 (wet, filled with acid) or UN 2800 (non-spillable) — under the IMDG Code for sea freight, and unlike lithium they need no UN 38.3 report. A 20ft container is weight-limited to about 28,000 kg, which is why a first order is 600–800 units. Export needs at least five documents, warranty is only as strong as its written scope, and storage demands a top-up charge every 6 months because batteries self-discharge at 3–5% per month.
+    </div>
+
+    <h2>Dangerous-goods classification, in one paragraph</h2>
+    <p>Lead-acid batteries are not "general cargo." They are Class 8 corrosive dangerous goods because the electrolyte is sulfuric acid. The two relevant UN numbers are <strong>UN 2794 — Batteries, wet, filled with acid</strong> (a standard flooded car battery) and <strong>UN 2800 — Batteries, wet, non-spillable</strong> (a sealed design that passes vibration and pressure-differential tests). Sea freight is governed by the [IMO IMDG Code](https://www.imo.org/); the UN numbers themselves come from the [UN Model Regulations](https://unece.org/transport/dangerous-goods), which feed every national rule set. The full classification logic, the UN 2800 test requirements, and the comparison with lithium's UN 3480/UN 3481 (Class 9) are in the <a href="/knowledge/lead-acid-battery-dangerous-goods/">dangerous-goods classification</a> page.</p>
+
+    <h2>The container: weight before volume</h2>
+    <p>Batteries are dense, so the loading math works backwards from what people expect. A standard 20ft container offers about 33 m³ of volume but only about 28,000 kg of payload (tare weight is roughly 2,200–2,400 kg against a 30,480 kg gross maximum). Lead-acid batteries hit the weight ceiling long before they fill the volume — which is exactly why a first order lands at 600–800 units rather than the 1,400+ a naive volume calculation would suggest. Single pallets are typically kept to 1.5 m height and about 1.5 tonnes for safe stacking. The <a href="/knowledge/oem-battery-moq-lead-time/">MOQ and lead time</a> page explains how this weight logic sets the minimum order.</p>
+
+    <h2>Export documentation: the five-document baseline</h2>
+    <p>A clean document set is what keeps a battery container moving through customs instead of sitting in a bond. The baseline set is five documents, and the dangerous-goods declaration is the one amateurs miss:</p>
+    <ol>
+      <li><strong>Commercial invoice</strong> — value, terms, buyer and seller.</li>
+      <li><strong>Packing list</strong> — carton counts, weights, dimensions per pallet.</li>
+      <li><strong>Bill of lading</strong> — the carrier's receipt and contract of carriage.</li>
+      <li><strong>Certificate of origin</strong> — needed for preferential duty or for importers whose customs demands it.</li>
+      <li><strong>Dangerous-goods declaration (DGD)</strong> — the shipper's statement of the UN number, class and packing, signed by a trained person.</li>
+    </ol>
+    <p>On top of the baseline, most destinations add a CCA/capacity test report, an MSDS, and — for Gulf states — SASO/GSO conformity. The <a href="/knowledge/battery-export-documentation/">export documentation</a> page walks each document and what it proves.</p>
+
+    <h2>Warranty: read the scope, not the number</h2>
+    <p>The factory's standard term is {TRADE_TERMS.warranty}. But "12 months" is a headline, not a contract. A warranty is only as strong as three written things: the <strong>duration</strong> (from bill of lading date), the <strong>exclusions</strong> (deep discharge, misuse, physical damage, poor charging), and the <strong>claim handling</strong> (how a failure is filed, inspected and settled — full replacement or pro-rata credit). A 12-month warranty with broad exclusions and pro-rata settlement is a very different product from a 12-month full-replacement warranty. The <a href="/knowledge/battery-warranty-claim-process/">warranty claim process</a> page details how claims are judged and settled, and the <a href="/knowledge/battery-shipping-warranty/">shipping and warranty</a> page covers the packaging side of protecting that warranty.</p>
+
+    <h2>Storage and shelf life: the warranty you lose silently</h2>
+    <p>A battery left on the shelf is not static — it is discharging. Lead-acid self-discharges at roughly 3–5% per month at moderate temperature, and the rate roughly doubles for every 10°C rise (see [Battery University's self-discharge data](https://batteryuniversity.com/article/bu-802b-what-does-elevated-self-discharge-do)). Below about 50% charge, sulfation begins to harden on the plates and the capacity loss can become permanent. The practical rule: top up stored batteries every 6 months, store them cool and fully charged, and rotate stock first-in-first-out so no pallet ages past its warranty clock before it sells. The <a href="/knowledge/battery-storage-shelf-life/">storage and shelf life</a> page turns this into a warehouse procedure.</p>
+
+    <h2>Why lead-acid is simpler to ship than lithium</h2>
+    <p>Buyers coming from lithium often overestimate the paperwork for lead-acid. The two chemistries sit in different classes and carry different burdens:</p>
+    <table>
+      <thead><tr><th>Dimension</th><th>Lead-acid</th><th>Lithium-ion</th></tr></thead>
+      <tbody>
+        <tr><td>UN number</td><td>UN 2794 / UN 2800</td><td>UN 3480 / UN 3481</td></tr>
+        <tr><td>Hazard class</td><td>Class 8 (corrosive)</td><td>Class 9 (miscellaneous)</td></tr>
+        <tr><td>UN 38.3 test report</td><td>Not required</td><td>Required</td></tr>
+        <tr><td>Main risk</td><td>Acid spill / corrosion</td><td>Thermal runaway / fire</td></tr>
+        <tr><td>Documentation burden</td><td>Lower</td><td>Higher (test summaries, labelling, training)</td></tr>
+      </tbody>
+    </table>
+    <p>The lead-acid advantage is real but narrow: no UN 38.3 report. You still need Class 8 labelling, compliant packaging and a dangerous-goods declaration where the carrier requires it. The <a href="/knowledge/lead-acid-battery-dangerous-goods/">dangerous-goods classification</a> page lays out exactly where the two regimes diverge.</p>
+
+    <h2>The two calculations that matter</h2>
+    <p><strong>The weight-ceiling test.</strong> At roughly 15–19 kg per starter battery, 28,000 kg of payload allows about 1,500–1,800 units on pure weight. But pallets, carton crush strength and stacking rules cap the practical load at 600–800 for a standard first order — the difference between a theoretical and a shippable container is the reason MOQ is a logistics number, not a marketing one.</p>
+    <p><strong>The storage-cost test.</strong> If a battery self-discharges 5% per month and sits 12 months untended, it has lost most of its state of charge and begun sulfating — a warranty liability, not an asset. The cost of a quarterly top-up charge across a warehouse is a rounding error against the cost of shipping a container that arrives partially sulfated.</p>
+
+    <h2>What suppliers will not volunteer</h2>
+    <ul>
+      <li><strong>The dangerous-goods declaration is a hidden cost and a training requirement.</strong> Someone has to be certified to sign it, and that compliance work is priced into the freight somewhere.</li>
+      <li><strong>"Non-spillable" is a tested claim, not a label.</strong> UN 2800 status requires passing vibration and pressure-differential tests — a sealed battery without test records is not legally non-spillable.</li>
+      <li><strong>The warranty clock starts at the bill of lading, not at your customer's purchase.</strong> Six months in your warehouse is six months of warranty already consumed.</li>
+      <li><strong>Claim settlement is often pro-rata.</strong> A "12-month warranty" may credit you a fraction of the battery's value based on its age, not a full replacement.</li>
+    </ul>
+
+    <h2>How to use this cluster</h2>
+    <p>{RELATIONSHIP} {MANUFACTURER.name} ships from {MANUFACTURER.exportPorts} on {TRADE_TERMS.incoterms} terms with a {TRADE_TERMS.warranty} warranty. Use this pillar to fix the overall picture — classification, documents, warranty and storage — then follow the cluster pages for the detail:</p>
+    <ul>
+      <li><a href="/knowledge/lead-acid-battery-dangerous-goods/">Lead-acid battery dangerous-goods classification</a></li>
+      <li><a href="/knowledge/battery-export-documentation/">Battery export documentation</a></li>
+      <li><a href="/knowledge/battery-shipping-warranty/">Battery shipping, packaging and warranty</a></li>
+      <li><a href="/knowledge/battery-warranty-claim-process/">Battery warranty claim process</a></li>
+      <li><a href="/knowledge/battery-storage-shelf-life/">Battery storage and shelf life</a></li>
+    </ul>
+    <p>Related: <a href="/knowledge/battery-sourcing-guide/">how to source from China</a> · <a href="/knowledge/oem-battery-moq-lead-time/">MOQ and lead time</a> · <a href="/knowledge/battery-import-regulations/">import regulations by market</a> · <a href="/contact/">confirm shipping and warranty terms →</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirm shipping, documents and warranty terms" />
+</ArticleLayout>

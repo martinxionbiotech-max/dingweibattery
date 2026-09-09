@@ -1,0 +1,77 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Storage & Shelf Life | Dingwei Battery';
+const description = 'Lead-acid battery storage and shelf life — self-discharge rates, top-up charging schedules, temperature effects and FIFO stock rotation for importers.';
+const articleTitle = 'Battery storage and shelf life';
+
+const faqs = [
+  { q: 'How fast does a stored lead-acid battery self-discharge?', a: 'Roughly 3–5% per month at moderate temperature, and the rate doubles for every 10°C rise — so a hot warehouse can drain a battery past 50% charge in a few months.' },
+  { q: 'How often should stored batteries be recharged?', a: 'Every 6 months, with the recharge date marked on the pallet — some sealed-battery suppliers recommend 3–6 months, and below about 50% charge sulfation starts to become permanent.' },
+  { q: 'How long can a lead-acid battery sit before it is damaged?', a: 'About 6 months without a top-up charge is the practical safe window — beyond that, self-discharge pulls the battery into sulfation territory and capacity loss can become permanent.' },
+  { q: 'At what temperature should batteries be stored?', a: 'Cool — below about 24°C (75°F) — because self-discharge accelerates with heat and every 10°C of temperature rise roughly doubles the discharge rate.' },
+  { q: 'What is the FIFO rule for battery stock?', a: 'First-in, first-out (FIFO) — because the warranty clock starts at the bill of lading and self-discharge runs 3–5% a month, the oldest pallet starts at the bill of lading and self-discharge starts at production, the oldest pallet must ship first or you consume your own warranty window.' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Logistics</span>
+    <h1>Battery storage and shelf life</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Sources: Battery University (BU-403, BU-802b), Power Sonic sulfation guidance</p>
+    <p class="lead">A lead-acid battery on a shelf is not a static asset — it is a slowly discharging one. Get storage wrong and you ship batteries that are already partially sulfated, which is a warranty claim and a brand hit disguised as a logistics detail. This page turns the chemistry into a warehouse procedure: how fast batteries discharge, how often to top them up, and why rotation order decides how much warranty you keep.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Lead-acid batteries self-discharge at roughly 3–5% per month at moderate temperature, and the rate doubles for every 10°C rise. The practical rules: store cool (below 24°C), keep batteries fully charged, apply a top-up charge every 6 months, and rotate stock first-in-first-out — because a battery that sits a year has both consumed its warranty clock and begun sulfating below 50% charge.
+    </div>
+
+    <h2>The self-discharge curve, in numbers</h2>
+    <p>Self-discharge is the steady loss of charge a battery suffers even when nothing is connected. For lead-acid the typical rate is about 3–5% per month at room temperature (see [Battery University's self-discharge data](https://batteryuniversity.com/article/bu-802b-what-does-elevated-self-discharge-do)), and the rate is temperature-driven: it roughly doubles for every 10°C of temperature rise. A battery losing 4% per month at 20°C can lose 8–10% per month at 30°C — which is why a warehouse in a hot climate ages stock dramatically faster than the same stock in a cool one.</p>
+
+    <h2>Why "below 50% charge" is the line you must not cross</h2>
+    <p>Self-discharge is not just a lost charge — below about 50% state of charge, <strong>sulfation</strong> begins: lead sulfate crystals harden on the plates and stop converting back during recharge. That capacity loss is permanent, and it is the mechanism that turns an old shelf battery into a warranty claim. The same chemistry explains why the storage rule is "fully charged, cool, and topped up" — a full charge keeps the battery above the sulfation threshold, and cool storage slows the march toward it (see [Power Sonic's sulfation guidance](https://www.power-sonic.com/what-is-a-sulfated-battery-and-how-do-you-prevent-it)).</p>
+
+    <h2>The warehouse procedure, distilled</h2>
+    <ol>
+      <li><strong>Store fully charged</strong> — never warehouse a battery that arrived discharged or partially charged.</li>
+      <li><strong>Store cool</strong> — below about 24°C (75°F) where practical; keep pallets out of direct sun.</li>
+      <li><strong>Top up every 6 months</strong> — apply a maintenance charge and mark the date on the pallet; sealed-battery suppliers often tighten this to 3–6 months.</li>
+      <li><strong>Rotate FIFO</strong> — first-in, first-out, so the oldest pallet ships first.</li>
+      <li><strong>Check voltage before dispatch</strong> — a quick voltage reading catches a battery that has drifted below the safe threshold.</li>
+    </ol>
+    <p>The rule of thumb to remember: <strong>6 months</strong> is the practical safe window without a top-up charge. Past that, you are spending warranty and capacity with every extra week on the shelf.</p>
+
+    <h2>Why storage and warranty are the same decision</h2>
+    <p>The warranty clock starts at the bill of lading date — which means a battery that sits 6 months in your warehouse has already consumed half its 12-month warranty before a customer touches it. Stack that on top of the self-discharge, and a slow-moving pallet is a double liability: less warranty to offer, and a higher chance the battery fails inside the window that remains. FIFO is not warehouse bureaucracy — it is how you keep the warranty you sold. The claim-side detail is in the <a href="/knowledge/battery-warranty-claim-process/">warranty claim process</a> page.</p>
+
+    <h2>The storage-cost calculation</h2>
+    <p>Quantify the risk to see why the procedure matters. A battery self-discharging at 5% per month that sits 12 months untended has lost most of its charge and crossed deep into sulfation territory — a warranty liability, not an asset. The cost of a quarterly top-up pass across a warehouse is a rounding error against the cost of one container that arrives partially sulfated and triggers claims. The maintenance charge is the cheapest insurance in the whole logistics chain.</p>
+
+    <h2>Temperature thresholds at a glance</h2>
+    <table>
+      <thead><tr><th>Storage condition</th><th>Effect on self-discharge</th><th>Practical consequence</th></tr></thead>
+      <tbody>
+        <tr><td>Below 24°C (75°F)</td><td>Baseline — roughly 3–5% per month</td><td>6-month top-up schedule holds</td></tr>
+        <tr><td>30°C and above</td><td>Roughly doubles (8–10% per month)</td><td>Shorten top-up to every 3 months</td></tr>
+        <tr><td>Below about 50% charge</td><td>Sulfation begins to harden</td><td>Capacity loss becomes permanent</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Where this fits</h2>
+    <p>{RELATIONSHIP} Storage is the quiet end of the logistics cluster — the page that protects the warranty and the brand after the container has landed:</p>
+    <ul>
+      <li><a href="/knowledge/battery-shipping-guide/">Battery shipping, compliance and warranty: the complete guide</a></li>
+      <li><a href="/knowledge/battery-shipping-warranty/">Battery shipping, packaging and warranty</a></li>
+      <li><a href="/knowledge/battery-warranty-claim-process/">Battery warranty claim process</a></li>
+      <li><a href="/knowledge/lead-acid-battery-dangerous-goods/">Lead-acid battery dangerous-goods classification</a></li>
+      <li><a href="/knowledge/battery-export-documentation/">Battery export documentation</a></li>
+    </ul>
+    <p><a href="/contact/">Ask about export packaging and storage guidance &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Get storage and packaging guidance for your market" />
+</ArticleLayout>

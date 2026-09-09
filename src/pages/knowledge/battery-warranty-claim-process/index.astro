@@ -1,0 +1,84 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Warranty Claim Process | Dingwei Battery';
+const description = 'How a battery warranty claim works — judgement criteria, replacement vs pro-rata credit, time limits and the paperwork that makes a claim succeed.';
+const articleTitle = 'Battery warranty claim process';
+
+const faqs = [
+  { q: 'How long does a battery warranty typically last?', a: '12 months from bill of lading is the common factory term, while retail brands often run 12–36 months free replacement followed by pro-rata credit — and the pro-rata portion shrinks with the battery age.' },
+  { q: 'How are battery warranty claims settled?', a: 'Usually by full replacement inside the free-replacement window (commonly the first 12–24 months), then pro-rata credit after — meaning you receive a fraction of the battery value based on its age, not a full refund.' },
+  { q: 'What does a battery warranty exclude?', a: 'Deep discharge (below about 50% charge), misuse, physical damage, incorrect charging and sulfation from long storage — the exclusions are where most claims are refused, so read them before you file.' },
+  { q: 'What evidence do I need to file a battery warranty claim?', a: '4 things — the invoice, the bill of lading, a test report showing the failure (CCA or capacity) and photos — a claim without a measured failure is a claim that gets refused.' },
+  { q: 'How long does a battery warranty claim take?', a: 'Typically 2–4 weeks from filing to settlement — inspection and test data take most of that time, and a claim without documentation can stall indefinitely.' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Logistics</span>
+    <h1>Battery warranty claim process</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Sources: industry warranty practice, Midtronics pro-rated coverage explanation</p>
+    <p class="lead">A warranty is only worth what you can claim. Most battery buyers read the duration and skip the claim mechanics — then discover, at the worst possible moment, that the settlement is pro-rata, the exclusions are broad, or the documentation they did not keep is the evidence they now need. This page walks how a claim actually works, so you can file one that succeeds.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> A battery warranty claim runs through three steps — prove the failure with a test report, file against the written scope (duration, exclusions, handling), and settle as either full replacement or pro-rata credit based on the battery's age. The factory term is typically 12 months from bill of lading; retail warranties often run 12–36 months free replacement before shifting to pro-rata, and the exclusions are where most claims are refused.
+    </div>
+
+    <h2>What the warranty actually covers</h2>
+    <p>Before you can claim, you have to know the scope. A battery warranty has three written parts, and only the first is the headline number:</p>
+    <ol>
+      <li><strong>Duration</strong> — the factory term is {TRADE_TERMS.warranty}. The clock starts at the bill of lading date, not at your customer's purchase.</li>
+      <li><strong>Exclusions</strong> — deep discharge, misuse, physical damage, incorrect charging and sulfation from long storage are the standard exclusions.</li>
+      <li><strong>Handling</strong> — how a failure is filed, inspected and settled.</li>
+    </ol>
+    <p>The full reading of a warranty scope is in the <a href="/knowledge/battery-shipping-warranty/">shipping and warranty</a> page.</p>
+
+    <h2>Full replacement vs pro-rata: the settlement that surprises people</h2>
+    <p>The industry settlement pattern is two-tiered. Inside the <strong>free-replacement window</strong> — commonly the first 12–24 months for retail brands — a defective battery is replaced free. After that window, the warranty shifts to <strong>pro-rata</strong>: you receive a credit for a fraction of the battery's value based on its age, not a full refund (see [Midtronics' explanation of pro-rated coverage](https://www.midtronics.com/blog/how-to-explain-battery-warranties-and-pro-rated-coverage)). The implication is uncomfortable and important: a "36-month warranty" that is pro-rata after 24 months can be worth less in a claim than a full-replacement 12-month warranty — and the lead-acid industry's own body, [Battery Council International](https://batterycouncil.org/sources), documents the recycling economics that make short full-replacement windows a fair, sustainable default. When you compare suppliers, compare the free-replacement window, not the total duration.</p>
+
+    <h2>The claim process, step by step</h2>
+    <ol>
+      <li><strong>Measure the failure</strong> — a CCA or capacity test that shows the battery is below spec. A claim without a measured failure is a claim that gets refused.</li>
+      <li><strong>Assemble the evidence</strong> — invoice, bill of lading, test report and photos.</li>
+      <li><strong>File against the written scope</strong> — match the failure to a covered cause, because the exclusions are where claims die.</li>
+      <li><strong>Await inspection</strong> — the factory or seller reviews the test data and the claim against the exclusions.</li>
+      <li><strong>Settle</strong> — full replacement, or pro-rata credit calculated from the battery's age.</li>
+    </ol>
+    <p>Realistically, a documented claim settles in about 2–4 weeks; a claim without documentation can stall indefinitely. The evidence you keep at delivery is the difference.</p>
+
+    <h2>The exclusions, and why they decide most claims</h2>
+    <ul>
+      <li><strong>Deep discharge</strong> — a battery drained below about 50% charge and left there sulfates; that is a use failure, not a defect.</li>
+      <li><strong>Misuse and wrong application</strong> — a battery spec'd for the wrong vehicle or duty cycle.</li>
+      <li><strong>Physical damage</strong> — cracked cases, crushed terminals, shorted handling damage.</li>
+      <li><strong>Long storage without maintenance</strong> — a battery that self-discharged on the shelf for a year is usually excluded, which is why storage discipline matters.</li>
+    </ul>
+    <p>This is the quiet link between warranty and warehousing: a battery that sits too long before sale has already used its warranty clock and may have begun sulfating. The <a href="/knowledge/battery-storage-shelf-life/">storage and shelf life</a> page explains how to keep stock claimable.</p>
+
+    <h2>How to make a claim succeed</h2>
+    <ul>
+      <li><strong>Test before you file.</strong> A CCA or capacity reading that shows the failure is the single most persuasive piece of evidence.</li>
+      <li><strong>Keep the delivery documents.</strong> Invoice and bill of lading anchor the warranty start date.</li>
+      <li><strong>Quote the scope back.</strong> Reference the written duration, exclusions and handling when you file.</li>
+      <li><strong>Act inside the window.</strong> A claim filed the day after the window closes is refused on timing, not merit.</li>
+    </ul>
+
+    <h2>Where this fits</h2>
+    <p>{RELATIONSHIP} The claim process sits inside the logistics and warranty cluster:</p>
+    <ul>
+      <li><a href="/knowledge/battery-shipping-guide/">Battery shipping, compliance and warranty: the complete guide</a></li>
+      <li><a href="/knowledge/battery-shipping-warranty/">Battery shipping, packaging and warranty</a></li>
+      <li><a href="/knowledge/battery-storage-shelf-life/">Battery storage and shelf life</a></li>
+      <li><a href="/knowledge/lead-acid-battery-dangerous-goods/">Lead-acid battery dangerous-goods classification</a></li>
+      <li><a href="/knowledge/battery-export-documentation/">Battery export documentation</a></li>
+    </ul>
+    <p><a href="/contact/">Confirm your battery warranty terms &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirm your battery warranty claim terms" />
+</ArticleLayout>

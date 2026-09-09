@@ -5,47 +5,33 @@ import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP, MANUFACTURER } from '../../../data/site';
 
 const title = 'What Is an OEM Battery? | Dingwei Battery';
-const description = 'An OEM battery is built to the buyer’s specification and brand. Learn how OEM batteries differ from ODM and private-label supply, with a Dingwei Battery view.';
+const description = 'An OEM battery is built to the buyer’s specification and brand. OEM vs ODM vs white-label differences, the advantages, and the risks — explained with the ownership split.';
 const articleTitle = 'What is an OEM battery?';
 
 const faqs = [
-  { q: 'Is an OEM battery lower quality than a branded battery?', a: 'Not necessarily. OEM quality is set by the specification, not the label — the same factory often builds branded and OEM batteries on the same line. What matters is whose specification the battery is built to.' },
-  { q: 'Do I own the design of an OEM battery?', a: 'Yes. That is the defining difference: you own the design and brand, the factory owns the manufacturing. That ownership is what makes repeat orders consistent.' },
-  { q: 'Why choose OEM instead of buying off the shelf?', a: 'Because you need a product no one else can sell — your specification, your terminal layout, your label. Off-the-shelf means a competitor can buy the same battery.' },
+  { q: 'Is an OEM battery lower quality than a branded battery?', a: 'No — in lead-acid, quality is set by the specification, not the label. A single factory running 18 lines often builds branded and OEM batteries side by side, so the difference is whose specification and quality gate controls the output.' },
+  { q: 'Do I own the design of an OEM battery?', a: 'Yes, under true OEM you own the specification and the brand, and the factory owns the manufacturing. That ownership is what keeps 10 repeat containers matching the first approved sample.' },
+  { q: 'What is the difference between OEM, ODM and white label?', a: 'It is an ownership split across 3 models — OEM means you bring the design and the factory builds to it; ODM means the factory owns the design and you brand it; white label means you apply your label to an off-the-shelf product anyone can buy.' },
+  { q: 'What is the main risk of an OEM battery program?', a: 'Specification drift — a repeat order that comes back different from the approved sample. It is prevented by a locked specification and a tested sample, not by trust — and it is the one failure that can wipe the entire margin on a 20ft container.' },
+  { q: 'How long does an OEM battery program take to set up?', a: 'About 60–90 days from RFQ to first container: 10–20 days of sampling, 30–45 days of production, then 3–5 weeks of freight.' }
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentals" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-10" faqs={faqs}>
   <section class="section container prose">
-    <span class="tag">Knowledge</span>
+    <span class="tag">Knowledge · OEM</span>
     <h1>What is an OEM battery?</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-01 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
-    <p class="lead">An OEM battery is a battery produced to the buyer&rsquo;s specification and sold under the buyer&rsquo;s brand — rather than the factory&rsquo;s own label.</p>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
+    <p class="lead">An OEM battery is a battery produced to the buyer&rsquo;s specification and sold under the buyer&rsquo;s brand — rather than the factory&rsquo;s own label. The single sentence that matters is the one about ownership: you own the design and the brand, the factory owns the manufacturing.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> An OEM battery is built to the buyer&rsquo;s specification and sold under the buyer&rsquo;s brand — quality is set by the specification, not the label. The same factory often builds branded and OEM batteries on the same line; the buyer&rsquo;s spec decides the outcome.
+      <strong>Short answer:</strong> An OEM battery is built to your specification — voltage, Ah, CCA, terminal and label — and sold under your brand — a program that runs from RFQ to first container in 60–90 days. Quality is set by the specification you sign, not the label: the same factory often runs branded and OEM batteries on the same line, so the difference is whose specification and quality gate controls the output.
     </div>
 
     <h2>The core idea</h2>
-    <p>OEM stands for original equipment manufacturer. In battery sourcing, OEM means the supplier manufactures to an agreed specification: voltage, capacity, CCA, standard family, case size, terminal layout and labelling. The buyer controls the product definition and brand.</p>
+    <p>OEM stands for original equipment manufacturer. In battery sourcing the term is used in reverse of how the car industry uses it: <em>you</em> are the buyer who owns the product definition and brand, and the factory is the original equipment manufacturer that produces to your agreed specification — voltage, capacity, CCA, standard family, case size, terminal layout and labelling.</p>
 
-    <h2>How OEM differs from ODM and private label</h2>
-    <ul>
-      <li><strong>OEM</strong> — you bring the specification; the manufacturer builds to it.</li>
-      <li><strong>ODM</strong> — the manufacturer offers an existing design you can brand and adjust.</li>
-      <li><strong>Private label</strong> — your identity is applied to a supplied product platform.</li>
-    </ul>
-    <p><a href="/knowledge/oem-vs-odm-vs-private-label/">Read the full OEM vs ODM vs private-label comparison &rarr;</a></p>
-
-    <h2>What goes into an OEM battery specification</h2>
-    <p>At minimum, an OEM battery project defines the standard family (JIS, DIN, BCI, AS or SA), voltage, capacity (Ah), CCA, dimensions, terminal type and polarity. Reference models such as 65D26 or H6 are often used as a starting point.</p>
-    <p><a href="/knowledge/oem-battery-specification-guide/">OEM battery specification guide &rarr;</a></p>
-
-    <h2>Dingwei Battery and its manufacturer</h2>
-    <p>{RELATIONSHIP} {MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines} and manufactures to JIS, DIN, BCI, AS and SA standards.</p>
-    <p><a href="/oem/">OEM battery programs &rarr;</a></p>
-
-    <h2>OEM, ODM and private label: who owns what?</h2>
-    <p>In procurement terms, the three models differ by who owns the design and who owns the brand. Keep that ownership split visible before signing a sourcing agreement.</p>
+    <h2>OEM vs ODM vs white label: the ownership split</h2>
+    <p>All three arrangements can look identical on a shelf — the difference is who owns the design, who owns the brand, and how much development risk you carry.</p>
     <table>
       <thead>
         <tr><th>Model</th><th>Who owns design</th><th>Who owns brand</th><th>Typical buyer</th></tr>
@@ -53,14 +39,46 @@ const faqs = [
       <tbody>
         <tr><td>OEM</td><td>Buyer</td><td>Buyer</td><td>Buyer has a defined specification</td></tr>
         <tr><td>ODM</td><td>Manufacturer</td><td>Buyer</td><td>Buyer wants a proven platform</td></tr>
-        <tr><td>Private label</td><td>Manufacturer</td><td>Buyer</td><td>Buyer wants fastest market entry</td></tr>
+        <tr><td>White label</td><td>Manufacturer</td><td>Buyer</td><td>Buyer wants the fastest market entry</td></tr>
       </tbody>
     </table>
-    <p>If your requirements sit between two models, use the <a href="/knowledge/oem-vs-odm-vs-private-label/">full OEM vs ODM vs private-label decision guide</a> before committing.</p>
+    <p><strong>OEM</strong> means you bring the specification and the manufacturer builds to it — you own the design. <strong>ODM</strong> means the manufacturer offers an existing design you can brand and adjust — they own the design, you own the brand. <strong>White label</strong> is the shallowest form: you apply your identity to an off-the-shelf product that any competitor can also buy. The deeper your ownership, the more control and the more development work. Read the <a href="/knowledge/oem-vs-odm-vs-private-label/">full OEM vs ODM vs private-label decision guide</a> before you choose, and see how it sits inside the broader <a href="/knowledge/oem-battery-guide/">OEM manufacturing guide</a>.</p>
 
-    <h2>Why lead-acid OEM is different from lithium</h2>
-    <p>Lead-acid is a 150-year-old supply chain. Unlike lithium cells, lead-acid starting batteries are not Class 9 dangerous goods, so shipping and compliance are simpler. For importers, this means fewer transport restrictions and lower documentation burden.</p>
-    <p>That transport reality is a procurement advantage, not only a technical detail: it simplifies carrier selection and reduces the document set that can delay a container. Review the same supply chain in a factory context with the <a href="/knowledge/how-audit-battery-factory/">lead-acid factory audit</a>.</p>
+    <h2>What goes into an OEM battery specification</h2>
+    <p>At minimum, an OEM battery project defines the standard family (JIS, DIN, BCI, AS or SA), voltage, capacity at C20 (Ah), CCA on a named test basis, dimensions, terminal type and polarity. Reference models such as 65D26 or H6 are often used as the starting point, then adjusted. The <a href="/knowledge/oem-battery-specification-guide/">OEM specification guide</a> walks each parameter.</p>
+
+    <h2>The advantages of OEM supply</h2>
+    <ul>
+      <li><strong>Exclusivity</strong> — a product no competitor can buy off the shelf, because the specification is yours.</li>
+      <li><strong>Consistency</strong> — a locked specification means the tenth container matches the first approved sample.</li>
+      <li><strong>Cost control</strong> — you buy factory-direct capability, not a distributor's margin.</li>
+      <li><strong>Brand building</strong> — the label, packaging and product are yours, so the equity accrues to you.</li>
+    </ul>
+
+    <h2>The risks, stated plainly</h2>
+    <ul>
+      <li><strong>Specification drift</strong> — a repeat order that comes back different from what you approved. This is the classic failure mode, and it is prevented by a locked spec and a tested sample, not by trust.</li>
+      <li><strong>Development effort</strong> — OEM puts the definition work on you. If you cannot specify CCA basis, terminal and group size precisely, you will pay for the factory to guess.</li>
+      <li><strong>Minimums</strong> — a first order is typically one 20ft container (600–800 units), because weight caps the load before volume.</li>
+      <li><strong>Lead-price exposure</strong> — lead is 75–80% of the material cost, so your price moves with the LME unless you negotiate a fixed-price clause.</li>
+    </ul>
+
+    <h2>Why lead-acid OEM is a different game from lithium</h2>
+    <p>Lead-acid is a 150-year-old supply chain with a mature, standardised product. Unlike lithium cells (Class 9), lead-acid starting batteries ship as Class 8 corrosive dangerous goods (UN 2794 / UN 2800) but need no UN 38.3 test report, so compliance is lighter. The chemistry is also a commodity: lead dominates the cost, so the factory's real value-add is process control and repeatability, not exotic technology — and lead's near-total recyclability is part of why the chemistry stays economically rational (see [Battery Council International's lead battery facts](https://batterycouncil.org/sources)). Read the <a href="/knowledge/how-lead-acid-batteries-are-made/">how lead-acid batteries are made</a> page to see why the manufacturing discipline matters more than the parts list.</p>
+
+    <h2>Dingwei Battery and its manufacturer</h2>
+    <p>{RELATIONSHIP} {MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines} producing {MANUFACTURER.dailyOutput}, manufacturing to JIS, DIN, BCI, AS and SA standards and exporting to {MANUFACTURER.exportMarkets}. Its quality system is certified to [IATF 16949](https://www.iatfglobaloversight.org/), the automotive-specific quality standard that governs process control and defect prevention.</p>
+
+    <h2>Where this fits</h2>
+    <p>Understanding the definition is the first gate. The next steps — how a program is structured, how it is developed, and what it costs — are covered in the cluster:</p>
+    <ul>
+      <li><a href="/knowledge/oem-battery-guide/">OEM battery manufacturing: the complete guide</a></li>
+      <li><a href="/knowledge/how-oem-battery-programs-work/">How OEM battery programs work</a></li>
+      <li><a href="/knowledge/oem-battery-development-process/">The OEM development process</a></li>
+      <li><a href="/knowledge/oem-battery-cost-breakdown/">OEM battery cost breakdown</a></li>
+      <li><a href="/knowledge/oem-battery-vs-aftermarket/">OEM vs aftermarket batteries</a></li>
+    </ul>
+    <p><a href="/oem/">OEM battery programs &rarr;</a></p>
   </section>
 
   <ArticleFaq faqs={faqs} />

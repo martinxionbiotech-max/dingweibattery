@@ -1,0 +1,86 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'Battery Export Documentation | Dingwei Battery';
+const description = 'The complete battery export document set — invoice, packing list, bill of lading, certificate of origin, test reports and the dangerous-goods declaration.';
+const articleTitle = 'Battery export documentation';
+
+const faqs = [
+  { q: 'How many core documents does a battery export need?', a: '5 at minimum — commercial invoice, packing list, bill of lading, certificate of origin and a dangerous-goods declaration — plus test reports and an MSDS where the destination or carrier requires them.' },
+  { q: 'Which document do battery exporters most often miss?', a: 'The dangerous-goods declaration, which must be signed by a certified person. Skipping it is a fine, a delayed container or a refused shipment, because the battery is Class 8, not general cargo.' },
+  { q: 'What does a certificate of origin prove?', a: 'Where the goods were manufactured — it is 1 of the 5 core documents and it unlocks preferential duty rates, which is why many destination customs authorities demand it by many destination customs authorities, so it is a compliance document as much as a formality.' },
+  { q: 'When is a CCA or capacity test report required?', a: 'When the destination market or the buyer contract demands it — most markets want proof the battery meets its labelled specification (e.g. 72 Ah, 490 CCA), so the report travels with the shipment as evidence.' },
+  { q: 'How do Incoterms change the document responsibility?', a: 'They decide who arranges and pays for each document and carriage leg across the 3 Incoterms we offer — under FOB the buyer controls freight and clearance; under CIF the seller arranges insurance and freight, with risk transferring at the origin port rather than the destination.' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Logistics</span>
+    <h1>Battery export documentation</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Sources: IMO IMDG Code, export logistics practice, Incoterms 2020</p>
+    <p class="lead">A battery container moves on documents, not just on a ship. The paperwork set is what keeps a Class 8 load flowing through customs instead of sitting in a bond racking up demurrage. This page lists each document, what it proves, and the one most exporters forget.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> A lead-acid battery export needs at least five documents — commercial invoice, packing list, bill of lading, certificate of origin and a dangerous-goods declaration — plus a CCA/capacity test report and MSDS where the destination or carrier requires them. The dangerous-goods declaration is the one amateurs miss, and it must be signed by a certified person because the battery ships as Class 8 corrosive.
+    </div>
+
+    <h2>The five-document baseline</h2>
+    <table>
+      <thead><tr><th>Document</th><th>What it proves</th><th>Who issues it</th></tr></thead>
+      <tbody>
+        <tr><td>Commercial invoice</td><td>Value, terms, buyer and seller</td><td>Exporter</td></tr>
+        <tr><td>Packing list</td><td>Carton counts, weights, dimensions per pallet</td><td>Exporter</td></tr>
+        <tr><td>Bill of lading</td><td>Receipt and contract of carriage</td><td>Carrier</td></tr>
+        <tr><td>Certificate of origin</td><td>Where the goods were manufactured</td><td>Chamber of commerce</td></tr>
+        <tr><td>Dangerous-goods declaration</td><td>UN number, class and packing, signed</td><td>Certified shipper</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The dangerous-goods declaration, in detail</h2>
+    <p>This is the document that separates a professional export from an amateur one. Because lead-acid batteries are Class 8 corrosive under the [IMDG Code](https://www.imo.org/), the shipper must declare the UN number (UN 2794 or UN 2800), the proper shipping name, the class and the packing — and the declaration must be signed by a person certified in dangerous-goods regulations, under the rules set by the [UN Model Regulations](https://unece.org/transport/dangerous-goods). A battery shipped as "general merchandise" is a misdeclaration, and it is the most common hazmat violation in the industry. The full classification logic is in the <a href="/knowledge/lead-acid-battery-dangerous-goods/">dangerous-goods classification</a> page.</p>
+
+    <h2>Supporting documents that travel with the load</h2>
+    <ul>
+      <li><strong>CCA / capacity test report</strong> — proof the battery meets its labelled specification; requested by many destinations and embedded in most OEM contracts.</li>
+      <li><strong>MSDS (material safety data sheet)</strong> — the safety data for the electrolyte and the battery; required by carriers and customs in most markets.</li>
+      <li><strong>Test-report / conformity certificates</strong> — CE for Europe, SASO/GSO for the Gulf, or destination-specific conformity, where the market demands them.</li>
+      <li><strong>Insurance certificate</strong> — evidence of cargo cover when the buyer requires it, especially under CIF.</li>
+    </ul>
+    <p>The destination-specific requirements are mapped market by market in the <a href="/knowledge/battery-import-regulations/">import regulations</a> page.</p>
+
+    <h2>How Incoterms divide the work</h2>
+    <p>The Incoterm decides who arranges and pays for each document and each carriage leg. Dingwei Battery ships on {TRADE_TERMS.incoterms}:</p>
+    <ul>
+      <li><strong>FOB</strong> (Free On Board) — the seller delivers to the port and clears export; the buyer takes risk and freight from the port onward.</li>
+      <li><strong>CFR</strong> (Cost and Freight) — the seller also pays freight to the destination port, but risk still transfers at the origin port.</li>
+      <li><strong>CIF</strong> (Cost, Insurance and Freight) — the seller adds insurance to the destination port; the buyer handles import clearance.</li>
+    </ul>
+    <p>The practical point: under FOB the buyer owns the clearance documents and the freight; under CIF the seller arranges more of it. Choose the term that puts the documentation in the hands of whoever has the local relationships to clear it.</p>
+
+    <h2>What slows a battery shipment down</h2>
+    <ul>
+      <li><strong>A missing or unsigned dangerous-goods declaration</strong> — the single most common hold.</li>
+      <li><strong>A certificate of origin that does not match the invoice</strong> — discrepancies between documents trigger customs queries.</li>
+      <li><strong>Test reports for a different model than the shipment</strong> — the report must match the actual batteries on the pallet.</li>
+      <li><strong>Weights that do not reconcile</strong> — the packing list, invoice and bill of lading must agree to the kilogram.</li>
+    </ul>
+
+    <h2>Where this fits</h2>
+    <p>{RELATIONSHIP} {MANUFACTURER.name} ships from {MANUFACTURER.exportPorts} on {TRADE_TERMS.incoterms}. The documentation page sits inside the logistics cluster:</p>
+    <ul>
+      <li><a href="/knowledge/battery-shipping-guide/">Battery shipping, compliance and warranty: the complete guide</a></li>
+      <li><a href="/knowledge/lead-acid-battery-dangerous-goods/">Lead-acid battery dangerous-goods classification</a></li>
+      <li><a href="/knowledge/battery-shipping-warranty/">Battery shipping, packaging and warranty</a></li>
+      <li><a href="/knowledge/battery-warranty-claim-process/">Battery warranty claim process</a></li>
+      <li><a href="/knowledge/battery-storage-shelf-life/">Battery storage and shelf life</a></li>
+    </ul>
+    <p><a href="/contact/">Confirm your export document set &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirm your battery export document set" />
+</ArticleLayout>

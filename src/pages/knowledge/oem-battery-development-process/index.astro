@@ -5,73 +5,84 @@ import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
 const title = 'The OEM Battery Development Process | Dingwei Battery';
-const description = 'The step-by-step OEM battery development process — from requirement to shipment — and where buyers should be involved.';
+const description = 'The step-by-step OEM battery development process — seven gates from consultation to shipment, with the milestone, cycle time and buyer sign-off at each.';
 const articleTitle = 'The OEM battery development process';
 
 const faqs = [
-  { q: 'Where do buyers most often go wrong?', a: 'Skipping the sample approval gate — approving a drawing but not testing the physical sample. That is how a repeat order comes back different from what you approved.' },
-  { q: 'Who signs off at each gate?', a: 'The buyer signs specification, sample, quality criteria and shipment. If the manufacturer signs all four, you have given away control of the outcome.' },
-  { q: 'Why are gates more important than speed?', a: 'Because a skipped gate is how specification drift happens. A slower, gated process protects the repeatability that makes an OEM program profitable.' },
+  { q: 'How long does each development stage take?', a: 'Sampling is 10–20 days, production 30–45 days, and the full cycle from RFQ to first container is 60–90 days — with consultation, specification and artwork taking the first 1–2 weeks.' },
+  { q: 'Where do buyers most often go wrong?', a: 'Skipping the sample approval gate — approving a drawing but not testing the physical sample is how a repeat order comes back different from what you approved — and it is the mistake that rushes the 10–20 day sampling stage.' },
+  { q: 'Which gates need a buyer signature?', a: '4 of the 7 — specification, sample, quality standard and shipment. If the manufacturer signs all of them, you have given away control of the outcome.' },
+  { q: 'What is the milestone that ends development and starts production?', a: 'The approved pre-production sample — once it is tested and signed, the specification is locked and the 30–45 day mass production run can begin.' },
+  { q: 'Can development and production overlap?', a: 'Not safely for a first order — production starts only after the sample is approved, because a batch produced before approval carries the full rework risk of a 600–800 unit container.' }
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentals" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-10" faqs={faqs}>
   <section class="section container prose">
-    <span class="tag">Knowledge</span>
+    <span class="tag">Knowledge · OEM</span>
     <h1>The OEM battery development process</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-01 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
-    <p class="lead">OEM development is a gated process. Understanding the stages tells you where to be involved and where to insist on sign-off.</p>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
+    <p class="lead">OEM development is a gated process — seven stages, each ending in a milestone and, at four of them, a buyer sign-off. Understanding the sequence tells you where to be involved and where to insist on written approval, which is the difference between a battery that stays on spec and one that drifts.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> OEM battery development moves through consultation, specification, design and branding, sampling, mass production, quality inspection, and shipping. Buyers should be most involved at specification, sampling, inspection and shipment, because those are the gates that prevent specification drift.
+      <strong>Short answer:</strong> OEM battery development moves through seven gates — consultation, specification, design and branding, sampling, mass production, quality inspection and shipping — over a 60–90 day cycle. The buyer signs four of them (specification, sample, quality standard, shipment), and the key milestone is the approved pre-production sample, which locks the specification and releases mass production.
     </div>
 
-    <h2>The seven stages</h2>
+    <h2>The seven stages and their milestones</h2>
+    <table>
+      <thead><tr><th>Stage</th><th>Milestone</th><th>Typical cycle</th><th>Buyer sign-off</th></tr></thead>
+      <tbody>
+        <tr><td>1. Consultation</td><td>Feasibility confirmation</td><td>2–3 days</td><td>—</td></tr>
+        <tr><td>2. Specification</td><td>Signed spec sheet</td><td>3–5 days</td><td>Yes</td></tr>
+        <tr><td>3. Design &amp; branding</td><td>Approved artwork</td><td>3–7 days</td><td>Yes</td></tr>
+        <tr><td>4. Sampling</td><td>Approved pre-production sample</td><td>10–20 days</td><td>Yes</td></tr>
+        <tr><td>5. Mass production</td><td>Container-load batch</td><td>30–45 days</td><td>—</td></tr>
+        <tr><td>6. Quality inspection</td><td>Signed test data</td><td>2–4 days</td><td>Yes</td></tr>
+        <tr><td>7. Shipping</td><td>Bill of lading</td><td>3–5 weeks</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+    <p>The cycle times above are planning figures for a standard model on an existing platform; a custom case or a new terminal layout lengthens sampling and tooling. The full 60–90 day picture is in the <a href="/knowledge/oem-battery-guide/">OEM manufacturing guide</a>.</p>
+
+    <h2>The four gates that need your signature</h2>
+    <p>Not every stage needs your approval — four do, and they are the ones where the outcome is decided:</p>
     <ol>
-      <li>Consultation</li>
-      <li>Specification</li>
-      <li>Design &amp; branding</li>
-      <li>Sampling</li>
-      <li>Mass production</li>
-      <li>Quality inspection</li>
-      <li>Logistics &amp; shipping</li>
+      <li><strong>Specification</strong> — sign every parameter, including the CCA test basis.</li>
+      <li><strong>Sample</strong> — test the pre-production sample against the spec before approving.</li>
+      <li><strong>Quality standard</strong> — agree the acceptance criteria before mass production begins.</li>
+      <li><strong>Shipment</strong> — confirm the documents before release.</li>
     </ol>
+    <p>If the manufacturer signs all four on your behalf, you have given away control of the outcome. Keep the sequence tied to the <a href="/knowledge/how-oem-battery-programs-work/">program phases</a> so both sides know where approval is required — and note that the quality-standard gate is a defined set of acceptance criteria, the same discipline the [ISO 9001](https://www.iso.org/iso-9001-quality-management.html) quality-management framework requires for any repeatable process.</p>
+
+    <h2>From sample to mass production: the critical handoff</h2>
+    <p>The most consequential transition is between stage 4 (sampling) and stage 5 (mass production). The approved sample becomes the <strong>golden sample</strong> — the physical reference every later batch is checked against. Three disciplines make the handoff safe:</p>
+    <ol>
+      <li><strong>Approve on the tested sample, not the photo</strong> — ask for the CCA and capacity report of the actual sample, on the named test basis.</li>
+      <li><strong>Lock the sample in the contract</strong> — reference its serial number and test report in the purchase order.</li>
+      <li><strong>Keep one yourself</strong> — you cannot adjudicate a future claim against a sample you never held.</li>
+    </ol>
+    <p>A factory that rushes you past sampling into production is usually hiding the gap between its sample line and its production line. This is the single most common — and most expensive — development failure, and it is entirely preventable.</p>
 
     <h2>Where buyers should be involved</h2>
     <ul>
-      <li>Specification — sign off every parameter</li>
-      <li>Sampling — test before approving</li>
-      <li>Quality inspection — agree the acceptance criteria</li>
-      <li>Shipment — confirm documentation</li>
+      <li><strong>Specification</strong> — sign off every parameter.</li>
+      <li><strong>Sampling</strong> — test before approving.</li>
+      <li><strong>Quality inspection</strong> — agree the acceptance criteria.</li>
+      <li><strong>Shipment</strong> — confirm the documentation.</li>
     </ul>
+    <p>Everything between those gates is the manufacturer's job. Staying out of the way on production while holding the four gates is the discipline that produces a repeatable battery. See the <a href="/knowledge/how-audit-battery-factory/">factory audit</a> guide for what "process control" should look like on the line, and the <a href="/knowledge/oem-battery-specification-guide/">specification guide</a> for writing stage 2 correctly.</p>
 
-    <h2>Why gates matter</h2>
-    <p>Each gate is a decision point. Skipping a gate is how a specification drifts and a repeat order comes back different.</p>
+    <h2>Why gates matter more than speed</h2>
+    <p>A skipped gate is how specification drift happens. A slower, gated process protects the repeatability that makes an OEM program profitable — and the cost of a skipped gate is measured in containers, not days. The 10–20 days spent on sampling is the cheapest insurance in the whole program, and the whole gated sequence is the practical shape of the defect-prevention discipline that [IATF 16949](https://www.iatfglobaloversight.org/) codifies for automotive manufacturing.</p>
 
-    <h2>Stage-by-stage: who does what</h2>
-    <table>
-      <thead><tr><th>Stage</th><th>Manufacturer delivers</th><th>Buyer action</th></tr></thead>
-      <tbody>
-        <tr><td>1. Consultation</td><td>Feasibility view on the requested specification</td><td>Confirm vehicle, market and volume intent</td></tr>
-        <tr><td>2. Specification</td><td>Written spec sheet with every parameter</td><td>Sign every line, including the CCA test basis</td></tr>
-        <tr><td>3. Design &amp; branding</td><td>Label and packaging artwork</td><td>Approve artwork and documentation</td></tr>
-        <tr><td>4. Sampling</td><td>Pre-production sample from a production-equivalent line</td><td>Test before approving; record results</td></tr>
-        <tr><td>5. Mass production</td><td>Scheduled production with in-process control</td><td>Confirm the schedule and any change freeze</td></tr>
-        <tr><td>6. Quality inspection</td><td>Inspection and test data</td><td>Agree acceptance criteria before release</td></tr>
-        <tr><td>7. Shipping</td><td>Export packaging and documents</td><td>Confirm documents before shipment</td></tr>
-      </tbody>
-    </table>
-    <p><a href="/oem/">OEM battery programs &rarr;</a> · <a href="/contact/">OEM battery development project &rarr;</a></p>
-    <p>{RELATIONSHIP}</p>
-
-    <h2>Where the buyer must sign off</h2>
-    <p>Four gates need a buyer signature, not just a manufacturer confirmation:</p>
-    <ol>
-      <li><strong>Specification</strong> — sign every parameter, including the CCA test basis.</li>
-      <li><strong>Sample</strong> — test the pre-production sample before approval.</li>
-      <li><strong>Quality standard</strong> — agree acceptance criteria before mass production.</li>
-      <li><strong>Shipment</strong> — confirm the documents before release.</li>
-    </ol>
-    <p>Skip one gate and the next order can drift from the approved sample. Keep the sign-off sequence tied to the <a href="/knowledge/how-oem-battery-programs-work/">OEM program phases</a> so both sides know where approval is required.</p>
+    <h2>Where this fits</h2>
+    <p>{RELATIONSHIP} This page covers the process; the rest of the cluster covers the context:</p>
+    <ul>
+      <li><a href="/knowledge/oem-battery-guide/">OEM battery manufacturing: the complete guide</a></li>
+      <li><a href="/knowledge/what-is-oem-battery/">What is an OEM battery</a></li>
+      <li><a href="/knowledge/how-oem-battery-programs-work/">How OEM battery programs work</a></li>
+      <li><a href="/knowledge/oem-battery-cost-breakdown/">OEM battery cost breakdown</a></li>
+      <li><a href="/knowledge/oem-battery-vs-aftermarket/">OEM vs aftermarket batteries</a></li>
+    </ul>
+    <p><a href="/oem/">OEM battery programs &rarr;</a> · <a href="/contact/">Plan your OEM development process &rarr;</a></p>
   </section>
 
   <ArticleFaq faqs={faqs} />

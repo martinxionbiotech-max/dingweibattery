@@ -1,0 +1,122 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'OEM Battery Manufacturing: The Complete Guide | Dingwei Battery';
+const description = 'OEM lead-acid battery manufacturing explained end to end — what OEM means, how a program runs, the 7-step development process, cost structure and OEM vs aftermarket.';
+const articleTitle = 'OEM battery manufacturing: the complete guide';
+
+const faqs = [
+  { q: 'What is an OEM battery in plain terms?', a: 'An OEM battery is one built to your specification — voltage, Ah, CCA, terminal and label — and sold under your brand, not the factory label. In lead-acid, quality is set by the specification, not the brand, because the same factory often runs branded and OEM batteries side by side on the same line, and a program takes 60–90 days from RFQ to first container.' },
+  { q: 'How long does an OEM battery project take from idea to first container?', a: 'Budget 60–90 days: roughly 7–14 days to lock specification and issue an RFQ, 10–20 days for sampling and approval, 30–45 days for production, then 3–5 weeks of ocean freight.' },
+  { q: 'What does an OEM battery actually cost to make?', a: 'Raw materials are 75–80% of operating cost — lead, sulfuric acid and polypropylene dominate — with utilities at 10–15% and the rest labor, packaging, transport and overhead. Lead is the swing factor: with LME lead near US$1,950/tonne, a 15 kg battery carries roughly US$20–25 of lead alone.' },
+  { q: 'Is an OEM battery worse quality than a branded one?', a: 'No — OEM quality is set by the specification you sign, not the label. The same factory frequently builds branded and OEM batteries side by side on the same line, and 75–80% of a battery cost is raw material either way; the difference is whose specification and quality gate controls the output.' },
+  { q: 'What is the biggest hidden cost in an OEM program?', a: 'A low unit price that hides a smaller scope — a quote that omits the CCA test basis, certification, tooling amortisation or packaging is not a cheaper battery, it is a cheaper specification, and a trading-company layer typically adds 5–15% on top. Compare on scope, not on the bare number.' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · OEM</span>
+    <h1>OEM battery manufacturing: the complete guide</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Sources: IATF 16949, IMARC lead-acid manufacturing cost report, LME lead price data</p>
+    <p class="lead">OEM battery manufacturing is not buying a product — it is commissioning a repeatable supply arrangement around your specification and your brand. This guide walks the whole thing in order: what OEM actually means, how a program is structured, the seven-stage development process, where the cost goes, and how OEM compares with aftermarket supply. Read it once before you write an RFQ, and you will ask for the right things in the right order.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> OEM battery manufacturing means a factory builds batteries to your specification — voltage, Ah, CCA basis, terminal, label — under your brand. A program runs through specification, sampling, production and locked repeat orders, on a 60–90 day timeline, and the dominant cost is lead: raw materials are 75–80% of operating cost. The quality is set by the specification you sign, not by the label, so the entire skill of OEM is writing a specification that cannot drift and a contract that enforces it.
+    </div>
+
+    <h2>What OEM means in the battery trade</h2>
+    <p>OEM — original equipment manufacturer — is one of the most misused words in sourcing, because it means different things in different industries. In automotive parts the OEM is usually the car maker. In battery export, the word is used the other way round: <em>you</em> are the buyer who owns the design and the brand, and the factory is the original equipment manufacturer that produces to your specification.</p>
+    <p>The distinction that matters is ownership. Under an OEM arrangement you bring the specification; the factory brings the production capability. Under ODM the factory brings a ready design you can brand and adjust. Under private label you put your identity on a supplied platform. All three can look identical on a shelf; the difference is who owns the design, who carries the development risk, and how locked the repeat order is. If this is new ground, start with the <a href="/knowledge/what-is-oem-battery/">what is an OEM battery</a> explainer and the <a href="/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs private label</a> decision guide before reading on.</p>
+
+    <h2>The five decisions that define an OEM program</h2>
+    <p>Before anything is built, five parameters have to be fixed — together, not one at a time. A factory that quotes "a 72 Ah battery" without asking the rest is guessing, and so is its price.</p>
+    <ol>
+      <li><strong>Standard family</strong> — JIS, DIN-EN, BCI, AS or SA. This sets the case, the CCA test method and the market the battery is legal to sell into.</li>
+      <li><strong>Case group and size</strong> — D26, D23, B24, L3, H6 or a custom footprint. This determines what vehicles the battery fits.</li>
+      <li><strong>Electrical specification</strong> — voltage, capacity at C20 (Ah), reserve capacity, and CCA on a named test basis (JIS −15°C, EN −18°C, SAE −18°C). The basis matters: a JIS CCA and an EN CCA are not directly comparable.</li>
+      <li><strong>Terminal and polarity</strong> — type, position and orientation, because a correct battery with the wrong terminal is a returns line, not a sale.</li>
+      <li><strong>Technology</strong> — SLI, EFB, AGM or heavy-duty, which sets the plate design, the separator and the price band.</li>
+    </ol>
+    <p>The full treatment of each parameter lives in the specifications cluster — begin with the <a href="/knowledge/battery-specifications-guide/">automotive battery specifications reference</a> and lock the footprint against the <a href="/knowledge/battery-group-size-chart/">group size chart</a>.</p>
+
+    <h2>How an OEM program is structured</h2>
+    <p>An OEM program is a repeatable supply arrangement, not a one-off order. It runs in four phases, and the point of the structure is that the tenth container matches the first approved sample:</p>
+    <table>
+      <thead><tr><th>Phase</th><th>What is produced</th><th>Your checkpoint</th></tr></thead>
+      <tbody>
+        <tr><td>1. Specification</td><td>Written spec sheet</td><td>Sign every parameter, including the CCA basis</td></tr>
+        <tr><td>2. Sampling</td><td>Pre-production sample + test report</td><td>Test the physical sample, not just the drawing</td></tr>
+        <tr><td>3. Production</td><td>Container-load batches</td><td>Confirm schedule and change freeze</td></tr>
+        <tr><td>4. Repeat orders</td><td>Identical follow-on batches</td><td>Re-check against the approved sample</td></tr>
+      </tbody>
+    </table>
+    <p>The mechanism that makes the repeat order safe is the <strong>specification lock</strong> — the approved sample plus written parameters plus change control. Read the <a href="/knowledge/how-oem-battery-programs-work/">how OEM programs work</a> page for the four phases in detail and the <a href="/knowledge/oem-battery-development-process/">development process</a> page for the seven stages and where you sign off.</p>
+
+    <h2>The seven-stage development process</h2>
+    <p>From idea to shipped container, an OEM battery project passes seven gates. Each gate is a decision point where the buyer either signs off or the specification drifts:</p>
+    <ol>
+      <li><strong>Consultation</strong> — feasibility against vehicle, market and volume.</li>
+      <li><strong>Specification</strong> — the written spec sheet, signed line by line.</li>
+      <li><strong>Design and branding</strong> — label, case and packaging artwork.</li>
+      <li><strong>Sampling</strong> — a pre-production sample from a production-equivalent line.</li>
+      <li><strong>Mass production</strong> — scheduled manufacture with in-process control.</li>
+      <li><strong>Quality inspection</strong> — test data against agreed acceptance criteria.</li>
+      <li><strong>Shipping</strong> — export packaging and documentation.</li>
+    </ol>
+    <p>Four of those seven gates need a buyer signature, not just a factory confirmation: specification, sample, quality standard and shipment. Skip one and the next order can come back different from what you approved. The <a href="/knowledge/oem-battery-development-process/">development process</a> page walks each stage with the deliverable and the checkpoint.</p>
+
+    <h2>Where the cost goes</h2>
+    <p>Lead-acid batteries are a commodity-plus business: the cost is dominated by materials, and the material that swings the price is lead. The industry cost structure runs roughly like this — raw materials at 75–80% of operating cost, utilities at 10–15%, and the balance in labour, packaging, transport, maintenance and depreciation, per IMARC's manufacturing cost modelling (see the [IMARC lead-acid manufacturing report](https://www.imarcgroup.com/lead-acid-battery-manufacturing-plant-project-report)).</p>
+    <p>Lead (grids plus oxide paste), sulfuric acid and polypropylene are the three main material inputs, and lead is the largest by a wide margin. Because lead trades on the LME — around US$1,950–1,960 per tonne through 2025–26 (see [Investing News Network's lead forecast](https://investingnews.com/lead-forecast)) — your battery's price moves with the LME, not with the factory's mood. A factory that quotes a fixed price for 12 months is either hedging lead or carrying the risk for you, and you should know which.</p>
+    <p>The full arithmetic — including a worked unit-cost example and the hidden costs that hide inside a low quote — is in the <a href="/knowledge/oem-battery-cost-breakdown/">OEM cost breakdown</a> page.</p>
+
+    <h2>OEM versus aftermarket: what you are actually buying</h2>
+    <p>The OEM/aftermarket question is really three separate questions bundled into one: warranty coverage, real-world lifespan and production consistency. OEM supply from the original factory gives you specification control and consistency across containers; aftermarket supply gives you price and availability from stock. The trade-off is not "good versus cheap" — it is "control versus convenience." A full side-by-side, including the warranty and consistency dimensions that decide repeat business, is in the <a href="/knowledge/oem-battery-vs-aftermarket/">OEM vs aftermarket</a> page.</p>
+
+    <h2>The quality system that backs a spec</h2>
+    <p>A specification is only worth what the factory's quality system enforces. {MANUFACTURER.name} (Dingwei Battery's manufacturer) operates under IATF 16949 — the automotive-specific quality standard built on ISO 9001 — plus {CERTIFICATIONS.join(', ')}. IATF 16949 matters specifically because it forces process control, not just final inspection: the standard's defect-prevention and traceability requirements are why a factory can ship container after container to the same drawing without drift. Read the <a href="/knowledge/battery-quality-control/">quality control</a> page to see what to look for on the line.</p>
+
+    <h2>Two numbers that reframe an OEM decision</h2>
+    <p><strong>The lead-linkage test.</strong> If raw materials are 75–80% of cost and lead is the dominant material, then a 10% move in the LME lead price moves your ex-factory price by a material percentage. At roughly US$1,950/tonne, a single 15 kg SLI battery contains on the order of US$20–25 of lead. That is why two factories quoting 10% apart on the same specification are usually quoting different lead-purchase timing or different margin, not different quality — and why a fixed-price clause is a negotiation point, not a formality.</p>
+    <p><strong>The specification-drift cost.</strong> The expensive mistake in OEM is not a bad first order — it is a first order you cannot repeat. A skipped sampling gate or an unsigned CCA basis can make every later container a new development project, each carrying its own approval risk. The cheapest line item in the whole program is the one that prevents that: a documented sample approval and a locked specification.</p>
+
+    <h2>What suppliers will not volunteer</h2>
+    <ul>
+      <li><strong>A low unit price hides a smaller scope.</strong> A quote that omits the CCA test basis, certification, tooling or packaging is not a cheaper battery — it is a cheaper specification. Compare on scope.</li>
+      <li><strong>"Same as sample" is not a warranty.</strong> Unless the golden sample is referenced in the contract with its test report, "same as sample" means nothing a court can enforce.</li>
+      <li><strong>Lead price moves are passed on eventually.</strong> A factory absorbing lead swings to win your order will recover them somewhere — in margin on tooling, in freight, or on the second container.</li>
+      <li><strong>MOQ follows the container, not your demand.</strong> A 20ft container holds roughly 600–800 starter batteries because weight caps the load before volume does — so a "minimum order" is a logistics fact, not a marketing preference.</li>
+    </ul>
+
+    <h2>The 60–90 day timeline</h2>
+    <p>The whole cycle from first RFQ to landed goods breaks into a predictable calendar:</p>
+    <table>
+      <thead><tr><th>Weeks</th><th>Stage</th><th>What happens</th></tr></thead>
+      <tbody>
+        <tr><td>1–2</td><td>Specify + RFQ</td><td>Lock the 5-part specification; issue one RFQ on one scope.</td></tr>
+        <tr><td>2–4</td><td>Sample + approve</td><td>Produce and test the pre-production sample; sign it off.</td></tr>
+        <tr><td>4–10</td><td>Production</td><td>30–45 days of casting through formation, sealing and test.</td></tr>
+        <tr><td>10–14</td><td>Shipping + clearance</td><td>3–5 weeks of ocean freight and customs.</td></tr>
+      </tbody>
+    </table>
+    <p>The two places the schedule slips are sampling (because the specification was not locked first) and clearance (because a certification was discovered late). Both are preventable at the front of the sequence.</p>
+
+    <h2>How to use this cluster</h2>
+    <p>{RELATIONSHIP} {MANUFACTURER.name} operates a {MANUFACTURER.factoryArea} facility with {MANUFACTURER.productionLines} producing {MANUFACTURER.dailyOutput}, manufacturing to JIS, DIN, BCI, AS and SA standards and exporting to {MANUFACTURER.exportMarkets}. This pillar fixes the overall picture; the pages below drill into each part:</p>
+    <ul>
+      <li><a href="/knowledge/what-is-oem-battery/">What is an OEM battery</a> — the definition and the ownership split</li>
+      <li><a href="/knowledge/how-oem-battery-programs-work/">How OEM battery programs work</a> — the four phases</li>
+      <li><a href="/knowledge/oem-battery-development-process/">The OEM development process</a> — the seven gates</li>
+      <li><a href="/knowledge/oem-battery-cost-breakdown/">OEM battery cost breakdown</a> — where the money goes</li>
+      <li><a href="/knowledge/oem-battery-vs-aftermarket/">OEM vs aftermarket batteries</a> — warranty, life and consistency</li>
+    </ul>
+    <p>Related: <a href="/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs private label</a> · <a href="/knowledge/oem-battery-specification-guide/">OEM specification guide</a> · <a href="/knowledge/battery-sourcing-guide/">how to source from China</a> · <a href="/knowledge/battery-shipping-guide/">shipping, compliance and warranty</a> · <a href="/oem/">start an OEM program →</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Send us your specification for an OEM quote" />
+</ArticleLayout>

@@ -1,0 +1,82 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'Lead-Acid Battery Dangerous Goods | Dingwei Battery';
+const description = 'Lead-acid battery dangerous-goods classification — UN 2794 and UN 2800 Class 8, the IMDG Code, the UN 2800 test, and how it compares with lithium UN 3480/3481.';
+const articleTitle = 'Lead-acid battery dangerous-goods classification';
+
+const faqs = [
+  { q: 'What UN number is a flooded lead-acid car battery?', a: 'UN 2794 — Batteries, wet, filled with acid — under Class 8 (corrosive). A sealed non-spillable design that passes the vibration and pressure-differential tests ships as UN 2800.' },
+  { q: 'Is lead-acid Class 8 or Class 9?', a: 'Class 8 (corrosive) — the hazard is the sulfuric acid electrolyte. Lithium-ion is the Class 9 (miscellaneous) chemistry, shipped as UN 3480/UN 3481.' },
+  { q: 'What test makes a battery non-spillable (UN 2800)?', a: 'Vibration and pressure-differential tests under the transport regulations — a sealed battery without those test records is legally still UN 2794, not UN 2800.' },
+  { q: 'Does a lead-acid battery need a UN 38.3 report?', a: 'No — UN 38.3 is a lithium-battery test standard. The lead-acid advantage is that it needs no UN 38.3 report, but it still requires Class 8 labelling, compliant packaging and a declaration where required.' },
+  { q: 'What rules govern lead-acid battery sea freight?', a: 'The IMO IMDG Code for maritime transport, plus the national rules it feeds — US DOT 49 CFR, European ADR and IATA DGR for air — all deriving from the UN Model Regulations.' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Logistics</span>
+    <h1>Lead-acid battery dangerous-goods classification</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Sources: UN Model Regulations, IMO IMDG Code, US DOT PHMSA</p>
+    <p class="lead">Lead-acid batteries are dangerous goods — Class 8 corrosive, because the electrolyte is sulfuric acid. The classification is not optional paperwork; it decides your packaging, your labelling, your documentation and, if you get it wrong, whether the container is turned back at the port. Here is the classification, the test that changes the UN number, and how it compares with lithium.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Lead-acid batteries ship as Class 8 corrosive dangerous goods under two UN numbers — UN 2794 (batteries, wet, filled with acid) for flooded starting batteries and UN 2800 (batteries, wet, non-spillable) for sealed designs that pass the vibration and pressure-differential tests. Sea freight follows the IMO IMDG Code, and the practical advantage over lithium is that lead-acid needs no UN 38.3 report.
+    </div>
+
+    <h2>The two UN numbers</h2>
+    <table>
+      <thead><tr><th>UN number</th><th>Proper shipping name</th><th>Class</th><th>Applies to</th></tr></thead>
+      <tbody>
+        <tr><td>UN 2794</td><td>Batteries, wet, filled with acid</td><td>8</td><td>Flooded lead-acid batteries with free liquid electrolyte</td></tr>
+        <tr><td>UN 2800</td><td>Batteries, wet, non-spillable</td><td>8</td><td>Sealed batteries that pass the non-spillable tests</td></tr>
+        <tr><td>UN 2796</td><td>Battery fluid, acid</td><td>8</td><td>Sulfuric acid electrolyte shipped on its own</td></tr>
+      </tbody>
+    </table>
+    <p>The proper shipping names and numbers come from the [UN Model Regulations](https://unece.org/transport/dangerous-goods), maintained by UNECE, and are adopted into every national and modal rule set — the IMO [IMDG Code](https://www.imo.org/) for sea, US DOT 49 CFR for US road and rail, ADR for European road, and IATA DGR for air.</p>
+
+    <h2>What "non-spillable" (UN 2800) actually requires</h2>
+    <p>UN 2800 status is not a marketing label — it is a tested claim. A battery qualifies as non-spillable only if it passes the vibration and pressure-differential tests specified in the transport regulations, proving the electrolyte will not escape under normal transport conditions. The practical consequence matters for freight cost and handling: a UN 2800 battery attracts lighter packaging and handling requirements than a UN 2794 flooded battery. The trap for buyers: a sealed battery without test records is legally still UN 2794, whatever the supplier's brochure says. See the [US DOT PHMSA](https://www.phmsa.dot.gov/) guidance for the authoritative US reading.</p>
+
+    <h2>Lead-acid vs lithium: different classes, different burdens</h2>
+    <p>Buyers coming from lithium often carry assumptions that do not transfer. The two chemistries sit in different classes with different paperwork:</p>
+    <table>
+      <thead><tr><th>Dimension</th><th>Lead-acid</th><th>Lithium-ion</th></tr></thead>
+      <tbody>
+        <tr><td>UN numbers</td><td>UN 2794 / UN 2800</td><td>UN 3480 (alone) / UN 3481 (with equipment)</td></tr>
+        <tr><td>Hazard class</td><td>Class 8 (corrosive)</td><td>Class 9 (miscellaneous)</td></tr>
+        <tr><td>UN 38.3 test</td><td>Not required</td><td>Required</td></tr>
+        <tr><td>Dominant risk</td><td>Acid spill, corrosion</td><td>Thermal runaway, fire</td></tr>
+        <tr><td>Documentation</td><td>Lower burden</td><td>Higher (test summaries, labelling, training)</td></tr>
+      </tbody>
+    </table>
+    <p>The lead-acid advantage is real but narrow: no UN 38.3 report. You still need Class 8 corrosive labelling, UN packaging where required, and a signed dangerous-goods declaration by a trained person. The lithium side — UN 3480/UN 3481 and the UN 38.3 requirement — is covered by IATA and the [UN Model Regulations](https://unece.org/transport/dangerous-goods); the comparison only matters here because it is the context most battery importers already know.</p>
+
+    <h2>What the class label and packaging require</h2>
+    <ul>
+      <li><strong>Class 8 corrosive label</strong> on the package, and a Class 8 placard on the vehicle or container where regulations require it.</li>
+      <li><strong>UN-numbered marking</strong> next to the proper shipping name.</li>
+      <li><strong>Compliant packaging</strong> that contains acid and protects terminals from shorting — export-grade cartons and upright orientation.</li>
+      <li><strong>A dangerous-goods declaration</strong> signed by a certified person, plus the MSDS for the specific product.</li>
+    </ul>
+    <p>Misclassifying a battery as "general merchandise" is the single most common hazmat violation in the industry — and it is a fine, a delayed container or a refused shipment waiting to happen.</p>
+
+    <h2>Where this fits</h2>
+    <p>{RELATIONSHIP} Classification is the first gate of the logistics cluster; the pages that follow cover what comes after it:</p>
+    <ul>
+      <li><a href="/knowledge/battery-shipping-guide/">Battery shipping, compliance and warranty: the complete guide</a></li>
+      <li><a href="/knowledge/battery-export-documentation/">Battery export documentation</a></li>
+      <li><a href="/knowledge/battery-shipping-warranty/">Battery shipping, packaging and warranty</a></li>
+      <li><a href="/knowledge/battery-warranty-claim-process/">Battery warranty claim process</a></li>
+      <li><a href="/knowledge/battery-storage-shelf-life/">Battery storage and shelf life</a></li>
+    </ul>
+    <p><a href="/contact/">Confirm your battery's UN classification &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirm your battery's dangerous-goods classification" />
+</ArticleLayout>

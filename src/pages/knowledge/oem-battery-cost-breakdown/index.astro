@@ -1,0 +1,93 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
+
+const title = 'OEM Battery Cost Breakdown | Dingwei Battery';
+const description = 'Where the cost of an OEM lead-acid battery goes — material, labour, certification, logistics — with a worked unit-cost example and the hidden costs in a low quote.';
+const articleTitle = 'OEM battery cost breakdown';
+
+const faqs = [
+  { q: 'What percentage of a lead-acid battery cost is raw material?', a: '75–80% of operating cost, with lead (grids plus oxide) as the dominant single material — utilities run 10–15% and the rest is labour, packaging, transport and overhead.' },
+  { q: 'How much lead is in a typical car battery?', a: 'Roughly 9–13 kg in a 15–19 kg starter battery — about 60–70% of the battery by weight, which at a LME lead price near US$1,950/tonne is US$20–25 of lead per unit.' },
+  { q: 'Why do OEM battery prices move with the LME?', a: 'Because lead is 75–80% of material cost, a 10% move in the LME lead price shifts the ex-factory price by a material percentage — which is why fixed-price clauses are a negotiation point, not a formality.' },
+  { q: 'What are the hidden costs in a low OEM quote?', a: 'A smaller scope — the CCA test basis, certification, tooling amortisation, packaging and a trading company margin of 5–15% are the four things that hide inside a number that looks too good.' },
+  { q: 'What does certification add to the cost?', a: 'It depends on the market — IATF 16949 is a factory-level overhead spread across all output, while per-market conformity (CE, SASO/GSO) is a per-program cost plus testing and audit time.' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · OEM</span>
+    <h1>OEM battery cost breakdown</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Sources: IMARC lead-acid manufacturing cost report, LME lead price data</p>
+    <p class="lead">A lead-acid battery's cost is not a mystery — it is mostly lead. The structure is commodity-dominated, which means two things for a buyer: the price moves with the LME, and a quote that is dramatically cheaper than its peers is almost always a smaller scope, not a better factory. This page breaks the cost down line by line and gives you the arithmetic to test any quote.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Lead-acid battery cost is dominated by raw materials at 75–80% of operating cost, with lead as the single largest input, utilities at 10–15%, and the balance in labour, packaging, transport and overhead. A 15 kg starter battery carries roughly 9–13 kg of lead — about US$20–25 at an LME price near US$1,950/tonne — so your battery's price moves with the lead market, and a low quote usually hides a smaller scope.
+    </div>
+
+    <h2>The cost structure, line by line</h2>
+    <p>Industry cost modelling (see the [IMARC lead-acid manufacturing report](https://www.imarcgroup.com/lead-acid-battery-manufacturing-plant-project-report)) puts the operating-cost structure roughly as follows:</p>
+    <table>
+      <thead><tr><th>Cost category</th><th>Share of operating cost</th><th>What is inside it</th></tr></thead>
+      <tbody>
+        <tr><td>Raw materials</td><td>75–80%</td><td>Lead (grids + oxide), sulfuric acid, polypropylene (case + separator)</td></tr>
+        <tr><td>Utilities</td><td>10–15%</td><td>Electricity for formation and casting, water, compressed air</td></tr>
+        <tr><td>Labour + overhead</td><td>5–10%</td><td>Direct labour, packaging, transport, maintenance, depreciation, taxes</td></tr>
+      </tbody>
+    </table>
+    <p>Lead is the swing factor. It trades on the London Metal Exchange at around US$1,950–1,960 per tonne through 2025–26 (see [Investing News Network's lead forecast](https://investingnews.com/lead-forecast)), and because lead-acid is the largest single use of lead, the battery's ex-factory price tracks that number closely.</p>
+
+    <h2>A worked unit-cost example</h2>
+    <p>Here is the arithmetic for a typical 12V 60–72 Ah SLI starter battery, using the cost structure above. The numbers are illustrative — they show the logic, not a quote.</p>
+    <table>
+      <thead><tr><th>Line</th><th>Value</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td>Battery weight</td><td>~15 kg</td><td>Typical JIS/DIN D23–D26 class</td></tr>
+        <tr><td>Lead content</td><td>~9–13 kg</td><td>Roughly 60–70% of battery mass</td></tr>
+        <tr><td>Lead value</td><td>~US$20–25</td><td>9–13 kg × ~US$1.95/kg (LME)</td></tr>
+        <tr><td>Raw-material total</td><td>~75–80% of cost</td><td>IMARC structure</td></tr>
+        <tr><td>Utilities + labour + overhead</td><td>~20–25% of cost</td><td>Remainder of the structure</td></tr>
+      </tbody>
+    </table>
+    <p>The lesson is the <strong>lead-linkage test</strong>: lead alone is the single largest cost line, and it is set by a commodity exchange, not by the factory. Two factories quoting 10% apart on the same specification are usually quoting different lead-purchase timing, different margin, or different scope — not different quality. Read the <a href="/knowledge/battery-sourcing-guide/">sourcing guide</a> for how to make quotes comparable.</p>
+
+    <h2>Where the non-material costs hide</h2>
+    <p>Beyond the commodity, four cost lines separate a real program from a cheap one, and each can be silently omitted from a low quote:</p>
+    <ul>
+      <li><strong>Certification</strong> — IATF 16949 and ISO 9001 are factory-level overheads spread across all output, but per-market conformity (CE, SASO/GSO for the Gulf, destination test reports) is a per-program cost plus audit time.</li>
+      <li><strong>Tooling</strong> — a custom case, lid or terminal layout carries a one-time mould cost, usually amortised across the first order and sometimes waived at volume.</li>
+      <li><strong>Packaging</strong> — export cartons, pallets and terminal protection are priced per unit and can vary widely between "domestic" and "export-grade" packing.</li>
+      <li><strong>Logistics</strong> — a 20ft container of batteries ships at {TRADE_TERMS.incoterms}, and the freight per unit collapses at a full container load ({TRADE_TERMS.moq}).</li>
+    </ul>
+
+    <h2>The hidden costs in a low quote</h2>
+    <p>A quote that looks 10–15% cheaper is usually a smaller scope, dressed as a better price. The four things that hide inside a suspiciously low number:</p>
+    <ol>
+      <li><strong>The CCA test basis</strong> — JIS (−15°C) and EN (−18°C) produce different numbers; a quote without the basis is quoting the easier test.</li>
+      <li><strong>The trading-company margin</strong> — a trader fronting as a factory adds 5–15% and removes your quality visibility.</li>
+      <li><strong>Tooling not amortised</strong> — a quote that excludes the mould cost just moves it to the second order.</li>
+      <li><strong>Domestic packaging</strong> — a battery that survives a local truck may not survive a sea container without export-grade cartons.</li>
+    </ol>
+    <p>The rule is simple: compare on scope, not on the bare number. A complete scope — CCA basis, certification, tooling, packaging, Incoterm — is the only basis on which two quotes mean the same thing.</p>
+
+    <h2>Why the recycled value matters</h2>
+    <p>One cost line works in your favour: lead is recyclable, and a spent lead battery has scrap value. The lead industry reports an end-of-life net credit of roughly US$33 per kWh for lead batteries, versus about US$91 per kWh of cost for lithium (see [Battery Council International's lead battery facts](https://batterycouncil.org/sources)). For a B2B buyer the scrap credit usually sits with the recycler, not you — but it is part of why lead-acid remains economically rational even as lithium grows, and it is worth knowing when a customer asks about total cost of ownership.</p>
+
+    <h2>How to use this</h2>
+    <p>{RELATIONSHIP} When you ask for a quote, ask for the cost lines separately — material, certification, tooling, packaging and freight — so you can see which one a supplier has compressed. The rest of the cluster frames the decision:</p>
+    <ul>
+      <li><a href="/knowledge/oem-battery-guide/">OEM battery manufacturing: the complete guide</a></li>
+      <li><a href="/knowledge/what-is-oem-battery/">What is an OEM battery</a></li>
+      <li><a href="/knowledge/how-oem-battery-programs-work/">How OEM battery programs work</a></li>
+      <li><a href="/knowledge/oem-battery-development-process/">The OEM development process</a></li>
+      <li><a href="/knowledge/oem-battery-vs-aftermarket/">OEM vs aftermarket batteries</a></li>
+    </ul>
+    <p><a href="/oem/">Get a factory-direct OEM quote &rarr;</a></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Request a line-item OEM cost breakdown" />
+</ArticleLayout>

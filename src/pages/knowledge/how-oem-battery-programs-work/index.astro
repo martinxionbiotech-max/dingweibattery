@@ -2,57 +2,79 @@
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
-import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../data/site';
+import { MANUFACTURER, CERTIFICATIONS, TRADE_TERMS, RELATIONSHIP } from '../../../data/site';
 
 const title = 'How OEM Battery Programs Work | Dingwei Battery';
-const description = 'How an OEM battery program runs end to end — specification, sampling, production and repeat orders — for importers and brand owners.';
+const description = 'How an OEM battery program runs end to end — the 7-step flow from consultation to repeat orders, with the deliverable and buyer sign-off at each stage.';
 const articleTitle = 'How OEM battery programs work';
 
 const faqs = [
-  { q: 'What makes an OEM program different from a one-off order?', a: 'The specification lock. A program locks the approved sample so the tenth order matches the first; a one-off order has no such guarantee.' },
-  { q: 'How long does it take to reach repeat orders?', a: 'It depends on sampling and approval — the development process has gates you must sign before production. Rushing the gates risks the repeatability the program exists to protect.' },
-  { q: 'What is the buyer\'s most important sign-off?', a: 'The sample. Approving a drawing but not testing the physical sample is how a repeat order comes back different from what you approved.' },
+  { q: 'How many stages does an OEM battery program have?', a: '7 stages, from consultation through specification, design, sampling, production, quality inspection and shipping — but the buyer only signs off 4 of them: specification, sample, quality standard and shipment.' },
+  { q: 'What makes an OEM program different from a one-off order?', a: 'The specification lock — a program locks the approved sample so the 10th order matches the 1st, while a one-off order has no such guarantee.' },
+  { q: 'How long until I reach repeat orders?', a: 'About 60–90 days to the first container, then repeat orders are shorter because the specification is locked and only production time (30–45 days) remains.' },
+  { q: 'What is the most important buyer sign-off?', a: 'The sample. Approving a drawing but not testing the physical sample is how a repeat order comes back different from what you approved — and it is the mistake behind most drifting 60–90 day programs.' },
+  { q: 'What does a first OEM order cost to set up?', a: 'A 20ft container of roughly 600–800 batteries, plus tooling and certification where the specification needs it — the unit cost is lowest at container scale.' }
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fundamentals" dateModified="2026-09-03" faqs={faqs}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-10" faqs={faqs}>
   <section class="section container prose">
-    <span class="tag">Knowledge</span>
+    <span class="tag">Knowledge · OEM</span>
     <h1>How OEM battery programs work</h1>
-    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-01 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
-    <p class="lead">An OEM battery program is a repeatable supply arrangement, not a one-off order. It runs in four phases.</p>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-10 · Source: Chengguang Power Tech Co., Ltd. technical documentation</p>
+    <p class="lead">An OEM battery program is a repeatable supply arrangement, not a one-off order. The point of the structure is simple: make the tenth container match the first approved sample. That repeatability is what the program buys you — and it is what a loose one-off order cannot.</p>
 
     <div class="takeaways">
-      <strong>Short answer:</strong> An OEM battery program runs in four repeatable phases: specification, sampling, production and repeat orders. The buyer signs off the specification and sample, while the manufacturer locks that approved standard so subsequent containers match the first approved unit.
+      <strong>Short answer:</strong> An OEM battery program runs in 7 stages — consultation, specification, design and branding, sampling, mass production, quality inspection and shipping — but you only sign off 4 of them: specification, sample, quality standard and shipment. The mechanism that makes the whole thing safe is the specification lock: an approved sample plus written parameters plus change control, so repeat orders match the first.
     </div>
 
-    <h2>1. Specification</h2>
-    <p>You define the battery: standard, model, capacity, CCA, terminal, label and packaging. The manufacturer confirms it against their production capability.</p>
-
-    <h2>2. Sampling</h2>
-    <p>The manufacturer produces pre-production samples for your testing and approval before mass production.</p>
-
-    <h2>3. Production</h2>
-    <p>Approved specification goes to the production line. {MANUFACTURER.name} runs {MANUFACTURER.productionLines} with {CERTIFICATIONS[0]} quality control and 100% end-of-line testing.</p>
-
-    <h2>4. Repeat orders</h2>
-    <p>The specification is locked so subsequent orders match the approved sample. Repeatability is the point of an OEM program.</p>
-
-    <h2>The four phases at a glance</h2>
+    <h2>The seven-stage flow</h2>
+    <p>The program follows a fixed sequence, and each stage has one deliverable and one checkpoint. Skipping a stage is how a specification drifts.</p>
     <table>
-      <thead><tr><th>Phase</th><th>What is produced</th><th>Buyer checkpoint</th></tr></thead>
+      <thead><tr><th>Stage</th><th>Manufacturer delivers</th><th>Buyer action</th></tr></thead>
       <tbody>
-        <tr><td>Specification</td><td>Written spec sheet</td><td>Sign every parameter, including CCA basis</td></tr>
-        <tr><td>Sampling</td><td>Pre-production sample</td><td>Test before approval; keep the record</td></tr>
-        <tr><td>Production</td><td>Container-load batches</td><td>Confirm schedule and change freeze</td></tr>
-        <tr><td>Repeat orders</td><td>Identical follow-on batches</td><td>Re-check against the approved sample</td></tr>
+        <tr><td>1. Consultation</td><td>Feasibility view on the requested spec</td><td>Confirm vehicle, market and volume intent</td></tr>
+        <tr><td>2. Specification</td><td>Written spec sheet, every parameter</td><td>Sign every line, including the CCA test basis</td></tr>
+        <tr><td>3. Design &amp; branding</td><td>Label, case and packaging artwork</td><td>Approve artwork and documentation</td></tr>
+        <tr><td>4. Sampling</td><td>Pre-production sample + test report</td><td>Test the physical sample before approving</td></tr>
+        <tr><td>5. Mass production</td><td>Scheduled production, in-process control</td><td>Confirm schedule and any change freeze</td></tr>
+        <tr><td>6. Quality inspection</td><td>Inspection and test data</td><td>Agree acceptance criteria before release</td></tr>
+        <tr><td>7. Shipping</td><td>Export packaging and documents</td><td>Confirm documents before shipment</td></tr>
       </tbody>
     </table>
-    <p><a href="/oem/">OEM battery programs &rarr;</a> · <a href="/knowledge/oem-battery-development-process/">OEM battery development process &rarr;</a></p>
-    <p>{RELATIONSHIP}</p>
 
     <h2>The specification lock</h2>
-    <p>The core of an OEM program is not the first order; it is the locked specification that makes the tenth order match the first approved sample. Without a lock, a repeat order becomes a new development project with fresh approval risk.</p>
-    <p>Define the lock as the buyer-approved sample plus written parameters and change control. The <a href="/knowledge/oem-battery-development-process/">OEM development process</a> shows where each gate must be signed before the lock is released to production.</p>
+    <p>The core of an OEM program is not the first order; it is the locked specification that makes the tenth order match the first approved sample. The lock has three parts:</p>
+    <ol>
+      <li><strong>The approved sample</strong> — a physical unit you tested and accepted, referenced by serial number in the contract.</li>
+      <li><strong>The written parameters</strong> — every spec line, including the CCA test basis, signed.</li>
+      <li><strong>Change control</strong> — a rule that any change to material, alloy or process requires your written approval.</li>
+    </ol>
+    <p>Without a lock, a repeat order becomes a new development project with fresh approval risk. The <a href="/knowledge/oem-battery-development-process/">development process</a> page shows where each gate must be signed before the lock is released to production.</p>
+
+    <h2>Production and quality: what the factory controls</h2>
+    <p>Once the sample is approved, the specification goes to the line. {MANUFACTURER.name} runs {MANUFACTURER.productionLines} with [IATF 16949](https://www.iatfglobaloversight.org/) process control and 100% end-of-line testing — the automotive quality standard that makes container-to-container consistency possible, not just hoped for. What to look for on the line is covered in the <a href="/knowledge/battery-quality-control/">quality control</a> page, and the economic reason lead-acid is worth sourcing this way — near-total recyclability and a dominant-material cost base — is documented by [Battery Council International](https://batterycouncil.org/sources).</p>
+
+    <h2>Repeat orders: the payoff</h2>
+    <p>The first order carries the development time — specification, sampling and approval. Repeat orders collapse to production plus shipping ({TRADE_TERMS.leadTime}), because the specification is already locked. That is the economics of the program: the setup cost is amortised across every subsequent container, and the consistency risk is retired by the lock. This is why a program beats a string of one-off purchases.</p>
+
+    <h2>What can go wrong, and where</h2>
+    <ul>
+      <li><strong>Skipped sampling</strong> — approving a drawing but not the physical sample is the single most common failure, and it surfaces as a repeat order that differs from the first.</li>
+      <li><strong>Unsigned CCA basis</strong> — if the test method (JIS −15°C vs EN −18°C) is not written down, a later batch can "meet spec" on a different, easier test.</li>
+      <li><strong>No change control</strong> — a factory that switches alloy or separator to save cost has no obligation to tell you unless the contract says so.</li>
+    </ul>
+
+    <h2>Where this fits</h2>
+    <p>This page covers the program structure. The surrounding pages cover each piece in depth:</p>
+    <ul>
+      <li><a href="/knowledge/oem-battery-guide/">OEM battery manufacturing: the complete guide</a></li>
+      <li><a href="/knowledge/what-is-oem-battery/">What is an OEM battery</a></li>
+      <li><a href="/knowledge/oem-battery-development-process/">The OEM development process</a></li>
+      <li><a href="/knowledge/oem-battery-cost-breakdown/">OEM battery cost breakdown</a></li>
+      <li><a href="/knowledge/oem-battery-vs-aftermarket/">OEM vs aftermarket batteries</a></li>
+    </ul>
+    <p>{RELATIONSHIP}</p>
+    <p><a href="/oem/">Start your OEM battery program &rarr;</a></p>
   </section>
 
   <ArticleFaq faqs={faqs} />
