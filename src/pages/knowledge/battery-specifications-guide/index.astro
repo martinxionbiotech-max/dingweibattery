@@ -198,6 +198,20 @@ const faqs = [
     <p><a href="/data/">Browse model specifications &rarr;</a> · <a href="/tools/compare/">Compare two models &rarr;</a> · <a href="/oem/car-batteries/">Start an OEM specification &rarr;</a></p>
   </section>
 
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>Position:</strong> In my view, a battery specification is one decision with five parts — and the failure is almost always in the parts that are not on the headline: the standard, the terminal, the polarity, the technology.</p>
+      <p><strong>Reasoning:</strong></p>
+      <ul>
+        <li>'72 Ah' is three different batteries across JIS, DIN and BCI, so the capacity is meaningless until the family and case group are named.</li>
+        <li>A JIS CCA and an EN CCA are not the same number for the same battery, so comparison within one standard is the only safe move.</li>
+        <li>Confirming all five parts upfront is the cheapest way to shorten order-to-shipment time, because an unconfirmed part loops the RFQ back.</li>
+      </ul>
+      <p><em>Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim.</em></p>
+    </div>
+  </section>
+
   <ArticleFaq faqs={faqs} />
 
   <CTASection title="Send us a complete specification to quote" />

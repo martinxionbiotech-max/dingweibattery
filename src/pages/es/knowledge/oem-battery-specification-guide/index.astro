@@ -85,6 +85,20 @@ const faqs = [
     <p>Indique la base en cada línea y compare solo valores del mismo método. Vea cómo encaja esa instrucción en la solicitud más amplia en la <a href="/es/knowledge/oem-battery-rfq-guide/">guía de RFQ de baterías OEM</a>.</p>
   </section>
 
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, una especificación de batería solo es tan útil como los campos que fijas de antemano — y un valor de CCA sin método de prueba son dos números haciéndose pasar por uno.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>La misma batería puede llevar un número JIS más bajo y un número EN/SAE más alto porque cada método usa condiciones distintas; los valores no son convertibles.</li>
+        <li>Si un campo no se conoce, márcalo como 'confirmar en consulta' en lugar de adivinar: un borne equivocado convierte una batería correcta en una incorrecta.</li>
+        <li>La deriva de especificación es el riesgo oculto, y el único control duradero es una especificación bloqueada más un control de cambios formal por escrito.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
   <ArticleFaq faqs={faqs} />
 
   <CTASection title="Finalice su especificación de batería" />

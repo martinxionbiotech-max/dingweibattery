@@ -59,6 +59,20 @@ const faqs = [
     <p><a href="/es/data/">Explore referencias de capacidad de modelos &rarr;</a></p>
   </section>
 
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, citar '60 Ah' sin la tasa de descarga es el error de capacidad más común en el aprovisionamiento: el número no significa nada hasta que se nombran la tasa y la temperatura.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>La capacidad no es lineal con la corriente de descarga; una batería cotizada a C20 entrega notablemente menos a C5 o C1, así que la tasa es toda la especificación.</li>
+        <li>La capacidad de reserva responde a otra pregunta — la autonomía bajo una carga de 25 A si falla el alternador — por lo que un Ah alto no implica automáticamente un RC alto.</li>
+        <li>Un proveedor que omite la tasa está omitiendo la variable que decide si dos baterías de '60 Ah' son realmente iguales.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
   <ArticleFaq faqs={faqs} />
 
   <CTASection title="Confirme los valores de capacidad de su modelo" />

@@ -85,6 +85,20 @@ const faqs = [
     <p>State the basis on every line and compare only same-method values. See how that instruction fits into the wider request in the <a href="/knowledge/oem-battery-rfq-guide/">OEM battery RFQ guide</a>.</p>
   </section>
 
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>Position:</strong> In my view, a battery specification is only as useful as the fields you fix in advance — and a CCA value with no test method is two numbers pretending to be one.</p>
+      <p><strong>Reasoning:</strong></p>
+      <ul>
+        <li>The same battery can carry a lower JIS number and a higher EN/SAE number because each method uses different test conditions; the values are not convertible.</li>
+        <li>If a field is not known, mark it 'confirm on inquiry' rather than guessing — a wrong terminal turns a correct battery into a wrong one.</li>
+        <li>Specification drift is the hidden risk, and the only durable control is a locked spec plus formal change control in writing.</li>
+      </ul>
+      <p><em>Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim.</em></p>
+    </div>
+  </section>
+
   <ArticleFaq faqs={faqs} />
 
   <CTASection title="Finalize your battery specification" />

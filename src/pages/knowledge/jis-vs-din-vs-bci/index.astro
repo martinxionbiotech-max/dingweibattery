@@ -117,6 +117,20 @@ const faqs = [
     <p><a href="/data/">Browse models by standard &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">Build a clean specification &rarr;</a></p>
   </section>
 
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>Position:</strong> In my view, the interchangeability trap is the costliest mistake in standards — '72 Ah' copied across families is three different boxes, and the battery arrives and does not fit the tray.</p>
+      <p><strong>Reasoning:</strong></p>
+      <ul>
+        <li>The families differ in case dimensions, terminal layout and CCA test method, so similar electrical ratings are mostly not interchangeable.</li>
+        <li>The overlap that does exist — H6/LN3/L3 equals Group 48 — is a mould-sharing opportunity, not a licence to skip terminal and CCA confirmation.</li>
+        <li>A single factory can serve every standard because the electrochemistry is the same; the risk is the buyer not naming the family, not the factory's capability.</li>
+      </ul>
+      <p><em>Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim.</em></p>
+    </div>
+  </section>
+
   <ArticleFaq faqs={faqs} />
 
   <CTASection title="Specify the right standard for your market" />

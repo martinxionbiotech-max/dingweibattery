@@ -91,6 +91,20 @@ const faqs = [
     <p><a href="/data/">Browse models by voltage &rarr;</a> · <a href="/knowledge/battery-group-size-chart/">Group size chart &rarr;</a> · <a href="/contact/">Confirm system voltage &rarr;</a></p>
   </section>
 
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>Position:</strong> In my view, battery voltage is a system decision, not a spec you pick — and treating '12 V' as universal when the vehicle was built for something else is the mistake to avoid.</p>
+      <p><strong>Reasoning:</strong></p>
+      <ul>
+        <li>Voltage is just cells in series — 3 cells make 6 V, 6 make 12 V, 12 make 24 V — so one cell design serves every voltage.</li>
+        <li>Heavy vehicles run 24 V to deliver the same cranking power at half the current, with thinner, lighter cables.</li>
+        <li>Fitting a 12 V battery to a 6 V system feeds every component twice its rated voltage; the mismatch is not a small error.</li>
+      </ul>
+      <p><em>Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim.</em></p>
+    </div>
+  </section>
+
   <ArticleFaq faqs={faqs} />
 
   <CTASection title="Specify the correct voltage for your fleet" />
