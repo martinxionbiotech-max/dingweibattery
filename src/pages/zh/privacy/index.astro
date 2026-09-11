@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER } from '../../../data/site';
+
+const title = '隐私政策 | Dingwei Battery';
+const description = 'Dingwei Battery 及其制造商晋州成光电源有限公司如何收集、使用、共享与保护您通过本站提交的信息，以及您对信息享有的权利。';
+const breadcrumbs = [{ label: '隐私', href: '/zh/privacy/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">法律</span>
+    <h1>隐私政策</h1>
+    <p class="lead">本网站代表 <strong>{MANUFACTURER.name}</strong>（{MANUFACTURER.legalNameZh}）运营。我们保持数据收集最小化，仅用于回复 OEM 与贴牌电池询价。</p>
+    <p class="note">最后更新：{lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. 我们是谁</h2>
+      <p>通过本网站提交的个人信息的数据控制者为 <strong>{MANUFACTURER.name}</strong>（{MANUFACTURER.legalNameZh}），地址 {MANUFACTURER.address}。Dingwei Battery 网站是代表该制造商运营的出口品牌。本政策说明我们如何处理您在此提供的信息。</p>
+
+      <h2>2. 我们收集的信息</h2>
+      <p>我们仅收集您主动提供的信息，通常通过 RFQ 表单或直接联系（邮箱、WhatsApp 或电话）。可能包括：</p>
+      <ul>
+        <li><strong>业务身份</strong>——公司名称、国家或市场、采购方类型（经销商、零售商、车队运营方、品牌方或其他）。</li>
+        <li><strong>电池需求</strong>——电池类型（SLI / AGM / EFB / 重载）、标准（JIS / DIN / BCI / AS / SA / EN）、型号或壳体参考、电压、容量（Ah）、CCA 参考、年量及包装偏好。</li>
+        <li><strong>联系方式</strong>——您提供的邮箱地址与电话 / WhatsApp 号码。</li>
+        <li><strong>自由文本备注</strong>——您在备注栏或消息中填写的任何额外要求。</li>
+      </ul>
+      <p>我们不收集敏感个人数据，使用本网站也无需注册账户或登录。</p>
+
+      <h2>3. 我们如何使用您的信息</h2>
+      <p>我们仅将您的信息用于回复询价、支持潜在或实际的 OEM / 贴牌方案。具体包括：</p>
+      <ul>
+        <li>准备电池报价，评估规格、数量与市场匹配度。</li>
+        <li>就所请求的方案、打样、生产与出货与您沟通。</li>
+        <li>保存询价与交易的合法业务记录。</li>
+      </ul>
+      <p>我们<strong>不会</strong>出售、出租或交易您的联系方式，也不会将其用于第三方营销。</p>
+
+      <h2>4. 处理的法律依据（欧洲经济区 / 英国）</h2>
+      <p>在欧盟《通用数据保护条例》（GDPR）或英国 GDPR 适用时，我们依据以下法律依据处理：</p>
+      <ul>
+        <li><strong>订立合同前的必要步骤</strong>（第 6(1)(b) 条）——处理您的询价以准备报价。</li>
+        <li><strong>合法利益</strong>（第 6(1)(f) 条）——保存业务记录并保护我们的系统。</li>
+        <li><strong>同意</strong>（第 6(1)(a) 条）——在您明确选择接收后续沟通时。</li>
+      </ul>
+
+      <h2>5. 我们如何共享信息</h2>
+      <p>我们仅在履行您的询价所必需的范围内共享信息，绝不用于第三方广告。可能包括：</p>
+      <ul>
+        <li><strong>物流与货运提供商</strong>——在产生订单时安排出口、装运与交付。</li>
+        <li><strong>支付与银行中介</strong>——处理单证付款（电汇或信用证）。</li>
+        <li><strong>专业顾问或监管机构</strong>——在适用法律或法规要求时。</li>
+      </ul>
+
+      <h2>6. Cookie 与本地存储</h2>
+      <p>本网站不使用广告或行为跟踪 Cookie。我们可能使用基本的、尊重隐私的统计（聚合流量数据）来了解哪些页面被访问；这不识别您的个人身份。Cookie 中不存储用于定向或画像的个人数据。</p>
+
+      <h2>7. 国际数据传输</h2>
+      <p>我们位于中国，您提交的信息可能在中国以及您所在国家处理，以便回复您。当您的信息跨境传输时，我们采取合理措施施加适当保护，并将访问限制在需要的人员范围内。</p>
+
+      <h2>8. 数据保留</h2>
+      <p>询价详情仅保留至服务请求与保存合法业务记录所需的时间，之后删除或匿名化。若询价未产生订单，我们会在有限期限内保留记录以处理后续，然后删除。</p>
+
+      <h2>9. 数据安全</h2>
+      <p>我们采取合理的技术与组织措施保护您的信息免受未经授权的访问、篡改、泄露或销毁。没有任何传输或存储方式是完全安全的，我们无法保证绝对安全，但会按行业惯例保护您的数据。</p>
+
+      <h2>10. 您的权利</h2>
+      <p>视您所在地区而定，您可能有权：</p>
+      <ul>
+        <li>获取我们持有的关于您的个人数据副本。</li>
+        <li>要求更正不准确的数据。</li>
+        <li>要求删除您的数据（“被遗忘权”）。</li>
+        <li>限制或反对某些处理。</li>
+        <li>在适用时要求数据可携带。</li>
+      </ul>
+      <p>在《加州消费者隐私法》（CCPA/CPRA）适用时，加州居民享有相应的访问、删除与拒绝出售个人信息的权利——需注意我们不销售个人信息。要行使上述任何权利，请通过下方联系方式联系我们，我们会在适用法律要求的时限内回复。</p>
+
+      <h2>11. 儿童隐私</h2>
+      <p>本网站是企业对企业的资源，不面向 16 岁以下儿童。我们不会在知情情况下收集儿童的个人信息。</p>
+
+      <h2>12. 本政策的变更</h2>
+      <p>我们可能不时更新本政策。页面顶部的“最后更新”日期显示最新修订。变更后继续使用网站即表示接受更新后的政策。</p>
+
+      <h2>13. 联系</h2>
+      <p>任何隐私问题或请求，请通过 <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> 或 {CONTACT.phone}（WhatsApp：{CONTACT.whatsapp}）联系我们。</p>
+
+    </div>
+  </section>
+</BaseLayout>

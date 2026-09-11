@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER, TRADE_TERMS } from '../../../data/site';
+
+const title = '质保政策 | Dingwei Battery';
+const description = 'Dingwei Battery OEM 与贴牌铅酸电池的质保条款：12 个月保障、覆盖与不覆盖的范围，以及如何提出与处理质保索赔。';
+const breadcrumbs = [{ label: '质保', href: '/zh/warranty/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">法律</span>
+    <h1>质保政策</h1>
+    <p class="lead">我们的标准质保覆盖 {MANUFACTURER.name} 供应的 OEM 与贴牌电池的制造缺陷。您订单的具体范围以书面销售合同为准。</p>
+    <p class="note">最后更新：{lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. 质保期</h2>
+      <p>除另有书面约定外，质保期为 <strong>{TRADE_TERMS.warranty}</strong>。质保期自提单日期起算，不因维修、更换或电池停用的任何期间而延长。</p>
+
+      <h2>2. 覆盖范围</h2>
+      <p>在质保期内，我们保证电池无<strong>材料与工艺缺陷</strong>，包括：</p>
+      <ul>
+        <li>壳体、板栅、极板、隔板与端子焊接的制造缺陷。</li>
+        <li>在标准测试条件下未能达到书面确认的规格（电压、容量、CCA）。</li>
+      </ul>
+
+      <h2>3. 不覆盖范围</h2>
+      <p>质保不覆盖由制造缺陷以外原因导致的故障或退化，尤其排除：</p>
+      <ul>
+        <li><strong>深度放电</strong>——长期处于放电状态。</li>
+        <li><strong>过充或充电不当</strong>——使用不匹配或有故障的充电系统。</li>
+        <li><strong>安装或使用不当</strong>——方向错误、端子连接错误，或超出预期应用使用。</li>
+        <li><strong>物理损坏</strong>——撞击、跌落，或交付后搬运中的损坏。</li>
+        <li><strong>正常磨损与老化</strong>——正常使用随时间的容量自然衰减。</li>
+        <li><strong>存储不当</strong>——高温存储，或未按规定进行维护充电的存储。</li>
+        <li><strong>电解液疏于维护</strong>——在适用时，未保持正确电解液液位。</li>
+      </ul>
+
+      <h2>4. 如何提出索赔</h2>
+      <ol>
+        <li><strong>书面通知</strong>——在质保期内，提供型号、批次 / 序列号、数量与故障描述。</li>
+        <li><strong>提供证据</strong>——照片，以及（在要求时）退回样品供检验，或独立检测报告。</li>
+        <li><strong>检验</strong>——我们检验电池或证据，并书面确认该缺陷是否在覆盖范围内。</li>
+      </ol>
+      <p>索赔须在发现缺陷后的合理时间内提交，且无论如何须在质保期内。</p>
+
+      <h2>5. 补救</h2>
+      <p>若确认缺陷在覆盖范围内，补救方式由我们选择：</p>
+      <ul>
+        <li><strong>更换</strong>缺陷单元，或</li>
+        <li><strong>抵扣</strong>——按剩余质保期比例抵扣未来订单。</li>
+      </ul>
+      <p>除非另有书面约定，我们不承担人工、运费、关税或其他附带费用。</p>
+
+      <h2>6. 质保转让</h2>
+      <p>质保延伸至销售合同项下的直接买方。若您将电池转售给终端用户，由您负责处理终端用户索赔；我们的质保义务面向作为买方的您。</p>
+
+      <h2>7. 无其他保证</h2>
+      <p>在法律允许的最大范围内，本质保是唯一且排他的保证，取代所有其他明示或暗示的保证。本政策不限制强制性法律下不可排除的权利。</p>
+
+      <h2>8. 联系</h2>
+      <p>质保索赔与问题：<a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> 或 {CONTACT.phone}（WhatsApp：{CONTACT.whatsapp}）。</p>
+
+    </div>
+  </section>
+</BaseLayout>

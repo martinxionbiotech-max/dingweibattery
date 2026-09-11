@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER } from '../../../data/site';
+
+const title = '退货与退款政策 | Dingwei Battery';
+const description = 'Dingwei Battery OEM 与贴牌电池订单的退货与退款条件：验收期、符合条件的情形、退货流程，以及运费由谁承担。';
+const breadcrumbs = [{ label: '退货与退款', href: '/zh/return-refund/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">法律</span>
+    <h1>退货与退款政策</h1>
+    <p class="lead">本政策说明 {MANUFACTURER.name} 供应的产品在何种情况下、如何退货，以及退款或更换如何处理。由于多数订单为 OEM 或贴牌，退货范围有限且须书面约定。</p>
+    <p class="note">最后更新：{lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. 适用范围</h2>
+      <p>本政策适用于在书面销售合同或形式发票项下订立的 OEM 与贴牌电池订单。电池为按单定制，因此退货权比标准零售商品更窄。</p>
+
+      <h2>2. 验收期</h2>
+      <p>买方须在到货时验货，并在 <strong>交付后 7 天内</strong>书面通知任何不符（型号错误、数量错误或可见的外部损坏）。逾期提出的索赔可能不被接受。</p>
+
+      <h2>3. 接受退货的情形</h2>
+      <p>在以下情形我们接受退货或提供补救：</p>
+      <ul>
+        <li><strong>发错货物</strong>——型号、标准或数量与书面订单不符。</li>
+        <li><strong>规格不符</strong>——产品未达到书面确认的规格（以我方检验为准）。</li>
+        <li><strong>运输损坏</strong>——损坏发生在风险转移给买方之前，且按约定的 Incoterm 与保险条款申报。</li>
+        <li><strong>制造缺陷</strong>——按 <a href="/zh/warranty/">质保政策</a> 覆盖。</li>
+      </ul>
+
+      <h2>4. 不接受退货的情形</h2>
+      <p>以下情形一般不予退货：</p>
+      <ul>
+        <li><strong>定制 / 贴牌产品</strong>——除非产品有缺陷或不符合确认规格。</li>
+        <li><strong>买方提供的规格</strong>——买方为其应用提供了错误型号或规格。</li>
+        <li><strong>已使用或部分放电的电池</strong>——已安装、使用或充电的货物。</li>
+        <li><strong>逾期索赔</strong>——超过第 2 条验收期后报告的不符。</li>
+      </ul>
+
+      <h2>5. 退货流程</h2>
+      <ol>
+        <li>书面联系我们，提供订单号、型号、数量与原因，并附照片。</li>
+        <li>我们书面确认是否授权退货，并出具退货编号。</li>
+        <li>仅在授权后、以原装（或等效防护）包装退回货物。</li>
+        <li>我们检验货物并书面确认结果。</li>
+      </ol>
+      <p>未经事先书面授权，请勿将电池寄回；未经授权的退货可能被拒收。</p>
+
+      <h2>6. 退款与更换</h2>
+      <p>退货被接受时，补救方式由我们选择：</p>
+      <ul>
+        <li><strong>更换</strong>符合要求的货物，或</li>
+        <li><strong>退款或抵扣</strong>受影响货物的价值。</li>
+      </ul>
+      <p>退款按原付款方式，在退货确认后的合理期限内进行。</p>
+
+      <h2>7. 运输与费用</h2>
+      <p>因我方过失（发错货物、规格不符、覆盖的缺陷）导致的退货，我方承担约定的退货运费。因其他原因退货，或检验未发现缺陷的，买方承担退货运费及相关费用。</p>
+
+      <h2>8. 与质保的关系</h2>
+      <p>验收后发现的制造缺陷按 <a href="/zh/warranty/">质保政策</a> 处理，而非本退货政策。</p>
+
+      <h2>9. 联系</h2>
+      <p>退货申请：<a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> 或 {CONTACT.phone}（WhatsApp：{CONTACT.whatsapp}）。</p>
+
+    </div>
+  </section>
+</BaseLayout>

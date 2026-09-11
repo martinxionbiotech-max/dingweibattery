@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER, TRADE_TERMS } from '../../../data/site';
+
+const title = '运输与合规政策 | Dingwei Battery';
+const description = 'Dingwei Battery OEM 与贴牌铅酸电池如何包装、运输分类、单证与装运——UN 2794/2800 分类、Incoterms 与交付条款。';
+const breadcrumbs = [{ label: '运输与合规', href: '/zh/shipping-compliance/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">法律</span>
+    <h1>运输与合规政策</h1>
+    <p class="lead">本政策说明 {MANUFACTURER.name} 供应的 OEM 与贴牌电池如何包装、分类与装运。铅酸电池属于受监管的运输货物，正确的分类与单证至关重要。</p>
+    <p class="note">最后更新：{lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>1. 运输方式与装运港</h2>
+      <p>电池通常海运，从 {MANUFACTURER.exportPorts} 出口。在承运人与法规允许时，小批量样品可空运。订单的运输方式以书面确认为准。</p>
+
+      <h2>2. 运输分类</h2>
+      <p>湿式铅酸电池在海运 IMDG Code 下被归类为 <strong>第 8 类（腐蚀性）危险货物</strong>。视电池类型与荷电状态，适用的 UN 编号为：</p>
+      <ul>
+        <li><strong>UN 2794</strong>——电池、湿的、装有酸液（第 8 类）。</li>
+        <li><strong>UN 2800</strong>——电池、湿的、非溢漏（第 8 类），当电池满足非溢漏分类的振动与开裂测试时。</li>
+      </ul>
+      <p>与锂电池（第 9 类，UN 3480/3481）不同，铅酸启动电池不需要 UN 38.3 测试报告。但仍需合规的危险品包装、标记，以及（在适用时）危险品申报。每票货物的准确分类与申报以装运时有效的 IMDG Code 及承运人要求为准。</p>
+      <p class="note">运输法规会变化。装运前请始终确认现行分类及任何承运人或目的国的限制。</p>
+
+      <h2>3. 包装</h2>
+      <p>电池包装以防止短路与搬运损坏：</p>
+      <ul>
+        <li>端子防护以防短路。</li>
+        <li>直立放置，带足够的间隔与缓冲。</li>
+        <li>托盘化纸箱，按装箱计划定尺寸。</li>
+        <li>在约定时混合型号装载，以高效利用集装箱容积。</li>
+      </ul>
+
+      <h2>4. 出口单证</h2>
+      <p>一套标准的出口单证可避免清关延误。通常包括：</p>
+      <ul>
+        <li>商业发票与装箱单。</li>
+        <li>提单。</li>
+        <li>原产地证。</li>
+        <li>（在要求时）CCA / 容量检测报告。</li>
+        <li>（在适用时）危险品申报。</li>
+      </ul>
+
+      <h2>5. Incoterms 与风险转移</h2>
+      <p>货物按书面约定的 Incoterms（{TRADE_TERMS.incoterms}）装运。损失或损坏风险在约定 Incoterm 界定的时点转移给买方。买方应自风险转移时点起相应投保。</p>
+
+      <h2>6. 交付时间</h2>
+      <p>指示性交期为 {TRADE_TERMS.leadTime}。确认的生产与装运计划载于订单确认，并受不可抗力与承运人船期影响。</p>
+
+      <h2>7. 买方责任</h2>
+      <p>除另有约定外，买方负责：</p>
+      <ul>
+        <li>目的地的进口清关、关税与税费。</li>
+        <li>遵守目的国法规，包括任何电池进口、标签或回收要求。</li>
+        <li>从目的港起的内陆运输。</li>
+      </ul>
+
+      <h2>8. 标准合规</h2>
+      <p>产品在参照 {MANUFACTURER.name} 认证（IATF 16949、ISO 9001、ISO 45001）的质量体系下制造。任何目的市场法规（如 REACH，或区域性电池与回收规则）的合规须由买方针对其市场确认。</p>
+
+      <h2>9. 联系</h2>
+      <p>运输与合规问题：<a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> 或 {CONTACT.phone}（WhatsApp：{CONTACT.whatsapp}）。</p>
+
+    </div>
+  </section>
+</BaseLayout>

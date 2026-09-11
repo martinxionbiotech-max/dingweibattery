@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE, CONTACT, MANUFACTURER, TRADE_TERMS } from '../../../data/site';
+
+const title = '条款与条件 | Dingwei Battery';
+const description = '规范 Dingwei Battery 网站使用的条款，以及 OEM 与贴牌电池订单的一般销售条件，包括报价、付款、MOQ、交期、质保与适用法律。';
+const breadcrumbs = [{ label: '条款', href: '/zh/terms/' }];
+const lastUpdated = '2026-09-09';
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <section class="section container">
+    <span class="tag">法律</span>
+    <h1>条款与条件</h1>
+    <p class="lead">本条款既规范您对本网站的使用，也规范 {MANUFACTURER.name} 供应 OEM 与贴牌电池的一般条件。任何订单的最终、有约束力的条款以书面销售合同为准。</p>
+    <p class="note">最后更新：{lastUpdated}</p>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+
+      <h2>第一部分——网站使用条款</h2>
+
+      <h3>1. 条款的接受</h3>
+      <p>访问或使用本网站即表示您同意本条款。如不同意，请勿使用本网站。</p>
+
+      <h3>2. 仅供参考的信息</h3>
+      <p>本网站公布的电池型号、规格（电压、容量、CCA、尺寸、重量）、贸易条款与认证仅供参考与初步评估。最终数值须在下单前与 {MANUFACTURER.name} 书面确认。本网站任何内容均不构成可被接受的要约。</p>
+
+      <h3>3. 知识产权</h3>
+      <p>本网站所有内容——文字、规格、图片、标识与设计——均属于 {MANUFACTURER.name} 或其许可方。未经事先书面许可，您不得复制、转载、分发或将其用于商业目的。</p>
+
+      <h3>4. 信息不设保证</h3>
+      <p>网站信息按“现状”提供，不附带任何明示或暗示的保证。我们尽合理努力保持其准确与及时，但不保证完整性、准确性或对任何特定用途的适用性。</p>
+
+      <h3>5. 责任限制</h3>
+      <p>在法律允许的最大范围内，{MANUFACTURER.name} 对因您使用本网站或依赖其内容而产生的任何直接、间接、附带或后果性损失概不负责。</p>
+
+      <h3>6. 第三方链接</h3>
+      <p>本网站可能链接到第三方网站（例如我们的技术文档）。我们对这些网站的内容或做法不承担责任。</p>
+
+      <h2>第二部分——一般销售条件</h2>
+
+      <h3>7. 报价与合同订立</h3>
+      <p>价格从不公布于本网站，仅在询价时提供。报价仅在其载明的期限内有效。当双方签署或以书面方式确认订单或形式发票时，即形成有约束力的合同；邮件确认与形式发票为有效文件。</p>
+
+      <h3>8. 价格与付款</h3>
+      <p>除另有书面约定外，付款条款为：<strong>{TRADE_TERMS.payment}</strong>。具体订单的付款计划载于形式发票。</p>
+
+      <h3>9. 最小起订量与交期</h3>
+      <p>最小起订量为 {TRADE_TERMS.moq}。指示性交期为 {TRADE_TERMS.leadTime}；确认的生产与交付计划载于订单确认。</p>
+
+      <h3>10. 交付与 Incoterms</h3>
+      <p>货物从 {MANUFACTURER.exportPorts} 装运，采用书面约定的 Incoterms（{TRADE_TERMS.incoterms}）。所有权与风险按约定的 Incoterm 转移给买方。详情见 <a href="/zh/shipping-compliance/">运输与合规政策</a>。</p>
+
+      <h3>11. 规格与验收</h3>
+      <p>买方负责确认所订型号、标准、电压、容量、CCA、端子与极性是否适配其用途。在约定时提供产前样品供批准。除非买方在 <a href="/zh/return-refund/">退货与退款政策</a> 载明的期限内书面通知不符，否则产品视为已验收。</p>
+
+      <h3>12. 质保</h3>
+      <p>产品在 {TRADE_TERMS.warranty} 内对制造缺陷提供质保，受 <a href="/zh/warranty/">质保政策</a> 的排除项与索赔流程约束。质保仅适用于书面订单项下供应的产品，不涵盖误用、安装不当、深度放电或物理损坏。</p>
+
+      <h3>13. OEM / 贴牌产品的知识产权</h3>
+      <p>买方提供的自有品牌、标识或外观时，买方保留其在该材料中的权利，并声明其持有使用该材料的必要权利。我们仅将此类材料用于生产所订产品。</p>
+
+      <h3>14. 保密</h3>
+      <p>双方同意对与询价或订单相关的对方非公开商业信息（规格、定价、数量、设计）保密，且除交易目的外不使用。</p>
+
+      <h3>15. 不可抗力</h3>
+      <p>任何一方均不对因其合理控制之外的事件（包括自然灾害、战争、罢工、港口拥堵、疫情限制或法律法规变更）造成的延误或无法履行负责。</p>
+
+      <h3>16. 责任限制</h3>
+      <p>除质保载明者外，并在法律允许的最大范围内，制造商对任何订单的累计责任以该订单项下供应货物的价值为限，且不包括间接或后果性损失。</p>
+
+      <h3>17. 适用法律与管辖权</h3>
+      <p>本条款及任何销售受中华人民共和国法律管辖。争议由中国河北省法院管辖。在商业事项中，双方可另行书面约定以仲裁解决争议。</p>
+
+      <h3>18. 联系</h3>
+      <p>有关本条款的问题：<a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> 或 {CONTACT.phone}。</p>
+
+    </div>
+  </section>
+</BaseLayout>
