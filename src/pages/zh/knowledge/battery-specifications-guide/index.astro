@@ -1,0 +1,218 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP, STANDARDS, MANUFACTURER } from '../../../../data/site';
+
+const title = '汽车电池规格：完整参考 | Dingwei Battery';
+const description = '汽车电池规格完整参考：CCA、容量（Ah/C20/RC）、JIS/DIN/BCI/EN 标准、壳体组、端子与车辆适配——面向 OEM 与贴牌采购方。';
+const articleTitle = '汽车电池规格：完整参考';
+
+const faqs = [
+  { q: 'OEM 电池必须指定的四项规格是什么？', a: '四项：(1) 标准系列与壳体组（如 JIS D26 或 DIN H6），(2) C20 倍率下的容量（Ah），(3) CCA 及其测试基准（JIS 在 −15°C vs EN/SAE 在 −18°C），以及 (4) 端子类型与极性。漏掉任何一项，电池都可能装不上或达不到报价的性能。' },
+  { q: '为什么同一只电池的 JIS CCA 看起来比 EN CCA 高？', a: '因为 JIS 在 −15°C 测试，而 EN/SAE 在 −18°C——更暖的测试得出更高的数字。一只标 600 CCA（JIS）和 540 CCA（EN）的可能是同一只电池，所以两个数值不能互换。' },
+  { q: '一只 12V 汽车电池由几个单体组成？', a: '六个串联的铅酸单体，每个标称 2V，构成 12V 系统。24V 重型卡车系统用十二个单体——要么一只 24V 电池，要么两只 12V 电池串联。' },
+  { q: 'Ah 和 CCA 哪个更重要？', a: '它们衡量不同的事情，而且规格里两者都要。CCA 是冷启动的峰值电流；Ah 是总储存能量（按 20 小时倍率）。寒冷气候的柴油机要 CCA；高附件负载的车要 Ah。' },
+  { q: 'BCI 壳体组在北美以外适用吗？', a: 'BCI 组号是北美惯例，但其尺寸与其他标准重叠——BCI Group 48 等于 DIN/EN H6/LN3，即 278 × 175 × 190 mm。搞懂这套映射，就能让一家工厂用一套模具服务所有市场。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="工程" dateModified="2026-09-11" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 工程</span>
+    <h1>汽车电池规格：完整参考</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 来源：SAE J537、EN 50342、JIS D 5301、BCI Battery Replacement Data Book</p>
+    <p class="lead">一份电池规格就是五个决定的清单——标准系列、壳体尺寸、电气额定值、端子布局和技术。任何一项出错，一只"正确"的电池就会装不上、打不着火，或者过早失效。这份参考按规格实际书写的顺序逐项拆解，最后补上多数指南都漏掉的两件事：真正烧钱的错误，以及你能直接粘进 RFQ 的七行速查表。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 一份完整的汽车电池规格有五个部分：标准系列（JIS / DIN-EN / BCI）、壳体组（D26、H6/LN3、Group 48）、20 小时倍率下的容量（Ah，在 26.7°C 下放电至 10.5V 测量）、带测试基准的冷启动电流（JIS 在 −15°C vs SAE/EN 在 −18°C），以及端子类型与极性。CCA 和 Ah 衡量不同的事情，彼此不能互换；跨标准也一样不能互换。
+    </div>
+
+    <h2>五部分规格，按顺序来</h2>
+    <p>规格按这个顺序搭建，因为每个决定都约束着下一个：</p>
+    <ol>
+      <li><strong>标准系列</strong>——由车辆市场决定（日本/亚洲用 JIS，欧洲用 DIN/EN，北美用 BCI）。</li>
+      <li><strong>壳体尺寸 / 组</strong>——必须装进托盘和固定件里的物理底座。</li>
+      <li><strong>电气额定值</strong>——容量（C20 下的 Ah）加上带指定测试基准的 CCA。</li>
+      <li><strong>端子类型与极性</strong>——必须匹配车辆线缆的连接。</li>
+      <li><strong>技术</strong>——SLI、EFB 或 AGM，由车辆工况决定。</li>
+    </ol>
+    <p>不先确认标准和壳体、直接跳到电气额定值，你会做出一只在数据表上看着对、实际什么都装不上的电池。这正是大多数买方对比出错的地方。</p>
+
+    <h2>第一部分——CCA：启动功率，以及为什么数字依赖测试</h2>
+    <p>冷启动电流（CCA）是一只满电电池在规定的低温下、保持最低电压、持续放电 30 秒所能输出的电流。在北美的 SAE J537 方法里，那个温度是 −18°C（0°F），电压必须保持在 7.2V 或以上。这个定义——30 秒、−18°C、7.2V——是世界上多数人引用的基准，但它不是唯一的一个。</p>
+    <p>三样东西会改变印出来的数字：温度、截止电压和测试时长。</p>
+    <table>
+      <thead><tr><th>标准</th><th>测试温度</th><th>典型截止</th><th>对数字的影响</th></tr></thead>
+      <tbody>
+        <tr><td>JIS D 5301</td><td>−15°C</td><td>参考</td><td>更暖的测试 → 更高的数字</td></tr>
+        <tr><td>SAE J537</td><td>−18°C</td><td>7.2 V</td><td>基准</td></tr>
+        <tr><td>EN 50342</td><td>−18°C</td><td>7.5 V（10 s）</td><td>更高的截止 → 更高的数字</td></tr>
+        <tr><td>DIN 43539</td><td>−18°C</td><td>9.0 V（30 s）</td><td>更高的截止 → 更低的数字</td></tr>
+      </tbody>
+    </table>
+    <p>实际后果是：同一只电池的 JIS CCA 和 EN CCA 不是同一个数，也没有通用的百分比换算。JIS 测得更暖（−15°C），把数字推高；EN 在 −18°C 测，但允许更高的截止电压，同样会移动结果。唯一安全的比较是在同一标准内部进行。完整的测试方法拆解见 <a href="/zh/knowledge/what-is-cca/">CCA 指南</a>。</p>
+    <p class="note">相关的 CA（启动电流，0°C / 32°F）和 HCA（高温启动电流，27°C / 80°F）额定值总是比 CCA 高，因为它们测得更暖。一只 250 CCA 电池比一只 250 CA 电池带着更强的冷天启动能力——数字只有配上它的温度才有意义。</p>
+
+    <h2>第二部分——容量：Ah、C20 和 RC 是三个不同的问题</h2>
+    <p>容量有三种报法，把它们混为一谈是最常见的采购错误之一：</p>
+    <table>
+      <thead><tr><th>指标</th><th>它衡量什么</th><th>定义</th><th>回答什么</th></tr></thead>
+      <tbody>
+        <tr><td>Ah（C20）</td><td>总储存电荷</td><td>在 26.7°C 下用 20 小时放电至 10.5V 的电流</td><td>储存了多少能量？</td></tr>
+        <tr><td>C20</td><td>Ah 额定值对应的放电倍率</td><td>20 小时倍率（Ah ÷ 20 = 安培）</td><td>Ah 是在多大电流下标的？</td></tr>
+        <tr><td>RC</td><td>负载下的续航</td><td>固定 25A 负载下放电至 10.5V 的分钟数</td><td>充电失效后能撑多久？</td></tr>
+      </tbody>
+    </table>
+    <p>一只 60 Ah（C20）电池标称能输出 3A 持续 20 小时（60 ÷ 20 = 3A）而不跌破 10.5V。在更快的放电下，同一只电池输出的总能量 <em>更少</em>——容量与倍率不是线性关系。这就是为什么同一只电池在 C20 下显示的 Ah 比 C5 等快速倍率下更高。</p>
+    <p>储备容量（RC）回答另一个问题：如果发电机失效，电池还能带动车辆电气负载多少分钟。它是一个负载下的续航指标，按固定 25A 拉载到 10.5V 的分钟数来测。更高的 Ah 并不自动意味着更高的 RC——二者关系取决于设计。完整论述见 <a href="/zh/knowledge/battery-capacity-ah-vs-c20-vs-rc/">容量指南</a>。</p>
+    <div class="takeaways">
+      <strong>原创计算——能量含量：</strong> 标称储存能量 = 电压 × 容量。一只 12V、60 Ah 电池储存约 12 × 60 = 720 Wh。一只 6V、200 Ah 的重载单体储存 6 × 200 = 1,200 Wh，两只串联（12V）则储存 2,400 Wh。这就是为什么单独看容量会低估一只电池的价值——你买的是能量，不是孤立的 Ah。
+    </div>
+
+    <h2>为什么更暖的测试得出更大的数字</h2>
+    <p>温度之所以要紧，是电化学，不是营销。铅酸电池的内阻随温度下降而上升，所以在 −18°C 时，单体在保持电压的同时能推出的电流，就是不如 −15°C 时多。三度听起来不多，但在电解液工作区间的底部，这个差距足以让印出来的 CCA 有明显偏移。</p>
+    <p>这就是"JIS CCA 看着更高"背后的陷阱。一只标 600 CCA（JIS）和 540 CCA（EN）的可能是同一只物理电池——JIS 的数字不是更好的电池，而是更暖的测试。数字看着诱人，但不能直接比较。唯一正确的做法是 JIS 对 JIS、EN 对 EN，并在它上标签之前问清供应商数字对应哪个基准。</p>
+
+    <h2>第三部分——标准系列：JIS、DIN/EN、BCI、AS、SA</h2>
+    <p>标准系列一起定义了壳体尺寸、端子布局和 CCA 测试方法。{STANDARDS.join('、')} 都在 {MANUFACTURER.shortName} 的范围内，但买方必须点对系列——一句没有标准的"72 Ah 电池"不是一份完整的规格。</p>
+    <table>
+      <thead><tr><th>系列</th><th>地区</th><th>典型壳体参考</th><th>CCA 测试</th></tr></thead>
+      <tbody>
+        <tr><td>JIS</td><td>日本 / 亚洲</td><td>B24、D23、D26、D31、N 系列</td><td>−15°C</td></tr>
+        <tr><td>DIN / EN</td><td>欧洲</td><td>H5–H8（LN2–LN5）、L3–L5</td><td>−18°C</td></tr>
+        <tr><td>BCI</td><td>北美</td><td>Group 24、27、31、34、35、47、48、49、65、94R</td><td>−18°C（SAE）</td></tr>
+        <tr><td>AS / SA</td><td>澳大利亚 / 南美</td><td>上述系列的本土等价型号</td><td>因市场而异</td></tr>
+      </tbody>
+    </table>
+    <p>系列在尺寸层面的重叠比买方预期的多：BCI Group 48 与 DIN/EN H6/LN3 是同一个 278 × 175 × 190 mm 底座，Group 47 与 H5/LN2 在 242 × 175 × 190 mm 上对齐。因此一套模具的工厂可以服务多个市场——前提是逐项确认端子布局和 CCA 基准。完整对照见 <a href="/zh/knowledge/battery-group-size-chart/">壳体组尺寸表</a> 和 <a href="/zh/knowledge/jis-vs-din-vs-bci/">标准对比</a>。</p>
+
+    <h2>标准由谁发布</h2>
+    <p>每个系列都由具名机构发布，主文件正是买方应去查权威测试条件的地方：</p>
+    <ul>
+      <li><a href="https://www.jsa.or.jp/en/">JSA（日本规格协会）</a>——发布铅酸启动电池的 JIS D 5301，含 −15°C 冷启动测试。</li>
+      <li><a href="https://www.cenelec.eu/">CENELEC</a>——发布 EN 50342（第 1–4 部分），覆盖欧洲启动电池的测试方法、尺寸与端子标记。</li>
+      <li><a href="https://www.din.de/en">DIN</a>——发布德国国家启动电池测试标准，是 DIN CCA 方法的来源。</li>
+      <li><a href="https://www.sae.org/standards/content/j537_201608/">SAE International</a>——发布 SAE J537，北美 CCA/CA 的参考（−18°C、30 秒、7.2V）。</li>
+      <li><a href="https://batterycouncil.org/">Battery Council International（BCI）</a>——维护 BCI Battery Replacement Data Book，壳体组尺寸的来源。</li>
+    </ul>
+    <p>这些就是一个严谨供应商所引用的出处。当一份规格表引用"JIS D 5301"或"SAE J537"而不是笼统的"CCA"时，那是一个信号：这个数值绑定在某个测试方法上——也是你能真正验证的数字。</p>
+
+    <h2>第四部分——壳体尺寸与外形</h2>
+    <p>壳体尺寸是一个固定底座的简称。JIS 里是像 D26（约 256 × 175 × 220 mm）这样的代码；DIN/EN 里是 H6/LN3 或 L3；BCI 里是一个组号。长度或高度上几毫米的差异，就会让电池坐不进托盘、或顶到引擎盖。</p>
+    <p>两只壳体尺寸相同的电池，端子位置（L/R）仍可能不同，所以尺寸和端子必须一起确认。<a href="/zh/knowledge/battery-dimensions-case-size/">尺寸指南</a> 解释了壳体尺寸如何进一步驱动包装——计入托盘和堆叠限制后，一个 20 尺柜通常装 600–800 只，这正是组号既是一个适配决定、也是一个物流决定的原因。</p>
+
+    <h2>第五部分——端子与极性</h2>
+    <p>端子类型、位置和极性是适配决定，不是事后补的。不同市场用不同的极柱设计——锥形顶柱（多数轿车）、侧端子（部分北美应用）以及螺柱/旗形端子（重载与船用）。制造商用 L 或 R 后缀标记正极侧（D23L 对 D23R）。接线时接反极性会损坏车辆电气系统，而现代车辆是负极搭铁——负极端子接到底盘。见 <a href="/zh/knowledge/battery-terminal-types-polarity/">端子与极性指南</a>。</p>
+
+    <h2>第六部分——电压：6V、12V 与串联逻辑</h2>
+    <p>一只标称 12V 电池是六个串联的 2V 单体；一个 24V 重型卡车系统是十二个单体，常做成两只 12V 电池串联。行业在 20 世纪 50 年代中期之前一直用 6V，直到更高压缩比的发动机逼出了 12V。电压是一个系统决定——两只 6V 电池串联得 12V，但并联则保持 6V、容量翻倍。选错配置是重载领域的常见错误。见 <a href="/zh/knowledge/battery-voltage-6v-vs-12v/">6V vs 12V 指南</a>。</p>
+
+    <h2>第七部分——技术：SLI、EFB、AGM</h2>
+    <p>电池的技术由车辆工况决定，不由偏好决定。普通 SLI（启动、照明、点火）电池适合标准轿车；EFB（增强型富液）电池为基础启停增加循环耐久性；AGM（贫液式玻璃纤维隔板）电池应对进阶启停和高电气负载的频繁循环。在深度循环的车上装 SLI 电池，会让它过早失效。<a href="/zh/knowledge/battery-applications-by-vehicle/">应用指南</a> 把每类车型映射到对应技术。</p>
+
+    <h2>规格决策树</h2>
+    <ol>
+      <li><strong>这车来自哪个市场？</strong> 日本/亚洲 → JIS；欧洲 → DIN/EN；北美 → BCI。</li>
+      <li><strong>什么壳体组？</strong> 读原厂电池标签或量一下托盘，再映射到 D26 / H6 / Group 48。</li>
+      <li><strong>多大容量和 CCA？</strong> 确认 C20 下的 Ah 和带测试基准的 CCA，而不是单独一个数字。</li>
+      <li><strong>什么端子和极性？</strong> 顶柱、侧端子或螺柱，加上 L/R 位置。</li>
+      <li><strong>什么技术？</strong> SLI、EFB 或 AGM，匹配工况。</li>
+    </ol>
+    <p class="note">{STANDARDS.join(' / ')} 参考型号上的端子类型和极性被标为"询价确认"，而不是猜测。这是刻意的：一个错误的端子会把一只正确的电池变成一只错误的电池，而制造商会对照你的车辆或车队需求、在投产前把它确认下来。</p>
+
+    <h2>一个算出来的例子：三台车、三份规格</h2>
+    <p>当你并排写下三份真实规格，标准之间的差异就不再抽象：</p>
+    <table>
+      <thead><tr><th>车辆</th><th>市场</th><th>标准</th><th>壳体组</th><th>Ah（C20）</th><th>CCA（基准）</th><th>技术</th></tr></thead>
+      <tbody>
+        <tr><td>Toyota Hilux（皮卡）</td><td>日本 / 亚洲</td><td>JIS</td><td>D26</td><td>72</td><td>490（JIS −15°C）</td><td>SLI</td></tr>
+        <tr><td>VW Golf（启停）</td><td>欧洲</td><td>DIN/EN</td><td>H6 / LN3</td><td>70</td><td>640（EN −18°C）</td><td>EFB / AGM</td></tr>
+        <tr><td>Ford F-150（皮卡）</td><td>北美</td><td>BCI</td><td>Group 65</td><td>70</td><td>650（SAE −18°C）</td><td>SLI / AGM</td></tr>
+      </tbody>
+    </table>
+    <p>三只都是约 70–72 Ah 的启动电池，却没有两只可以互换。Hilux 电池是 256 × 175 × 220 mm；Golf 电池是 278 × 175 × 190 mm；F-150 电池（Group 65）约 306 × 190 × 192 mm。三个不同的盒子、三种不同的 CCA 测试基准、三种不同的端子布局——而一个只下单"72 Ah 电池"的买方，拿到的是供应商碰巧报的那一款。点明标准和壳体组，一句话就能消除歧义。</p>
+    <p class="note">Hilux 的 80D26 例子（72 Ah、490 CCA JIS 参考）是 Dingwei 目录值；Golf H6 和 F-150 Group 65 的数字是标准系列的典型参考。请对照具体车辆与型号确认最终数值。</p>
+
+    <h2>七种烧钱的规格错误</h2>
+    <p>这些是真实 RFQ 里反复出现的错误——每一个都能追溯到把规格的一部分当成了全部：</p>
+    <ol>
+      <li><strong>不点标准就报 Ah</strong>——"72 Ah"在 JIS、DIN 和 BCI 下是三只不同的电池。永远把容量和系列、壳体组配对。</li>
+      <li><strong>跨标准比较 CCA</strong>——同一只电池的 JIS CCA 和 EN CCA 不是同一个数。只在单一标准内比较。</li>
+      <li><strong>到最后一刻才管端子极性</strong>——电池装进了托盘，但正极柱在错误的一侧，线缆够不着。投产前确认 L/R。</li>
+      <li><strong>给会循环的车只配容量</strong>——把 SLI 电池装进启停车意味着过早失效。让技术匹配工况，而不是 Ah 对 Ah。</li>
+      <li><strong>忘了 24V 系统</strong>——重型卡车不是"更大的 12V"。它们跑 24V，通常是两只 12V 电池串联。只报一只 12V 电池等于半个订单。</li>
+      <li><strong>用总高当壳体高</strong>——几毫米的端子高度就能挡住引擎盖关不上。确认"壳体顶高"与"总高"的区别。</li>
+      <li><strong>把 CCA 当质量分</strong>——超出原厂需求的更高 CCA，买来的是你用不上的成本和极板表面积。CCA 是适配标准，不是排名。</li>
+    </ol>
+    <p>共同的主线是：规格是一个五部分组成的决定，而失败几乎总发生在不在标题上的那几部分——标准、端子、极性、技术。这正是严谨供应商在报价前会把五项全问清的原因。</p>
+
+    <h2>签字前验证规格</h2>
+    <p>五项写完之后，按这个顺序验证——这个顺序最先抓住最贵的错误：</p>
+    <ol>
+      <li><strong>物理适配</strong>——把壳体尺寸对照托盘、固定件和引擎盖间隙。这是最便宜能避免、最贵运不回去的错误。</li>
+      <li><strong>端子与极性</strong>——对照实际车辆确认类型（顶柱 / 侧 / 螺柱）、L/R 位置和搭铁惯例。</li>
+      <li><strong>电气额定值</strong>——确认 Ah 在 C20、确认 CCA 在指定测试基准上，并问清数值是标称还是批次实测。</li>
+      <li><strong>技术</strong>——按车辆工况确认 SLI、EFB 或 AGM，而不是按买方偏好。</li>
+      <li><strong>电压</strong>——确认 6V、12V 或 24V，以及应用是串联还是并联接线。</li>
+    </ol>
+    <p>如果五项里任何一项无法确认，那部分就是该承担的风险——不是可以跳过的细节。规格只跟它最弱的那一项一样强，五项全确认的供应商是在干活；只报 Ah 的不是。</p>
+
+    <h2>规格如何连接价格与交期</h2>
+    <p>规格不只是一次适配练习——它是驱动成本和排期的东西。商业上最要紧的有三部分：</p>
+    <ul>
+      <li><strong>壳体组与模具</strong>——一个标准组（D26、H6、Group 48）跑在现有模具上，没有开模等待。少见或定制壳体会增加模具成本和交期，这正是多数 OEM 方案从标准底座起步的原因。</li>
+      <li><strong>容量与 CCA</strong>——更多的铅和极板表面积意味着更多材料成本。一只 60 Ah 和一只 90 Ah 电池不是 50% 的差价——成本大致随铅含量增长，但工程、端子和壳体基本固定。</li>
+      <li><strong>技术</strong>——AGM 比 EFB 贵，EFB 比 SLI 贵，因为隔板和极板设计不同。这个台阶是为了耐久性、不是为了容量，所以应由车辆工况来证明其必要。</li>
+    </ul>
+    <p>实际后果是：一份在报价前就完全确认的规格——标准、壳体、Ah、CCA 基准、端子和技术——可以直接进入打样和生产。一份有一项未确认的规格，会绕回提问和重新报价，而那个来回正是交期流失的地方。提前确认五项，是缩短下单到发货时间最便宜的办法。</p>
+    <p>规格定下来之后，下一步是一份干净的 RFQ——见采购簇里的 <a href="/zh/knowledge/oem-battery-rfq-guide/">RFQ 指南</a> 和 <a href="/zh/knowledge/oem-battery-specification-guide/">OEM 规格指南</a>。</p>
+
+    <h2>规格速查表</h2>
+    <p>一张可直接复制进 RFQ 的参考表：</p>
+    <table>
+      <thead><tr><th>决定</th><th>要写什么</th><th>示例</th></tr></thead>
+      <tbody>
+        <tr><td>标准系列</td><td>JIS / DIN-EN / BCI / AS / SA</td><td>JIS</td></tr>
+        <tr><td>壳体组</td><td>代码 + 底座尺寸</td><td>D26（256 × 175 × 220 mm）</td></tr>
+        <tr><td>容量</td><td>C20 下的 Ah</td><td>72 Ah（C20）</td></tr>
+        <tr><td>CCA</td><td>数值 + 测试基准</td><td>490 A（JIS −15°C）</td></tr>
+        <tr><td>端子</td><td>类型 + L/R 位置</td><td>顶柱，R（正极在右）</td></tr>
+        <tr><td>电压</td><td>系统电压</td><td>12 V</td></tr>
+        <tr><td>技术</td><td>SLI / EFB / AGM</td><td>SLI</td></tr>
+      </tbody>
+    </table>
+    <p>把这七行发过去，供应商第一轮就能报对电池。只发"72 Ah"，对话就得从头再来。</p>
+
+    <h2>如何使用这份参考</h2>
+    <p>{RELATIONSHIP} 下面每一页都深入规格的某一部分。用这个支柱页定下决策顺序，再跟进主题簇链接看细节：</p>
+    <ul>
+      <li><a href="/zh/knowledge/what-is-cca/">CCA：测试方法与数字为何不同</a></li>
+      <li><a href="/zh/knowledge/battery-capacity-ah-vs-c20-vs-rc/">容量：Ah vs C20 vs RC</a></li>
+      <li><a href="/zh/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI：三大系列</a></li>
+      <li><a href="/zh/knowledge/battery-dimensions-case-size/">尺寸与壳体</a></li>
+      <li><a href="/zh/knowledge/battery-terminal-types-polarity/">端子类型与极性</a></li>
+      <li><a href="/zh/knowledge/battery-group-size-chart/">电池壳体组尺寸表（数据）</a></li>
+      <li><a href="/zh/knowledge/battery-voltage-6v-vs-12v/">6V vs 12V 系统</a></li>
+      <li><a href="/zh/knowledge/battery-applications-by-vehicle/">按车型的应用</a></li>
+    </ul>
+    <p><a href="/zh/data/">浏览型号规格 &rarr;</a> · <a href="/zh/tools/compare/">对比两款型号 &rarr;</a> · <a href="/zh/oem/car-batteries/">启动一份 OEM 规格 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，一份电池规格是一个五部分组成的决定——而失败几乎总发生在不在标题上的那几部分：标准、端子、极性、技术。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+        <li>"72 Ah"在 JIS、DIN 和 BCI 下是三只不同的电池，所以在点明系列和壳体组之前，容量没有意义。</li>
+        <li>同一只电池的 JIS CCA 和 EN CCA 不是同一个数，所以在单一标准内比较是唯一安全的做法。</li>
+        <li>提前确认五项是缩短下单到发货时间最便宜的办法，因为一项未确认的部分会把 RFQ 绕回去。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="把一份完整规格发给我们来报价" />
+</ArticleLayout>

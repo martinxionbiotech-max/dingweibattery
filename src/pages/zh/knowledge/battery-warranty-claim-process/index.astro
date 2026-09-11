@@ -1,0 +1,98 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { TRADE_TERMS, RELATIONSHIP } from '../../../../data/site';
+
+const title = '电池质保索赔流程 | Dingwei Battery';
+const description = '电池质保索赔如何运作——判定标准、整只换新 vs 按比例折算信用、时限，以及让索赔成立的文书。';
+const articleTitle = '电池质保索赔流程';
+
+const faqs = [
+  { q: '电池质保通常多长？', a: '工厂常见条款是自提单日期起 12 个月；零售品牌常跑 12–36 个月免费换新，之后转为按比例折算——而按比例部分随电池使用时长递减。' },
+  { q: '电池质保索赔如何结算？', a: '通常在免费换新窗口内（常见为前 12–24 个月）整只换新，之后转为按比例折算信用——即你按电池使用时长拿到价值的一部分，而不是全额退款。' },
+  { q: '电池质保排除什么？', a: '深度放电（低于约 50% 荷电）、误用、物理损坏、充电不当和长期存放造成的硫酸盐化——除外条款正是多数索赔被拒的地方，所以立案前先读一遍。' },
+  { q: '立案索赔需要什么证据？', a: '4 样——发票、提单、显示失效（CCA 或容量）的测试报告，以及照片——一份没有测量出失效的索赔，就是一份会被拒绝的索赔。' },
+  { q: '电池质保索赔要多久？', a: '从立案到结算通常 2–4 周——检验和测试数据占掉大部分时间，而一份没有单证的索赔可能无限期拖延。' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="物流" dateModified="2026-09-11" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 物流</span>
+    <h1>电池质保索赔流程</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 来源：行业质保惯例、Midtronics 按比例覆盖说明</p>
+    <p class="lead">一份质保只值你能索赔到的那部分。多数电池买方读了期限、跳过了索赔机制——然后在最糟的时刻发现：结算是按比例折算、除外条款宽泛，或者他们没留的那份单证正是现在需要的证据。这一页讲索赔实际怎么走，好让你能立案并成功。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 电池质保索赔走三步——用测试报告证明失效、对照书面范围（期限、除外、处理）立案、按电池使用时长以整只换新或按比例折算信用结算。工厂条款通常是自提单日期起 12 个月；零售质保常跑 12–36 个月免费换新、再转为按比例折算，而除外条款正是多数索赔被拒的地方。
+    </div>
+
+    <h2>质保到底覆盖什么</h2>
+    <p>在你能索赔之前，得先知道范围。一份电池质保有三个书面部分，只有第一个是标题数字：</p>
+    <ol>
+      <li><strong>期限</strong>——工厂条款是 {TRADE_TERMS.warranty}。时钟从提单日期起算，不是从你客户购买那天起算。</li>
+      <li><strong>除外条款</strong>——深度放电、误用、物理损坏、充电不当和长期存放造成的硫酸盐化，是标准除外项。</li>
+      <li><strong>处理</strong>——失效如何立案、检验与结算。</li>
+    </ol>
+    <p>对质保范围的完整解读见 <a href="/zh/knowledge/battery-shipping-warranty/">运输与质保</a> 页面。</p>
+
+    <h2>整只换新 vs 按比例折算：让人意外的结算</h2>
+    <p>行业的结算模式是两层的。在 <strong>免费换新窗口</strong> 内——零售品牌常见为前 12–24 个月——一只缺陷电池免费换新。窗口过后，质保转为 <strong>按比例折算</strong>：你按电池使用时长拿到价值的一部分信用，而不是全额退款（见 <a href="https://www.midtronics.com/blog/how-to-explain-battery-warranties-and-pro-rated-coverage">Midtronics 对按比例覆盖的说明</a>）。这个含义让人不舒服也很重要：一份 24 个月后即按比例折算的"36 个月质保"，索赔时可能不如一份整只换新的 12 个月质保值钱——而铅酸行业自己的组织 <a href="https://batterycouncil.org/sources">Battery Council International</a> 记录了让短期整只换新窗口成为公平、可持续默认值的回收经济学。比较供应商时，要比免费换新窗口，而不是总期限。</p>
+
+    <h2>索赔流程，一步步</h2>
+    <ol>
+      <li><strong>测量失效</strong>——一个显示电池低于规格的 CCA 或容量测试。一份没有测量出失效的索赔，就是一份会被拒绝的索赔。</li>
+      <li><strong>收集证据</strong>——发票、提单、测试报告和照片。</li>
+      <li><strong>对照书面范围立案</strong>——把失效匹配到一个受覆盖的原因，因为除外条款正是索赔毙命的地方。</li>
+      <li><strong>等待检验</strong>——工厂或卖方对照除外条款审核测试数据与索赔。</li>
+      <li><strong>结算</strong>——整只换新，或按电池使用时长计算的按比例折算信用。</li>
+    </ol>
+    <p>现实地说，一份有单证的索赔约 2–4 周结算；一份没有单证的索赔可能无限期拖延。你在交货时留下的证据，就是这中间的差别。</p>
+
+    <h2>除外条款，以及为什么它们决定多数索赔</h2>
+    <ul>
+      <li><strong>深度放电</strong>——一块被放到约 50% 荷电以下又长期搁置的电池会硫酸盐化；那是使用失效，不是缺陷。</li>
+      <li><strong>误用与错误应用</strong>——一块为错误车型或工况选型的电池。</li>
+      <li><strong>物理损坏</strong>——壳体开裂、端子压坏、搬运造成的短路损坏。</li>
+      <li><strong>长期存放且无保养</strong>——一块在货架上自放电一年的电池通常被排除，这正是仓储纪律要紧的原因。</li>
+    </ul>
+    <p>这是质保与仓储之间那条安静的联系：一块在售出前放太久的电池，已经用掉了它的质保时钟、并可能开始硫酸盐化。<a href="/zh/knowledge/battery-storage-shelf-life/">仓储与保质期</a> 页面解释如何让库存保持可索赔。</p>
+
+    <h2>如何让索赔成立</h2>
+    <ul>
+      <li><strong>立案前先测试。</strong> 一个显示失效的 CCA 或容量读数，是最有说服力的单一证据。</li>
+      <li><strong>留住交货单证。</strong> 发票和提单锚定质保起算日期。</li>
+      <li><strong>把范围引用回去。</strong> 立案时引用书面的期限、除外条款和处理方式。</li>
+      <li><strong>在窗口内行动。</strong> 一份在窗口关闭第二天才立的案，会被以时效拒绝，而不是以事实。</li>
+    </ul>
+
+    <h2>它在哪里</h2>
+    <p>{RELATIONSHIP} 索赔流程位于物流与质保主题簇内：</p>
+    <ul>
+      <li><a href="/zh/knowledge/battery-shipping-guide/">电池运输、合规与质保：完整指南</a></li>
+      <li><a href="/zh/knowledge/battery-shipping-warranty/">电池运输、包装与质保</a></li>
+      <li><a href="/zh/knowledge/battery-storage-shelf-life/">电池仓储与保质期</a></li>
+      <li><a href="/zh/knowledge/lead-acid-battery-dangerous-goods/">铅酸电池危险品分类</a></li>
+      <li><a href="/zh/knowledge/battery-export-documentation/">电池出口单证</a></li>
+    </ul>
+    <p><a href="/zh/contact/">确认您的电池质保条款 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，一份质保只值你能索赔到的那部分——而一份没有测量出失效、没有交货单证的索赔，会以流程被拒，而不是以事实。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+        <li>行业的模式是两层：窗口内免费换新，之后按比例折算信用并随使用时长递减，所以时效和事实一样要紧。</li>
+        <li>除外条款——深度放电、误用、长期存放——正是多数索赔毙命的地方，而非缺陷本身。</li>
+        <li>一个显示失效的 CCA 或容量读数，是最有说服力的单一证据，而且生产成本很低。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="确认您的电池质保索赔条款" />
+</ArticleLayout>

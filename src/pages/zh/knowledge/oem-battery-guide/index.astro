@@ -1,0 +1,171 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, TRADE_TERMS, RELATIONSHIP } from '../../../../data/site';
+
+const title = 'OEM 电池制造：完整指南 | Dingwei Battery';
+const description = 'OEM 铅酸电池制造端到端讲透——OEM 是什么意思、方案如何运转、7 步开发流程、成本结构与 OEM vs 售后。';
+const articleTitle = 'OEM 电池制造：完整指南';
+
+const faqs = [
+  { q: '通俗讲，OEM 电池是什么？', a: 'OEM 电池是按你的规格——电压、Ah、CCA、端子和标签——制造、并以你的品牌（而非工厂标签）销售的电池。在铅酸里，质量由规格而非品牌决定，因为同一家工厂常常在同一条产线上并排跑着品牌电池和 OEM 电池，而一个方案从 RFQ 到第一个货柜要 60–90 天。' },
+  { q: '一个 OEM 电池项目从想法到第一个货柜要多久？', a: '预算 60–90 天：锁定规格并发 RFQ 约 7–14 天，打样与批准 10–20 天，生产 30–45 天，然后是 3–5 周海运。' },
+  { q: '一只 OEM 电池的实际制造成本是多少？', a: '原材料占运营成本的 75–80%——铅、硫酸和聚丙烯占主导——公用事业占 10–15%，其余是人工、包装、运输和间接费用。铅是摆动因素：LME 铅价接近每吨 1,950 美元时，一只 15 公斤电池仅铅就含约 20–25 美元。' },
+  { q: 'OEM 电池质量比品牌电池差吗？', a: '不——OEM 质量由你签的规格决定，不由标签决定。同一家工厂经常在同一条产线上并排制造品牌电池和 OEM 电池，而无论哪种，电池成本的 75–80% 都是原材料；区别在于谁的规格和质量关卡在控制产出。' },
+  { q: 'OEM 方案里最大的隐性成本是什么？', a: '一个掩盖了更小范围的低单价——一份漏掉 CCA 测试基准、认证、模具摊销或包装的报价，不是更便宜的电池，而是更便宜的规格，而贸易商那一层通常还会再加 5–15%。要比范围，而不是比裸数字。' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-11" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · OEM</span>
+    <h1>OEM 电池制造：完整指南</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 来源：IATF 16949、IMARC 铅酸制造成本报告、LME 铅价数据</p>
+    <p class="lead">OEM 电池制造不是买一个产品——它是围绕你的规格和品牌，委托一套可复现的供应安排。本指南按顺序讲透整件事：OEM 到底意味着什么、方案如何组织、七阶段开发流程、成本去了哪里，以及 OEM 如何对比售后供应。在写 RFQ 之前通读一遍，你就会按正确的顺序要正确的东西。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> OEM 电池制造意味着工厂按你的规格——电压、Ah、CCA 基准、端子、标签——以你的品牌制造电池。一个方案走完规格、打样、生产和锁定的复购订单，时间线 60–90 天，而占主导的成本是铅：原材料占运营成本的 75–80%。质量由你签的规格决定、不由标签决定，所以 OEM 的全部技艺，就在于写出一份不会漂移的规格、和一份能执行它的合同。
+    </div>
+
+    <h2>OEM 在电池贸易里是什么意思</h2>
+    <p>OEM——原始设备制造商——是采购里最被滥用的词之一，因为它在不同行业含义不同。在汽车零部件里，OEM 通常是整车厂。在电池出口里，这个词反着用：<em>你</em> 是拥有设计与品牌的买方，而工厂是那个按你的规格生产的原始设备制造商。</p>
+    <p>要紧的区别是所有权。在 OEM 安排下，你带规格，工厂带生产能力。在 ODM 下，工厂带一个你能贴牌和调整的现成设计。在贴牌下，你把你的身份套到一个供应的平台上。三种在货架上可能看起来一模一样；区别在于谁拥有设计、谁承担开发风险、以及复购订单有多锁定。如果这是新领域，先读 <a href="/zh/knowledge/what-is-oem-battery/">什么是 OEM 电池</a> 入门页和 <a href="/zh/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs 贴牌</a> 决策指南，再往下读。</p>
+
+    <h2>定义 OEM 方案的五个决定</h2>
+    <p>在造出任何东西之前，五个参数必须一起定死——不是一个一个来。一家不问其余就报"72 Ah 电池"的工厂，是在猜，它的价格也一样。</p>
+    <ol>
+      <li><strong>标准系列</strong>——JIS、DIN-EN、BCI、AS 或 SA。它设定壳体、CCA 测试方法和电池合法可销入的市场。</li>
+      <li><strong>壳体组与尺寸</strong>——D26、D23、B24、L3、H6 或一个定制底座。它决定电池适配哪些车辆。</li>
+      <li><strong>电气规格</strong>——电压、C20 下的容量（Ah）、储备容量，以及指定测试基准上的 CCA（JIS −15°C、EN −18°C、SAE −18°C）。基准要紧：JIS CCA 和 EN CCA 不能直接比较。</li>
+      <li><strong>端子与极性</strong>——类型、位置和朝向，因为一只正确的电池配一个错误的端子，是退货流水线，不是成交。</li>
+      <li><strong>技术</strong>——SLI、EFB、AGM 或重载，它设定极板设计、隔板和价格带。</li>
+    </ol>
+    <p>每个参数的完整论述在规格主题簇里——从 <a href="/zh/knowledge/battery-specifications-guide/">汽车电池规格参考</a> 开始，再对照 <a href="/zh/knowledge/battery-group-size-chart/">壳体组尺寸表</a> 锁定底座。</p>
+
+    <h2>OEM 方案如何组织</h2>
+    <p>一个 OEM 方案是一套可复现的供应安排，不是一锤子买卖。它分四个阶段运转，而结构的意义在于：第十个货柜与第一个获批样品一致。</p>
+    <table>
+      <thead><tr><th>阶段</th><th>产出什么</th><th>你的检查点</th></tr></thead>
+      <tbody>
+        <tr><td>1. 规格</td><td>书面规格表</td><td>签下每个参数，包括 CCA 基准</td></tr>
+        <tr><td>2. 打样</td><td>试产样品 + 测试报告</td><td>测实物样品，而不只是图纸</td></tr>
+        <tr><td>3. 生产</td><td>货柜级批次</td><td>确认排期与变更冻结</td></tr>
+        <tr><td>4. 复购订单</td><td>相同的后续批次</td><td>对照获批样品复检</td></tr>
+      </tbody>
+    </table>
+    <p>让复购订单安全的机制是 <strong>规格锁定</strong>——获批样品加书面参数加变更控制。四个阶段的细节见 <a href="/zh/knowledge/how-oem-battery-programs-work/">OEM 方案如何运作</a> 页面，七个阶段及你在哪里签字见 <a href="/zh/knowledge/oem-battery-development-process/">开发流程</a> 页面。</p>
+
+    <h2>七阶段开发流程</h2>
+    <p>从想法到发出的货柜，一个 OEM 电池项目过七个关卡。每个关卡都是一个决策点，买方要么签字、要么规格漂移：</p>
+    <ol>
+      <li><strong>咨询</strong>——对照车辆、市场和数量做可行性。</li>
+      <li><strong>规格</strong>——书面规格表，逐行签字。</li>
+      <li><strong>设计与品牌</strong>——标签、壳体和包装设计。</li>
+      <li><strong>打样</strong>——来自生产等效产线的一只试产样品。</li>
+      <li><strong>大批量生产</strong>——带过程管控的排期制造。</li>
+      <li><strong>质检</strong>——对照约定验收准则的测试数据。</li>
+      <li><strong>发货</strong>——出口包装与单证。</li>
+    </ol>
+    <p>这七个关卡里有四个需要买方签字，而不只是工厂确认：规格、样品、质量标准和发货。跳过一个，下一单就可能回来与你批准的不一致。<a href="/zh/knowledge/oem-battery-development-process/">开发流程</a> 页面带着交付物和检查点走完每个阶段。</p>
+
+    <h2>成本去了哪里</h2>
+    <p>铅酸电池是一门"大宗商品+"的生意：成本由材料主导，而摆动价格的材料是铅。行业的成本结构大致如此——原材料占运营成本的 75–80%，公用事业占 10–15%，其余在人工、包装、运输、维护和折旧里，据 IMARC 的制造成本建模（见 <a href="https://www.imarcgroup.com/lead-acid-battery-manufacturing-plant-project-report">IMARC 铅酸制造报告</a>）。</p>
+    <p>铅（栅格加氧化物铅膏）、硫酸和聚丙烯是三大材料投入，而铅以大幅领先。因为铅在 LME 上交易——2025–26 年每吨约 1,950–1,960 美元（见 <a href="https://investingnews.com/lead-forecast">Investing News Network 的铅价预测</a>）——你电池的价格随 LME 走，不随工厂的心情走。一家报 12 个月固定价的工厂，要么在对冲铅、要么在替你扛风险，而你应该知道是哪一种。</p>
+    <p>完整的算术——包括一个单位成本实例和藏在低报价里的隐性成本——见 <a href="/zh/knowledge/oem-battery-cost-breakdown/">OEM 成本拆解</a> 页面。</p>
+
+    <h2>OEM 对售后：你真正在买什么</h2>
+    <p>OEM/售后问题其实是三个独立问题捆成一个：质保覆盖、真实寿命和生产一致性。来自原厂的 OEM 供应给你规格控制和跨货柜的一致性；售后供应给你价格和库存现货。这个取舍不是"好与便宜"——而是"控制与便利"。完整的并排对比，包括决定复购生意的质保与一致性维度，见 <a href="/zh/knowledge/oem-battery-vs-aftermarket/">OEM vs 售后</a> 页面。</p>
+
+    <h2>撑起一份规格的质量体系</h2>
+    <p>一份规格只值工厂质量体系所能执行的程度。{MANUFACTURER.name}（Dingwei Battery 的制造商）在 IATF 16949——建立在 ISO 9001 之上的汽车专用质量标准——外加 {CERTIFICATIONS.join('、')} 下运营。IATF 16949 特别要紧，因为它强制过程管控、而非只做最终检验：该标准的缺陷预防和可追溯性要求，正是一家工厂能一柜接一柜按同一图纸发货而不漂移的原因。产线上该看什么，读 <a href="/zh/knowledge/battery-quality-control/">质量控制</a> 页面。</p>
+
+    <h2>两个重构 OEM 决定的数字</h2>
+    <p><strong>铅联动测试。</strong> 如果原材料占成本的 75–80%、铅又是主导材料，那么 LME 铅价 10% 的波动，会以可观的百分比移动你的出厂价。按每吨约 1,950 美元算，一只 15 公斤 SLI 电池仅铅就含约 20–25 美元。这就是为什么两家工厂在同一规格上报价差 10%，通常是在报不同的铅采购时机或不同毛利，而非不同质量——也是为什么固定价条款是一个谈判点、而非走过场。</p>
+    <p><strong>规格漂移成本。</strong> OEM 里贵的错误不是糟糕的首单——而是一笔你无法复现的首单。一个跳过的打样关卡、或一个未签字的 CCA 基准，可能让之后每个货柜都变成一个新的开发项目，各自背着各自的批准风险。整个项目里最便宜的一项，正是防止这件事的那一项：一份有单证的样品批准和一个锁定的规格。</p>
+
+    <h2>供应商不会主动告诉你的</h2>
+    <ul>
+      <li><strong>低单价掩盖更小的范围。</strong> 一份漏掉 CCA 测试基准、认证、模具或包装的报价，不是更便宜的电池——是更便宜的规格。要比范围。</li>
+      <li><strong>"与样品一致"不是质保。</strong> 除非金样连同它的测试报告被引用进合同，"与样品一致"不构成任何法庭可执行的东西。</li>
+      <li><strong>铅价波动最终会转嫁。</strong> 一家为了拿下订单而吸收铅波动的工厂，会在别处找回来——在模具毛利里、在运费里，或在第二个货柜上。</li>
+      <li><strong>MOQ 跟着货柜走，不跟着你的需求走。</strong> 一个 20 尺柜约装 600–800 只启动电池，因为重量先于体积封顶——所以一个"起订量"是物流事实，不是营销偏好。</li>
+    </ul>
+
+    <h2>60–90 天时间线</h2>
+    <p>从第一份 RFQ 到落地货物的完整周期，拆成一个可预测的日历：</p>
+    <table>
+      <thead><tr><th>周</th><th>阶段</th><th>发生什么</th></tr></thead>
+      <tbody>
+        <tr><td>1–2</td><td>定规格 + RFQ</td><td>锁定五部分规格；在同一范围上发一份 RFQ。</td></tr>
+        <tr><td>2–4</td><td>样品 + 批准</td><td>产出并测试试产样品；签字放行。</td></tr>
+        <tr><td>4–10</td><td>生产</td><td>30–45 天从铸板到化成、封盖和测试。</td></tr>
+        <tr><td>10–14</td><td>发货 + 清关</td><td>3–5 周海运和海关。</td></tr>
+      </tbody>
+    </table>
+    <p>排期打滑的两处是打样（因为规格没有先锁定）和清关（因为一份认证发现得太晚）。两者都能在流程前端预防。</p>
+
+    <h2>读一份 OEM 报价：决定价格的六行</h2>
+    <p>两家工厂可以报"同一只电池"却差 8 美元，而差距几乎从来不是纯利润——是范围。当你并排拿着两份报价时，先比这六行，再比总额：</p>
+    <ol>
+      <li><strong>CCA 测试基准</strong>——JIS（−15°C）和 EN（−18°C）对同一只电池得出不同数字。一份不点明基准的报价，是在报更容易的那个测试。</li>
+      <li><strong>壳体与盖的来源</strong>——定制模具是一次性开模成本；现货壳体不是。搞清楚你买的是哪个。</li>
+      <li><strong>技术规格</strong>——SLI、EFB 和 AGM 是三种不同的产品，不是一个产品的三个价格档。</li>
+      <li><strong>认证是否包含</strong>——IATF 16949 是工厂级的既定项；逐市场的符合性（CE、SASO/GSO）是一个行项。确认哪些含在价格里。</li>
+      <li><strong>包装等级</strong>——内销纸箱和出口级纸箱成本不同、扛运输的能力也不同。</li>
+      <li><strong>Incoterm</strong>——FOB、CFR 和 CIF 在你们两人之间移动运费和保险成本。</li>
+    </ol>
+    <p>这个纪律简单而机械：只有当六行都在同一基础上回答时，一份报价才是可比的。在同一个范围上发一份 RFQ，剩下的价差才是真实谈判，而不是范围幻觉。<a href="/zh/knowledge/oem-battery-rfq-guide/">RFQ 指南</a> 有模板。</p>
+
+    <h2>一个算出来的方案实例：每月一柜</h2>
+    <p>为了让经济学具体起来，取一个跑 24 个月、每月一个 20 尺柜的买方。按每柜约 700 只电池、落地成本接近每只 40 美元算，每柜约 28,000 美元，两年项目约 670,000 美元。现在放上决定项目能否存活的那几项成本：</p>
+    <table>
+      <thead><tr><th>项</th><th>成本</th><th>它买来什么</th></tr></thead>
+      <tbody>
+        <tr><td>工厂审核（一次性）</td><td>1,500–3,000 美元</td><td>确认供应商能复现你的规格</td></tr>
+        <tr><td>打样 + 批准（一次性）</td><td>10–20 天</td><td>锚定之后每个批次的金样</td></tr>
+        <tr><td>规格漂移（若跳过）</td><td>一个毁掉的货柜 ≈ 28,000 美元</td><td>前两行所防止的那次失败</td></tr>
+      </tbody>
+    </table>
+    <p>审核不到项目价值的 0.5%，而打样窗口是其中最便宜的保险。之所以要跑一个方案、而非一连串订单，正是这组算术：一次性启动成本在 24 个货柜里摊到没有，而它们所消除的漂移风险，却存在于每一个货柜上。</p>
+
+    <h2>被误用的术语</h2>
+    <p>五个术语承载了 OEM 电池采购里的大部分困惑，值得钉死：</p>
+    <ul>
+      <li><strong>OEM</strong>——你带规格，工厂按它制造。你拥有设计和品牌。</li>
+      <li><strong>ODM</strong>——工厂带设计，你贴牌和调整。他们拥有设计。</li>
+      <li><strong>白标</strong>——你给一个竞争对手也能买的现货产品贴牌。</li>
+      <li><strong>金样</strong>——之后每个批次都对照的获批试产样品。</li>
+      <li><strong>规格锁定</strong>——样品加书面参数加变更控制，让复购订单一致。</li>
+    </ul>
+    <p>所有权是贯穿这五个词的主线。你对设计的所有权越深，控制越多、开发工作也越多——产品也越独属于你。</p>
+
+    <h2>如何使用这个主题簇</h2>
+    <p>{RELATIONSHIP} {MANUFACTURER.name} 运营着一座 {MANUFACTURER.factoryArea} 的工厂，拥有 {MANUFACTURER.productionLines}，日产 {MANUFACTURER.dailyOutput}，按 JIS、DIN、BCI、AS 和 SA 标准制造，出口至 {MANUFACTURER.exportMarkets}。这个支柱页定下整体图景；下面各页深入每一部分：</p>
+    <ul>
+      <li><a href="/zh/knowledge/what-is-oem-battery/">什么是 OEM 电池</a>——定义与所有权划分</li>
+      <li><a href="/zh/knowledge/how-oem-battery-programs-work/">OEM 电池方案如何运作</a>——四个阶段</li>
+      <li><a href="/zh/knowledge/oem-battery-development-process/">OEM 开发流程</a>——七个关卡</li>
+      <li><a href="/zh/knowledge/oem-battery-cost-breakdown/">OEM 电池成本拆解</a>——钱去了哪里</li>
+      <li><a href="/zh/knowledge/oem-battery-vs-aftermarket/">OEM vs 售后电池</a>——质保、寿命与一致性</li>
+    </ul>
+    <p>相关：<a href="/zh/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs 贴牌</a> · <a href="/zh/knowledge/oem-battery-specification-guide/">OEM 规格指南</a> · <a href="/zh/knowledge/battery-sourcing-guide/">如何从中国采购</a> · <a href="/zh/knowledge/battery-shipping-guide/">运输、合规与质保</a> · <a href="/zh/oem/">启动一个 OEM 方案 →</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，OEM 电池制造不是买一个产品——它是委托一套可复现的供应安排，而一份报价的六行，在总额之前就决定了价格。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+        <li>五个参数——标准系列、壳体组、电气规格、端子和技术——必须一起定死，否则报价就是猜测。</li>
+        <li>两家工厂可以报"同一只电池"却差 8 美元，而差距几乎从来不是利润——是范围，在 CCA 基准、模具和包装上。</li>
+        <li>规格锁定——样品加书面参数加变更控制——正是消除之后每个货柜漂移风险的东西。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="把您的规格发给我们来报 OEM 价" />
+</ArticleLayout>

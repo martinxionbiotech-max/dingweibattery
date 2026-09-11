@@ -1,0 +1,124 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '按车型选电池：应用指南 | Dingwei Battery';
+const description = '不同车型对电池的需求不同——轿车、启停、商用车、卡车、客车与工程机械——以及每一类的匹配逻辑（SLI/EFB/AGM/重载）。';
+const articleTitle = '按车型选电池';
+
+const faqs = [
+  { q: '启停车需要什么电池？', a: 'AGM 或 EFB。启停系统让电池循环充放电的次数远高于普通车——AGM 的循环寿命通常是普通 SLI 电池的 2–3 倍——普通 SLI 在这种工况下会过早失效。' },
+  { q: '为什么柴油卡车需要高 CCA？', a: '大排量柴油机压缩比高，需要强劲的启动电流，寒冷天气下尤其如此——这驱动了高 CCA 需求（12V 系统常在 800–1100A 量级），并需要一个物理上更大的壳体。' },
+  { q: '为什么重型卡车用 24V？', a: '把电压翻倍到 24V，可以用一半的电流输出同样的启动功率，意味着更细的线缆和更少的长底盘压降。通常由两只 12V 电池串联组成。' },
+  { q: '工程机械适合什么电池？', a: '高 CCA 且抗振的重载电池。工程机械天冷时长时间闲置、随后需要强启动，而持续振动会把轻载电池震散——重载电池用更厚的极板和更坚固的壳体来扛住。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="应用" dateModified="2026-09-11" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 应用</span>
+    <h1>按车型选电池</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 来源：整车应用要求、SAE J537、EN 50342</p>
+    <p class="lead">不同车型对电池提出的要求截然不同。一台轿车、一台启停 SUV 和一台柴油卡车需要的规格完全不一样——选错了，电池寿命会缩短，有时缩短得非常明显。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 是车型决定电池，而不是反过来。启停车需要 AGM/EFB 的循环耐久性，普通 SLI 电池在这种工况下会过早失效；柴油卡车需要的 CCA 远超轿车（12V 系统常在 800–1100A，或用 24V 串联）；工程机械则需要抗振的重载结构。让电池匹配实际工况，是整件事的核心。
+    </div>
+
+    <h2>按车型划分的需求</h2>
+    <table>
+      <thead><tr><th>车型</th><th>典型需求</th><th>电池选择</th><th>关键规格</th></tr></thead>
+      <tbody>
+        <tr><td>轿车</td><td>常规启动</td><td>SLI，JIS/DIN/BCI 适配</td><td>Ah + CCA、壳体适配</td></tr>
+        <tr><td>SUV / 皮卡</td><td>更高负载、部分带启停</td><td>更高容量 SLI 或 EFB/AGM</td><td>更高 Ah + CCA</td></tr>
+        <tr><td>启停车</td><td>频繁循环</td><td>AGM 或 EFB</td><td>循环寿命</td></tr>
+        <tr><td>轻型商用车 / 厢货</td><td>附件负载、更长工时</td><td>更高 Ah 的 SLI</td><td>RC / 续航</td></tr>
+        <tr><td>卡车 / 客车</td><td>高 CCA、抗振、24V</td><td>重载，JIS N 系列 / DIN / BCI</td><td>CCA + 电压</td></tr>
+        <tr><td>工程 / 农业机械</td><td>抗振、深循环</td><td>重载、高 CCA</td><td>抗振性能</td></tr>
+      </tbody>
+    </table>
+
+    <h2>为什么启停改变了电池</h2>
+    <p>启停系统会在怠速时关闭发动机、再反复重启，让电池循环充放电的次数远高于普通车。这需要一款为循环而设计的电池——AGM（贫液式玻璃纤维隔板）或 EFB（增强型富液）——而不是普通 SLI 电池，后者在这种工况下会过早失效。</p>
+    <p>采购方常用的经验法则是：普通 SLI 电池为偶尔启动和长时间浮充而设计，而 AGM 电池为反复的部分荷电循环而打造。把 SLI 电池装进启停车，是轿车细分里最常见的一种规格错误——电池照样能打火，但会在预期寿命的零头就报废，因为它从来不是为这个循环次数设计的。</p>
+
+    <h2>为什么柴油卡车需要高 CCA</h2>
+    <p>大排量柴油机压缩比高，需要强劲的启动电流，寒冷天气下尤其如此。这驱动了高 CCA 需求（12V 系统常在 800–1100A 量级，参考值），并需要一个物理上更大的壳体和更重的结构来扛住振动。重型卡车和客车往往更进一步，采用 24V 系统——两只 12V 电池串联——把启动电流减半、减轻线缆重量。</p>
+    <p class="note">CCA 依赖测试方法——请确认数值是 JIS、EN 还是 SAE。见 <a href="/zh/knowledge/what-is-cca/">CCA 指南</a>。</p>
+
+    <h2>为什么工程机械能把电池震散</h2>
+    <p>工程和农业机械天冷时长时间闲置、随后需要强启动，整个工作寿命都在震动中度过。振动是真正的杀手——它让极板疲劳、让内部连接断裂。重载电池用更厚的极板、更坚固的壳体和更强的内部焊接来扛住。这是结构上的差异，不只是更大的 CCA 数字。</p>
+
+    <h2>炎热气候 vs 寒冷气候：CCA 的悖论</h2>
+    <p>寒冷气候抬高启动需求，所以 CCA 在冬天最要紧。但高温才是电池真正的长期杀手——引擎舱高温会加速失水和极板腐蚀，这就是为什么电池在炎热气候里比寒冷气候失效得更快，尽管是寒冷暴露了那块弱电池。实用法则：按车辆会经历的最冷早晨来定 CCA，再按它要停靠的最热下午来选结构（耐高温、密封、免维护）。只为冷启动选型的电池，可能在高温下早早报废。</p>
+
+    <h2>启停：AGM 还是 EFB</h2>
+    <p>在启停系统内部，AGM 与 EFB 的选择是循环耐久性和成本上的一级台阶：</p>
+    <table>
+      <thead><tr><th>技术</th><th>循环能力</th><th>相对成本</th><th>典型适配</th></tr></thead>
+      <tbody>
+        <tr><td>EFB</td><td>高于 SLI</td><td>低于 AGM</td><td>基础启停、小排量发动机</td></tr>
+        <tr><td>AGM</td><td>最高</td><td>最高</td><td>进阶启停、制动能量回收、高负载</td></tr>
+      </tbody>
+    </table>
+    <p>陷阱在于为了省钱把 AGM 降级成 EFB。车辆的充电策略是按它原厂设计的电池标定的——配 AGM 的车充电电压曲线与 EFB 预期的不一样——所以把更便宜的 EFB 装进 AGM 车型，可能被过充而早早失效。技术不是可互换的，它是整车规格的一部分。</p>
+
+    <h2>按车型的参考规格示例</h2>
+    <p>具体的参考例子能让匹配逻辑落到实处：</p>
+    <ul>
+      <li><strong>紧凑型城市车（亚洲）</strong> —— JIS B24，约 48 Ah（C20），约 370 CCA（JIS −15°C），SLI。</li>
+      <li><strong>中型轿车（亚洲）</strong> —— JIS D23，60–72 Ah，370–600 CCA（JIS），SLI。</li>
+      <li><strong>皮卡 / 四驱（亚洲）</strong> —— JIS D26 或 D31，72–96 Ah，490–710 CCA（JIS），SLI。</li>
+      <li><strong>欧洲启停</strong> —— DIN H6/LN3，约 70 Ah，约 640 CCA（EN），EFB 或 AGM。</li>
+      <li><strong>北美皮卡</strong> —— BCI Group 65，约 70 Ah，约 650 CCA（SAE），SLI 或 AGM。</li>
+      <li><strong>重型卡车（24V）</strong> —— 两只 12V 重载电池串联，各 100–200 Ah，740–1100 CCA（SAE 参考）。</li>
+    </ul>
+    <p class="note">这些是从标准系列和 Dingwei 型号库中提炼的参考示例——下单前请针对具体车型逐项确认。</p>
+
+    <h2>船用、房车与深循环：又一种工况</h2>
+    <p>船只和房车增加了一种汽车对照表覆盖不到的工况：发动机停机时长时间放电，给灯、泵和电子设备供电。这需要深循环或双用途（启动 + 深循环）设计，而不是纯启动电池——后者会被深度放电损伤。船用电池还面临不同的振动和腐蚀环境（盐分、湿度），所以壳体和端子采用不同的密封方式。供应船用或房车渠道的采购方，其实是在选一个不同于轿车系列的产品族，尽管电压和壳体尺寸看着眼熟。</p>
+
+    <h2>车队一致性：一套规格覆盖全队</h2>
+    <p>对供应车队——出租车、配送厢货、施工队——的采购方来说，一致性比任何单只电池的峰值规格都重要。当每辆车用同一壳体组和端子时，车队最好维护：一个电池 SKU 覆盖全部车辆，一套保养流程处处适用。这往往意味着按最常见车型的规格来统一，并在较小车型上接受略微偏大的电池。这个取舍在库存和保养时间上是划算的，而且是一个采购方应当主动做出的决定，而不是在车队运营到一半时才撞见。</p>
+
+    <h2>匹配逻辑，一步步来</h2>
+    <ol>
+      <li>给车型分类——轿车、启停、轻型商用车、卡车/客车，或工程机械。</li>
+      <li>确认系统电压——大多数是 12V，重型卡车/客车是 24V。</li>
+      <li>按工况决定技术——轿车用 SLI、EFB 或 AGM；商用/工程用重载。</li>
+      <li>设定电气额定值——Ah（C20）定续航，CCA（含基准）定冷启动。</li>
+      <li>针对具体车型确认壳体尺寸、端子与极性。</li>
+    </ol>
+
+    <h2>采购方该问什么</h2>
+    <ul>
+      <li>我供应的是哪类车型——轿车、启停、商用还是重载？</li>
+      <li>这车带不带启停，需要 AGM 还是 EFB？</li>
+      <li>这车需要什么壳体尺寸和标准系列？</li>
+      <li>发动机需要多大 CCA（按哪个测试基准）？</li>
+    </ul>
+
+    <p>在 <a href="/zh/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a> 里把车型映射到正确标准，在 <a href="/zh/knowledge/battery-voltage-6v-vs-12v/">6V vs 12V</a> 里确认电压逻辑。完整的决策顺序见 <a href="/zh/knowledge/battery-specifications-guide/">规格参考指南</a>。</p>
+    <p>{RELATIONSHIP}</p>
+    <p><a href="/zh/heavy-duty-batteries/">重载电池方案 &rarr;</a> · <a href="/zh/oem/car-batteries/">汽车电池方案 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，轿车电池里最贵的一类规格错误，是把普通 SLI 电池装进启停车——它能打火，但会在设计寿命的零头就报废。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+        <li>启停让电池循环的次数远高于普通车，而这正是 SLI 电池从未被设计去承担的工况。</li>
+        <li>车辆的充电策略是按它原厂设计的电池技术标定的，所以把更便宜的 EFB 装进 AGM 车型可能被过充而早早失效。</li>
+        <li>柴油卡车和工程机械叠加了各自的硬需求——高 CCA 与抗振——没有任何一个"更大的数字"能同时覆盖。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="为您的车型类别确定正确电池" />
+</ArticleLayout>

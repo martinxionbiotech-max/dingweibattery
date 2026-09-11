@@ -1,0 +1,143 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../../data/site';
+
+const title = '电池运输、合规与质保指南 | Dingwei Battery';
+const description = '铅酸电池运输、危险品合规与质保，一篇讲透——UN 2794/2800 第 8 类、出口单证、索赔与仓储保质期。';
+const articleTitle = '电池运输、合规与质保：完整指南';
+
+const faqs = [
+  { q: '铅酸电池算危险品运输吗？', a: '算——第 8 类腐蚀性。富液启动电池按 UN 2794（湿电池、充有酸液）运输；防溢漏设计按 UN 2800 运输。相对锂电的实际优势是：铅酸不需要 UN 38.3 测试报告。' },
+  { q: '一个 20 尺柜能装多少只启动电池？', a: '首单大约 600–800 只（视壳体组大小可达 900–1,200）。20 尺柜的载重上限约 28,000 公斤，而电池货在填满 33 立方体积之前就先撞上重量天花板。' },
+  { q: '铅酸电池在仓库能放多久？', a: '大约 6 个月就需要补电——铅酸每月自放电约 3–5%，且每升高 10°C 速率翻倍，所以热仓库里的库存流失更快。' },
+  { q: '12 个月质保到底保什么？', a: '只保书面范围里写明的——期限、除外条款和索赔处理。许多"12 个月"质保把深度放电、误用和物理损坏排除在外，并按比例折算赔偿，而非整只换新。' },
+  { q: '一柜电池需要哪些出口单证？', a: '至少 5 份——商业发票、装箱单、提单、原产地证和危险品申报单；CCA/容量测试报告和 MSDS 在目的市场或承运人要求时追加。' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="物流" dateModified="2026-09-11" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 物流</span>
+    <h1>电池运输、合规与质保：完整指南</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 来源：IMO IMDG Code、UN Model Regulations、US DOT PHMSA、Battery University</p>
+    <p class="lead">一笔电池订单不是下了产线就算完成——它是在货物无损抵达、单证齐全、质保你读得懂的时候才算完成。这意味着一要同时应付三门功课：危险品分类、出口单证和质保条款。任何一门出错，货柜要么卡在港口，要么在交货后让你花钱。本指南把这三者合在一处讲透，外加仓储，因为一块在你仓库里放太久的电池，就是一笔等着发生的质保索赔。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 铅酸电池按第 8 类腐蚀性危险品运输——UN 2794（湿电池、充有酸液）或 UN 2800（防溢漏）——海运受 IMDG Code 约束，而且与锂电不同，它不需要 UN 38.3 报告。20 尺柜受约 28,000 公斤的重量限制，这正是首单落在 600–800 只的原因。出口至少需要五份单证，质保只跟它的书面范围一样强，仓储则要求每 6 个月补电一次，因为电池每月自放电 3–5%。
+    </div>
+
+    <h2>危险品分类，一段讲清</h2>
+    <p>铅酸电池不是"普通货物"。它们是第 8 类腐蚀性危险品，因为电解液是硫酸。两个相关的 UN 编号是 <strong>UN 2794——湿电池、充有酸液</strong>（普通富液汽车电池）和 <strong>UN 2800——湿电池、防溢漏</strong>（通过振动和压差测试的密封设计）。海运受 <a href="https://www.imo.org/">IMO IMDG Code</a> 约束；UN 编号本身来自 <a href="https://unece.org/transport/dangerous-goods">UN Model Regulations</a>，它是一切国家规则的上游依据。完整的分类逻辑、UN 2800 的测试要求，以及与锂电 UN 3480/UN 3481（第 9 类）的对比，见 <a href="/zh/knowledge/lead-acid-battery-dangerous-goods/">危险品分类</a> 页面。</p>
+
+    <h2>货柜：重量先于体积</h2>
+    <p>电池密度大，所以装柜的算术与直觉相反。标准 20 尺柜提供约 33 立方的体积，但只有约 28,000 公斤的载重（皮重约 2,200–2,400 公斤，毛重上限 30,480 公斤）。铅酸电池在填满体积之前很久就撞上重量天花板——这正是首单落在 600–800 只、而不是按体积粗略估算的 1,400+ 只的原因。单托通常控制在 1.5 米高、约 1.5 吨以内以保证安全堆叠。<a href="/zh/knowledge/oem-battery-moq-lead-time/">MOQ 与交期</a> 页面解释了这套重量逻辑如何决定起订量。</p>
+
+    <h2>出口单证：五份基线</h2>
+    <p>一套干净的单证，是让电池货柜顺利过海关、而不是在保税区里干等的关键。基线是五份单证，而危险品申报单正是外行最容易漏掉的那份：</p>
+    <ol>
+      <li><strong>商业发票</strong>——金额、条款、买卖双方。</li>
+      <li><strong>装箱单</strong>——每托的箱数、重量、尺寸。</li>
+      <li><strong>提单</strong>——承运人的收据与运输合同。</li>
+      <li><strong>原产地证</strong>——享受优惠关税或进口方海关要求时所需。</li>
+      <li><strong>危险品申报单（DGD）</strong>——托运人对 UN 编号、类别和包装的声明，由受训人员签署。</li>
+    </ol>
+    <p>在基线之上，多数目的港还会追加 CCA/容量测试报告、MSDS，以及——对海湾国家——SASO/GSO 符合性认证。<a href="/zh/knowledge/battery-export-documentation/">出口单证</a> 页面逐份讲解每份单证及其证明什么。</p>
+
+    <h2>质保：读范围，别只读数字</h2>
+    <p>工厂的标准条款是 {TRADE_TERMS.warranty}。但"12 个月"是标题，不是合同。一份质保只跟三件书面内容一样强：<strong>期限</strong>（自提单日期起算）、<strong>除外条款</strong>（深度放电、误用、物理损坏、充电不当）、以及 <strong>索赔处理</strong>（失效如何立案、检验与结算——整只换新还是按比例折算信用）。一份除外条款宽泛、按比例结算的"12 个月"质保，和一份 12 个月整只换新的质保，是完全不同的两回事。<a href="/zh/knowledge/battery-warranty-claim-process/">质保索赔流程</a> 页面详述索赔如何判定与结算，<a href="/zh/knowledge/battery-shipping-warranty/">运输与质保</a> 页面则讲保护这份质保的包装一侧。</p>
+
+    <h2>仓储与保质期：你悄悄丢掉的那份质保</h2>
+    <p>一块放在货架上的电池并不是静止的——它在放电。铅酸在中温下每月自放电约 3–5%，且速率每升高 10°C 大约翻倍（见 <a href="https://batteryuniversity.com/article/bu-802b-what-does-elevated-self-discharge-do">Battery University 的自放电数据</a>）。荷电降到约 50% 以下时，极板上的硫酸盐化开始硬化，容量损失可能变得不可逆。实用法则：库存电池每 6 个月补电一次，低温、满电存放，并先进先出周转，别让任何一托在卖出前就耗掉它的质保时钟。<a href="/zh/knowledge/battery-storage-shelf-life/">仓储与保质期</a> 页面把这条变成仓库操作规程。</p>
+
+    <h2>为什么铅酸比锂电好运</h2>
+    <p>从锂电转过来的采购方常常高估了铅酸的文书负担。两种化学体系分属不同类别，负担也不同：</p>
+    <table>
+      <thead><tr><th>维度</th><th>铅酸</th><th>锂离子</th></tr></thead>
+      <tbody>
+        <tr><td>UN 编号</td><td>UN 2794 / UN 2800</td><td>UN 3480 / UN 3481</td></tr>
+        <tr><td>危险类别</td><td>第 8 类（腐蚀性）</td><td>第 9 类（杂项）</td></tr>
+        <tr><td>UN 38.3 测试报告</td><td>不需要</td><td>需要</td></tr>
+        <tr><td>主要风险</td><td>酸液泄漏 / 腐蚀</td><td>热失控 / 起火</td></tr>
+        <tr><td>文书负担</td><td>较低</td><td>较高（测试摘要、标签、培训）</td></tr>
+      </tbody>
+    </table>
+    <p>铅酸的优势是真实的但很窄：不用 UN 38.3 报告。你仍然需要第 8 类标签、合规包装，以及承运人要求时的危险品申报单。<a href="/zh/knowledge/lead-acid-battery-dangerous-goods/">危险品分类</a> 页面精确划出两套制度在哪里分岔。</p>
+
+    <h2>两个真正要紧的计算</h2>
+    <p><strong>重量天花板测试。</strong> 按每只启动电池约 15–19 公斤算，28,000 公斤载重按纯重量可装约 1,500–1,800 只。但托盘、纸箱抗压强度和堆叠规则把标准首单的实用负载压在 600–800 只——理论与可发运货柜之间的差距，正是 MOQ 是物流数字、而非营销话术的原因。</p>
+    <p><strong>仓储成本测试。</strong> 如果一块电池每月自放电 5%、无人看管地放上 12 个月，它已经丢掉了大部分荷电并开始硫酸盐化——这是质保负债，不是资产。整个仓库每季度补电一次的成本，相对于运一柜到达时已部分硫酸盐化的货，只是零头。</p>
+
+    <h2>供应商不会主动告诉你的</h2>
+    <ul>
+      <li><strong>危险品申报单是隐性成本，也是一项培训要求。</strong> 必须有人取得资质才能签署，而这部分合规工作会被摊进运费。</li>
+      <li><strong>"防溢漏"是经测试的结论，不是标签。</strong> UN 2800 地位需要通过与振动和压差测试——一只没有测试记录的密封电池，法律上并不算防溢漏。</li>
+      <li><strong>质保时钟从提单日期起算，不是从你客户购买那天起算。</strong> 在你仓库里放 6 个月，就已经消耗了 6 个月质保。</li>
+      <li><strong>索赔结算常常按比例折算。</strong> 一份"12 个月"质保可能按电池使用时长折算一部分价值赔偿给你，而非整只换新。</li>
+    </ul>
+
+    <h2>一次算出来的装柜计算</h2>
+    <p>电池 MOQ 是 600–800 只，这个数值得用算术看一遍，因为它解释了一个多数采购方只是被动接受的数字：</p>
+    <table>
+      <thead><tr><th>约束</th><th>数值</th><th>它允许什么</th></tr></thead>
+      <tbody>
+        <tr><td>20 尺柜载重</td><td>约 28,000 kg</td><td>仅按重量约 1,500–1,800 只电池</td></tr>
+        <tr><td>20 尺柜体积</td><td>约 33 m³</td><td>仅按体积约 1,400+ 只电池</td></tr>
+        <tr><td>托盘高度 / 重量上限</td><td>每托约 1.5 m / 约 1.5 t</td><td>把实用负载压得远低于前两者</td></tr>
+      </tbody>
+    </table>
+    <p>仅按重量能装近 1,800 只，按体积超过 1,400 只——但托盘堆叠、纸箱抗压强度和稳定可吊装托盘的需求，把标准首单的实际负载压在 600–800 只。货柜是重量受限，不是体积受限，这正是 MOQ 是物流事实、"一个 20 尺柜"是诚实的起订下限而非销售话术的原因。</p>
+
+    <h2>运输时间线，逐周拆解</h2>
+    <p>一柜电池从成品到你的仓库，时间比多数采购方预算的更长。这是 FOB 条件下贴近现实的日历：</p>
+    <table>
+      <thead><tr><th>阶段</th><th>时长</th><th>由谁负责</th></tr></thead>
+      <tbody>
+        <tr><td>生产 + 测试</td><td>30–45 天</td><td>工厂</td></tr>
+        <tr><td>出口包装 + DGD</td><td>2–3 天</td><td>工厂 / 托运人</td></tr>
+        <tr><td>海运</td><td>3–5 周</td><td>承运人（FOB：买方风险）</td></tr>
+        <tr><td>清关 + 内陆运输</td><td>3–7 天</td><td>进口方</td></tr>
+      </tbody>
+    </table>
+    <p>FOB 条件下风险在起运港转移，所以买方承担海运段和清关——这就是 Incoterm 和单证集合是同一个决定的原因。一个只给生产留"30–45 天"、却忘了 3–5 周海运段的采购方，正是最后撞上断货和滞港费的那一位。</p>
+
+    <h2>一次走完的质保索赔</h2>
+    <p>为了让索赔流程具体起来，举一个收到 700 只电池、落地 60 天内发现 7 只 CCA 测试不达标的采购方——1% 的早期失效率，落在 12 个月窗口内。索赔是这样走的：</p>
+    <ol>
+      <li><strong>测量</strong>——买方测试这 7 只，记录在指定基准下低于规格的 CCA 读数。</li>
+      <li><strong>立案</strong>——发票、提单、测试报告和照片，对照书面范围提交给工厂。</li>
+      <li><strong>检验</strong>——工厂确认失效不属于深度放电、物理损坏或误用（即除外条款）。</li>
+      <li><strong>结算</strong>——免费换新窗口内整只换新，窗口之后则按比例折算信用。</li>
+    </ol>
+    <p>索赔之所以成立，是因为失效被 <em>测量</em> 了、范围被 <em>写明</em> 了。一个只报"电池是坏的"、既无测试数据也无单证的采购方，会被以流程为由拒绝，而不是以事实为依据。完整的机制见 <a href="/zh/knowledge/battery-warranty-claim-process/">质保索赔流程</a> 页面。</p>
+
+    <h2>如何使用这个主题簇</h2>
+    <p>{RELATIONSHIP} {MANUFACTURER.name} 从 {MANUFACTURER.exportPorts} 发货，按 {TRADE_TERMS.incoterms} 条款、提供 {TRADE_TERMS.warranty} 质保。用这个支柱页定下整体框架——分类、单证、质保与仓储——再跟进主题簇页面看细节：</p>
+    <ul>
+      <li><a href="/zh/knowledge/lead-acid-battery-dangerous-goods/">铅酸电池危险品分类</a></li>
+      <li><a href="/zh/knowledge/battery-export-documentation/">电池出口单证</a></li>
+      <li><a href="/zh/knowledge/battery-shipping-warranty/">电池运输、包装与质保</a></li>
+      <li><a href="/zh/knowledge/battery-warranty-claim-process/">电池质保索赔流程</a></li>
+      <li><a href="/zh/knowledge/battery-storage-shelf-life/">电池仓储与保质期</a></li>
+    </ul>
+    <p>相关：<a href="/zh/knowledge/battery-sourcing-guide/">如何从中国采购</a> · <a href="/zh/knowledge/oem-battery-moq-lead-time/">MOQ 与交期</a> · <a href="/zh/knowledge/battery-import-regulations/">分市场进口法规</a> · <a href="/zh/contact/">确认运输与质保条款 →</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，一笔电池订单不是下了产线就算完成——它是在货物无损抵达、质保你读得懂的时候才算完成，而质保时钟从提单日期起算，不是从你客户购买那天起算。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+        <li>货柜是重量先受限、体积后受限，这正是 MOQ 落在 600–800 只、而非粗略估算的 1,400 只的原因。</li>
+        <li>"防溢漏"是经测试的结论，不是标签——一只没有测试记录的密封电池，仍然是 UN 2794 货。</li>
+        <li>一块在你仓库里放 6 个月的电池，已经消耗掉一半质保并开始硫酸盐化，所以仓储是运输的一部分。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="确认运输、单证与质保条款" />
+</ArticleLayout>

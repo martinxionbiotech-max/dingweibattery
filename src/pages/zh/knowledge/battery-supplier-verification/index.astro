@@ -1,0 +1,156 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, RELATIONSHIP } from '../../../../data/site';
+
+const title = '电池供应商核验：营业执照、证书与产能 | Dingwei Battery';
+const description = '付款前如何核验中国电池供应商：营业执照与统一社会信用代码、证书真伪，以及声称的工厂产能是否真实。';
+const articleTitle = '电池供应商核验';
+
+const faqs = [
+  { q: '确认供应商是真实工厂最可靠的办法是什么？', a: '用营业执照上的统一社会信用代码（18 位字符）到国家企业信用信息公示系统（gsxt.gov.cn）核对——执照带着这串 18 位代码，登记册会显示经营范围、注册资本和法定代表人。' },
+  { q: 'IATF 16949 证书有效期多久？', a: 'IATF 16949 证书按 3 年周期颁发，并带监督审核，所以一张看起来"在有效期内"的证书仍可能被暂停——务必拿编号去认证机构的登记册核对，而不是只看纸上的到期日。' },
+  { q: '供应商能伪造产能吗？', a: '能，在纸面上能。日产量只有在三个数字对得上时才可信——铸板产能、化成回路数量和实际人数——所以拿宣称值去对照你亲眼看到的设备，而不是宣传册。' },
+  { q: '为什么核验比价格更重要？', a: '一家冒充工厂的贸易公司通常加价 5–15%，并拿走你的质量控制——所以一份未经核验的"更便宜"报价，到头来往往是最贵的选项。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="采购" dateModified="2026-09-11" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 采购</span>
+    <h1>电池供应商核验</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 来源：国家企业信用信息公示系统、IATF 16949 认证规则</p>
+    <p class="lead">供应商的宣传册告诉你它想成为什么。核验告诉你它是什么。在你付定金之前，有三件事必须独立核实：法律主体、证书、以及声称的产能。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 付款前分三层核验电池供应商：(1) 法律主体——用营业执照上的 18 位统一社会信用代码到 gsxt.gov.cn 核对，确认它是工厂而非贸易公司；(2) 证书——IATF 16949 证书按 3 年周期运行且可能被暂停，所以拿编号去向认证机构核实；(3) 产能——日产量只有在铸板产能、化成回路和人数三者一致时才可信。一家冒充工厂的贸易公司加价 5–15%，并拿走你的质量控制。
+    </div>
+
+    <h2>第一层——核验法律主体</h2>
+    <p>每一家合法的中国公司都有一张载有统一社会信用代码的营业执照——一串 18 位的字母数字标识。这串代码是进入国家企业信用信息公示系统（<a href="https://www.gsxt.gov.cn/index.html">gsxt.gov.cn</a>）的钥匙，一个由市场监督管理总局维护的免费公开登记册。</p>
+    <p>查这串代码，把四个字段对照供应商告诉你的内容：</p>
+    <ul>
+      <li><strong>经营范围</strong>——写的是生产制造（生产/制造），还是只有贸易（贸易）？一家贸易公司在法律上不能运营电池生产线，却有很多把自己包装成工厂。</li>
+      <li><strong>注册资本</strong>——{MANUFACTURER.name} 的注册资本是人民币 5000 万元。一家注册资本只有 10 万元的"工厂"，是一个它无力供养生产线的红旗信号。</li>
+      <li><strong>法定代表人与注册地址</strong>——应与发给你的执照、以及你将发货的地址一致。</li>
+      <li><strong>经营状态</strong>——登记册会显示该主体是正常经营、被吊销，还是被执行。</li>
+    </ul>
+    <p class="note">一家在下单前不肯出示统一社会信用代码的供应商，在下单后也不会分享任何有用的东西。隐藏执照没有任何正当理由。</p>
+
+    <h2>第二层——核验证书</h2>
+    <p>证书是某个时点的文件，它们可能过期、被暂停，或者干脆是伪造的。别接受一张证书图片；要编号，然后去查。</p>
+    <table>
+      <thead><tr><th>证书</th><th>覆盖什么</th><th>如何核实</th></tr></thead>
+      <tbody>
+        <tr><td>IATF 16949</td><td>汽车质量管理体系</td><td>向发证认证机构确认编号与范围（见 <a href="https://www.iatfglobaloversight.org/">IATF Global Oversight</a>）。</td></tr>
+        <tr><td>ISO 9001</td><td>通用质量管理</td><td>在认证机构的登记册上核实；确认范围确实包含电池。</td></tr>
+        <tr><td>ISO 45001 / OHSAS 18001</td><td>职业健康与安全</td><td>核对证书编号与有效窗口。</td></tr>
+        <tr><td>市场证书（CE、SASO 等）</td><td>目的市场符合性</td><td>确认标准以及公告机构或发证机关。</td></tr>
+      </tbody>
+    </table>
+    <p>一张 IATF 16949 证书按 3 年周期颁发，并带年度监督审核。因此一张证书可能 <em>处于</em> 印出来的到期日内，却因审核未通过而被暂停——纸上的日期不是状态的证明。编号才是让你确认当前状态的东西。{MANUFACTURER.name} 持有 {CERTIFICATIONS.join('、')}，可应要求提供证书编号——和你应当愿意核验的任何候选供应商一样。</p>
+
+    <h2>第三层——核验声称的产能</h2>
+    <p>产能宣称是最容易注水的数字，也是买方最难在办公桌前验证的。窍门在于：一条真实的生产线有瓶颈，而瓶颈之间必须互相吻合。三个数字必须一致：</p>
+    <ul>
+      <li><strong>铸板产能</strong>——铸板机每天生产多少片栅格，它封顶了极板产出。</li>
+      <li><strong>化成产能</strong>——化成（充电）回路一次能处理多少单体，乘以每天的循环次数。化成通常是真正的瓶颈。</li>
+      <li><strong>人数</strong>——产线工人数量，它必须支撑得起声称的吞吐量。</li>
+    </ul>
+    <p>如果一家工厂声称日产 40,000 只电池，但它的化成区只容得下其中一小部分，那这个宣称就是营销。把三个数字分开要，检查它们能不能乘出来。<a href="/zh/knowledge/how-audit-battery-factory/">工厂审厂指南</a> 告诉你在现场要看什么来确认这一点。</p>
+
+    <h2>核验清单</h2>
+    <table>
+      <thead><tr><th>项目</th><th>要索取什么</th><th>通过信号</th></tr></thead>
+      <tbody>
+        <tr><td>营业执照</td><td>统一社会信用代码</td><td>与 gsxt.gov.cn 一致；经营范围是生产。</td></tr>
+        <tr><td>注册资本</td><td>来自登记册</td><td>与运营一条生产线相符。</td></tr>
+        <tr><td>IATF 16949 / ISO 9001</td><td>证书编号 + 范围</td><td>可向认证机构核实。</td></tr>
+        <tr><td>产能</td><td>铸板 + 化成 + 人数</td><td>三个数字一致。</td></tr>
+        <tr><td>归属</td><td>工厂地址 vs 注册地址</td><td>二者一致；愿意提供视频导览。</td></tr>
+        <tr><td>出口记录</td><td>提单样本或客户推荐</td><td>能说出它服务的目的市场。</td></tr>
+      </tbody>
+    </table>
+
+    <h2>伪造长什么样</h2>
+    <ul>
+      <li><strong>借用照片</strong>——贸易公司拍下别家工厂的产线。一场带具体指令（举着今天的日期）的实时视频通话，能把东家与游客区分开。</li>
+      <li><strong>过期或暂停的证书</strong>——纸面看着在有效期内，编号却对不上。</li>
+      <li><strong>注水的产能</strong>——宣传册宣称一个化成区撑不起的数字。</li>
+      <li><strong>信箱地址</strong>——注册地址是一间办公室，而不是被告知存在的那座工厂。</li>
+    </ul>
+    <p>这些都不需要上门才能识破。三层里的两层——执照和证书——在办公桌前就能核验；只有产能真正需要眼睛盯着产线。</p>
+
+    <h2>核验在流程中的位置</h2>
+    <p>核验位于短名单与审厂之间。它又便宜又快——一个小时的登记册核查——就能剔除那些会浪费一整场审厂的候选。先核验，再审存活的，然后发 <a href="/zh/knowledge/oem-battery-rfq-guide/">RFQ</a>。</p>
+    <p>{RELATIONSHIP} 完整的采购顺序见 <a href="/zh/knowledge/battery-sourcing-guide/">采购指南</a>；要建立值得核验的短名单，见 <a href="/zh/knowledge/china-battery-industry-regions/">中国电池产业区域</a>；给存活的候选打分，见 <a href="/zh/knowledge/how-choose-oem-battery-manufacturer/">如何选择制造商</a> 指南。</p>
+
+    <h2>完整登记册清单</h2>
+    <p>gsxt.gov.cn 是第一站，但彻底的核查要用四个公开登记册，全都免费：</p>
+    <ul>
+      <li><strong>国家企业信用信息公示系统</strong>（<a href="https://www.gsxt.gov.cn/index.html">gsxt.gov.cn</a>）——执照、统一社会信用代码、经营范围和经营状态。</li>
+      <li><strong>中国裁判文书网 / 执行记录</strong>——该主体是否是不还钱或质量纠纷的被告。</li>
+      <li><strong>认证机构的证书登记册</strong>——确认 IATF 16949 或 ISO 9001 编号当前有效、范围匹配。</li>
+      <li><strong>海关 / 出口记录</strong>——在可得时，确认该主体真的在出口，而不只是打广告。</li>
+    </ul>
+    <p>这些都不需要上门。合在一起，它们回答了付款前最要紧的两个问题：这个主体是真的吗？它是否如它所声称的那样？</p>
+
+    <h2>一个核验实例</h2>
+    <p>把一家供应商跑一遍核查，结果是一张通过/不通过清单，而不是一种感觉：</p>
+    <table>
+      <thead><tr><th>核查项</th><th>供应商声称</th><th>登记册显示</th><th>结论</th></tr></thead>
+      <tbody>
+        <tr><td>统一社会信用代码</td><td>提供了 18 位代码</td><td>解析出不同的名称</td><td>不通过——停止</td></tr>
+        <tr><td>经营范围</td><td>"工厂，20 年"</td><td>范围只有贸易（贸易）</td><td>不通过——停止</td></tr>
+        <tr><td>注册资本</td><td>"大型制造商"</td><td>人民币 10 万元</td><td>不通过——停止</td></tr>
+        <tr><td>IATF 16949</td><td>"完全认证"</td><td>证书已暂停</td><td>不通过——停止</td></tr>
+        <tr><td>产能</td><td>日产 40,000 只</td><td>化成区只撑得起一小部分</td><td>调查</td></tr>
+      </tbody>
+    </table>
+    <p>在这个例子里，五项核查有四项直接不通过，正确的动作是在审厂上花哪怕一天之前就走人。这就是核验的价值：它免费剔除了那些审厂要花 1,500–3,000 美元才会剔除的候选。</p>
+
+    <h2>样品作为核验工具</h2>
+    <p>一只生产样品是证据，但只有当你问对了关于它的问题时才成立。样品到货时，确认三件事：</p>
+    <ol>
+      <li><strong>它来自生产批次，而不是实验室台面</strong>——要一份把它和生产挂钩的批次记录。</li>
+      <li><strong>它带着自己的测试报告</strong>——在指定测试基准上的 CCA 和容量，而不是一份通用数据表。</li>
+      <li><strong>它与执照一致</strong>——标签上应写着你核验过的那个主体，而不是另一家贸易公司。</li>
+    </ol>
+    <p>一家能交出带批次记录和测试报告的样品的供应商，是在向你展示它的过程管控，而不只是它的产品。</p>
+
+    <h2>视频导览规程</h2>
+    <p>如果你无法到场，一场实时视频通话能替代部分实地考察。让它可核验，而不是一段参观视频：</p>
+    <ul>
+      <li>要求从工厂大门开始，公司招牌入镜。</li>
+      <li>要求他们在镜头前举起一份带日期的文件或当天的报纸。</li>
+      <li>要求按生产顺序走一遍产线，并在固化房和化成区停留。</li>
+      <li>在每个停留点问一个技术问题——真正的工厂答得上来，贸易商支支吾吾。</li>
+    </ul>
+    <p>视频通话不如审厂，但比一套照片好得多，而且零成本。把它当作办公桌核验与实地 <a href="/zh/knowledge/how-audit-battery-factory/">审厂</a> 之间的桥梁。</p>
+
+    <h2>来源与延伸阅读</h2>
+    <ul>
+      <li><a href="https://www.gsxt.gov.cn/index.html">国家企业信用信息公示系统</a>——营业执照与统一社会信用代码的主要登记册。</li>
+      <li><a href="https://www.iatfglobaloversight.org/">IATF Global Oversight</a>——监管 IATF 16949 认证及其 3 年审核周期的机构。</li>
+    </ul>
+    <p>核验是整个采购流程里最便宜、也是最不能跳过的一环。对每个候选、每一次，都跑一遍。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，核验是采购里最便宜的一环，也是最贵的一环去跳过——它的三层里有两层可以在办公桌前免费核查，一分钱都不用付。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+        <li>gsxt.gov.cn 上的统一社会信用代码，免费揭示了这个主体是工厂（生产/制造）还是贸易商（贸易）。</li>
+        <li>证书是时点性的；拿编号对照认证机构的登记册，才是证明当前状态的依据，而不是印出来的日期。</li>
+        <li>产能宣称必须能乘出来——铸板、化成和人数要对得上，否则数字就是营销。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="直接核验 Dingwei Battery 的资质" />
+</ArticleLayout>

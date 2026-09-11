@@ -1,0 +1,105 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = 'OEM 电池开发流程 | Dingwei Battery';
+const description = '一步步的 OEM 电池开发流程——从咨询到发货的七个关卡，每个关卡对应的里程碑、周期时长与买方签核。';
+const articleTitle = 'OEM 电池开发流程';
+
+const faqs = [
+  { q: '每个开发阶段要多久？', a: '打样 10–20 天，生产 30–45 天，从 RFQ 到第一个货柜的完整周期是 60–90 天——其中咨询、规格和标签设计占前 1–2 周。' },
+  { q: '买方最容易在哪里出错？', a: '跳过样品批准关卡——只批图纸、却不测实物样品，正是复购订单回来与你批准的不一致的原因——也是那个把 10–20 天打样阶段赶出来的错误。' },
+  { q: '哪些关卡需要买方签字？', a: '7 个里的 4 个——规格、样品、质量标准和发货。如果制造商全部替你签了，你就交出了对结果的控制权。' },
+  { q: '哪个里程碑结束开发、开始生产？', a: '获批的试产样品——一旦它被测过并签字，规格就被锁定，30–45 天的大批量生产才能开始。' },
+  { q: '开发和生产能重叠吗？', a: '首单不能安全重叠——生产只在样品获批后才开始，因为一批在获批前就产出的货，要背负一个 600–800 只货柜的全部返工风险。' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-11" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · OEM</span>
+    <h1>OEM 电池开发流程</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 来源：晋州成光电源有限公司技术文档</p>
+    <p class="lead">OEM 开发是一个关卡化流程——七个阶段，每个都以一个里程碑收尾，其中四个需要买方签核。理解这个顺序，你就知道该在哪里介入、在哪里坚持书面批准——这正是"一只保持在规格上"与"一只在漂移"的电池之间的差别。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> OEM 电池开发走七个关卡——咨询、规格、设计与品牌、打样、大批量生产、质检和发货——周期 60–90 天。买方签其中四个（规格、样品、质量标准、发货），关键里程碑是获批的试产样品，它锁定规格并放行大批量生产。
+    </div>
+
+    <h2>七个阶段及其里程碑</h2>
+    <table>
+      <thead><tr><th>阶段</th><th>里程碑</th><th>典型周期</th><th>买方签核</th></tr></thead>
+      <tbody>
+        <tr><td>1. 咨询</td><td>可行性确认</td><td>2–3 天</td><td>—</td></tr>
+        <tr><td>2. 规格</td><td>签字的规格表</td><td>3–5 天</td><td>是</td></tr>
+        <tr><td>3. 设计与品牌</td><td>获批的标签设计</td><td>3–7 天</td><td>是</td></tr>
+        <tr><td>4. 打样</td><td>获批的试产样品</td><td>10–20 天</td><td>是</td></tr>
+        <tr><td>5. 大批量生产</td><td>货柜级批次</td><td>30–45 天</td><td>—</td></tr>
+        <tr><td>6. 质检</td><td>签字的测试数据</td><td>2–4 天</td><td>是</td></tr>
+        <tr><td>7. 发货</td><td>提单</td><td>3–5 周</td><td>是</td></tr>
+      </tbody>
+    </table>
+    <p>上表周期是标准型号在现有平台上的规划数字；定制壳体或新端子布局会拉长打样和开模。完整的 60–90 天图景见 <a href="/zh/knowledge/oem-battery-guide/">OEM 制造指南</a>。</p>
+
+    <h2>需要你签字的四个关卡</h2>
+    <p>不是每个阶段都需要你批准——有四个需要，而它们正是结果被决定的地方：</p>
+    <ol>
+      <li><strong>规格</strong>——签下每个参数，包括 CCA 测试基准。</li>
+      <li><strong>样品</strong>——批准前把试产样品对照规格测试。</li>
+      <li><strong>质量标准</strong>——大批量生产开始前约定验收准则。</li>
+      <li><strong>发货</strong>——放行前确认单证。</li>
+    </ol>
+    <p>如果制造商替你签下全部四个，你就交出了对结果的控制权。把顺序与 <a href="/zh/knowledge/how-oem-battery-programs-work/">方案阶段</a> 绑在一起，好让双方都知道哪里需要批准——并注意质量标准关卡是一套明确的验收准则，正是 <a href="https://www.iso.org/iso-9001-quality-management.html">ISO 9001</a> 质量管理框架对任何可复现过程所要求的同一种纪律。</p>
+
+    <h2>从样品到大批量生产：关键的交接</h2>
+    <p>最重大的转折在第 4 阶段（打样）和第 5 阶段（大批量生产）之间。获批样品成为 <strong>金样</strong>——之后每个批次都对照它的实物参考。三条纪律让交接安全：</p>
+    <ol>
+      <li><strong>按被测样品批准，而不是按照片</strong>——要实际样品在指定测试基准上的 CCA 和容量报告。</li>
+      <li><strong>把样品锁进合同</strong>——在采购订单里引用它的序列号和测试报告。</li>
+      <li><strong>自己留一只</strong>——你无法对一只你从未持有过的样品去裁决未来的索赔。</li>
+    </ol>
+    <p>一家催你跳过打样直接生产的工厂，通常在掩盖它的样品线与生产线之间的差距。这是最常见、也最贵的开发失败，而且完全可以预防。</p>
+
+    <h2>买方该在哪里介入</h2>
+    <ul>
+      <li><strong>规格</strong>——签下每个参数。</li>
+      <li><strong>打样</strong>——批准前先测试。</li>
+      <li><strong>质检</strong>——约定验收准则。</li>
+      <li><strong>发货</strong>——确认单证。</li>
+    </ul>
+    <p>这些关卡之间的一切都是制造商的事。生产上不挡路、同时守住四个关卡，正是产出可复现电池的纪律。产线上"过程管控"应该是什么样，见 <a href="/zh/knowledge/how-audit-battery-factory/">工厂审核</a> 指南；正确书写第 2 阶段，见 <a href="/zh/knowledge/oem-battery-specification-guide/">规格指南</a>。</p>
+
+    <h2>为什么关卡比速度更重要</h2>
+    <p>跳过一个关卡，正是规格漂移发生的途径。一个更慢、但关卡化的流程，保护的是让 OEM 项目盈利的可复现性——而跳过关卡的代价以货柜计，不是以天数计。花在打样上的 10–20 天，是整个项目里最便宜的保险，而整个关卡序列正是 <a href="https://www.iatfglobaloversight.org/">IATF 16949</a> 为汽车制造所编纂的缺陷预防纪律的实操形态。</p>
+
+    <h2>它在哪里</h2>
+    <p>{RELATIONSHIP} 本页讲流程；主题簇其余部分讲背景：</p>
+    <ul>
+      <li><a href="/zh/knowledge/oem-battery-guide/">OEM 电池制造：完整指南</a></li>
+      <li><a href="/zh/knowledge/what-is-oem-battery/">什么是 OEM 电池</a></li>
+      <li><a href="/zh/knowledge/how-oem-battery-programs-work/">OEM 电池方案如何运作</a></li>
+      <li><a href="/zh/knowledge/oem-battery-cost-breakdown/">OEM 电池成本拆解</a></li>
+      <li><a href="/zh/knowledge/oem-battery-vs-aftermarket/">OEM vs 售后电池</a></li>
+    </ul>
+    <p><a href="/zh/oem/">OEM 电池方案 &rarr;</a> · <a href="/zh/contact/">规划您的 OEM 开发流程 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，需要你签字的四个关卡——规格、样品、质量标准和发货——正是 OEM 开发胜负所在，把它们签出去就是交出对结果的控制权。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+        <li>最重大的转折是从打样到大批量生产的交接；按被测样品批准、而非按照片，才让它安全。</li>
+        <li>一家催你跳过打样的工厂，通常在掩盖它的样品线与生产线之间的差距。</li>
+        <li>跳过关卡正是规格漂移发生的途径，代价以货柜计、而非以天数计。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="规划您的 OEM 开发流程" />
+</ArticleLayout>

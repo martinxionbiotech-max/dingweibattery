@@ -1,0 +1,95 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../../data/site';
+
+const title = 'OEM vs 售后电池 | Dingwei Battery';
+const description = 'OEM 与售后电池对比——质保、寿命、生产一致性、渠道与价格，以及决定取舍的三个问题。';
+const articleTitle = 'OEM vs 售后电池';
+
+const faqs = [
+  { q: 'OEM 电池通常比售后电池多用多久？', a: '没有固定的寿命差距——真正的区别是一致性，不是多少个月。OEM 给你锁定的规格，让每个货柜都一致，并配一份书面的 12 个月工厂质保；售后因批次而异，因为你买的是供应商手头有什么存货。' },
+  { q: 'OEM 和售后电池的质保不同吗？', a: '往往不同——OEM 方案通常带一份自提单日期起的书面 12 个月工厂质保，而售后的覆盖因卖家而异，且常常是按比例折算而非整只换新。' },
+  { q: '售后电池总是更便宜吗？', a: '按每单位价值算未必——售后赢在库存现货可得，但 OEM 赢在货柜规模下的单位成本，一个 20 尺柜 600–800 只压低了单只运费，而且规格归你。' },
+  { q: '对电池品牌而言哪个更好？', a: '几乎总是 OEM——售后意味着竞争对手能买到同一款电池，而 OEM 给你一个没人能采购到的产品与标签，外加一份 12 个月的书面工厂质保。' },
+  { q: '我以后能从售后切到 OEM 吗？', a: '能——自然的路径是先做售后验证需求，一旦你有一个货柜 600–800 只、值得用锁定规格来保护时，再转到 OEM。' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-11" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · OEM</span>
+    <h1>OEM vs 售后电池</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 来源：晋州成光电源有限公司技术文档、行业质保惯例</p>
+    <p class="lead">"OEM 还是售后？"其实是把三个问题捆成了一个——关于质保、关于寿命、关于一致性——而诚实的答案是：两者不是同一根轴上的对手。售后赢在可得性和今天的单位价格；OEM 赢在控制与一致性。这一页把三个问题拆开，好让你决定哪根轴对你的生意要紧。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> OEM 与售后不是"好与便宜"——而是"控制与便利"。OEM 给你锁定的规格、一份书面的 12 个月工厂质保和一个竞争对手买不到的产品；售后给你库存现货和更低的单笔现金支出，但质保常常按比例折算、一致性因批次而异。决定性问题在于：你是买电池来转卖一次，还是在建一个要转卖多年的品牌。
+    </div>
+
+    <h2>拆开的三个问题</h2>
+    <table>
+      <thead><tr><th>维度</th><th>OEM</th><th>售后</th></tr></thead>
+      <tbody>
+        <tr><td>质保</td><td>书面工厂质保，{TRADE_TERMS.warranty}</td><td>由卖家定义，常常按比例折算</td></tr>
+        <tr><td>寿命</td><td>由你的规格和质量关卡决定</td><td>因批次和来源而异</td></tr>
+        <tr><td>一致性</td><td>锁定——第十个货柜与第一个一致</td><td>不锁定——每单都是手头有什么存货</td></tr>
+        <tr><td>渠道</td><td>工厂直供、你的品牌</td><td>经销商或贸易商、他们的品牌或空白</td></tr>
+        <tr><td>单位成本</td><td>货柜规模（600–800 只）下最低</td><td>单只更高、每单现金支出更低</td></tr>
+      </tbody>
+    </table>
+
+    <h2>质保：读真正承诺了什么</h2>
+    <p>质保对比是买方最常搞错的地方，因为他们比的是标题数字。一个 OEM 方案通常带一份书面工厂质保——{TRADE_TERMS.warranty}——含明确的期限、除外条款和索赔处理。售后的覆盖因卖家而异，而行业模式是 <strong>按比例折算结算</strong>：初期窗口内整只换新（常见 12–24 个月），之后是按电池使用时长递减的部分信用（见 <a href="https://www.midtronics.com/blog/how-to-explain-battery-warranties-and-pro-rated-coverage">Midtronics 对按比例电池覆盖的说明</a>）。一份按比例折算的"36 个月质保"，实际可能不如一份整只换新的 12 个月质保值钱。在 OEM 一侧，让书面工厂质保可执行的那份一致性，来自一个经认证的过程——即规范汽车质量制造的 <a href="https://www.iatfglobaloversight.org/">IATF 16949</a> 标准。看 <a href="/zh/knowledge/battery-warranty-claim-process/">质保索赔流程</a> 页面了解两者在索赔中各自的走向。</p>
+
+    <h2>寿命：一致性，不是魔法数字</h2>
+    <p>不存在一个固定的"OEM 多用 X 年"数字，任何给你这个数字的来源都在编造。真正的区别是 <strong>一致性</strong>：一个 OEM 项目钉死规格和质量关卡，所以每个货柜都用同样的方式制造。售后供应是无界的——你买的是供应商手头的存货，可能这个季度出色、下个季度疲软。对转售商而言，一个糟糕的售后批次是一笔质保负债、也是一次品牌打击；对 OEM 而言，规格锁定正是防止那个批次的东西。<a href="/zh/knowledge/battery-quality-control/">质量控制</a> 页面展示了产线上"一致性"是什么样。</p>
+
+    <h2>一致性与复购经济学</h2>
+    <p>售后在你验证需求时合理——买一个混装货柜、试市场、摸清哪些型号好卖。一旦你有了值得保护的量，OEM 就合理了。转折点是规格锁定：从你的复购订单比下一单更重要的那一刻起，OEM 的控制就比售后的便利更值钱。<a href="/zh/knowledge/how-oem-battery-programs-work/">方案如何运作</a> 页面解释让这一点成立的锁定。</p>
+
+    <h2>渠道与品牌</h2>
+    <p>售后电池带着别人的品牌——或根本没有品牌——这意味着竞争对手能买到完全相同的产品并低价打压你。OEM 把你的标签、你的包装和你的规格放到产品上，所以品牌资产归你、别人也采购不到。如果你在建一个电池品牌、而不只是搬箱子，这一点就决定了答案。品牌一侧见 <a href="/zh/knowledge/private-label-battery-strategy/">贴牌策略</a> 页面。</p>
+
+    <h2>价格：比落地总成本，而非单价标签</h2>
+    <p>当你同口径比较时，售后表面上的价格优势会缩小。在货柜规模（{TRADE_TERMS.moq}）下，单只运费被摊薄、工厂直供的中间差价消失——这正是 OEM 单位成本通常在售后便利性最不重要处最低的原因。诚实的表述是：当你明天就要 50 只时售后赢；当你未来两年每月要 600 只时 OEM 赢。落地成本算术见 <a href="/zh/knowledge/oem-battery-cost-breakdown/">成本拆解</a> 页面。</p>
+
+    <h2>供应商不会主动告诉你的</h2>
+    <ul>
+      <li><strong>售后的"质保"常是卖家的，不是工厂的。</strong> 如果卖家消失，覆盖也消失——OEM 质保挂在工厂上。</li>
+      <li><strong>按比例折算不是整只换新。</strong> 一个长质保数字配上按比例结算，可能不如一个短的整只换新值钱。</li>
+      <li><strong>售后一致性是别人的问题。</strong> 你继承了批次间的波动；你只是到货前看不见它。</li>
+    </ul>
+
+    <h2>一段话做决定</h2>
+    <p>{RELATIONSHIP} {MANUFACTURER.name} 按 JIS、DIN、BCI、AS 和 SA 标准制造，出口至 {MANUFACTURER.exportMarkets}。如果你买电池是为了转卖一次，售后可以。如果你在建一个要转卖多年的品牌，规格锁定、书面质保和工厂直供差价，全都指向 OEM。</p>
+
+    <h2>它在哪里</h2>
+    <ul>
+      <li><a href="/zh/knowledge/oem-battery-guide/">OEM 电池制造：完整指南</a></li>
+      <li><a href="/zh/knowledge/what-is-oem-battery/">什么是 OEM 电池</a></li>
+      <li><a href="/zh/knowledge/how-oem-battery-programs-work/">OEM 电池方案如何运作</a></li>
+      <li><a href="/zh/knowledge/oem-battery-development-process/">OEM 开发流程</a></li>
+      <li><a href="/zh/knowledge/oem-battery-cost-breakdown/">OEM 电池成本拆解</a></li>
+    </ul>
+    <p><a href="/zh/oem/">探索 OEM 方案 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，"OEM 还是售后？"是把三个问题捆成一个，而诚实的答案是两者不是同一根轴上的对手——售后赢在可得性，OEM 赢在控制与一致性。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+        <li>不存在固定的"OEM 多用 X 年"数字，任何给这个数字的来源都在编造；真正的区别是批次间的一致性。</li>
+        <li>售后的质保常是卖家的、而非工厂的，所以卖家消失它也就消失；OEM 质保挂在工厂上。</li>
+        <li>明天要 50 只时售后赢；未来两年每月要 600 只时 OEM 赢。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="为您的市场对比 OEM 与售后" />
+</ArticleLayout>
