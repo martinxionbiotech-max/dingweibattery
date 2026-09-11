@@ -1,0 +1,121 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../../data/site';
+
+const title = 'OEM 电池 MOQ 与交期：集装箱数学 | Dingwei Battery';
+const description = '为什么 OEM 电池 MOQ 跟着 20 尺柜走、交期如何拆分为生产/海运/清关，以及如何压缩两者。';
+const articleTitle = 'OEM 电池 MOQ 与交期';
+
+const faqs = [
+  { q: '为什么电池 MOQ 跟集装箱绑定？', a: '整柜（FCL）时单位运费骤降，且托盘堆码限制了实际装载——一个 20 尺柜约 33 m³，但启动电池在体积或 28,000 kg 载重触顶之前，早就堆到了约 600–800 只。' },
+  { q: '首单能拿到更低 MOQ 吗？', a: '有时可以——在承诺满产 MOQ 前，先谈打样或小批量试产。低量时单位运费通常是整柜费率的 2–3 倍。' },
+  { q: '铅酸电池生产有季节性吗？', a: '没有。与农产品不同，铅酸电池在 365 天产线上全年生产，因此交期稳定而非季节性的。' },
+  { q: '30–45 天交期实际怎么拆？', a: '大致是 3–5 天订单确认与打样批准、20–30 天生产、2–3 天装运前检验，然后在所述生产交期之上再加 3–5 周海运与清关。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 采购</span>
+    <h1>OEM 电池 MOQ 与交期</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：晋州成光电源有限公司技术文档；出口物流实践</p>
+    <p class="lead">MOQ 与交期由生产经济与集装箱物流决定，而非仅靠谈判。下面是两者背后的算术，以及如何让它们朝对你有利的方向移动。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> OEM 电池 MOQ 跟着 20 尺柜走——约 33 m³、28,000 kg 载重——但托盘堆码在任一上限触顶之前就把实际装载卡在约 600–800 只，所以 MOQ 是个「集装箱逻辑」数字。30–45 天交期拆分为 3–5 天确认、20–30 天生产、2–3 天装运前检验，再加 3–5 周海运。
+    </div>
+
+    <h2>什么决定 MOQ</h2>
+    <p>电池 MOQ 与整柜绑定，是因为整柜时单位运费骤降。{MANUFACTURER.name} 的参考 MOQ 为 {TRADE_TERMS.moq}。</p>
+
+    <h2>集装箱数学，诚实算</h2>
+    <p>为什么是 600–800 只而非 1,400 只？跑一遍三个上限：</p>
+    <table>
+      <thead><tr><th>上限</th><th>计算</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>体积</td><td>20 尺柜 ≈ 33 m³ ÷ 每只带包装约 0.011 m³</td><td>≈ 3,000 只</td></tr>
+        <tr><td>载重</td><td>≈ 28,000 kg ÷ 每只约 19 kg</td><td>≈ 1,470 只</td></tr>
+        <tr><td>堆码 / 搬运</td><td>托盘载重上限与纸箱抗压强度限制实际装载</td><td>≈ 600–800 只</td></tr>
+      </tbody>
+    </table>
+    <p>诚实的结论：对启动电池而言，绑定约束既不是裸体积也不是裸重量——而是托盘堆码与纸箱抗压强度。一个装 70 只、每只 19 kg 的托盘已重约 1,330 kg，接近实际搬运上限，而且你不能无限堆箱而不压垮底层。这就是「重量先于体积」的直觉在托盘层面成立的原因，尽管集装箱本身能装更多。MOQ 不是营销数字——它是安全、经济的装载量。</p>
+
+    <h2>什么决定交期</h2>
+    <p>交期覆盖订单确认、生产与装运前检测。{MANUFACTURER.name} 的参考交期为 {TRADE_TERMS.leadTime}；定制标签订单还要加打样时间。拆解如下：</p>
+    <table>
+      <thead><tr><th>阶段</th><th>典型天数</th><th>覆盖内容</th></tr></thead>
+      <tbody>
+        <tr><td>订单确认</td><td>3–5</td><td>规格锁定、定金、打样批准</td></tr>
+        <tr><td>生产</td><td>20–30</td><td>从铸板到化成、封盖</td></tr>
+        <tr><td>装运前检验</td><td>2–3</td><td>终检、包装检查、装柜</td></tr>
+        <tr><td>海运 + 清关</td><td>3–5 周</td><td>运输、清关与内陆交付（在 30–45 天数字之外）</td></tr>
+      </tbody>
+    </table>
+    <p class="note">报价中的 30–45 天是生产交期，不是门到门。海运与清关还要再加 3–5 周——这是采购方向客户承诺上线日期时常忽略的区别。</p>
+
+    <h2>如何同时降低两者</h2>
+    <ul>
+      <li>按整柜倍数下单——FCL 定价是最大的单位成本杠杆。</li>
+      <li>把混合型号拼进一个柜——把固定运费摊到更多行项上。</li>
+      <li>尽早确认规格——打样延误是最可避免的交期成本。</li>
+      <li>围绕铅酸电池全年无休的生产来规划。</li>
+    </ul>
+    <p><a href="/zh/contact/">确认 MOQ 与交期 →</a> · <a href="/knowledge/how-oem-battery-programs-work/">OEM 方案如何运作 →</a></p>
+
+    <h2>生产交期 vs 门到门</h2>
+    <p>供应商报的 30–45 天是生产交期，不是从下单到您仓库的时间。完整门到门时间线还要加上海运与清关：</p>
+    <table>
+      <thead><tr><th>环节</th><th>时长</th><th>由谁控制</th></tr></thead>
+      <tbody>
+        <tr><td>订单确认 + 打样</td><td>3–5 天</td><td>您与工厂</td></tr>
+        <tr><td>生产</td><td>20–30 天</td><td>工厂</td></tr>
+        <tr><td>装运前检验</td><td>2–3 天</td><td>工厂 + 检验方</td></tr>
+        <tr><td>海运</td><td>3–5 周</td><td>承运人</td></tr>
+        <tr><td>清关 + 内陆</td><td>1–2 周</td><td>报关行 + 市场</td></tr>
+      </tbody>
+    </table>
+    <p>加总起来，一个「30–45 天」的订单从定金到您仓库实际是 60–90 天。向客户承诺生产数字，您会错过每个上线日期。请用门到门数字来规划。</p>
+
+    <h2>如何压缩时间线</h2>
+    <p>您可以在不压榨工厂的情况下缩短总时长，办法是攻击您能控制的部分：</p>
+    <ul>
+      <li><strong>下单前锁定规格</strong>——打样延误是计划里最可避免的部分。</li>
+      <li><strong>持有少量缓冲库存</strong>——备一个月热销款，避免总是被动下单。</li>
+      <li><strong>用滚动预测</strong>——给工厂 3–6 个月可见度，让它为您预留化成产能，而非把您排到后面。</li>
+      <li><strong>提前打通进口路径</strong>——在生产完成前就办认证与装运前检验，而非事后补。</li>
+    </ul>
+    <p>工厂的 20–30 生产天基本固定。可压缩的是它周围的一切——您在重新报价、重新打样、很晚才发现认证上浪费的几周。</p>
+
+    <h2>MOQ 谈判：真正有效的杠杆</h2>
+    <p>MOQ 跟着集装箱走，所以谈判的焦点是如何填满它，而非把数字往下压：</p>
+    <ol>
+      <li><strong>多型号拼一个整柜</strong>——一个柜装三个型号仍满足整柜 MOQ，还分散了您的风险。</li>
+      <li><strong>试单用拼箱（LCL）</strong>——在承诺整柜前，先用部分装载验证，单位运费更高。</li>
+      <li><strong>与其他买方拼柜</strong>——货代可把您的部分装载与他人合并，溢价低于纯 LCL。</li>
+    </ol>
+
+    <h2>MOQ 反映的是库存压力，不只是运费</h2>
+    <p>这是供应商不主动说破的部分：MOQ 不只是您的运费经济，也是供应商的库存。一个把 MOQ 推得很高的工厂，可能是在清库存、或为自身效率集中排产，而非保护您的单位成本。要问 MOQ 的<em>逻辑</em>——集装箱条款、托盘载重、型号组合——而不是接受一个裸数字。会解释集装箱数学的供应商是在保护您的成本；只报一个数字的，可能在保护它自己。</p>
+
+    <p>{RELATIONSHIP}</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>别把「MOQ 越低越好」当谈判目标——铅酸电池的 MOQ 受集装箱载重硬约束，砍到半柜往往意味着拼柜的排期与损耗风险都转嫁给你。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+        <li>载重先于体积触顶是物理事实，不是供应商抬价话术。</li>
+        <li>半柜/拼柜的订舱与清关复杂度，常常吃掉省下的那点量。</li>
+        <li>与其纠结起订量，不如把规格一次锁死，让交期窗口变稳。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论；装柜量与交期为行业通用估算，非对具体订单的承诺。</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="确认 MOQ 与交期" />
+</ArticleLayout>

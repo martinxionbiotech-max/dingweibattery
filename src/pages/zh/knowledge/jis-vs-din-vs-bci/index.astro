@@ -1,0 +1,121 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP, STANDARDS } from '../../../../data/site';
+
+const title = 'JIS vs DIN vs BCI 电池标准 | Dingwei Battery';
+const description = 'JIS、DIN/EN 与 BCI 电池标准在壳体尺寸、端子布局、命名规则与 CCA 测试方法上有何不同——以及让它们不可互换的适配陷阱。';
+const articleTitle = 'JIS vs DIN vs BCI 电池标准';
+
+const faqs = [
+  { q: 'JIS、DIN、BCI 电池有什么区别？', a: '它们为不同市场定义了不同的壳体尺寸、端子布局、命名规则与 CCA 测试方法——JIS 面向日本/亚洲（−15°C 测试）、DIN/EN 面向欧洲、BCI 面向北美（均为 −18°C）。' },
+  { q: 'JIS 和 DIN 电池能互换吗？', a: '不能。即便电气额定相近，物理壳体与端子布局也不同，一个系列的电池装不进为另一个系列设计的车辆。JIS D26 与 DIN H6 可能都约 72 Ah，但形状不同。' },
+  { q: 'DIN H6 和 BCI Group 48 一样吗？', a: '物理上一样——都是 278 × 175 × 190 mm。区别在 CCA 测试基准与端子约定，所以同一个壳子以两个名字在两个市场销售。' },
+  { q: '我该如何选对电池标准？', a: '按车辆的市场选，而非按电池规格选——日系/亚洲车用 JIS、欧洲车用 DIN/EN、北美车用 BCI。然后在该系列内确认壳体参考、端子与 CCA 基准。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Standards" dateModified="2026-09-09" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 标准</span>
+    <h1>JIS vs DIN vs BCI 电池标准</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-09 · 来源：JIS D 5301、EN 50342、BCI Battery Replacement Data Book</p>
+    <p class="lead">电池的「尺寸」由您市场所用的标准系列定义。电气额定相近的 JIS、DIN/EN 与 BCI 电池在物理上不同——且大多不可互换，尽管在尺寸层面有些重叠。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> JIS、DIN/EN 与 BCI 电池即便 Ah 相近也不可互换——壳体尺寸、端子布局、命名规则与 CCA 测试方法都不同。唯一重要的重叠：DIN H6/LN3 与 BCI Group 48 是同一个 278 × 175 × 190 mm 的壳子。订错系列意味着电池装不进托盘，无论规格表怎么填。
+    </div>
+
+    <h2>三大系列一览</h2>
+    <table>
+      <thead><tr><th>标准</th><th>地区</th><th>典型壳体参考</th><th>CCA 测试</th><th>命名规则</th></tr></thead>
+      <tbody>
+        <tr><td>JIS</td><td>日本 / 亚洲</td><td>D23、D26、D31、B24、N 系列</td><td>−15°C</td><td>性能档 + 壳体代码（55D23、80D26）</td></tr>
+        <tr><td>DIN / EN</td><td>欧洲</td><td>H5–H8（LN2–LN5）、L3–L5</td><td>−18°C</td><td>字母 + 长度档（H6、L3）</td></tr>
+        <tr><td>BCI</td><td>北美</td><td>Group 24、27、31、34、47、48、49、94R</td><td>−18°C（SAE）</td><td>任意组号</td></tr>
+      </tbody>
+    </table>
+
+    <h2>命名规则有何不同</h2>
+    <p>命名体系编码了不同信息，这本身就是混淆来源：</p>
+    <ul>
+      <li><strong>JIS</strong>——两位前缀是<em>性能/容量档</em>，字母+数字后缀是<em>壳体尺寸</em>。所以 55D23 与 75D23 共用 D23 壳体（同尺寸）但容量与 CCA 不同；65D23 与 65D26 同档但壳体长度不同。</li>
+      <li><strong>DIN/EN</strong>——H/LN 代码是在固定 175 mm 宽、190 mm 高下的长度档。H6（LN3）与 L3 在新旧编号下是同一个 278 mm 壳子。代码本身不说明容量。</li>
+      <li><strong>BCI</strong>——组号是任意的，映射到一个固定尺寸 + 端子布局。它不携带性能信息。</li>
+    </ul>
+    <p>实际后果：只说「72 Ah」而无系列是没用的，因为 JIS 72 Ah、DIN 72 Ah 与 BCI 72 Ah 电池是三种不同形状。这是买方把一个市场的 Ah 数值照搬到另一个市场时的真实陷阱。</p>
+
+    <h2>为什么它们不可互换</h2>
+    <ol>
+      <li><strong>壳体尺寸</strong>——JIS D26（256 × 175 × 220 mm）与 DIN H6（278 × 175 × 190 mm）可能都约 72 Ah，但一个更长、一个更高，装不进同一个托盘。</li>
+      <li><strong>端子布局</strong>——端子类型、位置与极性约定在不同市场不同。物理上装得下的电池，端子仍可能是错的。</li>
+      <li><strong>CCA 测试方法</strong>——JIS 在 −15°C 测试，EN/SAE 在 −18°C，所以印的 CCA 跨系列不可直接比较。见 <a href="/knowledge/what-is-cca/">CCA 指南</a>。</li>
+    </ol>
+
+    <h2>能省模具的重叠</h2>
+    <p>并非一切都不同。在尺寸层面，系列之间的重叠比多数买方以为的多：</p>
+    <table>
+      <thead><tr><th>DIN/EN 代码</th><th>BCI 组</th><th>尺寸（mm）</th></tr></thead>
+      <tbody>
+        <tr><td>H5 / LN2</td><td>47</td><td>242 × 175 × 190</td></tr>
+        <tr><td>H6 / LN3 / L3</td><td>48</td><td>278 × 175 × 190</td></tr>
+        <tr><td>H7 / LN4 / L4</td><td>94R</td><td>315 × 175 × 190</td></tr>
+        <tr><td>H8 / LN5 / L5</td><td>49</td><td>354 × 175 × 190</td></tr>
+      </tbody>
+    </table>
+    <p>因此一套模具可同时服务欧洲与北美，前提是每个目的地的端子布局与 CCA 基准都确认。含 JIS 的完整交叉参考见 <a href="/knowledge/battery-group-size-chart/">壳体尺寸对照表</a>。</p>
+
+    <h2>每个系列详解</h2>
+    <h3>JIS（日本 / 亚洲）</h3>
+    <p>JIS D 5301 是日本铅酸启动电池的国家标准。它是日本默认标准，并随日系车出口扩散到东南亚、中东、非洲与澳洲。壳体代码（B24、D23、D26、D31，加上卡车的 N 系列）是这些市场的采购语言，两位前缀（55、65、75、80、95、105）是性能档。CCA 测试在 −15°C 进行，比欧美方法更暖——这也是同一电池 JIS CCA 数值偏高的原因。</p>
+    <h3>DIN / EN（欧洲）</h3>
+    <p>EN 50342 是协调后的欧洲标准，源自更早的德国 DIN 编号。现代壳体代码 H5–H8（等效 LN2–LN5）描述 175 mm 宽、190 mm 高的电池，以长度区分。旧的 L3–L5 代码描述旧编号下的相同长度。欧洲车越来越多地用 AGM 与 EFB 做启停，所以 EN 系列是技术最要紧的地方，不只是壳体尺寸。</p>
+    <h3>BCI（北美）</h3>
+    <p>BCI 组号是北美对尺寸 + 端子布局的约定，由 Battery Council International 在其 Battery Replacement Data Book 中维护。组号不携带性能信息——Group 24 与 Group 34 都是常见车用尺寸，内部可有很不同的容量。CCA 按 SAE 方法报价（−18°C、30 秒、7.2 V）。</p>
+    <h3>AS 与 SA（澳洲及区域市场）</h3>
+    <p>澳洲（AS）与若干区域市场（SA）维护各自的标准或约定，大体复用 JIS 与 BCI 的壳体尺寸，加上本地端子与标签要求。实践中出口到这些市场的买方报出底层的 JIS 或 BCI 等效型号 + 本地要求，工厂把区域标准套到同一壳体上。这就是为何一个产品系列能同时携带 {STANDARDS.join(' / ')}。</p>
+
+    <h2>哪个标准对应哪个出口市场</h2>
+    <table>
+      <thead><tr><th>出口目的地</th><th>主导标准</th><th>典型壳体代码</th></tr></thead>
+      <tbody>
+        <tr><td>日本、东南亚、中东、非洲</td><td>JIS</td><td>D23、D26、D31、N 系列</td></tr>
+        <tr><td>欧洲、独联体</td><td>DIN / EN</td><td>H5–H8、L3–L5</td></tr>
+        <tr><td>北美</td><td>BCI</td><td>Group 24、34、65、48、94R</td></tr>
+        <tr><td>澳洲</td><td>AS（基于 JIS）</td><td>D23、D26、D31</td></tr>
+        <tr><td>区域市场（SA 约定）</td><td>JIS / BCI 混合</td><td>因国家而异</td></tr>
+      </tbody>
+    </table>
+    <p class="note">这些是主导约定，不是普适规则——把标准锁进规格前，请务必与买方或进口商确认具体市场要求。</p>
+
+    <h2>实践中的互换陷阱</h2>
+    <p>最清晰的例子：一个买方在欧洲目录里看到「72 Ah」，向 JIS 供应商要「同样的东西」。容量的 JIS 等效是 D26 或 D31——但那是 220 mm 高、175 mm 宽，而欧洲 H6 是 190 mm 高。电池到货装不进托盘，「同样的 72 Ah」原来从头到尾是两个不同的壳子。容量对上了，标准没对上。先确认标准与壳体组，一句话就能抓住。</p>
+
+    <h2>一家工厂如何服务每个标准</h2>
+    <p>买方常见的疑虑是：一家制造商真能按同一质量交付 JIS、DIN/EN 与 BCI 电池吗？答案是能，原因在于这些系列的差别在壳体尺寸、端子与测试基准——而非底层电化学。极板、隔板、电解液与装配都一样；随市场变化的只是模具、端子、标签与测试报告。持有多个模具组、运行 IATF 16949 质量体系的工厂，能在同一条产线上切换标准。</p>
+    <p>对买方的意义：标准是您做的选择，不是您要去寻觅的能力。风险不在于工厂造不了您的标准——而在于工厂<em>不知道</em>您要哪个标准。报出系列与壳体组，就消除了这种歧义。</p>
+
+    <h2>如何选对标准</h2>
+    <p>按车辆的市场选，而非按电池规格选：</p>
+    <ul>
+      <li><strong>日系或亚洲车</strong> → 指定 JIS，选 D/B 壳体组。</li>
+      <li><strong>欧洲车</strong> → 指定 DIN/EN，选 H/LN/L 壳体组。</li>
+      <li><strong>北美车</strong> → 指定 BCI，选 Group 号。</li>
+    </ul>
+    <p class="note">一家工厂能供应每个主要标准，但买方必须报对系列。一个不带标准的「72 Ah 电池」不是完整规格。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>「哪个标准好」是个伪命题——正确的是先锁定终端市场车型，再反推要进哪个标准，而不是先囤货再找市场。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>标准是「适配语言」不是「品质等级」，EN 与 JIS 没有谁更高端。</li>
+      <li>跨标准比 CCA 不看基准，是采购最容易栽的跟头。</li>
+      <li>备了货却对不上车，是比「贵一点」更贵的错误。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断；标准命名与 CCA 基准为行业公开规范，具体型号以厂商 datasheet 为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="为您的市场确认标准" />
+</ArticleLayout>

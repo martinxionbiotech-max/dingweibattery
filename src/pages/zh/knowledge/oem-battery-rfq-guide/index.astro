@@ -1,0 +1,128 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { STANDARDS, RELATIONSHIP } from '../../../../data/site';
+
+const title = '如何撰写 OEM 电池 RFQ：模板、字段与对比 | Dingwei Battery';
+const description = '如何撰写能拿到可对比报价的 OEM 电池 RFQ：完整模板字段、三个导致 RFQ 失败的缺失字段，以及报价对比表。';
+const articleTitle = 'OEM 电池 RFQ 指南';
+
+const faqs = [
+  { q: '为什么多数 RFQ 会失败？', a: '三个缺失字段：CCA 基准、年量、每行一个标准。供应商只能在一个明确范围内准确报价，而不是一个模糊范围。' },
+  { q: 'RFQ 里要放目标价吗？', a: '第一次 RFQ 不要。先按范围报价，拿到诚实的工程回复，等 15 个字段的范围锁定后再谈价格。' },
+  { q: '一个 RFQ 行项应覆盖几个型号？', a: '1 个。在一行里混 JIS 与 DIN 型号会逼供应商去猜，你拿到的是一个区间而非报价。' },
+  { q: '一份完整 RFQ 应带多少字段？', a: '至少 15 个字段，分四个块——规格、数量、品牌与商务。缺 CCA 基准、年量或每行标准，就会把报价变成猜测。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Procurement" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 采购</span>
+    <h1>OEM 电池 RFQ 指南</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：晋州成光电源有限公司技术文档</p>
+    <p class="lead">完整的 RFQ 能拿到可对比的报价；模糊的 RFQ 拿到的是一个宽到没用的区间。下面的模板是四个块、至少十五个字段——其中三个字段正是几乎所有失败 RFQ 出问题的地方。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 多数 OEM 电池 RFQ 在三个缺失字段上失败——CCA 测试基准、年量、每行一个标准。一份完整 RFQ 带至少 15 个字段、分四个块（规格、数量、品牌、商务），每行一个型号，让每个供应商报同一范围，价格才可比。
+    </div>
+
+    <h2>规格块</h2>
+    <ul>
+      <li>电池类型（SLI、AGM、EFB、重载）</li>
+      <li>标准系列（{STANDARDS.join('、')}）</li>
+      <li>参考型号（如 65D26）</li>
+      <li>电压、容量（Ah）、CCA——并注明 CCA 测试基准</li>
+      <li>壳体尺寸、端子类型、极性</li>
+    </ul>
+
+    <h2>数量块</h2>
+    <ul>
+      <li>年量</li>
+      <li>首单数量</li>
+      <li>（混合时）按型号的预测</li>
+      <li>目标市场（影响标准与认证）</li>
+    </ul>
+
+    <h2>品牌块</h2>
+    <ul>
+      <li>贴牌还是 OEM</li>
+      <li>标签外观与包装</li>
+      <li>托盘配置</li>
+      <li>多语言文档</li>
+    </ul>
+
+    <h2>商务块</h2>
+    <ul>
+      <li>目标价（可选——第一次 RFQ 省略）</li>
+      <li>Incoterms</li>
+      <li>付款条款</li>
+      <li>交付计划</li>
+      <li>目的地市场及其认证集</li>
+    </ul>
+    <p><a href="/zh/contact/">发送 OEM 电池 RFQ →</a> · <a href="/knowledge/oem-battery-specification-guide/">建立干净的规格 →</a></p>
+
+    <h2>导致 RFQ 失败的三个缺失字段</h2>
+    <p>每一个都会把报价变成猜测，把猜测变成宽到没用的区间：</p>
+    <ol>
+      <li><strong>CCA 测试基准</strong>——JIS（−15°C）与 EN/SAE（−18°C）是不同测试。没有基准，两个供应商报两种测量，您却照样比较。</li>
+      <li><strong>年量</strong>——MOQ 与阶梯价依赖它。缺年量，每个供应商都按自己的最坏情况假设，您落在哪一档靠运气。</li>
+      <li><strong>每行一个标准</strong>——在一行里混 JIS 与 DIN 型号会逼供应商去猜您要哪个壳体、哪种 CCA 方法。一个型号、一行、一个范围。</li>
+    </ol>
+
+    <h2>RFQ 字段清单</h2>
+    <p>通常就是缺一个字段，把报价变成猜测。发送前逐项过一遍此表。</p>
+    <table>
+      <thead><tr><th>块</th><th>字段</th><th>为何重要</th></tr></thead>
+      <tbody>
+        <tr><td>规格</td><td>标准系列 + 参考型号</td><td>JIS、DIN、BCI 壳体不可互换；型号锚定壳体尺寸。</td></tr>
+        <tr><td>规格</td><td>CCA 测试基准</td><td>JIS（−15°C）与 EN/SAE（−18°C）是不同测试；没有基准，两份报价不可比。</td></tr>
+        <tr><td>规格</td><td>端子类型与极性</td><td>端子布局决定电池能否物理装进车辆。</td></tr>
+        <tr><td>数量</td><td>年量 + 首单</td><td>MOQ 与阶梯价依赖它；缺量让供应商按最坏情况假设。</td></tr>
+        <tr><td>数量</td><td>目标市场</td><td>市场决定标准系列与认证集。</td></tr>
+        <tr><td>品牌</td><td>标签 + 包装 + 文档</td><td>贴牌范围会改变模具与交期。</td></tr>
+        <tr><td>商务</td><td>Incoterms + 付款</td><td>FOB、CFR、CIF 在买卖双方之间转移成本与风险的方式不同。</td></tr>
+      </tbody>
+    </table>
+    <p class="note">第一次 RFQ 不要放价格目标，除非您想让供应商按数字而非范围报价。先按范围报价；再谈价格。</p>
+
+    <h2>按范围比价，而非按价格</h2>
+    <p>报价回来时，在比较单位数字之前先查六件事：</p>
+    <ul>
+      <li><strong>同一 CCA 基准</strong>——JIS 与 EN 数字不可比。</li>
+      <li><strong>同一壳体参考</strong>——「相近」型号的报价是另一款电池。</li>
+      <li><strong>同一 MOQ 档</strong>——10,000 只的价格不是 1,000 只的价格。</li>
+      <li><strong>模具是否含</strong>——模具或标签成本在单价里，还是单独收费？</li>
+      <li><strong>同一 Incoterm</strong>——FOB、CFR、CIF 是三个不同成本基准。</li>
+      <li><strong>质保范围</strong>——带排除项的 12 个月质保与 12 个月质保不是一回事。</li>
+    </ul>
+
+    <h2>报价对比表</h2>
+    <p>在排序任何东西之前，把每份报价放进一张表。行是六个范围字段，列是供应商。空单元格是您无法对比的报价——回去问，而不是绕着它取平均。</p>
+    <table>
+      <thead><tr><th>范围字段</th><th>供应商 A</th><th>供应商 B</th><th>供应商 C</th></tr></thead>
+      <tbody>
+        <tr><td>标准 + 壳体参考</td><td>JIS D26</td><td>JIS D26</td><td>「相近」</td></tr>
+        <tr><td>CCA 基准</td><td>JIS −15°C</td><td>JIS −15°C</td><td>未说明</td></tr>
+        <tr><td>MOQ 档</td><td>1 × 20 尺柜</td><td>1 × 20 尺柜</td><td>5,000 只</td></tr>
+        <tr><td>模具</td><td>含</td><td>单独收费</td><td>含</td></tr>
+        <tr><td>Incoterm</td><td>FOB</td><td>FOB</td><td>未说明</td></tr>
+        <tr><td>质保</td><td>12 个月</td><td>12 个月</td><td>未说明</td></tr>
+      </tbody>
+    </table>
+    <p>{RELATIONSHIP}</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>询价的质量决定报价的质量——六要素缺一个，你拿到的就是一个「早晚要改」的废报价。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>没写标准体系，工厂只能按最通用型号报，可能根本对不上你的市场。</li>
+      <li>没写年量，就拿不到阶梯价，也定不了真实 MOQ。</li>
+      <li>信息给齐，是对双方时间的尊重，当天出可对比报价才是正常节奏。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断；FOB/CIF 等术语定义见 ICC Incoterms 2020。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="发送您的 OEM RFQ" />
+</ArticleLayout>
