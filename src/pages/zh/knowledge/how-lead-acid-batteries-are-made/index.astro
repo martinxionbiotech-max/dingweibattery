@@ -1,0 +1,65 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '铅酸电池如何制造 | Dingwei Battery';
+const description = '铅酸电池的十道制造工序，以及决定质量的三道关键工序——固化、合膏与化成充电。';
+const articleTitle = '铅酸电池如何制造';
+
+const faqs = [
+  { q: '铅酸电池是怎么造的？', a: '经过十道工序，但三道决定大部分质量：固化（2–4 天结晶，给极板强度）、合膏（膏体一致决定容量一致）、化成充电（激活活性物质的首次充电）。其余七道把这三道做出来的东西装配起来。' },
+  { q: '哪道工序最影响电池寿命？', a: '固化。赶工的固化会产生易脱粉、早失效的弱极板，这就是固化时间（2–4 天）是审厂里有意义的问题的原因。' },
+  { q: '为什么化成充电重要？', a: '化成是把膏体转化为有效活性物质的首次充电。化成不彻底会在极板内留下未化成的膏，电池显示满电压却容量不足、衰减更快——这个缺陷几个月后才显现，而非在产线末端。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Manufacturing" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 制造</span>
+    <h1>铅酸电池如何制造</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：晋州成光电源有限公司技术文档</p>
+    <p class="lead">十道工序里，三道决定大部分质量。能看懂这三道的采购方，才真正会审厂。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 铅酸电池经十道工序制造——铸板、合膏、涂板、固化、装配、焊接、加酸、化成、封盖、检测。决定质量的是固化、合膏与化成三道，其余七道是把它们做出来的东西装配起来。
+    </div>
+
+    <h2>十道工序</h2>
+    <ol>
+      <li><strong>铸板</strong>——铅合金板栅；免维护用铅钙合金。</li>
+      <li><strong>合膏</strong>——膏体一致性决定容量。</li>
+      <li><strong>涂板</strong>——膏体均匀涂布。</li>
+      <li><strong>固化</strong>——2–4 天结晶，决定机械强度。</li>
+      <li><strong>装配</strong>——极板与隔板入壳。</li>
+      <li><strong>焊接</strong>——极耳与端子焊接。</li>
+      <li><strong>加酸</strong>——灌注电解液。</li>
+      <li><strong>化成</strong>——激活活性物质。</li>
+      <li><strong>封盖与收尾</strong>——封盖密封。</li>
+      <li><strong>检测与包装</strong>——100% 电性能检测。</li>
+    </ol>
+
+    <h2>质量在哪赢得或输掉</h2>
+    <p>固化（给极板强度）、合膏（决定容量一致）、化成（激活活性物质）是三道关键。其余七道把这三道做出来的东西装配起来。</p>
+
+    <h2>这对买方意味着什么</h2>
+    <p>审厂时问固化时间、合膏工艺、化成流程，比问「你们质量好不好」更有用。能答清这三道的工厂，才有底气。</p>
+
+    <h2>买方该问什么</h2>
+    <p>固化周期多长？合膏一致性怎么保证？化成是否彻底？批次怎么追溯？</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>证书只能证明「有体系」，验厂才能证明「体系真在跑」——大宗采购前，一定要看一次现场。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>同一条产线能造出不同质量，差异在过程管控是否真实执行。</li>
+      <li>固化、合膏、化成三道工序，是铅酸质量的命门。</li>
+      <li>愿意见第三方审厂的工厂，通常对自家过程有底气。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验；工序描述为行业通用，具体以工厂工艺为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="了解我们的制造工序" />
+</ArticleLayout>

@@ -1,0 +1,63 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '贴牌电池策略 | Dingwei Battery';
+const description = '贴牌电池品牌的定位与差异化——为什么差异化靠规格一致性而非营销，以及如何规划 SKU 而非一次性订单。';
+const articleTitle = '贴牌电池策略';
+
+const faqs = [
+  { q: '贴牌最快失败的方式是什么？', a: '只拼价格。没有差异化规格，第一个更便宜的竞争对手就抢走复购订单——而复购订单才是利润所在。' },
+  { q: '什么真正差异化一个贴牌品牌？', a: '规格一致性，不是营销。买方记住的是第二个订单与第一个一致——这种可重复性才是真正的护城河。' },
+  { q: '我该规划一个柜还是一整套 SKU？', a: '一整套 SKU。贴牌是面向你市场标准系列的跨型号计划，不是单个货柜——先画核心型号，再上线。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Private Label" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 贴牌</span>
+    <h1>贴牌电池策略</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：晋州成光电源有限公司技术文档</p>
+    <p class="lead">贴牌电池的护城河不在营销，而在规格一致性。规划一整套 SKU，而非单个货柜。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 贴牌最快失败的方式是只拼价格。真正差异化一个贴牌品牌的是规格一致性——买方记住第二个订单与第一个一致，这种可重复性才是护城河。规划一整套 SKU 覆盖你市场的标准系列，而非单个货柜。
+    </div>
+
+    <h2>先定位、后产品</h2>
+    <p>先明确目标市场与标准系列，再定产品。定位错，产品再便宜也卖不动。</p>
+
+    <h2>靠规格差异化，而非营销</h2>
+    <p>营销话术谁都能写。规格一致性（复购与首单一致）才是竞争对手抄不走的东西。</p>
+
+    <h2>锁定供应</h2>
+    <p>锁规格、锁样品、锁批次追溯，让每个复购货柜都与批准样品一致。</p>
+
+    <h2>规划 SKU，而非一次性订单</h2>
+    <p>贴牌是跨型号计划。先画核心型号地图，再上线，逐步扩 SKU。</p>
+
+    <h2>定位矩阵</h2>
+    <p>按「市场标准 × 产品线（SLI/AGM/EFB/重载）」画矩阵，找出要主打的格子。</p>
+
+    <h2>SKU 规划的实践</h2>
+    <p>从你市场最畅销的 3–5 个壳体组起步，覆盖主力车型，再逐步补长尾。</p>
+
+    <h2>要避免的一个错误</h2>
+    <p>只拼价格。第一个更便宜的竞争对手就抢走复购订单——而复购才是利润。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>贴牌品牌的护城河是规格一致性，不是营销——买方记住的是第二个订单与第一个一致。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>营销话术谁都能写，规格一致性竞争对手抄不走。</li>
+      <li>只拼价格，第一个更便宜的对手就抢走复购。</li>
+      <li>规划一整套 SKU 覆盖市场标准系列，而非打一枪换一个地方。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验，非经第三方核验的事实。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="规划您的贴牌 SKU" />
+</ArticleLayout>

@@ -1,0 +1,82 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, CERTIFICATIONS, TRADE_TERMS, RELATIONSHIP } from '../../../../data/site';
+
+const title = 'OEM 电池供应商核对清单：24 点评分 | Dingwei Battery';
+const description = '一份覆盖资质、产能、测试、交期与售后的 24 点 OEM 电池供应商核对清单——带红旗信号与入围通过阈值。';
+const articleTitle = 'OEM 电池供应商核对清单';
+
+const faqs = [
+  { q: '什么红旗信号该让我立刻停下？', a: '在标准系列与 CCA 基准还没定之前就给出的报价。如果供应商不问你用哪个标准就报「72 Ah 电池」的价格，他们是在猜——价格也是猜的。' },
+  { q: '一份清单就够保护我吗？', a: '清单是过滤器，不是保证。它能筛掉弱供应商，但不能替代实测样品与在合同里确认变更控制——把 24 项里失败 3 项或以上的供应商视为不合格。' },
+  { q: '什么把可靠供应商和「一样品奇迹」区分开？', a: '可重复性。问他们如何让第 10 个货柜与批准样品一致——讲不清自己变更控制的供应商就是风险。' },
+  { q: '一份完整供应商清单该有多少项？', a: '至少 20 项，分五组——资质、产能、测试、交期与售后。在下面 24 项里失败 3 项或以上的供应商，不应进入工厂审厂。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Sourcing" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 采购</span>
+    <h1>OEM 电池供应商核对清单</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：晋州成光电源有限公司技术文档</p>
+    <p class="lead">一份 24 点清单，把「看起来靠谱」的供应商和真正可靠的供应商区分开。逐项过，失败 3 项即淘汰。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 用五组 24 项核对——资质、产能、测试、交期、售后。最该立即停下的红旗信号：在标准系列与 CCA 基准未定之前就报价。清单是过滤器，不是保证——还要实测样品 + 合同里的变更控制。
+    </div>
+
+    <h2>如何使用这份清单</h2>
+    <p>逐项核验，记录证据，失败 3 项及以上即淘汰。清单筛弱，不替代审厂与样品测试。</p>
+
+    <h2>第 1 组——资质</h2>
+    <p>营业执照、生产资质、IATF 16949/ISO 证书（核验有效期）、是否真工厂而非贸易商。</p>
+
+    <h2>第 2 组——产能</h2>
+    <p>厂区面积、日产能、产线数、模具归属。用「年量 ÷ 日产能」判断您在对方排产里的分量。</p>
+
+    <h2>第 3 组——测试</h2>
+    <p>CCA 测试流程、100% 下线电性能检测、批次追溯、第三方检测报告。</p>
+
+    <h2>第 4 组——交期</h2>
+    <p>生产交期、打样周期、装运前检验、交期延误的责任与补偿。</p>
+
+    <h2>第 5 组——售后与条款</h2>
+    <p>质保范围、索赔流程、MOQ、付款条款、Incoterms、变更控制。</p>
+
+    <h2>评分结果</h2>
+    <p>24 项里失败 3 项及以上 → 淘汰；通过者进入工厂审厂与样品测试。</p>
+
+    <h2>红旗信号</h2>
+    <p>未定规格就报价、拒绝第三方审厂、报价跳过 CCA 基准、模具收费不透明、宣传册盗图。</p>
+
+    <h2>看报价，而非只看价格</h2>
+    <p>一份跳过 CCA 基准或端子细节的报价不可比——它是更小的范围。看范围，再看数字。</p>
+
+    <h2>如何给每项打分</h2>
+    <p>每项「通过/不通过」，记录证据（证书、报告、样品）。不通过就记红旗。</p>
+
+    <h2>演算评分例子</h2>
+    <p>某供应商资质齐全但拒绝第三方审厂、报价跳过 CCA 基准 → 至少 2 项红旗，淘汰。</p>
+
+    <h2>黄金样品与试产批</h2>
+    <p>「黄金样品」做得好不代表量产一致。要试产批验证批量一致性，而非只看一个样品。</p>
+
+    <h2>核验证书，而非只收集证书</h2>
+    <p>核验发证机构与有效期，确认证书是现行有效的。{MANUFACTURER.name} 持有 {CERTIFICATIONS.join('、')}。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>清单筛弱供应商，但真正兜底的是「实测样品 + 合同里的变更控制」——清单是过滤器，不是保证。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>「黄金样品」做得好，不代表量产第 10 柜一致。</li>
+      <li>未定规格就报价，是猜，不是报。</li>
+      <li>可重复性是唯一真正把可靠供应商和「一样品奇迹」分开的东西。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验；清单为方法论，非法律或合规意见。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="核验您的供应商候选" />
+</ArticleLayout>

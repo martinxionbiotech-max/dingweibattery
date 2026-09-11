@@ -1,0 +1,62 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = 'OEM 电池方案如何运作 | Dingwei Battery';
+const description = 'OEM 电池方案的七阶段流程、规格锁定如何让复购一致，以及 60–90 天方案里最常出错的环节。';
+const articleTitle = 'OEM 电池方案如何运作';
+
+const faqs = [
+  { q: '一个 OEM 电池方案有几阶段？', a: '7 阶段，从咨询到规格、设计、打样、生产、质检与出货——但买方只需签 4 个：规格、样品、质量标准与出货。' },
+  { q: '什么让 OEM 方案不同于一次性订单？', a: '规格锁定——方案锁定批准样品，让第 10 个订单与第 1 个一致，而一次性订单没有这种保证。' },
+  { q: '多久能到复购订单？', a: '到第一个货柜约 60–90 天，之后复购更短，因为规格已锁，只剩生产时间（30–45 天）。' },
+  { q: '最重要的买方签认是什么？', a: '样品。只批准图纸、不实测物理样品，正是复购订单回来时与批准的不一致的原因——也是多数 60–90 天方案跑偏的祸首。' },
+  { q: '第一个 OEM 订单要多少钱启动？', a: '一个约 600–800 只的 20 尺柜，加上规格需要的模具与认证——单位成本在整柜规模下最低。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · OEM</span>
+    <h1>OEM 电池方案如何运作</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：晋州成光电源有限公司技术文档</p>
+    <p class="lead">OEM 方案和一次性订单的区别，在于「规格锁定」。锁定批准样品，第 10 个柜才能和第 1 个一致。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> OEM 电池方案分 7 阶段——咨询、规格、设计、打样、生产、质检、出货——买方只签 4 个（规格、样品、质量标准、出货）。关键在规格锁定与样品实测，这是 60–90 天方案不跑偏的核心。
+    </div>
+
+    <h2>七阶段流程</h2>
+    <p>咨询 → 规格 → 设计与品牌 → 打样 → 生产 → 质检 → 出货。买方在规格、样品、质量标准、出货四个节点签认。</p>
+
+    <h2>规格锁定</h2>
+    <p>锁规格是方案和一次性订单的分水岭。批准样品成为之后每个货柜的基准。</p>
+
+    <h2>生产与质量：工厂控制什么</h2>
+    <p>工厂控制过程管控、批次追溯与 100% 下线检测。买方控制规格签认与样品批准。</p>
+
+    <h2>复购：回报</h2>
+    <p>规格锁死后，复购只余生产时间（30–45 天），更快、更稳。</p>
+
+    <h2>哪里会出错</h2>
+    <p>只批图纸、不测样品，是复购订单跑偏的祸首；中途改端子、改丝印是交期延误的头号原因。</p>
+
+    <h2>这里的位置</h2>
+    <p>OEM 方案是采购序列的第 6 环，在 RFQ 返回可对比报价之后、在 MOQ 与交期确认之前。{RELATIONSHIP}</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>OEM 合作最该盯的不是单价，而是「规格锁定」这一步花没花够时间。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>绝大多数交期延误的根子是中途改端子、改丝印，不是产能不够。</li>
+      <li>只批图纸、不测样品，是复购跑偏的祸首。</li>
+      <li>愿意逐项确认规格的工厂，比「一口价马上能排产」的工厂更靠谱。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验；交期受排产与海运波动影响。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="了解 OEM 方案流程" />
+</ArticleLayout>

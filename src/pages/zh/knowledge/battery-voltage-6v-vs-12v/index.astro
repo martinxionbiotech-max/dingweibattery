@@ -1,0 +1,70 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '6V vs 12V 电池：串联、并联与系统电压 | Dingwei Battery';
+const description = '6V 与 12V 电池：串联与并联如何改变电压与容量、为什么重载车用 24V，以及把电池接到错误系统电压的风险。';
+const articleTitle = '6V vs 12V 电池：系统电压说明';
+
+const faqs = [
+  { q: '两只 6V 电池串联能得 12V 吗？', a: '能。两只 6V 电池串联把电压相加得 12V，而安时容量不变——两只 6V、200 Ah 电池变成一个 12V、200 Ah 电池组。' },
+  { q: '为什么重卡用 24V 系统？', a: '24V 系统用 12 个 2V 单体（常为两只 12V 电池串联），以 12V 系统一半的电流提供大型柴油机所需的启动功率，从而减小线径与压降。' },
+  { q: '汽车何时从 6V 换成 12V？', a: '大约在 1950 年代中期，随高压缩比发动机需要更大启动功率而切换。部分小车保留 6V 更久——大众甲壳虫到 1960 年代中期仍是 6V。' },
+  { q: '把 12V 电池装到 6V 系统会怎样？', a: '电气元件会收到两倍额定电压，可能过热并损坏灯泡、调节器与电子件。电压是系统决策——电池必须匹配车辆，而非反过来。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Specification" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 规格</span>
+    <h1>6V vs 12V 电池：系统电压说明</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：行业公开标准</p>
+    <p class="lead">电压是系统决策，不是电池决策。接错电压，轻则损坏元件，重则起火烧车。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 串联加电压、并联加容量。两只 6V 电池串联得 12V（容量不变）；重载车用 24V（常为两只 12V 串联）以一半电流提供大柴油机启动功率。把电池接到错误系统电压会损坏电气元件——电压必须匹配车辆。
+    </div>
+
+    <h2>电压从哪来</h2>
+    <p>铅酸电池每个单体约 2V。6V 电池 = 3 个单体串联，12V = 6 个单体串联。</p>
+
+    <h2>串联 vs 并联：什么变、什么不变</h2>
+    <p>串联加电压、容量不变；并联加容量、电压不变。两只 12V 100Ah 串联 = 24V 100Ah，并联 = 12V 200Ah。</p>
+
+    <h2>为什么重载车用 24V</h2>
+    <p>24V 以一半电流提供同样功率，减小线径与压降，适合大柴油机高启动电流需求。</p>
+
+    <h2>今天 6V 电池还用在哪</h2>
+    <p>老式小型车、高尔夫球车、部分深循环电池组（6V 深循环常见）。</p>
+
+    <h2>电压不匹配的风险</h2>
+    <p>把 12V 接到 6V 系统，元件收到两倍电压，会过热损坏灯泡、调节器与电子件。</p>
+
+    <h2>更高电压：36V 与 48V 电池组</h2>
+    <p>高尔夫球车、叉车、储能系统常用 36V 或 48V，由多个 6V 或 12V 电池串联组成。</p>
+
+    <h2>充电电压：为什么不能混系统电压</h2>
+    <p>充电器必须匹配系统电压。用错电压的充电器会过充或欠充，损害电池。</p>
+
+    <h2>如何识别车辆系统电压</h2>
+    <p>看原装电池标称电压、车辆手册或电气系统规格。不确定时问制造商。</p>
+
+    <h2>如何指定正确电压</h2>
+    <p>先确认车辆系统电压（6V / 12V / 24V），再匹配电池。这是规格的第一个字段。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>电压是系统决策——先确认车辆的系统电压，再选电池，别反过来让电池去迁就车辆。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>接错电压会损坏电气元件，代价远超电池本身。</li>
+      <li>串联/并联的规则很简单，但混用系统电压的充电器是隐性风险。</li>
+      <li>把电压写进规格第一行，能挡住大部分低级错误。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验；具体以车辆手册与厂商规格为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="确认您的系统电压" />
+</ArticleLayout>
