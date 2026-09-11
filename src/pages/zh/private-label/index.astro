@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import BatteryTypeCard from '../../../components/BatteryTypeCard.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP, BATTERY_TYPES } from '../../../data/site';
+
+const title = '贴牌电池方案 | Dingwei Battery';
+const description = 'Dingwei Battery 提供贴牌汽车电池方案，由晋州成光电源有限公司制造：您的品牌、标签、包装与可复购的稳定供应。';
+
+const breadcrumbs = [{ label: '贴牌', href: '/zh/private-label/' }];
+
+const privateLabelFaqs = [
+  {
+    q: 'Dingwei 贴牌方案包含什么？',
+    a: '包含您在标签、包装与单证上的品牌标识，套用到成熟的 SLI、AGM、EFB 或重载电池平台，规格锁定、复购供应受控。',
+  },
+  {
+    q: '哪些电池类型可以贴牌？',
+    a: 'SLI、AGM、EFB 与重载铅酸启动电池均可贴牌，覆盖 JIS、DIN、BCI、AS、SA 标准。',
+  },
+  {
+    q: '复购贴牌订单如何保持一致？',
+    a: '先锁规格、后定标签——先锁定电池平台、CCA 基准与壳体尺寸，再套用品牌。规格管控、产前打样与批次追溯让每个批次都与批准样品一致，这正是采购方真正记住的东西。',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: privateLabelFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '贴牌', item: `${SITE.url}/zh/private-label/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">贴牌</span>
+    <h1>贴牌电池方案</h1>
+    <p class="lead">{RELATIONSHIP} 把您的品牌印到成熟电池平台上——标签、壳体、包装与单证一站式搞定。</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>贴牌包含什么</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>品牌标识</h3><p>您的标签、配色与产品命名，印在电池与包装上。</p></div>
+        <div class="card"><h3>产品平台</h3><p>覆盖 JIS、DIN、BCI、AS、SA 标准的 SLI、AGM、EFB 与重载平台。</p></div>
+        <div class="card"><h3>可复购供应</h3><p>受控规格，让每个订单都与批准样品一致。</p></div>
+      </div>
+      <img class="mfg-photo" src="/images/factory/factory-22.webp" alt="晋州成光电源有限公司电池质检区" width="1505" height="830" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>贴牌 vs OEM：关键区别</h2>
+    <p class="lead">贴牌意味着您给工厂已有的电池贴牌；OEM 意味着工厂按您定义的规格制造。贴牌上线更快；OEM 给您一款别人无法复制的产品。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>您可以品牌化什么</h2>
+      <ul>
+        <li>标签设计与配色</li>
+        <li>纸箱、套筒与托盘外观</li>
+        <li>条码与 SKU</li>
+        <li>质保卡</li>
+        <li>多语言说明书</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>贴牌流程</h2>
+    <ol>
+      <li><strong>定位</strong>——明确目标市场与所需标准。</li>
+      <li><strong>规格</strong>——锁定电压、容量、CCA 与壳体尺寸。</li>
+      <li><strong>品牌</strong>——套用标签、包装与单证。</li>
+      <li><strong>打样</strong>——批准产前样品。</li>
+      <li><strong>量产</strong>——按批准样品排期供应。</li>
+    </ol>
+    <p><a href="/knowledge/how-build-private-label-battery-brand/">如何打造贴牌电池品牌 &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>可选产品系列</h2>
+    <div class="grid grid--4">
+      {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>流程如何运作</h2>
+      <p>我们从您的目标市场与所需标准出发，先确认规格，再进入设计与品牌，最后打样与量产。</p>
+      <p><a href="/zh/oem/">查看 OEM 流程 &rarr;</a> · <a href="/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs 贴牌 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见问题</h2>
+    {privateLabelFaqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <CTASection title="启动一条贴牌电池产品线" />
+</BaseLayout>

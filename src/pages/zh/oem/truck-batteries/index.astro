@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP } from '../../../../data/site';
+
+const title = 'OEM 卡车电池 | Dingwei Battery';
+const description = 'Dingwei Battery 提供 OEM 卡车电池，由晋州成光电源有限公司制造：卡车、客车与工程机械用 6V 与 12V 重载电池。';
+
+const breadcrumbs = [
+  { label: '首页', href: '/zh/' },
+  { label: 'OEM', href: '/zh/oem/' },
+  { label: '卡车电池', href: '/zh/oem/truck-batteries/' },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/zh/oem/` },
+      { '@type': 'ListItem', position: 3, name: '卡车电池', item: `${SITE.url}/zh/oem/truck-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">OEM / 卡车</span>
+    <h1>OEM 卡车电池</h1>
+    <p class="lead">{RELATIONSHIP} 以您的品牌供应卡车、客车与工程机械用 6V 与 12V 重载启动电池。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>卡车电池方案</h2>
+      <div class="grid grid--2">
+        <div class="card"><h3>6V 与 12V 重载</h3><p>面向卡车、客车与工程机械的启动电池，覆盖 JIS、DIN、BCI 与 SA 标准。</p></div>
+        <div class="card"><h3>车队一致性</h3><p>跨复购 OEM 订单保持稳定的壳体尺寸、端子布局与标签。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>应用场景</h2>
+    <div class="grid grid--3">
+      <div class="card"><h3>半挂卡车</h3><p>两只 12V 电池串联的 24V 启动系统。</p></div>
+      <div class="card"><h3>客车与巴士</h3><p>为客运车队提供可靠的启动与供电支持。</p></div>
+      <div class="card"><h3>工程机械</h3><p>面向工程与农用机械的耐用启动电池。</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>卡车电池标准</h2>
+      <p>卡车适配在不同市场不可互换。同一应用在亚洲可能用 JIS N 系列，在欧洲用 DIN 重载型号，在北美用 BCI Group 31 / 4D / 8D。下单前请先与车辆或车队需求确认标准系列与壳体尺寸。</p>
+      <ul>
+        <li><strong>JIS N 系列</strong>——N150 / N200，亚洲重卡适配。</li>
+        <li><strong>DIN 重载</strong>——DIN88 / DIN100，欧洲商用车适配。</li>
+        <li><strong>BCI Group 31 / 4D / 8D</strong>——北美重载适配。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>卡车电池要指定什么</h2>
+    <ul>
+      <li>标准系列与壳体尺寸（JIS / DIN / BCI / SA）。</li>
+      <li>电压（12V 标准；可选 6V 与 24V 串联配置）。</li>
+      <li>容量，重载通常在 100–225 Ah 区间。</li>
+      <li>CCA——大型柴油机需要高冷启动电流；请与制造商确认测试基准（参考值）。</li>
+      <li>端子类型与位置，匹配您的线束走向。</li>
+    </ul>
+    <p><a href="/knowledge/oem-battery-specification-guide/">阅读 OEM 电池规格指南 &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>制造与出口</h2>
+    <p class="lead">由 {MANUFACTURER.name}（{MANUFACTURER.founded} 年成立）在其位于 {MANUFACTURER.address} 的 {MANUFACTURER.factoryArea} 工厂制造，拥有 {MANUFACTURER.productionLines}，出口至 {MANUFACTURER.exportMarkets}。</p>
+    <p><a href="/zh/factory/">查看工厂概览 &rarr;</a> · <a href="/zh/heavy-duty-batteries/">重载电池详情 &rarr;</a></p>
+  </section>
+
+  <CTASection title="索取 OEM 卡车电池报价" />
+</BaseLayout>

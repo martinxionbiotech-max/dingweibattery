@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import ModelCard from '../../../components/ModelCard.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP } from '../../../data/site';
+import { batteryModels } from '../../../data/battery-models';
+
+const title = '重载电池 | Dingwei Battery';
+const description = '卡车、客车与工程机械用 6V 与 12V 重载电池，由 Dingwei Battery 供应、晋州成光电源有限公司制造。';
+
+const breadcrumbs = [{ label: '重载', href: '/zh/heavy-duty-batteries/' }];
+
+const heavyModels = batteryModels.filter((m) => ['105D31', '115D31', 'N100', 'N150', 'N200'].includes(m.model));
+
+const heavyDutyFaqs = [
+  {
+    q: 'Dingwei 重载电池覆盖哪些应用？',
+    a: 'Dingwei 重载电池覆盖卡车、客车与工程机械，提供 6V 与 12V 配置，参照 JIS、DIN、BCI 与 SA 标准。',
+  },
+  {
+    q: '重载电池能以我的品牌供应吗？',
+    a: '可以。重载电池支持 OEM 与贴牌方案，规格、品牌、打样与包装均在询价时确认。',
+  },
+  {
+    q: '重载电池规格应包含什么？',
+    a: '首先是标准系列与壳体尺寸——JIS N 系列、DIN 重载与 BCI Group 31 即便 Ah 相近也不可互换。然后是电压、容量、CCA 及其测试基准、端子类型与极性、参考型号与年量，与制造商确认。',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: heavyDutyFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '重载', item: `${SITE.url}/zh/heavy-duty-batteries/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">重载</span>
+    <h1>重载电池</h1>
+    <p class="lead">{RELATIONSHIP} 卡车、客车与工程机械用 6V 与 12V 启动电池，覆盖 JIS、DIN、BCI 与 SA 标准。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>应用场景</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>卡车</h3><p>为商用卡车车队提供强劲启动功率。</p></div>
+        <div class="card"><h3>客车</h3><p>为长途客车与城市公交提供可靠的启动与供电支持。</p></div>
+        <div class="card"><h3>工程机械</h3><p>面向工程与工业机械的耐用电池。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>什么算重载</h2>
+    <p class="lead">卡车、客车、工程机械、农业与船用——振动、深循环与冷启动需求远高于乘用车。</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>抗振</h3><p>重载电池专为恶劣路况与工地上的持续机械冲击而造。</p></div>
+      <div class="card"><h3>高冷启动需求</h3><p>大型柴油机启动需要明显更高的 CCA，尤其在寒冷气候。</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>重载标准</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>JIS N 系列</h3><p>N150 / N200——亚洲重卡适配。</p></div>
+        <div class="card"><h3>DIN 重载</h3><p>DIN88 / DIN100——欧洲商用车适配。</p></div>
+        <div class="card"><h3>BCI Group 31 / 4D / 8D</h3><p>北美重载适配。</p></div>
+      </div>
+      <p class="lead">这些系列的壳体尺寸与端子布局各不相同，不可互换。</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>规格</h2>
+    <ul>
+      <li>以 12V 为主（部分 6V 配置）</li>
+      <li>容量在 100–225 Ah 区间</li>
+      <li>柴油机通常需要高 CCA（800–1100 A 量级，参考值）——请与制造商确认最终数值。</li>
+    </ul>
+    <p><a href="/knowledge/oem-battery-specification-guide/">阅读规格指南 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>按车型的应用</h2>
+      <div class="grid grid--3">
+        <div class="card"><h3>半挂卡车</h3><p>两只 12V 电池串联的 24V 系统。</p></div>
+        <div class="card"><h3>客车</h3><p>为客车提供启动与供电支持。</p></div>
+        <div class="card"><h3>挖掘机 / 拖拉机 / 船用</h3><p>工程机械与船用启动电池。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>制造与出口</h2>
+    <p class="lead">由 {MANUFACTURER.name}（{MANUFACTURER.founded} 年成立）在 {MANUFACTURER.factoryArea} 工厂制造，拥有 {MANUFACTURER.productionLines}，出口至 {MANUFACTURER.exportMarkets}。</p>
+    <p><a href="/zh/factory/">查看工厂概览 &rarr;</a></p>
+    <img class="mfg-photo" src="/images/factory/factory-16.webp" alt="晋州成光电源有限公司电池装配" width="1533" height="646" loading="lazy" decoding="async" />
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">参考型号</span>
+      <h2>重载启动参考型号</h2>
+      <p class="lead">当前型号集中的两款 JIS 重载参考型号。规格仅供参考，下单前请与制造商确认最终数值。</p>
+      <div class="model-list">
+        {heavyModels.map((model) => <ModelCard model={model} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>重载产品系列</h2>
+    <p class="lead">{MANUFACTURER.name} 供应的重载参考型号。</p>
+    <div class="gallery gallery--product">
+      <figure class="gallery__item"><img src="/images/product/hd-n150.webp" alt="N150 重载电池" width="800" height="749" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/hd-n200.webp" alt="N200 重载电池" width="800" height="780" loading="lazy" decoding="async" /></figure>
+      <figure class="gallery__item"><img src="/images/product/hd-n100.webp" alt="N100 重载电池" width="800" height="769" loading="lazy" decoding="async" /></figure>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见问题</h2>
+    {heavyDutyFaqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/knowledge/oem-battery-specification-guide/">使用 OEM 电池规格指南 &rarr;</a></p>
+  </section>
+
+  <CTASection title="索取重载电池报价" />
+</BaseLayout>
