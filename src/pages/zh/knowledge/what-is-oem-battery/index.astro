@@ -1,0 +1,101 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP, MANUFACTURER } from '../../../../data/site';
+
+const title = '什么是 OEM 电池？ | Dingwei Battery';
+const description = 'OEM 电池按买方的规格与品牌制造。OEM 与 ODM、白标（贴牌）的区别、优势与风险——用所有权划分讲清楚。';
+const articleTitle = '什么是 OEM 电池？';
+
+const faqs = [
+  { q: 'OEM 电池质量比品牌电池差吗？', a: '不——在铅酸电池里，质量由规格决定，不由标签决定。一条跑着 18 条产线的工厂往往把品牌电池和 OEM 电池并线生产，区别在于谁的规格与质量关卡在控制产出。' },
+  { q: 'OEM 电池的设计归我吗？', a: '是的。真正的 OEM 下，您拥有规格与品牌，工厂拥有制造。正是这种所有权，让 10 个复购货柜都能与第一个批准样品一致。' },
+  { q: 'OEM、ODM 与白标有什么区别？', a: '这是三种模式的所有权划分——OEM 是您出设计、工厂按图制造；ODM 是工厂拥有设计、您来贴牌；白标则是您把标识套到一个任何人都能买的现货产品上。' },
+  { q: 'OEM 电池方案的主要风险是什么？', a: '规格漂移——复购订单回来时与批准样品不一致。它靠锁定规格 + 实测样品来预防，而非靠信任；这是唯一一种能吞掉整个 20 尺柜利润的失败。' },
+  { q: 'OEM 电池方案要多久才能建立？', a: '从 RFQ 到第一个货柜约 60–90 天：打样 10–20 天，生产 30–45 天，然后是 3–5 周海运。' }
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · OEM</span>
+    <h1>什么是 OEM 电池？</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：晋州成光电源有限公司技术文档</p>
+    <p class="lead">OEM 电池是按买方的规格生产、以买方的品牌销售——而非工厂自有品牌的电池。关键的一句话在于所有权：您拥有设计与品牌，工厂拥有制造。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> OEM 电池按您的规格——电压、Ah、CCA、端子与标签——制造，并以您的品牌销售——一个从 RFQ 到第一个货柜 60–90 天的方案。质量由您签署的规格决定，不由标签决定：同一工厂常在产线上并线生产品牌电池与 OEM 电池，区别在于谁的规格与质量关卡在控制产出。
+    </div>
+
+    <h2>核心概念</h2>
+    <p>OEM 指原始设备制造商（original equipment manufacturer）。在电池采购中，这个词的用法与汽车行业相反：<em>您</em>是拥有产品定义与品牌的买方，而工厂是按您约定的规格——电压、容量、CCA、标准系列、壳体尺寸、端子布局与标签——生产的原始设备制造商。</p>
+
+    <h2>OEM vs ODM vs 白标：所有权的划分</h2>
+    <p>三种安排在货架上可能看起来一模一样——区别在于谁拥有设计、谁拥有品牌，以及您承担多少开发风险。</p>
+    <table>
+      <thead>
+        <tr><th>模式</th><th>谁拥有设计</th><th>谁拥有品牌</th><th>典型买方</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>OEM</td><td>买方</td><td>买方</td><td>买方有明确规格</td></tr>
+        <tr><td>ODM</td><td>制造商</td><td>买方</td><td>买方想要成熟平台</td></tr>
+        <tr><td>白标</td><td>制造商</td><td>买方</td><td>买方想要最快进入市场</td></tr>
+      </tbody>
+    </table>
+    <p><strong>OEM</strong> 是您出规格、制造商按图制造——您拥有设计。<strong>ODM</strong> 是制造商提供一个现成设计供您贴牌与调整——他们拥有设计，您拥有品牌。<strong>白标</strong> 是最浅的形式：您把标识套到一个任何竞争对手也能买的现货产品上。所有权越深，掌控越多、开发工作也越多。选择前请先读 <a href="/knowledge/oem-vs-odm-vs-private-label/">完整的 OEM vs ODM vs 贴牌决策指南</a>，并看它如何嵌入更宏观的 <a href="/knowledge/oem-battery-guide/">OEM 制造指南</a>。</p>
+
+    <h2>OEM 电池规格包含什么</h2>
+    <p>一个 OEM 电池项目至少要定义标准系列（JIS、DIN、BCI、AS 或 SA）、电压、C20 容量（Ah）、指定测试基准的 CCA、尺寸、端子类型与极性。常以 65D26 或 H6 等参考型号为起点再调整。<a href="/knowledge/oem-battery-specification-guide/">OEM 规格指南</a> 逐项讲解每个参数。</p>
+
+    <h2>OEM 供应的优势</h2>
+    <ul>
+      <li><strong>排他性</strong>——竞争对手无法从货架买到同款，因为规格是您的。</li>
+      <li><strong>一致性</strong>——锁定规格意味着第十个货柜与第一个批准样品一致。</li>
+      <li><strong>成本可控</strong>——您买的是工厂直供能力，而非经销商的加价。</li>
+      <li><strong>品牌积累</strong>——标签、包装与产品都是您的，品牌资产归您。</li>
+    </ul>
+
+    <h2>风险，直说</h2>
+    <ul>
+      <li><strong>规格漂移</strong>——复购订单回来时与您批准的不一致。这是典型失败模式，靠锁定规格 + 实测样品预防，而非靠信任。</li>
+      <li><strong>开发工作</strong>——OEM 把定义工作放在您身上。若您无法精确指定 CCA 基准、端子与壳体组，就要为工厂的猜测买单。</li>
+      <li><strong>起订量</strong>——首单通常是一个 20 尺柜（600–800 只），因为重量比体积更早触顶。</li>
+      <li><strong>铅价敞口</strong>——铅占材料成本 75–80%，除非您谈下固定价条款，否则价格随 LME 波动。</li>
+    </ul>
+
+    <h2>为什么铅酸 OEM 与锂电池是两码事</h2>
+    <p>铅酸是有着 150 年历史、产品成熟标准化的供应链。与锂电池（第 9 类）不同，铅酸启动电池按第 8 类腐蚀性危险品（UN 2794 / UN 2800）运输，但无需 UN 38.3 测试报告，合规负担更轻。化学体系也是大宗商品：铅主导成本，因此工厂真正的增值在过程管控与可重复性，而非尖端技术——而铅近乎完全可回收，也正是这种化学体系保持经济理性的原因之一。读 <a href="/knowledge/how-lead-acid-batteries-are-made/">铅酸电池如何制造</a> 页面，了解为何制造纪律比零件清单更重要。</p>
+
+    <h2>Dingwei Battery 与其制造商</h2>
+    <p>{RELATIONSHIP} {MANUFACTURER.name} 运营着 {MANUFACTURER.factoryArea} 的工厂，拥有 {MANUFACTURER.productionLines}，日产 {MANUFACTURER.dailyOutput}，按 JIS、DIN、BCI、AS、SA 标准制造，出口至 {MANUFACTURER.exportMarkets}。其质量体系经 IATF 16949 认证——这是规范过程管控与缺陷预防的汽车专用质量标准。</p>
+
+    <h2>这里的位置</h2>
+    <p>理解定义是第一道门。下一步——方案如何组织、如何开发、成本多少——见这个主题簇：</p>
+    <ul>
+      <li><a href="/knowledge/oem-battery-guide/">OEM 电池制造：完整指南</a></li>
+      <li><a href="/knowledge/how-oem-battery-programs-work/">OEM 电池方案如何运作</a></li>
+      <li><a href="/knowledge/oem-battery-development-process/">OEM 开发流程</a></li>
+      <li><a href="/knowledge/oem-battery-cost-breakdown/">OEM 电池成本拆解</a></li>
+      <li><a href="/knowledge/oem-battery-vs-aftermarket/">OEM vs 售后电池</a></li>
+    </ul>
+    <p><a href="/zh/oem/">OEM 电池方案 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，OEM 电池最要紧的一句话在于所有权——您拥有设计与品牌，工厂拥有制造。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+        <li>OEM 是您出规格、工厂按图制造，所以产品排他地属于您，竞争对手无法从货架买到。</li>
+        <li>典型失败模式是规格漂移，靠锁定规格 + 实测样品预防，而非靠信任。</li>
+        <li>铅酸是成熟、以大宗商品为主的供应链，所以工厂真正的增值在过程管控与可重复性，而非尖端技术。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="定义您的 OEM 电池规格" />
+</ArticleLayout>
