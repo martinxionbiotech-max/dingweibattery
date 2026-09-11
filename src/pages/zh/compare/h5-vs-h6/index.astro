@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, RELATIONSHIP, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel, modelPath } from '../../../../data/battery-models';
+
+const mH5 = findModel('H5');
+const mH6 = findModel('H6');
+
+const title = 'H5 vs H6 电池：LN2 vs LN3——同高、不同长 | Dingwei Battery';
+const description = 'H5（LN2，60 Ah）vs H6（LN3，72 Ah）：区别在长度和储备。了解哪款适合你的车、该选哪一款。';
+const articleTitle = 'H5 vs H6 电池：LN2 vs LN3——同高、不同长';
+
+const breadcrumbs = [
+  { label: '对比', href: '/zh/compare/' },
+  { label: 'H5 vs H6' },
+];
+
+const faqs = [
+  { q: 'H6 比 H5 大吗？', a: '是——更长。两者都是 175 mm 宽、190 mm 高，但 H6 长 278 mm，而 H5 是 242 mm。多出的那 36 mm 买来更多容量和储备。' },
+  { q: '能在指定 H5 的地方装 H6 吗？', a: '只有托盘和固定件接受更长壳体时才行。许多欧洲托盘共享宽度和高度、配可调固定件，所以升级能装下——但先确认托盘长度。' },
+  { q: '能用 H5 替换 H6 吗？', a: '装得下、温和条件下也能启动，但储备更少（60 vs 72 Ah）、CCA 更低。在启停或高附件应用里它更吃力，不是可靠的长期替代。' },
+  { q: 'H5 和 H6 的 CCA 能直接比较吗？', a: '能。两者都是 DIN/EN 电池、在 −18°C 标定，所以 CCA 数值（600 vs 660 参考）在同一测试基准上——不像 JIS vs EN 的跨比较。' },
+];
+
+const url = `${SITE.url}/zh/compare/h5-vs-h6/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-11',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: '对比',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '对比', item: `${SITE.url}/zh/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'H5 vs H6', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">对比 · DIN/EN</span>
+    <h1>H5 vs H6 电池：LN2 vs LN3——同高、不同长</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 仅为参考值</p>
+    <p class="lead">H5 和 H6 是 DIN/EN " H "家族里两个较小的成员。它们共用宽度和高度；H6 长 36 mm。那个长度差带来一个可观的储备差——60 Ah vs 72 Ah——即便纸面上 CCA 差看着不大。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> H5 和 H6 是不同长度（242 vs 278 mm），不是可互换的库存。两者都在同一个 EN −18°C CCA 基准上标定，所以它们的 CCA 可直接比较。紧凑车和入门启停选 H5；当托盘接受该长度、且车辆从更多储备中受益时选 H6。
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>关键规格（参考）</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>字段</th><th>H5（LN2）</th><th>H6（LN3）</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>标准</th><td>DIN/EN（EN 50342）</td><td>DIN/EN（EN 50342）</td></tr>
+          <tr><th>电压</th><td>{mH5?.voltage} V</td><td>{mH6?.voltage} V</td></tr>
+          <tr><th>容量（参考）</th><td>{mH5?.capacity_ah} Ah</td><td>{mH6?.capacity_ah} Ah</td></tr>
+          <tr><th>CCA（参考，EN −18°C）</th><td>{mH5?.cca.value}</td><td>{mH6?.cca.value}</td></tr>
+          <tr><th>壳体尺寸</th><td>{mH5?.case_size}</td><td>{mH6?.case_size}</td></tr>
+          <tr><th>外形（mm）</th><td>{mH5?.dimensions_mm.length} × {mH5?.dimensions_mm.width} × {mH5?.dimensions_mm.height}</td><td>{mH6?.dimensions_mm.length} × {mH6?.dimensions_mm.width} × {mH6?.dimensions_mm.height}</td></tr>
+          <tr><th>典型应用</th><td>{mH5?.application}</td><td>{mH6?.application}</td></tr>
+          <tr><th>OEM / 贴牌</th><td>可提供</td><td>可提供</td></tr>
+        </tbody>
+      </table>
+      <p class="note">数值为 Dingwei 型号数据库的参考值。下单前请与制造商确认最终规格——包括 CCA 基准、端子类型与极性。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>H 系列：长度是升级的轴</h2>
+    <p>整个 H 家族——H5 到 H8——共享一个宽度（175 mm）和一个高度（190 mm）。只有长度变化：</p>
+    <ul>
+      <li><strong>H5 / LN2</strong>——242 mm</li>
+      <li><strong>H6 / LN3</strong>——278 mm</li>
+      <li><strong>H7 / LN4</strong>——315 mm</li>
+      <li><strong>H8 / LN5</strong>——352 mm</li>
+    </ul>
+    <p>实际后果是：<strong>H5 是现代 H 家族里最短的，而从 H5 到 H6 是这个系列里最常见的长度升级。</strong> 欧洲平台常把托盘按宽度和高度标准化、配可调固定件，所以一款为 H5 选型的紧凑车，常常能升到 H6 以获得额外储备——只要托盘长度允许。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>为什么 CCA 差低估了真实区别</h2>
+      <p>纸面上 CCA 差看着小——600 vs 660 A（参考）。而容量差是 20%：60 Ah vs 72 Ah。</p>
+      <p>这要紧，因为 CCA 和容量回答不同的问题：</p>
+      <ul>
+        <li><strong>CCA</strong> 关乎启动冷发动机的那段短而大电流的爆发。两只电池在典型条件下都能轻松启动一台紧凑车。</li>
+        <li><strong>容量（Ah）</strong> 关乎发动机停机或发电机跟不上时，电池能支撑负载多久——启停重启、红绿灯附件用电、停车场电子设备。</li>
+      </ul>
+      <p>所以 H5 和 H6 的现实差别，较少体现在第一次冷启动，更多体现在 <strong>启停和附件负载下的储备续航</strong>。这就是为什么两只 CCA 差 60 A 的电池，在启停车里表现得大不相同。更多见 <a href="/zh/knowledge/battery-capacity-ah-vs-c20-vs-rc/">容量 vs CCA vs 储备</a> 入门页和 <a href="/zh/knowledge/what-is-cca/">CCA 指南</a>。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>命名陷阱：DIN55 和 DIN66</h2>
+    <p>和家族其余成员一样，H5 和 H6 带着多个别名：</p>
+    <ul>
+      <li><strong>H5</strong> = LN2 = Group 47 = DIN55（标称）</li>
+      <li><strong>H6</strong> = LN3 = Group 48 = DIN66（标称）</li>
+    </ul>
+    <p>标称的"DIN55"和"DIN66"标签 <em>不是</em> 真实的 C20 容量——H5 参考是 60 Ah、H6 参考是 72 Ah。订购"一只 55 Ah 电池"或"一只 66 Ah 电池"的买方，引用的是标签、不是规格。指定时，点名壳体参考（H5/LN2 或 H6/LN3）和你需要的真实 Ah 与 CCA。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>你该选哪一款？</h2>
+      <table class="data-table">
+        <thead><tr><th>选…</th><th>当…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>H5</strong></td><td>紧凑欧洲车、入门级启停系统，或任何托盘长度固定在 242 mm 的车辆；对成本敏感的替换方案。</td></tr>
+          <tr><td><strong>H6</strong></td><td>中型车和 SUV、更重的附件负载，或托盘接受更长壳体、且买方想要更多储备和启停续航的紧凑车。</td></tr>
+        </tbody>
+      </table>
+      <p>对进口商而言，H5 和 H6 是进入欧洲电池市场最常见的两个入口。它们是不同的 SKU——同宽同高、不同长——所以共享包装和运输逻辑，但必须按不同长度分开备货。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见错误</h2>
+    <ul>
+      <li>因为 H5 和 H6 并排看着相似，就把它们当可互换。长度才是限制尺寸。</li>
+      <li>读到一个 60 A 的 CCA 差、就以为电池几乎一样。那 20% 的容量差对储备很要紧。</li>
+      <li>按标称 DIN 名订购"55 Ah"或"66 Ah"，忽略真实的 C20 容量。</li>
+      <li>不确认固定件能否真正卡住更长壳体，就升级到 H6。</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>OEM 与贴牌说明</h2>
+      <p>{RELATIONSHIP} 两款型号都可用于 OEM 和贴牌方案。进入欧洲市场的品牌主通常先推出 H5 和 H6——它们覆盖销量最大的紧凑和中型平台——再延伸到 H7 和 H8 面向 SUV 和豪华车。规格阶段请确认电压、容量、CCA 基准、端子类型、极性和标签设计。</p>
+      <p><a href="/zh/oem/">OEM 方案 &rarr;</a> · <a href="/zh/private-label/">贴牌方案 &rarr;</a> · <a href={'/zh' + modelPath('H5')}>H5 规格 &rarr;</a> · <a href={'/zh' + modelPath('H6')}>H6 规格 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见问题</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，当托盘接受时 H6 是更好的买入——那 20% 的额外容量配得上那一小步价格；如果托盘是 H5 尺寸，H6 就不是升级，它根本装不下。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+      <li>H6 是同一家族里更长的壳体，所以决定首先是托盘长度，其次才是别的。</li>
+      <li>那多出的长度买来约 20% 更多的容量和更强的冷启动。</li>
+      <li>想把 H5 托盘"升级"到 H6，败在长度上，而非性能上。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>结论</h2>
+      <p>H5 和 H6 是同一个电池家族的两个长度。决定先是托盘长度、再是储备：H6 为能接受更长壳体的车辆买来 20% 更多的容量和更强的冷启动。确认端子、极性和固定件，剩下的就是规格细节。</p>
+      <p><a href="/zh/compare/h6-vs-h7/">对比 H6 vs H7 这一步 &rarr;</a> · <a href="/zh/knowledge/jis-vs-din-vs-bci/">读标准指南 &rarr;</a> · <a href="/zh/tools/compare/">并排对比两款型号 &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="为您的方案确认 H5 或 H6 规格" />
+</BaseLayout>

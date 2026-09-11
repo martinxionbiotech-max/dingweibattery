@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, RELATIONSHIP, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel, modelPath } from '../../../../data/battery-models';
+
+const m105 = findModel('105D31');
+const m115 = findModel('115D31');
+
+const title = '105D31 vs 115D31 电池：同 D31 壳体、两个功率档 | Dingwei Battery';
+const description = '105D31（84 Ah）与 115D31（96 Ah）共用 JIS D31 壳体。了解真实区别、能否互换，以及该备哪个档。';
+const articleTitle = '105D31 vs 115D31 电池：同 D31 壳体、两个功率档';
+
+const breadcrumbs = [
+  { label: '对比', href: '/zh/compare/' },
+  { label: '105D31 vs 115D31' },
+];
+
+const faqs = [
+  { q: '115D31 比 105D31 大吗？', a: '不。两者都用 JIS D31 壳体（约 305 × 175 × 220 mm；BCI 对照列出 306 × 173 × 225 mm）。115D31 多的是容量和 CCA，不是物理尺寸。' },
+  { q: '能用 115D31 替换 105D31 吗？', a: '物理上通常可以，只要端子类型和极性匹配。115D31 增加储备和冷启动功率，对多数重型 SUV、四驱和船用启动应用是安全的——但先确认端子。' },
+  { q: '能用 105D31 替换 115D31 吗？', a: '装得下、温和条件下也能启动，但储备更少、CCA 更低。在持续的柴油启动、绞盘或重附件负载下它更吃力，不是可靠的长期替代。' },
+  { q: '为什么不同品牌的 105D31 CCA 数值不同？', a: '因为 JIS（−15°C）和 SAE/EN（−18°C）是不同测试方法，且工厂把 D31 壳体做到不同的极板和铅膏等级。只在单一标准、单一制造商内比较。' },
+];
+
+const url = `${SITE.url}/zh/compare/105d31-vs-115d31/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-11',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: '对比',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '对比', item: `${SITE.url}/zh/compare/` },
+      { '@type': 'ListItem', position: 3, name: '105D31 vs 115D31', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">对比 · JIS</span>
+    <h1>105D31 vs 115D31 电池：同 D31 壳体、两个功率档</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 仅为参考值</p>
+    <p class="lead">105D31 和 115D31 共用同一个物理壳体——JIS D31，标准日本轿车/轻型卡车盒子里最大的一款。区别在电气上：115D31 是同一盒子的更高性能档，容量更大、冷启动额定值更高。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 这是同一个 JIS D31 壳体的两个性能档，不是两种不同的电池尺寸。标准 SUV / 轻型商用柴油和四驱替换经济性选 105D31；重型 SUV、带绞盘或辅助系统的四驱、船用启动，或任何需要更深储备的应用选 115D31。它们落进同一个托盘，但端子类型和极性仍须确认。
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>关键规格（参考）</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>字段</th><th>105D31</th><th>115D31</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>标准</th><td>JIS（JIS D 5301）</td><td>JIS（JIS D 5301）</td></tr>
+          <tr><th>电压</th><td>{m105?.voltage} V</td><td>{m115?.voltage} V</td></tr>
+          <tr><th>容量（参考）</th><td>{m105?.capacity_ah} Ah</td><td>{m115?.capacity_ah} Ah</td></tr>
+          <tr><th>CCA（参考，JIS −15°C）</th><td>{m105?.cca.value}</td><td>{m115?.cca.value}</td></tr>
+          <tr><th>壳体尺寸</th><td>{m105?.case_size}</td><td>{m115?.case_size}</td></tr>
+          <tr><th>外形（mm）</th><td>{m105?.dimensions_mm.length} × {m105?.dimensions_mm.width} × {m105?.dimensions_mm.height}</td><td>{m115?.dimensions_mm.length} × {m115?.dimensions_mm.width} × {m115?.dimensions_mm.height}</td></tr>
+          <tr><th>典型应用</th><td>{m105?.application}</td><td>{m115?.application}</td></tr>
+          <tr><th>OEM / 贴牌</th><td>可提供</td><td>可提供</td></tr>
+        </tbody>
+      </table>
+      <p class="note">数值为 Dingwei 型号数据库的参考值。下单前请与制造商确认最终规格——包括 CCA 基准、端子类型与极性。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>型号代码到底什么意思</h2>
+    <p>JIS 代码拆成 <code>[性能档][壳体档][长度]</code>，与更小的 D26 家族完全一样：</p>
+    <ul>
+      <li><strong>105 / 115</strong>——<em>性能档</em>，大致对应容量（Ah）和 CCA。更高的数字意味着更高的电气档，<strong>不是物理上更大的电池</strong>。</li>
+      <li><strong>D</strong>——<em>壳体尺寸档</em>（宽度和高度）。两款都是" D "。</li>
+      <li><strong>31</strong>——<em>长度</em>，单位厘米，约 305 mm。这是多数人漏掉的部分：<strong>D31 与 D26 不是同一个托盘。</strong></li>
+    </ul>
+    <p>D31 盒子坐落在标准 JIS 轿车梯级的顶端——D23（232 mm）→ D26（256 mm）→ D31（305 mm）。相对 D26 多出的长度，正是多出的极板面积、也就是更高 Ah 和 CCA 的来源。如果一辆车为 D26 选型，D31 通常 <em>装不进</em> 托盘，尽管三者都是" D "宽度和高度。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>它们能互换吗？</h2>
+      <p>物理上，能——105D31 和 115D31 占用同一个 D31 托盘和同一个固定底座，所以任意一款都能放进为 D31 电池而建的车里。</p>
+      <p>把它们当替代品之前，三件事仍须确认：</p>
+      <ol>
+        <li><strong>端子类型与极性。</strong> D31 电池有左/右变体（如 <code>105D31L</code> vs <code>105D31R</code>），也有不同端子样式。同壳体 ≠ 同端子。</li>
+        <li><strong>储备与负载的匹配。</strong> 一只 105D31 装进为 115D31 设计的应用里仍能启动，但在绞盘、持续附件或船用生活负载下会循环得更深、磨损更快。</li>
+        <li><strong>CCA 基准。</strong> 确认所报 CCA 是 JIS（−15°C）还是 SAE/EN（−18°C）。两者对同一只电池不是同一个数。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>为什么 CCA 数字在不同品牌间不同</h2>
+    <p>你会看到 105D31 的 CCA 从约 670 到 700 不等，容量从约 83 到 90 Ah 不等，视来源而定。这通常不是矛盾——是两个效应同时发生：</p>
+    <ul>
+      <li><strong>测试方法。</strong> JIS 在 −15°C 测；SAE/EN 在 −18°C 测。同一只电池在两个标准下得出不同数字。</li>
+      <li><strong>制造商等级。</strong> 不同工厂把 D31 壳体做到不同的极板数量和铅膏规格，所以"105"档有一个合理的性能分布。一家工厂的高配 105D31，可能接近另一家的低配 115D31。</li>
+    </ul>
+    <p>实用法则：<strong>在单一标准内比较 CCA，并在单一制造商内档对档比较。</strong> 拿一家品牌的 105D31 去比另一家品牌的 115D31，告诉你的更多是工厂，而非型号代码。更多见 <a href="/zh/knowledge/what-is-cca/">CCA 指南</a> 和 <a href="/zh/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a> 的解释。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>你该选哪一款？</h2>
+      <table class="data-table">
+        <thead><tr><th>选…</th><th>当…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>105D31</strong></td><td>附件负载适中的标准 SUV、四驱和轻型商用柴油；对成本敏感的替换方案；84 Ah 是 OEM 基线的市场。</td></tr>
+          <tr><td><strong>115D31</strong></td><td>重型 SUV、带绞盘或辅助系统的四驱、船用启动，或任何需要更深储备和更强冷启动的应用。</td></tr>
+        </tbody>
+      </table>
+      <p>对进口商或贴牌品牌主而言，表述与 D26 家族相同：<strong>这是同一壳体里的两个 SKU，不是两只不同的电池。</strong> 你可以用同一托盘适配、同一套模具和同一物流底座，在一个标签下提供两档 D31 产品线——标准和重型。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见错误</h2>
+    <ul>
+      <li>以为"115"电池比"105" <em>更大</em> 而订不同的托盘。是同一个 D31 托盘。</li>
+      <li>以为 D31 能装进 D26 的车。D31 长约 50 mm；是不同的托盘族。</li>
+      <li>拿一家品牌的 105D31 CCA 去比另一家品牌的 115D31 CCA，得出一个比档位实际暗示更大的差距。</li>
+      <li>换档时忽略端子和极性。</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>OEM 与贴牌说明</h2>
+      <p>{RELATIONSHIP} 两款型号都可用于 OEM 和贴牌方案。因为它们共用壳体，品牌主可以用单一模具和包装族、在一个标签下推出两档 D31 产品线（标准 + 重型）。规格阶段请确认电压、容量、CCA 基准、端子类型、极性和标签设计。</p>
+      <p><a href="/zh/oem/">OEM 方案 &rarr;</a> · <a href="/zh/private-label/">贴牌方案 &rarr;</a> · <a href={'/zh' + modelPath('105D31')}>105D31 规格 &rarr;</a> · <a href={'/zh' + modelPath('115D31')}>115D31 规格 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见问题</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，只有当车辆真正需要那个额外的冷启动余量时，115D31 才配得上它的价格溢价——标准工况下，105D31 是更诚实的买入。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+      <li>两者共用 D31 托盘，所以升级只是纯容量和 CCA——没有适配上的好处。</li>
+      <li>更高的 CCA 意味着更多铅和更多重量，而一旦发动机能可靠启动，那个余量买不到任何东西。</li>
+      <li>多数买方是出于习惯而非实测的冷启动缺口来过度配置 CCA。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>结论</h2>
+      <p>105D31 和 115D31 是同一个 D31 盒子在两个性能档上。决定不在于尺寸——而在于把容量和 CCA 匹配到车辆的电气与启动需求，然后确认端子和极性。对买方和品牌主来说，这会在最大的标准 JIS 壳体里，把两只看似不同的电池变成一个灵活的单一平台。</p>
+      <p><a href="/zh/compare/65d26-vs-80d26/">改看 D26 家族对比 &rarr;</a> · <a href="/zh/data/">浏览型号数据库 &rarr;</a> · <a href="/zh/tools/compare/">并排对比两款型号 &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="为您的方案确认 105D31 或 115D31 规格" />
+</BaseLayout>

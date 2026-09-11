@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, RELATIONSHIP, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel, modelPath } from '../../../../data/battery-models';
+
+const m65 = findModel('65D26');
+const m80 = findModel('80D26');
+
+const title = '65D26 vs 80D26 电池：同壳体、不同功率 | Dingwei Battery';
+const description = '65D26 与 80D26 共用 JIS D26 壳体，但容量（60 vs 72 Ah）和 CCA 不同。了解它们能否互换、该选哪一款。';
+const articleTitle = '65D26 vs 80D26 电池：同壳体、不同功率';
+
+const breadcrumbs = [
+  { label: '对比', href: '/zh/compare/' },
+  { label: '65D26 vs 80D26' },
+];
+
+const faqs = [
+  { q: '80D26 比 65D26 大吗？', a: '不。两者共用 JIS D26 壳体（约 260 × 175 × 220 mm）。80D26 多的是容量和 CCA，不是物理尺寸。' },
+  { q: '能用 80D26 替换 65D26 吗？', a: '物理上通常可以，只要端子类型和极性匹配。80D26 增加容量和启动功率，对多数车辆是安全的——但先确认端子。' },
+  { q: '能用 65D26 替换 80D26 吗？', a: '装得下、温和条件下也能启动，但储备更少、CCA 更低。在柴油或高附件负载的应用里它会更吃力，不是可靠的长期替代。' },
+  { q: '为什么不同网站列出的 80D26 CCA 不一样？', a: '因为 JIS（−15°C）和 SAE/EN（−18°C）是不同测试方法，且制造商按不同等级制造。只在单一标准内比较。' },
+];
+
+const url = `${SITE.url}/zh/compare/65d26-vs-80d26/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-11',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: '对比',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '对比', item: `${SITE.url}/zh/compare/` },
+      { '@type': 'ListItem', position: 3, name: '65D26 vs 80D26', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">对比 · JIS</span>
+    <h1>65D26 vs 80D26 电池：同壳体、不同功率</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 仅为参考值</p>
+    <p class="lead">65D26 和 80D26 共用同一个物理壳体（JIS D26，约 260 × 175 × 220 mm），所以装进同一个电池托盘。区别在电气上：80D26 是同一壳体的更高性能档，容量更大、冷启动额定值更高。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 这是同一个 JIS D26 盒子的两个性能档——不是两种不同的电池尺寸。追求标准轿车 / 轻型卡车替换经济性选 65D26；皮卡、SUV、柴油或更高附件负载选 80D26。它们在同一托盘上物理可互换，但端子类型和极性仍须确认。
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>关键规格（参考）</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>字段</th><th>65D26</th><th>80D26</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>标准</th><td>JIS（JIS D 5301）</td><td>JIS（JIS D 5301）</td></tr>
+          <tr><th>电压</th><td>{m65?.voltage} V</td><td>{m80?.voltage} V</td></tr>
+          <tr><th>容量（参考）</th><td>{m65?.capacity_ah} Ah</td><td>{m80?.capacity_ah} Ah</td></tr>
+          <tr><th>CCA（参考，JIS −15°C）</th><td>{m65?.cca.value}</td><td>{m80?.cca.value}</td></tr>
+          <tr><th>壳体尺寸</th><td>{m65?.case_size}</td><td>{m80?.case_size}</td></tr>
+          <tr><th>外形（mm）</th><td>{m65?.dimensions_mm.length} × {m65?.dimensions_mm.width} × {m65?.dimensions_mm.height}</td><td>{m80?.dimensions_mm.length} × {m80?.dimensions_mm.width} × {m80?.dimensions_mm.height}</td></tr>
+          <tr><th>典型应用</th><td>{m65?.application}</td><td>{m80?.application}</td></tr>
+          <tr><th>OEM / 贴牌</th><td>可提供</td><td>可提供</td></tr>
+        </tbody>
+      </table>
+      <p class="note">数值为 Dingwei 型号数据库的参考值。下单前请与制造商确认最终规格——包括 CCA 基准、端子类型与极性。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>型号代码到底什么意思</h2>
+    <p>JIS 型号代码不是随机的名字。它拆成 <code>[性能档][壳体档][长度]</code>：</p>
+    <ul>
+      <li><strong>65 / 80</strong>——<em>性能档</em>，大致对应容量（Ah）和 CCA。更高的数字意味着更高的电气档，<strong>不是物理上更大的电池</strong>。</li>
+      <li><strong>D</strong>——<em>壳体尺寸档</em>（宽度和高度）。A 最小，H 最大。两款都是" D "。</li>
+      <li><strong>26</strong>——<em>长度</em>，单位厘米，约 260 mm。</li>
+    </ul>
+    <p>这是多数对比页跳过的那部分：<strong>65D26 和 80D26 是同一个盒子。</strong> 前导数字改变的是活性极板材料的量，从而改变能量和启动功率——外形尺寸保持不变。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>它们能互换吗？</h2>
+      <p>物理上，能——在这个意义上，两者占用同一个托盘、用同一个固定底座。如果一辆车接受一只 D26 电池，另一只通常不用改安装件就能放进去。</p>
+      <p>话虽如此，把它们当替代品之前，三件事仍须核实：</p>
+      <ol>
+        <li><strong>端子类型与极性。</strong> JIS 电池有左/右变体（如 <code>65D26L</code> vs <code>65D26R</code>），也有不同端子样式。同壳体 ≠ 同端子。</li>
+        <li><strong>容量与发电机、附件负载的匹配。</strong> 一只 65D26 装进为 80D26 设计的车里仍能启动，但在持续的附件或柴油启动负载下会更吃力、磨损更快。</li>
+        <li><strong>CCA 基准。</strong> 确认所报 CCA 是 JIS（−15°C）还是 SAE/EN（−18°C）。两者对同一只电池不是同一个数。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>为什么 CCA 数字会看着混乱</h2>
+    <p>你会看到 80D26 的 CCA 从大约 490 到 650 不等，视来源而定。这通常不是矛盾——是两件事同时发生：</p>
+    <ul>
+      <li><strong>测试方法。</strong> JIS 在 −15°C 测；SAE/EN 在 −18°C 测。同一只电池在两个标准下得出不同数字。</li>
+      <li><strong>制造商等级。</strong> 不同工厂把 D26 壳体做到不同的极板密度和铅膏规格，所以"80"档有一个合理的性能分布。</li>
+    </ul>
+    <p>实用法则：<strong>在单一标准内比较 CCA，并把印出来的数字当作参考，直到制造商对照某个具体测试程序确认它。</strong> 更多见 <a href="/zh/knowledge/what-is-cca/">CCA 指南</a> 和 <a href="/zh/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a> 的解释。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>你该选哪一款？</h2>
+      <table class="data-table">
+        <thead><tr><th>选…</th><th>当…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>65D26</strong></td><td>附件负载适中的标准轿车和轻型卡车；对成本敏感的替换方案；60 Ah 是 OEM 基线的市场。</td></tr>
+          <tr><td><strong>80D26</strong></td><td>皮卡、中型 SUV、柴油，或电气需求重的车辆（绞盘、辅助灯、车队远程信息）；买方期待在 OEM 基线上再升级的市场。</td></tr>
+        </tbody>
+      </table>
+      <p>对进口商或贴牌品牌主而言，有用的表述是：<strong>这是同一壳体里的两个 SKU，不是两只不同的电池。</strong> 你可以用同一托盘适配、同一套模具和同一物流底座，向同一客户提供两个性能档。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见错误</h2>
+    <ul>
+      <li>以为"80"电池比"65" <em>更大</em> 而订不同的托盘。是同一个托盘。</li>
+      <li>拿 80D26 的 SAE CCA 去比 65D26 的 JIS CCA，得出一个比实际更大的差距。</li>
+      <li>只备高配档，丢掉对价格敏感的替换细分。</li>
+      <li>互相替换时忽略端子和极性。</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>OEM 与贴牌说明</h2>
+      <p>{RELATIONSHIP} 两款型号都可用于 OEM 和贴牌方案。因为它们共用壳体，品牌主可以用单一模具和包装族、在一个标签下推出两档产品线（标准 + 性能）。规格阶段请确认电压、容量、CCA 基准、端子类型、极性和标签设计。</p>
+      <p><a href="/zh/oem/">OEM 方案 &rarr;</a> · <a href="/zh/private-label/">贴牌方案 &rarr;</a> · <a href={'/zh' + modelPath('65D26')}>65D26 规格 &rarr;</a> · <a href={'/zh' + modelPath('80D26')}>80D26 规格 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见问题</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，寒冷气候和重电气负载下 80D26 是更稳妥的默认选择，但需求适中时 65D26 是更聪明的买入——过度配置 CCA 是成本，不是毛利。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+      <li>它们共用一个壳体，所以唯一真正的问题是容量和 CCA 对车辆实际需求的匹配。</li>
+      <li>80D26 多出的容量和启动功率，只有在卡车遇到冷启动或重附件时才值回票价。</li>
+      <li>对品牌主而言，共用壳体意味着一个平台能承载两档——这是实打实的产品线优势。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>结论</h2>
+      <p>65D26 和 80D26 是同一个盒子在两个性能档上。决定不在于尺寸——而在于把容量和 CCA 匹配到车辆的电气与启动需求，然后确认端子和极性。对买方和品牌主来说，这会把两只看似不同的电池变成一个灵活的单一平台。</p>
+      <p><a href="/zh/data/">浏览型号数据库 &rarr;</a> · <a href="/zh/tools/compare/">并排对比两款型号 &rarr;</a> · <a href="/zh/knowledge/battery-dimensions-case-size/">读壳体尺寸指南 &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="为您的方案确认 65D26 或 80D26 规格" />
+</BaseLayout>

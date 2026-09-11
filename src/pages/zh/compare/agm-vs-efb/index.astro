@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, RELATIONSHIP, PUBLISHED_DATE } from '../../../../data/site';
+
+const title = 'AGM vs EFB 电池：你需要哪种启停类型？ | Dingwei Battery';
+const description = 'AGM（贫液式玻璃纤维隔板）和 EFB（增强型富液）都是启停电池，但结构、循环寿命和价格不同。了解该选哪种。';
+const articleTitle = 'AGM vs EFB 电池：你需要哪种启停类型？';
+
+const breadcrumbs = [
+  { label: '对比', href: '/zh/compare/' },
+  { label: 'AGM vs EFB' },
+];
+
+const faqs = [
+  { q: 'AGM 和 EFB 电池有什么区别？', a: 'AGM 用贫液式玻璃纤维隔板固定电解液，密封且防漏；EFB 是增强型富液电池，在正极板上加了一层增强无纺布、仍是液态电解液。AGM 提供更高的循环寿命和更深的放电耐受，成本也更高。' },
+  { q: '能用 EFB 替换 AGM 吗？', a: '不建议。从 AGM 降到 EFB 是降级，会扰乱电池管理系统、降低启停表现。用 AGM 替换 EFB 通常可接受，但 BMS 应按新类型重新编码。' },
+  { q: '启停用 AGM 还是 EFB 更好？', a: '两者都为启停而造。EFB 是入门启停和紧凑车的高性价比选择；AGM 是带制动能量回收的启停、豪华车和重电气负载的高性能选择。' },
+  { q: '换新电池需要注册吗？', a: '在许多现代车辆上，是的。应告知电池管理系统安装了新电池，并编码其类型（EFB 或 AGM），好让充电策略匹配电池。装配店和经销商可以做到。' },
+];
+
+const url = `${SITE.url}/zh/compare/agm-vs-efb/`;
+
+const sources = [
+  { label: 'VARTA Automotive — EFB 与 AGM 的区别', href: 'https://www.varta-automotive.com/en/knowledge/articles/article-details/efb-and-agm-differences' },
+  { label: 'RAC Shop — AGM vs EFB：我需要哪种电池？', href: 'https://www.racshop.co.uk/advice/agm-vs-efb-which-battery-do-i-need' },
+  { label: 'Continental Battery — EFB vs AGM：选择正确的启停电池', href: 'https://www.continentalbattery.com/blog/efb-vs-agm-choosing-the-right-start-stop-battery' },
+  { label: 'Stryten — 启停与混动车的 EFB vs AGM', href: 'https://www.stryten.com/efb-vs-agm-for-start-stop-and-hybrid-vehicles' },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-11',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: '对比',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '对比', item: `${SITE.url}/zh/compare/` },
+      { '@type': 'ListItem', position: 3, name: 'AGM vs EFB', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">对比 · 电池类型</span>
+    <h1>AGM vs EFB 电池：你需要哪种启停类型？</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 引用外部来源</p>
+    <p class="lead">AGM 和 EFB 是为启停车而造的两种电池技术——但它们不是一回事，也不能随意互换。AGM 是贫液式玻璃纤维隔板设计，电解液被束缚在隔板里；EFB 是增强型富液设计，仍含液态电解液。区别体现在循环寿命、价格，以及各自能耐受多深的放电。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 成本要紧的入门启停和紧凑车选 EFB；带制动能量回收的启停、豪华车和重电气负载选 AGM。同型替换、或 EFB→AGM 升级——不要 AGM→EFB 降级——并把新电池注册/编码到车辆的电池管理系统。
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>两种技术一览</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>属性</th><th>EFB</th><th>AGM</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>全称</th><td>Enhanced Flooded Battery（增强型富液电池）</td><td>Absorbent Glass Mat battery（贫液式玻璃纤维隔板电池）</td></tr>
+          <tr><th>结构</th><td>富液（液态电解液），正极板上加增强无纺布</td><td>电解液吸收在玻璃纤维隔板中；密封、阀控</td></tr>
+          <tr><th>相对普通电池的循环寿命</th><td>约 2 倍</td><td>更高——铅酸家族里循环最稳定的</td></tr>
+          <tr><th>典型放电深度</th><td>围绕约 60% 放电深度优化</td><td>耐受更深放电，最高约 80%</td></tr>
+          <tr><th>典型适配</th><td>入门启停、紧凑和中型车</td><td>带回收的启停、豪华车、高电子设备</td></tr>
+          <tr><th>相对成本</th><td>更低</td><td>更高</td></tr>
+        </tbody>
+      </table>
+      <p class="note">本表汇总已发布的制造商指南（VARTA、RAC、Continental Battery、Stryten——来源见下）。这是一般性对比，不是型号规格；下单前请与电池制造商确认确切的化学体系与额定值。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>每种技术到底是什么</h2>
+    <p><strong>EFB（增强型富液电池）</strong> 是普通富液铅酸电池的直接演进。它仍含液态电解液，但加了一层增强材料——正极板表面的聚酯无纺布（"polyvlies"）。那层增强减少了让普通富液电池在反复循环下失效的活性物质脱落，相对普通启动电池把循环寿命大约翻倍。</p>
+    <p><strong>AGM（贫液式玻璃纤维隔板）</strong> 走另一条路：电解液被吸收进极板之间的细玻璃纤维隔板里，电池密封并阀控。因为没有自由液体，AGM 电池防漏、免维护，其复合再化合设计让它更耐受深循环和反复充放电——正是带制动能量回收的启停车所制造的工况。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>为什么这个区别在启停车里要紧</h2>
+      <p>启停系统在每个红绿灯关停发动机、在你松开刹车时重启。这意味着每趟行程里多得多的启动次数，而电池必须在发动机关机时持续给车辆电子设备供电——然后再接受充电。普通富液电池不是为这个工况而造的、会很快磨损；EFB 和 AGM 才是。</p>
+      <p>实际区别在于工况有多硬：</p>
+      <ul>
+        <li><strong>简单启停、紧凑车、对成本敏感</strong>——EFB 通常是正确且经济的选择。</li>
+        <li><strong>启停加制动能量回收，或重电气负载</strong>——AGM 更深的放电耐受和循环稳定性让它成为正确选择，而它通常也是车辆围绕其打造的类型。</li>
+      </ul>
+      <p>一个有用的思考方式：<strong>EFB 扛"启停"的活儿；AGM 扛"启停 + 回收 + 豪华电子"的活儿。</strong> 电池被要求循环和缓冲能量回收越多，AGM 就越配得上它的价格溢价。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>升级与降级规则</h2>
+    <p>替换工作正是在这里出错。从适配指南提炼的关键规则：</p>
+    <ol>
+      <li><strong>同型替换。</strong> 如果车辆原厂配 EFB，安全的替换就是 EFB；如果原厂配 AGM，用 AGM。</li>
+      <li><strong>EFB → AGM 通常是可接受的升级。</strong> 你获得循环寿命和储备——但电池管理系统（BMS）应按新类型编码，好让它正确给 AGM 充电。</li>
+      <li><strong>AGM → EFB 是降级。</strong> 它会扰乱 BMS、降低启停表现并缩短电池寿命。避免。</li>
+      <li><strong>绝不把普通富液电池</strong> 装进指定 EFB 或 AGM 的地方。它扛不过启停工况。</li>
+    </ol>
+    <p>在许多现代车辆上，新电池还必须 <strong>注册</strong> 到 BMS，好让充电策略为新电池重置——这是车间和经销商都应向终端用户传达的重要一步。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>你该选哪一款？</h2>
+      <table class="data-table">
+        <thead><tr><th>选…</th><th>当…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>EFB</strong></td><td>入门级启停、紧凑和中型车、对成本敏感的替换方案、单价是决定因素的市场。</td></tr>
+          <tr><td><strong>AGM</strong></td><td>带制动能量回收的启停、豪华车、高附件/电子负载，以及买方期待更长寿命选项的市场。</td></tr>
+        </tbody>
+      </table>
+      <p>对贴牌进口商而言，EFB 和 AGM 是同一启停类别的两个价格档——不是对手。两者都备，就能让品牌用 EFB 服务经济细分、用 AGM 服务豪华细分，这也正映照了整车厂自己指定这两种技术的方式。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>OEM 与贴牌说明</h2>
+    <p>{RELATIONSHIP} EFB 和 AGM 两种电池类型都可用于 OEM 和贴牌方案。指定时，确认化学体系（EFB 或 AGM）、容量、CCA 基准（EN −18°C）、壳体参考（通常是 H5–H8 家族）、端子类型、极性和标签设计——并澄清目标市场对 BMS 注册的预期，因为那影响售后支持。</p>
+    <p><a href="/zh/oem/">OEM 方案 &rarr;</a> · <a href="/zh/private-label/">贴牌方案 &rarr;</a> · <a href="/zh/knowledge/jis-vs-din-vs-bci/">读标准指南 &rarr;</a> · <a href="/zh/knowledge/battery-capacity-ah-vs-c20-vs-rc/">读容量 vs CCA vs 储备 &rarr;</a></p>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见问题</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>来源</h2>
+      <p>本对比基于以下已发布指南，访问于 2026-09-11：</p>
+      <ul>
+        {sources.map((s) => (
+          <li><a href={s.href} rel="noopener">{s.label}</a></li>
+        ))}
+      </ul>
+      <p class="note">规格与循环寿命数字因制造商和产品等级而异；这些来源是为两种技术的一般区别而引，非作为型号特定数据。</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，EFB 是多数启停替换的正确默认，而 AGM 被过度购买的时候，比被低估购买的时候更多。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+      <li>EFB 匹配简单启停的原厂规格、成本更低——经济耐用的主力。</li>
+      <li>AGM 真正的优势体现在回收和重电气负载上，而非日常启停。</li>
+      <li>常见错误是把 AGM 当通用"升级"来买，为车辆从未用到的能力付钱。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>结论</h2>
+    <p>AGM 和 EFB 都是启停技术，但它们坐落在成本对耐久曲线上的不同位置。EFB 是简单启停的经济耐用主力；AGM 是回收和重电气负载的高配选择。让替换匹配车辆的原厂规格、避免降级、把新电池注册到 BMS，选择就变得直截了当。</p>
+    <p><a href="/zh/compare/h6-vs-h7/">对比 H6 vs H7（一个常见的启停尺寸）&rarr;</a> · <a href="/zh/knowledge/battery-applications-by-vehicle/">读按车型的应用 &rarr;</a> · <a href="/zh/tools/battery-finder/">用电池选型工具 &rarr;</a></p>
+  </section>
+
+  <CTASection title="为您的市场指定 EFB 或 AGM 方案" />
+</BaseLayout>

@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, RELATIONSHIP, PUBLISHED_DATE } from '../../../../data/site';
+import { findModel, modelPath } from '../../../../data/battery-models';
+
+const m55 = findModel('55B24');
+const m65 = findModel('65B24');
+
+const title = '55B24 vs 65B24 电池：同 B24 壳体、差异微小 | Dingwei Battery';
+const description = '55B24（48 Ah）与 65B24（50 Ah）共用 JIS B24 壳体和同样的 370 CCA。了解为什么差距比代码暗示的更小。';
+const articleTitle = '55B24 vs 65B24 电池：同 B24 壳体、差异微小';
+
+const breadcrumbs = [
+  { label: '对比', href: '/zh/compare/' },
+  { label: '55B24 vs 65B24' },
+];
+
+const faqs = [
+  { q: '65B24 比 55B24 大吗？', a: '不。两者都用 JIS B24 壳体（约 238 × 129 × 220 mm；BCI 对照列出 238 × 129 × 227 mm）。65B24 只是一个微小的容量台阶，不是不同的尺寸。' },
+  { q: '55B24 和 65B24 能互换吗？', a: '物理上能——它们共用同一个 B24 托盘和端子底座。电气差只有约 2 Ah，所以近乎可互换；确认端子类型和极性。' },
+  { q: '为什么 55B24 和 65B24 都显示 370 CCA？', a: '因为在多数参考数据里，这个容量台阶太小、不足以改变冷启动档。实际上 CCA 在制造商之间的差异，远大于这两个代码之间的差异。' },
+  { q: '65B24 里的"65"是 65 Ah 吗？', a: '不是。在 JIS 编码里，前导数字是性能档指示符，不是 Ah。一只 65B24 视工厂而定通常在 48–52 Ah，而非 65 Ah。' },
+];
+
+const url = `${SITE.url}/zh/compare/55b24-vs-65b24/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articleTitle,
+    description,
+    author: { '@type': 'Organization', name: BRAND },
+    publisher: { '@type': 'Organization', name: BRAND, url: SITE.url },
+    datePublished: PUBLISHED_DATE,
+    dateModified: '2026-09-11',
+    image: `${SITE.url}/images/factory/factory-19.webp`,
+    mainEntityOfPage: url,
+    articleSection: '对比',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '对比', item: `${SITE.url}/zh/compare/` },
+      { '@type': 'ListItem', position: 3, name: '55B24 vs 65B24', item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} ogType="article">
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container prose">
+    <span class="tag">对比 · JIS</span>
+    <h1>55B24 vs 65B24 电池：同 B24 壳体、差异微小</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-11 · 仅为参考值</p>
+    <p class="lead">55B24 和 65B24 共用同一个物理壳体——窄身的 JIS B24 盒子，用在亚洲紧凑车和混动辅助位置。与 D26 或 D31 组合不同，这里的差距确实小：65B24 只是一个微小的容量台阶，不是一个有意义的功率升级。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 这是同一个 B24 壳体的两个相邻档，电气额定值近乎相同（48 vs 50 Ah，都 370 CCA 参考）。它们在同一托盘上实际上可互换。真正的决定是价格和可得性，而非性能。
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>关键规格（参考）</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>字段</th><th>55B24</th><th>65B24</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>标准</th><td>JIS（JIS D 5301）</td><td>JIS（JIS D 5301）</td></tr>
+          <tr><th>电压</th><td>{m55?.voltage} V</td><td>{m65?.voltage} V</td></tr>
+          <tr><th>容量（参考）</th><td>{m55?.capacity_ah} Ah</td><td>{m65?.capacity_ah} Ah</td></tr>
+          <tr><th>CCA（参考，JIS −15°C）</th><td>{m55?.cca.value}</td><td>{m65?.cca.value}</td></tr>
+          <tr><th>壳体尺寸</th><td>{m55?.case_size}</td><td>{m65?.case_size}</td></tr>
+          <tr><th>外形（mm）</th><td>{m55?.dimensions_mm.length} × {m55?.dimensions_mm.width} × {m55?.dimensions_mm.height}</td><td>{m65?.dimensions_mm.length} × {m65?.dimensions_mm.width} × {m65?.dimensions_mm.height}</td></tr>
+          <tr><th>典型应用</th><td>{m55?.application}</td><td>{m65?.application}</td></tr>
+          <tr><th>OEM / 贴牌</th><td>可提供</td><td>可提供</td></tr>
+        </tbody>
+      </table>
+      <p class="note">数值为 Dingwei 型号数据库的参考值。下单前请与制造商确认最终规格——包括 CCA 基准、端子类型与极性。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>型号代码到底什么意思</h2>
+    <p>JIS 代码拆成 <code>[性能档][壳体档][长度]</code>：</p>
+    <ul>
+      <li><strong>55 / 65</strong>——<em>性能档</em>。这里是要害：<strong>这个数字不是 Ah 额定值。</strong> 一只 65B24 不是 65 Ah 电池；真实的 C20 容量视工厂而定通常在 48–52 Ah。</li>
+      <li><strong>B</strong>——<em>壳体尺寸档</em>。" B "是一个窄而高的壳体（129 mm 宽），用于小型亚洲车。</li>
+      <li><strong>24</strong>——<em>长度</em>，单位厘米，约 238 mm。</li>
+    </ul>
+    <p>B24 盒子是"小亚洲"底座（BCI 对照 Group 51，以及 NS60 / N40 家族）。它是更宽 D 系列的紧凑对应物——同高，但只有约 129 mm 宽、而非约 173 mm。那个窄宽度正是限制极板面积的东西，所以 B24 电池在约 50 Ah 封顶，而 D26 能达到 72–84 Ah。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>差距比代码暗示的更小</h2>
+      <p>在 Dingwei 参考数据里，两个代码之间的差别是 <strong>2 Ah 和 0 CCA</strong>。这不是笔误——是 JIS 性能档在这个小壳体里落定的方式。</p>
+      <p>给那 2 Ah 一点上下文：<strong>同一 55B24 代码在 <em>制造商之间</em> 的 CCA 分布，远大于同一工厂内一只 55B24 和一只 65B24 之间的差别。</strong> 已发布的 55B24 数值跨品牌从约 330 到 570 A，容量从约 45 到 48 Ah。一家工厂的"高配"55B24，可能比另一家的"低配"65B24 额定更高。</p>
+      <p>实用法则：<strong>在单一制造商内，65B24 相对 55B24 只是微小的极板升级。跨制造商，代码告诉你的非常少。</strong> 按工厂的实际规格表买，而非两位数前缀。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>它们能互换吗？</h2>
+    <p><strong>实践中，能。</strong> 两者占用同一个 B24 托盘和固定件，电气差小到它们在这个壳体所服务的紧凑和混动辅助应用里表现得几乎一样。</p>
+    <ol>
+      <li><strong>端子类型与极性。</strong> B24 电池用窄 JIS 端子类型，且有左/右变体。这是唯一必须精确匹配的东西。</li>
+      <li><strong>应用。</strong> B24 壳体常见于亚洲紧凑车（NS60 / N40 家族），且越来越多地作为混动车的辅助电池，在那里正确的类型和排气比 2 Ah 的差别更关键。</li>
+      <li><strong>价格。</strong> 因为性能差距微小，购买决定通常由价格、可得性和工厂等级驱动——而非哪个代码"更好"。</li>
+    </ol>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>你该选哪一款？</h2>
+      <table class="data-table">
+        <thead><tr><th>选…</th><th>当…</th></tr></thead>
+        <tbody>
+          <tr><td><strong>55B24</strong></td><td>预算替换方案、标准亚洲紧凑车，或 48 Ah 档是既定基线、且价格是决定因素的地方。</td></tr>
+          <tr><td><strong>65B24</strong></td><td>车辆规格或买方目录要求更高代码的地方，或一个微小储备提升值得那个小幅溢价的地方。</td></tr>
+        </tbody>
+      </table>
+      <p>对进口商而言，诚实的表述是：<strong>这两个代码是同一壳体里的近似重复。</strong> 许多方案只备一个、把另一个当交叉参考。真正的毛利决定是哪个性能档作为标准、哪个作为经济档来品牌化——而那由工厂的实际 Ah/CCA 驱动，不由两位数前缀驱动。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见错误</h2>
+    <ul>
+      <li>以为"65"意味着 65 Ah。它是性能档代码，真实容量约 48–52 Ah。</li>
+      <li>指望一个有意义升级而为 65B24 多付钱。同一工厂里增益约 2 Ah。</li>
+      <li>拿一家品牌的高配 55B24 去比另一家的低配 65B24，得出代码无意义的结论。</li>
+      <li>忽略窄 JIS 端子类型和左/右极性——真正阻止互换的那个因素。</li>
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>OEM 与贴牌说明</h2>
+      <p>{RELATIONSHIP} 两款型号都可用于 OEM 和贴牌方案。因为它们共用壳体、额定值近乎相同，品牌主可以把 B24 家族精减到一个或两个 SKU，而非备全每个前缀。规格阶段请确认电压、容量、CCA 基准、端子类型、极性和标签设计。</p>
+      <p><a href="/zh/oem/">OEM 方案 &rarr;</a> · <a href="/zh/private-label/">贴牌方案 &rarr;</a> · <a href={'/zh' + modelPath('55B24')}>55B24 规格 &rarr;</a> · <a href={'/zh' + modelPath('65B24')}>65B24 规格 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见问题</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场：</strong>在我看来，为 65B24 比 55B24 多付钱通常是个错误——那约 2 Ah 的差距是真实的，但在冷启动档不变时很少配得上那个溢价。</p>
+      <p><strong>理由：</strong></p>
+      <ul>
+      <li>两者坐同一个 B24 壳体、同一个 CCA 档，所以适配和启动实际上是一样的。</li>
+      <li>2 Ah 的差别，相对真实的温度与荷电状态波动只是噪声。</li>
+      <li>买方把 Ah 和 CCA 搞混了——而在这组配对里，两者都动得不足以要紧。</li>
+      </ul>
+      <p><em>声明：这是作者的编辑判断与行业经验，非经核验的技术结论。</em></p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>结论</h2>
+      <p>55B24 和 65B24 是同一个 B24 盒子在两个相邻档上，而差别微乎其微——约 2 Ah、冷启动档不变。把它们当近乎可互换，确认窄 JIS 端子和极性，让价格和工厂的实际规格驱动购买决定。</p>
+      <p><a href="/zh/compare/65d26-vs-80d26/">对比 D26 家族 &rarr;</a> · <a href="/zh/knowledge/battery-dimensions-case-size/">读壳体尺寸指南 &rarr;</a> · <a href="/zh/tools/compare/">并排对比两款型号 &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="为您的方案确认 55B24 或 65B24 规格" />
+</BaseLayout>
