@@ -1,0 +1,90 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Almacenamiento y vida útil de baterías | Dingwei Battery';
+const description = 'Almacenamiento y vida útil de baterías de plomo-ácido — tasas de autodescarga, calendarios de carga de mantenimiento, efectos de la temperatura y rotación FIFO de stock para importadores.';
+const articleTitle = 'Almacenamiento y vida útil de baterías';
+
+const faqs = [
+  { q: '¿A qué velocidad se autodescarga una batería de plomo-ácido almacenada?', a: 'Aproximadamente un 3–5% mensual a temperatura moderada, y la tasa se duplica por cada subida de 10°C — así que un almacén caliente puede drenar una batería por debajo del 50% de carga en pocos meses.' },
+  { q: '¿Con qué frecuencia deben recargarse las baterías almacenadas?', a: 'Cada 6 meses, con la fecha de recarga marcada en el palé — algunos proveedores de baterías selladas recomiendan 3–6 meses, y por debajo de un 50% de carga la sulfatación empieza a volverse permanente.' },
+  { q: '¿Cuánto tiempo puede estar una batería de plomo-ácido antes de dañarse?', a: 'Unos 6 meses sin carga de mantenimiento es la ventana segura práctica — más allá, la autodescarga arrastra a la batería a territorio de sulfatación y la pérdida de capacidad puede volverse permanente.' },
+  { q: '¿A qué temperatura deben almacenarse las baterías?', a: 'Frío — por debajo de unos 24°C (75°F) — porque la autodescarga se acelera con el calor y cada subida de 10°C duplica aproximadamente la tasa de descarga.' },
+  { q: '¿Cuál es la regla FIFO para el stock de baterías?', a: 'Primero-en-entrar-primero-en-salir (FIFO) — porque el reloj de garantía empieza en el conocimiento de embarque y la autodescarga corre un 3–5% mensual, el palé más antiguo debe enviarse primero o consumes tu propia ventana de garantía.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logística" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Almacenamiento y vida útil de baterías</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-10 · Fuente: Battery University (BU-403, BU-802b), guía de sulfatación de Power Sonic</p>
+    <p class="lead">Una batería de plomo-ácido en un estante no es un activo estático — es uno que se descarga lentamente. Equivócate en el almacenamiento y envías baterías ya parcialmente sulfatadas, lo que es una reclamación de garantía y un golpe de marca disfrazado de detalle logístico. Esta página convierte la química en un procedimiento de almacén: a qué velocidad se descargan las baterías, con qué frecuencia recargarlas y por qué el orden de rotación decide cuánta garantía conservas.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Las baterías de plomo-ácido se autodescargan a un 3–5% mensual a temperatura moderada, y la tasa se duplica por cada subida de 10°C. Las reglas prácticas: almacena frío (por debajo de 24°C), mantén las baterías completamente cargadas, aplica una carga de mantenimiento cada 6 meses y rota el stock primero-en-entrar-primero-en-salir — porque una batería que permanece un año ha consumido su reloj de garantía y ha empezado a sulfatarse por debajo del 50% de carga.
+    </div>
+
+    <h2>La curva de autodescarga, en números</h2>
+    <p>La autodescarga es la pérdida constante de carga que sufre una batería incluso sin nada conectado. Para plomo-ácido la tasa típica es de un 3–5% mensual a temperatura ambiente (ver los [datos de autodescarga de Battery University](https://batteryuniversity.com/article/bu-802b-what-does-elevated-self-discharge-do)), y la tasa es impulsada por la temperatura: se duplica aproximadamente por cada subida de 10°C. Una batería que pierde un 4% mensual a 20°C puede perder un 8–10% mensual a 30°C — por eso un almacén en clima caliente envejece el stock drásticamente más rápido que el mismo stock en uno frío.</p>
+
+    <h2>Por qué «por debajo del 50% de carga» es la línea que no debes cruzar</h2>
+    <p>La autodescarga no es solo carga perdida — por debajo de un 50% de estado de carga, comienza la <strong>sulfatación</strong>: los cristales de sulfato de plomo se endurecen en las placas y dejan de reconvertirse durante la recarga. Esa pérdida de capacidad es permanente, y es el mecanismo que convierte una batería vieja de estante en una reclamación de garantía. La misma química explica por qué la regla de almacenamiento es «completamente cargada, fría y recargada» — una carga completa mantiene la batería por encima del umbral de sulfatación, y el almacenamiento frío frena la marcha hacia él (ver la [guía de sulfatación de Power Sonic](https://www.power-sonic.com/what-is-a-sulfated-battery-and-how-do-you-prevent-it)).</p>
+
+    <h2>El procedimiento de almacén, destilado</h2>
+    <ol>
+      <li><strong>Almacena completamente cargada</strong> — nunca guardes una batería que llegó descargada o parcialmente cargada.</li>
+      <li><strong>Almacena frío</strong> — por debajo de unos 24°C (75°F) donde sea práctico; mantén los palés fuera del sol directo.</li>
+      <li><strong>Recarga cada 6 meses</strong> — aplica una carga de mantenimiento y marca la fecha en el palé; los proveedores de baterías selladas suelen acortarlo a 3–6 meses.</li>
+      <li><strong>Rota FIFO</strong> — primero-en-entrar-primero-en-salir, para que el palé más antiguo se envíe primero.</li>
+      <li><strong>Comprueba el voltaje antes del despacho</strong> — una lectura rápida de voltaje atrapa una batería que ha derivado por debajo del umbral seguro.</li>
+    </ol>
+    <p>La regla general a recordar: <strong>6 meses</strong> es la ventana segura práctica sin carga de mantenimiento. Pasado eso, estás gastando garantía y capacidad con cada semana extra en el estante.</p>
+
+    <h2>Por qué almacenamiento y garantía son la misma decisión</h2>
+    <p>El reloj de garantía empieza en la fecha del conocimiento de embarque — lo que significa que una batería que permanece 6 meses en tu almacén ya ha consumido la mitad de su garantía de 12 meses antes de que un cliente la toque. Suma eso a la autodescarga, y un palé de movimiento lento es una doble responsabilidad: menos garantía que ofrecer y una mayor probabilidad de que la batería falle dentro de la ventana restante. FIFO no es burocracia de almacén — es cómo conservas la garantía que vendiste. El detalle del lado de la reclamación está en la página de <a href="/es/knowledge/battery-warranty-claim-process/">proceso de reclamación de garantía</a>.</p>
+
+    <h2>El cálculo del coste de almacenamiento</h2>
+    <p>Cuantifica el riesgo para ver por qué el procedimiento importa. Una batería que se autodescarga un 5% mensual y permanece 12 meses sin atención ha perdido la mayor parte de su carga y ha cruzado profundamente a territorio de sulfatación — una responsabilidad de garantía, no un activo. El coste de una pasada de carga trimestral por un almacén es un error de redondeo contra el coste de un contenedor que llega parcialmente sulfatado y dispara reclamaciones. La carga de mantenimiento es el seguro más barato de toda la cadena logística.</p>
+
+    <h2>Umbrales de temperatura de un vistazo</h2>
+    <table>
+      <thead><tr><th>Condición de almacenamiento</th><th>Efecto en la autodescarga</th><th>Consecuencia práctica</th></tr></thead>
+      <tbody>
+        <tr><td>Por debajo de 24°C (75°F)</td><td>Línea base — un 3–5% mensual</td><td>El calendario de recarga de 6 meses se mantiene</td></tr>
+        <tr><td>30°C y superior</td><td>Aproximadamente se duplica (8–10% mensual)</td><td>Acorta la recarga a cada 3 meses</td></tr>
+        <tr><td>Por debajo de un 50% de carga</td><td>La sulfatación empieza a endurecerse</td><td>La pérdida de capacidad se vuelve permanente</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Dónde encaja esto</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). El almacenamiento es el extremo silencioso del clúster logístico — la página que protege la garantía y la marca después de que el contenedor ha desembarcado:</p>
+    <ul>
+      <li><a href="/es/knowledge/battery-shipping-guide/">Envío de baterías, cumplimiento y garantía: la guía completa</a></li>
+      <li><a href="/es/knowledge/battery-shipping-warranty/">Envío, embalaje y garantía de baterías</a></li>
+      <li><a href="/es/knowledge/battery-warranty-claim-process/">Proceso de reclamación de garantía de baterías</a></li>
+      <li><a href="/es/knowledge/lead-acid-battery-dangerous-goods/">Clasificación de mercancías peligrosas de baterías de plomo-ácido</a></li>
+      <li><a href="/es/knowledge/battery-export-documentation/">Documentación de exportación de baterías</a></li>
+    </ul>
+    <p><a href="/es/contact/">Pregunta sobre embalaje de exportación y guía de almacenamiento &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, el almacenamiento es una decisión de garantía vistiendo un disfraz logístico — una batería que permanece seis meses ya ha consumido la mitad de su garantía, y un palé de movimiento lento es una doble responsabilidad.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>El plomo-ácido se autodescarga a un 3–5% mensual y por debajo de un 50% de carga la sulfatación se vuelve permanente, convirtiendo el stock en una reclamación.</li>
+        <li>El reloj de garantía empieza en el conocimiento de embarque, así que FIFO es cómo conservas la garantía que realmente vendiste.</li>
+        <li>Una pasada de carga trimestral cuesta un error de redondeo contra un contenedor que llega parcialmente sulfatado.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Obtén orientación de almacenamiento y embalaje para tu mercado" />
+</ArticleLayout>

@@ -1,0 +1,135 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Tabla de tamaños de grupo de baterías: BCI, JIS y DIN | Dingwei Battery';
+const description = 'Una tabla de tamaños de grupo de baterías que asigna los números de grupo BCI, los códigos JIS D/B y los códigos DIN/EN H/LN a dimensiones y tipos de vehículo: el conjunto de datos de ajuste esencial para compradores OEM.';
+const articleTitle = 'Tabla de tamaños de grupo de baterías';
+
+const faqs = [
+  { q: '¿Cuáles son las dimensiones de una batería JIS D26?', a: 'Aproximadamente 256 &times; 175 &times; 220 mm (largo &times; ancho &times; alto). Es la carcasa estándar para pickups medianos y SUV del mercado japonés/asiático, normalmente de 60&ndash;84 Ah.' },
+  { q: '¿Una batería DIN H6 tiene el mismo tamaño que un Grupo BCI 48?', a: 'Sí — ambas son de 278 &times; 175 &times; 190 mm. H6 es el código EN/DIN y Grupo 48 es el código BCI norteamericano para la misma huella, así que un molde sirve para ambos mercados.' },
+  { q: '¿A qué grupo BCI corresponde una batería start-stop europea H7/LN4?', a: 'Al Grupo BCI 94R, de 315 &times; 175 &times; 190 mm. Es la huella AGM start-stop más común en vehículos europeos.' },
+  { q: '¿Cuántas baterías caben en un contenedor de 20 pies?', a: 'Normalmente 600&ndash;800 unidades una vez contados palés, embalaje y límites de apilado: para plomo-ácido, la paletización y la altura segura de apilado — no el peso bruto — son las restricciones vinculantes en ese recuento.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Ingeniería" dateModified="2026-09-09" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Tabla de tamaños de grupo de baterías</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-09 · Fuente: BCI Battery Replacement Data Book, EN 50342, JIS D 5301, base de datos de modelos Dingwei</p>
+    <p class="lead">&ldquo;Tamaño de grupo&rdquo; es la abreviatura que usa el sector para la huella física de una batería. Tres sistemas de nomenclatura describen en gran medida las mismas cajas — los números de grupo BCI en Norteamérica, los códigos JIS D/B en Japón/Asia y los códigos DIN/EN H y L en Europa. Esta tabla los asigna a dimensiones y tipos de vehículo para que un comprador pueda hablar el idioma de una fábrica desde cualquier mercado.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Un tamaño de grupo de batería es una huella fija de largo &times; ancho &times; alto con un nombre específico de mercado. La misma caja es Grupo 48 en BCI, H6/LN3 en DIN/EN, de 278 &times; 175 &times; 190 mm; el H5/LN2 más pequeño (Grupo 47) es de 242 &times; 175 &times; 190 mm; y el JIS D26 es de 256 &times; 175 &times; 220 mm. Confirmar el grupo es la primera comprobación de ajuste, antes que cualquier valor eléctrico.
+    </div>
+
+    <h2>La referencia cruzada maestra</h2>
+    <table>
+      <thead><tr><th>Huella (L&times;A&times;Al, mm)</th><th>Grupo BCI</th><th>Código JIS</th><th>Código DIN/EN</th><th>Uso típico</th></tr></thead>
+      <tbody>
+        <tr><td>238 &times; 129 &times; 220</td><td>&mdash;</td><td>B24</td><td>&mdash;</td><td>Compacto asiático, auxiliar híbrido</td></tr>
+        <tr><td>230 &times; 175 &times; 220</td><td>&mdash;</td><td>D23</td><td>&mdash;</td><td>Sedán mediano (JIS)</td></tr>
+        <tr><td>256 &times; 175 &times; 220</td><td>&mdash;</td><td>D26</td><td>&mdash;</td><td>Pickup / SUV (JIS)</td></tr>
+        <tr><td>305 &times; 175 &times; 220</td><td>&mdash;</td><td>D31</td><td>&mdash;</td><td>SUV pesado / 4WD / diésel ligero</td></tr>
+        <tr><td>242 &times; 175 &times; 190</td><td>47</td><td>&mdash;</td><td>H5 / LN2</td><td>Compacto europeo / start-stop</td></tr>
+        <tr><td>278 &times; 175 &times; 190</td><td>48</td><td>&mdash;</td><td>H6 / LN3 / L3</td><td>Mediano europeo / start-stop</td></tr>
+        <tr><td>315 &times; 175 &times; 190</td><td>94R</td><td>&mdash;</td><td>H7 / LN4 / L4</td><td>SUV europeo / AGM premium</td></tr>
+        <tr><td>354 &times; 175 &times; 190</td><td>49</td><td>&mdash;</td><td>H8 / LN5 / L5</td><td>Europeo grande / alta carga</td></tr>
+        <tr><td>260 &times; 173 &times; 200</td><td>34</td><td>&mdash;</td><td>&mdash;</td><td>Coche / SUV norteamericano</td></tr>
+        <tr><td>260 &times; 173 &times; 225</td><td>24</td><td>&mdash;</td><td>&mdash;</td><td>Coche / camioneta ligera norteamericana</td></tr>
+        <tr><td>306 &times; 173 &times; 225</td><td>27</td><td>&mdash;</td><td>&mdash;</td><td>Camioneta / marina norteamericana</td></tr>
+        <tr><td>330 &times; 173 &times; 240</td><td>31</td><td>&mdash;</td><td>&mdash;</td><td>Servicio pesado / RV / marina</td></tr>
+        <tr><td>406&ndash;518 &times; 173&ndash;276 &times; 209&ndash;234</td><td>&mdash;</td><td>N100&ndash;N200</td><td>&mdash;</td><td>Camión / autobús / comercial</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Las dimensiones son huellas nominales estándar; los fabricantes individuales pueden variar unos pocos milímetros. Confirma el largo &times; ancho &times; alto exacto y la posición del borne contra el modelo específico antes de pedir. La <a href="/es/knowledge/battery-dimensions-case-size/">guía de dimensiones</a> explica por qué unos pocos milímetros importan.</p>
+
+    <h2>Leer los tres sistemas de nomenclatura</h2>
+    <ul>
+      <li><strong>Códigos JIS D/B</strong> — el número tras D o B se relaciona con el tamaño de la carcasa: B24 es la caja compacta estrecha (129 mm de ancho), D23 la caja corta de sedán, D26 la caja estándar de pickup/SUV, D31 la caja larga de 4WD/diésel. El prefijo de dos dígitos (55D23, 65D26, 80D26, 105D31) es un grado de rendimiento/capacidad, no un tamaño.</li>
+      <li><strong>Códigos DIN/EN H y L</strong> — H5&ndash;H8 (equivalentemente LN2&ndash;LN5) son las cajas europeas modernas, de 175 mm de ancho y 190 mm de alto, que se distinguen por el largo (242&rarr;354 mm). L3&ndash;L5 son la numeración DIN antigua para los mismos largos. H6/LN3 y L3 son la misma caja de 278 mm.</li>
+      <li><strong>Números de grupo BCI</strong> — enteros arbitrarios asignados por Battery Council International; el grupo se asigna a una huella fija y una disposición de bornes. Grupo 48 y Grupo 94R son las huellas de vehículos europeos más comunes en Norteamérica.</li>
+    </ul>
+    <p>El solapamiento es la parte útil: H6/LN3/L3 = Grupo 48 a 278 mm; H7/LN4/L4 = Grupo 94R a 315 mm. Un molde, varios mercados, tres etiquetas. Consulta la <a href="/es/knowledge/jis-vs-din-vs-bci/">comparación de estándares</a> para las diferencias de borne y método de prueba que aún separan a las familias.</p>
+
+    <h2>Por qué el número de grupo también es una decisión logística</h2>
+    <p>El tamaño de grupo fija la huella de embalaje, que fija cuántas unidades caben en un palé y en un contenedor. Un contenedor de 20 pies suele llevar 600&ndash;800 baterías de automóvil una vez contados palés, cajas, separadores y límites de apilado. Para plomo-ácido lo interesante es que <em>el peso no es la restricción vinculante en ese recuento</em> — 800 unidades a un promedio de 15 kg son unos 12 000 kg, muy por debajo de la carga útil de unos 25 000 kg de un contenedor de 20 pies. La paletización, las dimensiones de las cajas y la altura segura de apilado (las baterías son pesadas y están llenas de ácido, así que no se apilan alto) limitan el recuento primero. Por eso el MOQ se cotiza por contenedor, no por palé.</p>
+
+    <div class="takeaways">
+      <strong>Cálculo original — peso vs volumen:</strong> 800 unidades &times; ~15 kg de promedio &asymp; 12 000 kg &asymp; 12 toneladas, frente a una carga útil de contenedor de 20 pies de unas 25 toneladas. Así que el volumen y el apilado — no el peso — son las restricciones vinculantes, lo contrario de lo que piensa la mayoría al pensar en plomo. El techo práctico es el embalaje, no la masa.
+    </div>
+
+    <h2>Más grupos BCI que vale la pena conocer</h2>
+    <p>Más allá de los grupos asignados a Europa, varios grupos norteamericanos aparecen constantemente en el trabajo de reposición y exportación:</p>
+    <table>
+      <thead><tr><th>Grupo BCI</th><th>Huella (mm)</th><th>Huella (pulg)</th><th>Uso típico</th></tr></thead>
+      <tbody>
+        <tr><td>35</td><td>230 &times; 175 &times; 225</td><td>9.06 &times; 6.88 &times; 8.88</td><td>Coches compactos (Honda, Toyota NA)</td></tr>
+        <tr><td>65</td><td>306 &times; 190 &times; 192</td><td>12.06 &times; 7.5 &times; 7.56</td><td>Camionetas / SUV Ford</td></tr>
+        <tr><td>75</td><td>230 &times; 179 &times; 186</td><td>9.06 &times; 7.06 &times; 7.31</td><td>Compacto / mediano GM</td></tr>
+        <tr><td>78</td><td>260 &times; 179 &times; 186</td><td>10.25 &times; 7.06 &times; 7.31</td><td>Camionetas GM (borne lateral)</td></tr>
+        <tr><td>51 / 51R</td><td>238 &times; 129 &times; 223</td><td>9.37 &times; 5.06 &times; 8.81</td><td>Compacto / auxiliar híbrido</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Las dimensiones son nominales según la tabla de grupos BCI; confirma la cifra exacta y la disposición de bornes para el modelo específico.</p>
+
+    <h2>Serie N de servicio pesado de un vistazo</h2>
+    <p>La serie N de JIS es la familia de carcasas de camión y autobús, y merece leerse por separado porque los números escalan con el tamaño del vehículo:</p>
+    <table>
+      <thead><tr><th>Carcasa</th><th>Huella (mm)</th><th>Capacidad (Ah)</th><th>CCA (referencia)</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td>N100</td><td>406 &times; 173 &times; 209</td><td>100</td><td>740 (SAE)</td><td>Camión / autobús / comercial ligero</td></tr>
+        <tr><td>N150</td><td>508 &times; 220 &times; 234</td><td>160</td><td>1050 (SAE)</td><td>Camión pesado / autobús</td></tr>
+        <tr><td>N200</td><td>518 &times; 276 &times; 216</td><td>200</td><td>1100 (SAE)</td><td>Camión pesado / autobús</td></tr>
+      </tbody>
+    </table>
+    <p>Son unidades individuales de 12 V; un camión de 24 V lleva dos en serie. Consulta la <a href="/es/knowledge/battery-voltage-6v-vs-12v/">guía de 6 V vs 12 V</a> para la lógica de serie.</p>
+
+    <h2>Ejemplos de vehículo a grupo</h2>
+    <p>Asignar unos pocos vehículos conocidos a su grupo hace la tabla concreta:</p>
+    <ul>
+      <li><strong>Toyota Hilux / Fortuner (Asia)</strong> — JIS D26 (80D26, ~72 Ah) o D31 para diésel.</li>
+      <li><strong>Toyota Camry / Honda Accord (Asia)</strong> — JIS D23 (55D23/65D23, ~60 Ah).</li>
+      <li><strong>Compacto asiático pequeño / auxiliar híbrido</strong> — JIS B24.</li>
+      <li><strong>VW Golf / Audi A3 (Europa)</strong> — DIN H5/LN2 o H6/LN3, EFB o AGM.</li>
+      <li><strong>BMW / Mercedes (Europa)</strong> — DIN H7/LN4 o H8/LN5, AGM.</li>
+      <li><strong>Ford F-150 (Norteamérica)</strong> — Grupo BCI 65.</li>
+      <li><strong>Honda Civic / Toyota Corolla (Norteamérica)</strong> — Grupo BCI 35 o 51R.</li>
+    </ul>
+    <p class="note">Son convenciones OEM comunes y pueden variar según año, motor y acabado — confirma siempre contra la etiqueta o bandeja real del vehículo.</p>
+
+    <h2>Un grupo mayor no es automáticamente más capacidad</h2>
+    <p>Es tentador leer la tabla de izquierda a derecha y suponer que una huella mayor significa más amperios-hora, pero ambas cosas están correlacionadas, no son idénticas. Un Grupo 24 (260 mm) y un Grupo 34 (260 mm) comparten largo pero difieren en alto, y cada uno se ofrece en un rango de valores de Ah. El grupo fija la <em>forma</em>; el valor de Ah fija el <em>contenido de plomo dentro de esa forma</em>. Por eso un comprador debe cotizar ambos — el grupo para el ajuste y el Ah para el rendimiento — en lugar de suponer que uno implica al otro.</p>
+
+    <h2>Cómo elegir el grupo correcto</h2>
+    <ol>
+      <li>Lee la etiqueta de la batería OE o mide la bandeja (largo &times; ancho &times; alto, incluyendo sujeción y holgura del capó).</li>
+      <li>Asigna la huella al número de grupo en la tabla de arriba.</li>
+      <li>Confirma la posición del borne (I/D) y el tipo — dos baterías del mismo grupo aún pueden diferir aquí.</li>
+      <li>Confirma los valores eléctricos (Ah a C20, CCA con su base de prueba) <em>después</em> de fijar el ajuste físico.</li>
+    </ol>
+
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Cada modelo de la <a href="/es/data/">base de datos de modelos</a> lleva su tamaño de carcasa y dimensiones. Filtra por código de carcasa para ver el rango completo dentro de cada grupo.</p>
+    <p><a href="/es/data/">Explora modelos por tamaño de grupo &rarr;</a> · <a href="/es/tools/compare/">Compara dos modelos &rarr;</a> · <a href="/es/contact/">Confirma el ajuste &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, la lección más útil de la tabla es la que los compradores pasan por alto — un grupo mayor no significa automáticamente más amperios-hora, porque el grupo fija la forma y el valor de Ah fija el contenido de plomo dentro de ella.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>Los tres sistemas de nomenclatura describen en gran medida las mismas cajas, así que un molde puede servir a varios mercados una vez confirmados bornes y base de CCA.</li>
+        <li>El prefijo de dos dígitos de JIS es un grado de rendimiento, no un tamaño — 55D23 y 75D23 comparten la misma bandeja.</li>
+        <li>Cotiza el grupo para el ajuste y el Ah para el rendimiento; suponer que uno implica al otro es como llegan los pedidos equivocados.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Obtén el tamaño de grupo exacto para tu mercado" />
+</ArticleLayout>

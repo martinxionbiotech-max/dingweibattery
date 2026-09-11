@@ -1,0 +1,106 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Desglose de costes de baterías OEM | Dingwei Battery';
+const description = 'A dónde va el coste de una batería OEM de plomo-ácido — material, mano de obra, certificación, logística — con un ejemplo trabajado de coste unitario y los costes ocultos de una cotización baja.';
+const articleTitle = 'Desglose de costes de baterías OEM';
+
+const faqs = [
+  { q: '¿Qué porcentaje del coste de una batería de plomo-ácido es materia prima?', a: '75–80% del coste operativo, con el plomo (rejillas más óxido) como el material dominante — los suministros corren 10–15% y el resto es mano de obra, embalaje, transporte y gastos generales.' },
+  { q: '¿Cuánto plomo hay en una batería de coche típica?', a: 'Aproximadamente 9–13 kg en una batería de arranque de 15–19 kg — alrededor del 60–70% del peso de la batería, que a un precio de plomo LME cercano a US$1,950/tonelada son US$20–25 de plomo por unidad.' },
+  { q: '¿Por qué se mueven los precios de las baterías OEM con el LME?', a: 'Porque el plomo es el 75–80% del coste de material, un movimiento del 10% en el precio de plomo del LME desplaza el precio ex fábrica en un porcentaje material — por eso las cláusulas de precio fijo son un punto de negociación, no una formalidad.' },
+  { q: '¿Cuáles son los costes ocultos de una cotización OEM baja?', a: 'Un alcance menor — la base de prueba de CCA, la certificación, la amortización de utillaje, el embalaje y un margen de empresa comercial del 5–15% son las cuatro cosas que se esconden dentro de un número que parece demasiado bueno.' },
+  { q: '¿Qué añade la certificación al coste?', a: 'Depende del mercado — IATF 16949 es un gasto general a nivel de fábrica repartido en toda la producción, mientras la conformidad por mercado (CE, SASO/GSO) es un coste por programa más tiempo de prueba y auditoría.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Desglose de costes de baterías OEM</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-10 · Fuente: informe de costes de fabricación de plomo-ácido de IMARC, datos de precio de plomo del LME</p>
+    <p class="lead">El coste de una batería de plomo-ácido no es un misterio — es principalmente plomo. La estructura está dominada por la materia prima, lo que significa dos cosas para un comprador: el precio se mueve con el LME, y una cotización dramáticamente más barata que sus pares es casi siempre un alcance menor, no una mejor fábrica. Esta página desglosa el coste línea por línea y te da la aritmética para probar cualquier cotización.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> El coste de una batería de plomo-ácido está dominado por materias primas al 75–80% del coste operativo, con el plomo como el mayor insumo individual, suministros al 10–15%, y el saldo en mano de obra, embalaje, transporte y gastos generales. Una batería de arranque de 15 kg lleva unos 9–13 kg de plomo — unos US$20–25 a un precio LME cercano a US$1,950/tonelada — así que el precio de tu batería se mueve con el mercado del plomo, y una cotización baja normalmente esconde un alcance menor.
+    </div>
+
+    <h2>La estructura de costes, línea por línea</h2>
+    <p>El modelado de costes de la industria (ver el [informe de fabricación de plomo-ácido de IMARC](https://www.imarcgroup.com/lead-acid-battery-manufacturing-plant-project-report)) sitúa la estructura de coste operativo aproximadamente así:</p>
+    <table>
+      <thead><tr><th>Categoría de coste</th><th>Parte del coste operativo</th><th>Qué contiene</th></tr></thead>
+      <tbody>
+        <tr><td>Materias primas</td><td>75–80%</td><td>Plomo (rejillas + óxido), ácido sulfúrico, polipropileno (carcasa + separador)</td></tr>
+        <tr><td>Suministros</td><td>10–15%</td><td>Electricidad para formación y fundición, agua, aire comprimido</td></tr>
+        <tr><td>Mano de obra + gastos generales</td><td>5–10%</td><td>Mano de obra directa, embalaje, transporte, mantenimiento, depreciación, impuestos</td></tr>
+      </tbody>
+    </table>
+    <p>El plomo es el factor oscilante. Cotiza en la Bolsa de Metales de Londres en torno a US$1,950–1,960 por tonelada durante 2025–26 (ver el [pronóstico de plomo de Investing News Network](https://investingnews.com/lead-forecast)), y como el plomo-ácido es el mayor uso individual del plomo, el precio ex fábrica de la batería sigue de cerca ese número.</p>
+
+    <h2>Un ejemplo trabajado de coste unitario</h2>
+    <p>Aquí está la aritmética para una batería de arranque SLI típica de 12V 60–72 Ah, usando la estructura de costes de arriba. Los números son ilustrativos — muestran la lógica, no una cotización.</p>
+    <table>
+      <thead><tr><th>Línea</th><th>Valor</th><th>Base</th></tr></thead>
+      <tbody>
+        <tr><td>Peso de la batería</td><td>~15 kg</td><td>Clase JIS/DIN D23–D26 típica</td></tr>
+        <tr><td>Contenido de plomo</td><td>~9–13 kg</td><td>Aproximadamente 60–70% de la masa de la batería</td></tr>
+        <tr><td>Valor del plomo</td><td>~US$20–25</td><td>9–13 kg × ~US$1.95/kg (LME)</td></tr>
+        <tr><td>Total de materia prima</td><td>~75–80% del coste</td><td>Estructura IMARC</td></tr>
+        <tr><td>Suministros + mano de obra + gastos generales</td><td>~20–25% del coste</td><td>Resto de la estructura</td></tr>
+      </tbody>
+    </table>
+    <p>La lección es la <strong>prueba de vínculo con el plomo</strong>: el plomo por sí solo es la mayor línea de coste, y lo fija una bolsa de materias primas, no la fábrica. Dos fábricas que cotizan con un 10% de diferencia sobre la misma especificación normalmente cotizan distinto momento de compra de plomo, distinto margen o distinto alcance — no distinta calidad. Lee la <a href="/es/knowledge/battery-sourcing-guide/">guía de abastecimiento</a> para hacer cotizaciones comparables.</p>
+
+    <h2>Dónde se esconden los costes no materiales</h2>
+    <p>Más allá de la materia prima, cuatro líneas de coste separan un programa real de uno barato, y cada una puede omitirse silenciosamente de una cotización baja:</p>
+    <ul>
+      <li><strong>Certificación</strong> — IATF 16949 e ISO 9001 son gastos generales a nivel de fábrica repartidos en toda la producción, pero la conformidad por mercado (CE, SASO/GSO para el Golfo, informes de prueba de destino) es un coste por programa más tiempo de auditoría.</li>
+      <li><strong>Utillaje</strong> — una carcasa, tapa o disposición de borne personalizadas llevan un coste de molde único, normalmente amortizado en el primer pedido y a veces eximido a volumen.</li>
+      <li><strong>Embalaje</strong> — las cajas de exportación, los palés y la protección de bornes se cotizan por unidad y pueden variar ampliamente entre embalaje «doméstico» y «grado exportación».</li>
+      <li><strong>Logística</strong> — un contenedor de 20 pies de baterías se envía en FOB Tianjin / CFR / CIF, y el flete por unidad se desploma a carga completa (1 × contenedor de 20 pies, aprox. 600–800 unidades, según modelo).</li>
+    </ul>
+
+    <h2>Los costes ocultos de una cotización baja</h2>
+    <p>Una cotización que parece un 10–15% más barata es normalmente un alcance menor, vestido de mejor precio. Las cuatro cosas que se esconden dentro de un número sospechosamente bajo:</p>
+    <ol>
+      <li><strong>La base de prueba de CCA</strong> — JIS (−15°C) y EN (−18°C) producen números distintos; una cotización sin la base está cotizando la prueba más fácil.</li>
+      <li><strong>El margen de la empresa comercial</strong> — un comerciante que se hace pasar por fábrica añade un 5–15% y te quita la visibilidad de calidad.</li>
+      <li><strong>Utillaje no amortizado</strong> — una cotización que excluye el coste del molde solo lo mueve al segundo pedido.</li>
+      <li><strong>Embalaje doméstico</strong> — una batería que sobrevive un camión local puede no sobrevivir un contenedor marítimo sin cajas de grado exportación.</li>
+    </ol>
+    <p>La regla es simple: compara sobre alcance, no sobre el número desnudo. Un alcance completo — base de CCA, certificación, utillaje, embalaje, Incoterm — es la única base sobre la que dos cotizaciones significan lo mismo.</p>
+
+    <h2>Por qué importa el valor reciclado</h2>
+    <p>Una línea de coste trabaja a tu favor: el plomo es reciclable, y una batería de plomo agotada tiene valor de chatarra. La industria del plomo reporta un crédito neto de fin de vida de unos US$33 por kWh para baterías de plomo, frente a unos US$91 por kWh de coste para litio (ver los [datos de baterías de plomo de Battery Council International](https://batterycouncil.org/sources)). Para un comprador B2B el crédito de chatarra suele quedar con el reciclador, no contigo — pero es parte de por qué el plomo-ácido sigue siendo económicamente racional incluso cuando el litio crece, y vale la pena saberlo cuando un cliente pregunta por el coste total de propiedad.</p>
+
+    <h2>Cómo usar esto</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Cuando pidas una cotización, pide las líneas de coste por separado — material, certificación, utillaje, embalaje y flete — para ver cuál ha comprimido un proveedor. El resto del clúster enmarca la decisión:</p>
+    <ul>
+      <li><a href="/es/knowledge/oem-battery-guide/">Fabricación de baterías OEM: la guía completa</a></li>
+      <li><a href="/es/knowledge/what-is-oem-battery/">Qué es una batería OEM</a></li>
+      <li><a href="/es/knowledge/how-oem-battery-programs-work/">Cómo funcionan los programas de baterías OEM</a></li>
+      <li><a href="/es/knowledge/oem-battery-development-process/">El proceso de desarrollo OEM</a></li>
+      <li><a href="/es/knowledge/oem-battery-vs-aftermarket/">Baterías OEM vs posventa</a></li>
+    </ul>
+    <p><a href="/es/oem/">Obtén una cotización OEM directa de fábrica &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, el coste de una batería de plomo-ácido es principalmente plomo — así que una cotización dramáticamente más barata que sus pares es casi siempre un alcance menor, no una mejor fábrica.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>El plomo es la línea de material dominante y cotiza en el LME, así que el precio ex fábrica sigue a la materia prima, no a la eficiencia de la fábrica.</li>
+        <li>Las cuatro cosas que se esconden en una cotización baja — base de CCA, margen comercial, utillaje no amortizado, embalaje doméstico — son reducciones de alcance vestidas de ahorro.</li>
+        <li>Compara sobre alcance: base de CCA, certificación, utillaje, embalaje e Incoterm son la única base sobre la que dos cotizaciones significan lo mismo.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Solicita un desglose de costes OEM por partidas" />
+</ArticleLayout>

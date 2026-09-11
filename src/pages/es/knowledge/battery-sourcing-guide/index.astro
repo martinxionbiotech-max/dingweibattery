@@ -1,0 +1,249 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Cómo abastecerse de baterías OEM desde China: guía completa | Dingwei Battery';
+const description = 'La guía completa para abastecerse de baterías OEM de plomo-ácido desde China: selección de proveedores, verificación, auditoría de fábrica, RFQ, MOQ y plazo de entrega, y normativa de importación — con un cuadro de mando ponderado y un árbol de decisiones etapa por etapa.';
+const articleTitle = 'Cómo abastecerse de baterías OEM desde China: la guía completa';
+
+const faqs = [
+  { q: '¿Cuánto tarda de principio a fin el abastecimiento de un pedido de baterías OEM?', a: 'De la primera RFQ al primer contenedor, presupuesta 60–90 días: 7–14 días para preseleccionar y verificar proveedores, 10–20 días para muestreo y aprobación, 30–45 días de producción, y luego 3–5 semanas de flete marítimo y despacho.' },
+  { q: '¿Cuál es un MOQ realista de primer pedido de una fábrica china de baterías?', a: 'Un contenedor de 20 pies — unas 600–800 baterías según el tamaño de grupo — porque el coste de flete por unidad se desploma a carga completa y el apilado de palés limita la carga muy por debajo del volumen bruto del contenedor.' },
+  { q: '¿Cuánto cuesta realmente una auditoría de fábrica?', a: 'Una auditoría de terceros de un día en China suele costar US$1,500–3,000, menos del 1% de un primer contenedor de US$200,000 — un seguro barato contra un proveedor que no puede repetir tu especificación.' },
+  { q: '¿Necesito visitar la fábrica en persona?', a: 'No para un primer pedido — una auditoría documentada más una muestra de producción cubre la mayor parte del riesgo. Pero para un programa por encima de unos US$500,000 al año, una visita in situ suele valer el viaje.' },
+  { q: '¿Cuál es el mayor riesgo al abastecerse desde China?', a: 'Comprar a una empresa comercial que se presenta como fábrica, que normalmente añade un 5–15% de margen y te quita el control de calidad — así que verifica la licencia comercial y la línea de producción antes de pagar nada.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Aprovisionamiento" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Cómo abastecerse de baterías OEM desde China: la guía completa</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-10 · Fuente: IATF 16949, USTR Sección 301, Reglamento de Baterías de la UE (UE) 2023/1542, Código IMDG</p>
+    <p class="lead">Abastecerse de baterías OEM desde China no es una decisión — son siete, y ocurren en un orden fijo. Acierta el orden y el proceso es mecánico; equivócalo y pierdes el margen de un contenedor con un proveedor que nunca debió ser preseleccionado. Esta guía recorre la secuencia desde la especificación hasta la mercancía desembarcada, te da un cuadro de mando ponderado para elegir fábrica y termina con las partes que los proveedores preferirían que saltaras: cómo verificar que una fábrica es real y cómo se ve realmente la matemática del coste de desembarque.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Abastécete de baterías OEM en siete etapas — fija la especificación, construye una preselección, verifica los proveedores, audita la fábrica, emite una RFQ limpia, confirma MOQ y plazo de entrega, y despeja el cumplimiento de importación — en ese orden. El paso de mayor valor es la verificación: una empresa comercial que se hace pasar por fábrica normalmente añade un 5–15% y te quita el control de calidad, así que comprueba la licencia comercial antes de pagar. Un primer pedido suele ser un contenedor de 20 pies (600–800 unidades), el plazo es de 30–45 días y el ciclo completo de RFQ a mercancía desembarcada tarda 60–90 días.
+    </div>
+
+    <h2>La secuencia de siete etapas</h2>
+    <p>Cada fallo de abastecimiento se remonta a hacer una etapa posterior antes de una anterior — cotizar antes de fijar la especificación, auditar antes de que la preselección sea creíble o negociar el MOQ antes de verificar al proveedor. Las etapas son:</p>
+    <ol>
+      <li><strong>Especificar</strong> — fija la familia de estándares, el grupo de carcasa, Ah, base de CCA, borne y tecnología.</li>
+      <li><strong>Preseleccionar</strong> — elige 3–5 candidatos de las regiones industriales correctas.</li>
+      <li><strong>Verificar</strong> — confirma que cada uno es una fábrica real con certificados vigentes.</li>
+      <li><strong>Auditar</strong> — confirma el control de proceso y la repetibilidad, in situ o por terceros.</li>
+      <li><strong>RFQ</strong> — emite un alcance completo para que las cotizaciones sean comparables.</li>
+      <li><strong>Comprometer</strong> — confirma MOQ, plazo de entrega, pago y garantía.</li>
+      <li><strong>Importar</strong> — despeja aranceles, certificaciones y envío de mercancías peligrosas.</li>
+    </ol>
+    <p>Salta una etapa y la pagas después. Un proveedor que no verificaste sacará a la luz un problema exactamente cuando sea más caro corregirlo — después de pagar el depósito.</p>
+
+    <h2>El árbol de decisiones: qué preguntar en cada etapa</h2>
+    <p>Cada etapa tiene una pregunta que importa más que el resto. Hazla, obtén una respuesta verificable y sigue adelante.</p>
+    <table>
+      <thead><tr><th>Etapa</th><th>La única pregunta</th><th>Cómo se ve una buena respuesta</th></tr></thead>
+      <tbody>
+        <tr><td>1. Especificar</td><td>¿Qué familia de estándares y base de prueba CCA?</td><td>«JIS D26, 72 Ah, 490 CCA a −15°C.»</td></tr>
+        <tr><td>2. Preseleccionar</td><td>¿Qué región y cuál es tu producción real?</td><td>Ubicación de planta nombrada + producción diaria verificable.</td></tr>
+        <tr><td>3. Verificar</td><td>Muéstrame tu licencia comercial y tu certificado IATF vigente.</td><td>Documentos que cuadran con los registros oficiales.</td></tr>
+        <tr><td>4. Auditar</td><td>¿Cuál es tu ventana de curado de placas?</td><td>Una ventana declarada (normalmente 2–4 días) más registros de lote.</td></tr>
+        <tr><td>5. RFQ</td><td>Cotiza un alcance, un modelo por línea.</td><td>Una cotización por partidas que repite tu especificación.</td></tr>
+        <tr><td>6. Comprometer</td><td>¿Cuál es la lógica del MOQ y el desglose del plazo?</td><td>MOQ basado en contenedor + división producción/envío.</td></tr>
+        <tr><td>7. Importar</td><td>¿Qué certificaciones exige mi mercado de destino?</td><td>Un conjunto de certificados nombrado para tu mercado.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Etapa 1 — Fija primero la especificación</h2>
+    <p>Una batería que no está completamente especificada no puede cotizarse, compararse ni auditarse. Las cinco partes — familia de estándares (JIS / DIN-EN / BCI / AS / SA), grupo de carcasa, capacidad a C20, CCA en una base de prueba nombrada y tipo de borne más polaridad — son una decisión, no cinco separadas. Un proveedor que cotiza «una batería de 72 Ah» sin preguntar el estándar está adivinando, y su precio también.</p>
+    <p>El tratamiento completo vive en el clúster de especificaciones — empieza con la <a href="/es/knowledge/battery-specifications-guide/">referencia de especificaciones de baterías de automoción</a> y fija el modelo contra la <a href="/es/knowledge/battery-group-size-chart/">tabla de tamaños de grupo</a> antes de contactar a nadie.</p>
+
+    <h2>Etapa 2 — Construye una preselección desde las regiones correctas</h2>
+    <p>La producción de baterías de plomo-ácido de China está agrupada, no repartida uniformemente. Distintas regiones se especializan en distintos productos y puntos de precio, y un comprador que preselecciona por región obtiene un conjunto más ajustado de candidatos que uno que preselecciona por ranking de búsqueda. Los clústeres principales — Hebei (donde tiene su sede Chengguang Power Tech, en Jinzhou), Shandong, Jiangsu, Zhejiang y Anhui — difieren en solidez de proceso, experiencia exportadora y estructura de costes. Lee la guía de <a href="/es/knowledge/china-battery-industry-regions/">regiones de la industria de baterías de China</a> antes de construir la lista.</p>
+    <p>Mantén la preselección en 3–5 fábricas. Más que eso y la comparación de RFQ se vuelve inmanejable; menos de tres y no tienes referencia competitiva.</p>
+
+    <h2>Etapa 3 — Verifica que el proveedor es lo que dice</h2>
+    <p>Esta es la etapa que los compradores saltan, y es la más cara de saltar. Tres cosas deben ser ciertas antes de que una fábrica gane un puesto en tu lista:</p>
+    <ul>
+      <li><strong>Es una entidad legal real</strong> — comprueba la licencia comercial y el código de crédito social unificado contra el Sistema Nacional de Publicidad de Información Crediticia Empresarial (<a href="https://www.gsxt.gov.cn/index.html">gsxt.gov.cn</a>).</li>
+      <li><strong>Es una fábrica, no una empresa comercial</strong> — la licencia enumera el alcance del negocio; «producción» (生产制造) frente a «comercio» (贸易) está escrito en ella.</li>
+      <li><strong>Sus certificados están vigentes</strong> — un certificado IATF 16949 tiene un periodo de validez y un alcance; pide el número de certificado y confírmalo contra el registro del certificador.</li>
+    </ul>
+    <p>El método completo — incluido cómo comprobar si la capacidad declarada es real — está en la guía de <a href="/es/knowledge/battery-supplier-verification/">verificación de proveedores</a>. La versión corta: un proveedor que no muestra su licencia antes de un pedido no te mostrará nada útil después.</p>
+
+    <h2>Etapa 4 — Audita la fábrica</h2>
+    <p>La verificación confirma que el proveedor es real; la auditoría confirma que puede repetir tu especificación. Recorre la línea en el orden en que se fabrica la batería — fundición de rejillas, mezcla de pasta, empastado, curado, ensamblaje, formación, sellado, prueba — y en cada paso pregunta qué se mide y cómo se manejan los rechazos. La pregunta más reveladora es la ventana de curado: una fábrica que acelera el curado de placas para ahorrar días envía baterías que fallan temprano.</p>
+    <p>Para plomo-ácido la auditoría es más ligera que para litio — sin revisión de seguridad de celda ni de embestida térmica — lo que la hace barata de hacer bien. Consulta la <a href="/es/knowledge/how-audit-battery-factory/">guía de auditoría de fábrica</a> para el recorrido completo, y pasa cada candidato por la <a href="/es/knowledge/oem-battery-supplier-checklist/">lista de verificación de proveedores</a> para que se puntúen igual.</p>
+
+    <h2>Etapa 5 — Emite una RFQ completa</h2>
+    <p>La mayoría de las RFQ fallan en tres campos ausentes: la base de prueba de CCA, el volumen anual y un estándar por línea. Sin ellos, cada proveedor cotiza un alcance distinto y los precios no son comparables. Envía el bloque de especificación, el bloque de volumen, el bloque de marca y el bloque comercial como un solo documento, un modelo por línea. La <a href="/es/knowledge/oem-battery-rfq-guide/">guía de RFQ</a> tiene la plantilla y la lista de campos.</p>
+    <p class="note">No pongas un precio objetivo en una primera RFQ. Los proveedores cotizan a un número cuando se lo das; cotiza primero sobre alcance y negocia el precio después.</p>
+
+    <h2>Etapa 6 — Confirma MOQ y plazo de entrega</h2>
+    <p>El MOQ de baterías es un número de lógica de contenedor, no de marketing. Un contenedor de 20 pies contiene unos 33 m³ y unos 28,000 kg de carga útil, pero la carga práctica para baterías de arranque la fija el apilado de palés y la resistencia al aplastamiento de las cajas — por eso un primer pedido aterriza en unas 600–800 unidades en lugar de las 1,400+ que permitiría el límite de peso bruto. El plazo de 30–45 días es la suma de producción más prueba previa al envío, y es estable todo el año porque el plomo-ácido no tiene temporada de cosecha. La <a href="/es/knowledge/oem-battery-moq-lead-time/">guía de MOQ y plazo de entrega</a> desglosa ambos.</p>
+
+    <h2>Etapa 7 — Despeja la ruta de importación</h2>
+    <p>Antes de comprometer un céntimo, conoce el arancel, la certificación y los requisitos medioambientales del mercado de destino. EE. UU. añade un recargo del 25% de la Sección 301 sobre las baterías chinas encima del arancel base; la UE aplica el <a href="https://eur-lex.europa.eu/eli/reg/2023/1542/oj">Reglamento de Baterías (UE) 2023/1542</a> y el marcado CE; los estados del Golfo exigen conformidad SASO/GSO; y el plomo-ácido se envía como mercancía peligrosa corrosiva de Clase 8 (UN 2794 / UN 2800) según el <a href="https://www.imo.org/">Código IMDG</a>. La <a href="/es/knowledge/battery-import-regulations/">guía de normativa de importación</a> mapea los requisitos mercado por mercado, y la <a href="/es/knowledge/battery-shipping-warranty/">guía de envío y garantía</a> cubre el papeleo de mercancías peligrosas.</p>
+
+    <h2>El cuadro de mando ponderado de proveedores</h2>
+    <p>Puntúa cada fábrica preseleccionada contra las mismas cinco dimensiones. Los pesos de abajo son un punto de partida — sube el peso de repetibilidad si planeas un programa plurianual, y sube el peso de certificación si tu mercado exige IATF 16949 o SASO.</p>
+    <table>
+      <thead><tr><th>Dimensión</th><th>Peso</th><th>Qué estás puntuando</th><th>Dónde encontrar los datos</th></tr></thead>
+      <tbody>
+        <tr><td>Cobertura de especificación</td><td>25%</td><td>¿Pueden producir tu familia de estándares y modelos internamente?</td><td>Respuesta RFQ + lista de modelos</td></tr>
+        <tr><td>Certificaciones</td><td>20%</td><td>¿Son verificables los IATF 16949 / ISO 9001 / certificados de mercado vigentes?</td><td>Registro de certificados</td></tr>
+        <tr><td>Escala y capacidad</td><td>20%</td><td>¿Se corresponde la producción diaria con tu volumen anual sin esfuerzo?</td><td>Auditoría de fábrica</td></tr>
+        <tr><td>Repetibilidad</td><td>20%</td><td>¿Hay una especificación bloqueada y control de cambios?</td><td>Contrato + historial de muestras</td></tr>
+        <tr><td>Experiencia exportadora</td><td>15%</td><td>¿Qué mercados sirven y pueden documentarlos?</td><td>Referencia + documentos</td></tr>
+      </tbody>
+    </table>
+    <p>Puntúa cada dimensión 1–5, multiplica por el peso y suma. Una puntuación por debajo de 3.5 en general, o por debajo de 3 en repetibilidad, debería eliminar a un candidato sin importar el precio. Chengguang Power Tech Co., Ltd. posee IATF 16949, ISO 9001, ISO 45001, OHSAS 18001, opera 18 líneas automatizadas produciendo 40,000 baterías al día y exporta a más de 70 países — así que puede puntuarse con exactamente esta tarjeta. Ejecuta el método detallado en la guía <a href="/es/knowledge/how-choose-oem-battery-manufacturer/">cómo elegir un fabricante</a>.</p>
+
+    <h2>Dos cálculos que replantean la decisión</h2>
+    <p><strong>La ratio de coste de auditoría.</strong> Una auditoría de terceros de un día en China cuesta unos US$1,500–3,000. Un primer contenedor de 700 baterías a un coste unitario de desembarque de US$40 son US$28,000; un programa de 12 meses a un contenedor al mes supera los US$300,000. La auditoría es por tanto menos del 1% de un solo contenedor y un error de redondeo frente a un año. Pagar US$3,000 para evitar una deriva de especificación que arruina un envío de US$28,000 no es un coste — es la partida más barata de todo el programa.</p>
+    <p><strong>El margen de la empresa comercial.</strong> Una empresa comercial que se hace pasar por fábrica normalmente añade un 5–15% al precio ex fábrica y te quita visibilidad sobre la calidad. En un contenedor de US$28,000 eso son US$1,400–4,200 por envío — más de lo que cuesta la auditoría — y lo has cambiado por un proveedor al que no puedes pedir cuentas sobre el proceso. Verifica antes de pagar, y la pregunta del margen se responde sola.</p>
+
+    <h2>Lo que los proveedores no dirán voluntariamente</h2>
+    <ul>
+      <li><strong>Las fotos de «fábrica» se pueden comprar.</strong> Una empresa comercial puede fotografiar la línea de otro. La licencia y un recorrido en vivo, no un set de fotos, establecen quién posee el equipo.</li>
+      <li><strong>Los certificados pueden estar caducados o suspendidos.</strong> Un certificado es un documento de un momento puntual. Pide el número y comprueba el registro del certificador — un certificado IATF suspendido no vale el papel.</li>
+      <li><strong>Un precio unitario bajo oculta un coste oculto.</strong> Una cotización que salta la base de CCA, el utillaje o el embalaje no es una batería más barata — es un alcance menor. Compara sobre alcance, no sobre el número desnudo.</li>
+      <li><strong>El MOQ refleja la presión de inventario del proveedor, no la tuya.</strong> Un proveedor que empuja un MOQ enorme puede estar descargando stock, no protegiendo tu coste unitario. Pide la lógica del MOQ.</li>
+    </ul>
+
+    <h2>Errores comunes que cuestan un contenedor</h2>
+    <ol>
+      <li><strong>Cotizar antes de especificar</strong> — recoges precios de tres baterías distintas y lo llamas comparación.</li>
+      <li><strong>Saltar la verificación</strong> — la etapa más barata de saltar y el error más caro de descubrir.</li>
+      <li><strong>Comprar solo por precio</strong> — una cotización un 5% más barata que deriva en especificación cuesta más de lo que ahorra.</li>
+      <li><strong>Un modelo por línea de RFQ, ignorado</strong> — las líneas mezcladas fuerzan una conjetura y un rango en lugar de una cotización.</li>
+      <li><strong>Descubrir los aranceles de importación después de pedir</strong> — un recargo del 25% encontrado tarde puede borrar todo el margen.</li>
+    </ol>
+
+    <h2>Cómo usar esta guía</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Las páginas de abajo profundizan cada una en una etapa de la secuencia. Usa el pilar para fijar el orden de decisiones, luego sigue los enlaces del clúster para el detalle:</p>
+    <ul>
+      <li><a href="/es/knowledge/how-choose-oem-battery-manufacturer/">Cómo elegir un fabricante de baterías OEM</a></li>
+      <li><a href="/es/knowledge/oem-battery-supplier-checklist/">Lista de verificación de proveedores de baterías OEM</a></li>
+      <li><a href="/es/knowledge/how-audit-battery-factory/">Cómo auditar una fábrica de baterías de plomo-ácido</a></li>
+      <li><a href="/es/knowledge/oem-battery-rfq-guide/">Guía de RFQ de baterías OEM</a></li>
+      <li><a href="/es/knowledge/oem-battery-moq-lead-time/">MOQ y plazo de entrega de baterías OEM</a></li>
+      <li><a href="/es/knowledge/battery-supplier-verification/">Verificación de proveedores de baterías</a></li>
+      <li><a href="/es/knowledge/china-battery-industry-regions/">Regiones de la industria de baterías de China</a></li>
+      <li><a href="/es/knowledge/battery-import-regulations/">Normativa de importación de baterías por mercado</a></li>
+    </ul>
+    <p>Relacionado: <a href="/es/knowledge/battery-specifications-guide/">referencia de especificaciones de baterías</a> · <a href="/es/knowledge/battery-shipping-warranty/">envío y garantía</a> · <a href="/es/knowledge/oem-battery-specification-guide/">guía de especificación OEM</a> · <a href="/es/oem/">iniciar un programa OEM →</a></p>
+  </section>
+
+
+    <h2>El cronograma de abastecimiento, semana a semana</h2>
+    <p>El ciclo de 60&ndash;90 días se divide en un calendario predecible. Este es el cronograma realista, con las etapas mapeadas a semanas:</p>
+    <table>
+      <thead><tr><th>Semanas</th><th>Etapa</th><th>Qué ocurre</th></tr></thead>
+      <tbody>
+        <tr><td>1&ndash;2</td><td>Especificar + preseleccionar</td><td>Bloquea la especificación de 5 partes; construye una preselección de 3&ndash;5 fábricas desde las regiones correctas.</td></tr>
+        <tr><td>2&ndash;3</td><td>Verificar</td><td>Comprueba licencias, certificados y capacidad; descarta las empresas comerciales.</td></tr>
+        <tr><td>3&ndash;4</td><td>Auditar</td><td>Recorre la línea o encarga una auditoría de terceros; confirma la repetibilidad.</td></tr>
+        <tr><td>4&ndash;6</td><td>RFQ + muestreo</td><td>Emite una RFQ; aprueba la muestra de preproducción.</td></tr>
+        <tr><td>6&ndash;10</td><td>Producción</td><td>30&ndash;45 días de fundición hasta formación y sellado.</td></tr>
+        <tr><td>10&ndash;14</td><td>Envío + despacho</td><td>3&ndash;5 semanas de flete marítimo, aduana y entrega interior.</td></tr>
+      </tbody>
+    </table>
+    <p>Los dos lugares donde el cronograma se desliza son el muestreo (porque la especificación no se bloqueó primero) y el despacho (porque la certificación se descubrió tarde). Ambos son prevenibles al frente de la secuencia, por eso las etapas 1 y 7 merecen tanta atención como las semanas de producción de en medio.</p>
+
+    <h2>Condiciones de pago, y el riesgo que conllevan</h2>
+    <p>El pago OEM estándar es T/T &mdash; 30% de depósito, 70% antes del envío &mdash; o una carta de crédito a la vista. La estructura existe para dividir el riesgo: el depósito financia materias primas, y el saldo se transfiere solo cuando la mercancía está lista. Tres cosas a negociar explícitamente:</p>
+    <ul>
+      <li><strong>El tamaño del depósito</strong> &mdash; 30% es estándar; un proveedor que exige 50% por adelantado te pide cargar más de su capital de trabajo.</li>
+      <li><strong>El disparador del saldo</strong> &mdash; confirma que el 70% se debe contra un informe de inspección previa al envío y documentos de envío, no solo una factura.</li>
+      <li><strong>Escrow o L/C para primeros pedidos</strong> &mdash; una carta de crédito a la vista pone a un banco en medio para un primer pedido con un proveedor desconocido.</li>
+    </ul>
+    <p>Las condiciones de pago son una herramienta de verificación tanto como un coste. Un proveedor que no acepta una división estándar 30/70 o una L/C a la vista en un primer pedido está señalando un riesgo que no quiere que veas.</p>
+
+    <h2>Muestreo y la muestra dorada</h2>
+    <p>Antes de la producción en masa apruebas una muestra de preproducción. Esa muestra se convierte en la muestra dorada &mdash; la referencia física contra la que se comprueba cada lote posterior. Tres disciplinas la hacen valer algo:</p>
+    <ol>
+      <li><strong>Aprueba sobre la muestra probada, no sobre la foto.</strong> Pide el informe de prueba de CCA y capacidad de la muestra real, en la base de prueba nombrada.</li>
+      <li><strong>Bloquea la muestra dorada en el contrato.</strong> La orden de compra debe referenciar el serial de la muestra y su informe de prueba, para que los pedidos repetidos tengan un ancla física.</li>
+      <li><strong>Guarda una muestra tú mismo.</strong> No puedes adjudicar una reclamación futura contra una muestra que nunca tuviste.</li>
+    </ol>
+    <p>Un proveedor que te apresura más allá del muestreo hacia la producción suele estar ocultando la brecha entre su línea de muestras y su línea de producción. La <a href="/es/knowledge/oem-battery-moq-lead-time/">guía de MOQ y plazo de entrega</a> cubre cómo el muestreo añade al cronograma.</p>
+
+    <h2>Cómo estructurar un primer pedido: piloto, luego escala</h2>
+    <p>No pongas todo tu volumen anual en la primera orden de compra. Estructúralo en tres pasos:</p>
+    <ol>
+      <li><strong>Piloto</strong> &mdash; un lote pequeño (o una porción de un contenedor compartido) para validar la muestra y el proceso.</li>
+      <li><strong>Primer contenedor</strong> &mdash; una carga completa de 20 pies, comprobada contra la muestra dorada a la llegada.</li>
+      <li><strong>Escala</strong> &mdash; una previsión continua una vez que el primer contenedor pasa inspección en tu mercado.</li>
+    </ol>
+    <p>El piloto cuesta un poco más por unidad, pero te compra la evidencia para escalar con confianza &mdash; y es mucho más barato que descubrir una deriva a lo largo de un año de contenedores.</p>
+
+    <h2>Empresa comercial o fábrica: cómo distinguirlas en cinco minutos</h2>
+    <p>Cinco comprobaciones separan a una fábrica de un comerciante que se hace pasar por una:</p>
+    <table>
+      <thead><tr><th>Comprobación</th><th>Fábrica</th><th>Comerciante</th></tr></thead>
+      <tbody>
+        <tr><td>Alcance de negocio</td><td>Producción (生产制造) en la licencia</td><td>Solo comercio (贸易)</td></tr>
+        <tr><td>Videollamada</td><td>Recorre la línea en vivo, a petición</td><td>Muestra fotos de stock, evade</td></tr>
+        <tr><td>Profundidad técnica</td><td>Nombra la ventana de curado, la aleación, el método CCA</td><td>Repite el folleto</td></tr>
+        <tr><td>Control de muestras</td><td>Envía una muestra de producción con informe de prueba</td><td>Envía lo que pueda comprar</td></tr>
+        <tr><td>Precio</td><td>Ex fábrica, sin capa oculta</td><td>5&ndash;15% encima de una fábrica real</td></tr>
+      </tbody>
+    </table>
+    <p>Ninguna de estas tarda más de un día en ejecutarse, y la comprobación de licencia sola &mdash; gratis, en gsxt.gov.cn &mdash; elimina a la mayoría de los comerciantes de inmediato. Son los cinco minutos de mayor retorno de todo el proceso de abastecimiento.</p>
+
+    <h2>Cómo leer el historial de exportación de una fábrica</h2>
+    <p>La experiencia exportadora es la única dimensión del cuadro de mando que puedes verificar sin visitar. Pide tres documentos y léelos por lo que prueban:</p>
+    <ul>
+      <li><strong>Un conocimiento de embarque reciente</strong> &mdash; prueba que realmente enviaron a un destino nombrado, no que tienen una lista de clientes.</li>
+      <li><strong>Muestras de certificado de origen</strong> &mdash; muestra qué mercados documentan rutinariamente, la mitad de papeleo del cumplimiento.</li>
+      <li><strong>Una referencia de cliente</strong> &mdash; una real a la que puedas llamar, idealmente en tu región, para hacer la pregunta que de verdad importa: ¿el décimo contenedor coincidió con el primero?</li>
+    </ul>
+    <p>Un proveedor con más de 70 mercados de destino y sin capacidad de mostrar un conocimiento de embarque está describiendo un deseo, no un historial.</p>
+
+    <h2>Un ejemplo trabajado de cuadro de mando</h2>
+    <p>Aquí está la tarjeta ponderada rellenada para un candidato hipotético, para mostrar cómo se comportan los números:</p>
+    <table>
+      <thead><tr><th>Dimensión</th><th>Peso</th><th>Puntuación (1&ndash;5)</th><th>Ponderada</th></tr></thead>
+      <tbody>
+        <tr><td>Cobertura de especificación</td><td>25%</td><td>4</td><td>1.00</td></tr>
+        <tr><td>Certificaciones</td><td>20%</td><td>5</td><td>1.00</td></tr>
+        <tr><td>Escala y capacidad</td><td>20%</td><td>4</td><td>0.80</td></tr>
+        <tr><td>Repetibilidad</td><td>20%</td><td>3</td><td>0.60</td></tr>
+        <tr><td>Experiencia exportadora</td><td>15%</td><td>4</td><td>0.60</td></tr>
+      </tbody>
+    </table>
+    <p>Total: 4.00 &mdash; un aprobado, pero nota que la puntuación de repetibilidad de 3 está en el suelo. Un candidato con este perfil debería ser presionado sobre el control de cambios antes de comprometer volumen; un candidato con 5 en precio pero 2 en repetibilidad totalizaría por debajo del corte de 3.5 y debería eliminarse. El punto de los pesos es que sacan a la superficie la dimensión débil incluso cuando la puntuación principal parece bien.</p>
+
+    <h2>La lista de verificación previa al compromiso</h2>
+    <p>Antes de firmar, las siete deben estar respondidas por escrito:</p>
+    <ol>
+      <li>La especificación de 5 partes, confirmada y bloqueada.</li>
+      <li>El proveedor verificado como fábrica, no comerciante.</li>
+      <li>Los certificados comprobados como vigentes.</li>
+      <li>La auditoría completada, con la ventana de curado confirmada.</li>
+      <li>La RFQ devuelta sobre un solo alcance.</li>
+      <li>MOQ, plazo de entrega, pago y garantía en el contrato.</li>
+      <li>El arancel y la certificación del mercado de destino confirmados.</li>
+    </ol>
+    <p>Si falta una, el pedido no está listo &mdash; y la que falta es exactamente donde se filtrará el margen.</p>
+
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, abastecerse de baterías OEM desde China son siete decisiones en un orden fijo — y saltar la verificación es la etapa más barata de saltar y el error más caro de descubrir.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>Cada fallo de abastecimiento se remonta a hacer una etapa posterior antes de una anterior: cotizar antes de especificar, auditar antes de verificar.</li>
+        <li>Una auditoría de terceros de un día cuesta menos del 1% de un solo contenedor, lo que la convierte en la partida de seguro más barata de todo el programa.</li>
+        <li>Una empresa comercial que se hace pasar por fábrica añade un 5–15% y te quita visibilidad de calidad — verifica la licencia antes de pagar el depósito.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Envíanos tu especificación para una cotización directa de fábrica" />
+</ArticleLayout>

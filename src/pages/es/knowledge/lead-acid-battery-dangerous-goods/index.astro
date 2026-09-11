@@ -1,0 +1,113 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Mercancías peligrosas de baterías de plomo-ácido | Dingwei Battery';
+const description = 'Clasificación de mercancías peligrosas de baterías de plomo-ácido — UN 2794 y UN 2800 Clase 8, el Código IMDG, la prueba UN 2800 y cómo se compara con el litio UN 3480/3481.';
+const articleTitle = 'Clasificación de mercancías peligrosas de baterías de plomo-ácido';
+
+const faqs = [
+  { q: '¿Qué número ONU tiene una batería de coche de plomo-ácido inundada?', a: 'UN 2794 — Baterías, húmedas, llenas de ácido — bajo Clase 8 (corrosiva). Un diseño sellado no derramable que supera las pruebas de vibración y diferencia de presión se envía como UN 2800.' },
+  { q: '¿El plomo-ácido es Clase 8 o Clase 9?', a: 'Clase 8 (corrosiva) — el peligro es el electrolito de ácido sulfúrico. El ion-litio es la química de Clase 9 (varios), enviada como UN 3480/UN 3481.' },
+  { q: '¿Qué prueba hace que una batería sea no derramable (UN 2800)?', a: 'Pruebas de vibración y diferencia de presión bajo las regulaciones de transporte — una batería sellada sin esos registros de prueba es legalmente aún UN 2794, no UN 2800.' },
+  { q: '¿Necesita una batería de plomo-ácido un informe UN 38.3?', a: 'No — UN 38.3 es un estándar de prueba de baterías de litio. La ventaja del plomo-ácido es que no necesita informe UN 38.3, pero aun requiere etiquetado de Clase 8, embalaje conforme y una declaración donde se exija.' },
+  { q: '¿Qué reglas gobiernan el flete marítimo de baterías de plomo-ácido?', a: 'El Código IMDG de la OMI para transporte marítimo, más las reglas nacionales que alimenta — US DOT 49 CFR, ADR europeo e IATA DGR para aire — todas derivadas del Reglamento Modelo de la ONU.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logística" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Clasificación de mercancías peligrosas de baterías de plomo-ácido</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-10 · Fuente: Reglamento Modelo de la ONU, Código IMDG de la OMI, US DOT PHMSA</p>
+    <p class="lead">Las baterías de plomo-ácido son mercancías peligrosas — corrosivas de Clase 8, porque el electrolito es ácido sulfúrico. La clasificación no es papeleo opcional; decide tu embalaje, tu etiquetado, tu documentación y, si te equivocas, si el contenedor es devuelto en el puerto. Aquí está la clasificación, la prueba que cambia el número ONU y cómo se compara con el litio.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Las baterías de plomo-ácido se envían como mercancías peligrosas corrosivas de Clase 8 bajo dos números ONU — UN 2794 (baterías, húmedas, llenas de ácido) para baterías de arranque inundadas y UN 2800 (baterías, húmedas, no derramables) para diseños sellados que superan las pruebas de vibración y diferencia de presión. El flete marítimo sigue el Código IMDG de la OMI, y la ventaja práctica sobre el litio es que el plomo-ácido no necesita informe UN 38.3.
+    </div>
+
+    <h2>Los dos números ONU</h2>
+    <table>
+      <thead><tr><th>Número ONU</th><th>Nombre apropiado de expedición</th><th>Clase</th><th>Aplica a</th></tr></thead>
+      <tbody>
+        <tr><td>UN 2794</td><td>Baterías, húmedas, llenas de ácido</td><td>8</td><td>Baterías de plomo-ácido inundadas con electrolito líquido libre</td></tr>
+        <tr><td>UN 2800</td><td>Baterías, húmedas, no derramables</td><td>8</td><td>Baterías selladas que superan las pruebas no derramables</td></tr>
+        <tr><td>UN 2796</td><td>Líquido de batería, ácido</td><td>8</td><td>Electrolito de ácido sulfúrico enviado por sí solo</td></tr>
+      </tbody>
+    </table>
+    <p>Los nombres apropiados de expedición y los números provienen del [Reglamento Modelo de la ONU](https://unece.org/transport/dangerous-goods), mantenido por UNECE, y se adoptan en cada conjunto de reglas nacional y modal — el [Código IMDG](https://www.imo.org/) de la OMI para mar, US DOT 49 CFR para carretera y ferrocarril de EE. UU., ADR para carretera europea e IATA DGR para aire.</p>
+
+    <h2>Qué requiere realmente «no derramable» (UN 2800)</h2>
+    <p>El estatus UN 2800 no es una etiqueta de marketing — es una afirmación probada. Una batería califica como no derramable solo si supera las pruebas de vibración y diferencia de presión especificadas en las regulaciones de transporte, demostrando que el electrolito no escapará bajo condiciones normales de transporte. La consecuencia práctica importa para el coste de flete y la manipulación: una batería UN 2800 atrae requisitos de embalaje y manipulación más ligeros que una batería inundada UN 2794. La trampa para los compradores: una batería sellada sin registros de prueba es legalmente aún UN 2794, diga lo que diga el folleto del proveedor. Consulta la guía de [US DOT PHMSA](https://www.phmsa.dot.gov/) para la lectura autoritativa estadounidense.</p>
+
+    <h2>Plomo-ácido vs litio: clases distintas, cargas distintas</h2>
+    <p>Los compradores que vienen del litio a menudo llevan suposiciones que no se transfieren. Las dos químicas se sientan en clases distintas con papeleo distinto:</p>
+    <table>
+      <thead><tr><th>Dimensión</th><th>Plomo-ácido</th><th>Ion-litio</th></tr></thead>
+      <tbody>
+        <tr><td>Números ONU</td><td>UN 2794 / UN 2800</td><td>UN 3480 (solo) / UN 3481 (con equipo)</td></tr>
+        <tr><td>Clase de peligro</td><td>Clase 8 (corrosiva)</td><td>Clase 9 (varios)</td></tr>
+        <tr><td>Prueba UN 38.3</td><td>No requerida</td><td>Requerida</td></tr>
+        <tr><td>Riesgo dominante</td><td>Derrame de ácido, corrosión</td><td>Embestida térmica, incendio</td></tr>
+        <tr><td>Documentación</td><td>Carga menor</td><td>Mayor (resúmenes de prueba, etiquetado, formación)</td></tr>
+      </tbody>
+    </table>
+    <p>La ventaja del plomo-ácido es real pero estrecha: sin informe UN 38.3. Aun necesitas etiquetado de corrosivo Clase 8, embalaje ONU donde se requiera y una declaración de mercancías peligrosas firmada por una persona formada. El lado del litio — UN 3480/UN 3481 y el requisito UN 38.3 — está cubierto por IATA y el [Reglamento Modelo de la ONU](https://unece.org/transport/dangerous-goods); la comparación solo importa aquí porque es el contexto que la mayoría de los importadores de baterías ya conoce.</p>
+
+    <h2>Qué requieren la etiqueta de clase y el embalaje</h2>
+    <ul>
+      <li><strong>Etiqueta de corrosivo Clase 8</strong> en el paquete, y un letrero Clase 8 en el vehículo o contenedor donde las regulaciones lo exigen.</li>
+      <li><strong>Marcado con número ONU</strong> junto al nombre apropiado de expedición.</li>
+      <li><strong>Embalaje conforme</strong> que contiene el ácido y protege los bornes del cortocircuito — cajas de grado exportación y orientación vertical.</li>
+      <li><strong>Una declaración de mercancías peligrosas</strong> firmada por una persona certificada, más la MSDS del producto específico.</li>
+    </ul>
+    <p>Clasificar mal una batería como «mercancía general» es la infracción de materiales peligrosos más común del sector — y es una multa, un contenedor retrasado o un envío rechazado esperando a ocurrir.</p>
+
+    <h2>Qué número ONU es tu batería</h2>
+    <p>La clasificación es una decisión, no una etiqueta, y sigue un flujo corto:</p>
+    <ol>
+      <li><strong>¿Hay electrolito líquido libre?</strong> Si la batería está inundada con ácido que puede derramarse, es UN 2794.</li>
+      <li><strong>¿Está sellada y probada no derramable?</strong> Si superó las pruebas de vibración y diferencia de presión con registros, es UN 2800.</li>
+      <li><strong>¿Sellada pero sin probar?</strong> Entonces sigue siendo UN 2794 — una carcasa sellada por sí sola no hace a una batería no derramable.</li>
+    </ol>
+    <p>Las apuestas prácticas son flete y manipulación: UN 2800 atrae requisitos de embalaje y manipulación más ligeros, así que un proveedor que puede documentar la prueba te ahorra dinero — y un proveedor que no puede documentarla está vendiendo una batería UN 2794 con descripción de UN 2800. Pide el registro de prueba, no la etiqueta.</p>
+
+    <h2>Qué cambia la clasificación en la práctica</h2>
+    <ul>
+      <li><strong>Embalaje</strong> — UN 2794 necesita embalaje que contiene el ácido y evita el cortocircuito; UN 2800 es más ligero pero aun necesita marcado de Clase 8.</li>
+      <li><strong>Etiquetado y letreros</strong> — la etiqueta de corrosivo Clase 8 y el número ONU viajan con ambos.</li>
+      <li><strong>Documentación</strong> — una declaración de mercancías peligrosas firmada por una persona certificada, más la MSDS, para ambos.</li>
+      <li><strong>Flete aéreo</strong> — la no derramable UN 2800 es la única forma generalmente considerada para aire; la inundada UN 2794 es esencialmente flete marítimo y por carretera.</li>
+    </ul>
+    <p>La comparación que importa para los importadores no es por tanto «peligroso o no» — ambos son mercancías peligrosas — sino «qué número ONU, y puede el proveedor probarlo». Esa prueba es la diferencia entre un despacho fluido y un contenedor devuelto.</p>
+
+    <h2>Dónde encaja esto</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). La clasificación es la primera puerta del clúster logístico; las páginas que siguen cubren lo que viene después:</p>
+    <ul>
+      <li><a href="/es/knowledge/battery-shipping-guide/">Envío de baterías, cumplimiento y garantía: la guía completa</a></li>
+      <li><a href="/es/knowledge/battery-export-documentation/">Documentación de exportación de baterías</a></li>
+      <li><a href="/es/knowledge/battery-shipping-warranty/">Envío, embalaje y garantía de baterías</a></li>
+      <li><a href="/es/knowledge/battery-warranty-claim-process/">Proceso de reclamación de garantía de baterías</a></li>
+      <li><a href="/es/knowledge/battery-storage-shelf-life/">Almacenamiento y vida útil de baterías</a></li>
+    </ul>
+    <p><a href="/es/contact/">Confirma la clasificación ONU de tu batería &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, «no derramable» es una afirmación probada, no una etiqueta — una batería sellada sin los registros de prueba de vibración y diferencia de presión es una carga UN 2794 vistiendo una descripción UN 2800.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>El estatus UN 2800 cambia los requisitos de embalaje y manipulación, por eso un proveedor que puede documentar la prueba te ahorra dinero.</li>
+        <li>Clasificar mal una batería como mercancía general es la violación de materiales peligrosos más común, y es una multa o un contenedor rechazado esperando a ocurrir.</li>
+        <li>La ventaja del plomo-ácido sobre el litio es real pero estrecha: sin informe UN 38.3, pero el etiquetado de Clase 8 y una declaración firmada aun aplican.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirma la clasificación de mercancías peligrosas de tu batería" />
+</ArticleLayout>

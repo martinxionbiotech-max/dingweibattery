@@ -1,0 +1,110 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Batería de 6V vs 12V: serie, paralelo y voltaje del sistema | Dingwei Battery';
+const description = 'Baterías de 6V vs 12V: cómo el cableado en serie y paralelo cambia voltaje y capacidad, por qué los vehículos pesados usan 24V y el riesgo de cablear una batería al voltaje de sistema equivocado.';
+const articleTitle = 'Baterías de 6V vs 12V: voltaje del sistema explicado';
+
+const faqs = [
+  { q: '¿Dos baterías de 6V en serie dan 12V?', a: 'Sí. Cablear dos baterías de 6 V en serie suma los voltajes para dar 12 V mientras la capacidad en amperios-hora se mantiene igual — dos baterías de 6 V y 200 Ah se convierten en un banco de 12 V y 200 Ah.' },
+  { q: '¿Por qué los camiones pesados usan sistemas de 24V?', a: 'Un sistema de 24 V usa doce celdas de 2 V (a menudo dos baterías de 12 V en serie) para entregar la potencia de arranque que un gran diésel necesita a la mitad de la corriente de un sistema de 12 V, lo que reduce el tamaño del cable y la caída de voltaje.' },
+  { q: '¿Cuándo cambiaron los coches de 6V a 12V?', a: 'A través de mediados de los años 1950, cuando los motores de mayor compresión necesitaron más potencia de arranque. Algunos coches pequeños mantuvieron 6 V más tiempo — el Volkswagen Beetle hasta mediados de los años 1960.' },
+  { q: '¿Qué pasa si instalo una batería de 12V en un sistema de 6V?', a: 'Los componentes eléctricos reciben el doble de su voltaje nominal, lo que puede sobrecalentar y dañar bombillas, reguladores y electrónica. El voltaje es una decisión de sistema — la batería debe coincidir con el vehículo, no al revés.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Ingeniería" dateModified="2026-09-09" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Baterías de 6V vs 12V: voltaje del sistema explicado</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-09 · Fuente: SAE J537, documentación de sistemas eléctricos de la industria</p>
+    <p class="lead">El voltaje de la batería es una decisión de sistema, no una especificación que eliges de un estante. La mayor parte del mundo automotriz funciona con 12 V, pero la industria de baterías aún fabrica configuraciones de 6 V y 24 V porque el cableado en serie permite que un diseño de celda sirva a cada voltaje. El error a evitar es tratar «12 V» como universal cuando el vehículo fue construido para otra cosa.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Una celda de plomo-ácido es nominalmente de 2 V. Seis celdas en serie hacen una batería de 12 V; doce celdas hacen 24 V. Dos baterías de 6 V cableadas en serie producen 12 V a la misma capacidad, y dos baterías de 12 V en serie producen 24 V para camiones pesados. El voltaje lo fija el sistema eléctrico del vehículo — una batería de 12 V nunca debe instalarse en un sistema de 6 V o 24 V.
+    </div>
+
+    <h2>De dónde viene el voltaje</h2>
+    <p>Cada celda de plomo-ácido produce un voltaje nominal de 2 V (unos 2.1 V completamente cargada). El voltaje de la batería es solo el número de celdas cableadas en serie:</p>
+    <ul>
+      <li><strong>3 celdas &rarr; 6 V</strong> — el voltaje automotriz original, estándar hasta mediados de los años 1950.</li>
+      <li><strong>6 celdas &rarr; 12 V</strong> — el estándar actual para turismos y camionetas ligeras.</li>
+      <li><strong>12 celdas &rarr; 24 V</strong> — camiones pesados, autobuses y maquinaria de movimiento de tierras.</li>
+    </ul>
+    <p>La industria pasó de 6 V a 12 V porque los motores más grandes y de mayor compresión necesitaron más potencia de arranque de la que un sistema de 6 V podía entregar sin cables enormes. Los coches más pequeños aguantaron más — el Volkswagen Beetle mantuvo un sistema de 6 V hasta mediados de los años 1960.</p>
+
+    <h2>Serie vs paralelo: qué cambia y qué no</h2>
+    <p>Cablear baterías juntas cambia dos cosas distintas, y son fáciles de confundir:</p>
+    <table>
+      <thead><tr><th>Cableado</th><th>Voltaje</th><th>Capacidad (Ah)</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Serie (positivo a negativo)</td><td>Suma</td><td>Se mantiene igual</td><td>2 &times; 6 V, 200 Ah &rarr; 12 V, 200 Ah</td></tr>
+        <tr><td>Paralelo (positivo a positivo)</td><td>Se mantiene igual</td><td>Suma</td><td>2 &times; 6 V, 200 Ah &rarr; 6 V, 400 Ah</td></tr>
+      </tbody>
+    </table>
+    <div class="takeaways">
+      <strong>Cálculo original — la energía se conserva de cualquier forma:</strong> una sola batería de 6 V y 200 Ah almacena 6 &times; 200 = 1,200 Wh. Dos en serie dan 12 V &times; 200 Ah = 2,400 Wh; dos en paralelo dan 6 V &times; 400 Ah = 2,400 Wh. La serie sube el voltaje, el paralelo sube la autonomía, pero la energía almacenada se duplica idénticamente — la elección es sobre lo que la carga necesita, no sobre obtener «más potencia» de una forma sobre la otra.
+    </div>
+
+    <h2>Por qué los vehículos pesados usan 24 V</h2>
+    <p>Un gran diésel necesita una fuerte corriente de arranque. La potencia es voltaje &times; corriente, así que duplicar el voltaje a 24 V entrega la misma potencia de arranque a la mitad de la corriente. Menos corriente significa cables más finos y ligeros y menos caída de voltaje a lo largo de un chasis de camión largo. Por eso los camiones pesados, autobuses y maquinaria de movimiento de tierras funcionan a 24 V — comúnmente construidos con dos baterías de 12 V en serie, o una sola batería de 24 V.</p>
+
+    <h2>Dónde se siguen usando baterías de 6 V hoy</h2>
+    <p>Las baterías de 6 V no han desaparecido; se trasladaron a aplicaciones específicas:</p>
+    <ul>
+      <li><strong>Coches clásicos</strong> — los vehículos anteriores a 1950 aún usan sistemas de 6 V y necesitan baterías de 6 V.</li>
+      <li><strong>Carros de golf y máquinas de piso</strong> — baterías de 6 V de ciclo profundo cableadas en serie para construir bancos de 36 V o 48 V.</li>
+      <li><strong>Pares cableados a 12 V</strong> — dos baterías de 6 V en serie como banco de 12 V donde una sola carcasa grande no cabe.</li>
+    </ul>
+
+    <h2>El riesgo de un desajuste de voltaje</h2>
+    <p>El voltaje lo fijan el cableado, los reguladores, las bombillas y la electrónica del vehículo. Instalar una batería de 12 V en un sistema de 6 V alimenta cada componente con el doble de su voltaje nominal — sobrecalentando bombillas, reguladores y electrónica. Instalar una batería de 6 V en un sistema de 12 V subalimenta el motor de arranque y los accesorios. La regla es simple: el voltaje de la batería debe coincidir con el voltaje del sistema, y al construir un banco, el cableado en serie y paralelo debe ser deliberado, no accidental.</p>
+    <p class="note">Los vehículos modernos son de masa negativa — el borne negativo se conecta al chasis. Al cablear baterías en serie o paralelo, la polaridad y la puesta a tierra deben confirmarse contra el vehículo antes de la conexión; invertir la polaridad puede dañar el sistema eléctrico. Consulta la <a href="/es/knowledge/battery-terminal-types-polarity/">guía de bornes y polaridad</a>.</p>
+
+    <h2>Voltajes más altos: bancos de 36 V y 48 V</h2>
+    <p>La misma lógica de serie escala hacia arriba para vehículos eléctricos y equipos industriales. Los carros de golf, las máquinas de piso y algunos vehículos utilitarios construyen bancos de 36 V o 48 V con baterías de 6 V o 12 V cableadas en serie — seis baterías de 6 V en serie dan 36 V, y ocho baterías de 6 V dan 48 V. Las baterías en sí son las mismas celdas de 6 V de ciclo profundo; el voltaje del sistema es puramente cuestión de cuántas se encadenan. Por eso una «batería de 6 V» no es una curiosidad heredada — es el bloque de construcción de la mayoría de los bancos en serie del mundo industrial y de vehículos de ocio.</p>
+
+    <h2>Voltaje de carga: por qué no puedes mezclar voltajes de sistema</h2>
+    <p>El voltaje de carga de una batería escala con su voltaje nominal. Un sistema de 6 V carga a unos 7.2 V, un sistema de 12 V a unos 14.4 V y un sistema de 24 V a unos 28.8 V (valores de referencia — la cifra exacta depende del tipo de batería y del cargador). Instala una batería de 12 V en un cargador o vehículo de 6 V y la batería nunca alcanza la carga completa; instala una batería de 6 V en un cargador de 12 V y las celdas se sobrecargan, gasean y corroen las placas. El cargador y la batería deben compartir el mismo voltaje de sistema, una razón más por la que el voltaje de la batería lo fija el vehículo y no puede intercambiarse libremente.</p>
+
+    <h2>Cómo identificar el voltaje de sistema de un vehículo</h2>
+    <p>Si el voltaje del sistema es desconocido, léelo del vehículo en lugar de adivinar desde la batería:</p>
+    <ol>
+      <li><strong>Cuenta las celdas</strong> — cada celda de plomo-ácido es de 2 V, así que una batería de 6 V tiene 3 celdas y una de 12 V tiene 6 (visible como el número de tapones de llenado o pares de placas en un diseño ventilado).</li>
+      <li><strong>Lee la etiqueta</strong> — la etiqueta de la batería OE indica su voltaje; el reemplazo debe coincidir con él.</li>
+      <li><strong>Comprueba el alternador o cargador</strong> — su valor de salida (unos 14 V para sistemas de 12 V, 28 V para 24 V) identifica el sistema.</li>
+      <li><strong>Cuenta las baterías</strong> — dos baterías de 12 V en serie apuntan a un sistema de 24 V; dos baterías de 6 V en serie apuntan a un sistema de 12 V.</li>
+    </ol>
+    <p class="note">Un voltímetro en la batería del vehículo con el motor apagado da el voltaje de reposo: unos 6.3 V para un sistema de 6 V, 12.6 V para 12 V y 25.2 V para 24 V. Es la comprobación definitiva más rápida.</p>
+
+    <h2>Cómo especificar el voltaje correcto</h2>
+    <ol>
+      <li>Confirma el voltaje de sistema del vehículo objetivo — 6 V, 12 V o 24 V.</li>
+      <li>Para 24 V, decide entre una batería de 24 V o dos baterías de 12 V en serie (el espacio de montaje suele decidir).</li>
+      <li>Para aplicaciones de 6 V, confirma si las baterías funcionan solas, en serie o en paralelo, y ajusta la capacidad en consecuencia.</li>
+      <li>Confirma el tipo de borne, la polaridad y la puesta a tierra para la configuración final.</li>
+    </ol>
+
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Las configuraciones de servicio pesado de 6 V y 12 V están disponibles en la <a href="/es/heavy-duty-batteries/">gama de servicio pesado</a>, y los 12 V de pasajeros en la <a href="/es/oem/car-batteries/">gama de coches</a>. Asigna el voltaje a la clase de vehículo en la <a href="/es/knowledge/battery-applications-by-vehicle/">guía de aplicaciones</a>.</p>
+    <p><a href="/es/data/">Explora modelos por voltaje &rarr;</a> · <a href="/es/knowledge/battery-group-size-chart/">Tabla de tamaños de grupo &rarr;</a> · <a href="/es/contact/">Confirma el voltaje del sistema &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, el voltaje de la batería es una decisión de sistema, no una especificación que eliges — y tratar «12 V» como universal cuando el vehículo fue construido para otra cosa es el error a evitar.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>El voltaje es solo celdas en serie — 3 celdas hacen 6 V, 6 hacen 12 V, 12 hacen 24 V — así que un diseño de celda sirve a cada voltaje.</li>
+        <li>Los vehículos pesados funcionan a 24 V para entregar la misma potencia de arranque a la mitad de la corriente, con cables más finos y ligeros.</li>
+        <li>Instalar una batería de 12 V en un sistema de 6 V alimenta cada componente con el doble de su voltaje nominal; el desajuste no es un error pequeño.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Especifica el voltaje correcto para tu flota" />
+</ArticleLayout>

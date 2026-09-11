@@ -1,0 +1,97 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Proceso de reclamación de garantía de baterías | Dingwei Battery';
+const description = 'Cómo funciona una reclamación de garantía de batería — criterios de juicio, reemplazo vs crédito a prorrata, límites de tiempo y el papeleo que hace que una reclamación tenga éxito.';
+const articleTitle = 'Proceso de reclamación de garantía de baterías';
+
+const faqs = [
+  { q: '¿Cuánto suele durar una garantía de batería?', a: '12 meses desde el conocimiento de embarque es el término común de fábrica, mientras las marcas minoristas suelen correr 12–36 meses de reemplazo gratuito seguido de crédito a prorrata — y la porción a prorrata se reduce con la edad de la batería.' },
+  { q: '¿Cómo se liquidan las reclamaciones de garantía de baterías?', a: 'Normalmente por reemplazo completo dentro de la ventana de reemplazo gratuito (comúnmente los primeros 12–24 meses), y luego crédito a prorrata — lo que significa que recibes una fracción del valor de la batería según su edad, no un reembolso completo.' },
+  { q: '¿Qué excluye una garantía de batería?', a: 'La descarga profunda (por debajo de un 50% de carga), el mal uso, el daño físico, la carga incorrecta y la sulfatación por almacenamiento prolongado — las exclusiones son donde se rechazan la mayoría de las reclamaciones, así que léelas antes de presentar.' },
+  { q: '¿Qué evidencia necesito para presentar una reclamación de garantía de batería?', a: '4 cosas — la factura, el conocimiento de embarque, un informe de prueba que muestre el fallo (CCA o capacidad) y fotos — una reclamación sin un fallo medido es una reclamación que se rechaza.' },
+  { q: '¿Cuánto tarda una reclamación de garantía de batería?', a: 'Normalmente 2–4 semanas desde la presentación hasta la liquidación — la inspección y los datos de prueba ocupan la mayor parte de ese tiempo, y una reclamación sin documentación puede estancarse indefinidamente.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logística" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Proceso de reclamación de garantía de baterías</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-10 · Fuente: práctica de garantía de la industria, explicación de cobertura a prorrata de Midtronics</p>
+    <p class="lead">Una garantía solo vale lo que puedes reclamar. La mayoría de los compradores de baterías leen la duración y se saltan la mecánica de reclamación — y luego descubren, en el peor momento posible, que la liquidación es a prorrata, las exclusiones son amplias o la documentación que no guardaron es la evidencia que ahora necesitan. Esta página recorre cómo funciona realmente una reclamación, para que puedas presentar una que tenga éxito.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Una reclamación de garantía de batería corre en tres pasos — prueba el fallo con un informe de prueba, presenta contra el alcance escrito (duración, exclusiones, gestión) y liquida como reemplazo completo o crédito a prorrata según la edad de la batería. El término de fábrica es normalmente de 12 meses desde el conocimiento de embarque; las garantías minoristas suelen correr 12–36 meses de reemplazo gratuito antes de pasar a prorrata, y las exclusiones son donde se rechazan la mayoría de las reclamaciones.
+    </div>
+
+    <h2>Qué cubre realmente la garantía</h2>
+    <p>Antes de poder reclamar, tienes que conocer el alcance. Una garantía de batería tiene tres partes escritas, y solo la primera es el número del titular:</p>
+    <ol>
+      <li><strong>Duración</strong> — el término de fábrica es de 12 meses desde la fecha del conocimiento de embarque. El reloj empieza en la fecha del conocimiento de embarque, no en la compra de tu cliente.</li>
+      <li><strong>Exclusiones</strong> — la descarga profunda, el mal uso, el daño físico, la carga incorrecta y la sulfatación por almacenamiento prolongado son las exclusiones estándar.</li>
+      <li><strong>Gestión</strong> — cómo se presenta, inspecciona y liquida un fallo.</li>
+    </ol>
+    <p>La lectura completa de un alcance de garantía está en la página de <a href="/es/knowledge/battery-shipping-warranty/">envío y garantía</a>.</p>
+
+    <h2>Reemplazo completo vs prorrata: la liquidación que sorprende a la gente</h2>
+    <p>El patrón de liquidación de la industria es de dos niveles. Dentro de la <strong>ventana de reemplazo gratuito</strong> — comúnmente los primeros 12–24 meses para marcas minoristas — una batería defectuosa se reemplaza gratis. Después de esa ventana, la garantía pasa a <strong>prorrata</strong>: recibes un crédito por una fracción del valor de la batería según su edad, no un reembolso completo (ver la [explicación de cobertura a prorrata de Midtronics](https://www.midtronics.com/blog/how-to-explain-battery-warranties-and-pro-rated-coverage)). La implicación es incómoda e importante: una «garantía de 36 meses» que es a prorrata después de 24 meses puede valer menos en una reclamación que una garantía de 12 meses con reemplazo completo — y el propio organismo de la industria del plomo-ácido, [Battery Council International](https://batterycouncil.org/sources), documenta la economía del reciclaje que hace de las ventanas cortas de reemplazo completo un valor por defecto justo y sostenible. Cuando compares proveedores, compara la ventana de reemplazo gratuito, no la duración total.</p>
+
+    <h2>El proceso de reclamación, paso a paso</h2>
+    <ol>
+      <li><strong>Mide el fallo</strong> — una prueba de CCA o capacidad que muestre que la batería está por debajo de la especificación. Una reclamación sin un fallo medido es una reclamación que se rechaza.</li>
+      <li><strong>Reúne la evidencia</strong> — factura, conocimiento de embarque, informe de prueba y fotos.</li>
+      <li><strong>Presenta contra el alcance escrito</strong> — asocia el fallo a una causa cubierta, porque las exclusiones son donde mueren las reclamaciones.</li>
+      <li><strong>Espera la inspección</strong> — la fábrica o el vendedor revisan los datos de prueba y la reclamación contra las exclusiones.</li>
+      <li><strong>Liquida</strong> — reemplazo completo, o crédito a prorrata calculado desde la edad de la batería.</li>
+    </ol>
+    <p>Realmente, una reclamación documentada se liquida en unas 2–4 semanas; una reclamación sin documentación puede estancarse indefinidamente. La evidencia que guardas en la entrega es la diferencia.</p>
+
+    <h2>Las exclusiones, y por qué deciden la mayoría de las reclamaciones</h2>
+    <ul>
+      <li><strong>Descarga profunda</strong> — una batería drenada por debajo de un 50% de carga y dejada así se sulfata; es un fallo de uso, no un defecto.</li>
+      <li><strong>Mal uso y aplicación equivocada</strong> — una batería especificada para el vehículo o ciclo de trabajo equivocados.</li>
+      <li><strong>Daño físico</strong> — carcasas agrietadas, bornes aplastados, daños por manipulación en cortocircuito.</li>
+      <li><strong>Almacenamiento prolongado sin mantenimiento</strong> — una batería que se autodescargó en el estante durante un año suele estar excluida, por eso importa la disciplina de almacenamiento.</li>
+    </ul>
+    <p>Este es el vínculo silencioso entre garantía y almacenamiento: una batería que permanece demasiado antes de la venta ya ha usado su reloj de garantía y puede haber empezado a sulfatarse. La página de <a href="/es/knowledge/battery-storage-shelf-life/">almacenamiento y vida útil</a> explica cómo mantener el stock reclamable.</p>
+
+    <h2>Cómo hacer que una reclamación tenga éxito</h2>
+    <ul>
+      <li><strong>Prueba antes de presentar.</strong> Una lectura de CCA o capacidad que muestre el fallo es la pieza de evidencia más persuasiva.</li>
+      <li><strong>Guarda los documentos de entrega.</strong> La factura y el conocimiento de embarque anclan la fecha de inicio de la garantía.</li>
+      <li><strong>Cita el alcance de vuelta.</strong> Referencia la duración, las exclusiones y la gestión escritas cuando presentes.</li>
+      <li><strong>Actúa dentro de la ventana.</strong> Una reclamación presentada el día después de que cierre la ventana se rechaza por tiempo, no por mérito.</li>
+    </ul>
+
+    <h2>Dónde encaja esto</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). El proceso de reclamación se ubica dentro del clúster de logística y garantía:</p>
+    <ul>
+      <li><a href="/es/knowledge/battery-shipping-guide/">Envío de baterías, cumplimiento y garantía: la guía completa</a></li>
+      <li><a href="/es/knowledge/battery-shipping-warranty/">Envío, embalaje y garantía de baterías</a></li>
+      <li><a href="/es/knowledge/battery-storage-shelf-life/">Almacenamiento y vida útil de baterías</a></li>
+      <li><a href="/es/knowledge/lead-acid-battery-dangerous-goods/">Clasificación de mercancías peligrosas de baterías de plomo-ácido</a></li>
+      <li><a href="/es/knowledge/battery-export-documentation/">Documentación de exportación de baterías</a></li>
+    </ul>
+    <p><a href="/es/contact/">Confirma los términos de garantía de tus baterías &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, una garantía solo vale lo que puedes reclamar — y una reclamación sin un fallo medido y sin los documentos de entrega se rechaza por proceso, no por mérito.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>El patrón de la industria es de dos niveles: reemplazo gratuito dentro de una ventana, luego crédito a prorrata que se reduce con la edad, así que el tiempo importa tanto como el mérito.</li>
+        <li>Las exclusiones — descarga profunda, mal uso, almacenamiento prolongado — son donde mueren la mayoría de las reclamaciones, no el defecto en sí.</li>
+        <li>Una lectura de CCA o capacidad que muestre el fallo es la pieza de evidencia más persuasiva, y es barata de producir.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirma los términos de reclamación de garantía de tus baterías" />
+</ArticleLayout>

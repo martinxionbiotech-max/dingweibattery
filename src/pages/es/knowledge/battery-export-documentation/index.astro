@@ -1,0 +1,118 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Documentación de exportación de baterías | Dingwei Battery';
+const description = 'El conjunto completo de documentos de exportación de baterías: factura comercial, lista de embalaje, conocimiento de embarque, certificado de origen, informes de prueba y la declaración de mercancías peligrosas.';
+const articleTitle = 'Documentación de exportación de baterías';
+
+const faqs = [
+  { q: '¿Cuántos documentos básicos necesita una exportación de baterías?', a: '5 como mínimo: factura comercial, lista de embalaje, conocimiento de embarque, certificado de origen y declaración de mercancías peligrosas, más los informes de prueba y la MSDS cuando el destino o el transportista lo exigen.' },
+  { q: '¿Qué documento olvidan con más frecuencia los exportadores de baterías?', a: 'La declaración de mercancías peligrosas, que debe firmarla una persona certificada. Omitirla supone una multa, un contenedor retrasado o un envío rechazado, porque la batería es de Clase 8, no carga general.' },
+  { q: '¿Qué demuestra un certificado de origen?', a: 'Dónde se fabricaron las mercancías: es 1 de los 5 documentos básicos y desbloquea tipos arancelarios preferenciales, por lo que muchas autoridades aduaneras de destino lo exigen; es tanto un documento de cumplimiento como una formalidad.' },
+  { q: '¿Cuándo se requiere un informe de prueba de CCA o de capacidad?', a: 'Cuando el mercado de destino o el contrato del comprador lo exigen: la mayoría de los mercados quieren demostrar que la batería cumple su especificación etiquetada (p. ej., 72 Ah, 490 CCA), así que el informe viaja con el envío como evidencia.' },
+  { q: '¿Cómo cambian los Incoterms la responsabilidad documental?', a: 'Deciden quién organiza y paga cada documento y cada tramo de transporte en los 3 Incoterms que ofrecemos: bajo FOB el comprador controla el flete y el despacho; bajo CIF el vendedor organiza el seguro y el flete, y el riesgo se transfiere en el puerto de origen, no en el de destino.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logística" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Documentación de exportación de baterías</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-10 · Fuente: Código IMDG de la OMI, práctica logística de exportación, Incoterms 2020</p>
+    <p class="lead">Un contenedor de baterías se mueve sobre documentos, no solo sobre un barco. El conjunto de documentos es lo que mantiene una carga de Clase 8 fluyendo por la aduana en lugar de quedarse en un depósito acumulando sobrestadía. Esta página enumera cada documento, qué demuestra y el que la mayoría de los exportadores olvida.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Una exportación de baterías de plomo-ácido necesita al menos cinco documentos: factura comercial, lista de embalaje, conocimiento de embarque, certificado de origen y declaración de mercancías peligrosas, más un informe de prueba de CCA/capacidad y la MSDS cuando el destino o el transportista lo exigen. La declaración de mercancías peligrosas es la que los aficionados olvidan, y debe firmarla una persona certificada porque la batería se envía como corrosiva de Clase 8.
+    </div>
+
+    <h2>La base de cinco documentos</h2>
+    <table>
+      <thead><tr><th>Documento</th><th>Qué demuestra</th><th>Quién lo emite</th></tr></thead>
+      <tbody>
+        <tr><td>Factura comercial</td><td>Valor, condiciones, comprador y vendedor</td><td>Exportador</td></tr>
+        <tr><td>Lista de embalaje</td><td>Recuento de cajas, pesos, dimensiones por palé</td><td>Exportador</td></tr>
+        <tr><td>Conocimiento de embarque</td><td>Recibo y contrato de transporte</td><td>Transportista</td></tr>
+        <tr><td>Certificado de origen</td><td>Dónde se fabricaron las mercancías</td><td>Cámara de comercio</td></tr>
+        <tr><td>Declaración de mercancías peligrosas</td><td>Número ONU, clase y embalaje, firmada</td><td>Expedidor certificado</td></tr>
+      </tbody>
+    </table>
+
+    <h2>La declaración de mercancías peligrosas, en detalle</h2>
+    <p>Este es el documento que separa una exportación profesional de una amateur. Como las baterías de plomo-ácido son corrosivas de Clase 8 según el [Código IMDG](https://www.imo.org/), el expedidor debe declarar el número ONU (ONU 2794 u ONU 2800), el nombre apropiado de expedición, la clase y el embalaje — y la declaración debe firmarla una persona certificada en normativa de mercancías peligrosas, según las reglas del [Reglamento Modelo de la ONU](https://unece.org/transport/dangerous-goods). Una batería enviada como &ldquo;mercancía general&rdquo; es una declaración falsa, y es la infracción de materiales peligrosos más común del sector. La lógica de clasificación completa está en la página de <a href="/es/knowledge/lead-acid-battery-dangerous-goods/">clasificación de mercancías peligrosas</a>.</p>
+
+    <h2>Documentos de apoyo que viajan con la carga</h2>
+    <ul>
+      <li><strong>Informe de prueba de CCA / capacidad</strong> — prueba de que la batería cumple su especificación etiquetada; lo exigen muchos destinos y está incluido en la mayoría de los contratos OEM.</li>
+      <li><strong>MSDS (ficha de datos de seguridad)</strong> — los datos de seguridad del electrolito y la batería; exigida por transportistas y aduanas en la mayoría de los mercados.</li>
+      <li><strong>Informes de prueba / certificados de conformidad</strong> — CE para Europa, SASO/GSO para el Golfo, o conformidad específica del destino, donde el mercado lo exija.</li>
+      <li><strong>Certificado de seguro</strong> — evidencia de cobertura de la carga cuando el comprador lo exige, especialmente bajo CIF.</li>
+    </ul>
+    <p>Los requisitos específicos de cada destino se detallan mercado por mercado en la página de <a href="/es/knowledge/battery-import-regulations/">normativa de importación</a>.</p>
+
+    <h2>Cómo dividen el trabajo los Incoterms</h2>
+    <p>El Incoterm decide quién organiza y paga cada documento y cada tramo de transporte. Dingwei Battery envía en FOB Tianjin / CFR / CIF:</p>
+    <ul>
+      <li><strong>FOB</strong> (Free On Board) — el vendedor entrega en el puerto y despacha la exportación; el comprador asume el riesgo y el flete desde el puerto en adelante.</li>
+      <li><strong>CFR</strong> (Cost and Freight) — el vendedor también paga el flete hasta el puerto de destino, pero el riesgo se transfiere igualmente en el puerto de origen.</li>
+      <li><strong>CIF</strong> (Cost, Insurance and Freight) — el vendedor añade el seguro hasta el puerto de destino; el comprador gestiona el despacho de importación.</li>
+    </ul>
+    <p>El punto práctico: bajo FOB el comprador posee los documentos de despacho y el flete; bajo CIF el vendedor organiza más parte de ello. Elige el término que ponga la documentación en manos de quien tiene las relaciones locales para despacharla.</p>
+
+    <h2>Qué retrasa un envío de baterías</h2>
+    <ul>
+      <li><strong>Una declaración de mercancías peligrosas ausente o sin firmar</strong> — la retención más común.</li>
+      <li><strong>Un certificado de origen que no coincide con la factura</strong> — las discrepancias entre documentos disparan las consultas aduaneras.</li>
+      <li><strong>Informes de prueba de un modelo distinto al del envío</strong> — el informe debe corresponder a las baterías físicas del palé.</li>
+      <li><strong>Pesos que no cuadran</strong> — la lista de embalaje, la factura y el conocimiento de embarque deben coincidir al kilogramo.</li>
+    </ul>
+
+    <h2>Las tres discrepancias que retienen un envío</h2>
+    <p>La mayoría de los retrasos aduaneros de baterías no son documentos faltantes — son documentos que se contradicen entre sí. Tres desajustes causan la mayor parte de las retenciones:</p>
+    <ol>
+      <li><strong>Pesos de factura vs lista de embalaje</strong> — un kilogramo de diferencia entre ambos dispara una consulta. Cuadra al kilo antes del despacho.</li>
+      <li><strong>Informe de prueba vs modelo real</strong> — un informe de CCA/capacidad de un modelo distinto al de las baterías del palé invalida la declaración de cumplimiento.</li>
+      <li><strong>Certificado de origen vs factura</strong> — un desajuste entre el país de origen y los datos del expedidor levanta una bandera aduanera.</li>
+    </ol>
+    <p>La regla es mecánica: un envío, un conjunto documental coherente. Cada número de la factura debe coincidir con la lista de embalaje y el conocimiento de embarque, y cada informe de prueba debe corresponder a las baterías físicas. Una conciliación de 20 minutos antes del despacho no cuesta nada; la misma conciliación en la frontera de destino cuesta sobrestadía y una fianza.</p>
+
+    <h2>Quién firma qué</h2>
+    <p>La documentación no es solo papel — es responsabilidad, y cada documento lleva un firmante distinto:</p>
+    <ul>
+      <li><strong>Exportador</strong> — factura comercial, lista de embalaje.</li>
+      <li><strong>Transportista</strong> — conocimiento de embarque.</li>
+      <li><strong>Cámara de comercio</strong> — certificado de origen.</li>
+      <li><strong>Persona certificada en mercancías peligrosas</strong> — la declaración de mercancías peligrosas.</li>
+    </ul>
+    <p>La declaración de mercancías peligrosas es la que requiere un firmante formado y certificado, por eso también es la que separa una exportación profesional de una amateur. La página de <a href="/es/knowledge/battery-shipping-warranty/">envío y garantía</a> vincula este conjunto documental con el embalaje que protege la carga.</p>
+
+    <h2>Dónde encaja esto</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Chengguang Power Tech Co., Ltd. envía desde Tianjin / Shanghái en FOB Tianjin / CFR / CIF. La página de documentación se ubica dentro del clúster de logística:</p>
+    <ul>
+      <li><a href="/es/knowledge/battery-shipping-guide/">Envío de baterías, cumplimiento y garantía: la guía completa</a></li>
+      <li><a href="/es/knowledge/lead-acid-battery-dangerous-goods/">Clasificación de mercancías peligrosas de baterías de plomo-ácido</a></li>
+      <li><a href="/es/knowledge/battery-shipping-warranty/">Envío, embalaje y garantía de baterías</a></li>
+      <li><a href="/es/knowledge/battery-warranty-claim-process/">Proceso de reclamación de garantía de baterías</a></li>
+      <li><a href="/es/knowledge/battery-storage-shelf-life/">Almacenamiento y vida útil de baterías</a></li>
+    </ul>
+    <p><a href="/es/contact/">Confirma tu conjunto documental de exportación &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, la mayoría de los retrasos aduaneros de baterías no son documentos faltantes — son documentos que se contradicen entre sí, y la declaración de mercancías peligrosas es la que separa una exportación profesional de una amateur.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>Un kilogramo de diferencia entre la factura y la lista de embalaje, o un informe de prueba de otro modelo, basta para disparar una retención en la frontera.</li>
+        <li>La DGD debe firmarla una persona certificada, por eso es el documento que los aficionados olvidan y los profesionales incluyen en el flete.</li>
+        <li>La regla es mecánica: un envío, un conjunto documental coherente, conciliado antes del despacho y no en la frontera de destino.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirma tu conjunto documental de exportación de baterías" />
+</ArticleLayout>

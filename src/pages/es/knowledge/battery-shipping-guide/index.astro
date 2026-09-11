@@ -1,0 +1,142 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Envío de baterías, cumplimiento y garantía: guía completa | Dingwei Battery';
+const description = 'Envío de baterías de plomo-ácido, cumplimiento de mercancías peligrosas y garantía en una sola guía — UN 2794/2800 Clase 8, documentos de exportación, reclamaciones y vida útil en almacén.';
+const articleTitle = 'Envío de baterías, cumplimiento y garantía: la guía completa';
+
+const faqs = [
+  { q: '¿Las baterías de plomo-ácido son mercancías peligrosas para enviar?', a: 'Sí — corrosivas de Clase 8. Las baterías de arranque inundadas se envían como UN 2794 (baterías, húmedas, llenas de ácido); los diseños no derramables se envían como UN 2800. La ventaja práctica frente al litio es que el plomo-ácido no necesita informe de prueba UN 38.3.' },
+  { q: '¿Cuántas baterías de arranque caben en un contenedor de 20 pies?', a: 'Aproximadamente 600–800 para un primer pedido (900–1,200 según el tamaño de grupo). El contenedor de 20 pies está limitado a unos 28,000 kg de carga útil, y las cargas de baterías alcanzan ese techo de peso antes de llenar los 33 m³ de volumen.' },
+  { q: '¿Cuánto tiempo puede permanecer una batería de plomo-ácido en almacén?', a: 'Unos 6 meses antes de necesitar una carga de mantenimiento — el plomo-ácido se autodescarga a un 3–5% mensual, y la tasa se duplica por cada 10°C de subida, así que los almacenes calientes drenan el stock más rápido.' },
+  { q: '¿Qué cubre realmente una garantía de batería de 12 meses?', a: 'Solo lo que dice el alcance escrito — duración, exclusiones y gestión de reclamaciones. Muchas garantías de «12 meses» excluyen la descarga profunda, el mal uso y el daño físico, y liquidan las reclamaciones a prorrata en lugar de reemplazo completo.' },
+  { q: '¿Qué documentos de exportación necesita un contenedor de baterías?', a: '5 documentos como mínimo — factura comercial, lista de embalaje, conocimiento de embarque, certificado de origen y declaración de mercancías peligrosas; se añaden informes de prueba (CCA/capacidad) y MSDS cuando el mercado de destino o el transportista los exigen.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logística" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Envío de baterías, cumplimiento y garantía: la guía completa</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-10 · Fuente: Código IMDG de la OMI, Reglamento Modelo de la ONU, US DOT PHMSA, Battery University</p>
+    <p class="lead">Un pedido de baterías no está completo cuando sale de la línea — está completo cuando llega sin daños, con los documentos correctos y bajo una garantía que entiendes. Eso significa tres disciplinas a la vez: clasificación de mercancías peligrosas, documentación de exportación y condiciones de garantía. Equivócate en una y el contenedor o se atasca en el puerto o te cuesta dinero tras la entrega. Esta guía cubre las tres en un solo lugar, más el almacenamiento, porque una batería que permanece demasiado tiempo en tu almacén es una reclamación de garantía esperando a ocurrir.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Las baterías de plomo-ácido se envían como mercancías peligrosas corrosivas de Clase 8 — UN 2794 (húmedas, llenas de ácido) o UN 2800 (no derramables) — según el Código IMDG para flete marítimo, y a diferencia del litio no necesitan informe UN 38.3. Un contenedor de 20 pies está limitado por peso a unos 28,000 kg, por eso un primer pedido es de 600–800 unidades. La exportación necesita al menos cinco documentos, la garantía es tan fuerte como su alcance escrito, y el almacenamiento exige una carga de mantenimiento cada 6 meses porque las baterías se autodescargan a un 3–5% mensual.
+    </div>
+
+    <h2>Clasificación de mercancías peligrosas, en un párrafo</h2>
+    <p>Las baterías de plomo-ácido no son «carga general». Son mercancías peligrosas corrosivas de Clase 8 porque el electrolito es ácido sulfúrico. Los dos números ONU relevantes son <strong>UN 2794 — Baterías, húmedas, llenas de ácido</strong> (una batería de coche inundada estándar) y <strong>UN 2800 — Baterías, húmedas, no derramables</strong> (un diseño sellado que supera las pruebas de vibración y diferencia de presión). El flete marítimo se rige por el [Código IMDG de la OMI](https://www.imo.org/); los números ONU provienen del [Reglamento Modelo de la ONU](https://unece.org/transport/dangerous-goods), que alimenta cada conjunto de reglas nacionales. La lógica de clasificación completa, los requisitos de prueba de UN 2800 y la comparación con el UN 3480/UN 3481 del litio (Clase 9) están en la página de <a href="/es/knowledge/lead-acid-battery-dangerous-goods/">clasificación de mercancías peligrosas</a>.</p>
+
+    <h2>El contenedor: peso antes que volumen</h2>
+    <p>Las baterías son densas, así que la matemática de carga funciona al revés de lo que la gente espera. Un contenedor estándar de 20 pies ofrece unos 33 m³ de volumen pero solo unos 28,000 kg de carga útil (tara de unos 2,200–2,400 kg contra un máximo bruto de 30,480 kg). Las baterías de plomo-ácido alcanzan el techo de peso mucho antes de llenar el volumen — exactamente por eso un primer pedido aterriza en 600–800 unidades en lugar de las 1,400+ que sugeriría un cálculo ingenuo de volumen. Los palés individuales suelen mantenerse a 1.5 m de altura y unas 1.5 toneladas para apilado seguro. La página de <a href="/es/knowledge/oem-battery-moq-lead-time/">MOQ y plazo de entrega</a> explica cómo esta lógica de peso fija el pedido mínimo.</p>
+
+    <h2>Documentación de exportación: la base de cinco documentos</h2>
+    <p>Un conjunto documental limpio es lo que mantiene un contenedor de baterías fluyendo por la aduana en lugar de quedarse en un depósito. El conjunto base son cinco documentos, y la declaración de mercancías peligrosas es la que los aficionados olvidan:</p>
+    <ol>
+      <li><strong>Factura comercial</strong> — valor, condiciones, comprador y vendedor.</li>
+      <li><strong>Lista de embalaje</strong> — recuento de cajas, pesos, dimensiones por palé.</li>
+      <li><strong>Conocimiento de embarque</strong> — el recibo del transportista y el contrato de transporte.</li>
+      <li><strong>Certificado de origen</strong> — necesario para arancel preferencial o para importadores cuya aduana lo exige.</li>
+      <li><strong>Declaración de mercancías peligrosas (DGD)</strong> — la declaración del expedidor del número ONU, clase y embalaje, firmada por una persona formada.</li>
+    </ol>
+    <p>Encima de la base, la mayoría de los destinos añaden un informe de prueba de CCA/capacidad, una MSDS y — para los estados del Golfo — conformidad SASO/GSO. La página de <a href="/es/knowledge/battery-export-documentation/">documentación de exportación</a> recorre cada documento y qué demuestra.</p>
+
+    <h2>Garantía: lee el alcance, no el número</h2>
+    <p>El término estándar de la fábrica es 12 meses desde la fecha del conocimiento de embarque. Pero «12 meses» es un titular, no un contrato. Una garantía es tan fuerte como tres cosas escritas: la <strong>duración</strong> (desde la fecha del conocimiento de embarque), las <strong>exclusiones</strong> (descarga profunda, mal uso, daño físico, carga deficiente) y la <strong>gestión de reclamaciones</strong> (cómo se presenta, inspecciona y liquida una avería — reemplazo completo o crédito a prorrata). Una garantía de 12 meses con exclusiones amplias y liquidación a prorrata es un producto muy distinto de una garantía de 12 meses con reemplazo completo. La página de <a href="/es/knowledge/battery-warranty-claim-process/">proceso de reclamación de garantía</a> detalla cómo se juzgan y liquidan las reclamaciones, y la página de <a href="/es/knowledge/battery-shipping-warranty/">envío y garantía</a> cubre el lado del embalaje para proteger esa garantía.</p>
+
+    <h2>Almacenamiento y vida útil: la garantía que pierdes en silencio</h2>
+    <p>Una batería dejada en el estante no es estática — se está descargando. El plomo-ácido se autodescarga a un 3–5% mensual a temperatura moderada, y la tasa se duplica por cada subida de 10°C (ver los [datos de autodescarga de Battery University](https://batteryuniversity.com/article/bu-802b-what-does-elevated-self-discharge-do)). Por debajo de un 50% de carga, la sulfatación empieza a endurecerse en las placas y la pérdida de capacidad puede volverse permanente. La regla práctica: recarga las baterías almacenadas cada 6 meses, guárdalas frías y completamente cargadas, y rota el stock primero-en-entrar-primero-en-salir para que ningún palé envejezca más allá de su reloj de garantía antes de venderse. La página de <a href="/es/knowledge/battery-storage-shelf-life/">almacenamiento y vida útil</a> convierte esto en un procedimiento de almacén.</p>
+
+    <h2>Por qué el plomo-ácido es más fácil de enviar que el litio</h2>
+    <p>Los compradores que vienen del litio suelen sobrestimar el papeleo del plomo-ácido. Las dos químicas se sientan en clases distintas y llevan cargas distintas:</p>
+    <table>
+      <thead><tr><th>Dimensión</th><th>Plomo-ácido</th><th>Ion-litio</th></tr></thead>
+      <tbody>
+        <tr><td>Número ONU</td><td>UN 2794 / UN 2800</td><td>UN 3480 / UN 3481</td></tr>
+        <tr><td>Clase de peligro</td><td>Clase 8 (corrosivo)</td><td>Clase 9 (varios)</td></tr>
+        <tr><td>Informe de prueba UN 38.3</td><td>No requerido</td><td>Requerido</td></tr>
+        <tr><td>Riesgo principal</td><td>Derrame de ácido / corrosión</td><td>Embestida térmica / incendio</td></tr>
+        <tr><td>Carga documental</td><td>Menor</td><td>Mayor (resúmenes de prueba, etiquetado, formación)</td></tr>
+      </tbody>
+    </table>
+    <p>La ventaja del plomo-ácido es real pero estrecha: sin informe UN 38.3. Aun necesitas etiquetado de Clase 8, embalaje conforme y una declaración de mercancías peligrosas donde el transportista lo exige. La página de <a href="/es/knowledge/lead-acid-battery-dangerous-goods/">clasificación de mercancías peligrosas</a> expone exactamente dónde divergen los dos regímenes.</p>
+
+    <h2>Los dos cálculos que importan</h2>
+    <p><strong>La prueba del techo de peso.</strong> A unos 15–19 kg por batería de arranque, 28,000 kg de carga útil permiten unas 1,500–1,800 unidades solo por peso. Pero los palés, la resistencia al aplastamiento de las cajas y las reglas de apilado limitan la carga práctica a 600–800 para un primer pedido estándar — la diferencia entre un contenedor teórico y uno enviable es la razón por la que el MOQ es un número logístico, no de marketing.</p>
+    <p><strong>La prueba del coste de almacenamiento.</strong> Si una batería se autodescarga un 5% mensual y permanece 12 meses sin atención, ha perdido la mayor parte de su estado de carga y ha empezado a sulfatarse — una responsabilidad de garantía, no un activo. El coste de una pasada de carga trimestral por un almacén es un error de redondeo frente al coste de enviar un contenedor que llega parcialmente sulfatado.</p>
+
+    <h2>Lo que los proveedores no dirán voluntariamente</h2>
+    <ul>
+      <li><strong>La declaración de mercancías peligrosas es un coste oculto y un requisito de formación.</strong> Alguien debe estar certificado para firmarla, y ese trabajo de cumplimiento está incluido en el flete en alguna parte.</li>
+      <li><strong>«No derramable» es una afirmación probada, no una etiqueta.</strong> El estatus UN 2800 requiere superar pruebas de vibración y diferencia de presión — una batería sellada sin registros de prueba no es legalmente no derramable.</li>
+      <li><strong>El reloj de garantía empieza en el conocimiento de embarque, no en la compra de tu cliente.</strong> Seis meses en tu almacén son seis meses de garantía ya consumidos.</li>
+      <li><strong>La liquidación de reclamaciones suele ser a prorrata.</strong> Una «garantía de 12 meses» puede acreditarte una fracción del valor de la batería según su edad, no un reemplazo completo.</li>
+    </ul>
+
+    <h2>Un cálculo trabajado de carga de contenedor</h2>
+    <p>La razón por la que un MOQ de baterías es de 600–800 unidades merece verse en aritmética, porque explica un número que la mayoría de los compradores simplemente acepta:</p>
+    <table>
+      <thead><tr><th>Restricción</th><th>Valor</th><th>Lo que permite</th></tr></thead>
+      <tbody>
+        <tr><td>Carga útil de contenedor 20 pies</td><td>~28,000 kg</td><td>~1,500–1,800 baterías solo por peso</td></tr>
+        <tr><td>Volumen de contenedor 20 pies</td><td>~33 m³</td><td>~1,400+ baterías solo por volumen</td></tr>
+        <tr><td>Tope de altura / peso de palé</td><td>~1.5 m / ~1.5 t por palé</td><td>Limita la carga práctica muy por debajo de ambos</td></tr>
+      </tbody>
+    </table>
+    <p>El peso por sí solo permitiría casi 1,800 unidades, y el volumen más de 1,400 — pero el apilado de palés, la resistencia al aplastamiento de las cajas y la necesidad de palés estables y elevables limitan la carga real a 600–800 para un primer pedido estándar. El contenedor está limitado por peso, no por volumen, por eso el MOQ es un hecho logístico y por qué «un contenedor de 20 pies» es el mínimo honesto, no una táctica de venta.</p>
+
+    <h2>El cronograma de envío, semana a semana</h2>
+    <p>El viaje de un contenedor de baterías desde producto terminado hasta tu almacén es más largo de lo que la mayoría de los compradores presupuesta. Este es el calendario realista en términos FOB:</p>
+    <table>
+      <thead><tr><th>Etapa</th><th>Duración</th><th>Quién la posee</th></tr></thead>
+      <tbody>
+        <tr><td>Producción + prueba</td><td>30–45 días</td><td>Fábrica</td></tr>
+        <tr><td>Embalaje de exportación + DGD</td><td>2–3 días</td><td>Fábrica / expedidor</td></tr>
+        <tr><td>Flete marítimo</td><td>3–5 semanas</td><td>Transportista (FOB: riesgo del comprador)</td></tr>
+        <tr><td>Despacho aduanero + interior</td><td>3–7 días</td><td>Importador</td></tr>
+      </tbody>
+    </table>
+    <p>Bajo FOB el riesgo se transfiere en el puerto de origen, así que el comprador posee el tramo marítimo y el despacho — por eso el Incoterm y el conjunto documental son la misma decisión. Un comprador que planea «30–45 días» de producción pero olvida el tramo marítimo de 3–5 semanas es el que acaba con roturas de stock y sobrestadía.</p>
+
+    <h2>Una reclamación de garantía, trabajada de principio a fin</h2>
+    <p>Para hacer concreto el proceso de reclamación, toma un comprador que recibe 700 baterías y encuentra 7 que fallan la prueba de CCA dentro de 60 días del desembarque — una tasa de fallo temprano del 1%, dentro de la ventana de 12 meses. La reclamación funciona así:</p>
+    <ol>
+      <li><strong>Medir</strong> — el comprador prueba las 7 unidades y registra lecturas de CCA por debajo de la especificación en la base nombrada.</li>
+      <li><strong>Presentar</strong> — factura, conocimiento de embarque, informe de prueba y fotos van a la fábrica contra el alcance escrito.</li>
+      <li><strong>Inspeccionar</strong> — la fábrica confirma que los fallos no son descarga profunda, daño físico o mal uso (las exclusiones).</li>
+      <li><strong>Liquidar</strong> — reemplazo completo dentro de la ventana de reemplazo gratuito, o crédito a prorrata si el fallo ocurre después.</li>
+    </ol>
+    <p>La reclamación tiene éxito porque el fallo fue <em>medido</em> y el alcance fue <em>escrito</em>. Un comprador que presenta «las baterías están malas» sin datos de prueba y sin documentos ve su reclamación rechazada por proceso, no por mérito. La página de <a href="/es/knowledge/battery-warranty-claim-process/">proceso de reclamación de garantía</a> tiene la mecánica completa.</p>
+
+    <h2>Cómo usar este clúster</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Chengguang Power Tech Co., Ltd. envía desde Tianjin / Shanghái en términos FOB Tianjin / CFR / CIF con una garantía de 12 meses desde la fecha del conocimiento de embarque. Usa este pilar para fijar el panorama general — clasificación, documentos, garantía y almacenamiento — y luego sigue las páginas del clúster para el detalle:</p>
+    <ul>
+      <li><a href="/es/knowledge/lead-acid-battery-dangerous-goods/">Clasificación de mercancías peligrosas de baterías de plomo-ácido</a></li>
+      <li><a href="/es/knowledge/battery-export-documentation/">Documentación de exportación de baterías</a></li>
+      <li><a href="/es/knowledge/battery-shipping-warranty/">Envío, embalaje y garantía de baterías</a></li>
+      <li><a href="/es/knowledge/battery-warranty-claim-process/">Proceso de reclamación de garantía de baterías</a></li>
+      <li><a href="/es/knowledge/battery-storage-shelf-life/">Almacenamiento y vida útil de baterías</a></li>
+    </ul>
+    <p>Relacionado: <a href="/es/knowledge/battery-sourcing-guide/">cómo abastecerse desde China</a> · <a href="/es/knowledge/oem-battery-moq-lead-time/">MOQ y plazo de entrega</a> · <a href="/es/knowledge/battery-import-regulations/">normativa de importación por mercado</a> · <a href="/es/contact/">confirmar condiciones de envío y garantía →</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, un pedido de baterías no está completo cuando sale de la línea — está completo cuando llega sin daños con una garantía que entiendes, y el reloj de garantía empieza en el conocimiento de embarque, no en la compra de tu cliente.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>El contenedor está limitado por peso antes que por volumen, por eso el MOQ aterriza en 600–800 unidades y no en las 1,400 que sugiere un cálculo ingenuo.</li>
+        <li>«No derramable» es una afirmación probada, no una etiqueta — una batería sellada sin registros de prueba sigue siendo una carga UN 2794.</li>
+        <li>Una batería que permanece seis meses en tu almacén ya ha consumido la mitad de su garantía y ha empezado a sulfatarse, así que el almacenamiento es parte del envío.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirma las condiciones de envío, documentos y garantía" />
+</ArticleLayout>

@@ -1,0 +1,159 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Verificación de proveedores de baterías: licencia, certificados y capacidad | Dingwei Battery';
+const description = 'Cómo verificar un proveedor chino de baterías antes de pagar: licencia comercial y código de crédito social unificado, autenticidad de certificados y si la capacidad de fábrica declarada es real.';
+const articleTitle = 'Verificación de proveedores de baterías';
+
+const faqs = [
+  { q: '¿Cuál es la forma más fiable de confirmar que un proveedor es una fábrica real?', a: 'Comprueba el código de crédito social unificado (统一社会信用代码) de la licencia comercial contra el Sistema Nacional de Publicidad de Información Crediticia Empresarial (gsxt.gov.cn) — la licencia lleva un código de 18 caracteres, y el registro muestra el alcance del negocio, el capital registrado y el representante legal.' },
+  { q: '¿Cuánto tiempo es válido un certificado IATF 16949?', a: 'Un certificado IATF 16949 se emite por un ciclo de 3 años con auditorías de vigilancia, así que un certificado que parece vigente puede aun estar suspendido — comprueba siempre el número contra el registro del certificador, no solo la fecha de caducidad del papel.' },
+  { q: '¿Puede un proveedor falsear su capacidad de producción?', a: 'Sí, en papel. La producción diaria solo es creíble cuando 3 números coinciden — la capacidad de fundición, el número de circuitos de formación y el recuento real de personal — así que cruza la afirmación contra el equipo que ves, no contra el folleto.' },
+  { q: '¿Por qué la verificación importa más que el precio?', a: 'Una empresa comercial que se hace pasar por fábrica normalmente añade un 5–15% y te quita el control de calidad — así que una cotización «más barata» sin verificar suele ser la opción más cara al final.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Aprovisionamiento" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Verificación de proveedores de baterías</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-10 · Fuente: Sistema Nacional de Publicidad de Información Crediticia Empresarial, reglas de certificación IATF 16949</p>
+    <p class="lead">El folleto de un proveedor te dice lo que quiere ser. La verificación te dice lo que es. Antes de pagar un depósito, tres cosas deben comprobarse independientemente: la entidad legal, los certificados y la capacidad declarada.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Verifica un proveedor de baterías en tres capas antes de pagar: (1) la entidad legal — comprueba el código de crédito social unificado de 18 caracteres de la licencia comercial contra gsxt.gov.cn para confirmar que es una fábrica, no una empresa comercial; (2) los certificados — un certificado IATF 16949 corre un ciclo de 3 años y puede estar suspendido, así que comprueba el número con el certificador; (3) la capacidad — la producción diaria solo es creíble cuando la capacidad de fundición, los circuitos de formación y el personal coinciden. Una empresa comercial que se hace pasar por fábrica añade un 5–15% y te quita el control de calidad.
+    </div>
+
+    <h2>Capa 1 — Verifica la entidad legal</h2>
+    <p>Toda empresa china legítima tiene una licencia comercial que lleva un código de crédito social unificado (统一社会信用代码) — un identificador alfanumérico de 18 caracteres. Ese código es la clave del Sistema Nacional de Publicidad de Información Crediticia Empresarial (<a href="https://www.gsxt.gov.cn/index.html">gsxt.gov.cn</a>), un registro público gratuito mantenido por la Administración Estatal de Regulación del Mercado.</p>
+    <p>Busca el código y confirma cuatro campos contra lo que te dijo el proveedor:</p>
+    <ul>
+      <li><strong>Alcance del negocio</strong> — ¿dice producción y fabricación (生产/制造), o solo comercio (贸易)? Una empresa comercial no puede operar legalmente una línea de producción de baterías, sin embargo muchas se presentan como fábricas.</li>
+      <li><strong>Capital registrado</strong> — el capital registrado de Chengguang Power Tech Co., Ltd. es de RMB 50 millones. Una «fábrica» con capital registrado de RMB 100,000 es una bandera roja de que no puede financiar una línea de producción.</li>
+      <li><strong>Representante legal y domicilio registrado</strong> — deben coincidir con la licencia que te enviaron y con el domicilio al que enviarás.</li>
+      <li><strong>Estado operativo</strong> — el registro muestra si la entidad está en operación normal, revocada o sujeta a ejecución.</li>
+    </ul>
+    <p class="note">Un proveedor que no comparte su código de crédito social unificado antes de un pedido no compartirá nada útil después. No hay razón legítima para ocultar la licencia.</p>
+
+    <h2>Capa 2 — Verifica los certificados</h2>
+    <p>Los certificados son documentos de un momento puntual, y pueden estar caducados, suspendidos o simplemente falseados. No aceptes una imagen de certificado; pide el número y compruébalo.</p>
+    <table>
+      <thead><tr><th>Certificado</th><th>Qué cubre</th><th>Cómo comprobarlo</th></tr></thead>
+      <tbody>
+        <tr><td>IATF 16949</td><td>Sistema de gestión de calidad automotriz</td><td>Confirma el número y el alcance con el organismo certificador emisor (ver <a href="https://www.iatfglobaloversight.org/">IATF Global Oversight</a>).</td></tr>
+        <tr><td>ISO 9001</td><td>Gestión de calidad general</td><td>Verifica en el registro del certificador; confirma que el alcance incluye baterías de verdad.</td></tr>
+        <tr><td>ISO 45001 / OHSAS 18001</td><td>Salud y seguridad ocupacional</td><td>Comprueba el número de certificado y la ventana de validez.</td></tr>
+        <tr><td>Certificados de mercado (CE, SASO, etc.)</td><td>Conformidad del mercado de destino</td><td>Confirma el estándar y el organismo notificado o autoridad emisora.</td></tr>
+      </tbody>
+    </table>
+    <p>Un certificado IATF 16949 se emite por un ciclo de 3 años con auditorías de vigilancia anuales. Un certificado puede por tanto estar <em>dentro</em> de su fecha de caducidad impresa y aun así estar suspendido por una auditoría fallida — la fecha del papel no es prueba del estado. El número es lo que te permite confirmar la vigencia actual. Chengguang Power Tech Co., Ltd. posee IATF 16949, ISO 9001, ISO 45001, OHSAS 18001 y puede suministrar los números de certificado a petición, igual que cualquier candidato que deberías estar dispuesto a verificar.</p>
+
+    <h2>Capa 3 — Verifica la capacidad declarada</h2>
+    <p>Las afirmaciones de capacidad son el número más fácil de inflar y el más difícil de probar desde un escritorio. El truco es que una línea de producción real tiene cuellos de botella, y los cuellos de botella tienen que coincidir entre sí. Tres números deben ser consistentes:</p>
+    <ul>
+      <li><strong>Capacidad de fundición</strong> — cuántas rejillas por día producen las máquinas de fundición, lo que limita la salida de placas.</li>
+      <li><strong>Capacidad de formación</strong> — cuántas celdas pueden procesar los circuitos de formación (carga) a la vez, multiplicado por ciclos por día. La formación suele ser el cuello de botella real.</li>
+      <li><strong>Personal</strong> — el número de operarios de línea, que tiene que soportar el rendimiento declarado.</li>
+    </ul>
+    <p>Si una fábrica declara 40,000 baterías al día pero su área de formación alberga una fracción de eso, la afirmación es marketing. Pide los tres números por separado y comprueba que se multiplican. La <a href="/es/knowledge/how-audit-battery-factory/">guía de auditoría de fábrica</a> te muestra qué mirar in situ para confirmar esto.</p>
+
+    <h2>La lista de verificación</h2>
+    <table>
+      <thead><tr><th>Elemento</th><th>Qué solicitar</th><th>Señal de aprobado</th></tr></thead>
+      <tbody>
+        <tr><td>Licencia comercial</td><td>Código de crédito social unificado</td><td>Coincide con gsxt.gov.cn; el alcance es producción.</td></tr>
+        <tr><td>Capital registrado</td><td>Del registro</td><td>Consistente con operar una línea de producción.</td></tr>
+        <tr><td>IATF 16949 / ISO 9001</td><td>Número de certificado + alcance</td><td>Verificable con el certificador.</td></tr>
+        <tr><td>Capacidad</td><td>Fundición + formación + personal</td><td>Los tres números coinciden.</td></tr>
+        <tr><td>Propiedad</td><td>Domicilio de fábrica vs domicilio registrado</td><td>Coinciden; se ofrece un recorrido por video.</td></tr>
+        <tr><td>Historial de exportación</td><td>Muestra de conocimiento de embarque o referencia de cliente</td><td>Pueden nombrar los mercados de destino que sirven.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Cómo se ven las falsificaciones</h2>
+    <ul>
+      <li><strong>Fotos prestadas</strong> — una empresa comercial fotografía la línea de otra fábrica. Una videollamada en vivo con una instrucción específica (sostén la fecha de hoy) separa al dueño del turista.</li>
+      <li><strong>Certificados caducados o suspendidos</strong> — el papel parece vigente, el número no cuadra.</li>
+      <li><strong>Capacidad inflada</strong> — el folleto declara un número que el área de formación no puede soportar.</li>
+      <li><strong>Un domicilio de apartado postal</strong> — el domicilio registrado es una oficina, no la planta que te dicen que existe.</li>
+    </ul>
+    <p>Ninguna de estas requiere una visita in situ para atraparla. Dos de las tres capas — la licencia y los certificados — se verifican desde un escritorio; solo la capacidad se beneficia realmente de ojos sobre la línea.</p>
+
+    <h2>Dónde encaja la verificación en la secuencia</h2>
+    <p>La verificación se sienta entre la preselección y la auditoría. Es barata y rápida — una hora de comprobaciones de registro — y elimina a los candidatos que desperdiciarían una auditoría completa. Ejecútala, luego audita a los supervivientes, y luego emite la <a href="/es/knowledge/oem-battery-rfq-guide/">RFQ</a>.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). La secuencia completa de abastecimiento está en la <a href="/es/knowledge/battery-sourcing-guide/">guía de abastecimiento</a>; consulta <a href="/es/knowledge/china-battery-industry-regions/">regiones de la industria de baterías de China</a> para construir una preselección que valga la pena verificar, y la guía <a href="/es/knowledge/how-choose-oem-battery-manufacturer/">cómo elegir un fabricante</a> para puntuar a los supervivientes.</p>
+  </section>
+
+
+    <h2>La lista completa de registros</h2>
+    <p>gsxt.gov.cn es la primera parada, pero una comprobación exhaustiva usa cuatro registros públicos, todos gratuitos:</p>
+    <ul>
+      <li><strong>Sistema Nacional de Publicidad de Información Crediticia Empresarial</strong> (<a href="https://www.gsxt.gov.cn/index.html">gsxt.gov.cn</a>) &mdash; la licencia, el código de crédito social unificado, el alcance del negocio y el estado operativo.</li>
+      <li><strong>Sentencias en línea de China / registros de ejecución</strong> &mdash; si la entidad es demandada en disputas de deuda impaga o calidad.</li>
+      <li><strong>El registro de certificados del certificador</strong> &mdash; confirma que un número IATF 16949 o ISO 9001 está vigente y que el alcance coincide.</li>
+      <li><strong>Registros de aduanas / exportación</strong> &mdash; donde estén disponibles, confirman que la entidad exporta de verdad, no solo que publicita.</li>
+    </ul>
+    <p>Ninguna de estas requiere una visita in situ. Entre ellas responden las dos preguntas que importan antes de pagar nada: ¿es real esta entidad y es lo que dice ser?</p>
+
+    <h2>Un ejemplo trabajado de verificación</h2>
+    <p>Pasa un proveedor por las comprobaciones y el resultado es una lista de aprobado/fallo, no una sensación:</p>
+    <table>
+      <thead><tr><th>Comprobación</th><th>Afirma el proveedor</th><th>Muestra el registro</th><th>Veredicto</th></tr></thead>
+      <tbody>
+        <tr><td>Código de crédito social unificado</td><td>Código de 18 caracteres proporcionado</td><td>Resuelve a un nombre distinto</td><td>Fallo &mdash; detente</td></tr>
+        <tr><td>Alcance del negocio</td><td>«Fábrica, 20 años»</td><td>El alcance es solo comercio (贸易)</td><td>Fallo &mdash; detente</td></tr>
+        <tr><td>Capital registrado</td><td>«Gran fabricante»</td><td>RMB 100,000</td><td>Fallo &mdash; detente</td></tr>
+        <tr><td>IATF 16949</td><td>«Completamente certificado»</td><td>Certificado suspendido</td><td>Fallo &mdash; detente</td></tr>
+        <tr><td>Capacidad</td><td>40,000/día</td><td>El área de formación soporta una fracción</td><td>Investigar</td></tr>
+      </tbody>
+    </table>
+    <p>En este ejemplo cuatro de las cinco comprobaciones fallan rotundamente, y la acción correcta es alejarse antes de gastar un solo día en una auditoría. Ese es el valor de la verificación: elimina candidatos gratis que una auditoría habría eliminado por US$1,500&ndash;3,000.</p>
+
+    <h2>La muestra como herramienta de verificación</h2>
+    <p>Una muestra de producción es evidencia, pero solo si haces la pregunta correcta sobre ella. Cuando llegue la muestra, confirma tres cosas:</p>
+    <ol>
+      <li><strong>Vino de una corrida de producción, no de un banco de laboratorio</strong> &mdash; pide el registro de lote que la ata a la línea.</li>
+      <li><strong>Lleva su propio informe de prueba</strong> &mdash; CCA y capacidad, en la base de prueba nombrada, no una ficha técnica genérica.</li>
+      <li><strong>Coincide con la licencia</strong> &mdash; la etiqueta debe nombrar la entidad que verificaste, no una empresa comercial distinta.</li>
+    </ol>
+    <p>Un proveedor que puede producir una muestra con un registro de lote y un informe de prueba te está mostrando su control de proceso, no solo su producto.</p>
+
+    <h2>Protocolo de recorrido por video</h2>
+    <p>Si no puedes visitar, una videollamada en vivo reemplaza parte de la visita. Hazla verificable en lugar de un video turístico:</p>
+    <ul>
+      <li>Pide empezar en la puerta de la fábrica con el letrero de la empresa visible.</li>
+      <li>Pídeles sostener un documento fechado o el periódico de hoy ante la cámara.</li>
+      <li>Pide recorrer la línea en orden de producción, y pausa en la sala de curado y el área de formación.</li>
+      <li>Haz una pregunta técnica en cada parada &mdash; una fábrica real responde, un comerciante se atasca.</li>
+    </ul>
+    <p>Una videollamada no es tan buena como una auditoría, pero es drásticamente mejor que un set de fotos, y no cuesta nada. Úsala como puente entre la verificación de escritorio y la <a href="/es/knowledge/how-audit-battery-factory/">auditoría</a> in situ.</p>
+
+
+
+      <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, la verificación es la etapa más barata del abastecimiento y la más cara de saltar — dos de sus tres capas pueden comprobarse desde un escritorio, gratis, antes de pagar un céntimo.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>El código de crédito social unificado en gsxt.gov.cn revela si la entidad es una fábrica (生产/制造) o un comerciante (贸易), gratis.</li>
+        <li>Un certificado es de un momento puntual; el número comprobado contra el registro del certificador es lo que prueba la vigencia actual, no la fecha impresa.</li>
+        <li>Las afirmaciones de capacidad deben multiplicarse — fundición, formación y personal tienen que coincidir, o el número es marketing.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+    <h2>Fuentes y lecturas adicionales</h2>
+    <ul>
+      <li><a href="https://www.gsxt.gov.cn/index.html">Sistema Nacional de Publicidad de Información Crediticia Empresarial</a> &mdash; el registro principal de licencias comerciales y códigos de crédito social unificado.</li>
+      <li><a href="https://www.iatfglobaloversight.org/">IATF Global Oversight</a> &mdash; el organismo que gobierna la certificación IATF 16949 y su ciclo de auditoría de 3 años.</li>
+    </ul>
+    <p>La verificación es la etapa más barata de toda la secuencia de abastecimiento y la más cara de saltar. Ejecútala en cada candidato, cada vez.</p>
+
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Verifica directamente las credenciales de Dingwei Battery" />
+</ArticleLayout>

@@ -1,0 +1,217 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Especificaciones de baterías de automoción: la referencia completa | Dingwei Battery';
+const description = 'Una referencia completa a las especificaciones de baterías de automoción: CCA, capacidad (Ah/C20/RC), estándares JIS/DIN/BCI/EN, tamaños de grupo, bornes y ajuste al vehículo — para compradores OEM y de marca privada.';
+const articleTitle = 'Especificaciones de baterías de automoción: la referencia completa';
+
+const faqs = [
+  { q: '¿Cuáles son las cuatro especificaciones que debo fijar para una batería OEM?', a: 'Cuatro cosas: (1) la familia de estándares y el grupo de carcasa (p. ej., JIS D26 o DIN H6), (2) la capacidad en Ah a la tasa C20, (3) la CCA y su base de prueba (JIS a &minus;15&deg;C vs EN/SAE a &minus;18&deg;C), y (4) el tipo de borne y la polaridad. Omite una y la batería puede no ajustar ni rendir como se cotizó.' },
+  { q: '¿Por qué un número de CCA JIS parece más alto que un CCA EN para la misma batería?', a: 'Porque JIS prueba a &minus;15&deg;C mientras EN/SAE prueban a &minus;18&deg;C — una prueba más cálida produce un número más alto. Una batería de 600 CCA (JIS) y 540 CCA (EN) puede ser la misma batería física, así que los valores no son intercambiables.' },
+  { q: '¿Cuántas celdas forman una batería de coche de 12V?', a: 'Seis celdas de plomo-ácido conectadas en serie, cada una nominalmente de 2 V, dando un sistema de 12 V. Un sistema de 24 V de camión pesado usa doce celdas — una batería de 24 V o dos de 12 V en serie.' },
+  { q: '¿Qué importa más, Ah o CCA?', a: 'Miden cosas distintas y ambas pertenecen a una especificación. La CCA es la corriente de arranque pico para el arranque en frío; el Ah es la energía total almacenada (a la tasa de 20 horas). Un diésel de clima frío necesita CCA; un vehículo con muchos accesorios necesita Ah.' },
+  { q: '¿El tamaño de grupo BCI aplica fuera de Norteamérica?', a: 'El número de grupo BCI es una convención norteamericana, pero sus dimensiones se solapan con otros estándares — el Grupo BCI 48 equivale a DIN/EN H6/LN3 a 278 &times; 175 &times; 190 mm. Conocer el mapeo permite que una fábrica sirva a cada mercado desde un solo juego de moldes.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Ingeniería" dateModified="2026-09-09" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Especificaciones de baterías de automoción: la referencia completa</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-09 · Fuente: SAE J537, EN 50342, JIS D 5301, BCI Battery Replacement Data Book</p>
+    <p class="lead">Una especificación de batería es una lista de cinco decisiones — familia de estándares, tamaño de carcasa, valores eléctricos, disposición de bornes y tecnología. Equivócate en una y una batería «correcta» no ajustará, no arrancará el motor o fallará temprano. Esta referencia recorre cada decisión en el orden en que se escribe realmente una especificación, y termina con las dos cosas que la mayoría de las guías omiten: los errores que cuestan dinero real y la hoja de referencia de siete líneas que puedes pegar en una RFQ.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Una especificación completa de batería de automoción tiene cinco partes: la familia de estándares (JIS / DIN-EN / BCI), el grupo de carcasa (D26, H6/LN3, Grupo 48), la capacidad a la tasa de 20 horas (Ah, medido hasta 10.5 V a 26.7&deg;C), los amperios de arranque en frío con su base de prueba (JIS a &minus;15&deg;C vs SAE/EN a &minus;18&deg;C), y el tipo de borne y la polaridad. CCA y Ah miden cosas distintas y no son intercambiables, y ninguno es intercambiable entre estándares.
+    </div>
+
+    <h2>La especificación de cinco partes en orden</h2>
+    <p>Una especificación se construye en este orden, porque cada decisión restringe la siguiente:</p>
+    <ol>
+      <li><strong>Familia de estándares</strong> — decidida por el mercado del vehículo (JIS para Japón/Asia, DIN/EN para Europa, BCI para Norteamérica).</li>
+      <li><strong>Tamaño de carcasa / grupo</strong> — la huella física que debe caber en la bandeja y la sujeción.</li>
+      <li><strong>Valores eléctricos</strong> — capacidad (Ah a C20) más CCA en una base de prueba nombrada.</li>
+      <li><strong>Tipo de borne y polaridad</strong> — la conexión que debe coincidir con los cables del vehículo.</li>
+      <li><strong>Tecnología</strong> — SLI, EFB o AGM, decidida por el ciclo de trabajo del vehículo.</li>
+    </ol>
+    <p>Salta directo a los valores eléctricos sin confirmar el estándar y la carcasa, y puedes producir una batería que se ve bien en una ficha técnica y no cabe en nada. Aquí es donde la mayoría de las comparaciones del lado comprador se equivocan.</p>
+
+    <h2>Parte 1 — CCA: potencia de arranque, y por qué el número depende de la prueba</h2>
+    <p>Los amperios de arranque en frío (CCA) son la corriente que una batería completamente cargada puede entregar durante 30 segundos a una temperatura fría definida manteniendo un voltaje mínimo. Bajo el método norteamericano SAE J537 esa temperatura es &minus;18&deg;C (0&deg;F) y el voltaje debe mantenerse en o por encima de 7.2 V. Esa definición — 30 segundos, &minus;18&deg;C, 7.2 V — es la referencia que cita la mayor parte del mundo, pero no es la única.</p>
+    <p>Tres cosas desplazan el número impreso: la temperatura, el voltaje de corte y la duración de la prueba.</p>
+    <table>
+      <thead><tr><th>Estándar</th><th>Temperatura de prueba</th><th>Corte típico</th><th>Efecto en el número</th></tr></thead>
+      <tbody>
+        <tr><td>JIS D 5301</td><td>&minus;15&deg;C</td><td>referencia</td><td>Prueba más cálida &rarr; número más alto</td></tr>
+        <tr><td>SAE J537</td><td>&minus;18&deg;C</td><td>7.2 V</td><td>Línea base</td></tr>
+        <tr><td>EN 50342</td><td>&minus;18&deg;C</td><td>7.5 V (10 s)</td><td>Corte más alto &rarr; número más alto</td></tr>
+        <tr><td>DIN 43539</td><td>&minus;18&deg;C</td><td>9.0 V (30 s)</td><td>Corte más alto &rarr; número más bajo</td></tr>
+      </tbody>
+    </table>
+    <p>La consecuencia práctica: un CCA JIS y un CCA EN no son el mismo número para la misma batería, y no hay conversión porcentual universal. JIS prueba más cálido (&minus;15&deg;C), lo que empuja el número hacia arriba; EN prueba a &minus;18&deg;C pero permite un voltaje de corte más alto, lo que también desplaza el resultado. La única comparación segura es dentro de un estándar. Lee el desglose completo del método de prueba en la <a href="/es/knowledge/what-is-cca/">guía de CCA</a>.</p>
+    <p class="note">Los valores relacionados CA (amperios de arranque, 0&deg;C / 32&deg;F) y HCA (amperios de arranque en caliente, 27&deg;C / 80&deg;F) son siempre más altos que CCA porque se miden más cálidos. Una batería de 250 CCA lleva más potencia de arranque en frío que una de 250 CA — el número solo tiene sentido con su temperatura adjunta.</p>
+
+    <h2>Parte 2 — Capacidad: Ah, C20 y RC son tres preguntas distintas</h2>
+    <p>La capacidad se cita de tres formas, y mezclarlas es uno de los errores de abastecimiento más comunes:</p>
+    <table>
+      <thead><tr><th>Métrica</th><th>Qué mide</th><th>Definición</th><th>Responde a</th></tr></thead>
+      <tbody>
+        <tr><td>Ah (C20)</td><td>Carga total almacenada</td><td>Corriente entregada durante 20 horas hasta 10.5 V a 26.7&deg;C</td><td>¿Cuánta energía está almacenada?</td></tr>
+        <tr><td>C20</td><td>La tasa de descarga para el valor de Ah</td><td>Tasa de 20 horas (Ah &divide; 20 = amperios)</td><td>¿A qué corriente se valora el Ah?</td></tr>
+        <tr><td>RC</td><td>Autonomía bajo carga</td><td>Minutos a una carga fija de 25 A hasta 10.5 V</td><td>¿Cuánto dura si falla la carga?</td></tr>
+      </tbody>
+    </table>
+    <p>Una batería de 60 Ah (C20) está valorada para entregar 3 A durante 20 horas (60 &divide; 20 = 3 A) antes de caer por debajo de 10.5 V. A una descarga más rápida la misma batería entrega <em>menos</em> energía total — la capacidad no es lineal con la tasa. Por eso una batería muestra un Ah más alto a C20 que a una tasa rápida como C5.</p>
+    <p>La capacidad de reserva (RC) responde a otra pregunta: cuántos minutos puede la batería llevar la carga eléctrica del vehículo si falla el alternador. Es una métrica de autonomía bajo carga, medida como minutos a una extracción fija de 25 A hasta 10.5 V. Un Ah más alto no significa automáticamente una RC más alta — la relación depende del diseño. Consulta la <a href="/es/knowledge/battery-capacity-ah-vs-c20-vs-rc/">guía de capacidad</a> para el tratamiento completo.</p>
+    <div class="takeaways">
+      <strong>Cálculo original — contenido energético:</strong> energía almacenada nominal = voltaje &times; capacidad. Una batería de 12 V y 60 Ah almacena unos 12 &times; 60 = 720 Wh. Una sola celda de servicio pesado de 6 V y 200 Ah almacena 6 &times; 200 = 1,200 Wh, y un par en serie (12 V) almacena 2,400 Wh. Por eso la capacidad sola subestima el valor de una batería — pagas por energía, no por Ah aislado.
+    </div>
+
+    <h2>Por qué una prueba más cálida produce un número mayor</h2>
+    <p>La razón por la que la temperatura importa es electroquímica, no marketing. La resistencia interna de una batería de plomo-ácido sube a medida que baja la temperatura, así que a &minus;18&deg;C la celda simplemente no puede expulsar tanta corriente manteniendo el voltaje como a &minus;15&deg;C. Tres grados no suenan a mucho, pero cerca del fondo del rango de trabajo del electrolito la diferencia basta para desplazar la CCA impresa por un margen visible.</p>
+    <p>Esta es la trampa detrás de «el CCA JIS parece más alto». Una batería etiquetada 600 CCA bajo JIS y 540 CCA bajo EN puede ser la misma batería física — el número JIS no es una batería mejor, es una prueba más cálida. El número parece atractivo, pero no es directamente comparable. La única jugada correcta es comparar JIS con JIS y EN con EN, y preguntar al proveedor a qué base se refiere el número antes de que vaya a una etiqueta.</p>
+
+    <h2>Parte 3 — Familias de estándares: JIS, DIN/EN, BCI, AS, SA</h2>
+    <p>La familia de estándares define las dimensiones de la carcasa, la disposición de bornes y el método de prueba de CCA juntos. JIS, DIN, BCI, AS, SA están todos en alcance para Chengguang Power Tech, pero un comprador debe nombrar la familia correcta — una «batería de 72 Ah» sin un estándar no es una especificación completa.</p>
+    <table>
+      <thead><tr><th>Familia</th><th>Región</th><th>Referencias típicas de carcasa</th><th>Prueba CCA</th></tr></thead>
+      <tbody>
+        <tr><td>JIS</td><td>Japón / Asia</td><td>B24, D23, D26, D31, serie N</td><td>&minus;15&deg;C</td></tr>
+        <tr><td>DIN / EN</td><td>Europa</td><td>H5&ndash;H8 (LN2&ndash;LN5), L3&ndash;L5</td><td>&minus;18&deg;C</td></tr>
+        <tr><td>BCI</td><td>Norteamérica</td><td>Grupo 24, 27, 31, 34, 35, 47, 48, 49, 65, 94R</td><td>&minus;18&deg;C (SAE)</td></tr>
+        <tr><td>AS / SA</td><td>Australia / Sudamérica</td><td>Equivalentes localizados de lo anterior</td><td>Varía por mercado</td></tr>
+      </tbody>
+    </table>
+    <p>Las familias se solapan a nivel de dimensión más de lo que los compradores esperan: el Grupo BCI 48 es la misma huella de 278 &times; 175 &times; 190 mm que DIN/EN H6/LN3, y el Grupo 47 coincide con H5/LN2 a 242 &times; 175 &times; 190 mm. Una fábrica con un juego de moldes puede por tanto servir a varios mercados — siempre que la disposición de bornes y la base de CCA se confirmen para cada uno. La referencia cruzada completa está en la <a href="/es/knowledge/battery-group-size-chart/">tabla de tamaños de grupo</a> y la <a href="/es/knowledge/jis-vs-din-vs-bci/">comparación de estándares</a>.</p>
+
+    <h2>Quién publica los estándares</h2>
+    <p>Cada familia es publicada por un organismo nombrado, y el documento principal es donde un comprador debe buscar las condiciones de prueba definitivas:</p>
+    <ul>
+      <li><a href="https://www.jsa.or.jp/en/">JSA (Asociación Japonesa de Normalización)</a> — publica JIS D 5301 para baterías de arranque de plomo-ácido, incluida la prueba de arranque en frío a &minus;15&deg;C.</li>
+      <li><a href="https://www.cenelec.eu/">CENELEC</a> — publica EN 50342 (Partes 1&ndash;4), que cubre métodos de prueba, dimensiones y marcado de bornes para baterías de arranque europeas.</li>
+      <li><a href="https://www.din.de/en">DIN</a> — publica el estándar nacional alemán de prueba para baterías de arranque, la fuente del método CCA DIN.</li>
+      <li><a href="https://www.sae.org/standards/content/j537_201608/">SAE International</a> — publica SAE J537, la referencia norteamericana de CCA/CA (&minus;18&deg;C, 30 s, 7.2 V).</li>
+      <li><a href="https://batterycouncil.org/">Battery Council International (BCI)</a> — mantiene el BCI Battery Replacement Data Book, la fuente de las dimensiones de tamaños de grupo.</li>
+    </ul>
+    <p>Estas son las referencias de las que cita un proveedor disciplinado. Cuando una ficha de especificaciones cita «JIS D 5301» o «SAE J537» en lugar de solo «CCA», eso es una señal de que el valor está atado a un método de prueba — y un número que realmente puedes verificar.</p>
+
+    <h2>Parte 4 — Tamaño de carcasa y dimensiones</h2>
+    <p>El tamaño de carcasa es la abreviatura de una huella fija. Dentro de JIS es un código como D26 (unos 256 &times; 175 &times; 220 mm); dentro de DIN/EN es H6/LN3 o L3; dentro de BCI es un número de grupo. Una diferencia de unos pocos milímetros en largo o alto impide que una batería asiente en la bandeja o despeje el capó.</p>
+    <p>Dos baterías con el mismo tamaño de carcasa aún pueden diferir en posición del borne (I/D), así que dimensiones y bornes deben confirmarse siempre juntos. La <a href="/es/knowledge/battery-dimensions-case-size/">guía de dimensiones</a> explica cómo el tamaño de carcasa también impulsa el embalaje — un contenedor de 20 pies suele llevar 600&ndash;800 unidades una vez contados palés y límites de apilado, por eso el número de grupo es tanto una decisión logística como de ajuste.</p>
+
+    <h2>Parte 5 — Bornes y polaridad</h2>
+    <p>El tipo de borne, la posición y la polaridad son decisiones de ajuste, no ideas tardías. Los mercados usan distintos diseños de poste — el poste superior cónico (la mayoría de coches), el borne lateral (algunas aplicaciones norteamericanas) y los bornes de perno/bandera (servicio pesado y marino). Los fabricantes marcan el lado positivo con un sufijo L o R (un D23L vs un D23R). Invertir la polaridad en la conexión puede dañar el sistema eléctrico del vehículo, y los vehículos modernos son de masa negativa — el borne negativo se conecta al chasis. Consulta la <a href="/es/knowledge/battery-terminal-types-polarity/">guía de bornes y polaridad</a>.</p>
+
+    <h2>Parte 6 — Voltaje: 6 V, 12 V y lógica de serie</h2>
+    <p>Una batería nominal de 12 V son seis celdas de 2 V conectadas en serie; un sistema de 24 V de camión pesado son doce celdas, a menudo construidas como dos baterías de 12 V en serie. La industria funcionó con 6 V hasta mediados de los años 1950, cuando los motores de mayor compresión forzaron el cambio a 12 V. El voltaje es una decisión de sistema — emparejar dos baterías de 6 V en serie da 12 V, pero cablearlas en paralelo mantiene 6 V y duplica la capacidad. Elegir la configuración equivocada es un error común de servicio pesado. Consulta la <a href="/es/knowledge/battery-voltage-6v-vs-12v/">guía de 6 V vs 12 V</a>.</p>
+
+    <h2>Parte 7 — Tecnología: SLI, EFB, AGM</h2>
+    <p>La tecnología de la batería la decide el ciclo de trabajo del vehículo, no la preferencia. Una batería SLI convencional (arranque, alumbrado, encendido) sirve para un turismo estándar; una EFB (inundada mejorada) añade durabilidad de ciclado para start-stop básico; una AGM (malla de fibra de vidrio absorbente) maneja el ciclado frecuente de start-stop avanzado y alta demanda eléctrica. Instalar una SLI donde el vehículo cicla profundamente la hará fallar temprano. La <a href="/es/knowledge/battery-applications-by-vehicle/">guía de aplicaciones</a> asigna cada clase de vehículo a su tecnología.</p>
+
+    <h2>El árbol de decisiones de especificación</h2>
+    <ol>
+      <li><strong>¿De qué mercado es el vehículo?</strong> Japón/Asia &rarr; JIS; Europa &rarr; DIN/EN; Norteamérica &rarr; BCI.</li>
+      <li><strong>¿Qué grupo de carcasa?</strong> Lee la etiqueta de la batería OE o mide la bandeja, luego asigna a D26 / H6 / Grupo 48.</li>
+      <li><strong>¿Qué capacidad y CCA?</strong> Confirma Ah a C20 y CCA con su base de prueba, no un número solo.</li>
+      <li><strong>¿Qué borne y polaridad?</strong> Poste superior, borne lateral o perno, más posición I/D.</li>
+      <li><strong>¿Qué tecnología?</strong> SLI, EFB o AGM, ajustada al ciclo de trabajo.</li>
+    </ol>
+    <p class="note">El tipo de borne y la polaridad en los modelos de referencia de JIS / DIN / BCI / AS / SA se marcan «confirmar al solicitar» en lugar de adivinar. Eso es deliberado: un borne equivocado convierte una batería correcta en incorrecta, y el fabricante lo confirma contra tu requisito de vehículo o flota antes de la producción.</p>
+
+    <h2>Un ejemplo trabajado: tres vehículos, tres especificaciones</h2>
+    <p>La diferencia entre los estándares deja de ser abstracta una vez que escribes tres especificaciones reales lado a lado:</p>
+    <table>
+      <thead><tr><th>Vehículo</th><th>Mercado</th><th>Estándar</th><th>Grupo de carcasa</th><th>Ah (C20)</th><th>CCA (base)</th><th>Tecnología</th></tr></thead>
+      <tbody>
+        <tr><td>Toyota Hilux (pickup)</td><td>Japón / Asia</td><td>JIS</td><td>D26</td><td>72</td><td>490 (JIS &minus;15&deg;C)</td><td>SLI</td></tr>
+        <tr><td>VW Golf (start-stop)</td><td>Europa</td><td>DIN/EN</td><td>H6 / LN3</td><td>70</td><td>640 (EN &minus;18&deg;C)</td><td>EFB / AGM</td></tr>
+        <tr><td>Ford F-150 (pickup)</td><td>Norteamérica</td><td>BCI</td><td>Grupo 65</td><td>70</td><td>650 (SAE &minus;18&deg;C)</td><td>SLI / AGM</td></tr>
+      </tbody>
+    </table>
+    <p>Las tres son baterías de arranque de unos 70&ndash;72 Ah, sin embargo ninguna es intercambiable. La batería del Hilux es de 256 &times; 175 &times; 220 mm; la del Golf es de 278 &times; 175 &times; 190 mm; la del F-150 (Grupo 65) es de unos 306 &times; 190 &times; 192 mm. Tres cajas distintas, tres bases de prueba de CCA distintas, tres disposiciones de bornes distintas — y un comprador que pide «una batería de 72 Ah» recibe la que el proveedor cotice por casualidad. Nombrar el estándar y el grupo de carcasa elimina la ambigüedad en una línea.</p>
+    <p class="note">El ejemplo del Hilux 80D26 (72 Ah, 490 CCA referencia JIS) es un valor del catálogo de Dingwei; las cifras del Golf H6 y del F-150 Grupo 65 son referencias típicas de las familias de estándares. Confirma los valores finales contra el vehículo y modelo específicos.</p>
+
+    <h2>Siete errores de especificación que cuestan dinero</h2>
+    <p>Estos son los errores recurrentes vistos en RFQ reales — cada uno se remonta a tratar una parte de la especificación como el todo:</p>
+    <ol>
+      <li><strong>Cotizar Ah sin el estándar</strong> — «72 Ah» son tres baterías distintas en JIS, DIN y BCI. Empareja siempre la capacidad con la familia y el grupo de carcasa.</li>
+      <li><strong>Comparar CCA entre estándares</strong> — un CCA JIS y un CCA EN no son el mismo número para la misma batería. Compara dentro de un solo estándar.</li>
+      <li><strong>Ignorar la polaridad del borne hasta que es tarde</strong> — la batería cabe en la bandeja pero el poste positivo está en el lado equivocado y los cables no llegan. Confirma I/D antes de la producción.</li>
+      <li><strong>Especificar capacidad para un vehículo que cicla</strong> — instalar una SLI a un vehículo start-stop significa fallo temprano. Ajusta la tecnología al ciclo de trabajo, no solo Ah con Ah.</li>
+      <li><strong>Olvidar el sistema de 24 V</strong> — los camiones pesados no son «12 V más grandes». Funcionan a 24 V, normalmente dos baterías de 12 V en serie. Cotizar una batería de 12 V es medio pedido.</li>
+      <li><strong>Usar la altura total como altura de carcasa</strong> — unos pocos milímetros de altura de borne pueden impedir que el capó cierre. Confirma la altura hasta la parte superior de la carcasa frente a la altura total.</li>
+      <li><strong>Tratar la CCA como una puntuación de calidad</strong> — más allá del requisito OEM, una CCA más alta compra coste y superficie de placa que no usarás. La CCA es un criterio de ajuste, no un ranking.</li>
+    </ol>
+    <p>El hilo común: la especificación es una decisión con cinco partes, y el fallo está casi siempre en las partes que <em>no</em> están en el titular — el estándar, el borne, la polaridad, la tecnología. Por eso un proveedor disciplinado pregunta las cinco antes de cotizar.</p>
+
+    <h2>Verificar una especificación antes de firmar</h2>
+    <p>Una vez escritas las cinco partes, verifícalas en este orden — el orden que atrapa primero los errores más caros:</p>
+    <ol>
+      <li><strong>Ajuste físico</strong> — contrasta las dimensiones de la carcasa contra la bandeja, la sujeción y la holgura del capó. Es el error más barato de evitar y el más caro de enviar.</li>
+      <li><strong>Borne y polaridad</strong> — confirma el tipo (poste superior / lateral / perno), la posición I/D y la convención de masa contra el vehículo real.</li>
+      <li><strong>Valores eléctricos</strong> — confirma que el Ah es a C20, confirma que la CCA está en una base de prueba nombrada, y pregunta si los valores son nominales o probados por lote.</li>
+      <li><strong>Tecnología</strong> — confirma SLI, EFB o AGM contra el ciclo de trabajo del vehículo, no la preferencia del comprador.</li>
+      <li><strong>Voltaje</strong> — confirma 6 V, 12 V o 24 V, y si la aplicación cablea las baterías en serie o paralelo.</li>
+    </ol>
+    <p>Si una de las cinco no puede confirmarse, esa parte es un riesgo a llevar — no un detalle a saltar. La especificación es tan fuerte como su parte confirmada más débil, y un proveedor que confirma las cinco está haciendo el trabajo; uno que cotiza solo por Ah no lo está.</p>
+
+    <h2>Cómo conecta la especificación con el precio y el plazo de entrega</h2>
+    <p>La especificación no es solo un ejercicio de ajuste — es lo que impulsa el coste y el cronograma. Tres partes importan más comercialmente:</p>
+    <ul>
+      <li><strong>Grupo de carcasa y molde</strong> — un grupo estándar (D26, H6, Grupo 48) corre en un molde existente sin espera de utillaje. Una carcasa poco común o personalizada añade coste de utillaje y plazo, por eso la mayoría de los programas OEM parten de una huella estándar.</li>
+      <li><strong>Capacidad y CCA</strong> — más plomo y superficie de placa significan más coste de material. Una batería de 60 Ah y una de 90 Ah no son una diferencia de precio del 50% — el coste escala aproximadamente con el contenido de plomo, pero la ingeniería, los bornes y la carcasa son en gran parte fijos.</li>
+      <li><strong>Tecnología</strong> — la AGM cuesta más que la EFB, que cuesta más que la SLI, por el separador y el diseño de placas. El escalón es por durabilidad, no por capacidad, así que debe justificarse por el ciclo de trabajo del vehículo.</li>
+    </ul>
+    <p>La consecuencia práctica: una especificación completamente confirmada antes de cotizar — estándar, carcasa, Ah, base de CCA, borne y tecnología — se mueve directo a muestreo y producción. Una especificación con una parte sin confirmar da vueltas por preguntas y re-cotizaciones, y ese bucle es donde se pierde plazo. Confirmar las cinco partes por adelantado es la forma más barata de acortar el tiempo de pedido a envío.</p>
+    <p>Cuando la especificación está resuelta, el siguiente paso es una RFQ limpia — consulta la <a href="/es/knowledge/oem-battery-rfq-guide/">guía de RFQ</a> y la <a href="/es/knowledge/oem-battery-specification-guide/">guía de especificación OEM</a> en el clúster de abastecimiento.</p>
+
+    <h2>La hoja de referencia de especificación</h2>
+    <p>Una tabla de referencia única para copiar en tu RFQ:</p>
+    <table>
+      <thead><tr><th>Decisión</th><th>Qué escribir</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Familia de estándares</td><td>JIS / DIN-EN / BCI / AS / SA</td><td>JIS</td></tr>
+        <tr><td>Grupo de carcasa</td><td>Código + huella</td><td>D26 (256 &times; 175 &times; 220 mm)</td></tr>
+        <tr><td>Capacidad</td><td>Ah a C20</td><td>72 Ah (C20)</td></tr>
+        <tr><td>CCA</td><td>Valor + base de prueba</td><td>490 A (JIS &minus;15&deg;C)</td></tr>
+        <tr><td>Borne</td><td>Tipo + posición I/D</td><td>Poste superior, D (positivo derecho)</td></tr>
+        <tr><td>Voltaje</td><td>Voltaje del sistema</td><td>12 V</td></tr>
+        <tr><td>Tecnología</td><td>SLI / EFB / AGM</td><td>SLI</td></tr>
+      </tbody>
+    </table>
+    <p>Envía estas siete líneas y el proveedor puede cotizar la batería correcta a la primera. Envía solo «72 Ah» y la conversación tiene que empezar de nuevo.</p>
+
+    <h2>Cómo usar esta referencia</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Las páginas de abajo profundizan cada una en una parte de la especificación. Usa el pilar para decidir el orden de decisiones, luego sigue los enlaces del clúster para los detalles:</p>
+    <ul>
+      <li><a href="/es/knowledge/what-is-cca/">CCA: métodos de prueba y por qué difiere el número</a></li>
+      <li><a href="/es/knowledge/battery-capacity-ah-vs-c20-vs-rc/">Capacidad: Ah vs C20 vs RC</a></li>
+      <li><a href="/es/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI: las tres familias</a></li>
+      <li><a href="/es/knowledge/battery-dimensions-case-size/">Dimensiones y tamaño de carcasa</a></li>
+      <li><a href="/es/knowledge/battery-terminal-types-polarity/">Tipos de bornes y polaridad</a></li>
+      <li><a href="/es/knowledge/battery-group-size-chart/">Tabla de tamaños de grupo de baterías (dataset)</a></li>
+      <li><a href="/es/knowledge/battery-voltage-6v-vs-12v/">Sistemas de 6 V vs 12 V</a></li>
+      <li><a href="/es/knowledge/battery-applications-by-vehicle/">Aplicaciones por tipo de vehículo</a></li>
+    </ul>
+    <p><a href="/es/data/">Explora especificaciones de modelos &rarr;</a> · <a href="/es/tools/compare/">Compara dos modelos &rarr;</a> · <a href="/es/oem/car-batteries/">Inicia una especificación OEM &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, una especificación de batería es una decisión con cinco partes — y el fallo está casi siempre en las partes que no están en el titular: el estándar, el borne, la polaridad, la tecnología.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>«72 Ah» son tres baterías distintas en JIS, DIN y BCI, así que la capacidad no significa nada hasta nombrar la familia y el grupo de carcasa.</li>
+        <li>Un CCA JIS y un CCA EN no son el mismo número para la misma batería, así que comparar dentro de un estándar es la única jugada segura.</li>
+        <li>Confirmar las cinco partes por adelantado es la forma más barata de acortar el tiempo de pedido a envío, porque una parte sin confirmar devuelve la RFQ al inicio.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Envíanos una especificación completa para cotizar" />
+</ArticleLayout>

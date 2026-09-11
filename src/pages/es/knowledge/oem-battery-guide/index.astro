@@ -1,0 +1,170 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Fabricación de baterías OEM: la guía completa | Dingwei Battery';
+const description = 'Fabricación de baterías OEM de plomo-ácido explicada de principio a fin — qué significa OEM, cómo funciona un programa, el proceso de desarrollo de 7 pasos, la estructura de costes y OEM vs posventa.';
+const articleTitle = 'Fabricación de baterías OEM: la guía completa';
+
+const faqs = [
+  { q: '¿Qué es una batería OEM en términos sencillos?', a: 'Una batería OEM es una construida según tu especificación — voltaje, Ah, CCA, borne y etiqueta — y vendida bajo tu marca, no la etiqueta de fábrica. En plomo-ácido, la calidad la fija la especificación, no la marca, porque la misma fábrica a menudo corre baterías de marca y OEM lado a lado en la misma línea, y un programa tarda 60–90 días de RFQ al primer contenedor.' },
+  { q: '¿Cuánto tarda un proyecto de batería OEM desde la idea al primer contenedor?', a: 'Presupuesta 60–90 días: unos 7–14 días para bloquear la especificación y emitir una RFQ, 10–20 días para muestreo y aprobación, 30–45 días de producción, luego 3–5 semanas de flete marítimo.' },
+  { q: '¿Cuánto cuesta realmente fabricar una batería OEM?', a: 'Las materias primas son el 75–80% del coste operativo — el plomo, el ácido sulfúrico y el polipropileno dominan — con suministros al 10–15% y el resto mano de obra, embalaje, transporte y gastos generales. El plomo es el factor oscilante: con el plomo LME cerca de US$1,950/tonelada, una batería de 15 kg lleva unos US$20–25 solo de plomo.' },
+  { q: '¿Una batería OEM es de peor calidad que una de marca?', a: 'No — la calidad OEM la fija la especificación que firmas, no la etiqueta. La misma fábrica construye con frecuencia baterías de marca y OEM lado a lado en la misma línea, y el 75–80% del coste de una batería es materia prima de cualquier forma; la diferencia es de quién es la especificación y la puerta de calidad que controla la salida.' },
+  { q: '¿Cuál es el mayor coste oculto de un programa OEM?', a: 'Un precio unitario bajo que esconde un alcance menor — una cotización que omite la base de prueba de CCA, la certificación, la amortización de utillaje o el embalaje no es una batería más barata, es una especificación más barata, y una capa de empresa comercial normalmente añade un 5–15% encima. Compara sobre alcance, no sobre el número desnudo.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="OEM" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Fabricación de baterías OEM: la guía completa</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-10 · Fuente: IATF 16949, informe de costes de fabricación de plomo-ácido de IMARC, datos de precio de plomo del LME</p>
+    <p class="lead">La fabricación de baterías OEM no es comprar un producto — es encargar un acuerdo de suministro repetible en torno a tu especificación y tu marca. Esta guía recorre todo en orden: qué significa realmente OEM, cómo se estructura un programa, el proceso de desarrollo de siete etapas, a dónde va el coste y cómo se compara OEM con el suministro posventa. Léela una vez antes de escribir una RFQ, y pedirás las cosas correctas en el orden correcto.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> La fabricación de baterías OEM significa que una fábrica construye baterías según tu especificación — voltaje, Ah, base de CCA, borne, etiqueta — bajo tu marca. Un programa corre a través de especificación, muestreo, producción y pedidos repetidos bloqueados, en un cronograma de 60–90 días, y el coste dominante es el plomo: las materias primas son el 75–80% del coste operativo. La calidad la fija la especificación que firmas, no la etiqueta, así que toda la habilidad del OEM es escribir una especificación que no pueda derivar y un contrato que la haga cumplir.
+    </div>
+
+    <h2>Qué significa OEM en el comercio de baterías</h2>
+    <p>OEM — fabricante de equipo original — es una de las palabras más mal usadas en el abastecimiento, porque significa cosas distintas en industrias distintas. En piezas de automoción el OEM suele ser el fabricante de coches. En la exportación de baterías, la palabra se usa al revés: <em>tú</em> eres el comprador que posee el diseño y la marca, y la fábrica es el fabricante de equipo original que produce según tu especificación.</p>
+    <p>La distinción que importa es la propiedad. Bajo un acuerdo OEM tú aportas la especificación; la fábrica aporta la capacidad de producción. Bajo ODM la fábrica aporta un diseño listo que puedes marcar y ajustar. Bajo marca privada pones tu identidad sobre una plataforma suministrada. Los tres pueden verse idénticos en un estante; la diferencia es quién posee el diseño, quién lleva el riesgo de desarrollo y cuán bloqueado está el pedido repetido. Si esto es terreno nuevo, empieza con el explicador <a href="/es/knowledge/what-is-oem-battery/">qué es una batería OEM</a> y la guía de decisión <a href="/es/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs marca privada</a> antes de seguir leyendo.</p>
+
+    <h2>Las cinco decisiones que definen un programa OEM</h2>
+    <p>Antes de construir nada, cinco parámetros deben fijarse — juntos, no uno a la vez. Una fábrica que cotiza «una batería de 72 Ah» sin preguntar el resto está adivinando, y su precio también.</p>
+    <ol>
+      <li><strong>Familia de estándares</strong> — JIS, DIN-EN, BCI, AS o SA. Esto fija la carcasa, el método de prueba de CCA y el mercado donde la batería es legal para vender.</li>
+      <li><strong>Grupo y tamaño de carcasa</strong> — D26, D23, B24, L3, H6 o una huella personalizada. Esto determina a qué vehículos se ajusta la batería.</li>
+      <li><strong>Especificación eléctrica</strong> — voltaje, capacidad a C20 (Ah), capacidad de reserva y CCA en una base de prueba nombrada (JIS −15°C, EN −18°C, SAE −18°C). La base importa: un CCA JIS y un CCA EN no son directamente comparables.</li>
+      <li><strong>Borne y polaridad</strong> — tipo, posición y orientación, porque una batería correcta con el borne equivocado es una línea de devoluciones, no una venta.</li>
+      <li><strong>Tecnología</strong> — SLI, EFB, AGM o servicio pesado, que fija el diseño de placa, el separador y la banda de precio.</li>
+    </ol>
+    <p>El tratamiento completo de cada parámetro vive en el clúster de especificaciones — empieza con la <a href="/es/knowledge/battery-specifications-guide/">referencia de especificaciones de baterías de automoción</a> y bloquea la huella contra la <a href="/es/knowledge/battery-group-size-chart/">tabla de tamaños de grupo</a>.</p>
+
+    <h2>Cómo se estructura un programa OEM</h2>
+    <p>Un programa OEM es un acuerdo de suministro repetible, no un pedido único. Corre en cuatro fases, y el punto de la estructura es que el décimo contenedor coincida con la primera muestra aprobada:</p>
+    <table>
+      <thead><tr><th>Fase</th><th>Qué se produce</th><th>Tu punto de control</th></tr></thead>
+      <tbody>
+        <tr><td>1. Especificación</td><td>Hoja de especificación escrita</td><td>Firma cada parámetro, incluida la base de CCA</td></tr>
+        <tr><td>2. Muestreo</td><td>Muestra de preproducción + informe de prueba</td><td>Prueba la muestra física, no solo el dibujo</td></tr>
+        <tr><td>3. Producción</td><td>Lotes de carga de contenedor</td><td>Confirma el cronograma y la congelación de cambios</td></tr>
+        <tr><td>4. Pedidos repetidos</td><td>Lotes de seguimiento idénticos</td><td>Re-comprueba contra la muestra aprobada</td></tr>
+      </tbody>
+    </table>
+    <p>El mecanismo que hace seguro el pedido repetido es el <strong>bloqueo de especificación</strong> — la muestra aprobada más los parámetros escritos más el control de cambios. Lee la página <a href="/es/knowledge/how-oem-battery-programs-work/">cómo funcionan los programas OEM</a> para las cuatro fases en detalle y la página <a href="/es/knowledge/oem-battery-development-process/">proceso de desarrollo</a> para las siete etapas y dónde firmas.</p>
+
+    <h2>El proceso de desarrollo de siete etapas</h2>
+    <p>De la idea al contenedor enviado, un proyecto de batería OEM pasa siete puertas. Cada puerta es un punto de decisión donde el comprador o firma o la especificación deriva:</p>
+    <ol>
+      <li><strong>Consulta</strong> — viabilidad contra vehículo, mercado y volumen.</li>
+      <li><strong>Especificación</strong> — la hoja de especificación escrita, firmada línea por línea.</li>
+      <li><strong>Diseño y marca</strong> — arte de etiqueta, carcasa y embalaje.</li>
+      <li><strong>Muestreo</strong> — una muestra de preproducción desde una línea equivalente a producción.</li>
+      <li><strong>Producción en masa</strong> — fabricación programada con control en proceso.</li>
+      <li><strong>Inspección de calidad</strong> — datos de prueba contra criterios de aceptación acordados.</li>
+      <li><strong>Envío</strong> — embalaje de exportación y documentación.</li>
+    </ol>
+    <p>Cuatro de esas siete puertas necesitan firma del comprador, no solo confirmación de fábrica: especificación, muestra, estándar de calidad y envío. Salta una y el siguiente pedido puede volver distinto de lo que aprobaste. La página <a href="/es/knowledge/oem-battery-development-process/">proceso de desarrollo</a> recorre cada etapa con el entregable y el punto de control.</p>
+
+    <h2>A dónde va el coste</h2>
+    <p>Las baterías de plomo-ácido son un negocio de materia prima más: el coste está dominado por materiales, y el material que oscila el precio es el plomo. La estructura de costes de la industria corre aproximadamente así — materias primas al 75–80% del coste operativo, suministros al 10–15%, y el saldo en mano de obra, embalaje, transporte, mantenimiento y depreciación, según el modelado de costes de fabricación de IMARC (ver el [informe de fabricación de plomo-ácido de IMARC](https://www.imarcgroup.com/lead-acid-battery-manufacturing-plant-project-report)).</p>
+    <p>El plomo (rejillas más pasta de óxido), el ácido sulfúrico y el polipropileno son los tres insumos materiales principales, y el plomo es el mayor por mucho. Como el plomo cotiza en el LME — en torno a US$1,950–1,960 por tonelada durante 2025–26 (ver el [pronóstico de plomo de Investing News Network](https://investingnews.com/lead-forecast)) — el precio de tu batería se mueve con el LME, no con el ánimo de la fábrica. Una fábrica que cotiza precio fijo por 12 meses o cubre el plomo o lleva el riesgo por ti, y debes saber cuál.</p>
+    <p>La aritmética completa — incluido un ejemplo trabajado de coste unitario y los costes ocultos que se esconden en una cotización baja — está en la página de <a href="/es/knowledge/oem-battery-cost-breakdown/">desglose de costes OEM</a>.</p>
+
+    <h2>OEM versus posventa: qué estás comprando realmente</h2>
+    <p>La pregunta OEM/posventa son en realidad tres preguntas separadas agrupadas en una: cobertura de garantía, vida útil real y consistencia de producción. El suministro OEM desde la fábrica original te da control de especificación y consistencia entre contenedores; el suministro posventa te da precio y disponibilidad desde stock. La compensación no es «bueno versus barato» — es «control versus conveniencia». Una comparación lado a lado completa, incluida la garantía y las dimensiones de consistencia que deciden el negocio repetido, está en la página <a href="/es/knowledge/oem-battery-vs-aftermarket/">OEM vs posventa</a>.</p>
+
+    <h2>El sistema de calidad que respalda una especificación</h2>
+    <p>Una especificación solo vale lo que el sistema de calidad de la fábrica hace cumplir. Chengguang Power Tech Co., Ltd. (el fabricante de Dingwei Battery) opera bajo IATF 16949 — el estándar de calidad específico de automoción construido sobre ISO 9001 — más IATF 16949, ISO 9001, ISO 45001, OHSAS 18001. IATF 16949 importa específicamente porque fuerza el control de proceso, no solo la inspección final: los requisitos de prevención de defectos y trazabilidad del estándar son por qué una fábrica puede enviar contenedor tras contenedor al mismo dibujo sin derivar. Lee la página de <a href="/es/knowledge/battery-quality-control/">control de calidad</a> para ver qué buscar en la línea.</p>
+
+    <h2>Dos números que replantean una decisión OEM</h2>
+    <p><strong>La prueba de vínculo con el plomo.</strong> Si las materias primas son el 75–80% del coste y el plomo es el material dominante, entonces un movimiento del 10% en el precio de plomo del LME mueve tu precio ex fábrica en un porcentaje material. A unos US$1,950/tonelada, una sola batería SLI de 15 kg contiene del orden de US$20–25 de plomo. Por eso dos fábricas que cotizan un 10% de diferencia sobre la misma especificación normalmente cotizan distinto momento de compra de plomo o distinto margen, no distinta calidad — y por qué una cláusula de precio fijo es un punto de negociación, no una formalidad.</p>
+    <p><strong>El coste de deriva de especificación.</strong> El error caro en OEM no es un mal primer pedido — es un primer pedido que no puedes repetir. Una puerta de muestreo saltada o una base de CCA sin firmar pueden hacer de cada contenedor posterior un nuevo proyecto de desarrollo, cada uno con su propio riesgo de aprobación. La partida más barata de todo el programa es la que previene eso: una aprobación de muestra documentada y una especificación bloqueada.</p>
+
+    <h2>Lo que los proveedores no dirán voluntariamente</h2>
+    <ul>
+      <li><strong>Un precio unitario bajo esconde un alcance menor.</strong> Una cotización que omite la base de prueba de CCA, la certificación, el utillaje o el embalaje no es una batería más barata — es una especificación más barata. Compara sobre alcance.</li>
+      <li><strong>«Igual que la muestra» no es una garantía.</strong> A menos que la muestra dorada esté referenciada en el contrato con su informe de prueba, «igual que la muestra» no significa nada que un tribunal pueda hacer cumplir.</li>
+      <li><strong>Los movimientos de precio del plomo se trasladan eventualmente.</strong> Una fábrica que absorbe oscilaciones de plomo para ganar tu pedido las recuperará en alguna parte — en margen sobre utillaje, en flete o en el segundo contenedor.</li>
+      <li><strong>El MOQ sigue al contenedor, no a tu demanda.</strong> Un contenedor de 20 pies contiene unas 600–800 baterías de arranque porque el peso limita la carga antes que el volumen — así que un «pedido mínimo» es un hecho logístico, no una preferencia de marketing.</li>
+    </ul>
+
+    <h2>El cronograma de 60–90 días</h2>
+    <p>El ciclo completo desde la primera RFQ hasta la mercancía desembarcada se divide en un calendario predecible:</p>
+    <table>
+      <thead><tr><th>Semanas</th><th>Etapa</th><th>Qué ocurre</th></tr></thead>
+      <tbody>
+        <tr><td>1–2</td><td>Especificar + RFQ</td><td>Bloquea la especificación de 5 partes; emite una RFQ sobre un alcance.</td></tr>
+        <tr><td>2–4</td><td>Muestra + aprobar</td><td>Produce y prueba la muestra de preproducción; fírmala.</td></tr>
+        <tr><td>4–10</td><td>Producción</td><td>30–45 días de fundición hasta formación, sellado y prueba.</td></tr>
+        <tr><td>10–14</td><td>Envío + despacho</td><td>3–5 semanas de flete marítimo y aduana.</td></tr>
+      </tbody>
+    </table>
+    <p>Los dos lugares donde el cronograma se desliza son el muestreo (porque la especificación no se bloqueó primero) y el despacho (porque una certificación se descubrió tarde). Ambos son prevenibles al frente de la secuencia.</p>
+
+    <h2>Leer una cotización OEM: las seis líneas que deciden el precio</h2>
+    <p>Dos fábricas pueden cotizar la «misma batería» y distar US$8, y la diferencia casi nunca es beneficio bruto — es alcance. Cuando sostengas dos cotizaciones lado a lado, compara estas seis líneas antes de comparar el total:</p>
+    <ol>
+      <li><strong>La base de prueba de CCA</strong> — JIS (−15°C) y EN (−18°C) producen números distintos para la misma batería. Una cotización que no nombra la base está cotizando la prueba más fácil.</li>
+      <li><strong>La fuente de carcasa y tapa</strong> — un molde personalizado es un coste de utillaje único; una carcasa de stock no lo es. Sabes cuál estás comprando.</li>
+      <li><strong>La especificación de tecnología</strong> — SLI, EFB y AGM son tres productos distintos, no tres escalones de precio de un producto.</li>
+      <li><strong>Certificación incluida</strong> — IATF 16949 es un dado a nivel de fábrica; la conformidad por mercado (CE, SASO/GSO) es una partida. Confirma cuáles están en el precio.</li>
+      <li><strong>Grado de embalaje</strong> — las cajas domésticas y las cajas de grado exportación cuestan distinto y sobreviven distinto.</li>
+      <li><strong>El Incoterm</strong> — FOB, CFR y CIF mueven el coste de flete y seguro entre los dos.</li>
+    </ol>
+    <p>La disciplina es simple y mecánica: una cotización solo es comparable cuando las seis líneas se responden sobre la misma base. Envía una RFQ sobre un alcance, y el diferencial de precio que queda es negociación real, no ilusión de alcance. La <a href="/es/knowledge/oem-battery-rfq-guide/">guía de RFQ</a> tiene la plantilla.</p>
+
+    <h2>Un ejemplo trabajado de programa: un contenedor al mes</h2>
+    <p>Para hacer la economía concreta, toma un comprador que corre un contenedor de 20 pies al mes durante 24 meses. A unas 700 baterías por contenedor y un coste de desembarque cerca de US$40 por unidad, cada contenedor son unos US$28,000, y el programa de dos años ronda los US$670,000. Ahora coloca los costes que deciden si el programa sobrevive:</p>
+    <table>
+      <thead><tr><th>Línea</th><th>Coste</th><th>Qué compra</th></tr></thead>
+      <tbody>
+        <tr><td>Auditoría de fábrica (única)</td><td>US$1,500–3,000</td><td>Confirmación de que el proveedor puede repetir tu especificación</td></tr>
+        <tr><td>Muestreo + aprobación (única)</td><td>10–20 días</td><td>La muestra dorada que ancla cada lote posterior</td></tr>
+        <tr><td>Deriva de especificación (si se salta)</td><td>Un contenedor arruinado ≈ US$28,000</td><td>El fallo que las dos primeras líneas previenen</td></tr>
+      </tbody>
+    </table>
+    <p>La auditoría es menos del 0.5% del valor del programa, y la ventana de muestreo es la partida de seguro más barata en él. La razón para correr un programa en lugar de una cadena de pedidos es exactamente esta aritmética: los costes de configuración únicos se amortizan a nada en 24 contenedores, mientras el riesgo de deriva que retiran está presente en cada uno.</p>
+
+    <h2>Los términos que se mal usan</h2>
+    <p>Cinco términos llevan la mayor parte de la confusión en el abastecimiento de baterías OEM, así que vale la pena fijarlos:</p>
+    <ul>
+      <li><strong>OEM</strong> — tú aportas la especificación; la fábrica construye según ella. Posees diseño y marca.</li>
+      <li><strong>ODM</strong> — la fábrica aporta el diseño; tú lo marcas y ajustas. Ellos poseen el diseño.</li>
+      <li><strong>Etiqueta blanca</strong> — etiquetas un producto listo que un competidor también puede comprar.</li>
+      <li><strong>Muestra dorada</strong> — la muestra de preproducción aprobada contra la que se comprueba cada lote posterior.</li>
+      <li><strong>Bloqueo de especificación</strong> — la muestra más los parámetros escritos más el control de cambios que hace consistentes los pedidos repetidos.</li>
+    </ul>
+    <p>La propiedad es el hilo a través de los cinco. Cuanto más profunda tu propiedad del diseño, más control y más trabajo de desarrollo — y más exclusivamente tuyo es el producto.</p>
+
+    <h2>Cómo usar este clúster</h2>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Chengguang Power Tech Co., Ltd. opera una instalación de 200,000 m² con 18 líneas automatizadas que producen 40,000 baterías al día, fabricando según estándares JIS, DIN, BCI, AS y SA y exportando a más de 70 países. Este pilar fija el panorama general; las páginas de abajo profundizan en cada parte:</p>
+    <ul>
+      <li><a href="/es/knowledge/what-is-oem-battery/">Qué es una batería OEM</a> — la definición y la división de propiedad</li>
+      <li><a href="/es/knowledge/how-oem-battery-programs-work/">Cómo funcionan los programas de baterías OEM</a> — las cuatro fases</li>
+      <li><a href="/es/knowledge/oem-battery-development-process/">El proceso de desarrollo OEM</a> — las siete puertas</li>
+      <li><a href="/es/knowledge/oem-battery-cost-breakdown/">Desglose de costes de baterías OEM</a> — a dónde va el dinero</li>
+      <li><a href="/es/knowledge/oem-battery-vs-aftermarket/">Baterías OEM vs posventa</a> — garantía, vida y consistencia</li>
+    </ul>
+    <p>Relacionado: <a href="/es/knowledge/oem-vs-odm-vs-private-label/">OEM vs ODM vs marca privada</a> · <a href="/es/knowledge/oem-battery-specification-guide/">Guía de especificación OEM</a> · <a href="/es/knowledge/battery-sourcing-guide/">cómo abastecerse desde China</a> · <a href="/es/knowledge/battery-shipping-guide/">envío, cumplimiento y garantía</a> · <a href="/es/oem/">iniciar un programa OEM →</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, la fabricación de baterías OEM no es comprar un producto — es encargar un acuerdo de suministro repetible, y las seis líneas de una cotización deciden el precio antes que el total.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>Los cinco parámetros — familia de estándares, grupo de carcasa, especificación eléctrica, borne y tecnología — deben fijarse juntos, o la cotización es una conjetura.</li>
+        <li>Dos fábricas pueden cotizar la «misma batería» con US$8 de diferencia, y la diferencia casi nunca es beneficio — es alcance, en la base de CCA, el utillaje y el embalaje.</li>
+        <li>El bloqueo de especificación — muestra más parámetros escritos más control de cambios — es lo que retira el riesgo de deriva en cada contenedor posterior.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Envíanos tu especificación para una cotización OEM" />
+</ArticleLayout>

@@ -1,0 +1,136 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Normativa de importación de baterías por mercado: aranceles y certificaciones | Dingwei Battery';
+const description = 'Un mapa mercado por mercado de la normativa de importación de baterías de plomo-ácido: aranceles de la Sección 301 de EE. UU., Reglamento de Baterías de la UE y CE, SASO/GSO del Golfo, y Sudeste Asiático y África — más el cálculo del coste de desembarque.';
+const articleTitle = 'Normativa de importación de baterías por mercado';
+
+const faqs = [
+  { q: '¿Cuánto arancel extra añade EE. UU. a las baterías de plomo-ácido chinas?', a: 'Las baterías de plomo-ácido chinas llevan un recargo del 25% de la Sección 301 sobre el arancel base, así que un cálculo de coste de desembarque que lo omita se equivoca en una cuarta parte — confirma la tasa vigente contra el Arancel Armonizado antes de cotizar un precio de venta.' },
+  { q: '¿Qué sustituyó a la Directiva de Baterías de la UE para plomo-ácido?', a: 'El Reglamento (UE) 2023/1542 (Reglamento de Baterías de la UE), en vigor desde el 17 de agosto de 2023, sustituyó a la Directiva 2006/66/CE y añade requisitos de etiquetado, conformidad y responsabilidad ampliada del productor junto al marcado CE.' },
+  { q: '¿Las baterías de plomo-ácido son mercancías peligrosas para el envío?', a: 'Sí — son mercancías peligrosas corrosivas de Clase 8 según el Código IMDG (UN 2794 llenas de ácido, UN 2800 no derramables), aunque a diferencia del litio no necesitan un informe UN 38.3.' },
+  { q: '¿Cómo estimo el coste de desembarque de una batería importada?', a: 'Suma cinco líneas: coste unitario FOB + flete marítimo por unidad + seguro + arancel de importación + IVA de destino, y recuerda que un recargo del 25% aplicado al final multiplica cada línea anterior, no solo el precio FOB.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Cumplimiento" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento</span>
+    <h1>Normativa de importación de baterías por mercado</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-10 · Fuente: USTR Sección 301, Reglamento (UE) 2023/1542, Código IMDG, HTS</p>
+    <p class="lead">La batería más barata del mundo puede convertirse en la más cara después de pasar la aduana. El cumplimiento de importación es la etapa que la mayoría de los compradores descubre al final, y es la que convierte un pedido rentable en una pérdida. Conoce el arancel, la certificación y las normas medioambientales de tu destino antes de comprometer un solo céntimo.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> Las normas de importación difieren por mercado, y tres importan más: el arancel (EE. UU. añade un recargo del 25% de la Sección 301 sobre las baterías chinas encima del arancel base), la certificación (la UE aplica el Reglamento (UE) 2023/1542 y el marcado CE; los estados del Golfo exigen conformidad SASO/GSO) y la clase de envío (el plomo-ácido es mercancía peligrosa corrosiva de Clase 8, UN 2794 / UN 2800 según el Código IMDG). Estima el coste de desembarque como FOB + flete + seguro + arancel + IVA, y recuerda que un recargo del 25% multiplica cada línea anterior.
+    </div>
+
+    <h2>La fórmula del coste de desembarque</h2>
+    <p>Antes del mapa de mercados, la aritmética. El coste de desembarque son cinco líneas, sumadas en orden:</p>
+    <p class="lead">Coste de desembarque = coste unitario FOB + flete marítimo + seguro + arancel de importación + IVA de destino</p>
+    <p>Ejemplo trabajado, una batería:</p>
+    <table>
+      <thead><tr><th>Línea</th><th>Importe</th><th>Nota</th></tr></thead>
+      <tbody>
+        <tr><td>Coste unitario FOB</td><td>US$32.00</td><td>Ex fábrica, cargado en puerto</td></tr>
+        <tr><td>Flete marítimo</td><td>+ US$1.50</td><td>700 unidades en un contenedor de 20 pies, flete repartido por unidad</td></tr>
+        <tr><td>Seguro</td><td>+ US$0.30</td><td>Aproximadamente 1% del valor asegurado</td></tr>
+        <tr><td>Arancel de importación (base + recargo 25%)</td><td>+ US$9.60</td><td>Si la base es ~5% y la Sección 301 añade 25%, cerca del 30% sobre la base arancelaria</td></tr>
+        <tr><td>IVA de destino</td><td>+ US$8.60</td><td>~20% sobre el valor de desembarque más arancel</td></tr>
+      </tbody>
+    </table>
+    <p class="note">La ilustración usa tasas redondeadas y de ejemplo para mostrar el método — el arancel y el IVA reales dependen del país de destino y del Arancel Armonizado vigente. El punto es estructural: un recargo del 25% aplicado tras flete y seguro multiplica cada línea anterior, así que el coste de desembarque nunca es el precio FOB más un 25% plano.</p>
+
+    <h2>Estados Unidos</h2>
+    <p>Las baterías de plomo-ácido chinas están sujetas a los aranceles de la <a href="https://ustr.gov/issue-areas/enforcement/section-301-investigations/">Sección 301</a>, que añaden un 25% sobre el arancel base para baterías de arranque de plomo-ácido (HS 8507.10). Comprueba la tasa vigente contra el <a href="https://hts.usitc.gov/">Arancel Armonizado</a> antes de cotizar — los niveles arancelarios cambian, y un modelo de coste de desembarque construido sobre una tasa equivocada es peor que ningún modelo. Aparte del arancel general, EE. UU. también ha subido los aranceles específicamente a las baterías de vehículos eléctricos chinas, pero las baterías de arranque de plomo-ácido son su propia partida HS y deben consultarse individualmente.</p>
+
+    <h2>Unión Europea</h2>
+    <p>La UE aplica el <a href="https://eur-lex.europa.eu/eli/reg/2023/1542/oj">Reglamento de Baterías (UE) 2023/1542</a>, en vigor desde el 17 de agosto de 2023, que sustituyó a la Directiva 2006/66/CE. Aporta requisitos de etiquetado, conformidad (marcado CE) y responsabilidad ampliada del productor, e introduce gradualmente requisitos como el reporte de contenido reciclado y un pasaporte de batería para ciertas categorías. Para un comprador OEM los puntos prácticos son: marcado CE donde corresponda, cumplimiento de las restricciones de metales pesados (el plomo está permitido pero restringido en concentración) y obligaciones de registro/EPR que varían por estado miembro. Un importador debe confirmar la ruta de conformidad exacta para baterías de arranque de plomo-ácido con su organismo notificado en lugar de suponer que las baterías de automóvil están exentas.</p>
+
+    <h2>Consejo de Cooperación del Golfo (CCG)</h2>
+    <p>Arabia Saudita y el CCG en general aplican programas de conformidad — SASO en Arabia Saudita y GSO en todo el Golfo — que exigen evaluación de conformidad por terceros y registro del producto antes de la importación. Un comprador que envíe al Golfo debe confirmar temprano la regulación técnica específica y el certificado de conformidad, porque el plazo de registro puede superar el plazo de producción si se deja para tarde.</p>
+
+    <h2>Sudeste Asiático</h2>
+    <p>La mayoría de los mercados del Sudeste Asiático aceptan pruebas basadas en IEC y licencias de importación locales; algunos (como Indonesia con SNI, y Filipinas con BPS/ICC) exigen una marca o certificado local para ciertas categorías de producto. El patrón es el mismo que en el Golfo: confirma el requisito de marca local antes de la producción, porque la certificación tras la llegada es cara y lenta.</p>
+
+    <h2>África</h2>
+    <p>Los mercados africanos varían mucho, desde regímenes de importación mayormente abiertos hasta programas de conformidad obligatorios como el SONCAP de Nigeria y el PVoC de Kenia (verificación previa a la exportación de conformidad). La regla práctica es confirmar si el destino ejecuta un programa de verificación previa a la exportación, porque estos exigen certificación en origen — que el exportador debe organizar antes de que la mercancía salga de China.</p>
+
+    <h2>El hilo común: confirmar antes de la producción</h2>
+    <p>Todos los mercados anteriores comparten un patrón: los errores caros ocurren cuando la certificación se descubre después de fabricar o enviar la mercancía. Los certificados de conformidad, las marcas locales y la verificación previa a la exportación son tareas en origen — deben organizarse antes de que el contenedor salga de Tianjin / Shanghái. La <a href="/es/knowledge/battery-shipping-warranty/">guía de envío y garantía</a> cubre el papeleo de mercancías peligrosas (UN 2794 / UN 2800, Clase 8, según el <a href="https://www.imo.org/">Código IMDG</a>), y la <a href="/es/knowledge/oem-battery-rfq-guide/">guía de RFQ</a> muestra cómo hacer del mercado de destino y su conjunto de certificaciones un campo explícito de la RFQ para que el proveedor cotice cumplimiento, no solo precio unitario.</p>
+    <p>Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Para la secuencia completa, consulta la <a href="/es/knowledge/battery-sourcing-guide/">guía de abastecimiento</a>; para ver cómo el cumplimiento moldea el coste unitario y el plazo, consulta <a href="/es/knowledge/oem-battery-moq-lead-time/">MOQ y plazo de entrega</a>.</p>
+  </section>
+
+
+    <h2>El código HS que lo gobierna todo</h2>
+    <p>Las baterías de arranque de plomo-ácido caen bajo la partida HS 8507, específicamente 8507.10 para las baterías usadas en arranque, alumbrado y encendido de vehículos. El código HS es lo que determina la tasa arancelaria en cada mercado &mdash; y también es donde ocurre la clasificación errónea. Una batería declarada bajo la partida equivocada puede atraer el arancel equivocado o disparar una retención de cumplimiento. Confirma el código exacto de 8 o 10 dígitos con tu agente de aduanas antes de enviar, porque la subpartida (y su arancel) varía por destino.</p>
+
+    <h2>Riesgo arancelario más allá de la tasa base</h2>
+    <p>El arancel base no es toda la historia arancelaria. Dos cosas pueden cambiar la cifra materialmente:</p>
+    <ul>
+      <li><strong>Recargos de la Sección 301 (EE. UU.)</strong> &mdash; un recargo del 25% sobre las baterías chinas, añadido encima del arancel base. Es el mayor sobresalto de coste de desembarque para los compradores con destino EE. UU. que lo descubren tarde.</li>
+      <li><strong>Aranceles antidumping y compensatorios</strong> &mdash; donde un mercado ha determinado que las baterías chinas fueron objeto de dumping o subvención, pueden aplicarse aranceles adicionales encima de todo lo demás. Son específicos de cada caso y pueden aparecer con poco aviso, así que confirma el estado vigente de tu código HS en lugar de confiar en la tasa del año pasado.</li>
+    </ul>
+    <p class="note">Los niveles arancelarios son política, y la política cambia. El método aquí &mdash; modelar el coste de desembarque con la tasa vigente y re-verificar antes de cada pedido &mdash; importa más que cualquier cifra citada en esta página.</p>
+
+    <h2>Un ejemplo completo de coste de desembarque</h2>
+    <p>Pon la fórmula sobre números reales para un contenedor de 700 unidades:</p>
+    <table>
+      <thead><tr><th>Línea</th><th>Por unidad</th><th>700 unidades</th></tr></thead>
+      <tbody>
+        <tr><td>Coste unitario FOB</td><td>US$32.00</td><td>US$22,400</td></tr>
+        <tr><td>Flete marítimo (20 pies, repartido)</td><td>US$1.50</td><td>US$1,050</td></tr>
+        <tr><td>Seguro (&asymp;1%)</td><td>US$0.30</td><td>US$210</td></tr>
+        <tr><td>Arancel de importación (&asymp;30% incl. recargo)</td><td>US$9.60</td><td>US$6,720</td></tr>
+        <tr><td>IVA de destino (&asymp;20%)</td><td>US$8.60</td><td>US$6,020</td></tr>
+        <tr><td><strong>Total de desembarque</strong></td><td><strong>&asymp;US$52.00</strong></td><td><strong>&asymp;US$36,400</strong></td></tr>
+      </tbody>
+    </table>
+    <p>El punto de la tabla es la brecha entre el precio FOB y el precio de desembarque: una batería FOB de US$32.00 desembarca en unos US$52.00 una vez añadidos arancel e IVA &mdash; cerca de un 60% por encima de la cifra ex fábrica. Un comprador que fija el precio de venta sobre la cifra FOB ya ha perdido el margen. Usa tasas reales y vigentes para tu mercado, pero conserva la estructura.</p>
+
+    <h2>Lista de verificación de cumplimiento mercado por mercado</h2>
+    <table>
+      <thead><tr><th>Mercado</th><th>Arancel</th><th>Certificación / conformidad</th><th>Vigilar</th></tr></thead>
+      <tbody>
+        <tr><td>Estados Unidos</td><td>Arancel base + 25% Sección 301</td><td>Sin equivalente CE; UL no requerido para arranque plomo-ácido</td><td>Estado antidumping / CVD</td></tr>
+        <tr><td>Unión Europea</td><td>Arancel exterior común</td><td>Marcado CE + Reglamento de Baterías (UE) 2023/1542</td><td>EPR / registro por estado miembro</td></tr>
+        <tr><td>CCG / Arabia Saudita</td><td>Arancel común del CCG</td><td>Conformidad SASO / GSO + registro</td><td>Plazo de registro</td></tr>
+        <tr><td>Sudeste Asiático</td><td>Varía por país</td><td>Basado en IEC; marcas locales (SNI, BPS/ICC) donde corresponda</td><td>Marca local requerida antes de importar</td></tr>
+        <tr><td>África</td><td>Varía por país</td><td>SONCAP (Nigeria), PVoC (Kenia) donde corresponda</td><td>Verificación previa a la exportación en origen</td></tr>
+      </tbody>
+    </table>
+    <p>El hilo común sigue: el trabajo de certificación y conformidad es en origen, así que debe confirmarse y organizarse antes de que el contenedor salga de China. Descubrirlo tras la llegada es la forma más cara de aprender las reglas del mercado.</p>
+
+    <h2>CE y UKCA: dos marcas, no una</h2>
+    <p>Desde que el Reino Unido dejó la UE, un producto para Gran Bretaña puede necesitar el marcado UKCA además del CE para la UE, con las particularidades dependiendo del producto y las reglas de transición vigentes. Un importador que sirva ambos mercados debe confirmar la marca exacta requerida para baterías de arranque de plomo-ácido con su socio de cumplimiento, en lugar de suponer que una marca cubre ambos. Es exactamente el tipo de detalle que queda bien en el papel y falla en la frontera.</p>
+
+
+
+    <h2>Mantente al día: re-verifica antes de cada pedido</h2>
+    <p>Las normas de importación son un objetivo móvil, y el coste de un modelo obsoleto se paga en la frontera. Tres hábitos mantienen honesto el modelo de coste de desembarque:</p>
+    <ol>
+      <li><strong>Re-verifica la tasa arancelaria</strong> contra el Arancel Armonizado antes de cada pedido &mdash; los niveles cambian, y un modelo construido sobre la tasa del año pasado es peor que ningún modelo.</li>
+      <li><strong>Confirma el estado de certificación</strong> &mdash; los requisitos de conformidad y las reglas de transición cambian, así que re-confirma CE/UKCA, SASO/GSO y los programas previos a la exportación cada vez.</li>
+      <li><strong>Re-verifica la clasificación HS</strong> &mdash; un cambio de subpartida puede alterar el arancel, y la clasificación del agente es la última línea de defensa antes de que llegue la factura.</li>
+    </ol>
+    <p>Trata el cumplimiento como una tarea por pedido, no como una configuración única. Los mercados que más castigan un modelo obsoleto son aquellos donde el recargo y las reglas de certificación se mueven más rápido.</p>
+
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, el cumplimiento de importación es la etapa que los compradores descubren al final y la que convierte un pedido rentable en una pérdida — porque los errores caros son todos en origen y deben corregirse antes de que el contenedor salga de China.</p>
+      <p><strong>Razonamiento:</strong></p>
+      <ul>
+        <li>Un recargo del 25% de la Sección 301 aplicado tras flete y seguro multiplica cada línea anterior, así que el coste de desembarque nunca es el precio FOB más un porcentaje plano.</li>
+        <li>Los certificados de conformidad, las marcas locales y la verificación previa a la exportación son tareas en origen que se vuelven caras y lentas tras la llegada.</li>
+        <li>Los aranceles y las reglas de conformidad son un objetivo móvil, así que re-verificar la tasa y la certificación antes de cada pedido supera a cualquier cifra citada hoy.</li>
+      </ul>
+      <p><em>Divulgación: este es el juicio editorial y la experiencia de campo del autor, no una afirmación técnica verificada.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirma el cumplimiento de importación para tu mercado" />
+</ArticleLayout>
