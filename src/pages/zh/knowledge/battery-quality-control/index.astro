@@ -1,0 +1,59 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '电池质量控制与测试 | Dingwei Battery';
+const description = '电池质量控制的四层流程——来料、过程、下线与批次追溯——以及最要紧的测试：CCA、C20 容量、漏液与开路电压。';
+const articleTitle = '电池质量控制与测试';
+
+const faqs = [
+  { q: '什么是电池质量控制？', a: '四层流程——来料检验、过程管控、下线检测与批次追溯——让复购订单与批准样品保持一致。' },
+  { q: '电池最要紧的测试是什么？', a: 'CCA（抓冷启动无力）、C20 容量（抓储电不足）、漏液测试（抓会漏酸的壳体）、开路电压（出货前抓单体问题）。每个测试抓不同故障，所以「测过了」三个字，要问清到底跑了哪些。' },
+  { q: '认证是质量的保证吗？', a: '不是，但是强信号。要覆盖具体产品的现行证书，而非营销话术。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Quality" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 质量</span>
+    <h1>电池质量控制与测试</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：晋州成光电源有限公司技术文档</p>
+    <p class="lead">「测过了」三个字没意义，除非你知道到底跑了哪些测试。四层质控 + 四个关键测试，才是真质控。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 电池质控是四层流程——来料、过程、下线、批次追溯。最要紧的测试是 CCA（冷启动）、C20 容量（储电）、漏液（壳体）与开路电压（单体）。每个测试抓不同故障，问清跑了哪些，别只信「测过了」。
+    </div>
+
+    <h2>四层质量控制</h2>
+    <p>来料检验、过程管控、下线 100% 检测、批次追溯——四层让复购与样品一致。</p>
+
+    <h2>要紧的测试</h2>
+    <ul>
+      <li><strong>CCA</strong>——抓冷启动无力。</li>
+      <li><strong>C20 容量</strong>——抓储电不足。</li>
+      <li><strong>漏液测试</strong>——抓会漏酸的壳体。</li>
+      <li><strong>开路电压</strong>——出货前抓单体问题。</li>
+    </ul>
+
+    <h2>认证作为质量的代理</h2>
+    <p>认证是强信号而非保证。要覆盖具体产品的现行证书，而非营销话术。</p>
+
+    <h2>买方该问什么</h2>
+    <p>跑了哪些测试？批次怎么追溯？证书是否现行有效、覆盖这款产品？</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>「测过了」三个字没意义——问清到底跑了哪些测试、批次怎么追溯，才是真质控。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>每个测试抓不同故障，漏跑一个就漏一类风险。</li>
+      <li>认证是强信号而非保证，要核验现行有效。</li>
+      <li>批次追溯是复购一致的命门。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验；测试项目为行业通用，具体以工厂质检规范为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="了解我们的质控体系" />
+</ArticleLayout>

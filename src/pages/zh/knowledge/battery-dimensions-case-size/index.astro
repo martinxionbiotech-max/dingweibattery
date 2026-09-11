@@ -1,0 +1,73 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '电池尺寸与壳体尺寸 | Dingwei Battery';
+const description = '电池尺寸（长×宽×高 mm）与壳体尺寸（D26、H6、Group 48）——如何正确量托盘，以及为何尺寸驱动包装与物流。';
+const articleTitle = '电池尺寸与壳体尺寸';
+
+const faqs = [
+  { q: '电池尺寸是什么意思？', a: '长 × 宽 × 高（毫米）——必须装进托盘、卡具与引擎盖余量的物理尺寸。高度或长度差几毫米就足以让电池无法正确就位。' },
+  { q: '壳体尺寸是什么？', a: '标准系列内固定尺寸的简写——JIS 的 D26、DIN/EN 的 H6、BCI 的 Group 48。壳体尺寸让双方不用每次报三个数字就能指代同一块电池。' },
+  { q: 'JIS D23 比 D26 小吗？', a: '是的——D23 约 230 × 175 × 220 mm，D26 约 256 × 175 × 220 mm。同宽同高，但 D26 长 26 mm，所以它适配皮卡/SUV，D23 适配中型轿车。' },
+  { q: '同壳体尺寸的两块电池一定能装吗？', a: '不一定——端子位置（L/R）与类型仍可能不同，所以壳体尺寸与端子布局要一起确认。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fitment" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 适配</span>
+    <h1>电池尺寸与壳体尺寸</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：BCI Battery Replacement Data Book、JIS D 5301、EN 50342</p>
+    <p class="lead">壳体尺寸决定「装不装得下」，比容量更先决定成败。选型号前，先量好电池托盘。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 尺寸是长×宽×高（mm），必须装进托盘与卡具。壳体尺寸是标准系列内固定尺寸的简写——JIS D26、DIN H6、BCI Group 48。高度或长度差几毫米就足以装不上。壳体尺寸与端子布局要一起确认。
+    </div>
+
+    <h2>尺寸意味着什么</h2>
+    <p>长×宽×高，决定能否装进托盘、卡具与引擎盖余量。差几毫米就装不上。</p>
+
+    <h2>壳体尺寸作为简写</h2>
+    <p>D26、H6、Group 48 是固定尺寸的简写，让双方不用报三个数字就能指代同一电池。</p>
+
+    <h2>读 JIS D/B 系列</h2>
+    <p>D23 约 230 mm 长、D26 约 256 mm、D31 约 305 mm——同宽同高，长度递增。</p>
+
+    <h2>为何尺寸驱动包装与物流</h2>
+    <p>壳体尺寸决定托盘码层数与装箱计划，是成本问题，不只是适配问题。</p>
+
+    <h2>如何正确量托盘</h2>
+    <p>量托盘的长、宽、高，以及卡具位置与引擎盖余量。别只量电池，要量托盘。</p>
+
+    <h2>卡具方式也重要</h2>
+    <p>顶部压条、底部卡槽等卡具方式影响电池能否固定，量尺寸时要一起看。</p>
+
+    <h2>公制与英制：都读，信毫米</h2>
+    <p>BCI 常标英寸，JIS/DIN 标毫米。换算会引入误差，以毫米实测为准。</p>
+
+    <h2>壳体尺寸与它能带的容量</h2>
+    <p>同壳体可带不同容量档。组号只定尺寸，不定容量。</p>
+
+    <h2>为何壳体与端子要一起确认</h2>
+    <p>同壳体尺寸，端子位置（L/R）与类型仍可能不同。两项一起确认才稳。</p>
+
+    <h2>买方该问什么</h2>
+    <p>壳体尺寸、长×宽×高、端子类型与位置——四项一起问。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>壳体尺寸是「装不装得下」的硬门槛，比容量更先决定成败——选型号前，先量好电池托盘，再看容量。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>高度差 30 mm 就是装不进去，没有折中。</li>
+      <li>跨区域做，别用一张「通用」尺寸表糊弄，每个市场分开核。</li>
+      <li>尺寸表是参考，最终以您车上的实测托盘为准。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断；尺寸为行业公开典型值（区间），具体型号以厂商 datasheet 为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="确认您型号的精确尺寸" />
+</ArticleLayout>

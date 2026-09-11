@@ -1,0 +1,73 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '电池端子类型与极性 | Dingwei Battery';
+const description = '电池端子类型（柱式/锥形/螺栓）与极性（正负、L/R 位置）——反接的风险，以及为何端子细节要询价确认。';
+const articleTitle = '电池端子类型与极性';
+
+const faqs = [
+  { q: '电池上的 L 和 R 是什么意思？', a: '它标记从端子侧看时，正极端子在壳体的左边还是右边。位置很重要，因为车辆的线束长度是固定的。' },
+  { q: '为什么正极端子比负极大？', a: '在 SAE/DIN 锥形柱式设计中，正极柱略大于负极——约 17.5 mm 对 15.9 mm——作为防止反接的物理护栏。' },
+  { q: '为什么电池极性重要？', a: '接线时反接极性会让电流反向流过车辆电气系统，造成实际损坏，所以装车前必须对照线束确认极性。一块极性接反的「正确电池」仍是错误电池。' },
+  { q: '为什么端子细节标「询价确认」？', a: '因为端子规格错，会把一块正确电池变成错误电池。制造商对照买方的车辆确认端子细节，而不是猜。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fitment" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 适配</span>
+    <h1>电池端子类型与极性</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：行业公开标准</p>
+    <p class="lead">端子错了，电池就装不上、或接反烧车。端子类型、位置与极性，下单前必须逐项确认。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 端子有柱式/锥形/螺栓三类；L/R 标记正极位置；正极柱略大于负极以防反接。反接极性会反向过流损坏电气系统——所以端子与极性要对照车辆线束确认，而不是猜。
+    </div>
+
+    <h2>端子类型：三种设计</h2>
+    <p>SAE 柱式、DIN 锥形、螺栓式。不同类型对应不同线束端子，不能互换。</p>
+
+    <h2>端子位置：L 和 R</h2>
+    <p>从端子侧看，正极在左是 L、在右是 R。车辆线束长度固定，位置错了装不上。</p>
+
+    <h2>极性：正极、负极与搭铁</h2>
+    <p>正负极与搭铁方式（正极搭铁还是负极搭铁）因车而异，装车前必须确认。</p>
+
+    <h2>反接的风险</h2>
+    <p>反接极性会反向过流，损坏灯泡、调节器与电子件，甚至起火。</p>
+
+    <h2>各标准的柱尺寸</h2>
+    <p>SAE/DIN 锥形正极约 17.5 mm、负极约 15.9 mm，正极略大是防反接的物理护栏。</p>
+
+    <h2>如何判断无标记电池的极性</h2>
+    <p>看柱的粗细（正粗负细）、壳体标记（+/-）、或查厂商规格。不确定时问制造商。</p>
+
+    <h2>端子保养与腐蚀循环</h2>
+    <p>端子腐蚀会导致接触不良与启动困难。定期清洁并涂防腐脂。</p>
+
+    <h2>适配器与售后端子</h2>
+    <p>端子适配器可临时转换类型，但会增加接触电阻，长期不建议。</p>
+
+    <h2>为何这些要询价确认</h2>
+    <p>端子规格错，正确电池变错误电池。制造商对照车辆确认，而不是猜。</p>
+
+    <h2>买方该问什么</h2>
+    <p>端子类型、位置（L/R）、极性、柱尺寸——四项一起确认，别只问一个。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>端子与极性是「装得上、不烧车」的硬门槛——一块极性接反的「正确电池」仍是错误电池。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>车辆线束长度固定，端子位置错了装不上。</li>
+      <li>反接极性会反向过流，损坏电气系统。</li>
+      <li>正极略大是防反接的物理护栏，但也意味着不能硬套。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断；柱尺寸为行业公开典型值，具体以厂商 datasheet 为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="确认您型号的端子与极性" />
+</ArticleLayout>

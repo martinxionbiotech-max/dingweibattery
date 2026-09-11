@@ -1,0 +1,62 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '电池存储与保质期 | Dingwei Battery';
+const description = '铅酸电池自放电曲线、为何低于 50% 电荷是红线、仓库 FIFO 程序，以及存储如何与质保是同一个决策。';
+const articleTitle = '电池存储与保质期';
+
+const faqs = [
+  { q: '存放的铅酸电池自放电多快？', a: '适中温度下每月约 3–5%，且温度每升 10°C 速率翻倍——所以热仓库几个月就能把电池放到 50% 电荷以下。' },
+  { q: '存放的电池多久补电一次？', a: '每 6 个月，并在托盘上标注补电日期——部分密封电池供应商建议 3–6 个月，低于约 50% 电荷后硫化就开始变得不可逆。' },
+  { q: '铅酸电池放多久会损坏？', a: '不补电约 6 个月是实际安全窗口——超过后自放电把电池拖进硫化区，容量损失可能永久化。' },
+  { q: '电池该在什么温度存放？', a: '凉爽——低于约 24°C（75°F）——因为自放电随热量加速，温度每升 10°C 放电速率约翻倍。' },
+  { q: '电池库存的 FIFO 规则是什么？', a: '先进先出（FIFO）——因为质保时钟从提单日启动、自放电每月 3–5%，最旧的托盘必须先发，否则你是在消耗自己的质保窗口。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Storage" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 存储</span>
+    <h1>电池存储与保质期</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：行业公开标准</p>
+    <p class="lead">存储条件本身就是质保的一部分。放错温度、不补电、不 FIFO，都是在悄悄消耗质保窗口。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 铅酸电池自放电每月约 3–5%，温度每升 10°C 速率翻倍。低于 50% 电荷硫化开始不可逆。不补电约 6 个月是安全窗口，每 6 个月补电一次并标注日期，用 FIFO 让最旧托盘先发。
+    </div>
+
+    <h2>自放电曲线，用数字说</h2>
+    <p>适中温度每月 3–5%，每升 10°C 翻倍。热仓库几个月就能放掉一半电。</p>
+
+    <h2>为何「低于 50% 电荷」是不能越过的红线</h2>
+    <p>低于 50% 电荷，硫酸铅结晶（硫化）开始变得不可逆，容量损失可能永久。</p>
+
+    <h2>仓库程序，浓缩版</h2>
+    <p>凉爽存放、每 6 个月补电、托盘标注补电日期、FIFO 先发最旧。</p>
+
+    <h2>为何存储与质保是同一个决策</h2>
+    <p>质保时钟从提单日启动，存储不当会在你自己的仓库里消耗质保窗口。</p>
+
+    <h2>存储成本演算</h2>
+    <p>多存几个月省下的不是钱，而是自放电 + 补电人工 + 质保损耗的成本。</p>
+
+    <h2>温度阈值一览</h2>
+    <p>理想低于 24°C。每高 10°C，自放电翻倍。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>存储条件本身就是质保的一部分——放错温度、不补电、不 FIFO，都是在悄悄消耗自己的质保窗口。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>低于 50% 电荷，硫化开始不可逆，容量损失可能永久。</li>
+      <li>质保时钟从提单日启动，库存滞留越久，可用质保越短。</li>
+      <li>FIFO 不是仓储洁癖，是保护复购利润的动作。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验；自放电率为行业典型估算，具体以厂商数据为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="了解正确的电池存储" />
+</ArticleLayout>
