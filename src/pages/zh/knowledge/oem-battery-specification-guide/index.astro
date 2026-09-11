@@ -1,0 +1,74 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import ModelCard from '../../../../components/ModelCard.astro';
+import { STANDARDS, RELATIONSHIP, MANUFACTURER } from '../../../../data/site';
+import { batteryModels } from '../../../../data/battery-models';
+
+const title = 'OEM 电池规格指南 | Dingwei Battery';
+const description = '定义一块 OEM 电池规格的每个字段——标准系列、电压、容量、CCA、尺寸、端子与极性——以及规格漂移的隐藏风险。';
+const articleTitle = 'OEM 电池规格指南';
+
+const faqs = [
+  { q: '最常见的规格错误是什么？', a: '报 CCA 不带测试基准。JIS 与 EN 数字不可比，所以没有基准的规格不算是规格。' },
+  { q: '我能照抄竞争对手的规格吗？', a: '可以当作起点参考，但每个字段都要对照您自己的车辆适配确认——壳体尺寸、端子与极性是市场特定且适配关键。' },
+  { q: '规格表上的「询价确认」是什么意思？', a: '意思是该数值有意不公布而非估算。例如端子类型与极性，下单前必须对照您的车辆确认。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Specification" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 规格</span>
+    <h1>OEM 电池规格指南</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：晋州成光电源有限公司技术文档</p>
+    <p class="lead">一份能拿到可对比报价的规格，至少要写清标准系列、电压、容量、CCA 基准、尺寸、端子与极性。缺一个字段，报价就是猜测。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 规格的核心字段是标准系列（{STANDARDS.join('、')}）、电压、C20 容量（Ah）、指定基准的 CCA、尺寸、端子类型与极性。最常见的错误是报 CCA 不带测试基准——JIS（−15°C）与 EN/SAE（−18°C）不可比。
+    </div>
+
+    <h2>标准系列</h2>
+    <p>先定标准（JIS / DIN / BCI / AS / SA），它决定壳体与端子布局。标准选错，电池装不进托盘。</p>
+
+    <h2>电压</h2>
+    <p>启动电池以 12V 为主（重载部分 6V 或 24V 串联）。电压要与车辆电气系统匹配。</p>
+
+    <h2>容量（Ah）</h2>
+    <p>容量要按 C20 基准标注。不带放电率的 Ah 是裸数，没有对比意义。</p>
+
+    <h2>CCA</h2>
+    <p>CCA 必须带测试基准（JIS −15°C 或 EN/SAE −18°C）。同一电池两个基准下是两个数字。</p>
+
+    <h2>尺寸、端子与极性</h2>
+    <p>尺寸决定适配，端子类型与极性决定能否接线。这三项市场特定，下单前必须确认。</p>
+
+    <h2>参考型号</h2>
+    <p>常以 65D26 或 H6 等参考型号为起点再调整。以下是部分参考型号：</p>
+    <div class="model-list">
+      {batteryModels.slice(0, 6).map((model) => <ModelCard model={model} />)}
+    </div>
+
+    <h2>CCA：一块电池两个数字</h2>
+    <p>同一块电池，JIS 测（−15°C）与 EN/SAE 测（−18°C）会得到两个不同数字。所以比价前先对齐基准。</p>
+
+    <h2>真正要紧的规格字段</h2>
+    <p>标准系列、壳体尺寸、CCA 基准、端子与极性——这四项是适配关键，其余是性能参数。</p>
+
+    <h2>规格漂移：隐藏的风险</h2>
+    <p>复购订单回来时与批准样品不一致，是 OEM 的典型失败模式。靠锁定规格 + 实测样品预防，而非靠信任。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>规格的质量决定报价的质量——缺一个字段，你拿到的就是一个「早晚要改」的废报价。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>没写标准体系，工厂只能按最通用型号报，可能根本对不上你的市场。</li>
+      <li>没写 CCA 基准，两个供应商报两种测量，你却照样比较。</li>
+      <li>信息给齐，当天出可对比报价才是正常节奏。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="建立干净的规格" />
+</ArticleLayout>

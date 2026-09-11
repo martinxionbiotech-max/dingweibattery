@@ -1,0 +1,73 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP, STANDARDS } from '../../../../data/site';
+
+const title = '什么是 CCA（冷启动电流）？ | Dingwei Battery';
+const description = '冷启动电流（CCA）衡量电池的启动功率。了解为何 CCA 依赖测试方法（JIS −15°C vs EN/SAE −18°C）、截止电压如何改变数值，以及如何正确比较。';
+const articleTitle = '什么是 CCA（冷启动电流）？';
+
+const faqs = [
+  { q: 'CCA 代表什么？', a: '冷启动电流（cold cranking amps）——一块满电电池在低温下、掉到截止电压之前能持续放 30 秒的电流。按 SAE J537，那是 −18°C、最低 7.2 V。' },
+  { q: '为什么同一块电池有两个 CCA 数字？', a: '因为 JIS 在 −15°C 测试，而 EN/SAE/DIN 在 −18°C 测试，且截止电压因标准而异。更暖的测试与更低的截止电压都会抬高数值，所以两个值不可互换。' },
+  { q: 'CCA 越高越好吗？', a: '不一定。电池仍要装进托盘、匹配车辆的端子布局。超出 OEM 需求去堆 CCA，只会加成本与用不到的极板面积——CCA 是一个适配标准，不是要最大化的分数。' },
+  { q: 'CCA 和 CA 有什么区别？', a: '温度。CA（cranking amps）在 0°C（32°F）测，CCA 在 −18°C（0°F）测，都是 30 秒到 7.2 V。因为 CA 在更暖温度下测，同一电池的 CA 数字总高于 CCA。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Specification" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 规格</span>
+    <h1>什么是 CCA（冷启动电流）？</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：SAE J537、JIS D 5301、EN 50342</p>
+    <p class="lead">CCA 是电池在低温下能提供的启动电流，但它依赖测试方法。跨标准比 CCA 不看基准，是采购最容易栽的跟头。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> CCA（cold cranking amps）是满电电池在 −18°C（SAE）下、掉到 7.2 V 之前能持续放 30 秒的电流。同一电池在不同标准下有不同 CCA 数字，因为 JIS 在 −15°C 测、EN/SAE 在 −18°C 测，且截止电压不同。跨标准比 CCA 必须先对齐基准。
+    </div>
+
+    <h2>CCA 实际测什么</h2>
+    <p>测电池在低温下瞬间释放大电流的能力——这是柴油机冷启动的硬约束：机油变稠、压缩比仍高。</p>
+
+    <h2>为什么一块电池有几个 CCA 数字</h2>
+    <p>测试温度与截止电压因标准而异。JIS（−15°C）比 EN/SAE（−18°C）更暖，所以同一电池 JIS 数字偏高。</p>
+
+    <h2>争议：标签值 vs 实测值</h2>
+    <p>标签上的 CCA 与第三方实测可能有出入。这也是为什么诚实标注基准、而非虚标最大数字的工厂更可信。</p>
+
+    <h2>如何正确比较 CCA</h2>
+    <p>先对齐测试基准（JIS vs EN/SAE），再比较。600A EN（−18°C）的含金量高于 600A JIS（−15°C）。</p>
+
+    <h2>演算例子：一块电池、三个数字</h2>
+    <p>同一电池可能同时有 JIS、EN 与 SAE 三个 CCA 数字，分别对应不同测试温度与截止电压。横向比价前，务必对齐到同一基准。</p>
+
+    <h2>CCA 实际怎么测</h2>
+    <p>满电电池在指定低温下，以高电流放电 30 秒，看电压是否掉到截止电压以下。</p>
+
+    <h2>CCA 不是终身数字</h2>
+    <p>电池老化后 CCA 会下降。CCA 是出厂额定，不是终身承诺。</p>
+
+    <h2>车辆实际需要多少 CCA</h2>
+    <p>看发动机排量与气候。柴油机、寒冷地区需要更高 CCA；普通汽油车不必堆 CCA。</p>
+
+    <h2>CCA vs Ah：别混淆</h2>
+    <p>CCA 是瞬间启动电流，Ah 是总储电。启动型看 CCA，深循环看 Ah。</p>
+
+    <h2>CCA 如何嵌入更宽的规格</h2>
+    <p>CCA 是规格的一个字段，与标准系列、壳体、端子一起决定适配。见 {STANDARDS.join('、')} 标准系列。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>跨标准比 CCA 是最常见的采购误区——永远先问「这个 CCA 是按哪个基准测的」，问不清的报价，别急着比。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>同样是 600A，EN（−18°C）的含金量高于 JIS（−15°C），直接横向比会误判。</li>
+      <li>截止电压因标准而异，也会改变数字。</li>
+      <li>一个「敢把基准写在规格页」的工厂，比一个「只报最大数字」的工厂更值得合作。</li>
+    </ul>
+    <p><em>声明：这是作者的经验判断，非经第三方核验的事实陈述；具体规格以工厂报价单与实测为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="确认您型号的 CCA 基准" />
+</ArticleLayout>
