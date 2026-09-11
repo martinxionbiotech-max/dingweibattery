@@ -1,0 +1,65 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '铅酸电池危险品分类 | Dingwei Battery';
+const description = '铅酸电池危险品分类——UN 2794 与 UN 2800 第 8 类、IMDG Code、UN 2800 测试，以及与锂电池 UN 3480/3481 的对比。';
+const articleTitle = '铅酸电池危险品分类';
+
+const faqs = [
+  { q: '富液式铅酸汽车电池的 UN 编号是什么？', a: 'UN 2794——电池、湿的、装有酸液——第 8 类（腐蚀性）。通过振动与压差测试的密封非溢漏设计按 UN 2800 运输。' },
+  { q: '铅酸是第 8 类还是第 9 类？', a: '第 8 类（腐蚀性）——危险来自硫酸电解液。锂离子才是第 9 类（杂项），按 UN 3480/UN 3481 运输。' },
+  { q: '什么测试让电池成为非溢漏（UN 2800）？', a: '运输法规下的振动与压差测试——没有这些测试记录的密封电池，法律上仍是 UN 2794，不是 UN 2800。' },
+  { q: '铅酸电池需要 UN 38.3 报告吗？', a: '不需要——UN 38.3 是锂电池测试标准。铅酸的优势就在于无需 UN 38.3 报告，但仍需第 8 类标签、合规包装以及（在要求时）申报。' },
+  { q: '哪些规则管铅酸电池海运？', a: '海运适用 IMO IMDG Code，加上它衍生的各国规则——美国 DOT 49 CFR、欧洲 ADR、空运 IATA DGR——都源自联合国示范法规。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Compliance" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 合规</span>
+    <h1>铅酸电池危险品分类</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：IMDG Code、联合国示范法规</p>
+    <p class="lead">铅酸电池含硫酸电解液，属危险品，出口合规是硬门槛而非可选项。下面是分类、测试与单证要求。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 铅酸电池按第 8 类腐蚀性危险品、两个 UN 编号运输——UN 2794（电池、湿的、装有酸液）用于富液式启动电池，UN 2800（电池、湿的、非溢漏）用于通过振动与压差测试的密封设计。海运遵循 IMO IMDG Code，相对锂电池的实际优势是铅酸无需 UN 38.3 报告。
+    </div>
+
+    <h2>两个 UN 编号</h2>
+    <p><strong>UN 2794</strong>——电池、湿的、装有酸液（第 8 类），用于富液式启动电池。<strong>UN 2800</strong>——电池、湿的、非溢漏（第 8 类），当密封电池通过振动与压差测试时适用。</p>
+
+    <h2>「非溢漏」（UN 2800）实际要求什么</h2>
+    <p>需要运输法规下的振动与压差测试记录。没有测试记录的密封电池，法律上仍是 UN 2794，不能自称 UN 2800。</p>
+
+    <h2>铅酸 vs 锂电：不同类别、不同负担</h2>
+    <p>铅酸是第 8 类（腐蚀性），锂电池是第 9 类（杂项）。锂电池需要 UN 38.3 测试报告；铅酸启动电池不需要，但需要第 8 类标签、合规包装与（在要求时）危险品申报。这是铅酸在合规负担上的实际优势。</p>
+
+    <h2>类别标签与包装要求什么</h2>
+    <p>第 8 类腐蚀性标签、防短路端子防护、防漏包装（加吸附材料）、直立码放。包装要防止短路与搬运损坏。</p>
+
+    <h2>您的电池是哪个 UN 编号</h2>
+    <p>富液式（可开盖补水）→ UN 2794；密封免维护且通过非溢漏测试 → UN 2800。以实际产品与第三方鉴定为准。</p>
+
+    <h2>分类在实践中改变什么</h2>
+    <p>决定标签、包装、单证与承运人接受度。分类错，货会在港区被扣，产生滞留费。</p>
+
+    <h2>这里的位置</h2>
+    <p>危险品分类是运输合规的第一环，与包装、单证、Incoterms 一起构成门到门时间线的运输半边。详见运输与质保页。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>危险品合规不是「多花的钱」，而是「能出货的门票」——省这一环的供应商，省下的钱会变成你的港区滞留费。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>在港区被扣的滞留费，通常远高于提前做鉴定的成本。</li>
+      <li>目的港清关要求各不相同，提前问清比货到再补便宜得多。</li>
+      <li>一套完整的 MSDS + 危包证，本身就是供应商专业度的硬证明。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验；UN 编号与运输规则以 IMDG Code 及第三方鉴定报告为准，本文不构成合规意见。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="确认您电池的危险品分类" />
+</ArticleLayout>

@@ -1,0 +1,75 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../../data/site';
+
+const title = 'OEM 电池成本拆解 | Dingwei Battery';
+const description = '一块 OEM 铅酸电池的成本去哪了——材料、人工、认证、物流——带一个演算的单位成本例子，以及低报价里藏的成本。';
+const articleTitle = 'OEM 电池成本拆解';
+
+const faqs = [
+  { q: '铅酸电池成本里原材料占多少？', a: '运营成本的 75–80%，铅（板栅加氧化铅）是主导单一材料——水电占 10–15%，其余是人工、包装、运输与间接费用。' },
+  { q: '一块典型汽车电池里有多少铅？', a: '一块 15–19 kg 的启动电池约含 9–13 kg 铅——约占电池重量的 60–70%，按 LME 铅价约 US$1,950/吨算，每只约 US$20–25 的铅。' },
+  { q: '为什么 OEM 电池价格跟着 LME 走？', a: '因为铅占材料成本 75–80%，LME 铅价每动 10%，出厂价就实质性变动——这就是为什么固定价条款是谈判点而非形式。' },
+  { q: '低 OEM 报价里藏的成本是什么？', a: '更小的范围——CCA 测试基准、认证、模具摊销、包装，以及贸易公司 5–15% 的加价，是藏在「看着太便宜」数字里的四件事。' },
+  { q: '认证给成本加多少？', a: '视市场而定——IATF 16949 是工厂级间接费用，摊到全部产出；而逐市场的符合性（CE、SASO/GSO）是逐方案成本，加检测与审核时间。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Cost" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 成本</span>
+    <h1>OEM 电池成本拆解</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：晋州成光电源有限公司技术文档；行业成本结构</p>
+    <p class="lead">电池报价的差别藏在成本结构里。看懂成本结构，才能判断一份报价是「真便宜」还是「缩了范围」。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 铅酸电池成本由原材料主导，占运营成本 75–80%，铅是最大单项，水电 10–15%，其余为人工、包装、运输与间接费用。一块 15 kg 启动电池约含 9–13 kg 铅——按 LME 铅价约 US$1,950/吨算约 US$20–25。所以您的电池价格随铅市波动，而低报价通常藏着更小的范围。
+    </div>
+
+    <h2>成本结构，逐项拆</h2>
+    <table>
+      <thead><tr><th>成本项</th><th>占比（约）</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>铅（板栅+氧化铅）</td><td>60–70%</td><td>铅价波动是报价主变量</td></tr>
+        <tr><td>隔板/壳/端子</td><td>10–15%</td><td>壳体工艺与端子类型</td></tr>
+        <tr><td>化成/人工/能源</td><td>10–15%</td><td>工艺复杂度</td></tr>
+        <tr><td>包装/认证/物流</td><td>5–10%</td><td>危品包装与检测</td></tr>
+      </tbody>
+    </table>
+
+    <h2>一个演算的单位成本例子</h2>
+    <p>一块 60 Ah 启动电池约 15 kg，其中铅约 10 kg。按 LME 铅价 US$1,950/吨，铅成本约 US$19.5；加上隔板/壳/端子、化成、人工与包装，出厂价的大头就定了。这就是为什么「越便宜的报价」通常意味着三件事之一：回收铅比例更高、极板更薄、或省掉认证与检测。</p>
+
+    <h2>非材料成本藏在哪</h2>
+    <p>人工、能源、认证摊销、模具摊销、贸易公司加价（5–15%）——这些是报价里「看不见」的部分，也是低报价最常缩水的地方。</p>
+
+    <h2>低报价里藏的成本</h2>
+    <ul>
+      <li><strong>CCA 测试基准</strong>——JIS 与 EN 数值不可比，缩水重灾区。</li>
+      <li><strong>认证</strong>——省掉检测与证书。</li>
+      <li><strong>模具摊销</strong>——单独收费还是含在单价里。</li>
+      <li><strong>质保范围</strong>——质保期与排除项。</li>
+    </ul>
+
+    <h2>为什么回收价值重要</h2>
+    <p>铅近乎完全可回收，这是铅酸在经济上保持理性的原因之一。旧电池有残值，可作为采购谈判的一个变量。</p>
+
+    <h2>如何用这份拆解</h2>
+    <p>报价时请对方拆出铅价联动机制（如按 LME 铅价 ± 浮动），比一口价更透明。我们报价时明确 CCA 基准与质保期——这两项是成本里最容易被「偷」的地方。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>铅酸电池的报价，最低价往往不是最优价——真正该问的是「铅价怎么联动、CCA 基准是什么、质保期多久」这三件事。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>铅占成本六到七成，铅价一波动，一口价要么坑你、要么坑工厂。</li>
+      <li>CCA 基准与质保期是「缩水」重灾区，不问清楚等于默认接受缩水。</li>
+      <li>看得见成本结构的供应商，才谈得上公平定价。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验；成本占比为行业典型区间（估算），非审计后精确值，具体以报价单为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="索取逐项 OEM 成本拆解" />
+</ArticleLayout>

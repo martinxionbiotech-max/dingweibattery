@@ -1,0 +1,76 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '电池组规格对照表：BCI、JIS 与 DIN 壳体尺寸 | Dingwei Battery';
+const description = '一张把 BCI 组号、JIS D/B 代码与 DIN/EN H/LN 代码映射到尺寸与车型的电池组规格对照表——OEM 电池采购方的核心适配数据集。';
+const articleTitle = '电池组规格对照表';
+
+const faqs = [
+  { q: 'JIS D26 电池的尺寸是多少？', a: '约 256 × 175 × 220 mm（长 × 宽 × 高）。它是日本/亚洲市场中型皮卡与 SUV 的标准壳体，通常 60–84 Ah。' },
+  { q: 'DIN H6 电池和 BCI Group 48 一样大吗？', a: '是的——都是 278 × 175 × 190 mm。H6 是 EN/DIN 代码，Group 48 是北美 BCI 代码，对应同一尺寸，所以一套模具服务两个市场。' },
+  { q: '欧洲 H7/LN4 启停电池对应哪个 BCI 组？', a: 'BCI Group 94R，315 × 175 × 190 mm。这是欧洲车最常见的 AGM 启停尺寸。' },
+  { q: '一个 20 尺柜能装多少只电池？', a: '计入托盘、包装与堆码限制后通常 600–800 只——对铅酸而言，托盘化与安全堆高才是这个数量下的绑定约束，而非裸重量。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Fitment" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 适配</span>
+    <h1>电池组规格对照表</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：BCI Battery Replacement Data Book、JIS D 5301、EN 50342</p>
+    <p class="lead">电池组尺寸是「装不装得下」的硬门槛，比容量更先决定成败。下面是各区域标准的壳体尺寸对照，供采购方选型参考。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 电池组尺寸是一个固定长 × 宽 × 高、带市场特定名称的尺寸。同一个壳子是 BCI 的 Group 48、DIN/EN 的 H6/LN3，278 × 175 × 190 mm；更小的 H5/LN2（Group 47）是 242 × 175 × 190 mm；JIS D26 是 256 × 175 × 220 mm。确认组别是任何电气额定之前的第一道适配检查。
+    </div>
+
+    <h2>主交叉参考</h2>
+    <table>
+      <thead><tr><th>市场</th><th>标准体系</th><th>常见壳体/型号</th><th>典型尺寸（长×宽×高 mm）</th></tr></thead>
+      <tbody>
+        <tr><td>亚洲 / 日系</td><td>JIS</td><td>D23 / D26 / D31</td><td>230–305 × 175 × 220</td></tr>
+        <tr><td>欧洲</td><td>DIN/EN</td><td>H5 / H6 / H7 / H8</td><td>242–352 × 175 × 190</td></tr>
+        <tr><td>北美</td><td>BCI</td><td>Group 24 / 27 / 31 / 65</td><td>260–330 × 173–240</td></tr>
+        <tr><td>澳洲</td><td>N 型</td><td>N70 / N70ZZ</td><td>305 × 171 × 202</td></tr>
+        <tr><td>南非</td><td>类型号</td><td>646 / 657 / 668</td><td>242–278 × 175 × 190</td></tr>
+      </tbody>
+    </table>
+
+    <h2>读三套命名体系</h2>
+    <p>JIS 的两位前缀是性能档、后缀是壳体；DIN/EN 的 H/LN 代码是 175 mm 宽、190 mm 高下的长度档；BCI 组号是任意数字，只对应尺寸与端子布局。</p>
+
+    <h2>为什么组号也是物流决策</h2>
+    <p>壳体尺寸决定托盘与装箱计划。高度差 30 mm（JIS 220 vs DIN 190）就决定了一个托盘能码几层、一个柜能装多少只——所以组号不只是适配问题，也是成本问题。</p>
+
+    <h2>值得了解的更多 BCI 组</h2>
+    <p>除了常见的 Group 24/27/31，Group 34、47、48、49、65、94R 也是北美车常用尺寸。跨区域做，别用一张「通用」尺寸表糊弄，每个市场分开核。</p>
+
+    <h2>重载 N 系列一览</h2>
+    <p>N100 / N150 / N200 是亚洲重卡适配，容量 100–200 Ah，冷启动电流最高 1100A（参考值）。商用车对一致性与可追溯性要求更高。</p>
+
+    <h2>车型与组别示例</h2>
+    <p>日系中型皮卡/SUV 用 D26；欧洲启停车用 H6/H7（Group 48/94R）；北美皮卡用 Group 65；重卡用 N 系列或 Group 31。</p>
+
+    <h2>组号更大不等于容量更大</h2>
+    <p>组号只定尺寸，不定容量。同一个 Group 24 里可以有容量差异很大的型号，下单前务必同时确认组号与容量/CCA。</p>
+
+    <h2>如何选对组别</h2>
+    <p>先量好您车上的电池托盘，再反查标准系列与组号，最后确认端子与 CCA 基准。尺寸是硬门槛，没有折中。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>壳体尺寸是「装不装得下」的硬门槛，比容量更先决定成败——选型号前，先量好电池托盘，再看容量。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>高度差 30 mm 就是装不进去，没有折中。</li>
+      <li>跨区域做，别用一张「通用」尺寸表糊弄，每个市场分开核。</li>
+      <li>尺寸表是参考，最终以您车上的实测托盘为准。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断；尺寸为行业公开典型值（区间），具体型号以厂商 datasheet 为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="为您的市场确认精确组尺寸" />
+</ArticleLayout>

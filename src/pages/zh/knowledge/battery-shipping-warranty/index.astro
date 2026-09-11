@@ -1,0 +1,62 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { MANUFACTURER, TRADE_TERMS, RELATIONSHIP } from '../../../../data/site';
+
+const title = '电池运输、包装与质保 | Dingwei Battery';
+const description = '铅酸电池如何包装、运输与质保——UN 2794/2800 第 8 类分类、出口单证集，以及如何读懂质保范围。';
+const articleTitle = '电池运输、包装与质保';
+
+const faqs = [
+  { q: '铅酸电池是危险品吗？', a: '是——第 8 类腐蚀性。富液式启动电池按 UN 2794（装有酸液）、非溢漏设计按 UN 2800 运输，但与锂电不同，无需 UN 38.3 测试报告。' },
+  { q: '为什么电池 MOQ 跟着集装箱走？', a: '因为电池重——一个 20 尺柜载重上限约 28,000 kg，负载在填满 33 m³ 体积之前就先触到重量上限。' },
+  { q: '电池出口需要哪些单证？', a: '至少 5 份——商业发票、装箱单、提单、原产地证与危险品申报——外加目的地要求的检测报告与 MSDS。' },
+  { q: '12 个月质保实际覆盖什么？', a: '只覆盖书面范围所写的——时长、排除项与索赔处理。带宽泛排除项的「12 个月质保」与带清晰、窄排除项的不是一回事。' },
+  { q: '电池海运该如何包装？', a: '直立、端子防短路、出口级托盘、每托盘约 1.5 m 高、1.5 吨，让负载经得起搬运与海关查验。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Logistics" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 物流</span>
+    <h1>电池运输、包装与质保</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：IMDG Code、行业出口实践</p>
+    <p class="lead">运输环节影响售后，质保是「卖出去之后才见真章」的承诺。好的质保，从装柜那一刻就开始管。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> 铅酸电池是第 8 类（腐蚀性）危险品——UN 2794 装有酸液，或 UN 2800 非溢漏——但与锂电不同，不需要 UN 38.3 报告。包装要防端子短路、防壳体撞击，出口单证至少五份，而质保只和它书面的时长、排除项与索赔处理一样好。
+    </div>
+
+    <h2>危险品分类</h2>
+    <p>湿式铅酸电池按 IMDG Code 归为第 8 类（腐蚀性）。UN 2794 用于富液式，UN 2800 用于通过非溢漏测试的密封设计。与锂电（第 9 类）不同，无需 UN 38.3 报告。</p>
+
+    <h2>包装与装柜</h2>
+    <p>端子防短路、直立码放、出口级托盘、每托盘约 1.5 m 高、1.5 吨。正确码垛（不可倒置）、防潮、防短路是装柜标准。</p>
+
+    <h2>出口单证</h2>
+    <p>至少 5 份：商业发票、装箱单、提单、原产地证、危险品申报，外加目的地要求的检测报告与 MSDS。</p>
+
+    <h2>质保：读范围，而非只读数字</h2>
+    <p>质保覆盖制造缺陷（断格、漏酸、容量严重不足）与性能衰减。理赔关键在证据链——批次号、销售日期、检测报告缺一不可。带宽泛排除项的「12 个月质保」与带清晰排除项的不是一回事。</p>
+
+    <h2>存储：你悄悄失去的质保</h2>
+    <p>高温存储、未维护充电、长期放电状态都会损害电池，且通常不在质保范围内。存储条件本身就是质保的一部分。</p>
+
+    <h2>买方该问什么</h2>
+    <p>问清「怎么留批次、怎么做装柜」，比问「保几年」更见真章。运输损伤和制造缺陷难分清，靠的就是批次记录。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>质保的本质是证据链，不是承诺条款——没有批次号和检测报告，条款写得再好也赔不下来。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>运输损伤和制造缺陷难分清，靠的就是批次记录。</li>
+      <li>装柜不规范（倒置、受潮）造成的隐性损伤，常拖到使用期才爆发。</li>
+      <li>选供应商时，问一句「怎么留批次、怎么做装柜」，比问「保几年」更见真章。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验；质保条款以正式合同为准，本文不构成法律意见。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="确认运输与质保条款" />
+</ArticleLayout>

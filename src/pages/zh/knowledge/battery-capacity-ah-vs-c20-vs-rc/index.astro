@@ -1,0 +1,76 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '电池容量：Ah vs C20 vs RC | Dingwei Battery';
+const description = '理解电池容量额定——安时（Ah）、C20 放电率与储备容量（RC）——Ah × V 如何得出瓦时，以及 RC 与 CCA 在 OEM 规格里的关系。';
+const articleTitle = '电池容量：Ah vs C20 vs RC';
+
+const faqs = [
+  { q: 'Ah 和 C20 有什么区别？', a: 'Ah 是总储电量，C20 是测这个 Ah 所用的 20 小时放电率。一块 60 Ah（C20）电池额定在 10.5 V 之前以 3 A 放 20 小时。速率更快时，同一电池放出的总能量更少。' },
+  { q: '储备容量（RC）是什么意思？', a: '储备容量是电池在 10.5 V 之前能维持固定 25 安负载的分钟数——一个「负载下续航」指标，回答发电机失效后电池还能带多久电。' },
+  { q: '一块 60 Ah 汽车电池是多少瓦时？', a: '约 720 Wh。储能 = 电压 × 容量，所以 12 V × 60 Ah = 720 Wh。一块 6 V、200 Ah 的重载单元储 6 × 200 = 1,200 Wh。' },
+  { q: 'Ah 越高越好吗？', a: '不总是。更高的 Ah 储能更多，但也让电池更大更重——而且它仍要装进托盘并匹配车辆的充电系统。过度指定容量意味着为用不到的能量买单。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Specification" dateModified="2026-09-10" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 规格</span>
+    <h1>电池容量：Ah vs C20 vs RC</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-10 · 来源：行业公开标准</p>
+    <p class="lead">三个指标，三个意思，别混。看懂它们，才不会用错指标选错电池。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> Ah、C20 与 RC 回答不同问题，不可互换。Ah 是总储电量，C20 是测 Ah 所用的 20 小时放电率（26.7°C 下放到 10.5 V），RC 是固定 25 A 负载下的分钟续航。有用的导出数字是瓦时：12 V × 60 Ah = 720 Wh。
+    </div>
+
+    <h2>Ah：总储电量</h2>
+    <p>Ah 是总储电能力，但必须带放电率才有意义。不带放电率的 Ah 是「裸数」，没有对比意义。</p>
+
+    <h2>C20：20 小时率</h2>
+    <p>C20 是以 20 小时放完电的容量，是铅酸电池的标准对比基准。同一电池放电越快，放出的总能量越少。</p>
+
+    <h2>RC：储备容量</h2>
+    <p>RC 是充满后以 25A 恒流放电到 10.5V 的分钟数，衡量「发电机失效后还能撑多久」。</p>
+
+    <h2>它们如何相关——又如何不相关</h2>
+    <p>判断一块电池「耐不耐用」：看 C20 容量判储电，看 RC 判应急续航，看 CCA 判冷启动能力。三者没有谁绝对更重要——启动型看 CCA，深循环/房车看 C20 与 RC。</p>
+
+    <h2>RC 与 CCA：两个不同的「功率」数字</h2>
+    <p>RC 是持续负载下的续航分钟，CCA 是冷启动瞬间的大电流能力。房车/深循环用户只看 CCA，会买错电池。</p>
+
+    <h2>为什么放电越快、容量越少</h2>
+    <p>铅酸电池在高放电率下存在 Peukert 效应，实际放出的能量低于标称值。所以 C20 是标准对比基准，而非任何速率下的承诺。</p>
+
+    <h2>演算例子：60 Ah 意味着什么续航</h2>
+    <p>60 Ah（C20）＝ 以 3 A 放 20 小时。以更高电流（如 25A）放电，续航远短于 60/25＝2.4 小时，因为速率越高、有效容量越低。</p>
+
+    <h2>容量如何额定</h2>
+    <p>按标准测试条件（温度、放电率、终止电压）额定。不同标准的测试条件不同，跨标准比容量也要看基准。</p>
+
+    <h2>按应用选容量</h2>
+    <p>启动型看 CCA，深循环/房车看 C20 与 RC，普通乘用车三者都要看但 CCA 优先。</p>
+
+    <h2>先指定哪个数字</h2>
+    <p>先定标准系列与壳体（适配），再定 CCA（启动），最后定 C20/RC（续航）。顺序反了容易买错。</p>
+
+    <h2>买方该问什么</h2>
+    <p>问清容量测试基准、CCA 基准与 RC（若提供），并要求供应商把三项连同基准一起标出来，而非只报一个最大数。</p>
+
+    <h2>The Author's Take</h2>
+    <p><strong>立场：</strong>别拿一个数字衡量一块电池——启动型看 CCA，深循环看 C20 和 RC，用错指标等于答非所问。</p>
+    <p><strong>理由：</strong></p>
+    <ul>
+      <li>Ah 不带放电率就是「裸数」，没对比意义。</li>
+      <li>房车/深循环用户只看 CCA，会买错电池。</li>
+      <li>供应商愿意把三个指标连同基准一起标出来，比只报一个最大数更可信。</li>
+    </ul>
+    <p><em>声明：这是作者的编辑判断与行业经验；指标定义为行业通用概念，测试基准以厂商 datasheet 为准。</em></p>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="为您的型号确认容量额定" />
+</ArticleLayout>
