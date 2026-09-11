@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP } from '../../../../data/site';
+import { batteryModels, modelPath } from '../../../../data/battery-models';
+import type { BatteryModel } from '../../../../data/site';
+
+export function getStaticPaths() {
+  return batteryModels.map((model) => ({ params: { model: model.model.toLowerCase() }, props: { model } }));
+}
+
+interface Props { model: BatteryModel; }
+const { model } = Astro.props;
+
+const HEAVY = ['105D31', '115D31', 'N100', 'N150', 'N200'];
+const isHeavy = HEAVY.includes(model.model);
+const categoryHref = isHeavy ? '/zh/heavy-duty-batteries/' : '/zh/oem/car-batteries/';
+const categoryLabel = isHeavy ? '重载电池' : '汽车电池';
+const relatedModels = batteryModels
+  .filter((m) => m.model !== model.model && m.standard === model.standard)
+  .slice(0, 4);
+
+const dims = model.dimensions_mm;
+const dimsLabel = `${dims.length} × ${dims.width} × ${dims.height} mm`;
+const pagePath = '/zh' + modelPath(model.model);
+const url = `${SITE.url}${pagePath}`;
+
+const title = `${model.model} 电池规格 | Dingwei Battery`;
+const description = `${model.model} 电池参考：${model.voltage}V、${model.capacity_ah} Ah、${model.cca.value} CCA（参考）、${dimsLabel}、${model.standard}。下单前请与制造商确认最终数值。`;
+
+const h1 = `${model.model} 电池 — ${model.standard} ${model.application} | Dingwei Battery`;
+const lead = `${model.model} 是一款 ${model.standard} ${model.application.toLowerCase()} 电池，标称 ${model.voltage}V、${model.capacity_ah} Ah。支持 OEM 与贴牌供应，规格按 ${model.standard_code} 确认。`;
+
+const faqs = [
+  {
+    q: `${model.model} 是什么电池？`,
+    a: `${model.model} 是一款面向 ${model.application.toLowerCase()} 的 ${model.standard} 启动电池。它采用 ${model.case_size} 壳体参考，标称 ${model.voltage}V、${model.capacity_ah} Ah——是 ${model.standard === 'JIS' ? '亚洲市场' : model.standard === 'DIN/EN' ? '欧洲' : '其目标市场'} 车辆中的常见适配型号。${isHeavy ? '此类重载型号专为高启动电流与持续振动而造，不用于轻载启动。' : ''}`,
+  },
+  {
+    q: `${model.model} 的 CCA 是多少？`,
+    a: `标称值为 ${model.cca.value} CCA，按 ${model.cca.basis} 测得。CCA 依赖测试方法——JIS（−15°C）数值与 EN/SAE（−18°C）数值不可直接比较，比较报价前请先确认基准。${isHeavy ? '对柴油机而言，低温冷启动是硬约束：机油变稠、压缩比仍高，这正是 CCA 评级要覆盖的场景。' : ''}`,
+  },
+  {
+    q: `${model.model} 能按 OEM 或贴牌订购吗？`,
+    a: '可以。OEM 由您定义规格、拥有设计与品牌；贴牌则是把您的标识套用到这个成熟平台。两种方式均可，品牌、打样与包装在询价时确认。相比现成型号，选择 OEM 能给您一款竞争对手无法从同一货架买到的产品。',
+  },
+  {
+    q: `${model.model} 的尺寸是多少？`,
+    a: `标称尺寸为 ${dimsLabel}。尺寸决定适配——电池必须能放进托盘、卡具与引擎盖下，几毫米的差异就可能导致无法正确就位。端子类型与极性不在此公布，须按车辆确认。`,
+  },
+  {
+    q: `${model.model} 用的是什么标准？`,
+    a: `它参照 ${model.standard_code}（${model.standard}）。若您的市场用其他标准系列，请确认等效壳体尺寸——JIS、DIN/EN 与 BCI 电池不可自动互换，订错系列会导致即便 Ah 看着对、电池也装不进托盘。`,
+  },
+];
+
+const breadcrumbs = [{ label: `${model.model}` }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${model.model} Battery`,
+    brand: { '@type': 'Brand', name: BRAND },
+    manufacturer: { '@type': 'Organization', name: MANUFACTURER.name },
+    description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '数据中心', item: `${SITE.url}/zh/data/` },
+      { '@type': 'ListItem', position: 3, name: model.model, item: url },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">型号数据 / {model.standard}</span>
+    <h1>{h1}</h1>
+    <p class="lead">{lead}</p>
+    {model.image && (
+      <img class="model-photo" src={model.image} alt={`${model.model} 电池`} width="800" height="800" loading="lazy" decoding="async" />
+    )}
+    <p><a href="/zh/contact/">索取 OEM 报价</a> · <a href="/zh/tools/battery-finder/">使用电池选型工具</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>{model.model} 电池是什么？</h2>
+      <p>{model.model} 是一款用于 {model.application.toLowerCase()} 的 {model.standard} 汽车电池。其参考壳体为 {model.case_size}，按 {model.standard_code} 约定供应。</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>快速规格</h2>
+    <table>
+      <thead><tr><th>字段</th><th>数值</th></tr></thead>
+      <tbody>
+        <tr><td>型号</td><td>{model.model}</td></tr>
+        <tr><td>标准</td><td>{model.standard}（{model.standard_code}）</td></tr>
+        <tr><td>电压</td><td>{model.voltage} V</td></tr>
+        <tr><td>容量（C20）</td><td>{model.c20_ah} Ah</td></tr>
+        <tr><td>CCA</td><td>{model.cca.value} CCA <strong>（参考值）</strong> — {model.cca.basis}</td></tr>
+        <tr><td>尺寸（长 × 宽 × 高）</td><td>{dimsLabel}</td></tr>
+        <tr><td>重量</td><td>{model.weight_kg} kg</td></tr>
+        <tr><td>技术</td><td>{model.technology}</td></tr>
+        <tr><td>端子</td><td>询价确认</td></tr>
+        <tr><td>极性</td><td>询价确认</td></tr>
+        <tr><td>储备容量（RC）</td><td>询价确认</td></tr>
+      </tbody>
+    </table>
+    <p class="note">CCA 为参考值。{model.cca.note} 后，方可将此值用于产品规格。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>尺寸与端子</h2>
+      <p>标称尺寸为 {dimsLabel}。端子类型与极性不对此型号公布；请在定稿规格前询价确认。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>应用与车辆适配</h2>
+    <p>应用参考：{model.application}。确切车辆适配是交叉参考决策——下单前请务必对照车辆或车队需求及制造商确认。</p>
+    <p><a href="/zh/tools/battery-finder/">使用电池选型工具 &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">阅读规格指南 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>等效 / 交叉参考</h2>
+      <p>电池等效性取决于标准系列、壳体尺寸与端子布局。即使物理尺寸相近，JIS、DIN/EN 与 BCI 型号也不自动互换。</p>
+      <p>本页不发布经核验的交叉参考表。请与制造商确认您市场的等效型号。</p>
+    </div>
+  </section>
+
+  {relatedModels.length > 0 && (
+    <section class="section section--alt">
+      <div class="container">
+        <h2>相关 {model.standard} 型号</h2>
+        <p class="lead">当前型号集中的其他 {model.standard} 参考型号。</p>
+        <div class="model-list">
+          {relatedModels.map((m) => (
+            <article class="model-card">
+              <h3><a href={'/zh' + modelPath(m.model)}>{m.model} 电池</a></h3>
+              <p class="model-card__meta">{m.standard} · {m.voltage}V · {m.capacity_ah} Ah · {m.cca.value} CCA（参考）</p>
+              <a href={'/zh' + modelPath(m.model)}>查看规格 <span aria-hidden="true">&rarr;</span></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>OEM 与贴牌供应</h2>
+      <p>{RELATIONSHIP} {model.model} 支持 OEM 与贴牌供应。品牌、打样、包装与最终规格在询价时确认。</p>
+      <p><a href="/zh/oem/">OEM 方案 &rarr;</a> · <a href="/zh/private-label/">贴牌方案 &rarr;</a> · <a href={categoryHref}>浏览{categoryLabel} &rarr;</a> · <a href="/zh/contact/">索取 OEM 报价 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见问题</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>来源与核验日期</h2>
+      <ul>
+        <li>来源：{model.source}</li>
+        <li>核验日期：{model.verified_date}</li>
+        <li>置信度：{model.confidence}</li>
+      </ul>
+      <p class="note">本页为参考页。标注“询价确认”的字段为有意不发布而非估算。</p>
+    </div>
+  </section>
+
+  <CTASection title={`确认 ${model.model} 规格`} />
+</BaseLayout>

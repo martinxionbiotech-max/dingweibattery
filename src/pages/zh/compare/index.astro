@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE } from '../../../data/site';
+
+const title = '电池型号对比 | Dingwei Battery';
+const description = '面向采购方的电池型号文字对比，覆盖同壳体或同标准系列的型号——容量、CCA、适配与选型建议。';
+
+const breadcrumbs = [{ label: '对比', href: '/zh/compare/' }];
+
+const comparisons = [
+  {
+    title: '65D26 vs 80D26',
+    summary: '同为 JIS D26 壳体、功率不同：60 Ah / 370 CCA 对 72 Ah / 490 CCA（参考）。了解它们为何共用一个托盘、该备哪个档位。',
+    href: '/compare/65d26-vs-80d26/',
+  },
+  {
+    title: '105D31 vs 115D31',
+    summary: '同为 JIS D31 壳体、两个功率档：84 Ah / 655 CCA 对 96 Ah / 710 CCA（参考）。了解它们为何共用一个托盘、该备哪个档位。',
+    href: '/compare/105d31-vs-115d31/',
+  },
+  {
+    title: 'H6 vs H7',
+    summary: 'DIN/EN H 系列：H6（LN3，72 Ah）对 H7（LN4，84 Ah）仅长度不同。了解它们是否装同一托盘。',
+    href: '/compare/h6-vs-h7/',
+  },
+  {
+    title: 'H5 vs H6',
+    summary: 'DIN/EN H 系列：H5（LN2，60 Ah）对 H6（LN3，72 Ah）。同高、不同长度与储备。',
+    href: '/compare/h5-vs-h6/',
+  },
+  {
+    title: '55B24 vs 65B24',
+    summary: '同为 JIS B24 壳体、差异微小：48 Ah 对 50 Ah，均 370 CCA。为何差距比代码暗示的更小。',
+    href: '/compare/55b24-vs-65b24/',
+  },
+  {
+    title: 'AGM vs EFB',
+    summary: '启停车辆的 AGM（贫液式玻璃纤维隔板）对 EFB（增强型富液）：结构、循环寿命与选型。',
+    href: '/compare/agm-vs-efb/',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '对比', item: `${SITE.url}/zh/compare/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">对比</span>
+    <h1>电池型号对比</h1>
+    <p class="lead">文字版对比，解释规格表本身说不清的事：两款电池是否共用壳体、数字为何不同、采购方该选哪一款。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="model-list">
+        {comparisons.map((c) => (
+          <article class="model-card">
+            <h2><a href={c.href}>{c.title}</a></h2>
+            <p class="model-card__meta">{c.summary}</p>
+            <a href={c.href}>阅读对比 <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        ))}
+      </div>
+      <p class="note">想要并排规格表？用 <a href="/zh/tools/compare/">交互式对比工具</a> 对比参考数据库中任意两款型号。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>为什么对比很重要</h2>
+    <p>型号代码很少能说明全部。两款 JIS 电池可能共用壳体却处于不同性能档，两款 DIN/EN 型号可能看着相似却用不同端子布局。这些对比拆解差异，并说明下单前该核验什么。</p>
+    <p><a href="/zh/data/">浏览完整型号数据库 &rarr;</a> · <a href="/knowledge/jis-vs-din-vs-bci/">阅读标准指南 &rarr;</a></p>
+  </section>
+
+  <CTASection title="为您的市场确认正确型号" />
+</BaseLayout>

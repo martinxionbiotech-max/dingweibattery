@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, RELATIONSHIP } from '../../../data/site';
+import { batteryModels, modelPath } from '../../../data/battery-models';
+
+const title = '电池型号数据库 | Dingwei Battery';
+const description = 'Dingwei Battery 的 34 款 JIS、DIN/EN、BCI、AS、SA 与重载电池参考规格。按标准系列、壳体尺寸与容量筛选。';
+
+const breadcrumbs = [{ label: '数据中心', href: '/zh/data/' }];
+
+const rows = batteryModels
+  .map((m) => ({
+    model: m.model,
+    standard: m.standard,
+    caseSize: m.case_size,
+    voltage: m.voltage,
+    capacity: m.capacity_ah,
+    cca: m.cca.value,
+    dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+    href: '/zh' + modelPath(m.model),
+  }))
+  .sort((a, b) => a.standard.localeCompare(b.standard) || a.capacity - b.capacity);
+
+const standards = [...new Set(rows.map((r) => r.standard))];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Battery model database',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: r.model,
+      url: `${SITE.url}${r.href}`,
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '数据中心', item: `${SITE.url}/zh/data/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">数据库</span>
+    <h1>电池型号数据库</h1>
+    <p class="lead">{RELATIONSHIP} {rows.length} 款电池型号在 {standards.join(' 与 ')} 标准下的参考规格。CCA 为参考值；下单前请与制造商确认最终数值。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>型号</th>
+            <th>标准</th>
+            <th>壳体</th>
+            <th>电压</th>
+            <th>容量</th>
+            <th>CCA（参考）</th>
+            <th>尺寸（mm）</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td><a href={r.href}>{r.model}</a></td>
+              <td>{r.standard}</td>
+              <td>{r.caseSize}</td>
+              <td>{r.voltage} V</td>
+              <td>{r.capacity} Ah</td>
+              <td>{r.cca}</td>
+              <td>{r.dims}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="note">CCA 为参考值且依赖测试方法（JIS −15°C 对 EN/SAE −18°C）。未确认基准前，勿跨标准比较 CCA。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>如何使用本数据库</h2>
+    <p>先找到匹配您目标市场标准系列的参考型号，再下单前与制造商确认精确规格——电压、容量、CCA 基准、壳体尺寸、端子类型与极性。</p>
+    <p><a href="/knowledge/oem-battery-specification-guide/">阅读规格指南 &rarr;</a> · <a href="/zh/tools/compare/">对比两款型号 &rarr;</a> · <a href="/compare/">阅读文字版型号对比 &rarr;</a> · <a href="/zh/contact/">定制适配询价 &rarr;</a></p>
+  </section>
+
+  <CTASection title="确认您的电池型号规格" />
+</BaseLayout>
