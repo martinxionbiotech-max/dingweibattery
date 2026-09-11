@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatsBar from '../../components/StatsBar.astro';
+import BatteryTypeCard from '../../components/BatteryTypeCard.astro';
+import OEMProcess from '../../components/OEMProcess.astro';
+import CTASection from '../../components/CTASection.astro';
+import ModelCard from '../../components/ModelCard.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP, BATTERY_TYPES } from '../../data/site';
+import { batteryModels } from '../../data/battery-models';
+
+const title = 'OEM 与贴牌汽车电池 | Dingwei Battery';
+const description = 'Dingwei Battery 提供 OEM 与贴牌汽车电池方案，由晋州成光电源有限公司（2002 年成立）制造。';
+
+const homeFaqs = [
+  {
+    q: 'Dingwei 供应哪些电池？',
+    a: 'Dingwei 供应 SLI、AGM、EFB 与重载铅酸启动电池，用于 OEM 与贴牌方案。铅酸启动电池不属于 Class 9 危险品，运输与合规比锂电池更简单。',
+  },
+  {
+    q: 'Dingwei 电池由谁制造？',
+    a: '晋州成光电源有限公司（Chengguang Power Tech Co., Ltd.），一家 2002 年成立于河北晋州的铅酸电池制造商，持有 IATF 16949 认证。一家工厂覆盖 JIS、DIN、BCI、AS、SA 标准，一个供应商即可覆盖您的全部市场。',
+  },
+  {
+    q: '我能打造自己的电池品牌吗？',
+    a: '可以。OEM 由您定义规格、拥有设计与品牌；贴牌则是把您的标识套用到成熟平台。两者都能给您一个竞争对手无法从同一货架买到的产品。',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: BRAND,
+    url: SITE.url,
+    description: 'OEM 与贴牌汽车电池方案。',
+    brand: { '@type': 'Brand', name: BRAND },
+    manufacturer: {
+      '@type': 'Organization',
+      name: MANUFACTURER.name,
+      legalName: MANUFACTURER.legalName,
+      foundingDate: String(MANUFACTURER.founded),
+      address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: SITE.url,
+    description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={[]}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="hero">
+    <div class="container">
+      <span class="tag" style="color:#f0b9b2">OEM / 贴牌</span>
+      <h1>按您的品牌制造的汽车电池</h1>
+      <p class="lead">{RELATIONSHIP} 我们以您的品牌供应 SLI、AGM、EFB 与重载电池，从规格到出货全程负责。</p>
+      <div class="hero__actions">
+        <a class="btn" href="/zh/oem/">了解 OEM 方案</a>
+        <a class="btn btn--ghost" href="/zh/contact/">索取 OEM 报价</a>
+      </div>
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <span class="tag">电池类型</span>
+    <h2>OEM 与贴牌电池品类</h2>
+    <p class="lead">由 {MANUFACTURER.name} 制造的四大产品系列，覆盖 JIS、DIN、BCI、AS、SA 标准。</p>
+    <div class="grid grid--4">
+      {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">为什么选 Dingwei Battery</span>
+      <h2>OEM 方案，而非一锤子买卖</h2>
+      <p class="lead">我们把品牌关系、规格、打样与供应都结构化，让您的产品跨批次保持一致。</p>
+      <div class="grid grid--3">
+        <div class="card"><h3>规格先行</h3><p>电压、容量、CCA、标准、壳体尺寸与端子布局在生产前就逐项锁定。</p></div>
+        <div class="card"><h3>品牌一致</h3><p>OEM 与贴牌的外观、包装与产品标识为复购订单受控管理。</p></div>
+        <div class="card"><h3>出口能力</h3><p>由 {MANUFACTURER.name} 制造，支持从 {MANUFACTURER.exportPorts} 出口至 {MANUFACTURER.exportMarkets}。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">为什么选铅酸</span>
+    <h2>为什么 OEM 方案选铅酸电池</h2>
+    <p class="lead">铅酸电池是有着 150 年历史的成熟供应链，且启动电池不像锂电池那样属于 Class 9 危险品。对进口商而言，这意味着更简单的运输、更少的运输限制与更低的合规负担——一个成熟、可靠、能跑多年的供应基础。</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>物流更简单</h3><p>启动电池按普通货物规则运输，无需锂电池所需的 UN38.3、MSDS 与 Class 9 危险品处理。</p></div>
+      <div class="card"><h3>可重复验证</h3><p>几十年的现场数据积累，让锁定后的规格能跨生产批次保持一致。</p></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">标准</span>
+      <h2>我们生产所遵循的标准</h2>
+      <p class="lead">一家工厂，覆盖所有主要标准——一个供应商满足您的全部市场。</p>
+      <div class="grid grid--3">
+        <div class="card"><h3>JIS</h3><p>日系与亚洲市场适配（如 D23、D26、D31、B24 壳体组）。</p></div>
+        <div class="card"><h3>DIN / EN</h3><p>欧系市场适配（如 H5–H8、LN2–LN5 壳体组）。</p></div>
+        <div class="card"><h3>BCI / AS / SA</h3><p>北美、澳洲与南非市场适配。</p></div>
+      </div>
+      <p><a href="/data/65d26/">查看参考型号规格 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">制造</span>
+    <h2>在专用电池工厂生产</h2>
+    <p class="lead">{MANUFACTURER.name}（{MANUFACTURER.founded} 年成立）在 {MANUFACTURER.address} 运营着 {MANUFACTURER.factoryArea} 的厂区，拥有 {MANUFACTURER.productionLines}。</p>
+    <img class="mfg-photo" src="/images/factory/factory-19.webp" alt="晋州成光电源有限公司电池生产车间" width="1508" height="823" loading="lazy" decoding="async" />
+    <p><a href="/zh/factory/">查看工厂概览 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <OEMProcess />
+      <p><a href="/zh/contact/">讨论您的项目 &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="tag">采购前须知</span>
+    <h2>OEM 采购前需要了解什么？</h2>
+    <div class="grid grid--3">
+      <div class="card"><h3>先明确标准与型号</h3><p>不要只说「要一款电池」。JIS、DIN、BCI 的壳体尺寸与端子布局各不相同，不能互换。</p></div>
+      <div class="card"><h3>CCA 依赖测试方法</h3><p>JIS CCA（−15°C）与 EN CCA（−18°C）对同一块电池是不同的数值。比较报价前先确认基准。</p></div>
+      <div class="card"><h3>MOQ 跟着集装箱走</h3><p>通常一个 20 尺柜起订。多型号拼柜能摊低单位成本。</p></div>
+    </div>
+    <p style="margin-top:1.25rem">询价前，请先参考 <a href="/knowledge/oem-battery-specification-guide/">OEM 电池规格指南</a> 并理解 <a href="/knowledge/oem-battery-moq-lead-time/">MOQ 与交期如何计算</a>。</p>
+  </section>
+
+  <section class="section container">
+    <span class="tag">参考型号</span>
+    <h2>电池型号规格</h2>
+    <p class="lead">常见 JIS 与 DIN/EN 适配的参考规格。规格仅供参考，下单前请与制造商确认最终数值。</p>
+    <div class="model-list">
+      {batteryModels.map((model) => <ModelCard model={model} />)}
+    </div>
+    <p style="margin-top:1rem"><a href="/tools/battery-finder/">使用电池选型工具 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>常见问题</h2>
+      {homeFaqs.map((f) => (
+        <div class="card" style="margin-bottom:0.9rem">
+          <h3>{f.q}</h3>
+          <p style="margin:0">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

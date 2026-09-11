@@ -1,0 +1,4 @@
+Contact: mailto:martin@dinweys.com
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en, zh, es, ar, ru
+Canonical: https://dingweibattery.com/.well-known/security.txt

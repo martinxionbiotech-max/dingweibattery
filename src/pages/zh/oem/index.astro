@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import BatteryTypeCard from '../../../components/BatteryTypeCard.astro';
+import OEMProcess from '../../../components/OEMProcess.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, RELATIONSHIP, BATTERY_TYPES, TRADE_TERMS, CERTIFICATIONS } from '../../../data/site';
+
+const title = 'OEM 电池制造 | Dingwei Battery';
+const description = 'Dingwei Battery 提供 OEM 电池方案，由晋州成光电源有限公司制造：SLI、AGM、EFB 与重载电池，符合 JIS、DIN、BCI、AS、SA 标准。';
+
+const breadcrumbs = [{ label: 'OEM', href: '/zh/oem/' }];
+
+const oemFaqs = [
+  {
+    q: 'Dingwei 供应哪些电池？',
+    a: 'Dingwei 供应 SLI、AGM、EFB 与重载铅酸启动电池，用于 OEM 与贴牌方案，规格符合 JIS、DIN、BCI、AS、SA 标准。',
+  },
+  {
+    q: 'Dingwei 电池由谁制造？',
+    a: 'Dingwei 电池由晋州成光电源有限公司制造，一家 2002 年成立于中国河北晋州的铅酸电池制造商，持有 IATF 16949 认证。',
+  },
+  {
+    q: 'Dingwei 如何保证复购订单一致？',
+    a: '靠「规格锁定」——采购方批准样品，该批准标准即成为之后每个货柜的基准。含产前打样、过程管控与批次追溯的关卡式流程，防止复购订单出现规格漂移。',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: BRAND,
+    url: `${SITE.url}/zh/oem/`,
+    description,
+    manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName, foundingDate: String(MANUFACTURER.founded) },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: oemFaqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: 'OEM', item: `${SITE.url}/zh/oem/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">OEM 概览</span>
+    <h1>OEM 电池制造</h1>
+    <p class="lead">{RELATIONSHIP} OEM 意味着您的产品按约定规格设计、贴牌与供应——而不是从通用目录里挑一款。</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <h2>OEM vs ODM vs 贴牌</h2>
+    <p class="lead">OEM 按您的规格制造；ODM 从一个可贴牌的现成设计起步；贴牌则是把您的标识套到既有产品上。走哪条路，取决于您已经掌控了多少规格。</p>
+    <p><a href="/knowledge/oem-vs-odm-vs-private-label/">阅读对比指南 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>「OEM」对电池采购方意味着什么</h2>
+      <p class="lead">OEM 意味着您定义规格、拥有设计与品牌，工厂按此制造。这正是它与 ODM（工厂拥有设计）和贴牌（您给现货产品贴牌）的区别。</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>可定制项</h2>
+    <div class="grid grid--2">
+      <div class="card"><h3>标签与外观</h3><p>您的品牌、配色与产品命名，体现在标签与壳体上。</p></div>
+      <div class="card"><h3>包装</h3><p>纸箱、套筒与托盘外观按您的规范定制。</p></div>
+      <div class="card"><h3>端子与规格</h3><p>端子类型与位置、电压与容量按您的市场定制。</p></div>
+      <div class="card"><h3>单证</h3><p>多语言说明书与质保卡。</p></div>
+    </div>
+    <p><a href="/private-label/">查看贴牌选项 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">能力</span>
+      <h2>产品系列</h2>
+      <div class="grid grid--4">
+        {BATTERY_TYPES.map((type) => <BatteryTypeCard type={type} />)}
+      </div>
+      <img class="mfg-photo" src="/images/factory/factory-20.webp" alt="晋州成光电源有限公司电池产线" width="1517" height="631" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>商务条款</h2>
+    <p class="lead">{MANUFACTURER.name} 使用的基线出口条款。最终条款以询价确认为准。</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>MOQ</h3><p>{TRADE_TERMS.moq}</p></div>
+      <div class="card"><h3>交期</h3><p>{TRADE_TERMS.leadTime}</p></div>
+      <div class="card"><h3>付款</h3><p>{TRADE_TERMS.payment}</p></div>
+      <div class="card"><h3>贸易术语</h3><p>{TRADE_TERMS.incoterms}</p></div>
+    </div>
+    <p class="note">价格不公开。请按您的规格与年量询价。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">认证</span>
+      <h2>制造商持有的质量体系</h2>
+      <p class="lead">以下认证由 {MANUFACTURER.name} 持有。</p>
+      <ul>
+        {CERTIFICATIONS.map((cert) => <li>{cert}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container">
+    <OEMProcess />
+    <p><a href="/knowledge/how-choose-oem-battery-manufacturer/">如何选择 OEM 电池制造商 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场</strong>：OEM 合作最该盯的不是单价，而是「规格锁定」这一步花没花够时间。</p>
+      <p><strong>理由</strong>：① 绝大多数交期延误的根子是中途改端子、改丝印，不是产能不够；② 规格锁得越死，后面越顺——前期多磨一天，抵后面多等十天；③ 愿意跟你逐项确认规格的工厂，比「一口价马上能排产」的工厂更靠谱。</p>
+      <p><strong>声明</strong>：以上为作者经验判断，非经第三方核验的事实；交期受排产与海运波动影响。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>如何给 OEM 电池制造商打分</h2>
+    <p class="lead">五个维度，把可靠的 OEM 伙伴和「只能做好一个样品」的供应商区分开。</p>
+    <ol>
+      <li><strong>规格覆盖</strong>——能否生产您的标准（JIS / DIN / BCI / AS / SA）？</li>
+      <li><strong>认证</strong>——汽车供应是否具备 IATF 16949，并有 ISO 9001 支撑？</li>
+      <li><strong>规模</strong>——厂区面积与日产能是否匹配您的年量？</li>
+      <li><strong>可重复性</strong>——如何让复购订单与批准样品完全一致？</li>
+      <li><strong>出口经验</strong>——服务哪些市场，提供哪些单证？</li>
+    </ol>
+    <p>索取样品前，用这套打分视角配合 <a href="/knowledge/how-choose-oem-battery-manufacturer/">五点决策框架</a>。</p>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见 OEM 采购误区</h2>
+    <ul>
+      <li>跨标准比较 CCA，却不核对测试方法。</li>
+      <li>先定标签，后定规格。</li>
+      <li>只看最低价，忽视可重复性。</li>
+    </ul>
+    <p>从 <a href="/knowledge/oem-battery-specification-guide/">OEM 电池规格指南</a> 开始，让第一个批准样品成为之后每个订单的标准。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>常见问题</h2>
+      {oemFaqs.map((f) => (
+        <div class="card" style="margin-bottom:0.9rem">
+          <h3>{f.q}</h3>
+          <p style="margin:0">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CTASection title="启动您的 OEM 电池项目" />
+</BaseLayout>

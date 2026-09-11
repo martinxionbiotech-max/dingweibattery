@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import StatsBar from '../../../components/StatsBar.astro';
+import CTASection from '../../../components/CTASection.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, BRAND, MANUFACTURER, CERTIFICATIONS, STANDARDS, RELATIONSHIP } from '../../../data/site';
+
+const title = '电池工厂与制造 | Dingwei Battery';
+const description = 'Dingwei Battery 方案由晋州成光电源有限公司（2002 年成立）制造，中国河北晋州 20 万㎡ 电池工厂，18 条产线。';
+
+const breadcrumbs = [{ label: '工厂', href: '/zh/factory/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: MANUFACTURER.name,
+    legalName: MANUFACTURER.legalName,
+    foundingDate: String(MANUFACTURER.founded),
+    address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '工厂', item: `${SITE.url}/zh/factory/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">制造</span>
+    <h1>电池工厂与制造</h1>
+    <p class="lead">{RELATIONSHIP} 生产由 {MANUFACTURER.name} 在其位于 {MANUFACTURER.address} 的工厂完成。</p>
+  </section>
+
+  <StatsBar />
+
+  <section class="section container">
+    <h2>车间现场</h2>
+    <p class="lead">走进 {MANUFACTURER.name} 位于 {MANUFACTURER.address} 的铅酸电池工厂。</p>
+    <div class="gallery gallery--uniform">
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-05.webp" alt="晋州成光电源有限公司电池产线" width="1530" height="641" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-18.webp" alt="晋州成光电源有限公司电池生产设备" width="1517" height="633" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-23.webp" alt="晋州成光电源有限公司电池制造工序" width="1514" height="633" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-24.webp" alt="晋州成光电源有限公司电池产线" width="1515" height="632" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-25.webp" alt="晋州成光电源有限公司电池车间" width="1526" height="793" loading="lazy" decoding="async" />
+      </figure>
+      <figure class="gallery__item">
+        <img src="/images/factory/factory-26.webp" alt="晋州成光电源有限公司电池制造设备" width="1530" height="645" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>制造商档案</h2>
+      <div class="grid grid--2">
+        <div class="card"><h3>公司</h3><p>{MANUFACTURER.legalName}（{MANUFACTURER.shortName}）</p></div>
+        <div class="card"><h3>成立</h3><p>{MANUFACTURER.founded} 年</p></div>
+        <div class="card"><h3>地址</h3><p>{MANUFACTURER.address}</p></div>
+        <div class="card"><h3>厂区</h3><p>{MANUFACTURER.factoryArea}，{MANUFACTURER.productionLines}</p></div>
+        <div class="card"><h3>日产能</h3><p>{MANUFACTURER.dailyOutput}</p></div>
+        <div class="card"><h3>年产能</h3><p>{MANUFACTURER.annualCapacity}</p></div>
+        <div class="card"><h3>出口市场</h3><p>{MANUFACTURER.exportMarkets}，经 {MANUFACTURER.exportPorts}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>制造工序：十个环节</h2>
+    <p class="lead">能看懂这十个环节的采购方，才能真正审好一家工厂——每一步都是一个质检节点。</p>
+    <ol>
+      <li><strong>铸板</strong>——铅合金板栅；免维护电池用铅钙合金。</li>
+      <li><strong>合膏</strong>——膏体一致性决定容量。</li>
+      <li><strong>涂板</strong>——膏体在板栅上均匀涂布。</li>
+      <li><strong>固化</strong>——2–4 天结晶，决定机械强度。</li>
+      <li><strong>装配</strong>——极板与隔板入壳。</li>
+      <li><strong>焊接</strong>——极耳与端子焊接。</li>
+      <li><strong>加酸</strong>——灌注电解液。</li>
+      <li><strong>化成</strong>——激活活性物质。</li>
+      <li><strong>封盖与收尾</strong>——封盖密封。</li>
+      <li><strong>检测与包装</strong>——100% 电性能检测。</li>
+    </ol>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author's Take</h2>
+      <p><strong>立场</strong>：证书只能证明「有体系」，验厂才能证明「体系真在跑」——大宗采购前，一定要看一次现场。</p>
+      <p><strong>理由</strong>：① IATF 16949 这类认证是门槛，但同一条产线能造出不同质量，差异在过程管控是否真实执行；② 愿意见第三方审厂的工厂，通常对自家过程有底气；③ 供应商说一百句「质量稳定」，不如您到化成车间和质检台站十分钟。</p>
+      <p><strong>声明</strong>：以上为作者立场，非经第三方核验的事实；证书与产能信息来自站点公开资料，落地前建议核对证书有效期。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>质量控制</h2>
+    <ul>
+      <li>IATF 16949 汽车质量体系</li>
+      <li>100% 下线电性能检测</li>
+      <li>批次可追溯</li>
+      <li>随机抽检</li>
+    </ul>
+  </section>
+
+  <section class="section container prose">
+    <h2>产能</h2>
+    <p>{MANUFACTURER.factoryArea} 厂区，{MANUFACTURER.productionLines}，{MANUFACTURER.dailyOutput}。</p>
+    <p><a href="/zh/oem/">查看 OEM 能力 &rarr;</a></p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>出口能力</h2>
+      <p>从 {MANUFACTURER.exportPorts} 出口至 {MANUFACTURER.exportMarkets}，提供完整出口单证，包括质检单、装箱单、提单、原产地证与检测报告。</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>认证</h2>
+    <p class="lead">{MANUFACTURER.name} 持有的认证：</p>
+    <ul>
+      {CERTIFICATIONS.map((cert) => <li>{cert}</li>)}
+    </ul>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>生产标准</h2>
+      <p class="lead">电池平台供应以下标准系列：{STANDARDS.join('、')}。</p>
+      <p><a href="/zh/oem/">查看 OEM 能力 &rarr;</a> · <a href="/knowledge/oem-battery-supplier-checklist/">供应商应检查什么 &rarr;</a></p>
+    </div>
+  </section>
+
+  <CTASection title="评估我们的制造能力" />
+</BaseLayout>

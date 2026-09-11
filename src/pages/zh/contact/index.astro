@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import { SITE, RELATIONSHIP, TRADE_TERMS, CONTACT, MANUFACTURER } from '../../../data/site';
+
+const title = '联系我们 · 索取 OEM 电池报价 | Dingwei Battery';
+const description = '向 Dingwei Battery 索取 OEM 或贴牌电池报价。提供您的规格、目标市场与年需求量，获取定制方案。';
+
+const breadcrumbs = [{ label: '联系', href: '/zh/contact/' }];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '联系', item: `${SITE.url}/zh/contact/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">联系 / 询价</span>
+    <h1>索取 OEM 或贴牌电池报价</h1>
+    <p class="lead">{RELATIONSHIP} 用下面的清单整理您的需求，然后发给制造商的出口团队。</p>
+    <img class="mfg-photo" src="/images/port.webp" alt="Dingwei Battery 出货所用出口港" width="1485" height="613" loading="lazy" decoding="async" />
+  </section>
+
+  <section class="section--tight container">
+    <div class="contact-bar">
+      <div class="card">
+        <h3>邮箱</h3>
+        <p><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
+      </div>
+      <div class="card">
+        <h3>WhatsApp</h3>
+        <p><a href={CONTACT.whatsappLink} target="_blank" rel="noopener">{CONTACT.whatsapp}</a></p>
+        <a class="btn btn--whatsapp" href={CONTACT.whatsappLink} target="_blank" rel="noopener">WhatsApp 在线咨询</a>
+      </div>
+      <div class="card">
+        <h3>电话</h3>
+        <p><a href={CONTACT.phoneLink}>{CONTACT.phone}</a></p>
+      </div>
+      <div class="card">
+        <h3>地址</h3>
+        <p>{MANUFACTURER.address}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--tight container">
+    <div class="card">
+      <h2>公司主体</h2>
+      <p><strong>{MANUFACTURER.name}</strong>（{MANUFACTURER.legalNameZh}）——{MANUFACTURER.founded} 年成立，日产能 {MANUFACTURER.dailyOutput}，年产能 {MANUFACTURER.annualCapacity}，出口至 {MANUFACTURER.exportMarkets}。</p>
+      <p>{RELATIONSHIP}</p>
+    </div>
+  </section>
+
+  <section class="section--tight container">
+    <form id="rfq-form" action="/zh/contact/" method="post">
+      <div class="form-grid">
+        <div class="field">
+          <label for="company">公司</label>
+          <input id="company" name="company" type="text" autocomplete="organization" required />
+        </div>
+        <div class="field">
+          <label for="country">国家 / 市场</label>
+          <input id="country" name="country" type="text" autocomplete="country-name" required />
+        </div>
+        <div class="field">
+          <label for="buyer-type">采购方类型</label>
+          <select id="buyer-type" name="buyer_type">
+            <option value="">请选择</option>
+            <option>经销商</option>
+            <option>零售商</option>
+            <option>车队运营方</option>
+            <option>品牌方</option>
+            <option>其他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="battery-type">电池类型</label>
+          <select id="battery-type" name="battery_type">
+            <option value="">请选择</option>
+            <option>SLI</option>
+            <option>AGM</option>
+            <option>EFB</option>
+            <option>重载</option>
+            <option>不确定</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="standard">标准</label>
+          <select id="standard" name="standard">
+            <option value="">请选择</option>
+            <option>JIS</option>
+            <option>DIN</option>
+            <option>BCI</option>
+            <option>AS</option>
+            <option>SA</option>
+            <option>EN</option>
+            <option>不确定</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="model">型号 / 壳体参考</label>
+          <input id="model" name="model" type="text" placeholder="例如 65D26、H6" />
+        </div>
+        <div class="field">
+          <label for="voltage">电压</label>
+          <select id="voltage" name="voltage">
+            <option value="">请选择</option>
+            <option>6V</option>
+            <option>12V</option>
+            <option>其他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="capacity">容量（Ah）</label>
+          <input id="capacity" name="capacity_ah" type="number" min="1" />
+        </div>
+        <div class="field">
+          <label for="cca">CCA（参考值）</label>
+          <input id="cca" name="cca_reference" type="number" min="0" />
+        </div>
+        <div class="field">
+          <label for="volume">年需求量（只）</label>
+          <input id="volume" name="annual_volume" type="number" min="0" />
+        </div>
+        <div class="field">
+          <label for="private-label">贴牌</label>
+          <select id="private-label" name="private_label">
+            <option value="">请选择</option>
+            <option>是</option>
+            <option>否</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="packaging">包装偏好</label>
+          <input id="packaging" name="packaging" type="text" />
+        </div>
+        <div class="field">
+          <label for="notes">备注 / 额外要求</label>
+          <textarea id="notes" name="notes"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="submit">生成 RFQ 询价单</button>
+        <p id="rfq-status" class="form-status" role="status">RFQ 询价单已就绪。请把这些信息发给制造商的出口团队以获取条款。价格从不公开，仅在询价时提供。</p>
+      </div>
+    </form>
+    <p class="note">商务条款以询价确认为准：MOQ {TRADE_TERMS.moq}；交期 {TRADE_TERMS.leadTime}；付款 {TRADE_TERMS.payment}；贸易术语 {TRADE_TERMS.incoterms}；质保 {TRADE_TERMS.warranty}。</p>
+  </section>
+
+  <script is:inline>
+    const form = document.getElementById('rfq-form');
+    const status = document.getElementById('rfq-status');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      status.style.display = 'block';
+      status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  </script>
+</BaseLayout>

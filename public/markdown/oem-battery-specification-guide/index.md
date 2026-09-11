@@ -214,6 +214,94 @@ DIN/EN · 12V · 100 Ah
 
 [View specification →](/data/din100/)
 
+### [BCI-24 Battery](/data/bci-24/)
+
+BCI · 12V · 70 Ah
+
+550 CCA (reference) · 260 × 173 × 225 mm
+
+[View specification →](/data/bci-24/)
+
+### [BCI-27 Battery](/data/bci-27/)
+
+BCI · 12V · 90 Ah
+
+750 CCA (reference) · 306 × 173 × 225 mm
+
+[View specification →](/data/bci-27/)
+
+### [BCI-31 Battery](/data/bci-31/)
+
+BCI · 12V · 100 Ah
+
+900 CCA (reference) · 330 × 173 × 240 mm
+
+[View specification →](/data/bci-31/)
+
+### [BCI-48 Battery](/data/bci-48/)
+
+BCI · 12V · 72 Ah
+
+730 CCA (reference) · 278 × 175 × 190 mm
+
+[View specification →](/data/bci-48/)
+
+### [BCI-49 Battery](/data/bci-49/)
+
+BCI · 12V · 96 Ah
+
+900 CCA (reference) · 353 × 175 × 190 mm
+
+[View specification →](/data/bci-49/)
+
+### [BCI-65 Battery](/data/bci-65/)
+
+BCI · 12V · 75 Ah
+
+850 CCA (reference) · 306 × 192 × 192 mm
+
+[View specification →](/data/bci-65/)
+
+### [N70ZZ Battery](/data/n70zz/)
+
+AS · 12V · 85 Ah
+
+720 CCA (reference) · 305 × 171 × 202 mm
+
+[View specification →](/data/n70zz/)
+
+### [N70 Battery](/data/n70/)
+
+AS · 12V · 75 Ah
+
+680 CCA (reference) · 305 × 171 × 202 mm
+
+[View specification →](/data/n70/)
+
+### [646 Battery](/data/646/)
+
+SA · 12V · 58 Ah
+
+465 CCA (reference) · 242 × 175 × 190 mm
+
+[View specification →](/data/646/)
+
+### [657 Battery](/data/657/)
+
+SA · 12V · 80 Ah
+
+800 CCA (reference) · 276 × 175 × 190 mm
+
+[View specification →](/data/657/)
+
+### [668 Battery](/data/668/)
+
+SA · 12V · 80 Ah
+
+730 CCA (reference) · 278 × 175 × 190 mm
+
+[View specification →](/data/668/)
+
 Specifications above are for reference; confirm final values with the manufacturer. [Battery finder tool →](/tools/battery-finder/)
 
 ## Dingwei Battery view

@@ -798,5 +798,394 @@
     "verified_date": "2026-09-03",
     "confidence": "REFERENCE",
     "image": "/images/product/range-din100.webp"
+  },
+  {
+    "model": "BCI-24",
+    "aliases": [
+      "Group 24"
+    ],
+    "standard": "BCI",
+    "standard_code": "BCI Group 24 (SAE J537)",
+    "voltage": 12,
+    "capacity_ah": 70,
+    "c20_ah": 70,
+    "cca": {
+      "value": 550,
+      "basis": "SAE J537 (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": 120,
+    "dimensions_mm": {
+      "length": 260,
+      "width": 173,
+      "height": 225
+    },
+    "case_size": "Group 24",
+    "terminal": "SAE top-post",
+    "polarity": null,
+    "technology": "Maintenance-free",
+    "application": "Passenger car / marine / RV dual-purpose",
+    "vehicle_type": null,
+    "weight_kg": 19.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "BCI Group 24 size chart (BatteryStuff / batteryequivalents) + industry reference",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
+  },
+  {
+    "model": "BCI-27",
+    "aliases": [
+      "Group 27"
+    ],
+    "standard": "BCI",
+    "standard_code": "BCI Group 27 (SAE J537)",
+    "voltage": 12,
+    "capacity_ah": 90,
+    "c20_ah": 90,
+    "cca": {
+      "value": 750,
+      "basis": "SAE J537 (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": 160,
+    "dimensions_mm": {
+      "length": 306,
+      "width": 173,
+      "height": 225
+    },
+    "case_size": "Group 27",
+    "terminal": "SAE top-post",
+    "polarity": null,
+    "technology": "Maintenance-free",
+    "application": "Marine / RV / light truck / deep-cycle dual-purpose",
+    "vehicle_type": null,
+    "weight_kg": 25.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "BCI Group 27 chart (batteryequivalents: 66-110Ah / 600-1000CCA / 140-220min RC) + reference",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
+  },
+  {
+    "model": "BCI-31",
+    "aliases": [
+      "Group 31"
+    ],
+    "standard": "BCI",
+    "standard_code": "BCI Group 31 (SAE J537)",
+    "voltage": 12,
+    "capacity_ah": 100,
+    "c20_ah": 100,
+    "cca": {
+      "value": 900,
+      "basis": "SAE J537 (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": 190,
+    "dimensions_mm": {
+      "length": 330,
+      "width": 173,
+      "height": 240
+    },
+    "case_size": "Group 31",
+    "terminal": "SAE top-post / stud",
+    "polarity": null,
+    "technology": "Maintenance-free",
+    "application": "Marine / RV / heavy-duty commercial",
+    "vehicle_type": null,
+    "weight_kg": 28.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "BCI Group 31 size chart + industry reference",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
+  },
+  {
+    "model": "BCI-48",
+    "aliases": [
+      "Group 48",
+      "H6",
+      "LN3"
+    ],
+    "standard": "BCI",
+    "standard_code": "BCI Group 48 (≈ DIN H6/LN3)",
+    "voltage": 12,
+    "capacity_ah": 72,
+    "c20_ah": 72,
+    "cca": {
+      "value": 730,
+      "basis": "SAE J537 (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 278,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "Group 48 / H6",
+    "terminal": "SAE top-post",
+    "polarity": null,
+    "technology": "Maintenance-free",
+    "application": "North American passenger car / light truck (H6 equivalent)",
+    "vehicle_type": null,
+    "weight_kg": 17.5,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "BCI Group 48 (batterysharks: 278×175×190mm, 315-850 CCA) + H6 cross-ref",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
+  },
+  {
+    "model": "BCI-49",
+    "aliases": [
+      "Group 49",
+      "H8",
+      "LN5"
+    ],
+    "standard": "BCI",
+    "standard_code": "BCI Group 49 (≈ DIN H8/LN5)",
+    "voltage": 12,
+    "capacity_ah": 96,
+    "c20_ah": 96,
+    "cca": {
+      "value": 900,
+      "basis": "SAE J537 (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 353,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "Group 49 / H8",
+    "terminal": "SAE top-post",
+    "polarity": null,
+    "technology": "Maintenance-free",
+    "application": "North American SUV / premium (H8 equivalent)",
+    "vehicle_type": null,
+    "weight_kg": 23.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "BCI Group 49 (batterysharks: 353×175×190mm, 470-950 CCA) + H8 cross-ref",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
+  },
+  {
+    "model": "BCI-65",
+    "aliases": [
+      "Group 65"
+    ],
+    "standard": "BCI",
+    "standard_code": "BCI Group 65 (SAE J537)",
+    "voltage": 12,
+    "capacity_ah": 75,
+    "c20_ah": 75,
+    "cca": {
+      "value": 850,
+      "basis": "SAE J537 (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": 140,
+    "dimensions_mm": {
+      "length": 306,
+      "width": 192,
+      "height": 192
+    },
+    "case_size": "Group 65",
+    "terminal": "SAE top-post",
+    "polarity": null,
+    "technology": "Maintenance-free",
+    "application": "Ford / Lincoln / Mercury passenger & light truck",
+    "vehicle_type": null,
+    "weight_kg": 23.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "BCI Group 65 (batterysharks: 306×192×192mm, 540-880 CCA; batteryequivalents: 70-75Ah / 750-950 CCA)",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
+  },
+  {
+    "model": "N70ZZ",
+    "aliases": [
+      "N70ZZ MF"
+    ],
+    "standard": "AS",
+    "standard_code": "Australian N-type (N70ZZ)",
+    "voltage": 12,
+    "capacity_ah": 85,
+    "c20_ah": 85,
+    "cca": {
+      "value": 720,
+      "basis": "SAE (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": 170,
+    "dimensions_mm": {
+      "length": 305,
+      "width": 171,
+      "height": 202
+    },
+    "case_size": "N70ZZ",
+    "terminal": "SAE top-post",
+    "polarity": null,
+    "technology": "Maintenance-free",
+    "application": "Australian 4x4 / SUV / light commercial",
+    "vehicle_type": null,
+    "weight_kg": 21.5,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "Century / Yuasa N70ZZ MF datasheet (305×171×202mm, TH 225mm, 720 CCA, 170 RC, 85Ah)",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
+  },
+  {
+    "model": "N70",
+    "aliases": [
+      "N70 Endurance"
+    ],
+    "standard": "AS",
+    "standard_code": "Australian N-type (N70)",
+    "voltage": 12,
+    "capacity_ah": 75,
+    "c20_ah": 75,
+    "cca": {
+      "value": 680,
+      "basis": "SAE (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": 160,
+    "dimensions_mm": {
+      "length": 305,
+      "width": 171,
+      "height": 202
+    },
+    "case_size": "N70",
+    "terminal": "SAE top-post",
+    "polarity": null,
+    "technology": "Maintainable / Maintenance-free",
+    "application": "Australian SUV / 4WD / light commercial",
+    "vehicle_type": null,
+    "weight_kg": 21.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "Exide Endurance N70ZZ datasheet (680 CCA, 160 RC, 75Ah)",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
+  },
+  {
+    "model": "646",
+    "aliases": [
+      "SA-646"
+    ],
+    "standard": "SA",
+    "standard_code": "South Africa type code 646",
+    "voltage": 12,
+    "capacity_ah": 58,
+    "c20_ah": 58,
+    "cca": {
+      "value": 465,
+      "basis": "SAE (-18°C) reference (range 380-550)",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 242,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "646",
+    "terminal": "SAE top-post",
+    "polarity": null,
+    "technology": "Maintenance-free",
+    "application": "South African sedan / hatchback / light-duty",
+    "vehicle_type": null,
+    "weight_kg": 13.5,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "Alberton Battery Mart 646 specs (55-60Ah, 380-550 CCA, 242×175×190mm) + Kariba fitment refs",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
+  },
+  {
+    "model": "657",
+    "aliases": [
+      "657C"
+    ],
+    "standard": "SA",
+    "standard_code": "South Africa type code 657",
+    "voltage": 12,
+    "capacity_ah": 80,
+    "c20_ah": 80,
+    "cca": {
+      "value": 800,
+      "basis": "SAE (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 276,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "657",
+    "terminal": "SAE top-post",
+    "polarity": null,
+    "technology": "Maintenance-free",
+    "application": "South African sedan / SUV / diesel passenger",
+    "vehicle_type": null,
+    "weight_kg": 18.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "battery.co.za 657C (12V 800 CCA, 276×175×190mm) + Willard/Kariba fitment refs",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
+  },
+  {
+    "model": "668",
+    "aliases": [
+      "SA-668"
+    ],
+    "standard": "SA",
+    "standard_code": "South Africa type code 668",
+    "voltage": 12,
+    "capacity_ah": 80,
+    "c20_ah": 80,
+    "cca": {
+      "value": 730,
+      "basis": "SAE (-18°C) reference",
+      "confidence": "REFERENCE",
+      "note": "reference value, confirm with manufacturer"
+    },
+    "rc_min": null,
+    "dimensions_mm": {
+      "length": 278,
+      "width": 175,
+      "height": 190
+    },
+    "case_size": "668",
+    "terminal": "SAE top-post",
+    "polarity": null,
+    "technology": "Maintenance-free",
+    "application": "South African premium sedan / SUV / diesel",
+    "vehicle_type": null,
+    "weight_kg": 18.0,
+    "oem_available": true,
+    "private_label_available": true,
+    "source": "Goldwagen 668 (80Ah) + Kariba/Willard fitment refs",
+    "verified_date": "2026-09-11",
+    "confidence": "REFERENCE"
   }
 ]
