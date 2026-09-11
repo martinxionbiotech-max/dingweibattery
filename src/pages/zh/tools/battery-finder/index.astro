@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, RELATIONSHIP } from '../../../../data/site';
+import { batteryModels, modelPath } from '../../../../data/battery-models';
+
+const title = '电池选型工具：匹配您的电池型号 | Dingwei Battery';
+const description = '按应用、标准系列与容量筛选 34 款参考电池型号。查找 Dingwei Battery 的 JIS、DIN/EN、BCI、AS、SA 与重载启动电池参考。';
+
+const breadcrumbs = [{ label: '电池选型', href: '/zh/tools/battery-finder/' }];
+
+const HEAVY = ['105D31', '115D31', 'N100', 'N150', 'N200'];
+
+const finderData = batteryModels.map((m) => ({
+  model: m.model,
+  standard: m.standard,
+  capacity: m.capacity_ah,
+  voltage: m.voltage,
+  cca: m.cca.value,
+  dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+  caseSize: m.case_size,
+  app: HEAVY.includes(m.model) ? '重载' : '乘用车',
+  href: '/zh' + modelPath(m.model),
+}));
+
+const finderJson = JSON.stringify(finderData);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '电池选型', item: `${SITE.url}/zh/tools/battery-finder/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">工具</span>
+    <h1>电池选型工具</h1>
+    <p class="lead">按应用、标准系列与容量筛选当前参考型号集。规格仅供参考，下单前请与制造商确认最终数值。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="finder-filters">
+        <div class="field">
+          <label for="f-app">应用</label>
+          <select id="f-app">
+            <option value="all">全部</option>
+            <option value="乘用车">乘用车</option>
+            <option value="重载">重载</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-std">标准系列</label>
+          <select id="f-std">
+            <option value="all">全部</option>
+            <option value="JIS">JIS</option>
+            <option value="DIN/EN">DIN/EN</option>
+            <option value="BCI">BCI</option>
+            <option value="AS">AS</option>
+            <option value="SA">SA</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-cap">容量（Ah）</label>
+          <select id="f-cap">
+            <option value="all">全部</option>
+            <option value="low">&le; 60</option>
+            <option value="mid">61&ndash;80</option>
+            <option value="high">81&ndash;100</option>
+            <option value="xhigh">&gt; 100</option>
+          </select>
+        </div>
+        <div class="finder-actions">
+          <button class="btn" type="button" id="finder-search">搜索</button>
+          <button class="btn btn--ghost" type="button" id="finder-reset">重置</button>
+        </div>
+      </div>
+      <p class="finder-count" id="finder-count" aria-live="polite"></p>
+      <div class="finder-results" id="finder-results"></div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>需要精确适配？</h2>
+    <p>{RELATIONSHIP} 在 RFQ 表单中提供车辆、标准与壳体参考，制造商的出口团队会确认适配。</p>
+    <p><a href="/zh/contact/">申请适配确认 &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">阅读规格指南 &rarr;</a></p>
+  </section>
+
+  <CTASection title="申请 OEM 适配核对" />
+
+  <script type="application/json" id="finder-data" set:html={finderJson}></script>
+  <script is:inline>
+    const MODELS = JSON.parse(document.getElementById('finder-data').textContent);
+    const resultsEl = document.getElementById('finder-results');
+    const countEl = document.getElementById('finder-count');
+
+    function matchCapacity(cap, filter) {
+      if (filter === 'all') return true;
+      if (filter === 'low') return cap <= 60;
+      if (filter === 'mid') return cap >= 61 && cap <= 80;
+      if (filter === 'high') return cap >= 81 && cap <= 100;
+      if (filter === 'xhigh') return cap > 100;
+      return true;
+    }
+
+    function render() {
+      const app = document.getElementById('f-app').value;
+      const std = document.getElementById('f-std').value;
+      const cap = document.getElementById('f-cap').value;
+
+      const filtered = MODELS.filter((m) => {
+        if (app !== 'all' && m.app !== app) return false;
+        if (std !== 'all' && m.standard !== std) return false;
+        return matchCapacity(m.capacity, cap);
+      });
+
+      countEl.textContent = '匹配 ' + filtered.length + ' 款型号';
+
+      if (filtered.length === 0) {
+        resultsEl.innerHTML = '<p class="note">没有匹配这些筛选条件的参考型号。请改为 <a href="/zh/contact/">申请定制适配</a>。</p>';
+        return;
+      }
+
+      resultsEl.innerHTML = filtered.map((m) => `
+        <article class="finder-card">
+          <h3><a href="${m.href}">${m.model} 电池</a></h3>
+          <p class="model-card__meta">${m.app} · ${m.standard} · ${m.voltage}V · ${m.capacity} Ah</p>
+          <p class="model-card__meta">${m.cca} CCA（参考）· ${m.dims} mm</p>
+          <a href="${m.href}">查看规格 <span aria-hidden="true">&rarr;</span></a>
+        </article>
+      `).join('');
+    }
+
+    document.getElementById('f-app').addEventListener('change', render);
+    document.getElementById('f-std').addEventListener('change', render);
+    document.getElementById('f-cap').addEventListener('change', render);
+
+    document.getElementById('finder-search').addEventListener('click', () => {
+      render();
+      document.getElementById('finder-results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    document.getElementById('finder-reset').addEventListener('click', () => {
+      document.getElementById('f-app').value = 'all';
+      document.getElementById('f-std').value = 'all';
+      document.getElementById('f-cap').value = 'all';
+      render();
+    });
+
+    render();
+  </script>
+</BaseLayout>

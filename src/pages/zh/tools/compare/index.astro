@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import { SITE, RELATIONSHIP } from '../../../../data/site';
+import { batteryModels, modelPath } from '../../../../data/battery-models';
+
+const title = '对比电池型号 | Dingwei Battery';
+const description = '并排对比两款电池型号——电压、容量、CCA、尺寸、壳体与应用——来自 Dingwei Battery 参考数据库。';
+
+const breadcrumbs = [{ label: '对比', href: '/zh/tools/compare/' }];
+
+const modelsJson = JSON.stringify(
+  batteryModels.map((m) => ({
+    model: m.model,
+    standard: m.standard,
+    standard_code: m.standard_code,
+    voltage: m.voltage,
+    capacity: m.capacity_ah,
+    c20: m.c20_ah,
+    cca: m.cca.value,
+    cca_basis: m.cca.basis,
+    rc: m.rc_min,
+    dims: `${m.dimensions_mm.length} × ${m.dimensions_mm.width} × ${m.dimensions_mm.height}`,
+    case_size: m.case_size,
+    weight: m.weight_kg,
+    technology: m.technology,
+    application: m.application,
+    aliases: m.aliases ?? [],
+    href: '/zh' + modelPath(m.model),
+  })),
+);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '对比', item: `${SITE.url}/zh/tools/compare/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">工具</span>
+    <h1>对比电池型号</h1>
+    <p class="lead">选两款型号，并排对比规格。CCA 依赖测试方法，尽量在同一标准系列内对比。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="finder-filters">
+        <div class="field">
+          <label for="c-a">型号 A</label>
+          <select id="c-a"></select>
+        </div>
+        <div class="field">
+          <label for="c-b">型号 B</label>
+          <select id="c-b"></select>
+        </div>
+      </div>
+      <div id="compare-output" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>如何阅读对比</h2>
+    <p>物理尺寸与壳体尺寸决定适配；容量与 CCA 决定电性能。同一标准系列中壳体号越大通常电池越大，但端子类型与极性仍须单独确认。</p>
+    <p><a href="/zh/data/">浏览完整型号数据库 &rarr;</a> · <a href="/zh/compare/">阅读文字版型号对比 &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">阅读规格指南 &rarr;</a></p>
+  </section>
+
+  <CTASection title="与制造商确认规格" />
+
+  <script type="application/json" id="compare-data" set:html={modelsJson}></script>
+  <script is:inline>
+    const MODELS = JSON.parse(document.getElementById('compare-data').textContent);
+    const selA = document.getElementById('c-a');
+    const selB = document.getElementById('c-b');
+    const out = document.getElementById('compare-output');
+
+    const opts = MODELS.map((m) => `<option value="${m.model}">${m.model} (${m.standard}, ${m.capacity}Ah)</option>`).join('');
+    selA.innerHTML = opts;
+    selB.innerHTML = opts;
+    selA.value = MODELS[0].model;
+    selB.value = MODELS[1].model;
+
+    function field(label, a, b) {
+      const same = a === b;
+      return `<tr><th>${label}</th><td${same ? '' : ' class="diff"'}>${a}</td><td${same ? '' : ' class="diff"'}>${b}</td></tr>`;
+    }
+
+    function render() {
+      const a = MODELS.find((m) => m.model === selA.value);
+      const b = MODELS.find((m) => m.model === selB.value);
+      if (!a || !b) return;
+
+      const aliases = (m) => (m.aliases.length ? m.aliases.join(', ') : '—');
+
+      out.innerHTML = `
+        <table class="data-table compare-table">
+          <thead><tr><th>字段</th><th>${a.model}</th><th>${b.model}</th></tr></thead>
+          <tbody>
+            ${field('标准', a.standard + ' (' + a.standard_code + ')', b.standard + ' (' + b.standard_code + ')')}
+            ${field('电压', a.voltage + ' V', b.voltage + ' V')}
+            ${field('容量（C20）', a.capacity + ' Ah', b.capacity + ' Ah')}
+            ${field('CCA（参考）', a.cca + ' CCA', b.cca + ' CCA')}
+            ${field('CCA 基准', a.cca_basis, b.cca_basis)}
+            ${field('储备容量', a.rc !== null ? a.rc + ' 分钟' : '询价确认', b.rc !== null ? b.rc + ' 分钟' : '询价确认')}
+            ${field('尺寸（mm）', a.dims, b.dims)}
+            ${field('壳体尺寸', a.case_size, b.case_size)}
+            ${field('重量', a.weight + ' kg', b.weight + ' kg')}
+            ${field('技术', a.technology, b.technology)}
+            ${field('应用', a.application, b.application)}
+            ${field('别名', aliases(a), aliases(b))}
+          </tbody>
+        </table>
+        <p class="note">CCA 依赖测试方法（JIS −15°C 对 EN/SAE −18°C）。高亮单元格显示两款型号的差异。所有数值请与制造商确认。</p>
+        <p style="margin-top:0.8rem"><a href="${a.href}">查看 ${a.model} &rarr;</a> · <a href="${b.href}">查看 ${b.model} &rarr;</a> · <a href="/zh/contact/">索取报价 &rarr;</a></p>
+      `;
+    }
+
+    selA.addEventListener('change', render);
+    selB.addEventListener('change', render);
+    render();
+  </script>
+</BaseLayout>
