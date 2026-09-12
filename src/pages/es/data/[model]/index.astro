@@ -68,6 +68,13 @@ const productJsonLd = {
   brand: { '@type': 'Brand', name: BRAND },
   manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName },
   mpn: model.model,
+  image: model.image ? `${SITE.url}${model.image}` : undefined,
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    offerCount: 1,
+  },
   additionalProperty: [
     { '@type': 'PropertyValue', name: 'Estándar', value: model.standard },
     { '@type': 'PropertyValue', name: 'Código de estándar', value: model.standard_code },
