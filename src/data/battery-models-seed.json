@@ -40,10 +40,10 @@
     "capacity_ah": 60,
     "c20_ah": 60,
     "cca": {
-      "value": 370,
-      "basis": "JIS (-15°C) reference",
-      "confidence": "PARTIALLY_VERIFIED",
-      "note": "reference value, confirm with manufacturer"
+      "value": 500,
+      "basis": "JIS (-15°C) cross-manufacturer reference",
+      "confidence": "STANDARD_REFERENCE",
+      "note": "cross-manufacturer reference: 爱采购/GS (60Ah, ~500 CCA)"
     },
     "rc_min": null,
     "dimensions_mm": {
@@ -406,7 +406,7 @@
     ],
     "standard": "DIN/EN",
     "voltage": 12,
-    "capacity_ah": 84,
+    "capacity_ah": 80,
     "cca": {
       "value": 760,
       "basis": "EN (-18°C) typical reference",
@@ -425,7 +425,7 @@
     "terminal": null,
     "polarity": null,
     "rc_min": null,
-    "c20_ah": 84,
+    "c20_ah": 80,
     "vehicle_type": null,
     "oem_available": true,
     "private_label_available": true,
@@ -593,10 +593,10 @@
     "capacity_ah": 60,
     "c20_ah": 60,
     "cca": {
-      "value": 600,
-      "basis": "JIS (-18°C) reference",
-      "confidence": "REFERENCE",
-      "note": "reference value from BRAVA 55D23L datasheet, confirm with manufacturer"
+      "value": 540,
+      "basis": "JIS (-15°C) cross-manufacturer reference",
+      "confidence": "STANDARD_REFERENCE",
+      "note": "cross-manufacturer reference: 双帆/松下/Century (60Ah, ~540 CCA)"
     },
     "rc_min": 100,
     "dimensions_mm": {
