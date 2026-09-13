@@ -1,0 +1,62 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../data/site';
+
+const title = 'Why Two Batteries with the Same Ah Can Have Different CCA | Dingwei Battery';
+const description = 'Why identical amp-hour (Ah) capacity does not mean identical cold cranking amps (CCA). Plate surface area, internal resistance, grid design and design intent decouple capacity from starting power.';
+const articleTitle = 'Why two batteries with the same Ah can have different CCA';
+
+const faqs = [
+  { q: 'Are Ah and CCA the same thing?', a: 'No. Ah (amp-hours) is total energy storage — how long a battery can deliver a current before depletion. CCA is instantaneous starting power — how much current it can deliver for 30 seconds at a cold temperature. They are controlled by different design factors.' },
+  { q: 'Why does a 60Ah battery show 540 CCA while another 60Ah shows 500?', a: 'Because CCA is set by plate surface area, internal resistance and grid design, not by capacity. A thinner-plate starting battery exposes more plate surface and delivers more CCA; a thicker-plate design stores similar Ah but has less exposed surface, so less CCA.' },
+  { q: 'Should I always choose the higher CCA at the same Ah?', a: 'Not necessarily. Match CCA to the engine\u2019s cold-start demand and the OEM specification, not a higher number. Over-specifying CCA adds cost and plate surface you will not use.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-13" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Knowledge · Engineering</span>
+    <h1>Why two batteries with the same Ah can have different CCA</h1>
+    <p class="byline">Published by Dingwei Battery · Last reviewed 2026-09-13 · Sources: SAE J537, EN 50342, JIS D 5301, lead-acid battery engineering reference</p>
+    <p class="lead">Capacity and starting power are not the same thing, and they are controlled by different parts of the battery. That is why two batteries stamped with the same amp-hour rating can deliver very different cold cranking amps — and why quoting only Ah is an incomplete specification.</p>
+
+    <div class="takeaways">
+      <strong>Short answer:</strong> Ah (amp-hours) measures total energy — how long the battery can supply current. CCA measures peak starting current — how much it can deliver for 30 seconds at a cold temperature. Ah is driven mostly by the amount of active material; CCA is driven by plate surface area and internal resistance. Because a design can increase one while leaving the other unchanged, two 60&nbsp;Ah batteries can legitimately show 500 and 600 CCA.</div>
+
+    <h2>The two numbers measure different things</h2>
+    <p>Ah is an <em>energy</em> figure: a 60&nbsp;Ah battery can in principle deliver 1&nbsp;A for 60 hours, or 60&nbsp;A for 1 hour. CCA is a <em>power</em> figure: how many amps the battery can push for 30 seconds at a cold temperature before the voltage sags below the test cut-off.</p>
+    <p>Energy and power decouple in any storage system. A bucket can hold the same volume of water as a narrow pipe, but the pipe delivers it at a different rate. In a lead-acid battery, capacity lives mostly in the <strong>mass of active material</strong>, while starting power lives in the <strong>exposed plate surface</strong> and how easily current leaves the cell.</p>
+
+    <h2>What actually sets CCA, independent of Ah</h2>
+    <table>
+      <thead><tr><th>Design factor</th><th>How it raises CCA</th><th>Effect on Ah</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Plate surface area</strong></td><td>More, thinner plates expose more area to electrolyte &rarr; higher discharge current</td><td>Little direct change</td></tr>
+        <tr><td><strong>Internal resistance</strong></td><td>Lower resistance lets current leave faster with less voltage drop</td><td>Minimal</td></tr>
+        <tr><td><strong>Grid design &amp; alloy</strong></td><td>More grid cross-section and lower-resistance alloy carry more current</td><td>Minimal</td></tr>
+        <tr><td><strong>Active material density</strong></td><td>Denser, more porous paste improves high-rate discharge</td><td>Raises Ah</td></tr>
+        <tr><td><strong>Separator</strong></td><td>Low-resistance separators reduce internal loss</td><td>Minimal</td></tr>
+        <tr><td><strong>Design intent</strong></td><td>Starting batteries optimise surface for CCA; deep-cycle optimises material for Ah</td><td>Trade-off</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The starting-battery trade-off</h2>
+    <p>This is the structural reason the two numbers diverge. A <strong>starting battery</strong> is built for a short, heavy discharge — many thin plates to maximise surface area for high CCA. A <strong>deep-cycle battery</strong> is built for long, moderate discharge — fewer, thicker plates to maximise active material for high Ah. You can hold Ah roughly constant and move CCA by changing plate count and thickness, which is why the two figures do not track one-to-one.</p>
+    <p>It is also why two batteries from different manufacturers, both stamped 60&nbsp;Ah, can differ by a hundred CCA or more: they made different plate-design choices, not an error. See our <a href="/knowledge/what-is-cca/">what is CCA</a> article for how the test standard (JIS &minus;15&deg;C vs EN/SAE &minus;18&deg;C) moves the number further.</p>
+
+    <h2>Why this matters for a specification</h2>
+    <ul>
+      <li><strong>Specify both</strong> — Ah for how long, CCA for cold starting. One without the other is an incomplete spec.</li>
+      <li><strong>Match CCA to the engine</strong> — use the vehicle/OEM requirement, not a higher number.</li>
+      <li><strong>State the test basis</strong> — a JIS CCA and an EN CCA are not the same number for the same battery.</li>
+      <li><strong>Ask nominal vs batch-tested</strong> — a catalogue CCA is a design target; the batch you receive varies within tolerance.</li>
+    </ul>
+
+    <h2>The Author&rsquo;s Take</h2>
+    <p><strong>Position:</strong> In my view, the most common battery-buying mistake is comparing batteries by Ah alone and assuming the CCA will follow — when in fact a designer can hold Ah constant and move CCA by hundreds of amps through plate construction alone.</p>
+    <p><strong>Reasoning:</strong> Ah and CCA answer different questions and are set by different levers. A buyer who specifies only Ah is leaving the single most important starting parameter to chance. The correct spec names Ah <em>and</em> CCA, with the test basis and whether the value is nominal or batch-tested, and matches CCA to the engine — not to a marketing number.</p>
+    <p><strong>Disclosure:</strong> This is my editorial view as a battery manufacturer&rsquo;s technical team, not a laboratory claim. Confirm the final Ah, CCA and test basis with the manufacturer.</p>
+
+  </section>
+  <CTASection />
+</ArticleLayout>
