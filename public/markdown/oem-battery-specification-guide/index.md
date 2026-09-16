@@ -42,7 +42,7 @@ JIS · 12V · 60 Ah
 
 JIS · 12V · 60 Ah
 
-370 CCA (reference) · 230 × 175 × 220 mm
+500 CCA (reference) · 230 × 175 × 220 mm
 
 [View specification →](/data/65d23/)
 
@@ -128,7 +128,7 @@ DIN/EN · 12V · 60 Ah
 
 ### [H7 Battery](/data/h7/)
 
-DIN/EN · 12V · 84 Ah
+DIN/EN · 12V · 80 Ah
 
 760 CCA (reference) · 315 × 175 × 190 mm
 
@@ -170,7 +170,7 @@ JIS · 12V · 100 Ah
 
 JIS · 12V · 60 Ah
 
-600 CCA (reference) · 232 × 173 × 202 mm
+540 CCA (reference) · 232 × 173 × 202 mm
 
 [View specification →](/data/55d23/)
 

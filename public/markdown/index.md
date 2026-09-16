@@ -38,3 +38,4 @@ Machine-readable Markdown versions of the knowledge articles, generated at build
 - [private-label-battery-strategy](/markdown/private-label-battery-strategy/index.md)
 - [what-is-cca](/markdown/what-is-cca/index.md)
 - [what-is-oem-battery](/markdown/what-is-oem-battery/index.md)
+- [why-same-ah-different-cca](/markdown/why-same-ah-different-cca/index.md)

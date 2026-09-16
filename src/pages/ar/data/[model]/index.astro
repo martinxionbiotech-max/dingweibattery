@@ -63,18 +63,36 @@ const breadcrumbs = [{ label: `${model.model}` }];
 const productJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
+  '@id': `${url}#product`,
   name: `${model.model} بطارية`,
   description: `${model.model} مرجع بطارية ${model.standard} مورّد من ${BRAND} ومصنّع من ${MANUFACTURER.name}.`,
   brand: { '@type': 'Brand', name: BRAND },
-  manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName },
+  manufacturer: {
+    '@type': 'Organization',
+    '@id': `${SITE.url}/#organization`,
+    name: MANUFACTURER.name,
+    legalName: MANUFACTURER.legalName,
+  },
   mpn: model.model,
   image: model.image ? `${SITE.url}${model.image}` : undefined,
+  // B2B 询单制：本站不公布价格，因此不写 price / priceCurrency。
+  // 只写 priceCurrency 而没有 price 的 Offer 会被 Google 判为无效，等价于「没有 offers」，
+  // 这正是 GSC「应指定 offers、review 或 aggregateRating」报错的根因。
   offers: {
-    '@type': 'AggregateOffer',
-    priceCurrency: 'USD',
+    '@type': 'Offer',
+    '@id': `${url}#offer`,
+    url: `${SITE.url}/${locale}/contact/`,
     availability: 'https://schema.org/InStock',
-    offerCount: 1,
+    itemCondition: 'https://schema.org/NewCondition',
+    businessFunction: 'http://purl.org/goodrelations/v1#Sell',
+    seller: { '@id': `${SITE.url}/#organization` },
   },
+  category: `${model.standard} lead-acid starter battery`,
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'B2B distributors, importers and battery wholesalers',
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   additionalProperty: [
     { '@type': 'PropertyValue', name: 'المعيار', value: model.standard },
     { '@type': 'PropertyValue', name: 'رمز المعيار', value: model.standard_code },

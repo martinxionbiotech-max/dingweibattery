@@ -61,18 +61,34 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    '@id': `${url}#product`,
     name: `${model.model} Battery`,
     brand: { '@type': 'Brand', name: BRAND },
-    manufacturer: { '@type': 'Organization', name: MANUFACTURER.name },
+    manufacturer: {
+      '@type': 'Organization',
+      '@id': `${SITE.url}/#organization`,
+      name: MANUFACTURER.name,
+    },
     description,
     mpn: model.model,
     image: model.image ? `${SITE.url}${model.image}` : undefined,
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      offerCount: 1,
+    category: `${model.standard} 铅酸起动电池`,
+    audience: {
+      '@type': 'BusinessAudience',
+      audienceType: 'B2B 经销商、进口商与蓄电池批发商',
     },
+    // B2B 询单制：本站不公布价格，因此不写 price / priceCurrency。
+    // 只写 priceCurrency 而没有 price 的 Offer 会被 Google 判为无效，等价于「没有 offers」。
+    offers: {
+      '@type': 'Offer',
+      '@id': `${url}#offer`,
+      url: `${SITE.url}/zh/contact/`,
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      businessFunction: 'http://purl.org/goodrelations/v1#Sell',
+      seller: { '@id': `${SITE.url}/#organization` },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   },
   {
     '@context': 'https://schema.org',

@@ -30,6 +30,7 @@ const xDefault = alternates.find((a) => a.code === DEFAULT_LOCALE)?.url;
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${SITE.url}/#organization`,
   name: MANUFACTURER.name,
   legalName: MANUFACTURER.legalNameZh,
   url: SITE.url,
