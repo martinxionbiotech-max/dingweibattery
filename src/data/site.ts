@@ -125,6 +125,18 @@ export const TRADE_TERMS = {
   warranty: '12 months from bill of lading date',
 };
 
+/**
+ * 公开标价 —— 单一来源（single source of truth）。
+ * schema 的 Offer.price / offer.priceSpecification.price 与页面「快速规格」表里显示的价格
+ * 同源于此常量，保证结构化数据与可见内容逐字一致（GSC 商品摘要与商家信息都要求 price）。
+ */
+export const PUBLIC_LIST_PRICE = {
+  amount: 80,
+  currency: 'USD',
+  display: 'US$80',
+  /** 各语言页面上的价格说明后缀由模板拼接 */
+} as const;
+
 export const PUBLISHED_DATE = '2026-09-01';
 
 export interface BatteryModel {

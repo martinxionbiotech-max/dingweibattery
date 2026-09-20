@@ -2,7 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CTASection from '../../../../components/CTASection.astro';
 import JsonLd from '../../../../components/JsonLd.astro';
-import { SITE, BRAND, MANUFACTURER, RELATIONSHIP } from '../../../../data/site';
+import {SITE, BRAND, MANUFACTURER, RELATIONSHIP, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
 import type { BatteryModel } from '../../../../data/site';
 
@@ -77,11 +77,20 @@ const jsonLd = [
       '@type': 'BusinessAudience',
       audienceType: 'B2B 经销商、进口商与蓄电池批发商',
     },
-    // B2B 询单制：本站不公布价格，因此不写 price / priceCurrency。
-    // 只写 priceCurrency 而没有 price 的 Offer 会被 Google 判为无效，等价于「没有 offers」。
+    // 价格：GSC 商品摘要「应指定 price 或 priceSpecification.price（在 offers 中）」
+    // 与商家信息「应指定 price 或 priceSpecification（在 offers 中）」两项均要求 offers 带价。
+    // price 与 priceSpecification 同时给出（两条路径都满足）；
+    // 页面「快速规格」表显示同一价格（PUBLIC_LIST_PRICE），schema 与可见内容一致。
     offers: {
       '@type': 'Offer',
       '@id': `${url}#offer`,
+      price: PUBLIC_LIST_PRICE.amount,
+      priceCurrency: PUBLIC_LIST_PRICE.currency,
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: PUBLIC_LIST_PRICE.amount,
+        priceCurrency: PUBLIC_LIST_PRICE.currency,
+      },
       url: `${SITE.url}/zh/contact/`,
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
@@ -146,6 +155,7 @@ const jsonLd = [
         <tr><td>端子</td><td>询价确认</td></tr>
         <tr><td>极性</td><td>询价确认</td></tr>
         <tr><td>储备容量（RC）</td><td>询价确认</td></tr>
+        <tr><td>参考单价</td><td>{PUBLIC_LIST_PRICE.display} ／只 — 最终价格以报价确认为准</td></tr>
       </tbody>
     </table>
     <p class="note">CCA 为参考值。{model.cca.note} 后，方可将此值用于产品规格。</p>
