@@ -72,6 +72,13 @@ const productJsonLd = {
     '@id': `${SITE.url}/#organization`,
     name: MANUFACTURER.name,
     legalName: MANUFACTURER.legalName,
+  hasMerchantReturnPolicy: {
+    '@type': 'MerchantReturnPolicy',
+    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+    merchantReturnDays: 30,
+    returnMethod: 'https://schema.org/ReturnByMail',
+    merchantReturnLink: `${SITE.url}/return-refund/`,
+  },
   },
   mpn: model.model,
   image: model.image ? `${SITE.url}${model.image}` : undefined,
@@ -94,6 +101,13 @@ const productJsonLd = {
     itemCondition: 'https://schema.org/NewCondition',
     businessFunction: 'http://purl.org/goodrelations/v1#Sell',
     seller: { '@id': `${SITE.url}/#organization` },
+    hasMerchantReturnPolicy: {
+      '@type': 'MerchantReturnPolicy',
+      returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+      merchantReturnDays: 30,
+      returnMethod: 'https://schema.org/ReturnByMail',
+      merchantReturnLink: `${SITE.url}/return-refund/`,
+    },
   },
   category: `${model.standard} lead-acid starter battery`,
   audience: {
@@ -337,7 +351,7 @@ const aliases = model.aliases ?? [];
         <tr><td>Клемма</td><td>Уточняется по запросу</td></tr>
         <tr><td>Полярность</td><td>Уточняется по запросу</td></tr>
         <tr><td>Резервная ёмкость (RC)</td><td>Уточняется по запросу</td></tr>
-        <tr><td>Ориентировочная цена</td><td>{PUBLIC_LIST_PRICE.display} за единицу — окончательная цена подтверждается в котировке</td></tr>
+        <tr><td>Ориентировочная минимальная цена за единицу</td><td>От {PUBLIC_LIST_PRICE.display} {PUBLIC_LIST_PRICE.note}</td></tr>
       </tbody>
     </table>
     <p class="note">CCA указана как справочное значение. {translateCcaNote(model.cca.note, locale)} перед использованием этого значения в спецификации продукта.</p>

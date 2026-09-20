@@ -68,6 +68,13 @@ const jsonLd = [
       '@type': 'Organization',
       '@id': `${SITE.url}/#organization`,
       name: MANUFACTURER.name,
+        hasMerchantReturnPolicy: {
+          '@type': 'MerchantReturnPolicy',
+          returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+          merchantReturnDays: 30,
+          returnMethod: 'https://schema.org/ReturnByMail',
+          merchantReturnLink: `${SITE.url}/return-refund/`,
+        },
     },
     description,
     mpn: model.model,
@@ -96,6 +103,13 @@ const jsonLd = [
       itemCondition: 'https://schema.org/NewCondition',
       businessFunction: 'http://purl.org/goodrelations/v1#Sell',
       seller: { '@id': `${SITE.url}/#organization` },
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 30,
+        returnMethod: 'https://schema.org/ReturnByMail',
+        merchantReturnLink: `${SITE.url}/return-refund/`,
+      },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   },
@@ -155,7 +169,7 @@ const jsonLd = [
         <tr><td>端子</td><td>询价确认</td></tr>
         <tr><td>极性</td><td>询价确认</td></tr>
         <tr><td>储备容量（RC）</td><td>询价确认</td></tr>
-        <tr><td>参考单价</td><td>{PUBLIC_LIST_PRICE.display} ／只 — 最终价格以报价确认为准</td></tr>
+        <tr><td>参考最低单价</td><td>低至 {PUBLIC_LIST_PRICE.display} {PUBLIC_LIST_PRICE.note}</td></tr>
       </tbody>
     </table>
     <p class="note">CCA 为参考值。{model.cca.note} 后，方可将此值用于产品规格。</p>

@@ -72,6 +72,13 @@ const productJsonLd = {
     '@id': `${SITE.url}/#organization`,
     name: MANUFACTURER.name,
     legalName: MANUFACTURER.legalName,
+  hasMerchantReturnPolicy: {
+    '@type': 'MerchantReturnPolicy',
+    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+    merchantReturnDays: 30,
+    returnMethod: 'https://schema.org/ReturnByMail',
+    merchantReturnLink: `${SITE.url}/return-refund/`,
+  },
   },
   mpn: model.model,
   image: model.image ? `${SITE.url}${model.image}` : undefined,
@@ -94,6 +101,13 @@ const productJsonLd = {
     itemCondition: 'https://schema.org/NewCondition',
     businessFunction: 'http://purl.org/goodrelations/v1#Sell',
     seller: { '@id': `${SITE.url}/#organization` },
+    hasMerchantReturnPolicy: {
+      '@type': 'MerchantReturnPolicy',
+      returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+      merchantReturnDays: 30,
+      returnMethod: 'https://schema.org/ReturnByMail',
+      merchantReturnLink: `${SITE.url}/return-refund/`,
+    },
   },
   category: `${model.standard} lead-acid starter battery`,
   audience: {
@@ -337,7 +351,7 @@ const aliases = model.aliases ?? [];
         <tr><td>الطرف</td><td>يُؤكَّد عند الاستفسار</td></tr>
         <tr><td>القطبية</td><td>يُؤكَّد عند الاستفسار</td></tr>
         <tr><td>السعة الاحتياطية (RC)</td><td>يُؤكَّد عند الاستفسار</td></tr>
-        <tr><td>السعر الإرشادي</td><td>{PUBLIC_LIST_PRICE.display} للوحدة — يُؤكَّد السعر النهائي في عرض السعر</td></tr>
+        <tr><td>أدنى سعر إرشادي للوحدة</td><td>ابتداءً من {PUBLIC_LIST_PRICE.display} {PUBLIC_LIST_PRICE.note}</td></tr>
       </tbody>
     </table>
     <p class="note">تُعرض CCA كقيمة مرجعية. {translateCcaNote(model.cca.note, locale)} قبل استخدام هذه القيمة في مواصفات المنتج.</p>
