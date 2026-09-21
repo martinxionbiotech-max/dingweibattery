@@ -37,7 +37,9 @@ const jsonLd = [
     brand: { '@type': 'Brand', name: BRAND },
     manufacturer: {
       '@type': 'Organization',
+      '@id': `${SITE.url}/#organization`,
       name: MANUFACTURER.name,
+      url: SITE.url,
       legalName: MANUFACTURER.legalName,
       foundingDate: String(MANUFACTURER.founded),
       address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },

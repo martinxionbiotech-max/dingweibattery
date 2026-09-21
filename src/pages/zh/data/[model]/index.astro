@@ -68,6 +68,8 @@ const jsonLd = [
       '@type': 'Organization',
       '@id': `${SITE.url}/#organization`,
       name: MANUFACTURER.name,
+      url: SITE.url,
+      legalName: MANUFACTURER.legalName,
         hasMerchantReturnPolicy: {
           '@type': 'MerchantReturnPolicy',
           returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',

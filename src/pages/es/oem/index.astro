@@ -34,7 +34,7 @@ const jsonLd = [
     name: BRAND,
     url: `${SITE.url}/es/oem/`,
     description,
-    manufacturer: { '@type': 'Organization', name: MANUFACTURER.name, legalName: MANUFACTURER.legalName, foundingDate: String(MANUFACTURER.founded) },
+    manufacturer: { '@type': 'Organization', '@id': `${SITE.url}/#organization`, name: MANUFACTURER.name, url: SITE.url, legalName: MANUFACTURER.legalName, foundingDate: String(MANUFACTURER.founded) },
   },
   {
     '@context': 'https://schema.org',
