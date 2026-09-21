@@ -15,13 +15,15 @@ interface Props {
   ogType?: string;
   ogImage?: string;
 }
-const { title, description, breadcrumbs = [], ogType = 'website', ogImage = '/images/factory/factory-19.webp' } = Astro.props;
+const { title, description, breadcrumbs = [], ogType = 'website', ogImage = '/images/factory/factory-19.webp',
+  // 默认声明全部语言版本；仅当某页确实只在部分语言存在时传入子集，避免 hreflang 指向 404
+  hreflangLocales } = Astro.props;
 
 const locale = (Astro.currentLocale ?? DEFAULT_LOCALE) as Locale;
 const dir = localeDir(locale);
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.site).toString();
-const alternates = LOCALES.map(({ code }) => ({
+const alternates = LOCALES.filter(({ code }) => !hreflangLocales || hreflangLocales.includes(code)).map(({ code }) => ({
   code,
   url: new URL(localizedPath(Astro.url.pathname, code), Astro.site).toString(),
 }));
@@ -82,7 +84,7 @@ const orgSchema = {
     <slot name="head" />
   </head>
   <body>
-    <Header />
+    <Header availableLocales={alternates.map((a) => a.code)} />
     {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
     <main id="main">
       <slot />

@@ -12,6 +12,8 @@ interface Props {
   dateModified?: string;
   image?: string;
   faqs?: Faq[];
+  /** 仅声明确实存在的语言版本（默认全部）；用于只在部分语言创作的页面，避免 hreflang 指向 404 */
+  hreflangLocales?: string[];
 }
 const {
   title,
@@ -21,6 +23,7 @@ const {
   dateModified = PUBLISHED_DATE,
   image = '/images/factory/factory-19.webp',
   faqs = [],
+  hreflangLocales,
 } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const imageUrl = image.startsWith('http') ? image : new URL(image, Astro.site).toString();
@@ -63,7 +66,7 @@ if (faqs.length > 0) {
   });
 }
 ---
-<BaseLayout title={title} description={description} breadcrumbs={[{ label: articleTitle }]} ogType="article">
+<BaseLayout title={title} description={description} breadcrumbs={[{ label: articleTitle }]} ogType="article" hreflangLocales={hreflangLocales}>
   <JsonLd slot="head" data={jsonLd} />
   <slot />
 </BaseLayout>

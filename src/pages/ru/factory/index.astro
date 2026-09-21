@@ -14,8 +14,10 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${SITE.url}/#organization`,
     name: MANUFACTURER.name,
     legalName: MANUFACTURER.legalName,
+    url: SITE.url,
     foundingDate: String(MANUFACTURER.founded),
     address: { '@type': 'PostalAddress', addressLocality: 'Jinzhou', addressRegion: 'Hebei', addressCountry: 'CN' },
   },
