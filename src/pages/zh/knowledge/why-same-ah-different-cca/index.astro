@@ -1,5 +1,6 @@
 ---
 import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
 import CTASection from '../../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../../data/site';
 
@@ -58,5 +59,8 @@ const faqs = [
     <p><strong>声明：</strong>这是我的编辑观点，来自电池制造商的技术团队，而非实验室结论。最终的 Ah、CCA 与测试基准请与制造商确认。</p>
 
   </section>
-  <CTASection />
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="确认规格中的 Ah 与 CCA" />
 </ArticleLayout>

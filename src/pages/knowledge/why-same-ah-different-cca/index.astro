@@ -1,5 +1,6 @@
 ---
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../components/ArticleFaq.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
@@ -52,11 +53,18 @@ const faqs = [
       <li><strong>Ask nominal vs batch-tested</strong> — a catalogue CCA is a design target; the batch you receive varies within tolerance.</li>
     </ul>
 
-    <h2>The Author&rsquo;s Take</h2>
-    <p><strong>Position:</strong> In my view, the most common battery-buying mistake is comparing batteries by Ah alone and assuming the CCA will follow — when in fact a designer can hold Ah constant and move CCA by hundreds of amps through plate construction alone.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>The Author&rsquo;s Take</h2>
+      <p><strong>Position:</strong> In my view, the most common battery-buying mistake is comparing batteries by Ah alone and assuming the CCA will follow — when in fact a designer can hold Ah constant and move CCA by hundreds of amps through plate construction alone.</p>
     <p><strong>Reasoning:</strong> Ah and CCA answer different questions and are set by different levers. A buyer who specifies only Ah is leaving the single most important starting parameter to chance. The correct spec names Ah <em>and</em> CCA, with the test basis and whether the value is nominal or batch-tested, and matches CCA to the engine — not to a marketing number.</p>
     <p><strong>Disclosure:</strong> This is my editorial view as a battery manufacturer&rsquo;s technical team, not a laboratory claim. Confirm the final Ah, CCA and test basis with the manufacturer.</p>
-
+    </div>
   </section>
-  <CTASection />
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirm Ah and CCA for your specification" />
 </ArticleLayout>
