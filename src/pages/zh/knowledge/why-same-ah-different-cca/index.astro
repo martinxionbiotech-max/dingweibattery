@@ -1,0 +1,62 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '同为 60 Ah 的电池，CCA 为何不同 | Dingwei Battery';
+const description = '相同的安时（Ah）容量不代表相同的冷启动电流（CCA）：极板表面积、内阻与板栅设计如何独立决定 CCA，以及为何两块 60 Ah 电池分别标 500 与 600 CCA。';
+const articleTitle = '同为 60 Ah 的电池，CCA 为何不同';
+
+const faqs = [
+  { q: 'Ah 和 CCA 是同一个东西吗？', a: '不是。Ah（安时）是总储电量——电池在耗尽前能持续放电多久。CCA 是瞬间启动功率——在低温下能持续放 30 秒的电流。两者由不同的设计因素决定。' },
+  { q: '为什么一块 60 Ah 电池标 540 CCA，另一块 60 Ah 却标 500？', a: '因为 CCA 由极板表面积、内阻与板栅设计决定，而非由容量决定。薄极板的启动电池暴露更多极板表面，输出的 CCA 更高；厚极板设计储存的 Ah 相近，但暴露面积更小，CCA 也更低。' },
+  { q: '在相同的 Ah 下，是否永远应该选 CCA 更高的？', a: '不一定。CCA 应匹配发动机的冷启动需求与 OEM 规格，而不是追一个更大的数字。过度指定 CCA 只会增加成本与用不到的极板面积。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-13" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">知识库 · 工程</span>
+    <h1>同为 60 Ah 的电池，为何 CCA 不同</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后复核 2026-09-13 · 来源：SAE J537、EN 50342、JIS D 5301、铅酸电池工程参考资料</p>
+    <p class="lead">容量与启动功率不是一回事，它们由电池中不同的部分决定。这就是为什么两块印着相同安时额定值的电池，能输出相差很大的冷启动电流——也说明了为什么只报 Ah 是一个不完整的规格。</p>
+
+    <div class="takeaways">
+      <strong>简短回答：</strong> Ah（安时）衡量总能量——电池能持续供电多久。CCA 衡量峰值启动电流——在低温下能持续放 30 秒的电流。Ah 主要由活性物质的多少决定；CCA 由极板表面积与内阻决定。因为一种设计可以提高其中一个而不改变另一个，两块 60&nbsp;Ah 电池完全可能分别标注 500 与 600 CCA。</div>
+
+    <h2>两个数字衡量的是不同的东西</h2>
+    <p>Ah 是<em>能量</em>指标：一块 60&nbsp;Ah 电池原则上能以 1&nbsp;A 放 60 小时，或以 60&nbsp;A 放 1 小时。CCA 是<em>功率</em>指标：电池在低温下、电压跌到测试截止电压之前，能持续推送 30 秒的电流安培数。</p>
+    <p>在任何储能系统中，能量与功率都是解耦的。一个水桶与一根细管可以装同样体积的水，但管子出水的速率不同。在铅酸蓄电池中，容量主要存在于<strong>活性物质的质量</strong>里，而启动功率存在于<strong>暴露的极板表面积</strong>中，以及电流离开单格的难易程度。</p>
+
+    <h2>究竟是什么在独立于 Ah 之外设定 CCA</h2>
+    <table>
+      <thead><tr><th>设计因素</th><th>如何提高 CCA</th><th>对 Ah 的影响</th></tr></thead>
+      <tbody>
+        <tr><td><strong>极板表面积</strong></td><td>更多、更薄的极板把更大面积暴露给电解液 &rarr; 更高的放电电流</td><td>几乎没有直接变化</td></tr>
+        <tr><td><strong>内阻</strong></td><td>更低的内阻让电流更快流出、电压降更小</td><td>极小</td></tr>
+        <tr><td><strong>板栅设计与合金</strong></td><td>更大的板栅截面积与更低电阻的合金承载更大电流</td><td>极小</td></tr>
+        <tr><td><strong>活性物质密度</strong></td><td>更致密、更多孔的铅膏改善高倍率放电</td><td>提高 Ah</td></tr>
+        <tr><td><strong>隔板</strong></td><td>低电阻隔板减少内部损耗</td><td>极小</td></tr>
+        <tr><td><strong>设计取向</strong></td><td>启动电池为 CCA 优化表面积；深循环电池为 Ah 优化活性物质</td><td>权衡取舍</td></tr>
+      </tbody>
+    </table>
+
+    <h2>启动电池的取舍</h2>
+    <p>这就是两个数字分道扬镳的结构性原因。一块<strong>启动电池</strong>为短时、大电流放电而打造——许多薄极板，以最大化表面积来换取高 CCA。一块<strong>深循环电池</strong>为长时间、中等放电而打造——更少、更厚的极板，以最大化活性物质来换取高 Ah。你可以在 Ah 大致不变的情况下，通过改变极板数量与厚度来移动 CCA，这就是为什么这两个数字并非一一对应。</p>
+    <p>这也是为什么来自不同厂家、同样标注 60&nbsp;Ah 的两块电池，能相差 100 CCA 甚至更多：他们做了不同的极板设计选择，而不是出了错。关于测试标准（JIS −15 ℃ 与 EN/SAE −18 ℃）如何进一步改变这个数字，见我们的<a href="/zh/knowledge/what-is-cca/">什么是 CCA（冷启动电流）</a>一文。</p>
+
+    <h2>为什么这对一份规格说明很重要</h2>
+    <ul>
+      <li><strong>两者都要指定</strong> —— Ah 说明能用多久，CCA 说明冷启动能力。缺一个就是不完整的规格。</li>
+      <li><strong>CCA 匹配发动机</strong> —— 用车辆/OEM 的要求，而不是一个更大的数字。</li>
+      <li><strong>注明测试基准</strong> —— 同一块电池的 JIS CCA 与 EN CCA 并不是同一个数字。</li>
+      <li><strong>问清是标称值还是批次实测值</strong> —— 目录上的 CCA 是设计目标；你收到的批次会在公差范围内波动。</li>
+    </ul>
+
+    <h2>The Author&rsquo;s Take</h2>
+    <p><strong>立场：</strong>在我看来，买电池最常见的错误，是只按 Ah 比较电池、并假设 CCA 会随之跟上——而实际上，设计者仅通过极板结构就能在 Ah 不变的情况下让 CCA 移动数百安培。</p>
+    <p><strong>理由：</strong>Ah 与 CCA 回答的是不同问题，也由不同的杠杆决定。只指定 Ah 的买家，等于把最重要的启动参数交给了运气。正确的规格会同时写明 Ah 与 CCA，连同测试基准、以及该数值是标称值还是批次实测值，并让 CCA 匹配发动机——而不是匹配一个营销数字。</p>
+    <p><strong>声明：</strong>这是我的编辑观点，来自电池制造商的技术团队，而非实验室结论。最终的 Ah、CCA 与测试基准请与制造商确认。</p>
+
+  </section>
+  <CTASection />
+</ArticleLayout>

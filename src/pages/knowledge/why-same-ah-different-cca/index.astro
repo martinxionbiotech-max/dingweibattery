@@ -3,8 +3,8 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import CTASection from '../../../components/CTASection.astro';
 import { RELATIONSHIP } from '../../../data/site';
 
-const title = 'Why Two Batteries with the Same Ah Can Have Different CCA | Dingwei Battery';
-const description = 'Why identical amp-hour (Ah) capacity does not mean identical cold cranking amps (CCA). Plate surface area, internal resistance, grid design and design intent decouple capacity from starting power.';
+const title = 'Why Two Batteries with the Same Ah Can Have Different CCA';
+const description = 'Why identical amp-hour (Ah) capacity does not mean identical cold cranking amps (CCA).';
 const articleTitle = 'Why two batteries with the same Ah can have different CCA';
 
 const faqs = [
@@ -13,7 +13,7 @@ const faqs = [
   { q: 'Should I always choose the higher CCA at the same Ah?', a: 'Not necessarily. Match CCA to the engine\u2019s cold-start demand and the OEM specification, not a higher number. Over-specifying CCA adds cost and plate surface you will not use.' },
 ];
 ---
-<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-13" faqs={faqs} hreflangLocales={["en"]}>
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Engineering" dateModified="2026-09-13" faqs={faqs}>
   <section class="section container prose">
     <span class="tag">Knowledge · Engineering</span>
     <h1>Why two batteries with the same Ah can have different CCA</h1>

@@ -1,0 +1,69 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+
+const title = 'Por qué la misma Ah da distinta CCA | Dingwei Battery';
+const description = 'Por qué la misma capacidad en amperios-hora (Ah) no implica los mismos amperios de arranque en frío (CCA).';
+const articleTitle = 'Por qué dos baterías con la misma Ah pueden tener distinta CCA';
+
+const faqs = [
+  { q: '¿Son lo mismo la Ah y la CCA?', a: 'No. La Ah (amperios-hora) es el almacenamiento total de energía — cuánto tiempo puede entregar corriente una batería antes de agotarse. La CCA es la potencia de arranque instantánea — cuánta corriente puede entregar durante 30 segundos a baja temperatura. Las controlan factores de diseño distintos.' },
+  { q: '¿Por qué una batería de 60 Ah muestra 540 CCA y otra de 60 Ah muestra 500?', a: 'Porque la CCA la fijan la superficie de placa, la resistencia interna y el diseño de la rejilla, no la capacidad. Una batería de arranque con placas más finas expone más superficie de placa y entrega más CCA; un diseño con placas más gruesas almacena una Ah similar pero tiene menos superficie expuesta, así que menos CCA.' },
+  { q: '¿Debo elegir siempre la CCA más alta con la misma Ah?', a: 'No necesariamente. Ajusta la CCA a la demanda de arranque en frío del motor y a la especificación del fabricante de equipo original (OEM), no a un número más alto. Sobredimensionar la CCA añade coste y superficie de placa que no vas a usar.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Ingeniería" dateModified="2026-09-13" faqs={faqs}>
+  <section class="section container prose">
+    <span class="tag">Conocimiento · Ingeniería</span>
+    <h1>Por qué dos baterías con la misma Ah pueden tener distinta CCA</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-13 · Fuente: SAE J537, EN 50342, JIS D 5301, referencia de ingeniería de baterías de plomo-ácido</p>
+    <p class="lead">La capacidad y la potencia de arranque no son lo mismo, y las controlan partes distintas de la batería. Por eso dos baterías marcadas con la misma capacidad en amperios-hora pueden entregar amperios de arranque en frío muy distintos — y por eso citar solo la Ah es una especificación incompleta.</p>
+
+    <div class="takeaways">
+      <strong>Respuesta breve:</strong> La Ah (amperios-hora) mide la energía total — cuánto tiempo puede suministrar corriente la batería. La CCA mide la corriente de arranque máxima — cuánta puede entregar durante 30 segundos a baja temperatura. La Ah la determina sobre todo la cantidad de material activo; la CCA la determinan la superficie de placa y la resistencia interna. Como un diseño puede subir una y dejar la otra sin cambios, dos baterías de 60 Ah pueden mostrar legítimamente 500 y 600 CCA.</div>
+
+    <h2>Los dos números miden cosas distintas</h2>
+    <p>La Ah es una cifra de <em>energía</em>: una batería de 60 Ah puede, en principio, entregar 1 A durante 60 horas, o 60 A durante 1 hora. La CCA es una cifra de <em>potencia</em>: cuántos amperios puede empujar la batería durante 30 segundos a baja temperatura antes de que la tensión caiga por debajo del corte del ensayo.</p>
+    <p>La energía y la potencia se desacoplan en cualquier sistema de almacenamiento. Un depósito puede contener el mismo volumen de agua que una tubería estrecha, pero la tubería lo entrega a un ritmo distinto. En una batería de plomo-ácido, la capacidad vive sobre todo en la <strong>masa de material activo</strong>, mientras que la potencia de arranque vive en la <strong>superficie de placa expuesta</strong> y en la facilidad con que la corriente sale de la celda.</p>
+
+    <h2>Qué fija realmente la CCA, con independencia de la Ah</h2>
+    <table>
+      <thead><tr><th>Factor de diseño</th><th>Cómo eleva la CCA</th><th>Efecto sobre la Ah</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Superficie de placa</strong></td><td>Más placas, y más finas, exponen más área al electrolito &rarr; mayor corriente de descarga</td><td>Poco cambio directo</td></tr>
+        <tr><td><strong>Resistencia interna</strong></td><td>Menos resistencia deja salir la corriente más rápido y con menos caída de tensión</td><td>Mínimo</td></tr>
+        <tr><td><strong>Diseño de rejilla y aleación</strong></td><td>Más sección de rejilla y una aleación de menor resistencia transportan más corriente</td><td>Mínimo</td></tr>
+        <tr><td><strong>Densidad del material activo</strong></td><td>Una pasta más densa y porosa mejora la descarga a alta tasa</td><td>Sube la Ah</td></tr>
+        <tr><td><strong>Separador</strong></td><td>Los separadores de baja resistencia reducen las pérdidas internas</td><td>Mínimo</td></tr>
+        <tr><td><strong>Intención de diseño</strong></td><td>Las baterías de arranque optimizan la superficie para la CCA; las de ciclo profundo optimizan el material para la Ah</td><td>Compromiso</td></tr>
+      </tbody>
+    </table>
+
+    <h2>El compromiso de la batería de arranque</h2>
+    <p>Esta es la razón estructural por la que las dos cifras divergen. Una <strong>batería de arranque</strong> se construye para una descarga corta y fuerte — muchas placas finas para maximizar la superficie y obtener una CCA alta. Una <strong>batería de ciclo profundo</strong> se construye para una descarga larga y moderada — menos placas y más gruesas para maximizar el material activo y obtener una Ah alta. Puedes mantener la Ah más o menos constante y mover la CCA cambiando el número y el grosor de las placas, y por eso las dos cifras no van una a una.</p>
+    <p>También es la razón de que dos baterías de fabricantes distintos, ambas marcadas con 60 Ah, puedan diferir en 100 CCA o más: tomaron decisiones distintas de diseño de placas, no es un error. Consulta nuestro artículo sobre <a href="/es/knowledge/what-is-cca/">qué es la CCA</a> para ver cómo el estándar de ensayo (JIS &minus;15&deg;C frente a EN/SAE &minus;18&deg;C) mueve aún más el número.</p>
+
+    <h2>Por qué esto importa en una especificación</h2>
+    <ul>
+      <li><strong>Especifica ambas</strong> — la Ah para cuánto tiempo, la CCA para el arranque en frío. Una sin la otra es una especificación incompleta.</li>
+      <li><strong>Ajusta la CCA al motor</strong> — usa el requisito del vehículo/OEM, no un número más alto.</li>
+      <li><strong>Indica la base de ensayo</strong> — una CCA JIS y una CCA EN no son el mismo número para la misma batería.</li>
+      <li><strong>Pregunta si es nominal o ensayada por lote</strong> — una CCA de catálogo es un objetivo de diseño; el lote que recibes varía dentro de la tolerancia.</li>
+    </ul>
+
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>La opinión del autor</h2>
+      <p><strong>Posición:</strong> En mi opinión, el error más común al comprar baterías es comparar baterías solo por la Ah y suponer que la CCA seguirá — cuando en realidad un diseñador puede mantener la Ah constante y mover la CCA en cientos de amperios solo con la construcción de las placas.</p>
+      <p><strong>Razonamiento:</strong> La Ah y la CCA responden a preguntas distintas y las fijan palancas distintas. Un comprador que especifica solo la Ah está dejando al azar el parámetro de arranque más importante. La especificación correcta nombra la Ah <em>y</em> la CCA, con la base de ensayo y si el valor es nominal o ensayado por lote, y ajusta la CCA al motor — no a un número de marketing.</p>
+      <p><em>Divulgación: esta es mi opinión editorial como equipo técnico de un fabricante de baterías, no una afirmación de laboratorio. Confirma la Ah, la CCA y la base de ensayo finales con el fabricante.</em></p>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Confirme la Ah y la CCA de su especificación" />
+</ArticleLayout>
