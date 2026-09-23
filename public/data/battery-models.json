@@ -33,7 +33,15 @@
       "source": "报价单20260831 + JIS D 5301 reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/65d26/"
+      "url": "https://dingweibattery.com/data/65d26/",
+      "claim_id": "BAT-65D26",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "65D23",
@@ -63,7 +71,15 @@
       "source": "cross-manufacturer reference: 爱采购/GS (60Ah, ~500 CCA)",
       "verified_date": "2026-09-13",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/65d23/"
+      "url": "https://dingweibattery.com/data/65d23/",
+      "claim_id": "BAT-65D23",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-13",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "80D26",
@@ -93,7 +109,15 @@
       "source": "报价单20260831 + JIS D 5301 reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/80d26/"
+      "url": "https://dingweibattery.com/data/80d26/",
+      "claim_id": "BAT-80D26",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "105D31",
@@ -123,7 +147,15 @@
       "source": "报价单20260831 + JIS D 5301 reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/105d31/"
+      "url": "https://dingweibattery.com/data/105d31/",
+      "claim_id": "BAT-105D31",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "115D31",
@@ -153,7 +185,15 @@
       "source": "报价单20260831 + JIS D 5301 reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/115d31/"
+      "url": "https://dingweibattery.com/data/115d31/",
+      "claim_id": "BAT-115D31",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "H6",
@@ -187,7 +227,15 @@
       "source": "报价单20260831 + EN 50342 reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/h6/"
+      "url": "https://dingweibattery.com/data/h6/",
+      "claim_id": "BAT-H6",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "75D23",
@@ -217,7 +265,15 @@
       "source": "报价单20260831 + standard reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/75d23/"
+      "url": "https://dingweibattery.com/data/75d23/",
+      "claim_id": "BAT-75D23",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "55B24",
@@ -247,7 +303,15 @@
       "source": "报价单20260831 + standard reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/55b24/"
+      "url": "https://dingweibattery.com/data/55b24/",
+      "claim_id": "BAT-55B24",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "65B24",
@@ -277,7 +341,15 @@
       "source": "报价单20260831 + standard reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/65b24/"
+      "url": "https://dingweibattery.com/data/65b24/",
+      "claim_id": "BAT-65B24",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "85D26",
@@ -307,7 +379,15 @@
       "source": "报价单20260831 + standard reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/85d26/"
+      "url": "https://dingweibattery.com/data/85d26/",
+      "claim_id": "BAT-85D26",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "95D26",
@@ -337,7 +417,15 @@
       "source": "报价单20260831 + standard reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/95d26/"
+      "url": "https://dingweibattery.com/data/95d26/",
+      "claim_id": "BAT-95D26",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "H5",
@@ -371,7 +459,15 @@
       "source": "报价单20260831 + standard reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/h5/"
+      "url": "https://dingweibattery.com/data/h5/",
+      "claim_id": "BAT-H5",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "H7",
@@ -405,7 +501,15 @@
       "source": "cross-manufacturer reference: H7 = LN4 = DIN80 (80Ah, 760 CCA)",
       "verified_date": "2026-09-13",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/h7/"
+      "url": "https://dingweibattery.com/data/h7/",
+      "claim_id": "BAT-H7",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-13",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "H8",
@@ -439,7 +543,15 @@
       "source": "报价单20260831 + standard reference",
       "verified_date": "2026-09-01",
       "confidence": "PARTIALLY_VERIFIED",
-      "url": "https://dingweibattery.com/data/h8/"
+      "url": "https://dingweibattery.com/data/h8/",
+      "claim_id": "BAT-H8",
+      "source_type": "manufacturer_specification",
+      "verification_status": "LEVEL 1",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-01",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "N150",
@@ -471,7 +583,15 @@
       "source": "Exide N150 datasheet + JIS N-series reference",
       "verified_date": "2026-09-03",
       "confidence": "REFERENCE",
-      "url": "https://dingweibattery.com/data/n150/"
+      "url": "https://dingweibattery.com/data/n150/",
+      "claim_id": "BAT-N150",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-03",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "N200",
@@ -503,7 +623,15 @@
       "source": "FB Battery N200 datasheet + JIS N-series reference",
       "verified_date": "2026-09-03",
       "confidence": "REFERENCE",
-      "url": "https://dingweibattery.com/data/n200/"
+      "url": "https://dingweibattery.com/data/n200/",
+      "claim_id": "BAT-N200",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-03",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "N100",
@@ -537,7 +665,15 @@
       "source": "FB Battery N100 datasheet + Yuasa N100 reference",
       "verified_date": "2026-09-03",
       "confidence": "REFERENCE",
-      "url": "https://dingweibattery.com/data/n100/"
+      "url": "https://dingweibattery.com/data/n100/",
+      "claim_id": "BAT-N100",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-03",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "55D23",
@@ -569,7 +705,15 @@
       "source": "cross-manufacturer reference: 双帆/松下/Century (60Ah, ~540 CCA)",
       "verified_date": "2026-09-13",
       "confidence": "REFERENCE",
-      "url": "https://dingweibattery.com/data/55d23/"
+      "url": "https://dingweibattery.com/data/55d23/",
+      "claim_id": "BAT-55D23",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-13",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "DIN70",
@@ -601,7 +745,15 @@
       "source": "DIN/EN standard reference + manufacturer datasheets",
       "verified_date": "2026-09-03",
       "confidence": "REFERENCE",
-      "url": "https://dingweibattery.com/data/din70/"
+      "url": "https://dingweibattery.com/data/din70/",
+      "claim_id": "BAT-DIN70",
+      "source_type": "official_standard",
+      "verification_status": "LEVEL 2",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-03",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "DIN72",
@@ -633,7 +785,15 @@
       "source": "DIN/EN standard reference + manufacturer datasheets",
       "verified_date": "2026-09-03",
       "confidence": "REFERENCE",
-      "url": "https://dingweibattery.com/data/din72/"
+      "url": "https://dingweibattery.com/data/din72/",
+      "claim_id": "BAT-DIN72",
+      "source_type": "official_standard",
+      "verification_status": "LEVEL 2",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-03",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "DIN75",
@@ -666,7 +826,15 @@
       "source": "DIN/EN standard reference + manufacturer datasheets",
       "verified_date": "2026-09-03",
       "confidence": "REFERENCE",
-      "url": "https://dingweibattery.com/data/din75/"
+      "url": "https://dingweibattery.com/data/din75/",
+      "claim_id": "BAT-DIN75",
+      "source_type": "official_standard",
+      "verification_status": "LEVEL 2",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-03",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "DIN80",
@@ -698,7 +866,15 @@
       "source": "DIN/EN standard reference + manufacturer datasheets",
       "verified_date": "2026-09-03",
       "confidence": "REFERENCE",
-      "url": "https://dingweibattery.com/data/din80/"
+      "url": "https://dingweibattery.com/data/din80/",
+      "claim_id": "BAT-DIN80",
+      "source_type": "official_standard",
+      "verification_status": "LEVEL 2",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-03",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "DIN100",
@@ -730,7 +906,15 @@
       "source": "DIN/EN standard reference + manufacturer datasheets",
       "verified_date": "2026-09-03",
       "confidence": "REFERENCE",
-      "url": "https://dingweibattery.com/data/din100/"
+      "url": "https://dingweibattery.com/data/din100/",
+      "claim_id": "BAT-DIN100",
+      "source_type": "official_standard",
+      "verification_status": "LEVEL 2",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-03",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "BCI-24",
@@ -756,13 +940,21 @@
       "polarity": null,
       "technology": "Maintenance-free",
       "application": "Passenger car / marine / RV dual-purpose",
-      "weight_kg": 19.0,
+      "weight_kg": 19,
       "oem_available": true,
       "private_label_available": true,
       "source": "BCI Group 24 size chart (BatteryStuff / batteryequivalents) + industry reference",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-BCI-24",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "BCI-27",
@@ -788,13 +980,21 @@
       "polarity": null,
       "technology": "Maintenance-free",
       "application": "Marine / RV / light truck / deep-cycle dual-purpose",
-      "weight_kg": 25.0,
+      "weight_kg": 25,
       "oem_available": true,
       "private_label_available": true,
       "source": "BCI Group 27 chart (batteryequivalents: 66-110Ah / 600-1000CCA / 140-220min RC) + reference",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-BCI-27",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "BCI-31",
@@ -820,13 +1020,21 @@
       "polarity": null,
       "technology": "Maintenance-free",
       "application": "Marine / RV / heavy-duty commercial",
-      "weight_kg": 28.0,
+      "weight_kg": 28,
       "oem_available": true,
       "private_label_available": true,
       "source": "BCI Group 31 size chart + industry reference",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-BCI-31",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "BCI-48",
@@ -860,7 +1068,15 @@
       "source": "BCI Group 48 (batterysharks: 278×175×190mm, 315-850 CCA) + H6 cross-ref",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-BCI-48",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "BCI-49",
@@ -888,13 +1104,21 @@
       "polarity": null,
       "technology": "Maintenance-free",
       "application": "North American SUV / premium (H8 equivalent)",
-      "weight_kg": 23.0,
+      "weight_kg": 23,
       "oem_available": true,
       "private_label_available": true,
       "source": "BCI Group 49 (batterysharks: 353×175×190mm, 470-950 CCA) + H8 cross-ref",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-BCI-49",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "BCI-65",
@@ -920,13 +1144,21 @@
       "polarity": null,
       "technology": "Maintenance-free",
       "application": "Ford / Lincoln / Mercury passenger & light truck",
-      "weight_kg": 23.0,
+      "weight_kg": 23,
       "oem_available": true,
       "private_label_available": true,
       "source": "BCI Group 65 (batterysharks: 306×192×192mm, 540-880 CCA; batteryequivalents: 70-75Ah / 750-950 CCA)",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-BCI-65",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "N70ZZ",
@@ -958,7 +1190,15 @@
       "source": "Century / Yuasa N70ZZ MF datasheet (305×171×202mm, TH 225mm, 720 CCA, 170 RC, 85Ah)",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-N70ZZ",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "N70",
@@ -984,13 +1224,21 @@
       "polarity": null,
       "technology": "Maintainable / Maintenance-free",
       "application": "Australian SUV / 4WD / light commercial",
-      "weight_kg": 21.0,
+      "weight_kg": 21,
       "oem_available": true,
       "private_label_available": true,
       "source": "Exide Endurance N70ZZ datasheet (680 CCA, 160 RC, 75Ah)",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-N70",
+      "source_type": "industry_reference",
+      "verification_status": "LEVEL 3",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "646",
@@ -1022,7 +1270,15 @@
       "source": "Alberton Battery Mart 646 specs (55-60Ah, 380-550 CCA, 242×175×190mm) + Kariba fitment refs",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-646",
+      "source_type": "fitment_reference",
+      "verification_status": "LEVEL 4",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "657",
@@ -1048,13 +1304,21 @@
       "polarity": null,
       "technology": "Maintenance-free",
       "application": "South African sedan / SUV / diesel passenger",
-      "weight_kg": 18.0,
+      "weight_kg": 18,
       "oem_available": true,
       "private_label_available": true,
       "source": "battery.co.za 657C (12V 800 CCA, 276×175×190mm) + Willard/Kariba fitment refs",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-657",
+      "source_type": "fitment_reference",
+      "verification_status": "LEVEL 4",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     },
     {
       "model": "668",
@@ -1080,13 +1344,21 @@
       "polarity": null,
       "technology": "Maintenance-free",
       "application": "South African premium sedan / SUV / diesel",
-      "weight_kg": 18.0,
+      "weight_kg": 18,
       "oem_available": true,
       "private_label_available": true,
       "source": "Goldwagen 668 (80Ah) + Kariba/Willard fitment refs",
       "verified_date": "2026-09-11",
       "confidence": "REFERENCE",
-      "url": null
+      "url": null,
+      "claim_id": "BAT-668",
+      "source_type": "fitment_reference",
+      "verification_status": "LEVEL 4",
+      "first_published": "2026-09-01",
+      "last_verified": "2026-09-11",
+      "reviewer": null,
+      "evidence_url": null,
+      "notes": null
     }
   ]
 }

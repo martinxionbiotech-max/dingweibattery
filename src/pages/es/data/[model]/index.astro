@@ -6,7 +6,7 @@ import FitmentConfidence from '../../../../components/FitmentConfidence.astro';
 import {SITE, BRAND, MANUFACTURER, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
 import type { BatteryModel } from '../../../../data/site';
-import { translateApplication, translateTechnology, translateConfidence, translateCcaBasis, translateCcaNote } from '../../../../i18n/model';
+import { translateApplication, translateTechnology, translateCcaBasis, translateCcaNote, translateSourceType, translateVerificationStatus } from '../../../../i18n/model';
 import type { Locale } from '../../../../i18n/ui';
 
 export function getStaticPaths() {
@@ -429,11 +429,12 @@ const aliases = model.aliases ?? [];
 
   <section class="section section--alt">
     <div class="container prose">
-      <h2>Fuentes y fecha de verificación</h2>
+      <h2>Fuentes y verificación</h2>
       <ul>
-        <li>Fuente: {model.source}</li>
+        <li>Fuente: {translateSourceType(model.source_type, locale)}</li>
+        <li>Nivel de evidencia: {translateVerificationStatus(model.verification_status, locale)}</li>
+        <li>Referencia: {model.source}</li>
         <li>Fecha de verificación: {model.verified_date}</li>
-        <li>Confianza: {translateConfidence(model.confidence, locale)}</li>
       </ul>
       <p class="note">Esta es una página de referencia. Los campos marcados &ldquo;confirmar al solicitar&rdquo; no se publican intencionadamente, en lugar de estimarse.</p>
     </div>

@@ -6,7 +6,7 @@ import FitmentConfidence from '../../../../components/FitmentConfidence.astro';
 import {SITE, BRAND, MANUFACTURER, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
 import type { BatteryModel } from '../../../../data/site';
-import { translateApplication, translateTechnology, translateConfidence, translateCcaBasis, translateCcaNote } from '../../../../i18n/model';
+import { translateApplication, translateTechnology, translateCcaBasis, translateCcaNote, translateSourceType, translateVerificationStatus } from '../../../../i18n/model';
 import type { Locale } from '../../../../i18n/ui';
 
 export function getStaticPaths() {
@@ -429,11 +429,12 @@ const aliases = model.aliases ?? [];
 
   <section class="section section--alt">
     <div class="container prose">
-      <h2>المصادر وتاريخ التحقق</h2>
+      <h2>المصادر والتحقق</h2>
       <ul>
-        <li>المصدر: {model.source}</li>
+        <li>المصدر: {translateSourceType(model.source_type, locale)}</li>
+        <li>مستوى الأدلة: {translateVerificationStatus(model.verification_status, locale)}</li>
+        <li>المرجع: {model.source}</li>
         <li>تاريخ التحقق: {model.verified_date}</li>
-        <li>مستوى الثقة: {translateConfidence(model.confidence, locale)}</li>
       </ul>
       <p class="note">هذه صفحة مرجعية. الحقول المميزة بـ&ldquo;يُؤكَّد عند الاستفسار&rdquo; لا تُنشر عمدًا بدلًا من تقديرها.</p>
     </div>

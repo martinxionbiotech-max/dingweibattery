@@ -6,7 +6,7 @@ import FitmentConfidence from '../../../../components/FitmentConfidence.astro';
 import {SITE, BRAND, MANUFACTURER, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
 import type { BatteryModel } from '../../../../data/site';
-import { translateApplication, translateTechnology, translateConfidence, translateCcaBasis, translateCcaNote } from '../../../../i18n/model';
+import { translateApplication, translateTechnology, translateCcaBasis, translateCcaNote, translateSourceType, translateVerificationStatus } from '../../../../i18n/model';
 import type { Locale } from '../../../../i18n/ui';
 
 export function getStaticPaths() {
@@ -429,11 +429,12 @@ const aliases = model.aliases ?? [];
 
   <section class="section section--alt">
     <div class="container prose">
-      <h2>Источники и дата проверки</h2>
+      <h2>Источники и проверка</h2>
       <ul>
-        <li>Источник: {model.source}</li>
+        <li>Источник: {translateSourceType(model.source_type, locale)}</li>
+        <li>Уровень доказательств: {translateVerificationStatus(model.verification_status, locale)}</li>
+        <li>Ссылка: {model.source}</li>
         <li>Дата проверки: {model.verified_date}</li>
-        <li>Уровень достоверности: {translateConfidence(model.confidence, locale)}</li>
       </ul>
       <p class="note">Это справочная страница. Поля с пометкой &ldquo;уточняется по запросу&rdquo; намеренно не публикуются, а не оцениваются приблизительно.</p>
     </div>

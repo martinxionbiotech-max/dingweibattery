@@ -6,7 +6,9 @@ import FitmentConfidence from '../../../../components/FitmentConfidence.astro';
 import DirectAnswer from '../../../../components/DirectAnswer.astro';
 import {SITE, BRAND, MANUFACTURER, RELATIONSHIP, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
+import { translateSourceType, translateVerificationStatus } from '../../../../i18n/model';
 import type { BatteryModel } from '../../../../data/site';
+import type { Locale } from '../../../../i18n/ui';
 
 export function getStaticPaths() {
   return batteryModels.map((model) => ({ params: { model: model.model.toLowerCase() }, props: { model } }));
@@ -14,6 +16,7 @@ export function getStaticPaths() {
 
 interface Props { model: BatteryModel; }
 const { model } = Astro.props;
+const locale = (Astro.currentLocale ?? 'zh') as Locale;
 
 const HEAVY = ['105D31', '115D31', 'N100', 'N150', 'N200'];
 const isHeavy = HEAVY.includes(model.model);
@@ -240,11 +243,12 @@ const jsonLd = [
 
   <section class="section section--alt">
     <div class="container prose">
-      <h2>来源与核验日期</h2>
+      <h2>来源与核验</h2>
       <ul>
-        <li>来源：{model.source}</li>
+        <li>来源：{translateSourceType(model.source_type, locale)}</li>
+        <li>证据级别：{translateVerificationStatus(model.verification_status, locale)}</li>
+        <li>参考：{model.source}</li>
         <li>核验日期：{model.verified_date}</li>
-        <li>置信度：{model.confidence}</li>
       </ul>
       <p class="note">本页为参考页。标注“询价确认”的字段为有意不发布而非估算。</p>
     </div>

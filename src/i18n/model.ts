@@ -182,3 +182,96 @@ export function translateCcaNote(note: string, locale: Locale): string {
   s = s.replace(/confirm with manufacturer/g, confirm[locale]);
   return s;
 }
+
+/**
+ * §28 evidence hierarchy — reader-friendly source label per locale.
+ * Values are the claim-ledger `source_type` keys (see scripts/enrich-claims-ledger.mjs).
+ * Mapping (§28):
+ *   manufacturer_specification → LEVEL 1  DINGWEI/Chengguang first-party documentation
+ *   official_standard          → LEVEL 2  official standards / government / institutional
+ *   industry_reference         → LEVEL 3  credible industry sources
+ *   fitment_reference          → LEVEL 4  independent fitment/reference sources
+ *   unverified                 → LEVEL 5  unverified / community information
+ */
+export function translateSourceType(sourceType: string | undefined, locale: Locale): string {
+  const m: Record<string, Record<Locale, string>> = {
+    manufacturer_specification: {
+      en: 'DINGWEI manufacturer specification',
+      es: 'Especificación del fabricante DINGWEI',
+      ar: 'مواصفات الشركة المصنعة DINGWEI',
+      ru: 'Спецификация производителя DINGWEI',
+      zh: 'DINGWEI 制造商规格',
+    },
+    official_standard: {
+      en: 'Official standard reference',
+      es: 'Referencia de norma oficial',
+      ar: 'مرجع معيار رسمي',
+      ru: 'Ссылка на официальный стандарт',
+      zh: '官方标准参考',
+    },
+    industry_reference: {
+      en: 'Industry reference',
+      es: 'Referencia de la industria',
+      ar: 'مرجع صناعي',
+      ru: 'Отраслевой справочник',
+      zh: '行业参考',
+    },
+    fitment_reference: {
+      en: 'Third-party fitment reference — not OEM confirmation',
+      es: 'Referencia de compatibilidad de terceros — no es confirmación OEM',
+      ar: 'مرجع توافق من طرف ثالث — ليس تأكيدًا من OEM',
+      ru: 'Справочная совместимость от третьих лиц — не подтверждение OEM',
+      zh: '第三方适配参考 — 非 OEM 确认',
+    },
+    unverified: {
+      en: 'Unverified',
+      es: 'No verificado',
+      ar: 'غير مُتحقق',
+      ru: 'Не проверено',
+      zh: '未核验',
+    },
+  };
+  return (sourceType && m[sourceType]?.[locale]) || sourceType || 'Unverified';
+}
+
+/** Reader-friendly evidence-level label (§28 LEVEL 1–5). */
+export function translateVerificationStatus(status: string | undefined, locale: Locale): string {
+  const m: Record<string, Record<Locale, string>> = {
+    'LEVEL 1': {
+      en: 'LEVEL 1 — DINGWEI/Chengguang first-party documentation',
+      es: 'NIVEL 1 — documentación de primera mano de DINGWEI/Chengguang',
+      ar: 'المستوى 1 — وثائق مباشرة من DINGWEI/Chengguang',
+      ru: 'УРОВЕНЬ 1 — первичная документация DINGWEI/Chengguang',
+      zh: 'LEVEL 1 — DINGWEI/Chengguang 一手文档',
+    },
+    'LEVEL 2': {
+      en: 'LEVEL 2 — official standard / institutional source',
+      es: 'NIVEL 2 — norma oficial / fuente institucional',
+      ar: 'المستوى 2 — معيار رسمي / مصدر مؤسسي',
+      ru: 'УРОВЕНЬ 2 — официальный стандарт / институциональный источник',
+      zh: 'LEVEL 2 — 官方标准 / 机构来源',
+    },
+    'LEVEL 3': {
+      en: 'LEVEL 3 — credible industry source',
+      es: 'NIVEL 3 — fuente industrial creíble',
+      ar: 'المستوى 3 — مصدر صناعي موثوق',
+      ru: 'УРОВЕНЬ 3 — надёжный отраслевой источник',
+      zh: 'LEVEL 3 — 可信行业来源',
+    },
+    'LEVEL 4': {
+      en: 'LEVEL 4 — independent fitment / reference source',
+      es: 'NIVEL 4 — fuente independiente de compatibilidad / referencia',
+      ar: 'المستوى 4 — مصدر توافق / مرجعي مستقل',
+      ru: 'УРОВЕНЬ 4 — независимый источник совместимости / справочный',
+      zh: 'LEVEL 4 — 独立适配 / 参考来源',
+    },
+    'LEVEL 5': {
+      en: 'LEVEL 5 — unverified / community information',
+      es: 'NIVEL 5 — información no verificada / comunitaria',
+      ar: 'المستوى 5 — معلومات غير مُتحققة / مجتمعية',
+      ru: 'УРОВЕНЬ 5 — непроверенная / общественная информация',
+      zh: 'LEVEL 5 — 未核验 / 社区信息',
+    },
+  };
+  return (status && m[status]?.[locale]) || status || 'LEVEL 5';
+}

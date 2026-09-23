@@ -162,6 +162,15 @@ export interface BatteryModel {
   source: string;
   verified_date: string;
   confidence: string;
+  // Claim-ledger fields (§6/§28), added batch-4. Derived from existing data only.
+  claim_id?: string;
+  source_type?: string;
+  evidence_url?: string | null;
+  verification_status?: string;
+  first_published?: string;
+  last_verified?: string;
+  reviewer?: string | null;
+  notes?: string | null;
   image?: string;
 }
 
