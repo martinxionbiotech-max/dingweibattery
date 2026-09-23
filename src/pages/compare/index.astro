@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 import JsonLd from '../../components/JsonLd.astro';
+import DirectAnswer from '../../components/DirectAnswer.astro';
 import { SITE } from '../../data/site';
 
 const title = 'Battery Model Comparisons | Dingwei Battery';
@@ -60,6 +61,7 @@ const jsonLd = [
     <span class="tag">Compare</span>
     <h1>Battery model comparisons</h1>
     <p class="lead">Written comparisons that explain what the spec table alone cannot: whether two batteries share a case, why their numbers differ, and which one a buyer should choose.</p>
+    <DirectAnswer label="Direct answer">These comparisons explain what a spec table cannot: whether two batteries share a case, why their capacity and CCA differ, and which grade to stock for a given application. CCA values are reference only and test-method dependent — confirm final specifications with the manufacturer before ordering.</DirectAnswer>
   </section>
 
   <section class="section section--alt">

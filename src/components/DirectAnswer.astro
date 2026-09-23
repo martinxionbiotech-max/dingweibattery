@@ -1,0 +1,12 @@
+---
+// AIO/GEO 结论先行块（§16/§35）：2–4 句直接回答查询意图。
+// 复用既有 .takeaways 样式，与知识页/对比页的「Short answer」范式保持一致。
+interface Props {
+  label?: string;
+}
+
+const { label = 'Direct answer' } = Astro.props;
+---
+<div class="takeaways">
+  <strong>{label}:</strong> <slot />
+</div>

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 import JsonLd from '../../components/JsonLd.astro';
+import DirectAnswer from '../../components/DirectAnswer.astro';
 import { SITE, RELATIONSHIP } from '../../data/site';
 import { batteryModels, modelPath } from '../../data/battery-models';
 
@@ -77,6 +78,7 @@ const jsonLd = [
     <span class="tag">Database</span>
     <h1>Battery model database</h1>
     <p class="lead">{RELATIONSHIP} Reference specifications for {rows.length} battery models across {standards.join(' and ')} standards. CCA values are shown as reference; confirm final values with the manufacturer.</p>
+    <DirectAnswer label="Direct answer">This database lists {rows.length} reference battery models across {standards.join(' and ')} standards. Every value — voltage, capacity, CCA and dimensions — is a reference figure, not a manufacturer-guaranteed specification; confirm final values, terminal type and polarity with the manufacturer before ordering.</DirectAnswer>
   </section>
 
   <section class="section section--alt">

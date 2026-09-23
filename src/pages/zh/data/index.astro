@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTASection from '../../../components/CTASection.astro';
 import JsonLd from '../../../components/JsonLd.astro';
+import DirectAnswer from '../../../components/DirectAnswer.astro';
 import { SITE, RELATIONSHIP } from '../../../data/site';
 import { batteryModels, modelPath } from '../../../data/battery-models';
 
@@ -55,6 +56,7 @@ const jsonLd = [
     <span class="tag">数据库</span>
     <h1>电池型号数据库</h1>
     <p class="lead">{RELATIONSHIP} {rows.length} 款电池型号在 {standards.join(' 与 ')} 标准下的参考规格。CCA 为参考值；下单前请与制造商确认最终数值。</p>
+    <DirectAnswer label="直接回答">本数据库收录 {rows.length} 款 {standards.join(' 与 ')} 标准的参考电池型号。所有数值——电压、容量、CCA 与尺寸——均为参考值，并非制造商保证的规格；下单前请与制造商确认最终数值、端子类型与极性。</DirectAnswer>
   </section>
 
   <section class="section section--alt">

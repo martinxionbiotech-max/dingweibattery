@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTASection from '../../../components/CTASection.astro';
 import JsonLd from '../../../components/JsonLd.astro';
 import FitmentConfidence from '../../../components/FitmentConfidence.astro';
+import DirectAnswer from '../../../components/DirectAnswer.astro';
 import {SITE, BRAND, MANUFACTURER, RELATIONSHIP, PUBLIC_LIST_PRICE} from '../../../data/site';
 import { batteryModels, modelPath } from '../../../data/battery-models';
 import type { BatteryModel } from '../../../data/site';
@@ -320,6 +321,7 @@ const aliases = model.aliases ?? [];
     <span class="tag">Model data / {model.standard}</span>
     <h1>{h1}</h1>
     <p class="lead">{lead}</p>
+    <DirectAnswer label="Direct answer">The {model.model} is a {model.standard} starting battery for {model.application.toLowerCase()}, supplied as a {model.case_size} case ({dimsLabel}) with a nominal {model.voltage}V and {model.capacity_ah} Ah rating. It is listed as a compatible reference &mdash; not an OEM-confirmed fitment &mdash; so confirm terminal type, polarity and tray dimensions before ordering. CCA is {model.cca.value} (reference, {model.cca.basis}).</DirectAnswer>
     {model.image && (
       <img class="model-photo" src={model.image} alt={`${model.model} battery`} width="800" height="800" loading="lazy" decoding="async" />
     )}

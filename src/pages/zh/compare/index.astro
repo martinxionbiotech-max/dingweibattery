@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTASection from '../../../components/CTASection.astro';
 import JsonLd from '../../../components/JsonLd.astro';
+import DirectAnswer from '../../../components/DirectAnswer.astro';
 import { SITE } from '../../../data/site';
 
 const title = '电池型号对比 | Dingwei Battery';
@@ -60,6 +61,7 @@ const jsonLd = [
     <span class="tag">对比</span>
     <h1>电池型号对比</h1>
     <p class="lead">文字版对比，解释规格表本身说不清的事：两款电池是否共用壳体、数字为何不同、采购方该选哪一款。</p>
+    <DirectAnswer label="直接回答">这些文字对比解释规格表说不清的事：两款电池是否共用壳体、容量与 CCA 为何不同、特定应用该备哪个档位。CCA 均为参考值且依赖测试方法——下单前请与制造商确认最终规格。</DirectAnswer>
   </section>
 
   <section class="section section--alt">
