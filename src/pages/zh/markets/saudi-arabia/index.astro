@@ -1,0 +1,146 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import DirectAnswer from '../../../../components/DirectAnswer.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = '沙特阿拉伯卡车电池 | Dingwei Battery';
+const description = '面向沙特阿拉伯的重载卡车电池——耐高温 JIS N150/N200/N100 结构，SASO/SABER 与 G-Mark 文件。由晋州成光电源有限公司 OEM 供应。';
+const articleTitle = '沙特阿拉伯市场卡车电池';
+
+const faqs = [
+  { q: '沙特阿拉伯卡车用哪种电池标准？', a: '沙特阿拉伯运营日系与欧系混合商用车队，因此 JIS N 系列电池（N150/N200/N100）是主流卡车电池组，DIN/EN 代码则作为欧洲车的替代方案。电池跟着车走、不跟着国家走——需对照车辆确认电池组尺寸、端子布局与电压。' },
+  { q: '为什么沙特的高温会缩短卡车电池寿命？', a: '高环境温度加速铅酸极板化学老化，并加剧富液式电池的电解液失水。结果是自放电加快、使用寿命比温带气候更短，因此厚极板结构与严谨的电解液维护尤为重要。' },
+  { q: '电池进入沙特需要什么认证？', a: '沙特要求通过 SABER 平台进行 SASO 符合性评定，取得产品符合性证书（PCoC）与装运证书（SCoC）。海湾地区范围内适用 G-Mark（低压电气设备海湾技术法规）。发货前请与进口商确认现行方案。' },
+  { q: 'Dingwei 能为沙特市场供应电池吗？', a: 'Dingwei 以 OEM 与贴牌方案供应 JIS N 系列与 DIN/EN 电池。针对具体沙特订单，SASO/SABER 符合性与最终规格按单确认——Dingwei 不列出面向沙特的现成经销商方案，因此请将供应视为兼容参考，而非 OEM 替代。' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Markets" dateModified="2026-09-23" faqs={faqs} hreflangLocales={['en', 'zh']}>
+  <section class="section container prose">
+    <span class="tag">市场 · 沙特阿拉伯</span>
+    <h1>沙特阿拉伯市场卡车电池</h1>
+    <p class="byline">由 Dingwei Battery 发布 · 最后审校 2026-09-23 · 来源：SASO/SABER、GSO、国家气象中心、Mordor Intelligence</p>
+    <p class="lead">沙特阿拉伯是一个大容量、高温的商用车市场，日系与欧系重卡并行运行。这意味着日野、五十铃、扶桑与 UD 卡车用 JIS N150/N200/N100 电池，欧洲车队则并行使用 DIN/EN 代码——全部按夏季常超 40°C 的温度来选型。</p>
+
+    <DirectAnswer>沙特阿拉伯的卡车车队是日系重卡（日野、五十铃、扶桑、UD 卡车）与欧系重卡（梅赛德斯-奔驰、沃尔沃、斯堪尼亚、曼恩、达夫、依维柯）的混合体，日系车使用 JIS N150/N200 电池，欧系车在该市场也常按 N150/N200 组来选型，DIN/EN 代码作为欧洲替代方案。主导电池组为 N150、N200 与 N100，而运行环境——夏季最高 40–50°C——是对使用寿命最大的单一压力。进口通过 SASO/SABER 符合性与海湾 G-Mark 清关，吉达伊斯兰港与达曼阿卜杜勒阿齐兹国王港为主要入境点。</DirectAnswer>
+
+    <h2>市场概览</h2>
+    <p>
+      沙特阿拉伯运营海湾地区最大的重卡车队之一。市场研究估计沙特重卡市场约为
+      <strong>96 亿美元（2026 年）</strong>，主要品牌——戴姆勒卡车（梅赛德斯-奔驰）、沃尔沃卡车、曼恩、
+      五十铃与日野——均在该市场活跃
+      （<a href="https://www.mordorintelligence.com/industry-reports/saudi-arabia-heavy-duty-truck-market" target="_blank" rel="noopener">Mordor Intelligence</a>）。
+      日系品牌拥有数十年的深厚经销网络：日野自 1970 年代起通过其 Jamjoom Vehicles &amp; Equipment 网络出口至沙特
+      （<a href="https://www.hino.com.sa/" target="_blank" rel="noopener">Hino Saudi Arabia</a>），
+      五十铃自 1980 年起由 Al Yemni 集团代理
+      （<a href="https://isuzu-intl.com/" target="_blank" rel="noopener">Isuzu International</a>）。
+    </p>
+    <p>
+      现有车队的精确品牌占比并无单一官方来源发布，因此以下仅作为整体结构而非精确比例：
+      强大的日系轻至重卡基础（日野、五十铃、三菱扶桑、UD 卡车）加上可观的欧系长途运输板块
+      （梅赛德斯-奔驰、沃尔沃、斯堪尼亚、曼恩、达夫、依维柯）。<em>精确品牌占比：未经公开核实。</em>
+    </p>
+
+    <h2>气候与使用负荷</h2>
+    <p>
+      高温是决定性压力。利雅得 6 月平均日最高温为 42.5°C，7、8 月为 43.5–43.6°C，历史极值 49.8°C
+      （<a href="https://en.wikipedia.org/wiki/Climate_of_Saudi_Arabia" target="_blank" rel="noopener">维基百科——沙特气候</a>；
+      官方数据见 <a href="https://www.ncm.gov.sa/en/the-climate/climate-of-kingdom" target="_blank" rel="noopener">国家气象中心</a>）。
+      全国夏季最高温通常在 35–45°C，东部省份偶达 50°C。
+    </p>
+    <p>
+      对铅酸启动电池而言，这比严寒更难。高温加速极板老化，并加剧富液式设计的电解液失水，从而缩短使用寿命、
+      增加停放时的自放电。行业文献描述环境温度每升高 10°C，循环寿命约下降 20%，在 40°C 时降至约 200 次循环以下
+      （<a href="https://www.everexceed.com/blog/the-impact-of-high-temperatures-on-lead-acid-batteries-and-recommended-solutions_b663" target="_blank" rel="noopener">EverExceed</a>；
+      <a href="https://www.sciencedirect.com/science/article/pii/S0378775303009340" target="_blank" rel="noopener">Journal of Power Sources——铅酸老化</a>）。
+      对买方的实际启示：厚极板富液式结构、正确的电解液维护，或在车队偏好免维护时选择密封 AGM 方案。
+    </p>
+
+    <h2>车型构成与常见电池组</h2>
+    <p>
+      电池组跟着车走。日系方面，日野 700、五十铃 Giga、扶桑 Super Great 与 UD Quon 按 JIS
+      <strong>N150</strong> 选型（需要更大启动电流或更高壳体时用 N200），N100 覆盖轻型卡车与客车。
+      欧系方面，梅赛德斯-奔驰 Actros/Atego、沃尔沃 FH/FM、斯堪尼亚 R、曼恩 TGS/TGX、达夫 XF 与
+      依维柯 Stralis 在中东适配参考中也常按 N150/N200 组列出，DIN88/DIN100 作为欧洲代码替代方案。
+      因此主导沙特车队的三个 JIS 组为：
+    </p>
+    <table>
+      <thead>
+        <tr><th>电池组</th><th>Dingwei 参考型号</th><th>容量 / CCA</th><th>典型车型类别</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>JIS N150</td><td><a href="/zh/data/n150/">N150 (145G51)</a></td><td>160 Ah · 1050 A（SAE −18°C 参考值）</td><td>日系与欧系重卡、客车</td></tr>
+        <tr><td>JIS N200</td><td><a href="/zh/data/n200/">N200 (190H52)</a></td><td>200 Ah · 1100 A（SAE −18°C 参考值）</td><td>重卡、半挂车、高负荷客车</td></tr>
+        <tr><td>JIS N100</td><td><a href="/zh/data/n100/">N100 (95E41)</a></td><td>100 Ah · 740 A（SAE −18°C 参考值）</td><td>轻/中型卡车、客车</td></tr>
+      </tbody>
+    </table>
+    <p class="note">
+      容量与 CCA 为本站型号数据库中的参考值——下单前请与制造商确认最终数值。电池组与车型的对应为第三方适配参考，
+      属兼容参考而非 OEM 确认。DIN88/DIN100 代码服务于原装即用该代码的欧洲车型；Dingwei 覆盖 DIN/EN 系列（见
+      <a href="/zh/knowledge/jis-vs-din-vs-bci/">标准对比</a>）。下单前请对照具体卡车确认尺寸、端子布局与电压。
+    </p>
+
+    <h2>标准</h2>
+    <p>
+      两套标准并行。JIS N 系列电池（N150/N200/N100）服务于日韩卡车基础——在中东，多数欧洲卡车也由独立适配
+      参考按 N150/N200 组选型。DIN/EN 电池覆盖原装即用该代码的欧洲车型。请按车辆电池组、尺寸与端子方向来匹配，
+      而非只看地区。技术对比见 <a href="/zh/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>。
+    </p>
+    <p>
+      入境符合性为强制要求。沙特要求通过 SABER 电子平台进行 SASO 符合性评定，取得产品符合性证书（PCoC）与
+      逐批装运证书（SCoC）用于清关
+      （<a href="https://www.trade.gov/saudi-arabia-testing-inspection-and-certification" target="_blank" rel="noopener">ITA / trade.gov</a>；
+      <a href="https://www.gso.org.sa/en" target="_blank" rel="noopener">GSO</a>）。
+      海湾范围内适用低压电气设备海湾技术法规下的 G-Mark。生产前请与进口商确认现行方案、标签与指定认证机构，
+      因为到货后再认证既慢又贵。
+    </p>
+
+    <h2>Dingwei 相关性</h2>
+    <p>
+      Dingwei——由晋州成光电源有限公司制造——在一条产线中涵盖主导沙特车队的 JIS N 系列电池组：N150 (145G51)、
+      N200 (190H52) 与 N100 (95E41)，并覆盖欧洲车辆的 DIN/EN 系列。这些型号定位为按电池组、尺寸与 CCA 匹配的
+      <strong>兼容参考</strong>，而非 OEM 替代——因此经销商可从单一制造商、单批装运覆盖日欧混合车队。
+      Dingwei 不发布面向沙特的国别经销商名单；供应按单安排，生产前确认 SASO/SABER 符合性与最终规格。
+    </p>
+
+    <h2>买方注意事项</h2>
+    <ol>
+      <li><strong>电池要跟着车走，而非跟着国家。</strong>对照具体车辆确认电池组尺寸、物理尺寸、端子方向与系统电压（许多沙特重卡为 24V——两只 12V 电池串联）。</li>
+      <li><strong>为高温缩短的寿命留预算。</strong>高环境温度会缩短使用寿命，因此在利雅得与达曼，厚极板富液式设计或密封 AGM 加上严谨的电解液/检测计划，比在温带市场更值得投入。</li>
+      <li><strong>发货前完成符合性。</strong>SASO/SABER（PCoC + SCoC）与海湾 G-Mark 决定清关；请与进口商确认现行方案与标签。</li>
+      <li><strong>规划港口。</strong>吉达伊斯兰港服务于红海亚欧航线上的西部区域；达曼阿卜杜勒阿齐兹国王港服务于东部/阿拉伯湾一侧。请选择离分销中心最近的入境点。</li>
+    </ol>
+
+    <h2>证据与来源</h2>
+    <table>
+      <thead><tr><th>断言</th><th>来源</th><th>级别</th></tr></thead>
+      <tbody>
+        <tr><td>夏季最高 40–50°C；利雅得极值 49.8°C</td><td>国家气象中心（ncm.gov.sa）；维基百科气候数据</td><td>LEVEL 2</td></tr>
+        <tr><td>重卡市场约 96 亿美元，品牌戴姆勒/沃尔沃/曼恩/五十铃/日野</td><td>Mordor Intelligence</td><td>LEVEL 3</td></tr>
+        <tr><td>日系品牌经销（日野/Jamjoom、五十铃/Al Yemni）</td><td>Hino Saudi Arabia；Isuzu International</td><td>LEVEL 3</td></tr>
+        <tr><td>高温加速铅酸老化与失水</td><td>Journal of Power Sources；EverExceed</td><td>LEVEL 3</td></tr>
+        <tr><td>SASO/SABER（PCoC + SCoC）+ G-Mark 符合性要求</td><td>ITA/trade.gov；GSO（gso.org.sa）；SASO 技术法规</td><td>LEVEL 2</td></tr>
+        <tr><td>港口：吉达伊斯兰港 / 达曼阿卜杜勒阿齐兹国王港</td><td>Mawani 港口资料</td><td>LEVEL 3</td></tr>
+        <tr><td>Dingwei N150/N200/N100 规格</td><td>晋州成光电源有限公司制造商数据（本站型号数据库）</td><td>LEVEL 1</td></tr>
+        <tr><td>车型到电池组适配（日野 700 = N150 等）</td><td>独立适配参考（Club Assist / Century）</td><td>LEVEL 4</td></tr>
+      </tbody>
+    </table>
+    <p class="note">
+      证据级别：LEVEL 1 = 制造商一手 · LEVEL 2 = 官方/政府/机构 · LEVEL 3 = 可信行业来源 · LEVEL 4 = 独立适配参考。
+      现有车队的品牌占比无单一官方来源发布，已标注「未经公开核实」。
+    </p>
+
+    <h2>相关实体</h2>
+    <div class="grid grid--2">
+      <div class="card"><h3>电池</h3><p><a href="/zh/data/n150/">N150 (145G51)</a> · <a href="/zh/data/n200/">N200 (190H52)</a> · <a href="/zh/data/n100/">N100 (95E41)</a></p></div>
+      <div class="card"><h3>标准</h3><p><a href="/zh/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a> · <a href="/zh/knowledge/what-is-cca/">什么是 CCA</a></p></div>
+      <div class="card"><h3>应用</h3><p><a href="/zh/heavy-duty-batteries/">重载电池</a> · <a href="/zh/oem/truck-batteries/">卡车电池 OEM</a></p></div>
+      <div class="card"><h3>市场</h3><p><a href="/zh/markets/uae/">阿联酋市场</a></p></div>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="索取沙特阿拉伯供应信息" />
+</ArticleLayout>
