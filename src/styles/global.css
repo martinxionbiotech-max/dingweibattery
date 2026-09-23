@@ -270,6 +270,27 @@ form { background: var(--surface); border: 1px solid var(--line); border-radius:
 .data-table td a { font-weight: 700; }
 .compare-table td.diff { background: #fdf3f2; font-weight: 700; }
 
+/* Fitment confidence（§11）：四级徽章 + 图例 */
+.fitment-confidence { margin: 1rem 0 1.5rem; }
+.fitment-confidence__head { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: 0 0 0.4rem; }
+.fitment-confidence__label { font-weight: 700; color: var(--navy); }
+.fitment-confidence__desc { color: var(--muted); font-size: 0.95rem; margin: 0 0 0.4rem; }
+.fitment-confidence__note { font-size: 0.92rem; color: #6f241c; margin: 0 0 0.5rem; }
+.fitment-badge {
+  display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.03em;
+  text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 4px; border: 1px solid transparent;
+  line-height: 1.4;
+}
+.fitment-badge--high { color: #1e7d32; background: #e8f5e9; border-color: #c8e6c9; }
+.fitment-badge--medium { color: #b26a00; background: #fff4e5; border-color: #ffe0b2; }
+.fitment-badge--low { color: #c05621; background: #fbe9e7; border-color: #ffccbc; }
+.fitment-badge--unverified { color: #516078; background: #eef1f5; border-color: #d9dfe8; }
+.fitment-legend { margin-top: 0.5rem; font-size: 0.9rem; }
+.fitment-legend summary { cursor: pointer; font-weight: 700; color: var(--navy); }
+.fitment-legend__list { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.35rem; }
+.fitment-legend__list li { display: flex; gap: 0.5rem; align-items: baseline; flex-wrap: wrap; }
+.fitment-legend__desc { color: var(--muted); }
+
 .model-card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: var(--radius); padding: 1.1rem; box-shadow: var(--shadow); }
 .model-card h3 { margin: 0 0 0.4rem; }
 .model-card p { color: var(--muted); font-size: 0.94rem; margin: 0.3rem 0; }

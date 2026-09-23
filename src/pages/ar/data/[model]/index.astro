@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CTASection from '../../../../components/CTASection.astro';
 import JsonLd from '../../../../components/JsonLd.astro';
+import FitmentConfidence from '../../../../components/FitmentConfidence.astro';
 import {SITE, BRAND, MANUFACTURER, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
 import type { BatteryModel } from '../../../../data/site';
@@ -368,6 +369,7 @@ const aliases = model.aliases ?? [];
   <section class="section container prose">
     <h2>التطبيقات وتوافق المركبات</h2>
     <p>مرجع التطبيق: {translateApplication(model.application, locale)}. التوافق الدقيق للمركبة قرار يعتمد على المرجع المتبادل — تأكد دائمًا من متطلبات المركبة أو الأسطول ومن الشركة المصنعة قبل الطلب.</p>
+    <FitmentConfidence level="UNVERIFIED" />
     <p><a href={`/${locale}/tools/battery-finder/`}>استخدم أداة البحث عن البطارية &larr;</a> · <a href={`/${locale}/knowledge/oem-battery-specification-guide/`}>اقرأ دليل المواصفات &larr;</a></p>
   </section>
 

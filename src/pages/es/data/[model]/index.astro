@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CTASection from '../../../../components/CTASection.astro';
 import JsonLd from '../../../../components/JsonLd.astro';
+import FitmentConfidence from '../../../../components/FitmentConfidence.astro';
 import {SITE, BRAND, MANUFACTURER, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
 import type { BatteryModel } from '../../../../data/site';
@@ -368,6 +369,7 @@ const aliases = model.aliases ?? [];
   <section class="section container prose">
     <h2>Aplicaciones y compatibilidad de vehículos</h2>
     <p>Referencia de aplicación: {translateApplication(model.application, locale)}. La compatibilidad exacta del vehículo es una decisión de referencia cruzada: confirme siempre con el vehículo o los requisitos de la flota y con el fabricante antes de pedir.</p>
+    <FitmentConfidence level="UNVERIFIED" />
     <p><a href={`/${locale}/tools/battery-finder/`}>Usar el buscador de baterías &rarr;</a> · <a href={`/${locale}/knowledge/oem-battery-specification-guide/`}>Leer la guía de especificación &rarr;</a></p>
   </section>
 

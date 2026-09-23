@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CTASection from '../../../../components/CTASection.astro';
 import JsonLd from '../../../../components/JsonLd.astro';
+import FitmentConfidence from '../../../../components/FitmentConfidence.astro';
 import {SITE, BRAND, MANUFACTURER, RELATIONSHIP, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
 import type { BatteryModel } from '../../../../data/site';
@@ -187,6 +188,7 @@ const jsonLd = [
   <section class="section container prose">
     <h2>应用与车辆适配</h2>
     <p>应用参考：{model.application}。确切车辆适配是交叉参考决策——下单前请务必对照车辆或车队需求及制造商确认。</p>
+    <FitmentConfidence level="UNVERIFIED" />
     <p><a href="/zh/tools/battery-finder/">使用电池选型工具 &rarr;</a> · <a href="/knowledge/oem-battery-specification-guide/">阅读规格指南 &rarr;</a></p>
   </section>
 

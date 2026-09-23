@@ -1,0 +1,35 @@
+---
+import { FITMENT, FITMENT_LEVELS, type FitmentLevel } from '../i18n/fitment';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+  level?: FitmentLevel;
+  showLegend?: boolean;
+}
+
+const { level = 'UNVERIFIED', showLegend = true } = Astro.props;
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+const s = FITMENT[locale] ?? FITMENT.en;
+const current = s.levels[level];
+---
+<div class="fitment-confidence">
+  <p class="fitment-confidence__head">
+    <span class="fitment-confidence__label">{s.label}:</span>
+    <span class={`fitment-badge fitment-badge--${level.toLowerCase()}`}>{current.name}</span>
+  </p>
+  <p class="fitment-confidence__desc">{current.desc}</p>
+  <p class="fitment-confidence__note">{s.compatibleReference}</p>
+  {showLegend && (
+    <details class="fitment-legend">
+      <summary>{s.legendTitle}</summary>
+      <ul class="fitment-legend__list">
+        {FITMENT_LEVELS.map((l) => (
+          <li>
+            <span class={`fitment-badge fitment-badge--${l.toLowerCase()}`}>{s.levels[l].name}</span>
+            <span class="fitment-legend__desc">{s.levels[l].desc}</span>
+          </li>
+        ))}
+      </ul>
+    </details>
+  )}
+</div>
