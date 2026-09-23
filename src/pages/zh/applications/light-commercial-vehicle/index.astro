@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import ModelCard from '../../../../components/ModelCard.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import DirectAnswer from '../../../../components/DirectAnswer.astro';
+import { SITE, MANUFACTURER, RELATIONSHIP } from '../../../../data/site';
+import { batteryModels } from '../../../../data/battery-models';
+
+const title = '轻型商用车电池 | Dingwei Battery';
+const description = '轻卡、皮卡、厢式货车与工具车用启动电池——12V 系统、柴油启动与抗振结构，由晋州成光电源有限公司供应。';
+
+const breadcrumbs = [{ label: '轻型商用' }];
+
+const models = batteryModels.filter((m) => ['N100', '80D26', '85D26', '95D26', '105D31'].includes(m.model));
+
+const faqs = [
+  {
+    q: '轻型商用车用什么电池？',
+    a: '轻卡、皮卡与厢式货车多采用 12V 系统、单只启动电池，按发动机与电气负载选型。柴油轻商车同排量下需要的 CCA 高于乘用车，组别取决于车辆——亚洲适配常用 JIS D26/D31 或 N100，其他市场用 DIN/BCI 等价型号。',
+  },
+  {
+    q: '为什么柴油轻卡比汽油车需要更高 CCA？',
+    a: '柴油机压缩比高于同排量汽油机，冷启动时需要更强的启动电流。CCA 要求与测试方法相关（JIS、EN 或 SAE），准确数值取决于发动机，须对照原厂规格确认。',
+  },
+  {
+    q: '轻型商用车能用重卡电池吗？',
+    a: '不能。重卡电池面向 24V 串联系统、壳体更大；轻商车通常是 12V、托盘更小，重卡电池既装不下、电压也不对。须匹配车辆的组别与端子布局，而非只看 Ah 数值。',
+  },
+  {
+    q: '什么会加速轻商车电池老化？',
+    a: '启停式城市配送工况、熄火状态下的附属负载与高温。频繁短途与长时间怠速阻碍完全充电，而发动机舱高温加速失水与极板腐蚀。正确选型加上规律的端子清洁最耐用。',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '轻型商用', item: `${SITE.url}/zh/applications/light-commercial-vehicle/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} hreflangLocales={['en', 'zh']}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">应用场景</span>
+    <h1>轻型商用车电池</h1>
+    <p class="lead">{RELATIONSHIP} 轻卡、皮卡、厢式货车与工具车用启动电池——柴油启动、启停式配送工况与附属负载，高于乘用车一档，又低于重卡的 24V 世界。</p>
+    <DirectAnswer label="直接回答">轻卡、皮卡、厢式货车与工具车多采用 12V 系统、单只启动电池，按发动机与电气负载选型。柴油轻商车同排量下需要的 CCA 高于乘用车，组别取决于车辆——亚洲适配常用 JIS D26/D31 或 N100，其他市场用 DIN/BCI 等价型号。准确组别、CCA 基准与端子布局取决于车辆配置，下单前须确认。</DirectAnswer>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>应用概览</h2>
+      <p>本应用覆盖介于乘用车与重卡之间的轻型商用板块：皮卡与中卡、配送厢式货车、厢式卡车与轻型工具车。工况为 12V 系统、单只电池，但发动机与电气负载超出乘用车电池的承受范围——柴油压缩比、更长运行时长，以及熄火状态下仍在运行的附属负载。</p>
+      <p>电池组别取决于车辆而非通用规则。亚洲轻商适配普遍参照 JIS D26/D31 或 N100；欧洲车辆偏向 DIN/EN 壳体；北美与澳大利亚市场使用 BCI 或 N 型等价型号。这些家族之间的壳体尺寸、端子布局与极性各不相同，即便 Ah 相近也不可互换。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>工况循环</h2>
+    <p>轻商车电池面临三方面区别于乘用车的需求：</p>
+    <ul>
+      <li><strong>柴油启动需求。</strong>柴油轻卡压缩比高于同排量汽油机，需要更强的启动电流——CCA 要求是决定性约束，尤其在天冷时。</li>
+      <li><strong>高频每日启动。</strong>启停式配送与多点卸货工况使电池循环频率远高于私家车，频繁短途导致电池从未完全充满。</li>
+      <li><strong>长时间低负载。</strong>尾板、制冷、驾驶室风扇与车联网在熄火或怠速时耗电，除峰值 CCA 外还要求储备容量。</li>
+    </ul>
+    <p class="note">启动需求与附属负载之间的平衡取决于车辆配置——线路特征、气候与设备——因此单一「通用」规格并无意义。</p>
+  </section>
+
+  <section class="section container prose">
+    <h2>启动需求：12V 系统</h2>
+    <p>与重卡不同，轻型商用车多采用 12V 电气系统、单只启动电池。电池直接按发动机启动负载与车辆附属配置选型，无需平衡串联电池组——适配决策就是一个正确的组别、一个正确的电压、一个正确的 CCA 基准。</p>
+    <p>由此得出的实际结论是：重卡电池是错误选择——它面向 24V 串联系统、壳体更大，既装不进托盘、电压也不对。轻型商用车需要一只匹配其尺寸与端子布局的 12V 组别，而非来自其他板块的更大 Ah 数字。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>环境</h2>
+      <ul>
+        <li><strong>振动。</strong>轻卡与厢式货车在颠簸路面与未铺装道路上行驶，振动使极板疲劳、端子松动。刚性壳体与牢固固定与 CCA 数值同等重要。</li>
+        <li><strong>粉尘与污染。</strong>配送与工地工况使电池暴露于粉尘、湿气与路面飞溅，腐蚀端子。密封免维护壳体与规律的端子清洁可降低风险。</li>
+        <li><strong>温度。</strong>低温提高启动需求，发动机舱高温才是长期杀手，加速失水与极板腐蚀。电池须按最冷的清晨选型，并针对最热的午后造壳。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>电池要求</h2>
+    <p>轻商车电池按同一条简短决策链选型，比重载降一档：</p>
+    <ol>
+      <li><strong>先定组别与标准家族。</strong>JIS D26/D31/N100、DIN/EN 与 BCI 组别不可互换——任何其他参数之前，先确认托盘尺寸与端子布局。</li>
+      <li><strong>电压。</strong>轻型商用车通常为 12V；选型前先确认系统。</li>
+      <li><strong>带测试基准的 CCA。</strong>启动数据只有对应明确标准（JIS、EN 或 SAE）才有意义。柴油版需要的数值高于汽油等价型号。</li>
+      <li><strong>容量与储备。</strong>容量（C20 Ah）支撑附属负载与怠速工况；其平衡取决于车辆设备。</li>
+    </ol>
+    <p class="note">不存在适用于所有轻型商用车的通用 CCA 或容量值——正确数值取决于配置，须对照原厂规格与制造商确认。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">参考型号</span>
+      <h2>相关 DINGWEY 电池</h2>
+      <p class="lead">当前型号集中匹配轻卡、皮卡与厢式货车应用的轻型商用参考型号。规格为参考值——请与制造商确认最终数值。</p>
+      <div class="model-list">
+        {models.map((model) => <ModelCard model={model} />)}
+      </div>
+      <p class="lead">这些参考覆盖轻型商用适配常用的 JIS D26/D31 与 N100 家族。完整系列见<a href="/zh/data/">型号数据参考</a>。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>相关实体</h2>
+    <ul>
+      <li><a href="/zh/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI 电池标准</a>——理解为何标准家族（而非仅 Ah）决定适配。</li>
+      <li><a href="/zh/tools/battery-finder/">电池选型工具</a>——按电压、组别与应用缩小型号范围。</li>
+      <li><a href="/zh/tools/compare/">对比两款型号</a>——候选型号并排规格。</li>
+      <li><a href="/zh/knowledge/battery-applications-by-vehicle/">按车型的电池应用</a>——轻型商用工况如何区别于乘用车与重卡。</li>
+      <li><a href="/zh/applications/heavy-truck-bus/">重卡与客车电池</a>——工况与电压的下一级。</li>
+    </ul>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见问题</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/zh/knowledge/oem-battery-specification-guide/">使用 OEM 电池规格指南 &rarr;</a></p>
+  </section>
+
+  <CTASection title="索取轻型商用车电池报价" />
+</BaseLayout>

@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import ModelCard from '../../../components/ModelCard.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import DirectAnswer from '../../../components/DirectAnswer.astro';
+import { SITE, MANUFACTURER, RELATIONSHIP } from '../../../data/site';
+import { batteryModels } from '../../../data/battery-models';
+
+const title = 'Light Commercial Vehicle Batteries | Dingwei Battery';
+const description = 'Starting batteries for light trucks, pickups, vans and utility vehicles — 12V systems, diesel cranking and vibration resistance. OEM supply from Chengguang Power Tech Co., Ltd.';
+
+const breadcrumbs = [{ label: 'Light commercial' }];
+
+const models = batteryModels.filter((m) => ['N100', '80D26', '85D26', '95D26', '105D31'].includes(m.model));
+
+const faqs = [
+  {
+    q: 'What battery does a light commercial vehicle use?',
+    a: 'Light trucks, pickups and vans mostly run a 12V system with a single starting battery sized for the engine and electrical load. Diesel light commercial vehicles need a higher CCA than a passenger car for the same engine size, and the group follows the vehicle — commonly JIS D26/D31 or N100 on Asian fitments, and DIN/BCI equivalents in other markets.',
+  },
+  {
+    q: 'Why does a diesel light truck need more CCA than a petrol car?',
+    a: 'A diesel engine has higher compression than a petrol engine of similar size, so it needs a stronger cranking current — especially cold. The CCA requirement is test-method dependent (JIS, EN or SAE), and the exact value depends on the engine, so it must be confirmed against the OE specification.',
+  },
+  {
+    q: 'Can a light commercial vehicle use a heavy truck battery?',
+    a: 'No. Heavy truck batteries are built for 24V series systems and physically larger groups. A light commercial vehicle is normally 12V with a smaller tray, so a heavy truck battery will not fit and is the wrong voltage. The group and terminal layout must match the vehicle, not just the Ah rating.',
+  },
+  {
+    q: 'What wears out a light commercial battery faster?',
+    a: 'Stop-start urban delivery duty, accessory loads running with the engine off, and heat. Frequent short trips and long idling prevent full recharge, while engine-bay heat accelerates water loss and plate corrosion. A correctly sized battery with a clean terminal schedule lasts longest.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Light commercial', item: `${SITE.url}/applications/light-commercial-vehicle/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} hreflangLocales={['en', 'zh']}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Applications</span>
+    <h1>Light commercial vehicle batteries</h1>
+    <p class="lead">{RELATIONSHIP} Starting batteries for light trucks, pickups, vans and utility vehicles — where diesel cranking, stop-start delivery duty and accessory loads sit a step above a passenger car, but below the 24V world of heavy trucks.</p>
+    <DirectAnswer label="Direct answer">Light trucks, pickups, vans and utility vehicles mostly run a 12V system with a single starting battery sized for the engine and electrical load. Diesel light commercial vehicles need a higher CCA than a passenger car for the same engine size, and the group follows the vehicle — commonly JIS D26/D31 or N100 on Asian fitments, and DIN/BCI equivalents elsewhere. The exact group, CCA basis and terminal layout depend on the vehicle configuration and must be confirmed before ordering.</DirectAnswer>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Application overview</h2>
+      <p>This application covers the light commercial segment between passenger cars and heavy trucks: pickup and mid-trucks, delivery vans, box trucks and light utility vehicles. The duty is a 12V system with a single battery, but the engine and electrical load demand more than a passenger car battery can deliver — diesel compression, longer running hours and accessory loads that run with the engine off.</p>
+      <p>The group follows the vehicle rather than a universal rule. Asian light commercial fitments are commonly referenced to JIS D26/D31 or N100; European vehicles lean on DIN/EN cases; North American and Australian markets use BCI or N-type equivalents. Case size, terminal layout and polarity differ between families and are not interchangeable at a similar Ah rating.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Duty cycle</h2>
+    <p>A light commercial battery faces three demands that separate it from a passenger car:</p>
+    <ul>
+      <li><strong>Diesel start demand.</strong> Diesel light trucks have higher compression than petrol engines of similar size, so they need a stronger cranking current — the CCA requirement is the binding constraint, especially in cold weather.</li>
+      <li><strong>High daily start frequency.</strong> Stop-start delivery and multi-drop duty cycle the battery far more often than a private car, with frequent short trips that never fully recharge it.</li>
+      <li><strong>Long low-load periods.</strong> Tail lifts, refrigeration, cabin fans and telematics draw power with the engine off or at idle, favouring reserve capacity as well as peak CCA.</li>
+    </ul>
+    <p class="note">The balance between cranking demand and accessory load depends on the vehicle configuration — route profile, climate and equipment — so a single universal rating is not meaningful.</p>
+  </section>
+
+  <section class="section container prose">
+    <h2>Starting demand: the 12V system</h2>
+    <p>Unlike heavy trucks, light commercial vehicles mostly run a 12V electrical system with a single starting battery. The battery is sized directly to the engine's cranking load and the vehicle's accessory profile, so there is no series pair to balance — the fitment decision is one correct group, one correct voltage and one correct CCA basis.</p>
+    <p>The practical consequence is that a heavy truck battery is the wrong choice: it is built for a 24V series system and a physically larger group, so it will not fit the tray and is the wrong voltage. A light commercial vehicle takes a 12V group matched to its dimensions and terminal layout, not a bigger Ah number from another segment.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Environment</h2>
+      <ul>
+        <li><strong>Vibration.</strong> Light trucks and vans on rough roads and unsealed surfaces transmit vibration that fatigues plates and loosens terminals. A rigid case and secure hold-down matter as much as the CCA rating.</li>
+        <li><strong>Dust and contamination.</strong> Delivery and worksite duty expose the battery to dust, moisture and road spray that corrode terminals. A sealed maintenance-free case and a clean terminal schedule reduce the risk.</li>
+        <li><strong>Temperature.</strong> Cold raises cranking demand, while engine-bay heat is the long-term killer that drives water loss and plate corrosion. The battery is sized for the coldest morning and built for the hottest afternoon.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Battery requirements</h2>
+    <p>A light commercial battery is specified by the same short decision chain, scaled down from heavy duty:</p>
+    <ol>
+      <li><strong>Group and standard family first.</strong> JIS D26/D31/N100, DIN/EN and BCI groups are not interchangeable — confirm tray dimensions and terminal layout before anything else.</li>
+      <li><strong>Voltage.</strong> 12V is the norm for light commercial vehicles; confirm the system before specifying.</li>
+      <li><strong>CCA with its test basis.</strong> The cranking figure only means something against a stated standard (JIS, EN or SAE). Diesel versions need more than petrol equivalents.</li>
+      <li><strong>Capacity and reserve.</strong> Capacity (Ah at C20) supports accessory loads and idle duty; the balance depends on the vehicle's equipment.</li>
+    </ol>
+    <p class="note">No universal CCA or capacity value applies across all light commercial vehicles — the correct figure depends on configuration and must be confirmed against the OE specification and the manufacturer.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Reference models</span>
+      <h2>Related DINGWEY batteries</h2>
+      <p class="lead">Light commercial references from the current model set, matched to the light truck, pickup and van application. Specifications are reference values — confirm final figures with the manufacturer.</p>
+      <div class="model-list">
+        {models.map((model) => <ModelCard model={model} />)}
+      </div>
+      <p class="lead">These references span the JIS D26/D31 and N100 families used across light commercial fitments. See the full range in the <a href="/data/">model data reference</a>.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Related entities</h2>
+    <ul>
+      <li><a href="/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI battery standards</a> — understand why the standard family, not just Ah, decides fitment.</li>
+      <li><a href="/tools/battery-finder/">Battery selection tool</a> — narrow the model against voltage, group and application.</li>
+      <li><a href="/tools/compare/">Compare two models</a> — side-by-side specifications for the shortlist.</li>
+      <li><a href="/knowledge/battery-applications-by-vehicle/">Battery applications by vehicle type</a> — how light commercial duty differs from passenger and heavy truck.</li>
+      <li><a href="/applications/heavy-truck-bus/">Heavy truck &amp; bus batteries</a> — the next step up in duty and voltage.</li>
+    </ul>
+  </section>
+
+  <section class="section container prose">
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/knowledge/oem-battery-specification-guide/">Use the OEM battery specification guide &rarr;</a></p>
+  </section>
+
+  <CTASection title="Request a light commercial battery quote" />
+</BaseLayout>

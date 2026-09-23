@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import ModelCard from '../../../../components/ModelCard.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import DirectAnswer from '../../../../components/DirectAnswer.astro';
+import { SITE, MANUFACTURER, RELATIONSHIP } from '../../../../data/site';
+import { batteryModels } from '../../../../data/battery-models';
+
+const title = '重卡与客车电池 | Dingwei Battery';
+const description = '卡车、牵引车、客车与长途客车用重载启动电池——24V 系统、高 CCA 柴油启动与抗振结构，由晋州成光电源有限公司供应。';
+
+const breadcrumbs = [{ label: '重卡与客车' }];
+
+const models = batteryModels.filter((m) => ['N150', 'N200'].includes(m.model));
+
+const faqs = [
+  {
+    q: '重卡或客车用什么电池？',
+    a: '重卡与客车通常采用由两只 12V 重载电池串联组成的 24V 系统，以高 CCA 启动大排量柴油机。电池组别取决于车辆产地与适配——亚洲商用车常用 JIS N 系列（N150/N200），欧洲与北美设备分别用 DIN 重载或 BCI——并须与托盘、端子布局与 CCA 规格匹配。',
+  },
+  {
+    q: '为什么重卡用 24V 而不是 12V？',
+    a: '把电压提高到 24V，可在电流减半的情况下提供同样的启动功率，从而减细电缆、降低长底盘上的压降。24V 卡车系统通常由两只 12V 电池串联构成，应作为成对整体更换——同型号、同年限、同规格。',
+  },
+  {
+    q: '重卡需要多大的 CCA？',
+    a: '大排量柴油机压缩比高，冷启动需要强劲的启动电流。重载参考值处于 740–1100 CCA 量级，具体取决于发动机与气候；而 CCA 与测试方法相关（JIS、EN 或 SAE）。准确数值取决于车辆配置，须对照原厂规格确认。',
+  },
+  {
+    q: '重卡电池是否应该成对更换？',
+    a: '应该。24V 系统由两只 12V 电池串联，新电池搭配老化电池会拉低两者表现。应成对更换——同型号、同年限、同规格，并同时检查固定与端子清洁。',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE.url}/zh/` },
+      { '@type': 'ListItem', position: 2, name: '重卡与客车', item: `${SITE.url}/zh/applications/heavy-truck-bus/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} hreflangLocales={['en', 'zh']}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">应用场景</span>
+    <h1>重卡与客车电池</h1>
+    <p class="lead">{RELATIONSHIP} 卡车、牵引车、客车与长途客车用重载启动电池——高 CCA 柴油启动、24V 系统与持续振动，使工况远高于乘用车。</p>
+    <DirectAnswer label="直接回答">重卡、牵引车、客车与长途客车需要能向柴油机提供高冷启动电流、并耐受持续路面振动的重载启动电池。多数采用由两只 12V 电池串联组成的 24V 系统，电池组别取决于车辆——亚洲商用车常用 JIS N 系列（N150/N200），欧洲与北美设备分别用 DIN 重载或 BCI。准确规格取决于车辆配置，下单前须对照车队确认组别、电压、CCA 基准与端子布局。</DirectAnswer>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>应用概览</h2>
+      <p>本应用覆盖商用车道路运输板块：长途牵引车、刚性卡车、城市与城际公交、长途客车。共同特征是大排量柴油机、24V 电气系统，以及振动、热怠速与冷晨启动交织的工作寿命——这种工况数月内就能毁掉一只轻载汽车电池。</p>
+      <p>电池组别取决于车辆产地与适配，而非通用规则。亚洲商用车普遍参照 JIS N 系列（N150、N200）；欧洲设备偏向 DIN 重载壳体；北美车队使用 BCI 组别。这些家族之间的壳体尺寸、端子布局与极性各不相同，即便 Ah 相近也不可互换。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>工况循环</h2>
+    <p>重卡或客车电池面临三种不同需求：</p>
+    <ul>
+      <li><strong>柴油启动需求。</strong>大排量柴油机压缩比高，冷启动需要强劲的启动电流。这是 CCA 的决定性约束，而非容量。</li>
+      <li><strong>高频启动。</strong>城市公交每天可能启停数十次，电池循环频率远高于私家车。长途卡车启动次数较少，却在两次出车之间经历整夜低温停放。</li>
+      <li><strong>长时间低负载。</strong>怠速或停放期间，电池仍需支撑驻车负载——灯光、暖风、制冷与车联网——而发电机往往无法完全补回消耗。这要求电池具备储备容量，而不仅是峰值 CCA。</li>
+    </ul>
+    <p class="note">启动需求与驻车负载之间的准确平衡取决于车辆配置——线路特征、气候与附属负载——因此单一「通用」规格并无意义。</p>
+  </section>
+
+  <section class="section container prose">
+    <h2>启动需求：24V 系统</h2>
+    <p>重卡与客车通常采用由两只 12V 电池串联组成的 24V 电气系统。将电压翻倍，可在电流减半的情况下提供同样的启动功率，从而减细电缆、降低长底盘上的压降——工程机械与大型农业设备采用该系统的原因相同。</p>
+    <p>由此带来的实际结论是：这对电池须作为整体对待。新电池搭配老化电池会被拖到较弱电池的水平，因此须成对更换——同型号、同年限、同规格。安装前须确认接线（24V 为串联而非并联）与端子布局。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>环境</h2>
+      <ul>
+        <li><strong>振动。</strong>路面冲击与颠簸使极板疲劳、端子与固定松动。重载结构——更厚极板、更刚性壳体与更牢固内部焊接——是结构差异，而非单纯的更大 CCA 数字。</li>
+        <li><strong>粉尘与路面污染。</strong>粉尘、盐雾与湿气加速端子腐蚀，并可能桥接裸露端子。密封免维护壳体与规律的端子清洁可降低风险。</li>
+        <li><strong>温度。</strong>低温提高启动需求（CCA 在冬季最要紧），而发动机舱高温才是长期杀手，加速失水与极板腐蚀。电池须按最冷的清晨选型，并针对最热的午后造壳。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>电池要求</h2>
+    <p>重卡或客车电池按一条简短决策链选型：</p>
+    <ol>
+      <li><strong>先定组别与标准家族。</strong>JIS N 系列、DIN 重载与 BCI 组别不可互换——任何其他参数之前，先确认托盘尺寸与端子布局。</li>
+      <li><strong>电压。</strong>卡车与客车通常为 24V（两只 12V 串联）；选型前先确认系统。</li>
+      <li><strong>带测试基准的 CCA。</strong>启动数据只有对应明确标准（JIS、EN 或 SAE）才有意义。准确数值取决于发动机与气候。</li>
+      <li><strong>容量与储备。</strong>容量（C20 Ah）与储备容量支撑驻车负载与怠速工况；其平衡取决于车辆附属负载特征。</li>
+    </ol>
+    <p class="note">不存在适用于所有重卡与客车的通用 CCA 或容量值——正确数值取决于配置，须对照原厂规格与制造商确认。</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">参考型号</span>
+      <h2>相关 DINGWEY 电池</h2>
+      <p class="lead">当前型号集中两款 JIS N 系列重载参考型号，匹配重卡与客车应用。规格为参考值——请与制造商确认最终数值。</p>
+      <div class="model-list">
+        {models.map((model) => <ModelCard model={model} />)}
+      </div>
+      <p class="lead">两款参考均属亚洲商用车常用的 JIS N 系列家族。完整系列见<a href="/zh/heavy-duty-batteries/">重载电池类别</a>。</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>相关实体</h2>
+    <ul>
+      <li><a href="/zh/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI 电池标准</a>——理解为何标准家族（而非仅 Ah）决定适配。</li>
+      <li><a href="/zh/tools/battery-finder/">电池选型工具</a>——按电压、组别与应用缩小型号范围。</li>
+      <li><a href="/zh/tools/compare/">对比两款型号</a>——候选型号并排规格。</li>
+      <li><a href="/zh/knowledge/battery-applications-by-vehicle/">按车型的电池应用</a>——卡车与客车工况如何区别于乘用车与工程机械。</li>
+      <li><a href="/zh/data/">型号数据参考</a>——含 CCA 基准与核验状态的完整型号集。</li>
+    </ul>
+  </section>
+
+  <section class="section container prose">
+    <h2>常见问题</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/zh/knowledge/oem-battery-specification-guide/">使用 OEM 电池规格指南 &rarr;</a></p>
+  </section>
+
+  <CTASection title="索取重卡与客车电池报价" />
+</BaseLayout>

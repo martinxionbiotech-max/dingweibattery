@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import ModelCard from '../../../components/ModelCard.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import DirectAnswer from '../../../components/DirectAnswer.astro';
+import { SITE, MANUFACTURER, RELATIONSHIP } from '../../../data/site';
+import { batteryModels } from '../../../data/battery-models';
+
+const title = 'Heavy Truck & Bus Batteries | Dingwei Battery';
+const description = 'Heavy-duty starting batteries for trucks, tractor units, buses and coaches — 24V systems, high CCA diesel cranking and vibration-resistant construction. OEM supply from Chengguang Power Tech Co., Ltd.';
+
+const breadcrumbs = [{ label: 'Heavy truck & bus' }];
+
+const models = batteryModels.filter((m) => ['N150', 'N200'].includes(m.model));
+
+const faqs = [
+  {
+    q: 'What battery does a heavy truck or bus use?',
+    a: 'Heavy trucks and buses commonly run a 24V system built from two 12V heavy-duty batteries in series, with high CCA to crank the large diesel. The group follows the machine\'s origin and fitment — JIS N-series (N150/N200) on Asian commercial vehicles, DIN heavy or BCI on European and North American equipment — always matched to the tray, terminal layout and CCA specification.',
+  },
+  {
+    q: 'Why do heavy trucks run 24V instead of 12V?',
+    a: 'Doubling the voltage to 24V delivers the same cranking power at half the current, which means thinner cables and less voltage drop across a long chassis. A 24V truck system is typically built from two 12V batteries wired in series and should be replaced as a matched pair — same model, age and rating.',
+  },
+  {
+    q: 'How much CCA does a heavy truck need?',
+    a: 'Large diesel engines have high compression and need a strong cranking current, especially in cold weather. Heavy-duty references sit in the 740–1100 CCA order of magnitude depending on engine and climate, but CCA is test-method dependent (JIS, EN or SAE). The exact value depends on the vehicle configuration and must be confirmed against the OE specification.',
+  },
+  {
+    q: 'Should heavy truck batteries be replaced in pairs?',
+    a: 'Yes. A 24V system uses two 12V batteries in series, and a new battery paired with a worn one drags both down. Replace the pair together — same model, same age and same rating — and confirm hold-downs and terminal cleanliness at the same time.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Heavy truck & bus', item: `${SITE.url}/applications/heavy-truck-bus/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} hreflangLocales={['en', 'zh']}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Applications</span>
+    <h1>Heavy truck &amp; bus batteries</h1>
+    <p class="lead">{RELATIONSHIP} Heavy-duty starting batteries for trucks, tractor units, buses and coaches — where high CCA diesel cranking, 24V systems and continuous vibration set the duty far above a passenger car.</p>
+    <DirectAnswer label="Direct answer">Heavy trucks, tractor units, buses and coaches need a heavy-duty starting battery that delivers high cold-cranking current to the diesel engine and survives constant vibration on the road. Most run a 24V system built from two 12V batteries in series, and the group size follows the vehicle — JIS N-series (N150/N200) on Asian commercial vehicles, DIN heavy or BCI on European and North American equipment. The exact specification depends on the vehicle configuration, so group, voltage, CCA basis and terminal layout must be confirmed against the fleet before ordering.</DirectAnswer>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Application overview</h2>
+      <p>This application covers the commercial road-vehicle segment: long-haul tractor units, rigid trucks, city and intercity buses, and coaches. The common thread is a large diesel engine, a 24V electrical system and a working life of vibration, hot idling and cold-morning starts — a duty cycle that destroys a light-duty automotive battery in months.</p>
+      <p>The battery group follows the vehicle's origin and fitment rather than any universal rule. Asian commercial vehicles are commonly referenced to the JIS N-series (N150, N200); European equipment leans on DIN heavy cases; North American fleets use BCI groups. Case size, terminal layout and polarity differ between these families and are not interchangeable even at a similar Ah rating.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Duty cycle</h2>
+    <p>A heavy truck or bus battery faces three distinct demands:</p>
+    <ul>
+      <li><strong>Diesel start demand.</strong> A large diesel engine has high compression and needs a strong cranking current, especially in cold weather. This is the binding constraint on CCA, not on capacity.</li>
+      <li><strong>High start frequency.</strong> A city bus may start and stop dozens of times a day, cycling the battery far more often than a private car. Long-haul trucks start less often but sit through cold nights between runs.</li>
+      <li><strong>Long low-load periods.</strong> While idling or parked, the battery still supports hotel loads — lights, heating, refrigeration and telematics — with the alternator often not recovering the draw fully. This favours a battery with reserve capacity, not just peak CCA.</li>
+    </ul>
+    <p class="note">The exact balance between cranking demand and hotel load depends on the vehicle configuration — route profile, climate and accessory load — so a single "one-size" rating is not meaningful.</p>
+  </section>
+
+  <section class="section container prose">
+    <h2>Starting demand: the 24V system</h2>
+    <p>Heavy trucks and buses typically run a 24V electrical system built from two 12V batteries wired in series. Doubling the voltage delivers the same cranking power at half the current, which reduces cable size and voltage drop across a long chassis — the same reason the system exists on construction machinery and large agricultural equipment.</p>
+    <p>The practical consequence is that the pair must be treated as one unit. A new battery mated to a worn one is pulled down to the weaker battery's level, so the pair is replaced together — same model, same age and same rating. Confirm the wiring (series for 24V, not parallel) and the terminal layout before fitting.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Environment</h2>
+      <ul>
+        <li><strong>Vibration.</strong> Road shock and rough surfaces fatigue plates and loosen terminals and hold-downs. Heavy-duty construction — thicker plates, a more rigid case and stronger internal welds — is a structural difference, not just a bigger CCA number.</li>
+        <li><strong>Dust and road contamination.</strong> Dust, salt spray and moisture accelerate terminal corrosion and can bridge exposed terminals. A sealed maintenance-free case and a clean terminal schedule reduce the risk.</li>
+        <li><strong>Temperature.</strong> Cold raises the cranking demand (CCA matters most in winter), while under-hood and engine-bay heat is the long-term killer that drives water loss and plate corrosion. The battery is sized for the coldest morning and built for the hottest afternoon.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Battery requirements</h2>
+    <p>A heavy truck or bus battery is specified by a short decision chain:</p>
+    <ol>
+      <li><strong>Group and standard family first.</strong> JIS N-series, DIN heavy and BCI groups are not interchangeable — confirm the tray dimensions and terminal layout before anything else.</li>
+      <li><strong>Voltage.</strong> 24V (two 12V in series) is the norm for trucks and buses; confirm the system before specifying.</li>
+      <li><strong>CCA with its test basis.</strong> The cranking figure only means something against a stated standard (JIS, EN or SAE). The exact value depends on the engine and climate.</li>
+      <li><strong>Capacity and reserve.</strong> Capacity (Ah at C20) and reserve capacity support hotel loads and idle duty; the balance depends on the vehicle's accessory profile.</li>
+    </ol>
+    <p class="note">No universal CCA or capacity value applies across all heavy trucks and buses — the correct figure depends on configuration and must be confirmed against the OE specification and the manufacturer.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Reference models</span>
+      <h2>Related DINGWEY batteries</h2>
+      <p class="lead">Two JIS N-series heavy-duty references from the current model set, matched to the heavy truck and bus application. Specifications are reference values — confirm final figures with the manufacturer.</p>
+      <div class="model-list">
+        {models.map((model) => <ModelCard model={model} />)}
+      </div>
+      <p class="lead">Both references sit in the JIS N-series family used across Asian commercial vehicles. See the full range in the <a href="/heavy-duty-batteries/">heavy-duty battery category</a>.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Related entities</h2>
+    <ul>
+      <li><a href="/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI battery standards</a> — understand why the standard family, not just Ah, decides fitment.</li>
+      <li><a href="/tools/battery-finder/">Battery selection tool</a> — narrow the model against voltage, group and application.</li>
+      <li><a href="/tools/compare/">Compare two models</a> — side-by-side specifications for the shortlist.</li>
+      <li><a href="/knowledge/battery-applications-by-vehicle/">Battery applications by vehicle type</a> — how truck and bus duty differs from passenger and construction.</li>
+      <li><a href="/data/">Model data reference</a> — the full model set with CCA basis and verification status.</li>
+    </ul>
+  </section>
+
+  <section class="section container prose">
+    <h2>FAQ</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/knowledge/oem-battery-specification-guide/">Use the OEM battery specification guide &rarr;</a></p>
+  </section>
+
+  <CTASection title="Request a heavy truck &amp; bus battery quote" />
+</BaseLayout>
