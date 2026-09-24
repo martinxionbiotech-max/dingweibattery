@@ -38,6 +38,9 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      // 非内容工具页（/tools/battery-finder、/tools/compare）为交互式筛选/对比工具，
+      // 非信息内容页，按 §34 排除出 sitemap；其余可索引内容页全部收录。
+      filter: (page) => !page.includes('/tools/'),
       serialize(item) {
         const lastmod = gitLastmod(item.url);
         return lastmod ? { ...item, lastmod } : item;
