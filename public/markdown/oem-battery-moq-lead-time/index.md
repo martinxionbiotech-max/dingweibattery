@@ -59,3 +59,15 @@ Here is the part suppliers do not volunteer: MOQ is not only about your freight 
 MOQ and lead time are stage six of the [sourcing guide](/knowledge/battery-sourcing-guide/), after the [RFQ](/knowledge/oem-battery-rfq-guide/) has returned comparable quotes. Send the full model mix in the RFQ so the supplier can plan the container load correctly, and confirm the lead-time breakdown before you promise a delivery date. Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).
 
 See the [shipping and warranty guide](/knowledge/battery-shipping-warranty/) for the dangerous-goods and freight half, and the [import regulations guide](/knowledge/battery-import-regulations/) for the clearance half of the door-to-door timeline.
+
+## The Author's Take
+
+**Position:** In my view, MOQ is a logistics fact, not a marketing number — and the lead time buyers get wrong is door-to-door, not the 30–45 day production figure.
+
+**Reasoning:**
+
+-   The 600–800 unit first order is set by pallet stacking and carton crush strength, not by raw weight or volume, which is why 'one 20ft container' is the honest minimum.
+-   Production lead time is 30–45 days, but freight and clearance add 3–5 weeks, so the real door-to-door is 60–90 days.
+-   Plug the door-to-door number into your reorder point, or the shortfall shows up as an out-of-stock at peak demand.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

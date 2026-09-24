@@ -76,3 +76,15 @@ A voltmeter across the vehicle’s battery with the engine off gives the resting
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002). Heavy-duty 6 V and 12 V configurations are available across the [heavy-duty range](/heavy-duty-batteries/), and passenger 12 V across the [car range](/oem/car-batteries/). Map voltage to the vehicle class in the [application guide](/knowledge/battery-applications-by-vehicle/).
 
 [Browse models by voltage →](/data/) · [Group size chart →](/knowledge/battery-group-size-chart/) · [Confirm system voltage →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, battery voltage is a system decision, not a spec you pick — and treating '12 V' as universal when the vehicle was built for something else is the mistake to avoid.
+
+**Reasoning:**
+
+-   Voltage is just cells in series — 3 cells make 6 V, 6 make 12 V, 12 make 24 V — so one cell design serves every voltage.
+-   Heavy vehicles run 24 V to deliver the same cranking power at half the current, with thinner, lighter cables.
+-   Fitting a 12 V battery to a 6 V system feeds every component twice its rated voltage; the mismatch is not a small error.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

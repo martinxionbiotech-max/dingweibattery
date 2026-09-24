@@ -86,3 +86,15 @@ CCA is one of five decisions in a complete specification — standard family, ca
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002). Models across JIS, DIN, BCI, AS, SA are available with CCA values confirmed to the relevant test standard.
 
 [Browse model CCA references →](/data/) · [Compare two models →](/tools/compare/)
+
+## The Author's Take
+
+**Position:** In my view, CCA is the number most buyers compare and the one most often compared incorrectly — the same physical battery can legitimately wear a 600, a 640 or a 560 depending on which standard the supplier printed.
+
+**Reasoning:**
+
+-   JIS tests at −15°C while EN/SAE/DIN test at −18°C with different cut-off voltages, so the values are not interchangeable and there is no universal conversion.
+-   The label value, the laboratory value and the handheld-tester reading are three different numbers for three different purposes.
+-   CCA is a point-of-sale specification, not a lifetime guarantee — it falls as the battery ages, so treating it as fixed misjudges warranty risk.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

@@ -107,3 +107,15 @@ See the full specification order in the [specifications reference](/knowledge/ba
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).
 
 [Browse models by standard →](/data/) · [Build a clean specification →](/knowledge/oem-battery-specification-guide/)
+
+## The Author's Take
+
+**Position:** In my view, the interchangeability trap is the costliest mistake in standards — '72 Ah' copied across families is three different boxes, and the battery arrives and does not fit the tray.
+
+**Reasoning:**
+
+-   The families differ in case dimensions, terminal layout and CCA test method, so similar electrical ratings are mostly not interchangeable.
+-   The overlap that does exist — H6/LN3/L3 equals Group 48 — is a mould-sharing opportunity, not a licence to skip terminal and CCA confirmation.
+-   A single factory can serve every standard because the electrochemistry is the same; the risk is the buyer not naming the family, not the factory's capability.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

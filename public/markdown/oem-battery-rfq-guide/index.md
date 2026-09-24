@@ -99,3 +99,15 @@ In this example, Supplier C is uncomparable on three of six fields — the cheap
 Compare returned quotes only after fixing those fields. Start with the [specification guide](/knowledge/oem-battery-specification-guide/) and keep one model per line item. Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).
 
 The RFQ is stage five of the [sourcing guide](/knowledge/battery-sourcing-guide/) — run it after you have [verified](/knowledge/battery-supplier-verification/) and [audited](/knowledge/how-audit-battery-factory/) the candidates, so the shortlist you send it to is already credible.
+
+## The Author's Take
+
+**Position:** In my view, a complete RFQ gets you comparable quotes and a vague one gets you a range so wide it is useless — and three missing fields fail almost every RFQ.
+
+**Reasoning:**
+
+-   The CCA test basis, the annual volume and one standard per line are the fields that turn a quote into a guess.
+-   Compare returned quotes on scope before price; a supplier uncomparable on three of six fields is telling you nothing, however cheap the number.
+-   Do not put a price target in the first RFQ — suppliers quote to a number when you give them one, and scope should lead price.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

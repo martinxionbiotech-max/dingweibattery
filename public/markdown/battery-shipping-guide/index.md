@@ -110,3 +110,15 @@ Dingwei Battery provides OEM and private-label battery programs manufactured by 
 -   [Battery storage and shelf life](/knowledge/battery-storage-shelf-life/)
 
 Related: [how to source from China](/knowledge/battery-sourcing-guide/) · [MOQ and lead time](/knowledge/oem-battery-moq-lead-time/) · [import regulations by market](/knowledge/battery-import-regulations/) · [confirm shipping and warranty terms →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, a battery order is not complete when it leaves the line — it is complete when it arrives undamaged with a warranty you understand, and the warranty clock starts at the bill of lading, not at your customer's purchase.
+
+**Reasoning:**
+
+-   The container is weight-limited before it is volume-limited, which is why MOQ lands at 600–800 units rather than the 1,400 a naive calculation suggests.
+-   'Non-spillable' is a tested claim, not a label — a sealed battery without test records is still a UN 2794 load.
+-   A battery that sits six months in your warehouse has already consumed half its warranty and begun sulfating, so storage is part of shipping.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

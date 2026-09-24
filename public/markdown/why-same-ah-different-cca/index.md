@@ -37,3 +37,11 @@ It is also why two batteries from different manufacturers, both stamped 60 Ah, 
 -   **Match CCA to the engine** — use the vehicle/OEM requirement, not a higher number.
 -   **State the test basis** — a JIS CCA and an EN CCA are not the same number for the same battery.
 -   **Ask nominal vs batch-tested** — a catalogue CCA is a design target; the batch you receive varies within tolerance.
+
+## The Author’s Take
+
+**Position:** In my view, the most common battery-buying mistake is comparing batteries by Ah alone and assuming the CCA will follow — when in fact a designer can hold Ah constant and move CCA by hundreds of amps through plate construction alone.
+
+**Reasoning:** Ah and CCA answer different questions and are set by different levers. A buyer who specifies only Ah is leaving the single most important starting parameter to chance. The correct spec names Ah _and_ CCA, with the test basis and whether the value is nominal or batch-tested, and matches CCA to the engine — not to a marketing number.
+
+**Disclosure:** This is my editorial view as a battery manufacturer’s technical team, not a laboratory claim. Confirm the final Ah, CCA and test basis with the manufacturer.

@@ -78,3 +78,15 @@ Confirm terminals together with [dimensions and case size](/knowledge/battery-di
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).
 
 [Confirm terminal details on your RFQ →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, the terminal is the fitment detail that turns a correct battery into a wrong one — and reversed polarity is the failure a spec sheet cannot show you.
+
+**Reasoning:**
+
+-   A battery can match the standard and case size and still not fit, because terminal type, L/R position and polarity are separate fitment decisions.
+-   Reverse connection drives current backwards through the vehicle's electronics, and the post-size difference is a guard, not a guarantee.
+-   Terminal corrosion — acid vapour plus metal clamps — is the most common cause of a healthy battery that will not start.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

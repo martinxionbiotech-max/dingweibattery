@@ -59,3 +59,15 @@ Dingwei Battery provides OEM and private-label battery programs manufactured by 
 -   [Battery export documentation](/knowledge/battery-export-documentation/)
 
 [Confirm your battery warranty terms →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, a warranty is only worth what you can claim — and a claim without a measured failure and the delivery documents gets refused on process, not on merit.
+
+**Reasoning:**
+
+-   The industry pattern is two-tier: free replacement inside a window, then pro-rata credit that shrinks with age, so timing matters as much as merit.
+-   The exclusions — deep discharge, misuse, long storage — are where most claims die, not the defect itself.
+-   A CCA or capacity reading that shows the failure is the single most persuasive piece of evidence, and it is cheap to produce.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

@@ -343,3 +343,15 @@ The only durable control is to lock the approved specification and require forma
 A single battery can show two CCA values because JIS (−15°C) and EN / SAE (−18°C) are different test methods, not a “high” and a “low” rating. If the RFQ does not state the test method, two suppliers can appear to be quoting different batteries when they are quoting the same product on different bases.
 
 State the basis on every line and compare only same-method values. See how that instruction fits into the wider request in the [OEM battery RFQ guide](/knowledge/oem-battery-rfq-guide/).
+
+## The Author's Take
+
+**Position:** In my view, a battery specification is only as useful as the fields you fix in advance — and a CCA value with no test method is two numbers pretending to be one.
+
+**Reasoning:**
+
+-   The same battery can carry a lower JIS number and a higher EN/SAE number because each method uses different test conditions; the values are not convertible.
+-   If a field is not known, mark it 'confirm on inquiry' rather than guessing — a wrong terminal turns a correct battery into a wrong one.
+-   Specification drift is the hidden risk, and the only durable control is a locked spec plus formal change control in writing.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

@@ -91,3 +91,15 @@ Map vehicle type to the right standard in [JIS vs DIN vs BCI](/knowledge/jis-vs-
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).
 
 [Heavy-duty battery options →](/heavy-duty-batteries/) · [Car battery options →](/oem/car-batteries/)
+
+## The Author's Take
+
+**Position:** In my view, the single most expensive mis-specification in passenger batteries is fitting a standard SLI battery into a start-stop vehicle — it will crank, but it dies in a fraction of its design life.
+
+**Reasoning:**
+
+-   Start-stop cycles the battery many times more often than a conventional vehicle, which is exactly the duty an SLI battery was never built for.
+-   The vehicle's charging strategy is calibrated to the battery technology it was designed with, so a cheaper EFB in an AGM vehicle can be overcharged and fail early.
+-   Diesel trucks and construction machines add their own demands — high CCA and vibration resistance — that no single 'bigger number' can cover.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

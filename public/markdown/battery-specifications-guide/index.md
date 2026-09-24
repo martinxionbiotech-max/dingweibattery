@@ -194,3 +194,15 @@ Dingwei Battery provides OEM and private-label battery programs manufactured by 
 -   [Applications by vehicle type](/knowledge/battery-applications-by-vehicle/)
 
 [Browse model specifications →](/data/) · [Compare two models →](/tools/compare/) · [Start an OEM specification →](/oem/car-batteries/)
+
+## The Author's Take
+
+**Position:** In my view, a battery specification is one decision with five parts — and the failure is almost always in the parts that are not on the headline: the standard, the terminal, the polarity, the technology.
+
+**Reasoning:**
+
+-   '72 Ah' is three different batteries across JIS, DIN and BCI, so the capacity is meaningless until the family and case group are named.
+-   A JIS CCA and an EN CCA are not the same number for the same battery, so comparison within one standard is the only safe move.
+-   Confirming all five parts upfront is the cheapest way to shorten order-to-shipment time, because an unconfirmed part loops the RFQ back.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

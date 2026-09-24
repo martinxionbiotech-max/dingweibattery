@@ -143,3 +143,15 @@ Dingwei Battery provides OEM and private-label battery programs manufactured by 
 -   [OEM vs aftermarket batteries](/knowledge/oem-battery-vs-aftermarket/) — warranty, life and consistency
 
 Related: [OEM vs ODM vs private label](/knowledge/oem-vs-odm-vs-private-label/) · [OEM specification guide](/knowledge/oem-battery-specification-guide/) · [how to source from China](/knowledge/battery-sourcing-guide/) · [shipping, compliance and warranty](/knowledge/battery-shipping-guide/) · [start an OEM program →](/oem/)
+
+## The Author's Take
+
+**Position:** In my view, OEM battery manufacturing is not buying a product — it is commissioning a repeatable supply arrangement, and the six lines of a quote decide the price before the total does.
+
+**Reasoning:**
+
+-   The five parameters — standard family, case group, electrical spec, terminal and technology — must be fixed together, or the quote is a guess.
+-   Two factories can quote the 'same battery' US$8 apart, and the difference is almost never profit — it is scope, on the CCA basis, tooling and packaging.
+-   The specification lock — sample plus written parameters plus change control — is what retires the drift risk on every later container.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

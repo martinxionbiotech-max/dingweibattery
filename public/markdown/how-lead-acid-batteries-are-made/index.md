@@ -48,3 +48,15 @@ See how these stages map to an audit in the [factory audit guide](/knowledge/how
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002). Manufacturing is performed by Chengguang Power Tech Co., Ltd. at a 200,000 m² facility with 18 automated lines.
 
 [Lead-acid battery factory overview →](/factory/) · [OEM battery programs →](/oem/)
+
+## The Author's Take
+
+**Position:** In my view, three of the ten stages decide most of the battery you receive — curing, paste mixing and formation — and they are exactly the stages a rushed plant shortcuts.
+
+**Reasoning:**
+
+-   A rushed cure produces weak plates that shed material and fail early, which is why curing time is a meaningful audit question.
+-   Inconsistent paste produces inconsistent capacity cell-to-cell, and incomplete formation leaves unformed active material that cuts life.
+-   You do not need to run the line — you need to ask the questions that separate a disciplined plant from a rushed one.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

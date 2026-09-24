@@ -75,3 +75,15 @@ Dingwei Battery provides OEM and private-label battery programs manufactured by 
 -   [Battery storage and shelf life](/knowledge/battery-storage-shelf-life/)
 
 [Confirm your battery's UN classification →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, 'non-spillable' is a tested claim, not a label — a sealed battery without the vibration and pressure-differential test records is a UN 2794 load wearing a UN 2800 description.
+
+**Reasoning:**
+
+-   UN 2800 status changes packaging and handling requirements, which is why a supplier who can document the test saves you money.
+-   Misclassifying a battery as general merchandise is the most common hazmat violation, and it is a fine or a refused container waiting to happen.
+-   The lead-acid advantage over lithium is real but narrow: no UN 38.3 report, but Class 8 labelling and a signed declaration still apply.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

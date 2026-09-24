@@ -96,3 +96,15 @@ It is tempting to read the chart left-to-right and assume a larger footprint mea
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002). Every model in the [model database](/data/) carries its case size and dimensions. Filter by case code to see the full range within each group.
 
 [Browse models by group size →](/data/) · [Compare two models →](/tools/compare/) · [Confirm fitment →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, the chart's most useful lesson is the one buyers miss — a larger group does not automatically mean more amp-hours, because the group fixes the shape and the Ah rating fixes the lead content within it.
+
+**Reasoning:**
+
+-   The three naming systems describe largely the same boxes, so one mould can serve several markets once terminals and CCA basis are confirmed.
+-   The JIS two-digit prefix is a performance grade, not a size — 55D23 and 75D23 share the same tray.
+-   Quote both the group for fit and the Ah for performance; assuming one implies the other is how orders arrive wrong.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

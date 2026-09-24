@@ -70,3 +70,15 @@ Dingwei Battery provides OEM and private-label battery programs manufactured by 
 See how lead time and MOQ work in the [MOQ and lead time guide](/knowledge/oem-battery-moq-lead-time/), and how to lock terms into an [RFQ](/knowledge/oem-battery-rfq-guide/).
 
 [Battery shipping and warranty terms →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, a warranty is only as strong as its written scope — a 12-month term with broad exclusions and pro-rata settlement is a very different product from a 12-month full-replacement term.
+
+**Reasoning:**
+
+-   The duration starts at the bill of lading date, not the customer's purchase, which silently shortens the coverage you can resell.
+-   Exclusions — deep discharge, misuse, physical damage — are where most claims actually die, so they matter more than the headline number.
+-   Pro-rata settlement is worth less than full replacement, so confirm the handling before you rely on the term.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

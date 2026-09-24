@@ -85,3 +85,15 @@ Capacity is one of five decisions in a full specification — see where it sits 
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).
 
 [Browse model capacity references →](/data/)
+
+## The Author's Take
+
+**Position:** In my view, quoting '60 Ah' without the discharge rate is the single most common capacity mistake in sourcing — the number is meaningless until the rate and temperature are named.
+
+**Reasoning:**
+
+-   Capacity is not linear with discharge current; a battery quoted at C20 delivers noticeably less at C5 or C1, so the rate is the whole specification.
+-   Reserve capacity answers a different question — runtime under a 25 A load if the alternator fails — so a high Ah does not automatically mean a high RC.
+-   A supplier who leaves the rate out is leaving out the variable that decides whether two '60 Ah' batteries are actually equal.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

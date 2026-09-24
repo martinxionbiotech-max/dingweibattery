@@ -53,3 +53,15 @@ Dingwei Battery provides OEM and private-label battery programs manufactured by 
 -   [Battery export documentation](/knowledge/battery-export-documentation/)
 
 [Ask about export packaging and storage guidance →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, storage is a warranty decision wearing a logistics costume — a battery that sits six months has already consumed half its warranty, and a slow-moving pallet is a double liability.
+
+**Reasoning:**
+
+-   Lead-acid self-discharges at roughly 3–5% per month and below about 50% charge sulfation becomes permanent, turning stock into a claim.
+-   The warranty clock starts at the bill of lading, so FIFO is how you keep the warranty you actually sold.
+-   A quarterly top-up pass costs a rounding error against one container that arrives partially sulfated.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

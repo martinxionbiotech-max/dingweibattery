@@ -87,3 +87,15 @@ These are the same checks a buyer should walk through on a [lead-acid factory au
 ## The price you are not quoted
 
 Unit price is not the whole cost. The real cost of a manufacturer is the unit price plus the cost of its mistakes: warranty returns, rework, late shipments and the lost sales when a container arrives wrong. A supplier that is 5% cheaper on paper and drifts on specification costs far more than 5% in the field. This is why repeatability carries a 20% weight — it is the discount you never see on the invoice. For the full sourcing sequence that frames this decision, start at the [sourcing guide](/knowledge/battery-sourcing-guide/).
+
+## The Author's Take
+
+**Position:** In my view, the price you are not quoted is the real cost of a manufacturer — a supplier 5% cheaper on paper who drifts on specification costs far more in warranty claims and rework.
+
+**Reasoning:**
+
+-   Repeatability carries the weight because it is the discount you never see on the invoice; a 5 on price and 1 on repeatability is the most expensive supplier on the list.
+-   A factory that runs your standard family daily has the moulds and CCA habits; one that has 'done a few orders' is learning on your container.
+-   Capacity fit is arithmetic, not judgement — your volume should sit between 5% and 50% of their output, or you are either a rounding error or a strain.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

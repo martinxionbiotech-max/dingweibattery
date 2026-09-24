@@ -59,3 +59,15 @@ This page covers the program structure. The surrounding pages cover each piece i
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).
 
 [Start your OEM battery program →](/oem/)
+
+## The Author's Take
+
+**Position:** In my view, the core of an OEM program is not the first order — it is the specification lock that makes the tenth container match the first approved sample.
+
+**Reasoning:**
+
+-   The lock has three parts: the approved sample, the written parameters including the CCA basis, and change control requiring your written approval.
+-   Without a lock, a repeat order becomes a new development project with fresh approval risk — which is what a loose one-off order is.
+-   Repeat orders collapse to production plus shipping, which is where the setup cost amortises and the program actually pays.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

@@ -50,3 +50,15 @@ The fastest way to collapse a private-label battery line is to compete only on p
 Protect the line with specification discipline and a manufacturer that controls repeatability. Run the [supplier checklist](/knowledge/oem-battery-supplier-checklist/) before you lock the brand.
 
 [Private-label battery programs →](/private-label/) · [Plan your battery SKUs →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, the fastest way to collapse a private-label battery line is to compete only on price — a repeatable specification is the differentiator buyers remember.
+
+**Reasoning:**
+
+-   A consistent CCA, capacity and finish is the differentiation a competitor cannot match with a price cut, and it is what wins the repeat order.
+-   Pick one cell on the positioning matrix and hold it; trying to be everything to every segment dilutes the brand.
+-   The program only works with a manufacturer that keeps repeat orders identical, which is why the supplier checklist comes before the brand.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

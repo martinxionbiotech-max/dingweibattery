@@ -91,3 +91,15 @@ A quote is a six-part scope. If any part is missing, the number is not comparabl
 -   **Change control** — a formal ECO process, not a verbal agreement.
 
 Use the same six fields when you issue the [OEM battery RFQ](/knowledge/oem-battery-rfq-guide/) so suppliers are forced to quote on scope, not on a bare unit number. Then see the [factory audit guide](/knowledge/how-audit-battery-factory/) for the on-site half of the evaluation, and the [sourcing guide](/knowledge/battery-sourcing-guide/) for where the checklist sits in the full sequence.
+
+## The Author's Take
+
+**Position:** In my view, the checklist is a filter, not a verdict — it removes the candidates that would waste an audit, but an unverified credential should be scored as a fail.
+
+**Reasoning:**
+
+-   Any failure in the credentials group removes the candidate, because a supplier that is not what it claims cannot be fixed by a better price.
+-   An assertion becomes evidence only when the document arrives; 'we are certified' is an assertion, a checking number is evidence.
+-   Run it at three moments — before the audit, before the RFQ and before every repeat order — or it is a form, not a control.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

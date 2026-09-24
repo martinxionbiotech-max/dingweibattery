@@ -69,3 +69,15 @@ Dingwei Battery provides OEM and private-label battery programs manufactured by 
 -   [OEM vs aftermarket batteries](/knowledge/oem-battery-vs-aftermarket/)
 
 [Get a factory-direct OEM quote →](/oem/)
+
+## The Author's Take
+
+**Position:** In my view, a lead-acid battery's cost is mostly lead — so a quote dramatically cheaper than its peers is almost always a smaller scope, not a better factory.
+
+**Reasoning:**
+
+-   Lead is the dominant material line and trades on the LME, so the ex-factory price tracks the commodity, not the factory's efficiency.
+-   The four things that hide inside a low quote — CCA basis, trading margin, unamortised tooling, domestic packaging — are scope reductions dressed as savings.
+-   Compare on scope: CCA basis, certification, tooling, packaging and Incoterm are the only basis on which two quotes mean the same thing.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

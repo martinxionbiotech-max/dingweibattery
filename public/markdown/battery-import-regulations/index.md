@@ -51,3 +51,15 @@ African markets vary widely, from largely open import regimes to mandatory confo
 Every market above shares one pattern: the expensive mistakes happen when certification is discovered after the goods are made or shipped. Conformity certificates, local marks and pre-export verification are all origin-side tasks — they must be arranged before the container leaves Tianjin / Shanghai. The [shipping and warranty guide](/knowledge/battery-shipping-warranty/) covers the dangerous-goods paperwork (UN 2794 / UN 2800, Class 8, under the [IMDG Code](https://www.imo.org/)), and the [RFQ guide](/knowledge/oem-battery-rfq-guide/) shows how to make the destination market and its certification set an explicit RFQ field so the supplier quotes compliance, not just unit price.
 
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002). For the full sequence, see the [sourcing guide](/knowledge/battery-sourcing-guide/); for how compliance shapes the unit cost and lead time, see [MOQ and lead time](/knowledge/oem-battery-moq-lead-time/).
+
+## The Author's Take
+
+**Position:** In my view, import compliance is the stage buyers discover last and the one that turns a profitable order into a loss — because the expensive mistakes are all origin-side and must be fixed before the container leaves China.
+
+**Reasoning:**
+
+-   A 25% Section 301 surcharge applied after freight and insurance multiplies every earlier line, so landed cost is never the FOB price plus a flat percentage.
+-   Conformity certificates, local marks and pre-export verification are all origin-side tasks that become expensive and slow after arrival.
+-   Tariffs and conformity rules are a moving target, so re-checking the rate and certification before every order beats any single number quoted today.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

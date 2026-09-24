@@ -69,3 +69,15 @@ None of these requires an on-site visit to catch. Two of the three layers — th
 Verification sits between the shortlist and the audit. It is cheap and fast — an hour of register checks — and it removes the candidates that would waste a full audit. Run it, then audit the survivors, then issue the [RFQ](/knowledge/oem-battery-rfq-guide/).
 
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002). The full sourcing sequence is in the [sourcing guide](/knowledge/battery-sourcing-guide/); see [China battery industry regions](/knowledge/china-battery-industry-regions/) to build a shortlist worth verifying, and the [how to choose a manufacturer](/knowledge/how-choose-oem-battery-manufacturer/) guide to score the survivors.
+
+## The Author's Take
+
+**Position:** In my view, verification is the cheapest stage in sourcing and the most expensive one to skip — two of its three layers can be checked from a desk, for free, before you pay a cent.
+
+**Reasoning:**
+
+-   The unified social credit code on gsxt.gov.cn reveals whether the entity is a factory (生产/制造) or a trader (贸易), for free.
+-   A certificate is point-in-time; the number checked against the certifier's register is what proves current standing, not the printed date.
+-   Capacity claims must multiply out — casting, formation and headcount have to agree, or the number is marketing.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

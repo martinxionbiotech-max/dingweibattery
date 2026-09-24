@@ -80,3 +80,15 @@ See how dimensions fit the wider specification in the [specifications reference]
 Dingwei Battery provides OEM and private-label battery programs manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).
 
 [Browse models with dimensions →](/data/) · [Confirm fitment →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, the dimension most buyers get wrong is the one they never measure — total height including the posts — and a case that fits but whose positive post touches the hood is a short circuit waiting to happen.
+
+**Reasoning:**
+
+-   Measuring to the case top and forgetting the terminal height is the classic tray-measurement failure, and 'total height' exists specifically to prevent it.
+-   Case size is also a logistics number: it sets the pallet and container count, which is why the group number drives MOQ.
+-   When in doubt, work from millimetres — inch fractions like 6 13/16 in invite a rounding error at the tray.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

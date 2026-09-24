@@ -72,3 +72,15 @@ Lead-acid audit effort concentrates on process consistency and raw materials. A 
 ## Where the audit sits in the sequence
 
 The audit is stage four of seven in the [sourcing guide](/knowledge/battery-sourcing-guide/): after you have [verified the supplier is real](/knowledge/battery-supplier-verification/) and before you [issue the RFQ](/knowledge/oem-battery-rfq-guide/). Auditing an unverified supplier wastes the visit; quoting an unaudited one wastes the order.
+
+## The Author's Take
+
+**Position:** In my view, the single most telling audit question is the curing window — a factory that rushes plate curing to save days ships batteries that fail early.
+
+**Reasoning:**
+
+-   Half the audit happens before the visit: the control plan, FMEA and batch records tell you what the factory claims, which the walkthrough then confirms or contradicts.
+-   The closing question — 'when a batch fails, what happens next?' — separates a quality system from a QC desk better than any single document.
+-   At under 1% of a single container, the audit is the cheapest line item that prevents a much larger loss.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

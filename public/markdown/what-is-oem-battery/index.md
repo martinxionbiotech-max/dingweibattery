@@ -61,3 +61,15 @@ Understanding the definition is the first gate. The next steps — how a program
 -   [OEM vs aftermarket batteries](/knowledge/oem-battery-vs-aftermarket/)
 
 [OEM battery programs →](/oem/)
+
+## The Author's Take
+
+**Position:** In my view, the sentence that matters about an OEM battery is the one about ownership — you own the design and the brand, the factory owns the manufacturing.
+
+**Reasoning:**
+
+-   OEM means you bring the specification and the factory builds to it, which is why the product is exclusively yours and no competitor can buy it off the shelf.
+-   The classic failure mode is specification drift, and it is prevented by a locked spec and a tested sample, not by trust.
+-   Lead-acid is a mature, commodity-dominated supply chain, so the factory's real value-add is process control and repeatability, not exotic technology.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._

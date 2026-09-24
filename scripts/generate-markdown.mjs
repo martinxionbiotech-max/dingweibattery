@@ -72,17 +72,28 @@ function extractBody(html) {
   // <section class="section container prose"> (the first one holds the article).
   // Use a targeted substring extraction between the first prose section and the
   // CTA/FAQ that follows. Simpler: grab <main>…</main> then let turndown handle it,
-  // but strip header/footer noise by extracting only the first .prose section.
+  // but strip header/footer noise by extracting the prose sections only.
   const m = html.match(/<main id="main">([\s\S]*?)<\/main>/);
   if (!m) return '';
   const main = m[1];
 
-  // Find the first <section class="...prose..."> ... </section>
+  const parts = [];
+
+  // First prose section (main article body).
   const sec = main.match(/<section class="([^"]*\bprose\b[^"]*)"[^>]*>([\s\S]*?)<\/section>/);
-  if (!sec) return '';
+  if (sec) parts.push(sec[2]);
+
+  // "Author's Take"-style prose blocks inside section--alt wrappers.
+  // These sit outside the first .prose section and would otherwise be dropped.
+  const altRe = /<section class="[^"]*\bsection--alt\b[^"]*"[^>]*>([\s\S]*?)<\/section>/g;
+  let alt;
+  while ((alt = altRe.exec(main)) !== null) {
+    const div = alt[1].match(/<div class="[^"]*\bprose\b[^"]*"[^>]*>([\s\S]*?)<\/div>/);
+    if (div) parts.push(div[1]);
+  }
 
   // Decode a few entities turndown may leave
-  return sec[2];
+  return parts.join('\n\n');
 }
 
 function decodeEntities(s) {

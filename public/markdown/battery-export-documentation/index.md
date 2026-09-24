@@ -80,3 +80,15 @@ Dingwei Battery provides OEM and private-label battery programs manufactured by 
 -   [Battery storage and shelf life](/knowledge/battery-storage-shelf-life/)
 
 [Confirm your export document set →](/contact/)
+
+## The Author's Take
+
+**Position:** In my view, most battery customs delays are not missing documents — they are documents that disagree with each other, and the dangerous-goods declaration is the one that separates a professional export from an amateur one.
+
+**Reasoning:**
+
+-   A kilogram difference between invoice and packing list, or a test report for a different model, is enough to trigger a hold at the border.
+-   The DGD must be signed by a certified person, which is why it is the document amateurs miss and professionals price into the freight.
+-   The rule is mechanical: one shipment, one consistent document set, reconciled before dispatch rather than at the destination border.
+
+_Disclosure: this is the author's editorial judgment and field experience, not a verified technical claim._
