@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTASection from '../../../components/CTASection.astro';
 import JsonLd from '../../../components/JsonLd.astro';
+import DirectAnswer from '../../../components/DirectAnswer.astro';
 import { SITE } from '../../../data/site';
 import { batteryModels, modelPath } from '../../../data/battery-models';
 
@@ -55,6 +56,7 @@ const jsonLd = [
     <span class="tag">Base de datos</span>
     <h1>Base de datos de modelos de baterías</h1>
     <p class="lead">Dingwei Battery ofrece programas de baterías OEM y de marca privada fabricadas por Chengguang Power Tech Co., Ltd. (fundada en 2002). Especificaciones de referencia para {rows.length} modelos de baterías en los estándares {standards.join(' y ')}. Los valores de CCA se muestran como referencia; confirme los valores finales con el fabricante.</p>
+    <DirectAnswer label="Respuesta directa">Esta base de datos incluye {rows.length} modelos de batería de referencia en los estándares {standards.join(' y ')}. Todos los valores — voltaje, capacidad, CCA y dimensiones — son cifras de referencia, no una especificación garantizada por el fabricante; confirme los valores finales, el tipo de terminal y la polaridad con el fabricante antes de pedir.</DirectAnswer>
   </section>
 
   <section class="section section--alt">

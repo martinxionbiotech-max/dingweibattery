@@ -3,6 +3,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CTASection from '../../../../components/CTASection.astro';
 import JsonLd from '../../../../components/JsonLd.astro';
 import FitmentConfidence from '../../../../components/FitmentConfidence.astro';
+import DirectAnswer from '../../../../components/DirectAnswer.astro';
 import {SITE, BRAND, MANUFACTURER, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
 import type { BatteryModel } from '../../../../data/site';
@@ -323,6 +324,7 @@ const aliases = model.aliases ?? [];
     <span class="tag">Datos del modelo / {model.standard}</span>
     <h1>{h1}</h1>
     <p class="lead">{lead}</p>
+    <DirectAnswer label="Respuesta directa">La {model.model} es una batería de arranque {model.standard} para {translateApplication(model.application, locale).toLowerCase()}, suministrada como carcasa {model.case_size} ({dimsLabel}) con una tensión nominal de {model.voltage}V y {model.capacity_ah} Ah. Se lista como referencia compatible &mdash; no como una confirmación OEM &mdash; así que confirme el tipo de terminal, la polaridad y las dimensiones de la bandeja antes de pedir. La CCA es {model.cca.value} (referencia, {translateCcaBasis(model.cca.basis, locale)}).</DirectAnswer>
     {model.image && (
       <img class="model-photo" src={model.image} alt={`${model.model} batería`} width="800" height="800" loading="lazy" decoding="async" />
     )}

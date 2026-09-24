@@ -3,6 +3,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CTASection from '../../../../components/CTASection.astro';
 import JsonLd from '../../../../components/JsonLd.astro';
 import FitmentConfidence from '../../../../components/FitmentConfidence.astro';
+import DirectAnswer from '../../../../components/DirectAnswer.astro';
 import {SITE, BRAND, MANUFACTURER, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
 import type { BatteryModel } from '../../../../data/site';
@@ -323,6 +324,7 @@ const aliases = model.aliases ?? [];
     <span class="tag">Данные модели / {model.standard}</span>
     <h1>{h1}</h1>
     <p class="lead">{lead}</p>
+    <DirectAnswer label="Прямой ответ">Аккумулятор {model.model} — это стартерный аккумулятор стандарта {model.standard} для {translateApplication(model.application, locale).toLowerCase()}, поставляется в корпусе {model.case_size} ({dimsLabel}) с номинальным напряжением {model.voltage}V и ёмкостью {model.capacity_ah} Ah. Он указан как справочная совместимость &mdash; не подтверждение OEM &mdash; поэтому уточните тип клемм, полярность и размеры лотка перед заказом. CCA: {model.cca.value} (справочно, {translateCcaBasis(model.cca.basis, locale)}).</DirectAnswer>
     {model.image && (
       <img class="model-photo" src={model.image} alt={`${model.model} аккумулятор`} width="800" height="800" loading="lazy" decoding="async" />
     )}

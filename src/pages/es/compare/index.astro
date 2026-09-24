@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTASection from '../../../components/CTASection.astro';
 import JsonLd from '../../../components/JsonLd.astro';
+import DirectAnswer from '../../../components/DirectAnswer.astro';
 import { SITE } from '../../../data/site';
 
 const title = 'Comparación de Modelos de Batería | Dingwei Battery';
@@ -60,6 +61,7 @@ const jsonLd = [
     <span class="tag">Comparar</span>
     <h1>Comparación de modelos de batería</h1>
     <p class="lead">Comparaciones escritas que explican lo que la tabla de especificaciones por sí sola no puede: si dos baterías comparten caja, por qué difieren sus cifras y cuál debería elegir un comprador.</p>
+    <DirectAnswer label="Respuesta directa">Estas comparaciones explican lo que una tabla de especificaciones no puede: si dos baterías comparten carcasa, por qué difieren su capacidad y CCA, y qué grado almacenar para una aplicación dada. Los valores de CCA son solo de referencia y dependen del método de ensayo — confirme las especificaciones finales con el fabricante antes de pedir.</DirectAnswer>
   </section>
 
   <section class="section section--alt">

@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import ModelCard from '../../../../components/ModelCard.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import DirectAnswer from '../../../../components/DirectAnswer.astro';
+import { SITE, MANUFACTURER, RELATIONSHIP } from '../../../../data/site';
+import { batteryModels } from '../../../../data/battery-models';
+
+const title = 'Baterías para camiones pesados y autobuses | Dingwei Battery';
+const description = 'Baterías de arranque de servicio pesado para camiones, cabezas tractoras, autobuses y autocares — sistemas de 24V, arranque diésel de alto CCA y construcción resistente a la vibración. Suministro OEM de Chengguang Power Tech Co., Ltd.';
+
+const breadcrumbs = [{ label: 'Camión pesado y autobús' }];
+
+const models = batteryModels.filter((m) => ['N150', 'N200'].includes(m.model));
+
+const faqs = [
+  {
+    q: '¿Qué batería usa un camión pesado o autobús?',
+    a: 'Los camiones pesados y autobuses suelen funcionar con un sistema de 24V construido con dos baterías de servicio pesado de 12V en serie, con alto CCA para arrancar el gran diésel. El grupo sigue al origen y al montaje de la máquina — serie JIS N (N150/N200) en vehículos comerciales asiáticos, DIN pesado o BCI en equipos europeos y norteamericanos — siempre emparejado con la bandeja, la disposición de terminales y la especificación de CCA.',
+  },
+  {
+    q: '¿Por qué los camiones pesados usan 24V en lugar de 12V?',
+    a: 'Duplicar el voltaje a 24V entrega la misma potencia de arranque con la mitad de la corriente, lo que significa cables más finos y menos caída de tensión en un chasis largo. Un sistema de camión de 24V se construye típicamente con dos baterías de 12V en serie y debe reemplazarse como par emparejado — mismo modelo, edad y clasificación.',
+  },
+  {
+    q: '¿Cuánto CCA necesita un camión pesado?',
+    a: 'Los motores diésel grandes tienen alta compresión y necesitan una fuerte corriente de arranque, especialmente en clima frío. Las referencias de servicio pesado se sitúan en el orden de magnitud de 740–1100 CCA según el motor y el clima, pero el CCA depende del método de ensayo (JIS, EN o SAE). El valor exacto depende de la configuración del vehículo y debe confirmarse contra la especificación OE.',
+  },
+  {
+    q: '¿Deben reemplazarse en pares las baterías de camión pesado?',
+    a: 'Sí. Un sistema de 24V usa dos baterías de 12V en serie, y una batería nueva emparejada con una desgastada arrastra a ambas hacia abajo. Reemplace el par junto — mismo modelo, misma edad y misma clasificación — y confirme a la vez las fijaciones y la limpieza de terminales.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/es/` },
+      { '@type': 'ListItem', position: 2, name: 'Camión pesado y autobús', item: `${SITE.url}/es/applications/heavy-truck-bus/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} hreflangLocales={['en', 'es', 'ar', 'ru', 'zh']}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Aplicaciones</span>
+    <h1>Baterías para camiones pesados y autobuses</h1>
+    <p class="lead">{RELATIONSHIP} Baterías de arranque de servicio pesado para camiones, cabezas tractoras, autobuses y autocares — donde el arranque diésel de alto CCA, los sistemas de 24V y la vibración continua sitúan el trabajo muy por encima de un turismo.</p>
+    <DirectAnswer label="Respuesta directa">Los camiones pesados, cabezas tractoras, autobuses y autocares necesitan una batería de arranque de servicio pesado que entregue alta corriente de arranque en frío al motor diésel y sobreviva a la vibración constante en carretera. La mayoría funciona con un sistema de 24V construido con dos baterías de 12V en serie, y el tamaño del grupo sigue al vehículo — serie JIS N (N150/N200) en vehículos comerciales asiáticos, DIN pesado o BCI en equipos europeos y norteamericanos. La especificación exacta depende de la configuración del vehículo, por lo que el grupo, el voltaje, la base de CCA y la disposición de terminales deben confirmarse contra la flota antes de pedir.</DirectAnswer>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Visión general de la aplicación</h2>
+      <p>Esta aplicación cubre el segmento de vehículos comerciales de carretera: cabezas tractoras de largo recorrido, camiones rígidos, autobuses urbanos e interurbanos, y autocares. El hilo común es un gran motor diésel, un sistema eléctrico de 24V y una vida laboral de vibración, ralentí en caliente y arranques en mañanas frías — un ciclo de trabajo que destruye una batería de automóvil ligera en meses.</p>
+      <p>El grupo de batería sigue al origen y al montaje del vehículo más que a cualquier regla universal. Los vehículos comerciales asiáticos se referencian comúnmente a la serie JIS N (N150, N200); los equipos europeos se apoyan en carcasas DIN pesadas; las flotas norteamericanas usan grupos BCI. El tamaño de la carcasa, la disposición de terminales y la polaridad difieren entre estas familias y no son intercambiables ni siquiera a una clasificación de Ah similar.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Ciclo de trabajo</h2>
+    <p>Una batería de camión pesado o autobús enfrenta tres demandas distintas:</p>
+    <ul>
+      <li><strong>Demanda de arranque diésel.</strong> Un motor diésel grande tiene alta compresión y necesita una fuerte corriente de arranque, especialmente en clima frío. Esta es la restricción determinante sobre el CCA, no sobre la capacidad.</li>
+      <li><strong>Alta frecuencia de arranque.</strong> Un autobús urbano puede arrancar y parar docenas de veces al día, ciclando la batería mucho más que un coche privado. Los camiones de largo recorrido arrancan menos pero pasan noches frías entre recorridos.</li>
+      <li><strong>Largos períodos de baja carga.</strong> En ralentí o estacionado, la batería aún soporta cargas de hotel — luces, calefacción, refrigeración y telemática — sin que el alternador recupere a menudo todo el consumo. Esto favorece una batería con capacidad de reserva, no solo CCA pico.</li>
+    </ul>
+    <p class="note">El equilibrio exacto entre demanda de arranque y carga de hotel depende de la configuración del vehículo — perfil de ruta, clima y carga de accesorios — por lo que una sola clasificación "universal" no es significativa.</p>
+  </section>
+
+  <section class="section container prose">
+    <h2>Demanda de arranque: el sistema de 24V</h2>
+    <p>Los camiones pesados y autobuses típicamente funcionan con un sistema eléctrico de 24V construido con dos baterías de 12V cableadas en serie. Duplicar el voltaje entrega la misma potencia de arranque con la mitad de la corriente, lo que reduce el tamaño del cable y la caída de tensión en un chasis largo — la misma razón por la que el sistema existe en maquinaria de construcción y grandes equipos agrícolas.</p>
+    <p>La consecuencia práctica es que el par debe tratarse como una unidad. Una batería nueva acoplada a una desgastada se reduce al nivel de la batería más débil, por lo que el par se reemplaza junto — mismo modelo, misma edad y misma clasificación. Confirme el cableado (serie para 24V, no paralelo) y la disposición de terminales antes de instalar.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Entorno</h2>
+      <ul>
+        <li><strong>Vibración.</strong> El impacto de la carretera y las superficies irregulares fatigan las placas y aflojan terminales y fijaciones. La construcción de servicio pesado — placas más gruesas, una carcasa más rígida y soldaduras internas más fuertes — es una diferencia estructural, no solo un número de CCA mayor.</li>
+        <li><strong>Polvo y contaminación de la carretera.</strong> El polvo, el rocío salino y la humedad aceleran la corrosión de terminales y pueden puentear terminales expuestos. Una carcasa sellada sin mantenimiento y un calendario limpio de terminales reducen el riesgo.</li>
+        <li><strong>Temperatura.</strong> El frío eleva la demanda de arranque (el CCA importa más en invierno), mientras que el calor del vano motor es el asesino a largo plazo que impulsa la pérdida de agua y la corrosión de placas. La batería se dimensiona para la mañana más fría y se construye para la tarde más calurosa.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Requisitos de la batería</h2>
+    <p>Una batería de camión pesado o autobús se especifica mediante una corta cadena de decisión:</p>
+    <ol>
+      <li><strong>Grupo y familia de estándares primero.</strong> Las series JIS N, DIN pesado y los grupos BCI no son intercambiables — confirme las dimensiones de la bandeja y la disposición de terminales antes que nada.</li>
+      <li><strong>Voltaje.</strong> 24V (dos de 12V en serie) es la norma para camiones y autobuses; confirme el sistema antes de especificar.</li>
+      <li><strong>CCA con su base de ensayo.</strong> La cifra de arranque solo significa algo frente a un estándar declarado (JIS, EN o SAE). El valor exacto depende del motor y el clima.</li>
+      <li><strong>Capacidad y reserva.</strong> La capacidad (Ah a C20) y la capacidad de reserva soportan cargas de hotel y trabajo en ralentí; el equilibrio depende del perfil de accesorios del vehículo.</li>
+    </ol>
+    <p class="note">Ningún valor universal de CCA o capacidad se aplica a todos los camiones pesados y autobuses — la cifra correcta depende de la configuración y debe confirmarse contra la especificación OE y el fabricante.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Modelos de referencia</span>
+      <h2>Baterías DINGWEY relacionadas</h2>
+      <p class="lead">Dos referencias de servicio pesado de la serie JIS N del conjunto de modelos actual, emparejadas con la aplicación de camión pesado y autobús. Las especificaciones son valores de referencia — confirme las cifras finales con el fabricante.</p>
+      <div class="model-list">
+        {models.map((model) => <ModelCard model={model} />)}
+      </div>
+      <p class="lead">Ambas referencias se sitúan en la familia de la serie JIS N usada en los vehículos comerciales asiáticos. Vea la gama completa en la <a href="/es/heavy-duty-batteries/">categoría de baterías de servicio pesado</a>.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Entidades relacionadas</h2>
+    <ul>
+      <li><a href="/es/knowledge/jis-vs-din-vs-bci/">Estándares de batería JIS vs DIN vs BCI</a> — entienda por qué la familia de estándares, no solo el Ah, decide el montaje.</li>
+      <li><a href="/es/tools/battery-finder/">Herramienta de selección de batería</a> — acote el modelo según voltaje, grupo y aplicación.</li>
+      <li><a href="/es/tools/compare/">Comparar dos modelos</a> — especificaciones lado a lado para la lista corta.</li>
+      <li><a href="/es/knowledge/battery-applications-by-vehicle/">Aplicaciones de batería por tipo de vehículo</a> — cómo difiere el trabajo de camión y autobús del de pasajeros y construcción.</li>
+      <li><a href="/es/data/">Referencia de datos de modelos</a> — el conjunto completo de modelos con base de CCA y estado de verificación.</li>
+    </ul>
+  </section>
+
+  <section class="section container prose">
+    <h2>Preguntas frecuentes</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/es/knowledge/oem-battery-specification-guide/">Use la guía de especificación de batería OEM &rarr;</a></p>
+  </section>
+
+  <CTASection title="Solicite una cotización de batería para camión pesado y autobús" />
+</BaseLayout>

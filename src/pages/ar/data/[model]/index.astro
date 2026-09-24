@@ -3,6 +3,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import CTASection from '../../../../components/CTASection.astro';
 import JsonLd from '../../../../components/JsonLd.astro';
 import FitmentConfidence from '../../../../components/FitmentConfidence.astro';
+import DirectAnswer from '../../../../components/DirectAnswer.astro';
 import {SITE, BRAND, MANUFACTURER, PUBLIC_LIST_PRICE} from '../../../../data/site';
 import { batteryModels, modelPath } from '../../../../data/battery-models';
 import type { BatteryModel } from '../../../../data/site';
@@ -323,6 +324,7 @@ const aliases = model.aliases ?? [];
     <span class="tag">بيانات الموديل / {model.standard}</span>
     <h1>{h1}</h1>
     <p class="lead">{lead}</p>
+    <DirectAnswer label="إجابة مباشرة">بطارية {model.model} هي بطارية تشغيل بمعيار {model.standard} مخصصة لـ {translateApplication(model.application, locale).toLowerCase()}، وتُورَّد بهيكل {model.case_size} ({dimsLabel}) بجهد اسمي {model.voltage}V وسعة {model.capacity_ah} Ah. وهي مدرجة كمرجع توافق &mdash; وليس تأكيدًا من OEM &mdash; لذا يُرجى تأكيد نوع الطرف والقطبية وأبعاد الحاضنة قبل الطلب. قيمة CCA هي {model.cca.value} (مرجعية، {translateCcaBasis(model.cca.basis, locale)}).</DirectAnswer>
     {model.image && (
       <img class="model-photo" src={model.image} alt={`${model.model} بطارية`} width="800" height="800" loading="lazy" decoding="async" />
     )}

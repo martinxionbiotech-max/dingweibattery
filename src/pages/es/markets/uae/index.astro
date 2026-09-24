@@ -1,0 +1,156 @@
+---
+import ArticleLayout from '../../../../layouts/ArticleLayout.astro';
+import ArticleFaq from '../../../../components/ArticleFaq.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import DirectAnswer from '../../../../components/DirectAnswer.astro';
+import { RELATIONSHIP } from '../../../../data/site';
+
+const title = 'Baterías para camiones de los EAU | Dingwei Battery';
+const description = 'Baterías de servicio pesado para camiones en los EAU — construcción JIS N150/N200/N100 para clima cálido y húmedo, documentación ECAS/EQM vía MoIAT. Suministro OEM de Chengguang Power Tech Co., Ltd.';
+const articleTitle = 'Baterías para camiones del mercado de los EAU';
+
+const faqs = [
+  { q: '¿Qué estándar de batería usan los EAU para camiones?', a: 'Los EAU operan una flota premium de inclinación europea (Mercedes-Benz, Volvo, Scania, MAN, DAF, Iveco) junto a un segmento japonés y asiático (Hino, Isuzu, Tata, Ashok Leyland), por lo que las baterías JIS N150/N200/N100 y DIN/EN son ambas comunes. Haga coincidir la batería con el grupo y el voltaje del vehículo.' },
+  { q: '¿Por qué la humedad es tan importante como el calor para las baterías en los EAU?', a: 'Los EAU costeros combinan temperaturas de verano de 40&deg;C+ con alta humedad del Golfo Pérsico. El calor acelera el envejecimiento plomo-ácido y la pérdida de agua, mientras que la humedad y el aire salino promueven la corrosión de terminales. El cuidado correcto del electrolito y terminales resistentes a la corrosión importan más aquí que tierra adentro.' },
+  { q: '¿Qué certificación necesita una batería para entrar en los EAU?', a: 'Los EAU exigen un certificado del Esquema de Evaluación de Conformidad de los Emiratos (ECAS) o la Marca de Calidad de los Emiratos (EQM) para productos regulados, administrado por el Ministerio de Industria y Tecnología Avanzada (MoIAT). Confirme el esquema vigente con su importador antes de enviar.' },
+  { q: '¿Puede Dingwei suministrar baterías para el mercado de los EAU?', a: 'Dingwei suministra baterías JIS serie N y DIN/EN como programas OEM y de marca privada. Para un pedido específico de los EAU, la conformidad ECAS/EQM y la especificación final se confirman por pedido — Dingwei no publica un programa de distribuidor listo para usar de los EAU, así que trate el suministro como referencia compatible, no como un reemplazo OEM.' },
+];
+---
+<ArticleLayout title={title} description={description} articleTitle={articleTitle} articleSection="Markets" dateModified="2026-09-23" faqs={faqs} hreflangLocales={['en', 'es', 'ar', 'ru', 'zh']}>
+  <section class="section container prose">
+    <span class="tag">Mercados · EAU</span>
+    <h1>Baterías para camiones del mercado de los EAU</h1>
+    <p class="byline">Publicado por Dingwei Battery · Última revisión 2026-09-23 · Fuentes: MoIAT, DP World, WorldData, Mordor Intelligence</p>
+    <p class="lead">Los EAU operan una de las flotas de camiones pesados más inclinadas a Europa del Golfo — Mercedes-Benz, Volvo, Scania, MAN, DAF e Iveco junto a un fuerte segmento japonés y asiático — en un clima costero cálido y húmedo. Eso significa un abanico de baterías JIS N150/N200/N100 y DIN/EN, todas especificadas para temperaturas de verano que superan los 40&deg;C con alta humedad del Golfo.</p>
+
+    <DirectAnswer label="Respuesta directa">La flota comercial de los EAU se inclina hacia camiones europeos premium — Mercedes-Benz, Volvo, Scania, MAN, DAF e Iveco — con una base japonesa y asiática paralela (Hino, Isuzu, Tata, Ashok Leyland, Dongfeng). Los grupos de batería comunes abarcan JIS N150 (145G51), N200 (190H52) y N100 (95E41), más códigos DIN/EN para vehículos europeos. El estrés dominante es el calor combinado con la humedad costera: los promedios de verano de 35&ndash;45&deg;C aceleran el envejecimiento plomo-ácido, y el aire salino promueve la corrosión de terminales. Las importaciones se despachan mediante la conformidad ECAS/EQM bajo MoIAT, con el Puerto Jebel Ali en Dubái como principal puerta de entrada.</DirectAnswer>
+
+    <h2>Visión general del mercado</h2>
+    <p>
+      El mercado de vehículos comerciales de los EAU vale aproximadamente <strong>USD 2.8&nbsp;mil millones (2026)</strong>,
+      con Mercedes-Benz Group, Volvo Group, Tata Motors, Dongfeng y Volkswagen (MAN) citados como los principales operadores
+      (<a href="https://www.mordorintelligence.com/industry-reports/uae-commercial-vehicles-market" target="_blank" rel="noopener">Mordor Intelligence</a>).
+      El segmento comercial pesado lista a Volvo Trucks, Daimler (Mercedes-Benz), Scania, MAN, Iveco, Ashok Leyland, Tata
+      Motors, Hino, Isuzu y PACCAR (DAF) entre sus jugadores clave
+      (<a href="https://www.verifiedmarketresearch.com/product/uae-heavy-commercial-vehicles-market/" target="_blank" rel="noopener">Verified Market Research</a>).
+    </p>
+    <p>
+      El desglose preciso de la flota instalada por marca no está publicado en una sola fuente oficial, así que trate la
+      mezcla anterior como estructura más que como cuota exacta. <em>Cuota de marca precisa: no verificada públicamente.</em>
+    </p>
+
+    <h2>Clima y exigencias de trabajo</h2>
+    <p>
+      Los EAU tienen un clima desértico cálido, con veranos abrasadores de <strong>35&ndash;45&deg;C</strong> de media,
+      y Dubái y Abu Dabi costeros con mayor humedad del Golfo Pérsico
+      (<a href="https://www.worlddata.info/asia/arab-emirates/climate.php" target="_blank" rel="noopener">WorldData</a>).
+      La temperatura media diaria de Abu Dabi va de unos 19&deg;C en enero a 37&deg;C en agosto
+      (<a href="https://www.climatestotravel.com/climate/united-arab-emirates" target="_blank" rel="noopener">Climates to Travel</a>;
+      <a href="https://en.wikipedia.org/wiki/Climate_of_Dubai" target="_blank" rel="noopener">Wikipedia — Clima de Dubái</a>).
+    </p>
+    <p>
+      Para una batería de arranque, esto significa calor <em>y</em> humedad trabajando juntos. La temperatura elevada
+      acelera el envejecimiento de las placas y aumenta la pérdida de agua del electrolito en diseños inundados, y el aire
+      salino costero promueve la corrosión de terminales. Las referencias de la industria describen una caída de la vida de
+      ciclo del plomo-ácido de aproximadamente un 20% por cada 10&deg;C de aumento, bajando por debajo de ~200 ciclos a 40&deg;C
+      (<a href="https://www.everexceed.com/blog/the-impact-of-high-temperatures-on-lead-acid-batteries-and-recommended-solutions_b663" target="_blank" rel="noopener">EverExceed</a>).
+      La respuesta práctica para los compradores es una construcción inundada de placas gruesas con cuidado disciplinado del
+      electrolito y los terminales, o una opción AGM sellada para trabajo sin mantenimiento.
+    </p>
+
+    <h2>Mezcla de vehículos y grupos de batería comunes</h2>
+    <p>
+      El grupo sigue al vehículo. Los camiones europeos — Mercedes-Benz Actros/Atego, Volvo FH/FM, Scania R, MAN TGS/TGX,
+      DAF XF e Iveco Stralis — se especifican comúnmente en el grupo JIS N150/N200 por referencias de montaje de Oriente
+      Medio, con DIN88/DIN100 como alternativa de código europeo. La base japonesa y asiática (Hino 700, Isuzu Giga, Fuso,
+      UD Quon) usa JIS N150/N200, con N100 cubriendo camiones y autobuses más ligeros. Los grupos JIS que dominan las
+      flotas de los EAU:
+    </p>
+    <table>
+      <thead>
+        <tr><th>Grupo de batería</th><th>Referencia Dingwei</th><th>Capacidad / CCA</th><th>Clase de vehículo típica</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>JIS N150</td><td><a href="/es/data/n150/">N150 (145G51)</a></td><td>160 Ah · 1050 A (ref. SAE −18°C)</td><td>Camiones pesados y autobuses europeos y japoneses</td></tr>
+        <tr><td>JIS N200</td><td><a href="/es/data/n200/">N200 (190H52)</a></td><td>200 Ah · 1100 A (ref. SAE −18°C)</td><td>Camiones pesados, semirremolques, autobuses de alta carga</td></tr>
+        <tr><td>JIS N100</td><td><a href="/es/data/n100/">N100 (95E41)</a></td><td>100 Ah · 740 A (ref. SAE −18°C)</td><td>Camiones ligeros/medios, autobuses</td></tr>
+      </tbody>
+    </table>
+    <p class="note">
+      La capacidad y la CCA son valores de referencia de la base de datos de modelos de este sitio — confirme los valores
+      finales con el fabricante. El mapeo grupo-a-vehículo es una referencia de compatibilidad de terceros, una referencia
+      compatible más que una confirmación OEM. Los códigos DIN88/DIN100 sirven a vehículos europeos donde el montaje original
+      usa ese código; Dingwei cubre la familia DIN/EN (ver la
+      <a href="/es/knowledge/jis-vs-din-vs-bci/">comparación de estándares</a>). Confirme dimensiones, disposición de terminales
+      y voltaje contra el camión específico antes de pedir.
+    </p>
+
+    <h2>Estándares</h2>
+    <p>
+      Los EAU operan baterías JIS serie N y DIN/EN lado a lado, reflejando una flota mixta europea y japonesa/asiática. Haga
+      coincidir la batería con el grupo, las dimensiones y la orientación de terminales del vehículo más que con la región.
+      Para las diferencias técnicas entre los estándares, ver
+      <a href="/es/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a>.
+    </p>
+    <p>
+      La conformidad es obligatoria. Los EAU exigen un certificado del Esquema de Evaluación de Conformidad de los Emiratos
+      (ECAS) o la Marca de Calidad de los Emiratos (EQM) para productos regulados, administrado por el Ministerio de Industria
+      y Tecnología Avanzada (MoIAT)
+      (<a href="https://moiat.gov.ae/en/services/issue-conformity-certificates-for-regulated-products" target="_blank" rel="noopener">MoIAT</a>;
+      <a href="https://www.sgs.com/en-fr/news/2024/06/pca-2024-q2-navigating-uae-product-conformity-understanding-ecas-and-eqm-certification" target="_blank" rel="noopener">SGS</a>;
+      <a href="https://www.intertek.com/government/product-conformity/ecas/" target="_blank" rel="noopener">Intertek</a>).
+      Confirme el esquema vigente y el etiquetado con su importador antes de la producción.
+    </p>
+
+    <h2>Relevancia de Dingwei</h2>
+    <p>
+      Dingwei — fabricada por Chengguang Power Tech Co., Ltd. — lleva los grupos JIS serie N en una sola línea: N150 (145G51),
+      N200 (190H52) y N100 (95E41) para la base japonesa/asiática y los camiones europeos especificados en el grupo N150/N200,
+      y cubre la familia DIN/EN para vehículos europeos que usan el código DIN. Estos son
+      <strong>referencias compatibles</strong> emparejadas por grupo, dimensiones y CCA — no reemplazos OEM — de modo que un
+      distribuidor puede cubrir la flota mixta de los EAU desde un solo fabricante y envío. Dingwei no publica una lista de
+      distribuidores específica por país de los EAU; el suministro se organiza por pedido con conformidad ECAS/EQM y
+      especificaciones finales confirmadas antes de la producción.
+    </p>
+
+    <h2>Consideraciones para el comprador</h2>
+    <ol>
+      <li><strong>Haga coincidir la batería con el vehículo.</strong> Confirme el tamaño del grupo, las dimensiones físicas, la orientación de terminales y el voltaje del sistema (muchos camiones pesados de los EAU son 24V — dos baterías de 12V en serie) contra la unidad específica.</li>
+      <li><strong>Cuente con el calor más la humedad.</strong> El trabajo costero combina veranos de 40&deg;C+ con aire salino; la construcción inundada de placas gruesas, el cuidado de terminales resistente a la corrosión o el AGM sellado prolongan la vida útil.</li>
+      <li><strong>Despache la conformidad ECAS/EQM.</strong> Los productos regulados necesitan un certificado ECAS o EQM bajo MoIAT; confirme el esquema vigente y el etiquetado con su importador.</li>
+      <li><strong>Use Jebel Ali como puerta de entrada.</strong> El Puerto Jebel Ali es el mayor centro de contenedores de la región y el punto de entrada natural para Dubái y la distribución de reexportación del CCG.</li>
+    </ol>
+
+    <h2>Evidencia y fuentes</h2>
+    <table>
+      <thead><tr><th>Afirmación</th><th>Fuente</th><th>Nivel</th></tr></thead>
+      <tbody>
+        <tr><td>Promedios de verano 35&ndash;45&deg;C; humedad costera</td><td>WorldData; Climates to Travel; Wikipedia</td><td>NIVEL 2</td></tr>
+        <tr><td>Mercado CV ~USD 2.8B; marcas Mercedes/Volvo/Tata/Dongfeng/MAN</td><td>Mordor Intelligence</td><td>NIVEL 3</td></tr>
+        <tr><td>Marcas del segmento pesado (Volvo, Daimler, Scania, MAN, Iveco, Hino, Isuzu, DAF)</td><td>Verified Market Research</td><td>NIVEL 3</td></tr>
+        <tr><td>El calor acelera el envejecimiento plomo-ácido y la pérdida de agua</td><td>EverExceed; Journal of Power Sources</td><td>NIVEL 3</td></tr>
+        <tr><td>Conformidad ECAS / EQM requerida (MoIAT)</td><td>MoIAT (moiat.gov.ae); SGS; Intertek</td><td>NIVEL 2</td></tr>
+        <tr><td>Puerto Jebel Ali — mayor centro de contenedores de Oriente Medio</td><td>DP World; Wikipedia</td><td>NIVEL 2</td></tr>
+        <tr><td>Especificaciones Dingwei N150/N200/N100</td><td>Datos del fabricante Chengguang Power Tech (base de datos de modelos del sitio)</td><td>NIVEL 1</td></tr>
+        <tr><td>Compatibilidad vehículo-a-grupo (Volvo FH = N150/N200, etc.)</td><td>Referencias de compatibilidad independientes (Club Assist / Century)</td><td>NIVEL 4</td></tr>
+      </tbody>
+    </table>
+    <p class="note">
+      Niveles de evidencia: NIVEL 1 = primera mano del fabricante · NIVEL 2 = fuente oficial/gubernamental/institucional ·
+      NIVEL 3 = fuente industrial creíble · NIVEL 4 = referencia de compatibilidad independiente. El desglose de marcas de la
+      flota instalada no está publicado en una sola fuente oficial y está marcado como "no verificado públicamente".
+    </p>
+
+    <h2>Entidades relacionadas</h2>
+    <div class="grid grid--2">
+      <div class="card"><h3>Baterías</h3><p><a href="/es/data/n150/">N150 (145G51)</a> · <a href="/es/data/n200/">N200 (190H52)</a> · <a href="/es/data/n100/">N100 (95E41)</a></p></div>
+      <div class="card"><h3>Estándares</h3><p><a href="/es/knowledge/jis-vs-din-vs-bci/">JIS vs DIN vs BCI</a> · <a href="/es/knowledge/what-is-cca/">Qué es CCA</a></p></div>
+      <div class="card"><h3>Aplicaciones</h3><p><a href="/es/heavy-duty-batteries/">Baterías de servicio pesado</a> · <a href="/es/oem/truck-batteries/">Baterías de camión OEM</a></p></div>
+      <div class="card"><h3>Mercados</h3><p><a href="/es/markets/saudi-arabia/">Mercado de Arabia Saudita</a></p></div>
+    </div>
+  </section>
+
+  <ArticleFaq faqs={faqs} />
+
+  <CTASection title="Solicite información de suministro para los EAU" />
+</ArticleLayout>

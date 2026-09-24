@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CTASection from '../../../components/CTASection.astro';
 import JsonLd from '../../../components/JsonLd.astro';
+import DirectAnswer from '../../../components/DirectAnswer.astro';
 import { SITE } from '../../../data/site';
 import { batteryModels, modelPath } from '../../../data/battery-models';
 import { localizedPath } from '../../../i18n/url';
@@ -56,6 +57,7 @@ const jsonLd = [
     <span class="tag">قاعدة البيانات</span>
     <h1>قاعدة بيانات موديلات البطاريات</h1>
     <p class="lead">توفر Dingwei Battery برامج بطاريات OEM والعلامة الخاصة المصنّعة من قبل Chengguang Power Tech Co., Ltd. (تأسست عام 2002). مواصفات مرجعية لـ{rows.length} موديل بطارية عبر معايير {standards.join(' و ')}. تُعرض قيم CCA كمرجع؛ أكّد القيم النهائية مع الشركة المصنعة.</p>
+    <DirectAnswer label="إجابة مباشرة">تضم قاعدة البيانات هذه {rows.length} موديل بطارية مرجعي عبر معايير {standards.join(' و ')}. جميع القيم — الجهد والسعة وCCA والأبعاد — أرقام مرجعية وليست مواصفات مضمونة من الشركة المصنعة؛ أكّد القيم النهائية ونوع الطرف والقطبية مع الشركة المصنعة قبل الطلب.</DirectAnswer>
   </section>
 
   <section class="section section--alt">

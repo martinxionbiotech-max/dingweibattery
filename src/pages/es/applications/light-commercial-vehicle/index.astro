@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CTASection from '../../../../components/CTASection.astro';
+import ModelCard from '../../../../components/ModelCard.astro';
+import JsonLd from '../../../../components/JsonLd.astro';
+import DirectAnswer from '../../../../components/DirectAnswer.astro';
+import { SITE, MANUFACTURER, RELATIONSHIP } from '../../../../data/site';
+import { batteryModels } from '../../../../data/battery-models';
+
+const title = 'Baterías para vehículos comerciales ligeros | Dingwei Battery';
+const description = 'Baterías de arranque para camiones ligeros, pickups, furgonetas y vehículos utilitarios — sistemas de 12V, arranque diésel y resistencia a la vibración. Suministro OEM de Chengguang Power Tech Co., Ltd.';
+
+const breadcrumbs = [{ label: 'Comercial ligero' }];
+
+const models = batteryModels.filter((m) => ['N100', '80D26', '85D26', '95D26', '105D31'].includes(m.model));
+
+const faqs = [
+  {
+    q: '¿Qué batería usa un vehículo comercial ligero?',
+    a: 'Los camiones ligeros, pickups y furgonetas funcionan mayormente con un sistema de 12V con una sola batería de arranque dimensionada para el motor y la carga eléctrica. Los vehículos comerciales ligeros diésel necesitan un CCA más alto que un turismo para el mismo tamaño de motor, y el grupo sigue al vehículo — comúnmente JIS D26/D31 o N100 en montajes asiáticos, y equivalentes DIN/BCI en otros mercados.',
+  },
+  {
+    q: '¿Por qué un camión ligero diésel necesita más CCA que un coche de gasolina?',
+    a: 'Un motor diésel tiene mayor compresión que un motor de gasolina de tamaño similar, por lo que necesita una corriente de arranque más fuerte — especialmente en frío. El requisito de CCA depende del método de ensayo (JIS, EN o SAE), y el valor exacto depende del motor, por lo que debe confirmarse contra la especificación OE.',
+  },
+  {
+    q: '¿Puede un vehículo comercial ligero usar una batería de camión pesado?',
+    a: 'No. Las baterías de camión pesado están construidas para sistemas en serie de 24V y grupos físicamente mayores. Un vehículo comercial ligero es normalmente de 12V con una bandeja más pequeña, por lo que una batería de camión pesado no cabrá y tiene el voltaje incorrecto. El grupo y la disposición de terminales deben coincidir con el vehículo, no solo la clasificación de Ah.',
+  },
+  {
+    q: '¿Qué desgasta más rápido una batería comercial ligera?',
+    a: 'El trabajo de reparto urbano con arranque y parada, las cargas de accesorios funcionando con el motor apagado, y el calor. Los viajes cortos frecuentes y el ralentí prolongado impiden la recarga completa, mientras que el calor del vano motor acelera la pérdida de agua y la corrosión de placas. Una batería correctamente dimensionada con un calendario limpio de terminales dura más.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE.url}/es/` },
+      { '@type': 'ListItem', position: 2, name: 'Comercial ligero', item: `${SITE.url}/es/applications/light-commercial-vehicle/` },
+    ],
+  },
+];
+---
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} hreflangLocales={['en', 'es', 'ar', 'ru', 'zh']}>
+  <JsonLd slot="head" data={jsonLd} />
+
+  <section class="section container">
+    <span class="tag">Aplicaciones</span>
+    <h1>Baterías para vehículos comerciales ligeros</h1>
+    <p class="lead">{RELATIONSHIP} Baterías de arranque para camiones ligeros, pickups, furgonetas y vehículos utilitarios — donde el arranque diésel, el trabajo de reparto con arranque y parada y las cargas de accesorios se sitúan un paso por encima de un turismo, pero por debajo del mundo de 24V de los camiones pesados.</p>
+    <DirectAnswer label="Respuesta directa">Los camiones ligeros, pickups, furgonetas y vehículos utilitarios funcionan mayormente con un sistema de 12V con una sola batería de arranque dimensionada para el motor y la carga eléctrica. Los vehículos comerciales ligeros diésel necesitan un CCA más alto que un turismo para el mismo tamaño de motor, y el grupo sigue al vehículo — comúnmente JIS D26/D31 o N100 en montajes asiáticos, y equivalentes DIN/BCI en otros lugares. El grupo, la base de CCA y la disposición de terminales exactos dependen de la configuración del vehículo y deben confirmarse antes de pedir.</DirectAnswer>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Visión general de la aplicación</h2>
+      <p>Esta aplicación cubre el segmento comercial ligero entre turismos y camiones pesados: pickups y camiones medianos, furgonetas de reparto, camiones de caja y vehículos utilitarios ligeros. El trabajo es un sistema de 12V con una sola batería, pero el motor y la carga eléctrica exigen más de lo que una batería de turismo puede entregar — compresión diésel, horas de funcionamiento más largas y cargas de accesorios que funcionan con el motor apagado.</p>
+      <p>El grupo sigue al vehículo más que a una regla universal. Los montajes comerciales ligeros asiáticos se referencian comúnmente a JIS D26/D31 o N100; los vehículos europeos se apoyan en carcasas DIN/EN; los mercados norteamericanos y australianos usan BCI o equivalentes tipo N. El tamaño de la carcasa, la disposición de terminales y la polaridad difieren entre familias y no son intercambiables a una clasificación de Ah similar.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Ciclo de trabajo</h2>
+    <p>Una batería comercial ligera enfrenta tres demandas que la separan de un turismo:</p>
+    <ul>
+      <li><strong>Demanda de arranque diésel.</strong> Los camiones ligeros diésel tienen mayor compresión que los motores de gasolina de tamaño similar, por lo que necesitan una corriente de arranque más fuerte — el requisito de CCA es la restricción determinante, especialmente en clima frío.</li>
+      <li><strong>Alta frecuencia de arranque diaria.</strong> El reparto con arranque y parada y el trabajo multiparada ciclan la batería mucho más que un coche privado, con viajes cortos frecuentes que nunca la recargan por completo.</li>
+      <li><strong>Largos períodos de baja carga.</strong> Las plataformas elevadoras, la refrigeración, los ventiladores de cabina y la telemática consumen energía con el motor apagado o en ralentí, favoreciendo la capacidad de reserva además del CCA pico.</li>
+    </ul>
+    <p class="note">El equilibrio entre demanda de arranque y carga de accesorios depende de la configuración del vehículo — perfil de ruta, clima y equipamiento — por lo que una sola clasificación universal no es significativa.</p>
+  </section>
+
+  <section class="section container prose">
+    <h2>Demanda de arranque: el sistema de 12V</h2>
+    <p>A diferencia de los camiones pesados, los vehículos comerciales ligeros funcionan mayormente con un sistema eléctrico de 12V con una sola batería de arranque. La batería se dimensiona directamente a la carga de arranque del motor y al perfil de accesorios del vehículo, por lo que no hay par en serie que equilibrar — la decisión de montaje es un grupo correcto, un voltaje correcto y una base de CCA correcta.</p>
+    <p>La consecuencia práctica es que una batería de camión pesado es la elección incorrecta: está construida para un sistema en serie de 24V y un grupo físicamente mayor, por lo que no cabrá en la bandeja y tiene el voltaje incorrecto. Un vehículo comercial ligero lleva un grupo de 12V emparejado con sus dimensiones y disposición de terminales, no un número de Ah mayor de otro segmento.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container prose">
+      <h2>Entorno</h2>
+      <ul>
+        <li><strong>Vibración.</strong> Los camiones ligeros y furgonetas en carreteras irregulares y superficies no selladas transmiten vibración que fatiga las placas y afloja los terminales. Una carcasa rígida y una fijación segura importan tanto como la clasificación de CCA.</li>
+        <li><strong>Polvo y contaminación.</strong> El trabajo de reparto y obra expone la batería a polvo, humedad y rocío de carretera que corroen los terminales. Una carcasa sellada sin mantenimiento y un calendario limpio de terminales reducen el riesgo.</li>
+        <li><strong>Temperatura.</strong> El frío eleva la demanda de arranque, mientras que el calor del vano motor es el asesino a largo plazo que impulsa la pérdida de agua y la corrosión de placas. La batería se dimensiona para la mañana más fría y se construye para la tarde más calurosa.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Requisitos de la batería</h2>
+    <p>Una batería comercial ligera se especifica mediante la misma corta cadena de decisión, reducida desde el servicio pesado:</p>
+    <ol>
+      <li><strong>Grupo y familia de estándares primero.</strong> Los grupos JIS D26/D31/N100, DIN/EN y BCI no son intercambiables — confirme las dimensiones de la bandeja y la disposición de terminales antes que nada.</li>
+      <li><strong>Voltaje.</strong> 12V es la norma para vehículos comerciales ligeros; confirme el sistema antes de especificar.</li>
+      <li><strong>CCA con su base de ensayo.</strong> La cifra de arranque solo significa algo frente a un estándar declarado (JIS, EN o SAE). Las versiones diésel necesitan más que las equivalentes de gasolina.</li>
+      <li><strong>Capacidad y reserva.</strong> La capacidad (Ah a C20) soporta cargas de accesorios y trabajo en ralentí; el equilibrio depende del equipamiento del vehículo.</li>
+    </ol>
+    <p class="note">Ningún valor universal de CCA o capacidad se aplica a todos los vehículos comerciales ligeros — la cifra correcta depende de la configuración y debe confirmarse contra la especificación OE y el fabricante.</p>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="tag">Modelos de referencia</span>
+      <h2>Baterías DINGWEY relacionadas</h2>
+      <p class="lead">Referencias comerciales ligeras del conjunto de modelos actual, emparejadas con la aplicación de camión ligero, pickup y furgoneta. Las especificaciones son valores de referencia — confirme las cifras finales con el fabricante.</p>
+      <div class="model-list">
+        {models.map((model) => <ModelCard model={model} />)}
+      </div>
+      <p class="lead">Estas referencias abarcan las familias JIS D26/D31 y N100 usadas en montajes comerciales ligeros. Vea la gama completa en la <a href="/es/data/">referencia de datos de modelos</a>.</p>
+    </div>
+  </section>
+
+  <section class="section container prose">
+    <h2>Entidades relacionadas</h2>
+    <ul>
+      <li><a href="/es/knowledge/jis-vs-din-vs-bci/">Estándares de batería JIS vs DIN vs BCI</a> — entienda por qué la familia de estándares, no solo el Ah, decide el montaje.</li>
+      <li><a href="/es/tools/battery-finder/">Herramienta de selección de batería</a> — acote el modelo según voltaje, grupo y aplicación.</li>
+      <li><a href="/es/tools/compare/">Comparar dos modelos</a> — especificaciones lado a lado para la lista corta.</li>
+      <li><a href="/es/knowledge/battery-applications-by-vehicle/">Aplicaciones de batería por tipo de vehículo</a> — cómo difiere el trabajo comercial ligero del de pasajeros y camión pesado.</li>
+      <li><a href="/es/applications/heavy-truck-bus/">Baterías para camiones pesados y autobuses</a> — el siguiente paso en trabajo y voltaje.</li>
+    </ul>
+  </section>
+
+  <section class="section container prose">
+    <h2>Preguntas frecuentes</h2>
+    {faqs.map((f) => (
+      <div class="card" style="margin-bottom:0.9rem">
+        <h3>{f.q}</h3>
+        <p style="margin:0">{f.a}</p>
+      </div>
+    ))}
+    <p><a href="/es/knowledge/oem-battery-specification-guide/">Use la guía de especificación de batería OEM &rarr;</a></p>
+  </section>
+
+  <CTASection title="Solicite una cotización de batería comercial ligera" />
+</BaseLayout>
