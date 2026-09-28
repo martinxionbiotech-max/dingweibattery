@@ -39,7 +39,7 @@ RC is more useful than Ah for vehicles with heavy accessory loads — it is a ru
 
 ## RC and CCA: two different "power" numbers
 
-RC and CCA are often quoted side by side, but they measure opposite ends of the battery’s behaviour. CCA is the peak current burst for cold starting (30 seconds at −18°C); RC is a sustained 25 A draw in minutes at ambient temperature. There is no fixed conversion between them — a battery engineered for high CCA (thin, high-surface-area plates) is not automatically optimised for long RC, and vice versa. The two are independent design choices, which is why a complete specification lists both. See the [CCA guide](/knowledge/what-is-cca/) for the starting-power side.
+RC and CCA are often quoted side by side, but they measure opposite ends of the battery’s behaviour. CCA is the peak current burst for cold starting (30 seconds at −18°C); RC is a sustained 25 A draw in minutes at ambient temperature. There is no fixed conversion between them — a battery engineered for high CCA (thin, high-surface-area plates) is not automatically optimised for long RC, and vice versa. The two are independent design choices, which is why a complete specification lists both. See the [CCA guide](/knowledge/what-is-cca/) for the starting-power side, and [why same-Ah batteries can differ in CCA](/knowledge/why-same-ah-different-cca/) for how plate design trades the two off.
 
 ## Why faster discharge means less capacity
 
