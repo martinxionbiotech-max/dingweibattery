@@ -4,6 +4,15 @@
 > manufactured by Chengguang Power Tech Co., Ltd. (founded 2002).
 > This file helps AI assistants and crawlers discover the site's key pages.
 
+## Markdown mirrors (for AI crawlers)
+
+Every page is also available as clean Markdown, generated at build time:
+
+- Full corpus (all pages, all languages): [llms-full.txt](https://dingweibattery.com/llms-full.txt)
+- Mirror index: [markdown/index.md](https://dingweibattery.com/markdown/index.md)
+- Pattern: [https://dingweibattery.com/markdown/{path}.md](https://dingweibattery.com/markdown/knowledge/what-is-cca.md) — e.g. /markdown/knowledge/what-is-cca.md mirrors /knowledge/what-is-cca/
+- Machine-readable model database: [battery-models.json](https://dingweibattery.com/data/battery-models.json)
+
 ## Main website
 
 - [Home](https://dingweibattery.com/): OEM & private-label automotive battery programs.
@@ -52,6 +61,7 @@
 - Spanish: [es](https://dingweibattery.com/es/)
 - Arabic: [ar](https://dingweibattery.com/ar/)
 - Russian: [ru](https://dingweibattery.com/ru/)
+- Chinese: [zh](https://dingweibattery.com/zh/)
 
 ## Notes
 

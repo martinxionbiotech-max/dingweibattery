@@ -1,27 +1,24 @@
 #!/usr/bin/env node
 /**
- * P2 — Build-time Markdown generation for knowledge articles.
+ * generate-markdown.mjs — build-time Markdown mirrors for ALL sitemap pages
+ * (replaces the P2 knowledge-only version).
  *
- * Runs AFTER `astro build`. Reads the built HTML for each knowledge article,
- * extracts the main `.prose` body, and converts it to Markdown into
- * `public/` so that `/.md` files are available as static resources.
+ * Runs AFTER `astro build`. Reads dist HTML for every sitemap URL, extracts
+ * <main>, converts to Markdown with turndown, writes:
+ *   - dist/markdown/<path>.md   (e.g. /markdown/data/55b24.md, /markdown/knowledge/what-is-cca.md)
+ *   - dist/markdown/index.md    (human/crawler-readable listing of all mirrors)
+ *   - dist/llms-full.txt        (entire corpus in one file)
  *
- * This does NOT implement HTTP content negotiation (that would require SSR or
- * a Cloudflare Worker). It generates static Markdown files that AI crawlers
- * can fetch directly (e.g. /knowledge/what-is-cca/index.md or a flat listing).
- *
- * Zero runtime dependency; turndown is a devDependency used only at build time.
+ * Frontmatter on every mirror: title / source / language / generated.
  */
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
+import { join, dirname } from 'node:path';
 import TurndownService from 'turndown';
 
+const SITE = 'https://dingweibattery.com';
 const DIST = 'dist';
-const OUT = 'public/markdown';
-const KNOWLEDGE_DIR = join(DIST, 'knowledge');
-
-// Only generate for the default (English) locale to avoid 4x duplication.
-// Other locales remain crawlable via their HTML + hreflang.
+const MD_ROOT = join(DIST, 'markdown');
+const GENERATED_ON = new Date().toISOString().slice(0, 10);
 
 const td = new TurndownService({
   headingStyle: 'atx',
@@ -31,7 +28,7 @@ const td = new TurndownService({
   strongDelimiter: '**',
 });
 
-// Render tables as GFM-style markdown tables (with --- separator row).
+// GFM table support
 td.addRule('gfmTable', {
   filter: 'table',
   replacement: (content, node) => {
@@ -56,7 +53,6 @@ td.addRule('gfmTable', {
   },
 });
 
-// Keep internal links as relative markdown links where sensible.
 td.addRule('keepLinks', {
   filter: 'a',
   replacement: (content, node) => {
@@ -67,99 +63,160 @@ td.addRule('keepLinks', {
   },
 });
 
-function extractBody(html) {
-  // Body is inside the main <main id="main"> element; the article prose is the
-  // <section class="section container prose"> (the first one holds the article).
-  // Use a targeted substring extraction between the first prose section and the
-  // CTA/FAQ that follows. Simpler: grab <main>…</main> then let turndown handle it,
-  // but strip header/footer noise by extracting the prose sections only.
+function stripNoise(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<nav[\s\S]*?<\/nav>/gi, '');
+}
+
+function extractMain(html) {
   const m = html.match(/<main id="main">([\s\S]*?)<\/main>/);
-  if (!m) return '';
-  const main = m[1];
-
-  const parts = [];
-
-  // First prose section (main article body).
-  const sec = main.match(/<section class="([^"]*\bprose\b[^"]*)"[^>]*>([\s\S]*?)<\/section>/);
-  if (sec) parts.push(sec[2]);
-
-  // "Author's Take"-style prose blocks inside section--alt wrappers.
-  // These sit outside the first .prose section and would otherwise be dropped.
-  const altRe = /<section class="[^"]*\bsection--alt\b[^"]*"[^>]*>([\s\S]*?)<\/section>/g;
-  let alt;
-  while ((alt = altRe.exec(main)) !== null) {
-    const div = alt[1].match(/<div class="[^"]*\bprose\b[^"]*"[^>]*>([\s\S]*?)<\/div>/);
-    if (div) parts.push(div[1]);
-  }
-
-  // Decode a few entities turndown may leave
-  return parts.join('\n\n');
+  if (m) return stripNoise(m[1]);
+  const m2 = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+  if (m2) return stripNoise(m2[1]);
+  return '';
 }
 
 function decodeEntities(s) {
   return s
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&nbsp;/g, ' ')
     .replace(/&minus;/g, '\u2212')
     .replace(/&deg;/g, '\u00b0')
     .replace(/&rsquo;/g, '\u2019')
     .replace(/&mdash;/g, '\u2014')
     .replace(/&ndash;/g, '\u2013')
-    .replace(/&amp;/g, '&')
-    .replace(/&nbsp;/g, ' ');
+    .replace(/&#x27;/g, "'")
+    .replace(/&#(\d+);/g, (_, d) => String.fromCharCode(Number(d)));
+}
+
+function titleFromHtml(html) {
+  const t = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  if (t) return decodeEntities(t[1].replace(/\s+/g, ' ').trim());
+  const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  if (h1) return decodeEntities(h1[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim());
+  return '';
+}
+
+function collectSitemapUrls() {
+  const candidates = ['sitemap-0.xml', 'sitemap-index.xml'];
+  for (const f of candidates) {
+    const p = join(DIST, f);
+    if (!existsSync(p)) continue;
+    const xml = readFileSync(p, 'utf8');
+    if (f === 'sitemap-index.xml') {
+      const inner = xml.match(/<loc>([^<]+)<\/loc>/);
+      if (!inner) continue;
+      const innerFile = join(DIST, inner[1].replace(/^\/|\/$/g, '').split('/').pop());
+      if (existsSync(innerFile)) {
+        const innerXml = readFileSync(innerFile, 'utf8');
+        return [...innerXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+      }
+    }
+    return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  }
+  return [];
+}
+
+function htmlPathForUrl(url) {
+  const pathname = new URL(url).pathname; // always ends with /
+  if (pathname === '/') return join(DIST, 'index.html');
+  return join(DIST, pathname.slice(1).replace(/\/$/, ''), 'index.html');
+}
+
+function relPathForUrl(url) {
+  const pathname = new URL(url).pathname;
+  if (pathname === '/') return 'home';
+  return pathname.slice(1).replace(/\/$/, '');
+}
+
+function langForUrl(url) {
+  const pathname = new URL(url).pathname;
+  const m = pathname.match(/^\/(es|ar|ru|zh)\//);
+  return m ? m[1] : 'en';
 }
 
 function main() {
-  if (!existsSync(KNOWLEDGE_DIR)) {
-    console.error('[P2] dist/knowledge not found — run `astro build` first.');
+  const urls = collectSitemapUrls();
+  if (urls.length === 0) {
+    console.error('[md-gen] no sitemap found in dist/ — run `astro build` first.');
     process.exit(1);
   }
 
-  const slugs = readdirSync(KNOWLEDGE_DIR, { withFileTypes: true })
-    .filter((d) => d.isDirectory())
-    .map((d) => d.name);
+  if (existsSync(MD_ROOT)) rmSync(MD_ROOT, { recursive: true, force: true });
+  mkdirSync(MD_ROOT, { recursive: true });
 
-  const outDir = join(OUT);
-  mkdirSync(outDir, { recursive: true });
-  const flat = [];
+  const entries = [];
+  const seen = new Set();
 
-  for (const slug of slugs) {
-    const htmlPath = join(KNOWLEDGE_DIR, slug, 'index.html');
+  for (const url of urls) {
+    if (seen.has(url)) continue;
+    seen.add(url);
+    if (!url.startsWith(SITE)) continue; // safety: only own host
+
+    const htmlPath = htmlPathForUrl(url);
     if (!existsSync(htmlPath)) continue;
-
     const html = readFileSync(htmlPath, 'utf8');
-    const bodyHtml = extractBody(html);
-    if (!bodyHtml) continue;
+    const mainHtml = extractMain(html);
+    if (!mainHtml) continue;
 
-    const md = decodeEntities(pathToMarkdown(bodyHtml));
+    const title = titleFromHtml(html);
+    const body = decodeEntities(td.turndown(mainHtml)).replace(/\n{3,}/g, '\n\n').trim();
+    if (body.length < 80) continue;
 
-    // Per-article markdown path
-    const slugDir = join(outDir, slug);
-    mkdirSync(slugDir, { recursive: true });
-    writeFileSync(join(slugDir, 'index.md'), md + '\n', 'utf8');
+    const lang = langForUrl(url);
+    const rel = relPathForUrl(url);
+    const md = `---\ntitle: ${JSON.stringify(title)}\nsource: ${url}\nlanguage: ${lang}\ngenerated: ${GENERATED_ON}\n---\n\n> Source: ${url}\n\n${body}\n`;
 
-    flat.push({ slug, path: `/markdown/${slug}/index.md` });
+    const outPath = join(MD_ROOT, rel + '.md');
+    mkdirSync(dirname(outPath), { recursive: true });
+    writeFileSync(outPath, md, 'utf8');
+    entries.push({ url, title, lang, rel });
   }
 
-  // Generate an index of all markdown files.
-  const indexMd = [
-    '# Dingwei Battery — Knowledge Base (Markdown)',
+  // Listing index
+  const byLang = {};
+  for (const e of entries) (byLang[e.lang] ||= []).push(e);
+  const listing = [
+    '# Dingwei Battery — Markdown Mirrors',
     '',
-    'Machine-readable Markdown versions of the knowledge articles, generated at build time.',
+    `> Source: ${SITE} — generated ${GENERATED_ON}, ${entries.length} mirrors.`,
+    '> Full corpus in one file: [llms-full.txt](/llms-full.txt)',
     '',
-    ...flat.map((f) => `- [${f.slug}](${f.path})`),
-    '',
+    ...Object.keys(byLang).sort().flatMap((lang) => [
+      `## ${lang}`,
+      '',
+      ...byLang[lang].map((e) => `- [${e.rel}](${SITE}/markdown/${e.rel}.md)`),
+      '',
+    ]),
   ].join('\n');
-  writeFileSync(join(outDir, 'index.md'), indexMd, 'utf8');
+  writeFileSync(join(MD_ROOT, 'index.md'), listing, 'utf8');
 
-  console.log(`[P2] generated ${flat.length} markdown articles in ${OUT}/`);
-}
+  // Full corpus
+  const fullParts = [
+    `# Dingwei Battery — Full Markdown Corpus`,
+    '',
+    `> Source: ${SITE}`,
+    `> Generated: ${GENERATED_ON}`,
+    `> Language mirrors included: en, es, ar, ru, zh`,
+    '',
+  ];
+  for (const e of entries) {
+    const mdPath = join(MD_ROOT, e.rel + '.md');
+    const content = readFileSync(mdPath, 'utf8').split('\n').slice(5).join('\n'); // strip frontmatter
+    fullParts.push(`\n---\n\n# ${e.title}\n\n> Source: ${e.url} (${e.lang})\n\n${content}`);
+  }
+  const full = fullParts.join('\n');
+  writeFileSync(join(DIST, 'llms-full.txt'), full, 'utf8');
 
-function pathToMarkdown(html) {
-  const { JSDOM } = { JSDOM: null };
-  // turndown expects a DOM node; wrap in a minimal DOM using turndown's own parser.
-  // turndown.turndown(html) works with an HTML string directly.
-  const md = td.turndown(html);
-  // Clean up excessive blank lines
-  return md.replace(/\n{3,}/g, '\n\n').trim();
+  console.log(
+    `[md-gen] ${entries.length} mirrors -> /markdown/ ; llms-full.txt ${(full.length / 1024).toFixed(0)}KB`
+  );
 }
 
 main();
